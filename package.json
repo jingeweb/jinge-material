@@ -1,0 +1,32 @@
+{
+  "name": "jinge-material",
+  "version": "0.0.0",
+  "description": "A material design ui library implemented with jinge",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "jinge dev",
+    "build": "jinge build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuhangGe/jinge-material.git"
+  },
+  "keywords": [
+    "material",
+    "ui",
+    "library",
+    "jinge"
+  ],
+  "author": "Yuhang Ge <abeyuhang@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuhangGe/jinge-material/issues"
+  },
+  "homepage": "https://github.com/YuhangGe/jinge-material#readme",
+  "dependencies": {
+    "jinge": "0.0.0",
+    "lodash": "^4.17.11"
+  }
+}
