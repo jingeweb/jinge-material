@@ -2,12 +2,21 @@
   "name": "jinge-material",
   "version": "0.0.0",
   "description": "A material design ui library implemented with jinge",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "jinge dev",
-    "build": "jinge build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --config ./site/webpack.config.js",
+    "dev-en": "BUILD_LOCALE=en npm run dev",
+    "build": "npm run generate-i18n-csv && npm run build-prod && BUILD_LOCALE=en npm run build-prod",
+    "build-prod": "PRODUCTION=true npm run build-dev",
+    "build-dev": "webpack --config ./site/webpack.config.js",
+    "watch": "WATCH=true npm run build-dev",
+    "generate-i18n-csv": "GENERATE_I18N_CSV=true npm run build-dev",
+    "lint": "npm run stylelint && npm run eslint",
+    "stylelint": "stylelint '**/*.scss' --syntax scss",
+    "eslint": "eslint .",
+    "fixstylelint": "stylelint '**/*.scss' --syntax scss --fix",
+    "fixeslint": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -26,7 +35,24 @@
   },
   "homepage": "https://github.com/YuhangGe/jinge-material#readme",
   "dependencies": {
-    "jinge": "0.0.0",
-    "lodash": "^4.17.11"
-  }
+    "jinge": "^1.0.3",
+    "jinge-ui-router": "^1.0.0"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.2",
+    "eslint": "^5.16.0",
+    "node-sass": "^4.11.0",
+    "precommit-hook": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "stylelint": "^10.0.1",
+    "stylelint-config-recommended-scss": "^3.3.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-scss": "^3.6.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }

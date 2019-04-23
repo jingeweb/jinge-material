@@ -1,0 +1,16 @@
+@import '~components/MdAnimation/variables';
+
+.md-ripple-enter-active {
+  transition: 0.8s $md-transition-stand-timing;
+  transition-property: opacity, transform;
+  will-change: opacity, transform;
+
+  &.md-centered {
+    transition-duration: 1.2s;
+  }
+}
+
+.md-ripple-enter {
+  opacity: 0.26;
+  transform: scale(0.26) translateZ(0);
+}

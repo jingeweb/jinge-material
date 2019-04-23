@@ -2,4 +2,8 @@ node_modules
 /.tmp
 /.vscode
 /.idea
-/dev.custom.config.js
+/site/dist
+**/.DS_Store
+/docs
+.jshintignore
+.jshintrc

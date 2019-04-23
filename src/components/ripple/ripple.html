@@ -1,0 +1,17 @@
+<div 
+  class="md-ripple ${disabled ? 'md-disabled' : ''}"
+  on|passive:touchsart="eventTrigger && touchStartCheck($event)"
+  on|passive:touchmove="eventTrigger && touchMoveCheck($event)"
+  on|passive:mousedown="eventTrigger && startRipple($event)"
+>
+  <parameter/>
+  <if e:expect="!disabled">
+  <for e:loop="ripples" vm:each="ripple" _key="each.uuid">
+  <Wave
+    class="md-ripple-wave ${centered ? 'md-centered' : ''}"
+    e:style="ripple.waveStyles"
+    on:end="clearWave(ripple.uuid)"
+  />
+  </for>
+  </if>
+</div>

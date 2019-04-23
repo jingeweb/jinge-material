@@ -1,0 +1,10 @@
+node_modules
+/.tmp
+/.vscode
+/.idea
+/site/dist
+**/.DS_Store
+/docs
+.jshintignore
+.jshintrc
+/src
