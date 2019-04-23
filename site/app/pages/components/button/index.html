@@ -1,0 +1,75 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="按钮（Button）">
+  <div class="page-container-section">
+    <p>
+      <_t>
+      按钮组件用于响应用户的点（触）击操作。
+      按钮类型包括 <strong>Flat</strong>, <strong>Raised</strong> 和 <strong>Floating</strong>。
+      Flat 和 Raised 类型的按钮默认情况下只展示文本，但也可以通过特殊的 class 来附加图标(Icon)。
+      Floating 类型的按钮只展示图标(Icon)。
+      按钮可以通过添加 <strong>Dense</strong> 这个 class 来调整为较小的大小。
+      </_t>
+    </p>
+  </div>
+
+  <div class="page-container-section">
+    <h2><_t>Flat 和 Raised 类型</_t></h2>
+    <p>
+      <_t>
+      不添加任何 class 的情况下，按钮的默认类型即 Flat。
+      添加 <code>md-raised</code> 这个 class 即可指定按钮类型为 Raised。
+      </_t>
+    </p>
+
+    <CodeExample _t:_title="常规按钮" e:_example="_examples.regularButtons" />
+
+    <ApiItem title="API - md-button">
+      <p slot-pass:default>
+        <_t>
+        包括 FAB 类型的所有按钮都有以下接口：
+        </_t>
+      </p>
+
+      <ApiTable e:headings="_api.regular.props.headings" e:props="_api.regular.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.regular.classes.headings" e:props="_api.regular.classes.props" slot-pass:classes />
+      <ApiTable e:headings="_api.regular.events.headings" e:props="_api.regular.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+
+  <div class="page-container-section">
+    <h2><_t>图标（Icons）类型</_t></h2>
+    <p>
+      <_t>To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.</_t>
+    </p>
+
+    <CodeExample _t:_title="图标按钮" e:_example="_examples.iconButtons" />
+
+    <ApiItem title="API">
+      <p slot-pass:default>The following class will turn a button into a icon button:</p>
+
+      <ApiTable e:headings="_api.icons.classes.headings" e:props="_api.icons.classes.props" slot-pass:classes />
+    </ApiItem>
+  </div>
+
+  <div class="page-container-section">
+    <h2>Floating Action Buttons</h2>
+    <p>A Floating Action Button represents the primary action in an application and is used for a promoted action. FAB buttons can be regular sized or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
+    <NoteBlock tip>Use only one FAB per page and only if the purpose of the button is to fire the main action of the screen. Otherwise use <code>md-icon-button</code>.</NoteBlock>
+
+    <CodeExample _t:_title="FAB" e:_example="_examples.floatingButtons" />
+
+    <ApiItem title="API">
+      <p slot-pass:default>The following classes can be used to turn a button into a FAB:</p>
+
+      <ApiTable e:headings="_api.fab.classes.headings" e:props="_api.fab.classes.props" slot-pass:classes />
+    </ApiItem>
+  </div>
+</PageContainer>

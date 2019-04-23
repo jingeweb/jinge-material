@@ -1,6 +1,8 @@
-@import '~components/MdAnimation/variables';
-@import '~components/MdElevation/mixins';
-@import '~components/MdElevation/variables';
+@import 'src/style/engine/index';
+@import 'src/style/themes/default';
+@import 'src/components/animation/variables';
+@import 'src/components/elevation/mixins';
+@import 'src/components/elevation/variables';
 
 $md-button-min-width: 88px;
 $md-button-height: 36px;
@@ -13,6 +15,16 @@ $md-button-icon-size: 40px;
 
 $md-button-fab-size: 56px;
 $md-button-fab-size-mini: $md-button-icon-size;
+
+@mixin md-icon-on-buttons($state, $type) {
+  .md-icon-font {
+    @include md-theme-property(color, $state, $type);
+  }
+
+  .md-icon-image {
+    @include md-theme-property(fill, $state, $type);
+  }
+}
 
 .md-button-clean {
   margin: 0;
@@ -44,12 +56,27 @@ $md-button-fab-size-mini: $md-button-icon-size;
   font-weight: 500;
   text-transform: uppercase;
 
+  @include md-theme-property(color, text-primary, background);
+
+  &.md-primary {
+    @include md-theme-property(color, primary, background);
+    @include md-icon-on-buttons(primary, background);
+  }
+
+  &.md-accent {
+    @include md-theme-property(color, accent, background);
+    @include md-icon-on-buttons(accent, background);
+  }
+
   &:active {
     outline: none;
   }
 
   &[disabled] {
     pointer-events: none;
+
+    @include md-theme-property(color, disabled, background);
+    @include md-icon-on-buttons(icon-disabled, background);
   }
 
   &:not([disabled]) {
@@ -120,8 +147,31 @@ $md-button-fab-size-mini: $md-button-icon-size;
     font-size: 13px;
   }
 
+  &.md-raised[disabled] {
+    @include md-theme-property(
+      background-color,
+      disabled-background,
+      background
+    );
+    @include md-theme-property(color, disabled);
+  }
+
   &.md-raised:not([disabled]) {
     @include md-elevation(2);
+    @include md-theme-property(background-color, background);
+    @include md-theme-property(color, text-primary, background);
+
+    &.md-primary {
+      @include md-theme-property(color, text-primary, primary);
+      @include md-theme-property(background-color, primary);
+      @include md-icon-on-buttons(text-primary, primary);
+    }
+
+    &.md-accent {
+      @include md-theme-property(color, text-primary, accent);
+      @include md-theme-property(background-color, accent);
+      @include md-icon-on-buttons(text-primary, accent);
+    }
 
     &:active {
       @include md-elevation(8);
@@ -129,6 +179,26 @@ $md-button-fab-size-mini: $md-button-icon-size;
 
     &.md-ripple-off:active::before {
       opacity: 0.2;
+    }
+  }
+
+  &.md-fab {
+    &[disabled] {
+      @include md-theme-property(
+        background-color,
+        disabled-background,
+        background
+      );
+    }
+
+    &:not([disabled]) {
+      @include md-theme-property(background-color, accent);
+      @include md-icon-on-buttons(text-primary, accent);
+
+      &.md-primary {
+        @include md-theme-property(background-color, primary);
+        @include md-icon-on-buttons(text-primary, primary);
+      }
     }
   }
 

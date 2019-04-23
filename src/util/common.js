@@ -1,6 +1,4 @@
-export {
-  simpleUUID as uuid
-} from 'jinge/util';
+export { simpleUUID as uuid } from 'jinge/util';
 
 export function setTimeout(...args) {
   return window.setTimeout(...args);

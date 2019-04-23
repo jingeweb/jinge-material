@@ -1,0 +1,44 @@
+@import 'src/components/animation/variables';
+@import 'src/style/engine/index';
+@import 'src/style/themes/default';
+
+$note-border: md-get-palette-color(orange, A200);
+$alert-border: md-get-palette-color(red, A200);
+$tip-border: md-get-palette-color(green, 500);
+
+.note-block {
+  margin: 1.5em 0;
+  padding: 8px 16px;
+  overflow: hidden;
+  border-left: 4px solid $note-border;
+
+  &.alert {
+    border-left-color: $alert-border;
+  }
+
+  &.tip {
+    border-left-color: $tip-border;
+  }
+
+  &.warning {
+    font-size: 15px;
+  }
+
+  @if md-get-theme-mode() == light {
+    @include md-theme-property-by-hue(background-color, grey, 200, note-block, background);
+
+    &.warning {
+      @include md-theme-property-by-hue(background-color, red, 100, note-block-warning, background);
+      @include md-theme-property-by-hue(border-left-color, red, A200, note-block-warning-border, background);
+    }
+  }
+
+  @else {
+    @include md-theme-property-by-hue(background-color, grey, 800, note-block, background);
+
+    &.warning {
+      @include md-theme-property-by-hue(background-color, red, 400, note-block-warning, background);
+      @include md-theme-property-by-hue(border-left-color, red, 800, note-block-warning-border, background);
+    }
+  }
+}

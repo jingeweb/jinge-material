@@ -1,10 +1,11 @@
+<!-- import { Wave } from './wave'; -->
 <div 
   class="md-ripple ${disabled ? 'md-disabled' : ''}"
-  on|passive:touchsart="eventTrigger && touchStartCheck($event)"
-  on|passive:touchmove="eventTrigger && touchMoveCheck($event)"
-  on|passive:mousedown="eventTrigger && startRipple($event)"
+  on|passive:touchsart="_eventTrigger && touchStartCheck($event)"
+  on|passive:touchmove="_eventTrigger && touchMoveCheck($event)"
+  on|passive:mousedown="_eventTrigger && startRipple($event)"
 >
-  <parameter/>
+  <_slot/>
   <if e:expect="!disabled">
   <for e:loop="ripples" vm:each="ripple" _key="each.uuid">
   <Wave

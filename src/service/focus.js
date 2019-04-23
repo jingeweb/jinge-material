@@ -1,20 +1,18 @@
 import {
-  arrayPushIfNotExist,
-  defineProperty,
-  arrayRemove
+  arrayPushIfNotExist, defineProperty, arrayRemove 
 } from 'jinge/util';
 import {
-  addEvent
+  addEvent 
 } from 'jinge/dom';
 import {
-  ROOT_NODES,
-  isComponent
+  ROOT_NODES, isComponent 
 } from 'jinge/core/component';
 
 let inited = false;
 let eventTarget = null;
 let supportsPassiveEvent = false;
-let currentComponent = null;
+let currentElement = null;
+// const currentComponent = null;
 const components = [];
 
 function setKeyboardInteraction(event) {
@@ -28,7 +26,7 @@ function setKeyboardInteraction(event) {
   });
 }
 
-function setMouseAndTouchInteraction(event) {
+function setMouseAndTouchInteraction() {
   currentElement = null;
   components.forEach(c => {
     if (c.hasFocus !== false) {
@@ -38,22 +36,27 @@ function setMouseAndTouchInteraction(event) {
 }
 
 function createKeyboardEvents() {
-  eventTarget.addEventListener('keyup', setKeyboardInteraction)
+  addEvent(eventTarget, 'keyup', setKeyboardInteraction);
 }
 
 function createPointerEvents() {
-  eventTarget.addEventListener('pointerup', setMouseAndTouchInteraction)
+  addEvent(eventTarget, 'pointerup', setMouseAndTouchInteraction);
 }
 
 function createMSPointerEvents() {
-  eventTarget.addEventListener('MSPointerUp', setMouseAndTouchInteraction)
+  addEvent(eventTarget, 'MSPointerUp', setMouseAndTouchInteraction);
 }
 
 function createMouseAndTouchEvents() {
-  eventTarget.addEventListener('mouseup', setMouseAndTouchInteraction)
+  addEvent(eventTarget, 'mouseup', setMouseAndTouchInteraction);
 
   if ('ontouchend' in window) {
-    eventTarget.addEventListener('touchend', setMouseAndTouchInteraction, supportsPassiveEvent)
+    addEvent(
+      eventTarget,
+      'touchend',
+      setMouseAndTouchInteraction,
+      supportsPassiveEvent
+    );
   }
 }
 
@@ -70,18 +73,31 @@ function checkPassiveEventSupport() {
   }
 }
 
+function bindEvents() {
+  if (window.PointerEvent) {
+    createPointerEvents();
+  } else if (window.MSPointerEvent) {
+    createMSPointerEvents();
+  } else {
+    createMouseAndTouchEvents();
+  }
+  createKeyboardEvents();
+}
+
 function initEvents() {
   if (inited) return;
-  eventTarget = document.body
-  checkPassiveEventSupport()
-  bindEvents()
-  inited = true
+  eventTarget = document.body;
+  checkPassiveEventSupport();
+  bindEvents();
+  inited = true;
 }
 
 export function register(component) {
   const res = component[ROOT_NODES];
   if (res.length > 1 || isComponent(res[0])) {
-    throw new Error('component passed to FocusedManager.register must have only one html node child.');
+    throw new Error(
+      'component passed to FocusedManager.register must have only one html node child.'
+    );
   }
   arrayPushIfNotExist(components, component);
   initEvents();

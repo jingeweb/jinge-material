@@ -1,0 +1,45 @@
+<!--
+  import { CodeBlock } from './code-block';
+  import { DynamicComponent } from './dynamic-component';
+-->
+<div class="code-example">
+  <div class="nav">
+    <a on:click="tab = 'demo'">demo</a>
+    <a on:click="tab = 'html'">html</a>
+    <a on:click="tab = 'js'">js</a>
+    <a on:click="tab = 'scss'">scss</a>
+  </div>
+  <switch e:test="tab">
+    <div slot-pass:demo class="demo-content">
+      <DynamicComponent e:_component="_example.component"/>
+    </div>
+    <CodeBlock slot-pass:html _lang="xml" e:_code="_example.source.html" />
+    <CodeBlock slot-pass:js _lang="javascript" e:_code="_example.source.js" />
+    <CodeBlock slot-pass:scss _lang="scss" e:_code="_example.source.scss" />
+  </switch>
+  <!-- <md-toolbar class="md-primary md-dense" md-theme="dark" md-elevation="0" v-if="title">
+    <span class="md-title">{{ title }}</span>
+    <md-button class="md-icon-button md-dense" @click="toggleCode" v-if="component.name">
+      <md-icon>code</md-icon>
+      <md-tooltip md-theme="default">Code</md-tooltip>
+    </md-button>
+    <codesandbox-edit :component="component" :title="title" v-if="component.name" />
+  </md-toolbar>
+
+  <transition name="block">
+    <code-block :label="label" :lang="lang" v-if="!component.name || $slots.default || showCode">
+      <slot>{{ component.source }}</slot>
+    </code-block>
+
+    <md-content class="demo" :md-theme="theme" v-else>
+      <div class="demo-content">
+        <component :is="component.name" />
+      </div>
+
+      <md-button class="button-theme md-icon-button md-dense md-raised md-accent" @click="toggleTheme" v-if="component.name">
+        <md-icon>invert_colors</md-icon>
+        <md-tooltip md-direction="top">Invert Colors</md-tooltip>
+      </md-button>
+    </md-content>
+  </transition> -->
+</div>

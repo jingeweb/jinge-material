@@ -1,7 +1,12 @@
+import './ripple.scss';
+
 import {
   Component,
-  VM
+  VM 
 } from 'jinge';
+import {
+  isBoolean
+} from 'jinge/util';
 import {
   setTimeout,
   clearTimeout,
@@ -10,59 +15,84 @@ import {
   uuid
 } from '../../util';
 
-import './ripple.scss';
-
 import _tpl from './ripple.html';
+import {
+  ROOT_NODES
+} from 'jinge/core/component';
 
-export default class Ripple extends Component {
+export class Ripple extends Component {
   static get template() {
     return _tpl;
   }
   constructor(attrs) {
+    super(attrs);
     this.active = attrs.active;
     this.disabled = attrs.disabled;
     this.centered = attrs.centered;
-    this.eventTrigger = attrs.eventTrigger !== false;
     this.ripples = VM([]);
-    this.touchTimeout = null;
-    this.eventType = null;
+    this._eventTrigger = attrs.eventTrigger !== false;
+    this._touchTimeout = null;
+    this._eventType = null;
+  }
+  get active() {
+    return this.__active;
+  }
+  set active(v) {
+    if (this.__active === v) return;
+    this.__active = v;
+    const isBool = isBoolean(v);
+    if (!isBool) {
+      v = v._event;
+    }
+    const isEvent = v.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent';
+
+    if (isBool && this.mdCentered && v) {
+      this.startRipple({
+        type: 'mousedown'
+      });
+    } else if (isEvent) {
+      this.startRipple(v);
+    }
+
+    this.notify('update.active', false);
   }
   touchMoveCheck() {
-    clearTimeout(this.touchTimeout)
+    clearTimeout(this._touchTimeout);
   }
   touchStartCheck($event) {
-    this.touchTimeout = setTimeout(() => {
+    this._touchTimeout = setTimeout(() => {
       raf(this.startRipple.bind(this, $event));
-    }, 100)
+    }, 100);
   }
   startRipple($event) {
-    const { eventType, disabled, centered } = this;
+    const { _eventType, disabled, centered } = this;
 
-    if (!disabled && (!eventType || eventType === $event.type)) {
-      let size = this.getSize()
-      let position = null
+    if (!disabled && (!_eventType || _eventType === $event.type)) {
+      const size = this.getSize();
+      let position = null;
 
       if (centered) {
-        position = this.getCenteredPosition(size)
+        position = this.getCenteredPosition(size);
       } else {
-        position = this.getHitPosition($event, size)
+        position = this.getHitPosition($event, size);
       }
 
-      this.eventType = $event.type;
-      this.ripples.push({
+      this._eventType = $event.type;
+      this.ripples.push(VM({
         waveStyles: this.applyStyles(position, size),
         uuid: uuid()
-      });
+      }));
     }
   }
   applyStyles(position, size) {
     size += 'px';
 
-    return style2str({
-      ...position,
-      width: size,
-      height: size
-    });
+    return style2str(
+      Object.assign({
+        width: size,
+        height: size
+      },position)
+    );
   }
   clearWave(uuid) {
     if (!uuid) return (this.ripples.length = 0);
@@ -71,12 +101,12 @@ export default class Ripple extends Component {
     this.ripples.splice(idx, 1);
   }
   getSize() {
-    const { offsetWidth, offsetHeight } = this.$el
+    const { offsetWidth, offsetHeight } = this[ROOT_NODES][0];
 
-    return Math.round(Math.max(offsetWidth, offsetHeight))
+    return Math.round(Math.max(offsetWidth, offsetHeight));
   }
   getCenteredPosition(size) {
-    const halfSize = -size / 2 + 'px'
+    const halfSize = -size / 2 + 'px';
 
     return {
       'margin-top': halfSize,
@@ -84,18 +114,28 @@ export default class Ripple extends Component {
     };
   }
   getHitPosition($event, elementSize) {
-    const rect = this.$el.getBoundingClientRect()
-    let top = $event.pageY
-    let left = $event.pageX
+    const rect = this[ROOT_NODES][0].getBoundingClientRect();
+    let top = $event.pageY;
+    let left = $event.pageX;
 
     if ($event.type === 'touchstart') {
-      top = $event.changedTouches[0].pageY
-      left = $event.changedTouches[0].pageX
+      top = $event.changedTouches[0].pageY;
+      left = $event.changedTouches[0].pageX;
     }
 
     return {
-      top: top - rect.top - elementSize / 2 - document.documentElement.scrollTop + 'px',
-      left: left - rect.left - elementSize / 2 - document.documentElement.scrollLeft + 'px'
-    }
+      top:
+        top -
+        rect.top -
+        elementSize / 2 -
+        document.documentElement.scrollTop +
+        'px',
+      left:
+        left -
+        rect.left -
+        elementSize / 2 -
+        document.documentElement.scrollLeft +
+        'px'
+    };
   }
 }

@@ -1,0 +1,20 @@
+<!--
+  import {
+    Header,
+    Nav,
+    Footer
+  } from '../layout';
+-->
+<ui-hash-router e:_states="_routes" _otherwise="/">
+<div class="container ${isSplash ? 'splash' : ''}">
+  <Header/>
+
+  <div class="container-wrapper md-layout-row ${isSplash ? 'splash' : ''}">
+    <Nav/>
+
+    <ui-view/>
+  </div>
+
+  <Footer/>
+</div>
+</ui-hash-router>

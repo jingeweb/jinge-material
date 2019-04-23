@@ -3,9 +3,9 @@
 // import MdAutocomplete from './MdAutocomplete'
 // import MdAvatar from './MdAvatar'
 // import MdBottomBar from './MdBottomBar'
-export MdButton from './MdButton'
+export * from './button';
 // import MdCard from './MdCard'
-// import MdCheckbox from './MdCheckbox'
+export * from './checkbox';
 // import MdChips from './MdChips'
 // import MdContent from './MdContent'
 // import MdDatepicker from './MdDatepicker'
@@ -15,18 +15,18 @@ export MdButton from './MdButton'
 // import MdDialogPrompt from './MdDialog/MdDialogPrompt'
 // import MdDivider from './MdDivider'
 // import MdDrawer from './MdDrawer'
-// import MdElevation from './MdElevation'
+export * from './elevation';
 // import MdEmptyState from './MdEmptyState'
 // import MdField from './MdField'
 // import MdHighlightText from './MdHighlightText'
-// import MdIcon from './MdIcon'
+export * from './icon';
 // import MdImage from './MdImage'
 // import MdLayout from './MdLayout'
 // import MdList from './MdList'
 // import MdMenu from './MdMenu'
 // import MdProgress from './MdProgress'
 // import MdRadio from './MdRadio'
-// import MdRipple from './MdRipple'
+export * from './ripple';
 // import MdSnackbar from './MdSnackbar'
 // import MdSpeedDial from './MdSpeedDial'
 // import MdSteppers from './MdSteppers'

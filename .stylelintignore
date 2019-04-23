@@ -7,4 +7,5 @@ node_modules
 /docs
 .jshintignore
 .jshintrc
+/dist
 /src

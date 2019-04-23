@@ -1,0 +1,20 @@
+<!-- import {Ripple} from '../ripple'; -->
+<div class="md-checkbox ${classes}">
+  <div class="md-checkbox-container" on|stop:click="toggleCheck">
+    <Ripple centered e:active="rippleActive" on:update.active="rippleActive = args[0]" e:disabled="disabled">
+      <input
+        e:id="id"
+        e:checked="checked"
+        on:change="onChange"
+        type="checkbox" e:name="name"
+        e:disabled="disabled"
+        e:required="required"
+      />
+    </Ripple>
+  </div>
+  <if e:expect="_renderLabel">
+  <label e:for="id" class="md-checkbox-label" on|prevent:click="toggleCheck">
+    <_slot />
+  </label>
+  </if>
+</div>

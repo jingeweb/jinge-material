@@ -1,53 +1,52 @@
 (function() {
-  const isProd = window.__App['mode'] === 'production';
-  function loadLocale() {
-    let locale =
-      sessionStorage.getItem('JINGE_MATERIAL_LOCALE') ||
-      navigator.language.toLowerCase().replace(/-/g, '_') ||
-      'en';
-    if (locale.startsWith('zh_')) {
-      locale = 'zh_cn';
-    } else if (locale !== 'en') {
-      locale = 'en';
-    }
-    return fetch(`${isProd ? '' : 'dist/'}i18n/${locale}.json`)
-      .then(res => res.json())
-      .then(dictData => {
-        window.JingeI18nData = dictData;
-      });
-  }
-  function loadTheme() {
+  const SUPPORT_THEMES = ['default', 'default-dark'];
+  const loaderSrc = document.body.querySelector('script').src;
+  const buildHash = loaderSrc.match(/([^.]+)\.min.js$/);
+  /** loader utils **/
+  function loadTheme(theme) {
     return new Promise((resolve, reject) => {
-      const theme = sessionStorage.getItem('JINGE_MATERIAL_THEME') || 'default';
       const $s = document.createElement('link');
       $s.rel = 'stylesheet';
       $s.onload = resolve;
       $s.onerror = reject;
-      $s.src = `${isProd ? '' : 'dist/'}css/bundle${theme}${
-        isProd ? '.min' : ''
-      }.css`;
+      $s.href = `css/jinge-material.${theme}${buildHash ? `.${buildHash[1]}.min` : ''}.css`;
+      console.log($s.src);
       document.head.appendChild($s);
     });
   }
-  function loadScript() {
+  function loadScript(locale) {
     return new Promise((resolve, reject) => {
       const $s = document.createElement('script');
-      $s.src = `${isProd ? '' : 'dist/'}js/bundle${isProd ? '.min' : ''}.js`;
+      $s.src = `js/jinge-material.${locale}${buildHash ? `.${buildHash[1]}.min` : ''}.js`;
       $s.onload = resolve;
       $s.onerror = reject;
-      document.head.appendChild($s);
+      document.body.appendChild($s);
     });
   }
-  function bootstrap() {
-    window.__App.bootstrap();
+  function getLocale() {
+    const locale =
+      sessionStorage.getItem('JINGE_MATERIAL_LOCALE') ||
+      navigator.language.toLowerCase().replace(/-/g, '_') ||
+      'en';
+    if (locale.startsWith('zh_')) {
+      return 'zh_cn';
+    } else if (locale !== 'en') {
+      return 'en';
+    }
+    return locale;
   }
-  function run() {
-    Promise.all([loadTheme(), loadLocale().then(loadScript)])
-      .then(bootstrap)
-      .catch(err => {
-        console.error(err);
-        alert(err.message);
-      });
+  function getTheme() {
+    const theme = sessionStorage.getItem('JINGE_MATERIAL_THEME') || SUPPORT_THEMES[0];
+    if (SUPPORT_THEMES.indexOf(theme) < 0) return SUPPORT_THEMES[0];
+    return theme;
   }
-  document.addEventListener('DOMContentLoaded', run);
+  
+  /** run application **/
+  Promise.all([
+    loadTheme(getTheme()),
+    loadScript(getLocale())
+  ]).catch(err => {
+    console.error(err);
+    alert(`load fail with message: ${err.message || 'none'}!\nplease check console.`);
+  });
 })();

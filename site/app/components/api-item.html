@@ -1,0 +1,24 @@
+<!-- import { DynamicComponent } from './dynamic-component.js' -->
+<div class="api-item">
+  <h3>${title}</h3>
+
+  <_slot />
+
+  <div class="api-item-navigation">
+    <for e:loop="slots" _key="each.name" vm:each="slot" >
+    <md-button
+      class="${ currentSlot === slot ? 'md-primary': '' }"
+      on:click="currentSlot = slot">
+      ${ slot.title }
+    </md-button>
+    </for>
+  </div>
+  <for e:loop="slots" _key="each.name" vm:each="slot">
+  <if e:expect="currentSlot === slot">
+  <div class="api-item-content">
+    <DynamicComponent e:_render="slot._render"/>
+  </div>
+  </if>
+  </for>
+  
+</div>

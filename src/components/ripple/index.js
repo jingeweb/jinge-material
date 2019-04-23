@@ -1,2 +1,2 @@
-export Ripple from "./ripple";
-export Wave from './wave';
+export * from './ripple';
+export * from './wave';

@@ -1,0 +1,122 @@
+@import 'src/components/animation/variables';
+@import 'src/style/engine/index';
+
+$bg-color: md-get-palette-color(grey, 200);
+$border-color: darken($bg-color, 3%);
+
+.api-table {
+  padding-bottom: 16px;
+
+  // @if md-get-theme-mode() == light {
+  table {
+    background-color: md-get-palette-color(grey, 50);
+  }
+
+  tr:first-child {
+    background-color: md-get-palette-color(grey, 200);
+  }
+
+  td,
+  th {
+    border-color: md-get-palette-color(grey, 300);
+    color: md-get-palette-color(grey, 800);
+  }
+
+  th {
+    color: md-get-palette-color(grey, 700);
+  }
+  // }
+
+  // @else {
+  //   table {
+  //     background-color: md-get-palette-color(grey, 900);
+  //   }
+
+  //   tr:first-child {
+  //     background-color: md-get-palette-color(grey, 800);
+  //   }
+
+  //   td,
+  //   th {
+  //     border-color: md-get-palette-color(grey, 800);
+  //     color: md-get-palette-color(grey, 50);
+  //   }
+
+  //   th {
+  //     color: md-get-palette-color(grey, 100);
+  //   }
+  // }
+}
+
+table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+tr:first-child {
+  font-weight: 500;
+}
+
+td,
+th {
+  padding: 8px 16px;
+  border: 1px solid;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  height: 40px;
+  line-height: 23px;
+
+  &:first-child {
+    width: 22%;
+  }
+
+  &:nth-child(2) ~ &:last-child {
+    width: 17%;
+  }
+}
+
+td.offset {
+  padding-left: 32px;
+}
+
+.prop {
+  vertical-align: top;
+}
+
+.prop-name {
+  display: block;
+  text-transform: lowercase;
+}
+
+.prop-type {
+  color: md-get-palette-color(grey, 600);
+  text-transform: capitalize;
+}
+
+.slot-options {
+  width: 40%;
+}
+
+code {
+  color: md-get-palette-color(red, A200);
+  font-family: 'Roboto Mono', monospace;
+
+  /deep/ span {
+    color: md-get-palette-color(blue, A200);
+  }
+}
+
+.description,
+.prop-name {
+  /deep/ code {
+    color: md-get-palette-color(red, A200);
+    font-family: 'Roboto Mono', monospace;
+  }
+}

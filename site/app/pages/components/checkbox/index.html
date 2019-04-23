@@ -1,0 +1,37 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="多选框（Checkbox）">
+  <div class="page-container-section">
+    <p>
+      多
+    </p>
+  </div>
+
+  <div class="page-container-section">
+    <h2><_t>多选框（Checkbox）</_t></h2>
+    <CodeExample _t:_title="单个多选框" e:_example="_examples.singleCheckbox" />
+    <CodeExample _t:_title="多个多选框" e:_example="_examples.arrayCheckbox" />
+
+    <ApiItem title="API - md-button">
+      <p slot-pass:default>
+        <_t>
+          The following options can be applied to all checkboxes:
+        </_t>
+      </p>
+
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+    </ApiItem>
+
+    <NoteBlock tip>
+      All other <code>&lt;input type=&quot;checkbox&quot;&gt;</code> attributes, such as <strong>name</strong> and <strong>required</strong>, can be used on <code>md-checkbox</code>.
+    </NoteBlock>
+  </div>
+</PageContainer>

@@ -1,8 +1,8 @@
 <!--
-  import ButtonContent from './content';
+  import { ButtonContent } from './content';
 -->
 <button
-  class="md-button ${!ripple ? 'md-ripple-off' : ''} ${hasFocus ? 'md-focused' : ''}"
+  class="md-button ${className} ${!ripple ? 'md-ripple-off' : ''} ${hasFocus ? 'md-focused' : ''}"
   e:disabled="disabled"
   e:type="type || 'button'"
   on:touchstart="touchstart($event)"
@@ -15,6 +15,6 @@
     e:rippleActive="rippleActive"
     on:update.rippleActive="rippleActive = args[0]"
   >
-    <parameter/>
+    <_slot/>
   </ButtonContent>
 </button>

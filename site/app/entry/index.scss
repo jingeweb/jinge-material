@@ -1,0 +1,59 @@
+@import 'src/components/animation/variables';
+@import 'src/components/layout/mixins';
+
+.container {
+  min-height: 100%;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto Mono', monospace;
+  transition: $md-transition-default;
+  transition-property: padding-top;
+
+  @include md-layout-small {
+    padding-top: 48px;
+  }
+
+  @include md-layout-xsmall {
+    padding-top: 56px;
+  }
+
+  &.splash >>> {
+    .main-header .md-toolbar-row,
+    .main-footer-container {
+      max-width: 1312px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.container-wrapper {
+  &:not(.splash) {
+    flex: 1;
+    padding-left: 230px !important;
+
+    @include md-layout-xsmall {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+.main-container {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.code-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.version-message {
+  .md-button:not(.md-accent) {
+    color: #fff;
+  }
+}

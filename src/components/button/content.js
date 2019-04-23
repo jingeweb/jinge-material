@@ -1,14 +1,14 @@
+import './content.scss';
+
 import {
   Component
 } from 'jinge';
 
-import './content.scss';
-
-export default class ButtonContent extends Component {
+export class ButtonContent extends Component {
   static get template() {
     return `
 <!--
-  import Ripple from '../ripple';
+  import { Ripple } from '../ripple';
 -->
 <Ripple
   e:disabled="!ripple || disabled"
@@ -17,9 +17,9 @@ export default class ButtonContent extends Component {
   on:update.active="notify('update.rippleActive', args[0])"
 >
   <div class="md-button-content">
-    <parameter/>
+    <_slot slot-use:default/>
   </div>
-</Ripple>`
+</Ripple>`;
   }
   constructor(attrs) {
     super(attrs);
