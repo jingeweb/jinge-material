@@ -1,0 +1,49 @@
+<table>
+    <thead>
+      <tr>
+        <th><_t>描述</_t></th>
+        <th><_t>示例</_t></th>
+        <th><_t>值</_t></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><_t>简单选择项</_t></td>
+        <td>
+          <md-radio class="md-primary" value="primary" e:checked="v === 'primary'" on:change="v = args[0]" name="r-simple">Primary</md-radio>
+          <md-radio value="default" e:checked="v === 'default'" on:change="v = args[0]" name="r-simple" >Default</md-radio>
+          <md-radio class="md-primary" disabled name="r-simple" >Disabled</md-radio>
+          <md-radio class="md-primary" disabled checked name="r-simple" >Disabled & Checked</md-radio>
+        </td>
+        <td>
+          <_t>${v}</_t>
+        </td>
+      </tr>
+      <tr>
+        <td><_t>字符串数组</_t></td>
+        <td>
+          <for e:loop="cities" vm:each="city" _key="each">
+            <md-radio name="r-city" on:change="selectedCity = args[0]" e:value="city" e:checked="city === selectedCity">
+            ${city}
+            </md-radio>
+          </for>
+        </td>
+        <td>
+          ${selectedCity}
+        </td>
+      </tr>
+      <tr>
+        <td><_t>Object 数组</_t></td>
+        <td>
+          <for e:loop="persons" vm:each="person" _key="each.name">
+            <md-radio name="r-person" class="md-primary" on:change="onSelectedPersonChange" e:value="person" e:checked="selectedPerson === person">
+            ${person.name}
+            </md-radio>
+          </for>
+        </td>
+        <td>
+          ${selectedPerson ? selectedPerson.name : '未选择'}
+        </td>
+      </tr>
+    </tbody>
+  </table>

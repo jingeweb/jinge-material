@@ -6,10 +6,11 @@
   on|passive:mousedown="_eventTrigger && startRipple($event)"
 >
   <_slot/>
-  <if e:expect="!disabled">
+  <if e:expect="!disabled || ripples.length > 0">
   <for e:loop="ripples" vm:each="ripple" _key="each.uuid">
   <Wave
     class="md-ripple-wave ${centered ? 'md-centered' : ''}"
+    e:uuid="ripple.uuid"
     e:style="ripple.waveStyles"
     on:end="clearWave(ripple.uuid)"
   />

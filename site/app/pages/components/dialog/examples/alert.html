@@ -1,0 +1,19 @@
+<div>
+  <!-- <md-dialog-alert
+    e:active="first"
+    on:update.active="first = args[0]"
+    content="Your post has been deleted!"
+    confirmText="Cool!"
+  />
+
+  <md-dialog-alert
+    e:active="second"
+    on:update.active="second = args[0]"
+    title="Post created!"
+    content="Your post <strong>Material Design is awesome</strong> has been created."
+  /> -->
+
+  <md-button class="md-accent md-raised" on:click="first = true">Alert</md-button>
+  <md-button class="md-primary md-raised" on:click="second = true">Alert</md-button>
+  <md-button class="md-primary md-raised" on:click="show">Alert by static method</md-button>
+</div>

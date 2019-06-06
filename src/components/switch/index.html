@@ -1,0 +1,21 @@
+<!-- import {Ripple} from '../ripple'; -->
+<div class="md-switch ${classes}">
+  <div class="md-switch-container" on:click="toggleCheck">
+    <div class="md-switch-thumb">
+      <Ripple centered e:active="rippleActive" on:update.active="rippleActive = args[0]" e:disabled="disabled">
+        <input
+          e:id="id"
+          type="checkbox"
+          e:name="name"
+          e:disabled="disabled"
+          e:required="required"
+        />
+      </Ripple>
+    </div>
+  </div>
+  <if e:expect="_renderLabel">
+  <label e:for="id" class="md-switch-label" on|prevent:click="toggleCheck">
+    <_slot />
+  </label>
+  </if>
+</div>

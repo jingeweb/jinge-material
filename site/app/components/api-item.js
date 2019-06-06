@@ -10,11 +10,12 @@ import {
 
 export class ApiItem extends Component {
   static get style() {
-    return `.md-button {
+    return `
+.api-item-navigation /deep/ > .md-button {
   min-width: 56px;
   margin: 4px 0;
 }
-.md-button + .md-button {
+.api-item-navigation /deep/ > .md-button + .md-button {
   margin-left: 4px;
 }`;
   }

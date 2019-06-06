@@ -8,7 +8,12 @@ import {
   PageElevation,
   PageComponents,
   PageButton,
-  PageCheckbox
+  PageCheckbox,
+  PageRadio,
+  PageSwitch,
+  PageContent,
+  PageToolbar,
+  PageDialog
 } from './pages';
 
 export const componentsStates = [{
@@ -24,6 +29,26 @@ export const componentsStates = [{
   name: 'components.checkbox',
   url: '/checkbox',
   component: PageCheckbox
+}, {
+  name: 'components.radio',
+  url: '/radio',
+  component: PageRadio
+}, {
+  name: 'components.switch',
+  url: '/switch',
+  component: PageSwitch
+}, {
+  name: 'components.content',
+  url: '/content',
+  component: PageContent
+}, {
+  name: 'components.toolbar',
+  url: '/toolbar',
+  component: PageToolbar
+}, {
+  name: 'components.dialog',
+  url: '/dialog',
+  component: PageDialog
 }];
 
 export const uiElementsStates = [{

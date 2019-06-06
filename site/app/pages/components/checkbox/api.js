@@ -3,28 +3,28 @@ export default {
     headings: ['Name', 'Description', 'Default'],
     props: [
       {
-        name: 'v-model',
-        type: 'String|Number|Object|Boolean|Array',
-        description: 'The model variable to bind the selection value. If it is an array, it will toggle values inside of it. If no value is assigned, then it will use the same behaviour of a regular input[type="checkbox"].',
-        defaults: 'null'
+        name: 'value',
+        type: 'Any',
+        description: 'The value of the checkbox',
+        defaults: 'false'
       },
       {
-        name: 'value',
-        type: 'String|Number|Object|Boolean',
-        description: 'The value of the checkbox',
-        defaults: 'on'
+        name: 'trueValue',
+        type: 'Any',
+        description: 'The value when checked',
+        defaults: 'true'
+      },
+      {
+        name: 'falseValue',
+        type: 'Any',
+        description: 'The value when unchecked',
+        defaults: 'false'
       },
       {
         name: 'id',
         type: 'String',
         description: 'The checkbox unique id.',
         defaults: 'a random string'
-      },
-      {
-        name: 'indeterminate',
-        type: 'Boolean',
-        description: 'Enables the indeterminate look of the checkbox.',
-        defaults: 'false'
       }
     ]
   },

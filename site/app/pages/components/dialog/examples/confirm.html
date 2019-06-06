@@ -1,0 +1,18 @@
+<div>
+  <md-dialog-confirm
+    e:active="active"
+    on:update.active="active = args[0]"
+    title="Use Google's location service?"
+    content="Let Google help apps determine location. <br> This means sending <strong>anonymous</strong> location data to Google, even when no apps are running."
+    confirmText="Agree"
+    cancelText="Disagree"
+    on:cancel="onCancel"
+    on:confirm="onConfirm"
+  />
+
+  <md-button class="md-primary md-raised" on:click="active = true">Confirm</md-button>
+  <if e:expect="value">
+  <span>Value: ${value}</span>  
+  </if>
+  <md-button class="md-primary md-raised" on:click="show">Confirm by static method</md-button>
+</div>

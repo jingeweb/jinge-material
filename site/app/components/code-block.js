@@ -4,7 +4,9 @@ import highlightXML from 'highlight.js/lib/languages/xml';
 import highlightJavascript from 'highlight.js/lib/languages/javascript';
 import Clipboard from 'clipboard';
 import {
-  Component 
+  Component,
+  AFTER_RENDER,
+  GET_REF 
 } from 'jinge';
 import {
   getIndentedSource
@@ -33,8 +35,8 @@ export class CodeBlock extends Component {
     this.showMessage = false;
     this._$ce = null;
   }
-  afterRender() {
-    this._$ce = this.getChild('code'); // get code dom element
+  [AFTER_RENDER]() {
+    this._$ce = this[GET_REF]('code'); // get code dom element
     this.reindentSource();
     this.enableCopy();
 
@@ -44,7 +46,7 @@ export class CodeBlock extends Component {
     this._$ce.textContent = getIndentedSource(this._$ce.textContent);
   }
   enableCopy() {
-    const $cb = this.getChild('copy'); // get copy button
+    const $cb = this[GET_REF]('copy'); // get copy button
     if (!$cb) return;
 
     const clipboard = new Clipboard($cb, {

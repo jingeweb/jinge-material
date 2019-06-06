@@ -1,0 +1,25 @@
+<!--
+  import { FocusTrap } from '../focus-trap';
+  import { Overlay } from '../overlay';
+  import { Portal } from '../portal';
+-->
+<Portal e:__disabled="__portalDisabled">
+<if e:expect="active" transition="md-dialog">
+<div
+  class="md-dialog${fullscreen ? ' md-dialog-fullscreen' : ''}"
+  on:keydown="onKeydown"
+>
+  <FocusTrap>
+    <div class="md-dialog-container">
+      <_slot />
+    </div>
+  </FocusTrap>
+</div>
+</if>
+</Portal>
+<Overlay
+  e:__portalDisabled = "__portalDisabled"
+  e:class="backdropClass" 
+  e:active="backdrop && active"
+  on:click="onClick"
+/>

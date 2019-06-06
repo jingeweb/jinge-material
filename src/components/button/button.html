@@ -2,7 +2,7 @@
   import { ButtonContent } from './content';
 -->
 <button
-  class="md-button ${className} ${!ripple ? 'md-ripple-off' : ''} ${hasFocus ? 'md-focused' : ''}"
+  class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
   e:disabled="disabled"
   e:type="type || 'button'"
   on:touchstart="touchstart($event)"

@@ -2,16 +2,19 @@ import './button.scss';
 
 import {
   Component,
-  VM
+  VM,
+  AFTER_RENDER,
+  BEFORE_DESTROY
 } from 'jinge';
 import {
   ROOT_NODES
 } from 'jinge/core/component';
 import {
-  LISTENERS
+  LISTENERS, NOTIFY
 } from 'jinge/core/messenger';
 import {
-  addEvent, removeEvent
+  addEvent,
+  removeEvent
 } from 'jinge/dom';
 import {
   register as focusedRegister,
@@ -36,7 +39,7 @@ export class Button extends Component {
     this.hasFocus = false;
     this._eHandlers = null;
   }
-  afterRender() {
+  [AFTER_RENDER]() {
     focusedRegister(this);
     const lis = this[LISTENERS];
     if (!lis) return;
@@ -63,7 +66,7 @@ export class Button extends Component {
   //   debugger;
   //   return super[RENDER]();
   // } 
-  beforeDestroy() {
+  [BEFORE_DESTROY]() {
     focusedDeregister(this);
     if (this._eHandlers) {
       const el = this[ROOT_NODES][0];
@@ -79,7 +82,7 @@ export class Button extends Component {
         _event: event
       });
     }
-    this.notify('touchstart', event);
+    this[NOTIFY]('touchstart', event);
   }
   touchmove(event) {
     if (this.ripple && !this.disabled) {
@@ -87,7 +90,7 @@ export class Button extends Component {
         _event: event
       });
     }
-    this.notify('touchmove', event);
+    this[NOTIFY]('touchmove', event);
   }
   mousedown(event) {
     if (this.ripple && !this.disabled) {
@@ -95,7 +98,7 @@ export class Button extends Component {
         _event: event
       });
     }
-    this.notify('mousedown', event);
+    this[NOTIFY]('mousedown', event);
   }
 }
 

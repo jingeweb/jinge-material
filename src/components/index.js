@@ -7,9 +7,9 @@ export * from './button';
 // import MdCard from './MdCard'
 export * from './checkbox';
 // import MdChips from './MdChips'
-// import MdContent from './MdContent'
+export * from './content';
 // import MdDatepicker from './MdDatepicker'
-// import MdDialog from './MdDialog'
+export * from './dialog';
 // import MdDialogAlert from './MdDialog/MdDialogAlert'
 // import MdDialogConfirm from './MdDialog/MdDialogConfirm'
 // import MdDialogPrompt from './MdDialog/MdDialogPrompt'
@@ -25,14 +25,14 @@ export * from './icon';
 // import MdList from './MdList'
 // import MdMenu from './MdMenu'
 // import MdProgress from './MdProgress'
-// import MdRadio from './MdRadio'
+export * from './radio';
 export * from './ripple';
 // import MdSnackbar from './MdSnackbar'
 // import MdSpeedDial from './MdSpeedDial'
 // import MdSteppers from './MdSteppers'
 // import MdSubheader from './MdSubheader'
-// import MdSwitch from './MdSwitch'
+export * from './switch';
 // import MdTable from './MdTable'
 // import MdTabs from './MdTabs'
-// import MdToolbar from './MdToolbar'
+export * from './toolbar';
 // import MdTooltip from './MdTooltip'

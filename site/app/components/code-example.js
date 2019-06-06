@@ -16,7 +16,6 @@ export class CodeExample extends Component {
     super(attrs);
     this._title = attrs._title;
     this._example = attrs._example;
-    console.log(this._example);
     this._label = attrs._label || 'jinge';
     this.tab = 'demo';
   }

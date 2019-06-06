@@ -1,0 +1,41 @@
+<table>
+  <thead>
+    <tr>
+      <th><_t>描述</_t></th>
+      <th><_t>示例</_t></th>
+      <th><_t>值</_t></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><_t>无任何属性的最简单切换按钮</_t></td>
+      <td>
+        <md-switch>
+          <_t>标签</_t>
+        </md-switch>
+      </td>
+      <td><_t>(无)</_t></td>
+    </tr>
+    <tr>
+      <td><_t>传递简单的布尔值 </_t></td>
+      <td>
+        <md-switch e:value="v1" on:change="v1 = args[0]"/>
+      </td>
+      <td>${v1}</td>
+    </tr>
+    <tr>
+      <td><_t>传递简单的字符串值 </_t></td>
+      <td>
+        <md-switch class="md-primary" e:value="v2" trueValue="yes" falseValue="no" on:change="v2 = args[0]">
+          <_t>自动更新</_t>
+        </md-switch>
+      </td>
+      <td>${v2}</td>
+    </tr>
+    <tr>
+      <td><_t>传递 Object 值 </_t></td>
+      <td><md-switch e:value="v3" e:trueValue="s.t" e:falseValue="s.f" on:change="v3 = args[0];"/></td>
+      <td>${v3s}</td>
+    </tr>
+  </tbody>
+</table>

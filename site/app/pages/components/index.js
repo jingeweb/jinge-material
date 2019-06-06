@@ -1,5 +1,10 @@
 export * from './button';
 export * from './checkbox';
+export * from './radio';
+export * from './switch';
+export * from './content';
+export * from './toolbar';
+export * from './dialog';
 
 import {
   Component

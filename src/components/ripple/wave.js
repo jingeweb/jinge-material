@@ -1,11 +1,11 @@
 import './wave.scss';
 
 import {
-  Component
-} from 'jinge';
-import {
+  Component,
+  AFTER_RENDER,
+  NOTIFY,
   setImmediate
-} from 'jinge/util';
+} from 'jinge';
 
 import _tpl from './wave.html';
 
@@ -15,11 +15,12 @@ export class Wave extends Component {
   }
   constructor(attrs) {
     super(attrs);
+    this.uuid = attrs.uuid;
     this.style = attrs.style;
     this.className = attrs.class;
     this.animating = false;
   }
-  afterRender() {
+  [AFTER_RENDER]() {
     setImmediate(() => {
       this.animating = true;
     });
@@ -27,7 +28,7 @@ export class Wave extends Component {
   onTransition(action) {
     if (action === 'after-enter') {
       this.animating = false;
-      this.notify('end');
+      this[NOTIFY]('end', this.uuid);
     }
   }
 }

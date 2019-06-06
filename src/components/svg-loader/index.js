@@ -1,12 +1,11 @@
 import './index.global.scss';
 
 import {
-  Component
-} from 'jinge';
-import {
+  Component,
+  AFTER_RENDER,
   UPDATE_IF_NEED,
   UPDATE
-} from 'jinge/core/component';
+} from 'jinge';
 
 const svgCacheStore = new Map();
 
@@ -29,7 +28,7 @@ export class SvgLoader extends Component {
   [UPDATE]() {
     this.loadSvg();
   }
-  afterRender() {
+  [AFTER_RENDER]() {
     this.loadSvg();
   }
   loadSvg() {

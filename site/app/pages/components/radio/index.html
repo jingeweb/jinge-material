@@ -1,0 +1,31 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="单选项（Radio）">
+  <div class="page-container-section">
+    <h2><_t>单选项（Radio）</_t></h2>
+    
+    <CodeExample _t:_title="简单单选项" e:_example="_examples.simpleRadio" />
+
+    <ApiItem title="API - md-radio">
+      <p slot-pass:default>
+        <_t>
+          The following options can be applied to all checkboxes:
+        </_t>
+      </p>
+
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+    </ApiItem>
+
+    <NoteBlock tip>
+      All other <code>&lt;input type=&quot;checkbox&quot;&gt;</code> attributes, such as <strong>name</strong> and <strong>required</strong>, can be used on <code>md-checkbox</code>.
+    </NoteBlock>
+  </div>
+</PageContainer>

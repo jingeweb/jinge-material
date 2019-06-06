@@ -2,7 +2,8 @@ import './ripple.scss';
 
 import {
   Component,
-  VM 
+  VM, 
+  NOTIFY
 } from 'jinge';
 import {
   isBoolean
@@ -45,8 +46,7 @@ export class Ripple extends Component {
       v = v._event;
     }
     const isEvent = v.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent';
-
-    if (isBool && this.mdCentered && v) {
+    if (isBool && this.centered && v) {
       this.startRipple({
         type: 'mousedown'
       });
@@ -54,7 +54,7 @@ export class Ripple extends Component {
       this.startRipple(v);
     }
 
-    this.notify('update.active', false);
+    this[NOTIFY]('update.active', false);
   }
   touchMoveCheck() {
     clearTimeout(this._touchTimeout);
