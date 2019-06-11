@@ -16,7 +16,8 @@
     "stylelint": "stylelint '**/*.scss' --syntax scss",
     "eslint": "eslint .",
     "fixstylelint": "stylelint '**/*.scss' --syntax scss --fix",
-    "fixeslint": "eslint --fix ."
+    "fixeslint": "eslint --fix .",
+    "update-icons": "node ./script/update_icons.js"
   },
   "repository": {
     "type": "git",
@@ -41,8 +42,12 @@
   "devDependencies": {
     "clipboard": "^2.0.4",
     "copy-webpack-plugin": "^5.0.3",
+    "crawler": "^1.2.1",
     "eslint": "^5.16.0",
+    "fs-extra": "^8.0.1",
     "highlight.js": "^9.15.8",
+    "https-proxy-agent": "^2.2.1",
+    "jsdom": "^15.1.1",
     "node-sass": "^4.12.0",
     "precommit-hook": "^3.0.0",
     "sass-loader": "^7.1.0",
