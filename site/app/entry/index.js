@@ -1,5 +1,5 @@
 
-import '../../../src/style'; // import framework style
+import '../../../style'; // import framework style
 import './style'; // import app style
 
 import {

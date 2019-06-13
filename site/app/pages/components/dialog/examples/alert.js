@@ -4,7 +4,7 @@ import {
 
 import {
   DialogAlert
-} from '../../../../../../src/components/dialog';
+} from '../../../../../../src/dialog';
 
 import _tpl from './alert.html';
 

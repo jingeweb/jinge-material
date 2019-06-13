@@ -1,5 +1,5 @@
-@import 'src/components/animation/variables';
-@import 'src/style/engine/index';
+@import 'src/animation/variables';
+@import 'style/engine/index';
 
 $bg-color: md-get-palette-color(grey, 200);
 $border-color: darken($bg-color, 3%);

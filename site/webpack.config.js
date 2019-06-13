@@ -9,13 +9,16 @@ const jingeMaterialAlias = (function() {
    * 所以需要修改下别名对应的 import 路径，改成具体的文件路径。
    */
   const { jingeMaterialAlias } = require('../compiler');
-  const alias = {
-    [path.resolve(__dirname, '../src/index.js')]: jingeMaterialAlias['jinge-material']
-  };
+  const alias = {};
+  Object.keys(jingeMaterialAlias).forEach(libPath => {
+    alias[
+      libPath.replace('jinge-material', path.resolve(__dirname, '..'))
+    ]  = jingeMaterialAlias[libPath];
+  });
   return alias; 
 })();
 
-// console.log(jingeMaterialAlias);
+console.log(jingeMaterialAlias);
 function __r(p) {
   return path.join(__dirname, p);
 }

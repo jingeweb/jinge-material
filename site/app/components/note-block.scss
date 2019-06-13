@@ -1,6 +1,6 @@
-@import 'src/components/animation/variables';
-@import 'src/style/engine/index';
-@import 'src/style/themes/default';
+@import 'src/animation/variables';
+@import 'style/engine/index';
+@import 'style/themes/default';
 
 $note-border: md-get-palette-color(orange, A200);
 $alert-border: md-get-palette-color(red, A200);

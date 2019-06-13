@@ -4,7 +4,7 @@ import {
 
 import {
   DialogConfirm
-} from '../../../../../../src/components/dialog';
+} from '../../../../../../src/dialog';
 
 import _tpl from './confirm.html';
 

@@ -2,21 +2,45 @@ const iconsAlias = require('./_auto_generated_icons_alias');
 
 module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
   const prefix = `Icon${theme.toLowerCase().replace(/./, m => m.toUpperCase())}`;
-  const themeIconAlias = Object.assign({}, iconsAlias);
-  Object.keys(iconsAlias).forEach(cn => {
-    if (!cn.startsWith(prefix)) return;
-    const tag = iconsAlias[cn];
-    themeIconAlias[cn] = [`md-icon-${tag.split('-').pop()}`, tag];
+  const themeIconAlias = {};
+  Object.keys(iconsAlias).forEach(libPath => {
+    const libAlias = Object.assign({}, iconsAlias[libPath]);
+    Object.keys(libAlias).forEach(component => {
+      if (!component.startsWith(prefix)) return;
+      const alias = libAlias[component];
+      libAlias[component] = [
+        `md-icon-${alias.split('-').pop()}`,
+        alias
+      ];
+    });
+    themeIconAlias[libPath] = libAlias;
   });
-  return {
-    'jinge-material': Object.assign({
+  return Object.assign({
+    'jinge-material/src/button': {
       Button: 'md-button',
+    },
+    'jinge-material/src/icon': {
       Icon: 'md-icon',
-      Checkbox: 'md-checkbox',
-      Radio: 'md-radio',
-      Switch: 'md-switch',
+    },
+    'jinge-material/src/checkbox': {
+      Checkbox: 'md-checkbox'
+    },
+    'jinge-material/src/overlay': {
+      Overlay: 'md-overlay'
+    },
+    'jinge-material/src/radio': {
+      Radio: 'md-radio'
+    },
+    'jinge-material/src/switch': {
+      Switch: 'md-switch'
+    },
+    'jinge-material/src/content': {
       Content: 'md-content',
-      Toolbar: 'md-toolbar',
+    },
+    'jinge-material/src/toolbar': {
+      Toolbar: 'md-toolbar'
+    },
+    'jinge-material/src/dialog': {
       Dialog: 'md-dialog',
       DialogTitle: 'md-dialog-title',
       DialogContent: 'md-dialog-content',
@@ -24,6 +48,6 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       DialogAlert: 'md-dialog-alert',
       DialogConfirm: 'md-dialog-confirm',
       DialogPrompt: 'md-dialog-prompt'
-    }, themeIconAlias)
-  };
+    }
+  }, themeIconAlias);
 };
