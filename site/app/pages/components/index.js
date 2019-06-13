@@ -5,6 +5,7 @@ export * from './switch';
 export * from './content';
 export * from './toolbar';
 export * from './dialog';
+export * from './icon';
 
 import {
   Component

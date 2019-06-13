@@ -14,6 +14,8 @@ const jingeMaterialAlias = (function() {
   };
   return alias; 
 })();
+
+// console.log(jingeMaterialAlias);
 function __r(p) {
   return path.join(__dirname, p);
 }
@@ -50,8 +52,8 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin([  {
-      from: __r('asset'),
-      to: path.join(DIST_DIR, 'asset')
+      from: __r('assets'),
+      to: path.join(DIST_DIR, 'assets')
     }, {
       from: __r('index.html'),
       to: DIST_DIR,

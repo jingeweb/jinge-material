@@ -13,32 +13,11 @@ import {
   DESTROY
 } from 'jinge/core/component';
 
+import _tpl from './dialog-alert.html';
+
 export class DialogAlert extends Component {
   static get template() {
-    return `
-<!--
-  import { Dialog } from './dialog';
-  import { DialogTitle } from './dialog-title';
-  import { DialogContent } from './dialog-content';
-  import { DialogActions } from './dialog-actions';
-  import { Button } from '../button';
--->
-<Dialog on:update.active="passActive" e:__portalDisabled="__portalDisabled" e:fullscreen="false" e:active="active">
-  <if e:expect="title">
-  <DialogTitle>\${ title }</DialogTitle>
-  </if>
-  <if e:expect="content">
-  <DialogContent><bind-html e:content="content"/></DialogContent>
-  </if>
-  <DialogActions>
-    <Button
-     class="md-primary"
-     on:click="onClick"
-    >
-     \${ confirmText }
-    </Button>
-  </DialogActions>
-</Dialog>`;
+    return _tpl;
   }
   static show(opts, closeCallback) {
     const el = new DialogAlert(wrapAttrs(Object.assign({

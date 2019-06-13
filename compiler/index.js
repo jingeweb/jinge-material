@@ -1,5 +1,6 @@
-const jingeMaterialAlias = require('./alias');
+const createDefaultIconThemeAlias = require('./alias');
 
 module.exports = {
-  jingeMaterialAlias
+  jingeMaterialAlias: createDefaultIconThemeAlias(),
+  jingeMaterialAliasWithDefaultIconTheme: createDefaultIconThemeAlias
 };

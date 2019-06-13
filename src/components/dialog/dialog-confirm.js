@@ -13,43 +13,11 @@ import {
   RENDER_TO_DOM
 } from 'jinge/core/component';
 
+import _tpl from './dialog-confirm.html';
+
 export class DialogConfirm extends Component {
   static get template() {
-    return `
-<!--
-  import { Dialog } from './dialog';
-  import { DialogTitle } from './dialog-title';
-  import { DialogContent } from './dialog-content';
-  import { DialogActions } from './dialog-actions';
-  import { Button } from '../button';
-  import { Icon } from '../icon';
--->
-<Dialog on:update.active="passActive" e:active="active" e:__portalDisabled="__portalDisabled" e:fullscreen="false">
-  <if e:expect="title">
-  <DialogTitle>\${ title }</DialogTitle>
-  </if>
-  <if e:expect="content">
-  <DialogContent><bind-html e:content="content"/></DialogContent>
-  </if>
-  <DialogActions>
-    <Button
-     e:disabled="confirmSpinner"     
-     on:click="onCancel"
-    >
-      \${ cancelText }
-    </Button>
-    <Button
-     e:disabled="confirmSpinner"
-     class="md-primary"
-     on:click="onConfirm"
-    >
-      <if e:expect="confirmSpinner">
-      <Icon>home</Icon>
-      </if>
-      \${ confirmText }
-    </Button>
-  </DialogActions>
-</Dialog>`;
+    return _tpl;
   }
   /**
    * 

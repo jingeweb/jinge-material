@@ -13,7 +13,8 @@ import {
   PageSwitch,
   PageContent,
   PageToolbar,
-  PageDialog
+  PageDialog,
+  PageIcon
 } from './pages';
 
 export const componentsStates = [{
@@ -49,6 +50,10 @@ export const componentsStates = [{
   name: 'components.dialog',
   url: '/dialog',
   component: PageDialog
+}, {
+  name: 'components.icon',
+  url: '/icon',
+  component: PageIcon
 }];
 
 export const uiElementsStates = [{

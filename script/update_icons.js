@@ -3,8 +3,16 @@ const fs = require('fs-extra');
 const https = require('https');
 const HttpsProxyAgent = require('https-proxy-agent');
 const HTTP_RPOXY = process.env.PROXY ? (process.env.PROXY === 'local' ? 'http://127.0.0.1:1087' : process.env.PROXY) : null;
-const DOWNLOAD_TMP_DIR = path.resolve(__dirname, '../.tmp/downloaded_svgs');
-const PARALLEL = process.env.PARALLEL || 100;
+const ICON_COMPOENTS_OUTPUT = path.resolve(__dirname, '../src/components/icon/_auto_generated.js');
+const ICON_ALIAS_FILE = path.resolve(__dirname, '../compiler/_auto_generated_icons_alias.js');
+const PARALLEL = Number(process.env.PARALLEL || 40);
+
+const ICON_COMPONENT_TPL = `
+export class $$NAME$$ extends Icon {
+  get svg() {
+    return $$SVG$$;
+  }
+}\n`;
 
 function download(url, fileStream) {
   return new Promise((resolve, reject) => {
@@ -12,6 +20,11 @@ function download(url, fileStream) {
       host: 'material.io',
       path: url,
       port: 443,
+      headers: {
+        'cookie': '_ga=GA1.2.1199999695.1545021439; _gaexp=GAX1.2.6GjXDvIERWCxxcbRcG-lHQ.18089.2; _gid=GA1.2.219007254.1560221410',
+        'refer': 'https://material.io/tools/icons/?style=baseline',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36'
+      }
     };
     if (HTTP_RPOXY) {
       opts.agent = new HttpsProxyAgent(HTTP_RPOXY);
@@ -45,27 +58,32 @@ function download(url, fileStream) {
   });
 }
 
-async function downloadIcon(url, filepath) {
-  let err;
-  for(let i = 0; i < 3; i++) {
-    const out = fs.createWriteStream(filepath);
-    try {
-      return await download(url, out);
-    } catch(ex) {
-      out.end();
-      err = ex;
-    }
-  }
-  throw err;
+function convertCase(w) {
+  return w.replace(/^[a-z]/, m => m.toUpperCase()).replace(/[_-]([a-z0-9])/g, (m0, m1) => m1.toUpperCase());
 }
 
+const THEMES = [
+  'baseline',
+  'outline',
+  'round',
+  'sharp',
+  'twotone'
+];
+
+
 class Downloader {
-  constructor(icons, theme) {
+  constructor(icons) {
     this.icons = icons;
-    this.theme = theme || 'outline';
-    this._i = 0;
+    if (process.env.INCLUDE) {
+      const is = process.env.INCLUDE.split(',').map(n => n.trim());
+      this.icons = icons.filter(ic => is.indexOf(ic.id) >= 0);
+    }
+    this._codes = [];
+    this._fails = [];
+    this._i = process.env.INCLUDE ? 0 : Number(process.env.START || 0);
   }
   run() {
+    console.log(`${this.icons.length - this._i} icons to download.`);
     return new Promise((resolve, reject) => {
       this._res = resolve;
       this._rej = reject;
@@ -74,54 +92,85 @@ class Downloader {
   }
   schedule() {
     if (this._i >= this.icons.length) {
-      this._res();
+      console.log('finished.');
+      if (this._fails.length > 0) {
+        console.log('failed: ', this._fails.join(','));
+      }
+      this._res(this._codes.join(''));
       this._res = this._rej = this.icons = null;
       return;
     }
     const ics = this.icons.slice(this._i, this._i + PARALLEL);
     this._i += ics.length;
     Promise.all(ics.map(ic => {
-      const imageUrls = ic.imageUrls;
-      let url;
-      if (imageUrls && imageUrls[this.theme]) {
-        url = imageUrls[this.theme];
-      } else {
-        url = `${this.theme}-${ic.id}-24px.svg`;
-      }
-      return downloadIcon(
-        `/tools/icons/static/icons/${url}`, 
-        path.join(DOWNLOAD_TMP_DIR, this.theme, `${ic.id}.svg`)
-      ).catch(err => {
-        console.log(`error occur for icon: ${ic.id}`, err);
+      return this.downloadIcon(ic).catch(err => {
+        this._fails.push(ic.id);
+        console.log(`download failed for icon: ${ic.id}`, err);
       });
     })).then(() => {
+      fs.writeFile(
+        ICON_COMPOENTS_OUTPUT,
+        this._codes.join(''), {flag: 'a'}
+      );
+      this._codes.length = 0;
       console.log(this._i + ' / ' + this.icons.length);
       this.schedule();
     }, err => {
       this._rej(err);
     });
   }
+  async downloadIcon(ic) {
+    const imageUrls = ic.imageUrls;
+    await Promise.all(THEMES.map(theme => {
+      let url;
+      if (imageUrls && imageUrls[theme]) {
+        url = imageUrls[theme];
+      } else {
+        url = `${theme}-${ic.id}-24px.svg`;
+      }
+      return download(
+        `/tools/icons/static/icons/${url}`
+      ).then(buf => {
+        const code = ICON_COMPONENT_TPL.replace(
+          '$$NAME$$', `Icon${convertCase(theme)}${convertCase(ic.id)}`
+        ).replace(
+          '$$SVG$$', '`\n' + buf.toString() + '`'
+        );
+        return this._codes.push(code);
+      });
+    }));
+  }
 }
 
-const THEMES = ['baseline', 'outline', 'round', 'sharp', 'twotone'];
-
 (async function() {
-  await fs.remove(DOWNLOAD_TMP_DIR);
-  await fs.mkdirp(DOWNLOAD_TMP_DIR);
   const json = (await download('/tools/icons/static/data.json')).toString();
   const data = JSON.parse(json);
   let icons = [];
   data.categories.forEach(cat => {
     icons = icons.concat(cat.icons);
   });
-  console.log(`${icons.length} icons to download.`);
-  for(let i = 0; i < THEMES.length; i++) {
-    await fs.mkdirp(path.join(DOWNLOAD_TMP_DIR, THEMES[i]));
-    const downer = new Downloader(icons, THEMES[i]);
-    console.log(`downloading ${THEMES[i]} icons...`);
-    await downer.run();
-    console.log(`finish downloading ${THEMES[i]} icons`);
+  await fs.writeFile(
+    ICON_ALIAS_FILE,
+    `/* This file is auto genreated by script, never change it manually. */
+module.exports = {
+${icons.map(ic => {
+    return THEMES.map(theme => `  Icon${convertCase(theme)}${convertCase(ic.id)} : 'md-icon-${theme}-${ic.id}'`).join(',\n');
+  }).join(',\n')}
+};`);
+  if (process.env.START === '-1') {
+    return;
   }
+  const needReset = !process.env.START && !process.env.INCLUDE;
+  if (needReset) {
+    await fs.writeFile(
+      ICON_COMPOENTS_OUTPUT,
+      `/* This file is auto genreated by script, never change it manually. */
+import {
+  Icon
+} from './base.js';\n`
+    );
+  }
+  await (new Downloader(icons)).run();
 })().catch(err => {
   console.error(err);
 });

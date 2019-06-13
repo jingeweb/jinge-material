@@ -1,0 +1,16 @@
+<md-dialog on:update.active="passActive" e:__portalDisabled="__portalDisabled" e:fullscreen="false" e:active="active">
+  <if e:expect="title">
+  <md-dialog-title>\${ title }</md-dialog-title>
+  </if>
+  <if e:expect="content">
+  <md-dialog-content><bind-html e:content="content"/></md-dialog-content>
+  </if>
+  <md-dialog-actions>
+    <md-button
+      class="md-primary"
+      on:click="onClick"
+    >
+      \${ confirmText }
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>
