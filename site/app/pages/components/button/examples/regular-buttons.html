@@ -1,7 +1,10 @@
 <div>
   <div>
     <small>Flat</small>
-    <md-button on:click="onClick">Default</md-button>
+    <md-button on:click="onClick">
+      <md-icon-home/>
+      <span>Default</span>
+    </md-button>
     <md-button e:ripple="false">Ripple Off</md-button>
     <md-button on:click="onClick" class="md-primary">Primary</md-button>
     <md-button class="md-accent">Accent</md-button>
@@ -9,10 +12,24 @@
   </div>
 
   <div>
+    <p style="margin: 0;">
+      <md-spinner e:value="v" class="md-accent md-size-large" />
+    </p>
     <small>Raised</small>
-    <md-button class="md-raised">Default</md-button>
+    <md-button class="md-raised">
+      <span>Default</span>
+    </md-button>
     <md-button class="md-raised" e:ripple="false">Ripple Off</md-button>
-    <md-button class="md-raised md-primary">Primary</md-button>
+    <md-button on:click="load" e:disabled="loading" class="md-raised md-primary">
+      <if e:expect="!loading">
+        <md-icon-search slot-pass:default/>
+        <md-spinner slot-pass:else/>
+      </if>
+      <span>Primary</span>
+    </md-button>
+    <md-button class="md-raised">
+      <md-icon-home/>
+    </md-button>
     <md-button class="md-raised md-accent">Accent</md-button>
     <md-button class="md-raised" disabled>Disabled</md-button>
   </div>

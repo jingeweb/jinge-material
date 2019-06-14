@@ -8,3 +8,4 @@ export * from './radio';
 export * from './ripple';
 export * from './switch';
 export * from './toolbar';
+export * from './spinner';

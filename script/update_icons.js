@@ -2,17 +2,11 @@ const path = require('path');
 const fs = require('fs-extra');
 const https = require('https');
 const HttpsProxyAgent = require('https-proxy-agent');
+const slog = require('single-line-log').stdout;
 const HTTP_RPOXY = process.env.PROXY ? (process.env.PROXY === 'local' ? 'http://127.0.0.1:1087' : process.env.PROXY) : null;
-const ICON_COMPOENTS_OUTPUT = path.resolve(__dirname, '../src/components/icon/_auto_generated.js');
+const ICONS_DIR = path.resolve(__dirname, '../icons');
 const ICON_ALIAS_FILE = path.resolve(__dirname, '../compiler/_auto_generated_icons_alias.js');
-const PARALLEL = Number(process.env.PARALLEL || 40);
-
-const ICON_COMPONENT_TPL = `
-export class $$NAME$$ extends Icon {
-  get svg() {
-    return $$SVG$$;
-  }
-}\n`;
+const PARALLEL = Number(process.env.PARALLEL || 20);
 
 function download(url, fileStream) {
   return new Promise((resolve, reject) => {
@@ -78,50 +72,68 @@ class Downloader {
       const is = process.env.INCLUDE.split(',').map(n => n.trim());
       this.icons = icons.filter(ic => is.indexOf(ic.id) >= 0);
     }
-    this._codes = [];
     this._fails = [];
+    this._t = 0; // total to download
+    this._r = 0; // running
+    this._n = 0; // finished
     this._i = process.env.INCLUDE ? 0 : Number(process.env.START || 0);
   }
   run() {
-    console.log(`${this.icons.length - this._i} icons to download.`);
+    this._t = this.icons.length - this._i;
+    console.log('start downloading...');
+    slog(`0 / ${this._t}`);
     return new Promise((resolve, reject) => {
       this._res = resolve;
       this._rej = reject;
       this.schedule();
     });
   }
-  schedule() {
-    if (this._i >= this.icons.length) {
-      console.log('finished.');
-      if (this._fails.length > 0) {
-        console.log('failed: ', this._fails.join(','));
-      }
-      this._res(this._codes.join(''));
-      this._res = this._rej = this.icons = null;
-      return;
+  doneAll() {
+    slog.clear();
+    console.log('\nfinished.');
+    if (this._fails.length > 0) {
+      console.log('failed: ', this._fails.join(','));
     }
-    const ics = this.icons.slice(this._i, this._i + PARALLEL);
-    this._i += ics.length;
-    Promise.all(ics.map(ic => {
-      return this.downloadIcon(ic).catch(err => {
-        this._fails.push(ic.id);
-        console.log(`download failed for icon: ${ic.id}`, err);
-      });
-    })).then(() => {
-      fs.writeFile(
-        ICON_COMPOENTS_OUTPUT,
-        this._codes.join(''), {flag: 'a'}
-      );
-      this._codes.length = 0;
-      console.log(this._i + ' / ' + this.icons.length);
+    this._res();
+    this._res = this._rej = this.icons = null;
+  }
+  doneOne() {
+    this._n++;
+    this._r--;
+    slog(`${this._n} / ${this._t}`);
+    if (this._n >= this.icons.length) {
+      this.doneAll();
+    } else {
       this.schedule();
-    }, err => {
-      this._rej(err);
-    });
+    }
+  }
+  schedule() {
+    while (this._i < this.icons.length && this._r < PARALLEL) {
+      const ic = this.icons[this._i];
+      this._r++;
+      this._i++;
+      (ic => {
+        let tries = 1;
+        const _try = () => {
+          this.downloadIcon(ic).then(() => {
+            this.doneOne();
+          }, err => {
+            if (tries++ < 5) {
+              _try();
+              return;
+            }
+            console.log('\n\nfailed to download icon: ', ic.id, '\n  -> ', err.message || err, '\n');
+            this._fails.push(ic.id);
+            this.doneOne();
+          });
+        };
+        _try();
+      })(ic);
+    }
   }
   async downloadIcon(ic) {
     const imageUrls = ic.imageUrls;
-    await Promise.all(THEMES.map(theme => {
+    const codes = await Promise.all(THEMES.map(theme => {
       let url;
       if (imageUrls && imageUrls[theme]) {
         url = imageUrls[theme];
@@ -131,14 +143,38 @@ class Downloader {
       return download(
         `/tools/icons/static/icons/${url}`
       ).then(buf => {
-        const code = ICON_COMPONENT_TPL.replace(
-          '$$NAME$$', `Icon${convertCase(theme)}${convertCase(ic.id)}`
-        ).replace(
-          '$$SVG$$', '`\n' + buf.toString() + '`'
-        );
-        return this._codes.push(code);
+        return {
+          name: `Icon${convertCase(theme)}${convertCase(ic.id)}`,
+          dul: null, // dulplicated
+          dep: false,
+          svg: '`\n' + buf.toString() + '`'
+        };
       });
     }));
+    for(let i = 1; i < codes.length; i++) {
+      const ci = codes[i];
+      for(let j = 0; j < i; j++) {
+        const cj = codes[j];
+        if (!cj.dul && ci.svg === cj.svg) {
+          ci.dul = cj.name;
+          cj.dep = true;
+          break;
+        }
+      }
+    }
+    await fs.writeFile(
+      path.join(ICONS_DIR, `${ic.id}.js`),
+      `import {
+  Icon
+} from '../src/icon';
+${codes.map(c => `${c.dep && !c.dul ? `
+const __svg_${c.name} = ${c.svg};\n` : ''}
+export class ${c.name} extends Icon {
+  get svg() {
+    return ${!c.dep && !c.dul ? c.svg : `__svg_${c.dul ? c.dul : c.name}`};
+  }
+}`).join('\n')}`
+    );
   }
 }
 
@@ -154,7 +190,9 @@ class Downloader {
     `/* This file is auto genreated by script, never change it manually. */
 module.exports = {
 ${icons.map(ic => {
-    return THEMES.map(theme => `  Icon${convertCase(theme)}${convertCase(ic.id)} : 'md-icon-${theme}-${ic.id}'`).join(',\n');
+    return `  'jinge-material/icons/${ic.id}': {
+${THEMES.map(theme => `    Icon${convertCase(theme)}${convertCase(ic.id)} : 'md-icon-${theme}-${ic.id}'`).join(',\n')}
+  }`;
   }).join(',\n')}
 };`);
   if (process.env.START === '-1') {
@@ -162,12 +200,10 @@ ${icons.map(ic => {
   }
   const needReset = !process.env.START && !process.env.INCLUDE;
   if (needReset) {
+    await fs.emptyDir(ICONS_DIR);
     await fs.writeFile(
-      ICON_COMPOENTS_OUTPUT,
-      `/* This file is auto genreated by script, never change it manually. */
-import {
-  Icon
-} from './base.js';\n`
+      path.join(ICONS_DIR, 'README.md'),
+      'Files under this directory is auto generated by script, never modify it manually.'
     );
   }
   await (new Downloader(icons)).run();

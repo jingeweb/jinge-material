@@ -17,12 +17,8 @@ $md-button-fab-size: 56px;
 $md-button-fab-size-mini: $md-button-icon-size;
 
 @mixin md-icon-on-buttons($state, $type) {
-  .md-icon-font {
+  .md-icon {
     @include md-theme-property(color, $state, $type);
-  }
-
-  .md-icon-image {
-    @include md-theme-property(fill, $state, $type);
   }
 }
 
@@ -115,12 +111,8 @@ $md-button-fab-size-mini: $md-button-icon-size;
     color: rgba(#000, 0.87);
     background-color: #fff;
 
-    .md-icon-font {
+    .md-icon {
       color: rgba(#000, 0.87);
-    }
-
-    .md-icon-image {
-      fill: rgba(#000, 0.87);
     }
   }
 

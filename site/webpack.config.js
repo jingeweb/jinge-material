@@ -18,7 +18,6 @@ const jingeMaterialAlias = (function() {
   return alias; 
 })();
 
-console.log(jingeMaterialAlias);
 function __r(p) {
   return path.join(__dirname, p);
 }

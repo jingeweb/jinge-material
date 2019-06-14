@@ -37,6 +37,13 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/content': {
       Content: 'md-content',
     },
+    'jinge-material/src/ripple': {
+      Ripple: 'md-ripple',
+      Wave: 'md-wave'
+    },
+    'jinge-material/src/spinner': {
+      Spinner: 'md-spinner'
+    },
     'jinge-material/src/toolbar': {
       Toolbar: 'md-toolbar'
     },

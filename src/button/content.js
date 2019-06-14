@@ -8,10 +8,7 @@ import {
 export class ButtonContent extends Component {
   static get template() {
     return `
-<!--
-  import { Ripple } from '../ripple';
--->
-<Ripple
+<md-ripple
   e:disabled="!ripple || disabled"
   e:eventTrigger="false"
   e:active="rippleActive"
@@ -20,7 +17,7 @@ export class ButtonContent extends Component {
   <div class="md-button-content">
     <_slot slot-use:default/>
   </div>
-</Ripple>`;
+</md-ripple>`;
   }
   constructor(attrs) {
     super(attrs);
