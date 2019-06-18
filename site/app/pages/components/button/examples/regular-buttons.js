@@ -15,14 +15,6 @@ export default class ExampleRegularButtons extends Component {
   constructor(attrs) {
     super(attrs);
     this.loading = false;
-    this.v = 0;
-    setInterval(() => {
-      if (this.v === 100) {
-        this.v = 0;
-      } else {
-        this.v += 20;
-      }
-    }, 1000);
   }
   onClick(evt) {
     console.log('click button', evt);

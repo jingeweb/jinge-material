@@ -1,0 +1,22 @@
+<div>
+  <md-button class="md-raised">
+    <md-spinner/>
+    <span>spinner before text</span>
+  </md-button>
+  <md-button class="md-primary md-raised md-icon-button">
+    <md-spinner/>
+  </md-button>
+  <md-button e:disabled="loading" on:click="submit" class="md-raised md-primary">
+    <if e:expect="loading">
+      <md-spinner/>
+    </if>
+    <span>提交</span>
+  </md-button>
+  <md-button e:disabled="loading" on:click="submit" class="md-raised md-primary">
+    <if e:expect="loading">
+      <md-spinner slot-pass:default/>
+      <md-icon-search slot-pass:else/>
+    </if>
+    <span>搜索</span>
+  </md-button>
+</div>

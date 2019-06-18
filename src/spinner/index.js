@@ -4,29 +4,43 @@ import {
   Component,
   GET_REF,
   UPDATE_IF_NEED,
-  AFTER_RENDER
+  AFTER_RENDER,
+  isString
 } from 'jinge';
 
-const W = 60;
-const S = 6;
+function csize(v, addPre) {
+  if (v === 'normal') {
+    v = 48;
+  } else if (v === 'small') {
+    v = 36;
+  } else if (v === 'large') {
+    v = 64;
+  }
+  if (!isString(v) || /^\d+$/.test(v)) {
+    v += 'px';
+  }
+  return `${addPre ? ';' : ''}width:${v};height:${v}`;
+}
+
 
 export class Spinner extends Component {
   static get template() {
     return `
 <div
   class="md-spinner\${_determinate ? ' md-determinate' : ' md-indeterminate'}\${className}"
+  e:style="style"
 >
   <svg
     preserveAspectRatio="xMidYMid meet"
     focusable="false"
-    viewBox="0 0 60 60"
+    viewBox="0 0 48 48"
     ref:draw
   >
     <circle
       stroke-linecap="round"
       cx="50%" cy="50%"
-      stroke-width="6"
-      r="27"
+      stroke-width="4"
+      r="22"
       ref:circle
     ></circle>
   </svg>
@@ -37,7 +51,7 @@ export class Spinner extends Component {
     this.className = attrs.class ? ' ' + attrs.class : '';
     this._determinate = 'value' in attrs;
     this.value = attrs.value;
-    this.diameter = Number(attrs.diameter || 60);
+    this.style = (attrs.style || '') + (attrs.size ? csize(attrs.size, attrs.style) : '');
   }
   get value() {
     return this._value;
@@ -51,8 +65,10 @@ export class Spinner extends Component {
   }
   attachCircleStyle () {
     const circle = this[GET_REF]('circle');
-    // circle.style.strokeDasharray = 
-    circle.style.strokeDashoffset = 2 * Math.PI * 27 * (100 - this.value) / 100 + 'px';
+    let v = this.value;
+    if (v > 100) v = 100;
+    else if (v < 0) v = 0;
+    circle.style.strokeDashoffset = 2 * Math.PI * 22 * (100 - v) / 100 + 'px';
   }
   [AFTER_RENDER]() {
     if (this._determinate) {

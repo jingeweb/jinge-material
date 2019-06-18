@@ -1,0 +1,54 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="加载指示（Spinner）">
+  <div class="page-container-section">
+    <p>
+      <_t>
+      该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，
+      通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。
+      </_t>
+    </p>
+    <p>
+      <_t>
+      指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，
+      <code>value</code> 属性为 0-100 的数字。
+      </_t>
+    </p>
+    <p>
+      <_t>
+      不指定 <code>value</code> 属性时，属于指示正在加载状态的 Spinner,
+      Spinner 表现为一个旋转的加载动画。
+      </_t>
+    </p>
+  </div>
+
+  <div class="page-container-section">
+    <h2><_t>指示正在加载状态的 Spinner</_t></h2>
+    <CodeExample _t:_title="指示正在加载状态的 Spinner" e:_example="_examples.loadingSpinner" />
+
+    <h2><_t>指示具体的加载进度的 Spinner</_t></h2>
+    <CodeExample _t:_title="指示具体的加载进度的 Spinner" e:_example="_examples.progressSpinner" />
+
+    <h2><_t>在按钮中使用 Spinner</_t></h2>
+    <CodeExample _t:_title="在按钮中使用 Spinner" e:_example="_examples.buttonSpinner" />
+    
+    <ApiItem title="API - md-spinner">
+      <p slot-pass:default>
+        <_t>
+        默认情况下，Spinner 的大小为 <code>1em</code>（即字号大小），颜色为 <code>currentColor</code>（即文字颜色）。
+        在实际使用时，可以通过调整父元素的字号和颜色来改变 Spinner 的大小和颜色，也可以通过以下接口来调整：
+        </_t>
+      </p>
+
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.classes.headings" e:props="_api.classes.props" slot-pass:classes />
+    </ApiItem>
+  </div>
+</PageContainer>
