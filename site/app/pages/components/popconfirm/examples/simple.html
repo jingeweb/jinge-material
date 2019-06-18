@@ -1,0 +1,29 @@
+<div>
+  <p>
+    <_t>简单的 Popconfirm：</_t>
+    <md-popconfirm
+      on:confirm="confirm"
+      on:cancel="cancel"
+      _t:title="您确认要删除 ${some.name} 吗？"
+    >
+      <md-button class="md-primary">
+        <_t>删除</_t>
+      </md-button>
+    </md-popconfirm>
+  </p>
+  <p>
+    <_t>配合服务器端 API 接口：</_t>
+    <md-popconfirm
+      e:active="isConfirmShown"
+      e:hideWhenConfirmClick="false"
+      e:confirmSpinner="fetching"
+      on:update.active="isConfirmShown = args[0]"
+      on:confirm="submitDelete"
+      _t:title="您确认要删除 ${some.name} 吗？"
+    >
+      <md-button class="md-primary">
+        <_t>删除</_t>
+      </md-button>
+    </md-popconfirm>
+  </p>
+</div>

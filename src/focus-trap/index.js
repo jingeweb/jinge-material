@@ -1,7 +1,7 @@
 import {
   Component,
   AFTER_RENDER,
-  getFirstHtmlDOM
+  GET_FIRST_DOM
 } from 'jinge';
 
 export class FocusTrap extends Component {
@@ -13,7 +13,7 @@ export class FocusTrap extends Component {
   }
   setFocus() {
     setTimeout(() => {
-      const $el = getFirstHtmlDOM(this);
+      const $el = this[GET_FIRST_DOM]();
       if ($el.tagName) {
         $el.setAttribute('tabindex', '-1');
         $el.focus();

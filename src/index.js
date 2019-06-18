@@ -9,3 +9,7 @@ export * from './ripple';
 export * from './switch';
 export * from './toolbar';
 export * from './spinner';
+export * from './progress';
+export * from './popover';
+export * from './tooltip';
+export * from './popconfirm';

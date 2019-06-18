@@ -41,6 +41,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       Ripple: 'md-ripple',
       Wave: 'md-wave'
     },
+    'jinge-material/src/portal': {
+      Portal: 'md-portal'
+    },
     'jinge-material/src/spinner': {
       Spinner: 'md-spinner'
     },
@@ -58,6 +61,15 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       DialogAlert: 'md-dialog-alert',
       DialogConfirm: 'md-dialog-confirm',
       DialogPrompt: 'md-dialog-prompt'
+    },
+    'jinge-material/src/popover': {
+      Popover: 'md-popover'
+    },
+    'jinge-material/src/popconfirm': {
+      Popconfirm: 'md-popconfirm'
+    },
+    'jinge-material/src/tooltip': {
+      Tooltip: 'md-tooltip'
     }
   }, themeIconAlias);
 };

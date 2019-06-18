@@ -1,0 +1,21 @@
+<md-popover
+ e:trigger="trigger"
+ e:active="active"
+ e:transition="transition"
+ e:placement="placement"
+ e:offset="offset"
+ e:delay="delay"
+ e:closeWhenOutsideClidk="closeWhenOutsideClidk"
+ e:class="className"
+ e:_popperOptions="_popperOptions"
+ on:update.active="onUpdateActive"
+>
+  <_slot slot-pass:default>
+    <_slot slot-use:default/>
+  </_slot>
+  <_slot slot-pass:content>
+    <_slot slot-use:content>
+    ${title}
+    </_slot>
+  </_slot>
+</md-popover>

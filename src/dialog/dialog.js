@@ -19,7 +19,7 @@ export class Dialog extends Component {
     this.backdropClass = attrs.backdropClass || 'md-dialog-overlay';
     this.closeOnEsc = attrs.closeOnEsc !== false;
     this.fullscreen = attrs.fullscreen !== false;
-    this.clickOutsideToClose = attrs.clickOutsideToClose !== false;
+    this.closeWhenOutsideClick = attrs.closeWhenOutsideClick !== false;
   }
   onKeydown(evt) {
     if (evt.keyCode === 27 && this.closeOnEsc) {
@@ -38,7 +38,7 @@ export class Dialog extends Component {
     this[NOTIFY](v ? 'open' : 'close');
   }
   onClick() {
-    if (this.clickOutsideToClose) {
+    if (this.closeWhenOutsideClick) {
       this.close('overlay');
     }
     this[NOTIFY]('click-overlay');

@@ -1,6 +1,12 @@
-<md-dialog on:update.active="passActive" e:__portalDisabled="__portalDisabled" e:fullscreen="false" e:active="active">
+<md-dialog
+  on:update.active="passActive"
+  e:__portalDisabled="__portalDisabled"
+  e:fullscreen="false"
+  e:active="active"
+  e:closeWhenOutsideClick="false"
+>
   <if e:expect="title">
-  <md-dialog-title>\${ title }</md-dialog-title>
+  <md-dialog-title>${ title }</md-dialog-title>
   </if>
   <if e:expect="content">
   <md-dialog-content><bind-html e:content="content"/></md-dialog-content>
@@ -10,7 +16,7 @@
      e:disabled="confirmSpinner"     
      on:click="onCancel"
     >
-      ${cancelText}
+      <span>${cancelText}</span>
     </md-button>
     <md-button
       class="md-primary"
@@ -18,9 +24,9 @@
       on:click="onConfirm"
     >
       <if e:expect="confirmSpinner">
-        <md-icon-home/>
+        <md-spinner/>
       </if>
-      ${confirmText}
+      <span>${confirmText}</span>
     </md-button>
   </md-dialog-actions>
 </md-dialog>

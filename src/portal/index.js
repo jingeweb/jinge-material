@@ -7,19 +7,19 @@ import {
 
 import {
   appendChild,
-  createComment,
-  removeChild
+  createComment
 } from 'jinge/dom';
 import {
   HANDLE_AFTER_RENDER,
-  isComponent,
-  HANDLE_REMOVE_ROOT_DOMS,
   HANDLE_BEFORE_DESTROY,
-  DESTROY
+  DESTROY,
+  GET_FIRST_DOM,
+  GET_TRANSITION_DOM
 } from 'jinge/core/component';
 
 const DISABLED = Symbol('disabled');
-const SAVED_ROOT_NODES = Symbol('saved_doms');
+const REMOVED = Symbol('removed');
+const SAVED_ROOT_NODE = Symbol('saved');
 
 export class Portal extends Component {
   static get template() {
@@ -28,7 +28,15 @@ export class Portal extends Component {
   constructor(attrs) {
     super(attrs);
     this[DISABLED] = attrs.__disabled;
-    this[SAVED_ROOT_NODES] = null;
+    this[REMOVED] = false;
+    this[SAVED_ROOT_NODE] = null;
+  }
+  [GET_TRANSITION_DOM]() {
+    if (this[DISABLED]) {
+      return super[GET_TRANSITION_DOM]();
+    } else {
+      return this[SAVED_ROOT_NODE][GET_FIRST_DOM]();
+    }
   }
   [RENDER]() {
     const els = super[RENDER]();
@@ -36,32 +44,16 @@ export class Portal extends Component {
       return els;
     }
     appendChild(document.body, els);
-    this[SAVED_ROOT_NODES] = this[ROOT_NODES];
+    this[SAVED_ROOT_NODE] = this[ROOT_NODES][0];
     this[ROOT_NODES] = [createComment('ported')];
     return this[ROOT_NODES];
   }
   [HANDLE_AFTER_RENDER]() {
-    if (!this[DISABLED]) this[SAVED_ROOT_NODES].forEach(n => {
-      if (isComponent(n)) n[HANDLE_AFTER_RENDER]();
-    });
+    if (!this[DISABLED]) this[SAVED_ROOT_NODE][HANDLE_AFTER_RENDER]();
     super[HANDLE_AFTER_RENDER]();
   }
-  [HANDLE_REMOVE_ROOT_DOMS]($parent) {
-    if (!this[DISABLED]) this[SAVED_ROOT_NODES].forEach(el => {
-      if (isComponent(el)) {
-        el[HANDLE_REMOVE_ROOT_DOMS](document.body);
-      } else {
-        removeChild(document.body, el);
-      }
-    });
-    super[HANDLE_REMOVE_ROOT_DOMS]($parent);
-  }
   [HANDLE_BEFORE_DESTROY]() {
-    if (!this[DISABLED]) this[SAVED_ROOT_NODES].forEach(el => {
-      if (isComponent(el)) {
-        el[DESTROY](false);
-      }
-    });
+    if (!this[DISABLED]) this[SAVED_ROOT_NODE][DESTROY](true);
     super[HANDLE_BEFORE_DESTROY]();
   }
 }

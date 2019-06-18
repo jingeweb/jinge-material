@@ -1,0 +1,13 @@
+<_slot slot-use:default>missing!!</_slot>
+<if
+  e:expect="isShown"
+  on:branch-switched="_onIfSwitched"
+>
+<md-portal>
+<div e:class="className" ref:pop>
+  <div class="content">
+    <_slot slot-use:content>missing!!</_slot>
+  </div>
+</div>
+</md-portal>
+</if>

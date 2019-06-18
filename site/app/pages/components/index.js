@@ -8,6 +8,9 @@ export * from './dialog';
 export * from './icon';
 export * from './spinner';
 export * from './progress';
+export * from './popover';
+export * from './tooltip';
+export * from './popconfirm';
 
 import {
   Component

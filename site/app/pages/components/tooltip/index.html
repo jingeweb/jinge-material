@@ -1,0 +1,26 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="文字提示（Tooltip）">
+  <div class="page-container-section">
+    <p>Tooltips identify an element when they are activated. They may contain brief helper text about its function. For example, they may contain text information about actionable icons.</p>
+  </div>
+
+  <div class="page-container-section">
+    <h2><_t>文字提示（Tooltip）</_t></h2>
+    <CodeExample title="Tooltip" e:_example="_examples.simple" />
+
+    <ApiItem title="API - md-tooltip">
+      <NoteBlock tip slot-pass:default>
+        <_t>Popover 组件的所有 API 也可用于 Tooltip 组件。但部分属性的默认值不同。</_t>
+      </NoteBlock>
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+    </ApiItem>
+  </div>
+</PageContainer>

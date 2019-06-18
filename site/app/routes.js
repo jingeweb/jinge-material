@@ -16,7 +16,10 @@ import {
   PageDialog,
   PageIcon,
   PageSpinner,
-  PageProgress
+  PageProgress,
+  PagePopover,
+  PageTooltip,
+  PagePopconfirm
 } from './pages';
 
 export const componentsStates = [{
@@ -64,6 +67,18 @@ export const componentsStates = [{
   name: 'components.progress',
   url: '/progress',
   component: PageProgress
+}, {
+  name: 'components.popover',
+  url: '/popover',
+  component: PagePopover
+}, {
+  name: 'components.tooltip',
+  url: '/tooltip',
+  component: PageTooltip
+}, {
+  name: 'components.popconfirm',
+  url: '/popconfirm',
+  component: PagePopconfirm
 }];
 
 export const uiElementsStates = [{

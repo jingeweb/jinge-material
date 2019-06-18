@@ -1,0 +1,36 @@
+<div>
+  <p>
+    <_t>简单的 Tooltip：</_t>
+    <md-tooltip _t:title="你好，世界！">
+      <md-button class="md-primary md-raised">Hover Me</md-button>
+    </md-tooltip>
+  </p>
+  <p>
+    <_t>改变 placement 和 delay：</_t>
+    <md-tooltip placement="top" delay="500" _t:title="你好，世界！">
+      <md-button class="md-primary md-raised">Hover Me</md-button>
+    </md-tooltip>
+  </p>
+  <p>
+    <_t>通过父组件里的参数控制显示和隐藏：</_t>
+    <md-tooltip
+      _t:title="你好，世界！"
+      e:active="isTooltipShown"
+      on:update.active="isTooltipShown = args[0]"
+    >
+      <md-button class="md-primary md-raised">Edit</md-button>
+    </md-tooltip>
+    <md-button on:click="isTooltipShown = !isTooltipShown" class="md-raised">
+      ${isTooltipShown ? 'hide' : 'show'}
+    </md-button>
+  </p>
+  <p>
+    <_t>展示自定义的内容：</_t>
+    <md-tooltip>
+      <md-button slot-pass:default class="md-primary md-raised">Edit</md-button>
+      <_slot slot-pass:content>
+        Hello, <span style="color: red;">World</span>!
+      </_slot>
+    </md-tooltip>
+  </p>
+</div>
