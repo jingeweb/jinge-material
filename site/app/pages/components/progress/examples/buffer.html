@@ -1,0 +1,13 @@
+<div>
+  <md-progress-bar mode="buffer" e:value="amount" e:buffer="buffer"/>
+  <md-progress-bar class="md-accent" mode="buffer" e:value="amount" e:buffer="buffer"/>
+  <div>
+    Progress <br/>
+    <input type="range" e:value="amount" on:change="amount = $event.target.value"/> ${ amount }%
+  </div>
+
+  <div>
+    Buffer <br/>
+    <input type="range" e:value="buffer" on:change="buffer = $event.target.value"/> ${ buffer }%
+  </div>
+</div>

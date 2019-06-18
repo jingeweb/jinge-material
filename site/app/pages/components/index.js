@@ -7,6 +7,7 @@ export * from './toolbar';
 export * from './dialog';
 export * from './icon';
 export * from './spinner';
+export * from './progress';
 
 import {
   Component

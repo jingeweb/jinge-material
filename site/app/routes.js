@@ -15,7 +15,8 @@ import {
   PageToolbar,
   PageDialog,
   PageIcon,
-  PageSpinner
+  PageSpinner,
+  PageProgress
 } from './pages';
 
 export const componentsStates = [{
@@ -59,6 +60,10 @@ export const componentsStates = [{
   name: 'components.spinner',
   url: '/spinner',
   component: PageSpinner
+}, {
+  name: 'components.progress',
+  url: '/progress',
+  component: PageProgress
 }];
 
 export const uiElementsStates = [{

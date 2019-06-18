@@ -44,6 +44,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/spinner': {
       Spinner: 'md-spinner'
     },
+    'jinge-material/src/progress': {
+      Progress: 'md-progress-bar'
+    },
     'jinge-material/src/toolbar': {
       Toolbar: 'md-toolbar'
     },
