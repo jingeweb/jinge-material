@@ -5,11 +5,11 @@
     Footer
   } from '../layout';
 -->
-<ui-hash-router e:_states="_routes" _otherwise="home">
-<div class="container ${isSplash ? 'splash' : ''}">
-  <Header/>
+<ui-html-router e:_states="_routes" _otherwise="home">
+<div class="container${isSplash ? ' splash' : ''}">
+  <Header e:isSplash="isSplash"/>
 
-  <div class="container-wrapper md-layout-row ${isSplash ? 'splash' : ''}">
+  <div class="container-wrapper md-layout-row${isSplash ? ' splash' : ''}">
     <Nav/>
 
     <ui-view/>
@@ -17,4 +17,4 @@
 
   <Footer/>
 </div>
-</ui-hash-router>
+</ui-html-router>

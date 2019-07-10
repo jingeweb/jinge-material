@@ -1,0 +1,94 @@
+@import 'src/animation/variables';
+@import 'src/elevation/mixins';
+@import './base';
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+@mixin md-card-theme($base) {
+  @include md-theme-property(background-color, $base);
+  @include md-theme-property(color, text-primary, $base);
+
+  .md-card-expand .md-card-actions {
+    @include md-theme-property(background-color, $base);
+  }
+
+  .md-card-header,
+  .md-card-actions {
+    .md-button:not(.md-primary):not(.md-accent) {
+      @include md-theme-property(color, text-primary, $base);
+
+      &.md-icon-button {
+        .md-icon {
+          @include md-theme-property(color, text-primary, $base, 0.54);
+          @include md-theme-property(fill, text-primary, $base, 0.54);
+        }
+      }
+    }
+  }
+
+  > .md-card-area {
+    &::after {
+      @include md-theme-property(background-color, divider, $base);
+    }
+  }
+}
+
+$md-card-radius: 2px;
+
+.md-card {
+  @include md-card;
+
+  &.md-with-hover {
+    cursor: pointer;
+    transition:
+      background-color 0.3s $md-transition-default-timing,
+      box-shadow 0.4s $md-transition-stand-timing;
+    will-change: background-color, box-shadow;
+
+    &:hover {
+      z-index: 2;
+
+      @include md-elevation(8);
+    }
+  }
+
+  &.md-expand-active {
+    .md-card-expand-trigger.md-icon-button {
+      transform: rotate(180deg);
+    }
+  }
+
+  .md-subhead,
+  .md-title,
+  .md-subheading {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .md-subhead {
+    opacity: 0.54;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    line-height: 20px;
+
+    + .md-title {
+      margin-top: 4px;
+    }
+  }
+
+  .md-title {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 32px;
+  }
+
+  @include md-card-theme(background);
+
+  &.md-primary {
+    @include md-card-theme(primary);
+  }
+
+  &.md-accent {
+    @include md-card-theme(accent);
+  }
+}

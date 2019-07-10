@@ -11,6 +11,7 @@ export * from './progress';
 export * from './popover';
 export * from './tooltip';
 export * from './popconfirm';
+export * from './card';
 
 import {
   Component

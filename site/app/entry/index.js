@@ -4,13 +4,17 @@ import './style'; // import app style
 
 import {
   Component,
-  bootstrap 
+  bootstrap, 
+  ON
 } from 'jinge';
 
 import _tpl from './index.html';
 import _sty from './index.scss';
 
 import RouteStates from '../routes';
+import {
+  pageState, IS_SPLASH_CHANGED
+} from '../service';
 
 class App extends Component {
   static get template() {
@@ -21,8 +25,11 @@ class App extends Component {
   }
   constructor(attrs) {
     super(attrs);
-    this.isSplash = false;
+    this.isSplash = pageState.isSplash;
     this._routes = RouteStates;
+    pageState[ON](IS_SPLASH_CHANGED, isSplash => {
+      this.isSplash = isSplash;
+    });
   }
 }
 

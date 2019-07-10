@@ -1,0 +1,4 @@
+<div class="md-drawer" :class="[$mdActiveTheme, drawerClasses]">
+  <_slot />
+  <md-overlay e:active="active" on:click="closeDrawer"/>
+</div>

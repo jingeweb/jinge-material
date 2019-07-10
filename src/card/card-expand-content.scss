@@ -1,0 +1,9 @@
+@import 'src/animation/variables';
+
+.md-card-expand-content {
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: 0.4s $md-transition-default-timing;
+  transition-property: opacity, margin-top;
+  will-change: opacity, margin-top;
+}

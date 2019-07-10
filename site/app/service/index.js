@@ -1,2 +1,2 @@
-export * from './title-manager';
+export * from './page-state';
 export * from './code-source';

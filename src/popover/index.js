@@ -12,7 +12,8 @@ import {
   NOTIFY
 } from 'jinge';
 import {
-  mergePopperOpts
+  mergePopperOpts,
+  EnumAttrValidator
 } from '../_util';
 import Popper from 'popper.js';
 import {
@@ -36,17 +37,19 @@ import {
 
 import _tpl from './index.html';
 
-const SUPPORT_TRIGGERS = ['click', 'hover', 'none'];
-
+const triggerValidator = new EnumAttrValidator(
+  '<md-popover>',
+  'trigger', [
+    'click', 'hover', 'none'
+  ]
+);
 
 export class Popover extends Component {
   static get template() {
     return _tpl;
   }
   constructor(attrs) {
-    if (attrs.trigger && SUPPORT_TRIGGERS.indexOf(attrs.trigger) < 0) {
-      throw new Error('"trigger" attribute only support:' + JSON.stringify(SUPPORT_TRIGGERS));
-    }
+    triggerValidator.assert(attrs);
     super(attrs);
     this._instance = null;
 

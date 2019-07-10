@@ -1,0 +1,57 @@
+.md-card-media-cover {
+  position: relative;
+  color: #fff;
+
+  &.md-solid {
+    .md-card-area {
+      background-color: rgba(#000, 0.54);
+    }
+  }
+
+  &.md-text-scrim {
+    .md-card-backdrop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  .md-card-area {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .md-card-header {
+    display: flex;
+    flex-direction: column;
+
+    + .md-card-actions {
+      padding-top: 0;
+    }
+  }
+
+  .md-subhead {
+    opacity: 1;
+  }
+
+  .md-card-header,
+  .md-card-actions {
+    .md-button:not(.md-primary):not(.md-accent) {
+      color: #fff !important;
+
+      &.md-icon-button {
+        .md-icon {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}

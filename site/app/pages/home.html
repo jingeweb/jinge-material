@@ -1,15 +1,23 @@
-<p>
-  <ui-sref text="Button" to="components.button"/>
-  <ui-sref text="Checkbox" to="components.checkbox"/>
-  <ui-sref text="Radio" to="components.radio"/>
-  <ui-sref text="Switch" to="components.switch"/>
-  <ui-sref text="Content" to="components.content"/>
-  <ui-sref text="Toolbar" to="components.toolbar"/>
-  <ui-sref text="Dialog" to="components.dialog"/>
-  <ui-sref text="Icon" to="components.icon"/>
-  <ui-sref text="Spinner" to="components.spinner"/>
-  <ui-sref text="Progress" to="components.progress"/>
-  <ui-sref text="Popover" to="components.popover"/>
-  <ui-sref text="Tooltip" to="components.tooltip"/>
-  <ui-sref text="Popconfirm" to="components.popconfirm"/>
-</p>
+<header class="home-header">
+  <div class="home-logo">
+    <md-icon src="assets/logo.svg"/>
+  </div>
+
+  <div class="home-call">
+    <h1 class="home-name">Jinge Material</h1>
+
+    <p><_t>构建在 Jinge 框架上的 Material Design 组件库</_t></p>
+
+    <div class="home-actions">
+      <md-button class="md-button-spaced md-plain md-raised" to="/getting-started">
+        <_t>快速上手</_t>
+      </md-button>
+      <md-button class="md-button-spaced md-plain md-raised" to="/components">
+        <_t>浏览组件</_t>
+      </md-button>
+    </div>
+    <p>
+      <ui-sref to="components.card" text="Card"/>
+    </p>
+  </div>
+</header>

@@ -3,9 +3,16 @@ import './index.scss';
 import {
   Component,
 } from 'jinge';
+import {
+  EnumAttrValidator
+} from '../_util';
 
-const SUPPORTED_TAGS = ['div', 'span', 'p'];
-
+const tagValidator = new EnumAttrValidator(
+  '<md-content>',
+  'tag', [
+    'div', 'span', 'p'
+  ]
+);
 export class Content extends Component {
   static get template() {
     return `
@@ -17,9 +24,7 @@ export class Content extends Component {
     `;
   }
   constructor(attrs) {
-    if (attrs.tag && SUPPORTED_TAGS.indexOf(attrs.tag) < 0) {
-      throw new Error(`<md-content>: "tag" attribute only support ${SUPPORTED_TAGS.join(',')}`);
-    }
+    tagValidator.assert(attrs);
     super(attrs);
     this.className = attrs.class;
     this.style = attrs.style || '';

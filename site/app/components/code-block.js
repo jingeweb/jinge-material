@@ -6,7 +6,8 @@ import Clipboard from 'clipboard';
 import {
   Component,
   AFTER_RENDER,
-  GET_REF 
+  GET_REF, 
+  GET_FIRST_DOM
 } from 'jinge';
 import {
   getIndentedSource
@@ -49,7 +50,7 @@ export class CodeBlock extends Component {
     const $cb = this[GET_REF]('copy'); // get copy button
     if (!$cb) return;
 
-    const clipboard = new Clipboard($cb, {
+    const clipboard = new Clipboard($cb[GET_FIRST_DOM](), {
       target: () => this._$ce
     });
     let timer = null;
@@ -58,8 +59,9 @@ export class CodeBlock extends Component {
       event.clearSelection();
       this.showMessage = true;
 
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => {
+      timer && clearTimeout(timer);
+      timer = setTimeout(() => {
+        timer = null;
         this.showMessage = false;
       }, 2000);
     });

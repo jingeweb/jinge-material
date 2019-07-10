@@ -53,6 +53,20 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/toolbar': {
       Toolbar: 'md-toolbar'
     },
+    'jinge-material/src/card': {
+      Card: 'md-card',
+      CardActions: 'md-card-actions',
+      CardArea: 'md-card-area',
+      CardHeader: 'md-card-header',
+      CardHeaderText: 'md-card-header-text',
+      CardContent: 'md-card-content',
+      CardMedia: 'md-card-media',
+      CardMediaCover: 'md-card-media-cover',
+      CardMediaActions: 'md-card-media-actions',
+      CardExpand: 'md-card-expand',
+      CardExpandContent: 'md-card-expand-content',
+      CardExpandTrigger: 'md-card-expand-trigger'
+    },
     'jinge-material/src/dialog': {
       Dialog: 'md-dialog',
       DialogTitle: 'md-dialog-title',

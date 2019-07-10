@@ -2,7 +2,7 @@ import {
   Component
 } from 'jinge';
 import {
-  titleManager
+  pageState
 } from '../service';
 
 import _sty from './page-container.scss';
@@ -28,6 +28,6 @@ export class PageContainer extends Component {
   set title(v) {
     if (this._t === v) return;
     this._t = v;
-    titleManager.update(this._t);
+    pageState.title = v + ' - Jinge Material';
   }
 }

@@ -1,0 +1,9 @@
+.md-card-content {
+  padding: 16px;
+  font-size: 14px;
+  line-height: 22px;
+
+  &:last-of-type {
+    padding-bottom: 24px;
+  }
+}

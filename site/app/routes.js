@@ -19,7 +19,8 @@ import {
   PageProgress,
   PagePopover,
   PageTooltip,
-  PagePopconfirm
+  PagePopconfirm,
+  PageCard
 } from './pages';
 
 export const componentsStates = [{
@@ -79,6 +80,10 @@ export const componentsStates = [{
   name: 'components.popconfirm',
   url: '/popconfirm',
   component: PagePopconfirm
+}, {
+  name: 'components.card',
+  url: '/card',
+  component: PageCard
 }];
 
 export const uiElementsStates = [{

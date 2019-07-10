@@ -115,6 +115,7 @@ module.exports = {
     } ]
   },
   devServer: {
+    historyApiFallback: true,
     writeToDisk: true,
     contentBase: DIST_DIR,
     port: 9000

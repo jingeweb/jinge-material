@@ -1,0 +1,67 @@
+@import 'src/animation/variables';
+@import 'src/layout/mixins';
+
+.main-header {
+  margin: auto;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  transition:
+    0.3s $md-transition-default-timing,
+    box-shadow 0.4s 0.1s $md-transition-stand-timing;
+  will-change: box-shadow, max-width, background-color;
+
+  /deep/ {
+    .md-toolbar-row {
+      max-width: 100%;
+      transition: max-width 0.3s $md-transition-default-timing;
+      will-change: max-width;
+      display: flex;
+
+      .md-title {
+        flex: 1;
+      }
+
+      .md-icon {
+        font-size: 28px;
+      }
+    }
+  }
+
+  &.splash {
+    background-color: #303030;
+
+    /deep/ {
+      .md-title,
+      .md-icon {
+        color: #fff;
+      }
+
+      .md-icon svg {
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.logo {
+  @include md-layout-xsmall {
+    display: none;
+  }
+
+  /deep/ .md-ripple {
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+.menu {
+  display: none;
+
+  @include md-layout-xsmall {
+    display: inline-block;
+  }
+}

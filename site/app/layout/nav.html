@@ -1,0 +1,16 @@
+<div class="main-nav-container">
+  <md-content class="main-nav md-scrollbar" v-if="!isSplash">
+    <main-nav-content />
+  </md-content>
+
+  <md-drawer fixed :md-active.sync="isMenuVisible" @md-closed="hideMenu">
+    <md-toolbar class="md-transparent" md-elevation="0">
+      <logo-vue-material class="md-icon" animated :blending="false" />
+      <span class="md-title">Vue material</span>
+    </md-toolbar>
+
+    <div class="main-nav-drawer-content">
+      <main-nav-content />
+    </div>
+  </md-drawer>
+  </div>

@@ -1,0 +1,16 @@
+@import 'style/engine/index';
+
+.md-purple-card {
+  background: md-get-palette-color(purple, 500);
+}
+
+.md-orange-card {
+  background: md-get-palette-color(orange, 500);
+}
+
+.md-card {
+  width: 320px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
+}

@@ -18,7 +18,12 @@
     padding-top: 56px;
   }
 
-  &.splash >>> {
+  &.splash {
+    background: #303030;
+    color: #fff;
+  }
+
+  &.splash /deep/ {
     .main-header .md-toolbar-row,
     .main-footer-container {
       max-width: 1312px;
