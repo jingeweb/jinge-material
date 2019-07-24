@@ -1,10 +1,14 @@
 <!--
   import { ButtonContent } from './content';
+  import { UISref } from 'jinge-ui-router';
 -->
+<switch e:test="_tag">
 <button
+  slot-pass:default
   class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
   e:disabled="disabled"
-  e:type="type || 'button'"
+  e:style="style"
+  e:type="type"
   on:touchstart="touchstart($event)"
   on:touchmove="touchmove($event)"
   on:mousedown="mousedown($event)"
@@ -18,3 +22,47 @@
     <_slot/>
   </ButtonContent>
 </button>
+<a
+  slot-pass:a
+  class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+  e:style="style"
+  e:disabled="disabled"
+  e:href="href"
+  e:target="target"
+  on:touchstart="touchstart($event)"
+  on:touchmove="touchmove($event)"
+  on:mousedown="mousedown($event)"
+>
+  <ButtonContent
+    e:ripple="ripple"
+    e:disabled="disabled"
+    e:rippleActive="rippleActive"
+    on:update.rippleActive="rippleActive = args[0]"
+  >
+    <_slot/>
+  </ButtonContent>
+</a>
+<UISref
+  slot-pass:sref
+  e:target="target"
+  e:to="to"  
+>
+  <a
+    class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+    e:style="style"
+    e:disabled="disabled"
+    on:touchstart="touchstart($event)"
+    on:touchmove="touchmove($event)"
+    on:mousedown="mousedown($event)"
+  >
+  <ButtonContent
+    e:ripple="ripple"
+    e:disabled="disabled"
+    e:rippleActive="rippleActive"
+    on:update.rippleActive="rippleActive = args[0]"
+  >
+    <_slot/>
+  </ButtonContent>
+  </a>
+</UISref>
+</switch>

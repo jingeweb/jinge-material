@@ -14,9 +14,9 @@ export class CodeExample extends Component {
   }
   constructor(attrs) {
     super(attrs);
-    this._title = attrs._title;
-    this._example = attrs._example;
-    this._label = attrs._label || 'jinge';
+    this._title = attrs.title;
+    this._example = attrs.example;
+    this._label = attrs.label || 'jinge';
     this.tab = 'demo';
   }
 }

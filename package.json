@@ -35,10 +35,9 @@
     "url": "https://github.com/YuhangGe/jinge-material/issues"
   },
   "homepage": "https://github.com/YuhangGe/jinge-material#readme",
-  "dependencies": {
-    "jinge": "^1.0.5",
-    "jinge-ui-router": "^1.0.2",
-    "popper.js": "^1.15.0"
+  "peerDependencies": {
+    "jinge": "^1.0.6",
+    "jinge-ui-router": "^1.0.3"
   },
   "devDependencies": {
     "clipboard": "^2.0.4",
@@ -48,6 +47,7 @@
     "highlight.js": "^9.15.8",
     "https-proxy-agent": "^2.2.1",
     "node-sass": "^4.12.0",
+    "popper.js": "^1.15.0",
     "precommit-hook": "^3.0.0",
     "sass-loader": "^7.1.0",
     "single-line-log": "^1.1.2",

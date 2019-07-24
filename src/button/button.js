@@ -5,9 +5,9 @@ import {
   VM,
   AFTER_RENDER,
   BEFORE_DESTROY,
-  ROOT_NODES,
   LISTENERS,
-  NOTIFY
+  NOTIFY,
+  GET_FIRST_DOM
 } from 'jinge';
 import {
   addEvent,
@@ -28,9 +28,17 @@ export class Button extends Component {
   }
   constructor(attrs) {
     super(attrs);
+    this._tag = attrs.to ? 'sref' : (
+      attrs.href ? 'a' : 'button'
+    );
+    this.to = attrs.to || '';
+    this.target = attrs.target || '_self';
+    this.href = attrs.href || '';
+
     this.type = attrs.type || 'button';
+    this.style = attrs.style;
     this.disabled = attrs.disabled;
-    this.className = attrs.class || '';
+    this.className = attrs.class;
     this.ripple = attrs.ripple !== false;
     this.rippleActive = false;
     this.hasFocus = false;
@@ -40,7 +48,7 @@ export class Button extends Component {
     registerFocus(this);
     const lis = this[LISTENERS];
     if (!lis) return;
-    const el = this[ROOT_NODES][0];
+    const el = this[GET_FIRST_DOM]();
     lis.forEach((handlers, eventName) => {
       if (IGEVTS.indexOf(eventName) >= 0) return;
       handlers.forEach(fn => {
@@ -62,7 +70,7 @@ export class Button extends Component {
   [BEFORE_DESTROY]() {
     deregisterFocus(this);
     if (this._eHandlers) {
-      const el = this[ROOT_NODES][0];
+      const el = this[GET_FIRST_DOM]();
       this._eHandlers.forEach(saved => {
         removeEvent(el, saved[0], saved[1]);
       });

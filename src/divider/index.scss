@@ -1,0 +1,17 @@
+@import '../animation/variables';
+
+.md-divider {
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border: 0;
+  transition: margin-left 0.3s $md-transition-default-timing;
+  will-change: margin-left;
+
+  &.md-inset {
+    margin-left: 72px;
+  }
+
+  @include md-theme-property(background-color, divider);
+}

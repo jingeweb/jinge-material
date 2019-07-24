@@ -29,7 +29,7 @@
       </_t>
     </p>
 
-    <CodeExample _t:_title="常规按钮" e:_example="_examples.regularButtons" />
+    <CodeExample _t:_title="常规按钮" e:example="_examples.regularButtons" />
 
     <ApiItem title="API - md-button">
       <p slot-pass:default>
@@ -50,7 +50,7 @@
       <_t>To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.</_t>
     </p>
 
-    <CodeExample _t:_title="图标按钮" e:_example="_examples.iconButtons" />
+    <CodeExample _t:_title="图标按钮" e:example="_examples.iconButtons" />
 
     <ApiItem title="API">
       <p slot-pass:default>The following class will turn a button into a icon button:</p>
@@ -64,12 +64,26 @@
     <p>A Floating Action Button represents the primary action in an application and is used for a promoted action. FAB buttons can be regular sized or mini, with an accent color by default. This type of buttons can only have icons, so it should be used along with <code>&lt;md-icon&gt;</code>.</p>
     <NoteBlock tip>Use only one FAB per page and only if the purpose of the button is to fire the main action of the screen. Otherwise use <code>md-icon-button</code>.</NoteBlock>
 
-    <CodeExample _t:_title="FAB" e:_example="_examples.floatingButtons" />
+    <CodeExample _t:_title="FAB" e:example="_examples.floatingButtons" />
 
     <ApiItem title="API">
       <p slot-pass:default>The following classes can be used to turn a button into a FAB:</p>
 
       <ApiTable e:headings="_api.fab.classes.headings" e:props="_api.fab.classes.props" slot-pass:classes />
     </ApiItem>
+  </div>
+
+  <div class="page-container-section">
+    <h2>Link Vs Buttons</h2>
+    <p>All buttons by default will output a <code>button</code> tag. If you want to change it to a <code>a</code> tag, just pass it a href:</p>
+
+    <CodeExample title="Links and Buttons" e:example="_examples.linkButtons" />
+  </div>
+
+  <div class="page-container-section">
+    <h2>UI Router Button</h2>
+    <p><code>md-button</code> also supports <code>jinge-ui-router</code> by default. </p>
+
+    <CodeExample title="UI Router Buttons" e:example="_examples.srefButtons" />
   </div>
 </PageContainer>

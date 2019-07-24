@@ -7,8 +7,7 @@ import {
   addEvent 
 } from 'jinge/dom';
 import {
-  ROOT_NODES,
-  isComponent
+  GET_FIRST_DOM
 } from 'jinge';
 
 let inited = false;
@@ -21,7 +20,7 @@ const components = [];
 function setKeyboardInteraction(event) {
   currentElement = event.target;
   components.forEach(c => {
-    const el = c[ROOT_NODES][0];
+    const el = c[GET_FIRST_DOM]();
     const isFocus = el === currentElement;
     if (c.hasFocus !== isFocus) {
       c.hasFocus = isFocus;
@@ -96,12 +95,6 @@ function initEvents() {
 }
 
 export function registerFocus(component) {
-  const res = component[ROOT_NODES];
-  if (res.length > 1 || isComponent(res[0])) {
-    throw new Error(
-      'component passed to FocusedManager.register must have only one html node child.'
-    );
-  }
   arrayPushIfNotExist(components, component);
   initEvents();
 }

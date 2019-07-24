@@ -16,6 +16,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     themeIconAlias[libPath] = libAlias;
   });
   return Object.assign({
+    'jinge-material/src/avatar': {
+      Avatar: 'md-avatar'
+    },
     'jinge-material/src/button': {
       Button: 'md-button',
     },

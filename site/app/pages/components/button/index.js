@@ -10,7 +10,10 @@ import IconButtons from './examples/icon-buttons';
 import sourceIconButtons from './examples/icon-buttons.js?example';
 import FloatingButtons from './examples/floating-buttons';
 import sourceFloatingButtons from './examples/floating-buttons.js?example';
-
+import LinkButtons from './examples/link-buttons';
+import sourceLinkButtons from './examples/link-buttons.js?example';
+import SrefButtons from './examples/uisref-buttons';
+import sourceSrefButtons from './examples/uisref-buttons.js?example';
 
 export class PageButton extends Component {
   static get template() {
@@ -31,6 +34,14 @@ export class PageButton extends Component {
       floatingButtons: {
         component: FloatingButtons,
         source: sourceFloatingButtons
+      },
+      linkButtons: {
+        component: LinkButtons,
+        source: sourceLinkButtons
+      },
+      srefButtons: {
+        component: SrefButtons,
+        source: sourceSrefButtons
       }
     };
   }

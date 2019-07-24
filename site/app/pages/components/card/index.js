@@ -13,6 +13,8 @@ import ExampleMediaCoverCard from './examples/media-cover';
 import sourceExampleMediaCoverCard from './examples/media-cover.js?example';
 import ExampleThemeCard from './examples/theme'; 
 import sourceExampleThemeCard from './examples/theme.js?example';
+import ExampleExpandCard from './examples/expand'; 
+import sourceExampleExpandCard from './examples/expand.js?example';
 
 
 export class PageCard extends Component {
@@ -38,6 +40,10 @@ export class PageCard extends Component {
       theme: {
         component: ExampleThemeCard,
         source: sourceExampleThemeCard
+      },
+      expand: {
+        component: ExampleExpandCard,
+        source: sourceExampleExpandCard
       }
     };
   }

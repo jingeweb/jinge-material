@@ -7,7 +7,9 @@ import {
   AFTER_RENDER,
   setImmediate,
   GET_FIRST_DOM,
-  BEFORE_DESTROY
+  BEFORE_DESTROY,
+  vmWatch,
+  vmUnwatch
 } from 'jinge';
 
 import {
@@ -32,6 +34,13 @@ export class CardExpandContent extends Component {
     this.marginTop = 0;
     this.transitionEnabled = true;
     this.card = this[GET_CONTEXT](CARD_PROVIDER);
+    this._resizeObserver = null;
+    this._eh = this._onExpand.bind(this);
+  }
+  _onExpand() {
+    this.calculateMarginTop(
+      this[GET_FIRST_DOM]()
+    );
   }
   calculateMarginTop($el) {
     if (!this.card.expand) {
@@ -58,15 +67,17 @@ export class CardExpandContent extends Component {
   [AFTER_RENDER]() {
     const $el = this[GET_FIRST_DOM]();
     this.calculateMarginTopImmediately($el);
-    this.resizeObserver = MutationObserveDOM($el, {
+    this._resizeObserver = MutationObserveDOM($el, {
       childList: true,
       characterData: true,
       subtree: true
     }, () => {
       this.calculateMarginTopImmediately($el);
     });
+    vmWatch(this.card, 'expand', this._eh);
   }
   [BEFORE_DESTROY]() {
-    this.resizeObserver && this.resizeObserver.disconnect();
+    vmUnwatch(this.card, 'expand', this._eh);
+    this._resizeObserver && this._resizeObserver.disconnect();
   }
 }
