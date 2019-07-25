@@ -19,12 +19,14 @@ export class ButtonContent extends Component {
   </div>
 </md-ripple>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.ripple = attrs.ripple;
     this.rippleActive = attrs.rippleActive;
     this.disabled = attrs.disabled;
   }
+
   onRippleActive(evt) {
     this[NOTIFY]('update.rippleActive', evt);
   }

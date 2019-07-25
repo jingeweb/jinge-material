@@ -11,6 +11,7 @@ export class CardActions extends Component {
   <_slot />
 </div>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.alignment = attrs.alignment || 'right';

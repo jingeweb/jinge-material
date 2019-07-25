@@ -15,8 +15,8 @@ function download(url, fileStream) {
       path: url,
       port: 443,
       headers: {
-        'cookie': '_ga=GA1.2.1199999695.1545021439; _gaexp=GAX1.2.6GjXDvIERWCxxcbRcG-lHQ.18089.2; _gid=GA1.2.219007254.1560221410',
-        'refer': 'https://material.io/tools/icons/?style=baseline',
+        cookie: '_ga=GA1.2.1199999695.1545021439; _gaexp=GAX1.2.6GjXDvIERWCxxcbRcG-lHQ.18089.2; _gid=GA1.2.219007254.1560221410',
+        refer: 'https://material.io/tools/icons/?style=baseline',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36'
       }
     };
@@ -25,7 +25,7 @@ function download(url, fileStream) {
     }
     const req = https.get(opts, res => {
       if (res.statusCode !== 200) {
-        return reject('network error:' + res.statusCode);
+        return reject(new Error('network error:' + res.statusCode));
       }
       let result;
       res.on('data', chunk => {
@@ -64,7 +64,6 @@ const THEMES = [
   'twotone'
 ];
 
-
 class Downloader {
   constructor(icons) {
     this.icons = icons;
@@ -78,6 +77,7 @@ class Downloader {
     this._n = 0; // finished
     this._i = process.env.INCLUDE ? 0 : Number(process.env.START || 0);
   }
+
   run() {
     this._t = this.icons.length - this._i;
     console.log('start downloading...');
@@ -88,6 +88,7 @@ class Downloader {
       this.schedule();
     });
   }
+
   doneAll() {
     slog.clear();
     console.log('\nfinished.');
@@ -97,6 +98,7 @@ class Downloader {
     this._res();
     this._res = this._rej = this.icons = null;
   }
+
   doneOne() {
     this._n++;
     this._r--;
@@ -107,6 +109,7 @@ class Downloader {
       this.schedule();
     }
   }
+
   schedule() {
     while (this._i < this.icons.length && this._r < PARALLEL) {
       const ic = this.icons[this._i];
@@ -131,6 +134,7 @@ class Downloader {
       })(ic);
     }
   }
+
   async downloadIcon(ic) {
     const imageUrls = ic.imageUrls;
     const codes = await Promise.all(THEMES.map(theme => {
@@ -151,9 +155,9 @@ class Downloader {
         };
       });
     }));
-    for(let i = 1; i < codes.length; i++) {
+    for (let i = 1; i < codes.length; i++) {
       const ci = codes[i];
-      for(let j = 0; j < i; j++) {
+      for (let j = 0; j < i; j++) {
         const cj = codes[j];
         if (!cj.dul && ci.svg === cj.svg) {
           ci.dul = cj.name;
@@ -210,4 +214,3 @@ ${THEMES.map(theme => `    Icon${convertCase(theme)}${convertCase(ic.id)} : 'md-
 })().catch(err => {
   console.error(err);
 });
-

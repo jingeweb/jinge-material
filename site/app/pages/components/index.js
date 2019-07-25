@@ -1,3 +1,7 @@
+import {
+  Component
+} from 'jinge';
+
 export * from './button';
 export * from './checkbox';
 export * from './radio';
@@ -12,10 +16,7 @@ export * from './popover';
 export * from './tooltip';
 export * from './popconfirm';
 export * from './card';
-
-import {
-  Component
-} from 'jinge';
+export * from './list';
 
 export class PageComponents extends Component {
   static get template() {

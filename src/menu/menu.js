@@ -21,6 +21,7 @@ export class Menu extends Component {
   <_slot />
 </div>`;
   }
+
   constructor(attrs) {
     sizeValidator.assert(attrs);
 

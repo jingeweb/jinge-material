@@ -17,6 +17,7 @@ export class ListItemButton extends Component {
 </button>
 `;
   }
+
   constructor(attrs) {
     super(attrs);
     this.ripple = attrs.ripple;

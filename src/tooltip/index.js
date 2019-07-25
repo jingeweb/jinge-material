@@ -6,11 +6,11 @@ import {
 
 import _tpl from './index.html';
 
-
 export class Tooltip extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.title = attrs.title || '';
@@ -24,6 +24,7 @@ export class Tooltip extends Component {
     this.transition = attrs.transition;
     this._popperOptions = attrs._popperOptions;
   }
+
   onUpdateActive(isActive) {
     this[NOTIFY]('update.active', isActive);
   }

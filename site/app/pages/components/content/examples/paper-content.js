@@ -11,6 +11,7 @@ export default class ExamplePaperContent extends Component {
   <md-content class="md-accent">Accent</md-content>
 </div>`;
   }
+
   static get style() {
     return `
 div /deep/ > .md-content {

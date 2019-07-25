@@ -10,6 +10,7 @@ export class ListItemContent extends Component {
 </md-ripple>
 `;
   }
+
   constructor(attrs) {
     super(attrs);
     this.disabled = attrs.disabled;

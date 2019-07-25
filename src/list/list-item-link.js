@@ -18,6 +18,7 @@ export class ListItemLink extends Component {
 </a>
 `;
   }
+
   constructor(attrs) {
     super(attrs);
     this.ripple = attrs.ripple;

@@ -12,11 +12,13 @@ export default class ExampleDialogAlert extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.first = false;
     this.second = false;
   }
+
   show() {
     DialogAlert.show({
       title: 'Hello',

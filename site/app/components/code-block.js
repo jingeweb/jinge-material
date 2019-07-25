@@ -6,7 +6,7 @@ import Clipboard from 'clipboard';
 import {
   Component,
   AFTER_RENDER,
-  GET_REF, 
+  GET_REF,
   GET_FIRST_DOM
 } from 'jinge';
 import {
@@ -25,9 +25,11 @@ export class CodeBlock extends Component {
   static get template() {
     return _tpl;
   }
+
   static get style() {
     return _sty;
   }
+
   constructor(attrs) {
     super(attrs);
     this._lang = attrs._lang;
@@ -36,6 +38,7 @@ export class CodeBlock extends Component {
     this.showMessage = false;
     this._$ce = null;
   }
+
   [AFTER_RENDER]() {
     this._$ce = this[GET_REF]('code'); // get code dom element
     this.reindentSource();
@@ -43,9 +46,11 @@ export class CodeBlock extends Component {
 
     highlight.highlightBlock(this._$ce);
   }
+
   reindentSource() {
     this._$ce.textContent = getIndentedSource(this._$ce.textContent);
   }
+
   enableCopy() {
     const $cb = this[GET_REF]('copy'); // get copy button
     if (!$cb) return;

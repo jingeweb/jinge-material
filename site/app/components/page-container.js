@@ -14,17 +14,21 @@ export class PageContainer extends Component {
   <_slot slot-use:default />
 </div>`;
   }
+
   static get style() {
     return _sty;
   }
+
   constructor(attrs) {
     super(attrs);
     this.title = attrs.title;
     this.centered = !!attrs.centered;
   }
+
   get title() {
     return this._t;
   }
+
   set title(v) {
     if (this._t === v) return;
     this._t = v;

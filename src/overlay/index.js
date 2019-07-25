@@ -17,6 +17,7 @@ export class Overlay extends Component {
 </if>
 </Portal>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.__portalDisabled = attrs.__portalDisabled;
@@ -24,6 +25,7 @@ export class Overlay extends Component {
     this.className = attrs.class || '';
     this.fixed = attrs.fixed !== false;
   }
+
   onClick(evt) {
     this[NOTIFY]('click', evt);
   }

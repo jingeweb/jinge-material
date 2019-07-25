@@ -14,6 +14,7 @@ export default class ExampleMediaCoverCard extends Component {
   vertical-align: top;
 }`;
   }
+
   static get template() {
     return _tpl;
   }

@@ -16,6 +16,7 @@ export class PageToolbar extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this._api = apis;

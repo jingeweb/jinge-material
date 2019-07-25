@@ -13,6 +13,7 @@ export class Wave extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.uuid = attrs.uuid;
@@ -20,11 +21,13 @@ export class Wave extends Component {
     this.className = attrs.class;
     this.animating = false;
   }
+
   [AFTER_RENDER]() {
     setImmediate(() => {
       this.animating = true;
     });
   }
+
   onTransition(action) {
     if (action === 'after-enter') {
       this.animating = false;

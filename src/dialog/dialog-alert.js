@@ -5,7 +5,8 @@ import {
   wrapAttrs,
   setImmediate,
   ON,
-  isFunction
+  isFunction,
+  isString
 } from 'jinge';
 
 import {
@@ -19,10 +20,16 @@ export class DialogAlert extends Component {
   static get template() {
     return _tpl;
   }
+
   static show(opts, closeCallback) {
+    if (isString(opts)) {
+      opts = {
+        title: opts
+      };
+    }
     const el = new DialogAlert(wrapAttrs(Object.assign({
       __portalDisabled: true,
-      active: false,
+      active: false
     }, opts)));
     el[ON]('update.active', active => {
       if (active) return;
@@ -36,6 +43,7 @@ export class DialogAlert extends Component {
       el.active = true;
     });
   }
+
   constructor(attrs) {
     super(attrs);
     this.__portalDisabled = attrs.__portalDisabled;
@@ -44,9 +52,11 @@ export class DialogAlert extends Component {
     this.content = attrs.content;
     this.confirmText = attrs.confirmText || _t('Ok');
   }
+
   onClick() {
     this[NOTIFY]('update.active', false, 'confirm');
   }
+
   passActive(active, action) {
     this[NOTIFY]('update.active', active, action);
   }

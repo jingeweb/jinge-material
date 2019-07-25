@@ -40,7 +40,7 @@
     if (SUPPORT_THEMES.indexOf(theme) < 0) return SUPPORT_THEMES[0];
     return theme;
   }
-  
+
   /** run application **/
   Promise.all([
     loadTheme(getTheme()),

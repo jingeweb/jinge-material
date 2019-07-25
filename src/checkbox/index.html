@@ -1,11 +1,12 @@
 <!-- import {Ripple} from '../ripple'; -->
-<div class="md-checkbox ${classes}">
+<div class="md-checkbox${classes ? ' ' + classes : ''}">
   <div class="md-checkbox-container" on:click="toggleCheck">
     <Ripple centered e:active="rippleActive" on:update.active="rippleActive = args[0]" e:disabled="disabled">
       <input
         e:id="id"
         e:checked="checked"
-        type="checkbox" e:name="name"
+        type="checkbox"
+        e:name="name"
         e:disabled="disabled"
         e:required="required"
       />

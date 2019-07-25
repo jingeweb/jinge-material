@@ -15,6 +15,7 @@ p /deep/ > .md-spinner + .md-spinner {
 }
 `;
   }
+
   static get template() {
     return _tpl;
   }

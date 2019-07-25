@@ -6,11 +6,11 @@ import {
 
 import _tpl from './index.html';
 
-
 export class Popconfirm extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.title = attrs.title || '';
@@ -28,9 +28,11 @@ export class Popconfirm extends Component {
     this.confirmSpinner = attrs.confirmSpinner;
     this.hideWhenConfirmClick = attrs.hideWhenConfirmClick !== false;
   }
+
   onUpdateActive(isActive) {
     this[NOTIFY]('update.active', isActive);
   }
+
   onConfirm() {
     this[NOTIFY]('confirm');
     if (this.hideWhenConfirmClick) {
@@ -38,6 +40,7 @@ export class Popconfirm extends Component {
       this[NOTIFY]('update.active', false, 'confirm');
     }
   }
+
   onCancel() {
     this.active = false;
     this[NOTIFY]('cancel');

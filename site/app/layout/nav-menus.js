@@ -47,6 +47,7 @@ export class NavMenu extends Component {
 </div>
 </if>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this._menu = attrs._menu;
@@ -64,6 +65,7 @@ export class NavMenus extends Component {
 </div>
     `;
   }
+
   constructor(attrs) {
     super(attrs);
     this._menus = menus;

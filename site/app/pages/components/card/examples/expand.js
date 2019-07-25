@@ -17,6 +17,7 @@ export default class ExampleExpandCard extends Component {
   vertical-align: top;
 }`;
   }
+
   static get template() {
     return _tpl;
   }

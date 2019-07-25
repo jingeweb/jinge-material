@@ -13,18 +13,22 @@ class PageStateManager extends Messenger {
     this._title = '';
     this._splash = location.pathname === '/';
   }
+
   get title() {
     return this._title;
   }
+
   set title(v) {
     if (this._title === v) return;
     this._title = v;
     document.title = v;
     this[NOTIFY](TITLE_CHANGED, v);
   }
+
   get isSplash() {
     return this._splash;
   }
+
   set isSplash(v) {
     if (this._splash === !!v) return;
     this._splash = !!v;

@@ -22,6 +22,7 @@ export class CardExpandTrigger extends Component {
     return `
 <_slot><div/></_slot>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.marginTop = 0;
@@ -29,14 +30,17 @@ export class CardExpandTrigger extends Component {
     this.card = this[GET_CONTEXT](CARD_PROVIDER);
     this._ch = this._onClick.bind(this);
   }
+
   [AFTER_RENDER]() {
     const $el = this[GET_FIRST_DOM]();
     addClass($el, 'md-card-expand-trigger');
     addEvent($el, 'click', this._ch);
   }
+
   _onClick() {
     this.card.expand = !this.card.expand;
   }
+
   [BEFORE_DESTROY]() {
     const $el = this[GET_FIRST_DOM]();
     removeEvent($el, 'click', this._ch);

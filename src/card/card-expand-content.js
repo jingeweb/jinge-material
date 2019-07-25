@@ -29,6 +29,7 @@ export class CardExpandContent extends Component {
   <_slot />
 </div>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.marginTop = 0;
@@ -37,11 +38,13 @@ export class CardExpandContent extends Component {
     this._resizeObserver = null;
     this._eh = this._onExpand.bind(this);
   }
+
   _onExpand() {
     this.calculateMarginTop(
       this[GET_FIRST_DOM]()
     );
   }
+
   calculateMarginTop($el) {
     if (!this.card.expand) {
       this.marginTop = $el.children[0].offsetHeight;
@@ -49,6 +52,7 @@ export class CardExpandContent extends Component {
       this.marginTop = 0;
     }
   }
+
   calculateMarginTopImmediately($el) {
     if (this.card.expand) {
       return;
@@ -59,11 +63,13 @@ export class CardExpandContent extends Component {
       this.calculateMarginTop($el);
       setImmediate(() => {
         // force reflow by calling offsetHeight getter
+        /* eslint no-unused-expressions: "off" */
         $el.offsetHeight;
         this.transitionEnabled = true;
       });
     });
   }
+
   [AFTER_RENDER]() {
     const $el = this[GET_FIRST_DOM]();
     this.calculateMarginTopImmediately($el);
@@ -76,6 +82,7 @@ export class CardExpandContent extends Component {
     });
     vmWatch(this.card, 'expand', this._eh);
   }
+
   [BEFORE_DESTROY]() {
     vmUnwatch(this.card, 'expand', this._eh);
     this._resizeObserver && this._resizeObserver.disconnect();

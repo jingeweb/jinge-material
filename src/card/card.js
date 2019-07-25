@@ -15,6 +15,7 @@ export class Card extends Component {
   <_slot />
 </div>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.withHover = attrs.withHover;

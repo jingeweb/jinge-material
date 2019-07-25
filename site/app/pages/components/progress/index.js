@@ -5,19 +5,20 @@ import {
 import _tpl from './index.html';
 import apis from './api';
 
-import DeterminateProgress from './examples/determinate'; 
+import DeterminateProgress from './examples/determinate';
 import sourceDeterminateProgress from './examples/determinate.js?example';
-import IndeterminateProgress from './examples/indeterminate'; 
+import IndeterminateProgress from './examples/indeterminate';
 import sourceIndeterminateProgress from './examples/indeterminate.js?example';
-import BufferProgress from './examples/buffer'; 
+import BufferProgress from './examples/buffer';
 import sourceBufferProgress from './examples/buffer.js?example';
-import QueryProgress from './examples/query'; 
+import QueryProgress from './examples/query';
 import sourceQueryProgress from './examples/query.js?example';
 
 export class PageProgress extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this._api = apis;

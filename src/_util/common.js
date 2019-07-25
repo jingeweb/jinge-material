@@ -13,7 +13,7 @@ export function caf(handle) {
 
 export function mergePopperOpts(src, dst) {
   if (!dst) return src;
-  for(const prop in dst) {
+  for (const prop in dst) {
     const sv = src[prop];
     const dv = dst[prop];
     if (isObject(sv) && isObject(dv)) {

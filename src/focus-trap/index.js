@@ -8,9 +8,7 @@ export class FocusTrap extends Component {
   static get template() {
     return '<_slot/>';
   }
-  constructor(attrs) {
-    super(attrs);
-  }
+
   setFocus() {
     setTimeout(() => {
       const $el = this[GET_FIRST_DOM]();
@@ -20,6 +18,7 @@ export class FocusTrap extends Component {
       }
     }, 20);
   }
+
   [AFTER_RENDER]() {
     this.setFocus();
   }

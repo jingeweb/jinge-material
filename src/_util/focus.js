@@ -1,10 +1,10 @@
 import {
   arrayPushIfNotExist,
   defineProperty,
-  arrayRemove 
+  arrayRemove
 } from 'jinge/util';
 import {
-  addEvent 
+  addEvent
 } from 'jinge/dom';
 import {
   GET_FIRST_DOM

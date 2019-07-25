@@ -52,21 +52,25 @@ export class CardMediaCover extends Component {
   </if>
 </div>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.textScrim = attrs.textScrim;
     this.solid = attrs.solid;
     this.backdropBg = 'inherit';
   }
+
   applyScrimColor(darkness) {
     this.backdropBg = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, ${darkness /
       2}) 66%, rgba(0, 0, 0, ${darkness}) 100%)`;
   }
+
   applySolidColor($el, darkness) {
     const area = $el.querySelector('.md-card-area');
     if (!area) return;
     area.style.background = `rgba(0, 0, 0, ${darkness})`;
   }
+
   [AFTER_RENDER]() {
     const $el = this[GET_FIRST_DOM]();
     const applyBackground = (darkness = 0.6) => {

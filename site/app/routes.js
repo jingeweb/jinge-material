@@ -20,7 +20,9 @@ import {
   PagePopover,
   PageTooltip,
   PagePopconfirm,
-  PageCard
+  PageCard,
+  PageList,
+  PageDebug
 } from './pages';
 
 export const componentsStates = [{
@@ -84,6 +86,13 @@ export const componentsStates = [{
   name: 'components.card',
   url: '/card',
   component: PageCard
+}, {
+  name: 'components.list',
+  url: '/list/:optional',
+  params: {
+    optional: { dynamic: true, squash: true, value: null }
+  },
+  component: PageList
 }];
 
 export const uiElementsStates = [{
@@ -112,6 +121,10 @@ export const singleStates = [{
   name: 'license',
   url: '/license',
   component: PageLicense
+}, {
+  name: 'debug',
+  url: '/debug',
+  component: PageDebug
 }];
 export default [
   ...componentsStates,

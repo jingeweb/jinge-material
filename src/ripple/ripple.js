@@ -2,7 +2,7 @@ import './ripple.scss';
 
 import {
   Component,
-  VM, 
+  VM,
   NOTIFY,
   ROOT_NODES,
   isBoolean,
@@ -19,19 +19,23 @@ export class Ripple extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.active = attrs.active;
     this.disabled = attrs.disabled;
     this.centered = attrs.centered;
+    this.className = attrs.class;
     this.ripples = VM([]);
     this._eventTrigger = attrs.eventTrigger !== false;
     this._touchTimeout = null;
     this._eventType = null;
   }
+
   get active() {
     return this.__active;
   }
+
   set active(v) {
     if (this.__active === v) return;
     this.__active = v;
@@ -50,14 +54,17 @@ export class Ripple extends Component {
 
     this[NOTIFY]('update.active', false);
   }
+
   touchMoveCheck() {
     clearTimeout(this._touchTimeout);
   }
+
   touchStartCheck($event) {
     this._touchTimeout = setTimeout(() => {
       raf(this.startRipple.bind(this, $event));
     }, 100);
   }
+
   startRipple($event) {
     const { _eventType, disabled, centered } = this;
 
@@ -78,6 +85,7 @@ export class Ripple extends Component {
       }));
     }
   }
+
   applyStyles(position, size) {
     size += 'px';
 
@@ -88,17 +96,20 @@ export class Ripple extends Component {
       }, position)
     );
   }
+
   clearWave(uuid) {
     if (!uuid) return (this.ripples.length = 0);
     const idx = this.ripples.findIndex(ripple => ripple.uuid === uuid);
     if (idx < 0) return;
     this.ripples.splice(idx, 1);
   }
+
   getSize() {
     const { offsetWidth, offsetHeight } = this[ROOT_NODES][0];
 
     return Math.round(Math.max(offsetWidth, offsetHeight));
   }
+
   getCenteredPosition(size) {
     const halfSize = -size / 2 + 'px';
 
@@ -107,6 +118,7 @@ export class Ripple extends Component {
       'margin-left': halfSize
     };
   }
+
   getHitPosition($event, elementSize) {
     const rect = this[ROOT_NODES][0].getBoundingClientRect();
     let top = $event.pageY;

@@ -5,17 +5,18 @@ import {
 import _tpl from './index.html';
 import apis from './api';
 
-import CustomMarkup from './examples/custom'; 
+import CustomMarkup from './examples/custom';
 import sourceCustomMarkup from './examples/custom.js?example';
-import Alert from './examples/alert'; 
+import Alert from './examples/alert';
 import sourceAlert from './examples/alert.js?example';
-import Confirm from './examples/confirm'; 
+import Confirm from './examples/confirm';
 import sourceConfirm from './examples/confirm.js?example';
 
 export class PageDialog extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this._api = apis;

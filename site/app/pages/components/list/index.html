@@ -1,4 +1,13 @@
-<page-container centered :title="$t('pages.list.title')">
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="列表（List）">
   <div class="page-container-section">
     <p>Lists present multiple line items vertically as a single continuous element and are best suited for similar data types.</p>
     <p>They can have one, two or three lines of content, with a lot of different contents. Even that the examples on this page may look like that lists can only be used in mobile viewport, you can and should use them in desktop too.</p>
@@ -9,17 +18,17 @@
     <h2>List</h2>
 
     <p>Single line lists are really great for navigational elements, such as drawers. You can pass a icons, text and actions to them. They have also a dense layout, to accommodate more items on the screen:</p>
-    <code-example title="Single Line" :component="examples['single-line']" />
+    <CodeExample title="Single Line" e:example="_examples.singleLine" />
   </div>
 
   <div class="page-container-section">
     <p>The double line lists are good to show additional information about single items:</p>
-    <code-example title="Double Line" :component="examples['double-line']" />
+    <CodeExample title="Double Line" e:example="_examples.doubleLine" />
   </div>
 
   <div class="page-container-section">
     <p>The three line lists are great for showing a preview of the full content of the item. It's good for email lists and other information like that:</p>
-    <code-example title="Triple Line" :component="examples['triple-line']" />
+    <CodeExample title="Triple Line" e:example="_examples.tripleLine" />
   </div>
 
   <div class="page-container-section">
@@ -28,34 +37,34 @@
     <p>List items will render different tags based on the interaction types given.</p>
     <p>If you pass one of those event, the item will automatically render a <code>button</code>:</p>
     <ul>
-      <li v-for="event in interactionEvents" :key="event">{{ event }}</li>
+      <for e:loop="_api.interactionEvents" vm:each="event">
+      <li>${event}</li>
+      </for>
     </ul>
 
     <p>If you pass a <code>href</code> attribute, the item will automatically render an <code>a</code> tag.</p>
     <p>All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> can be simply used here. This will render an <code>a</code> tag:</p>
-    <code-example title="Different types" :component="examples['list-types']" />
+    <CodeExample title="Different types" e:example="_examples.listTypes" />
   </div>
 
   <div class="page-container-section">
     <p>Lists accept controls as main toggle actions. Really useful to improve form layouts:</p>
-    <code-example title="Controls" :component="examples['controls']" />
-  </div>
+    <CodeExample title="Controls" e:example="_examples.controls" />
+  </div> 
 
   <div class="page-container-section">
     <p>Lists can have expansion panels to reveal more options:</p>
-    <code-example title="Expansion" :component="examples['list-expansion']" />
+    <!-- <code-example title="Expansion" :component="examples['list-expansion']" /> -->
 
-    <api-item title="API - md-list">
-      <p>The following options can be applied to any list:</p>
+    <ApiItem title="API - md-list">
+      <p slot-pass:default>The following options can be applied to any list:</p>
 
-      <api-table :headings="list.props.headings" :props="list.props.props" slot="props" />
-      <api-table :headings="list.classes.headings" :props="list.classes.props" slot="classes" />
-    </api-item>
+      <ApiTable e:headings="_api.list.props.headings" e:props="_api.list.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.list.classes.headings" e:props="_api.list.classes.props" slot-pass:classes />
+    </ApiItem>
 
-    <api-item title="API - md-list-item">
-      <p>The following options can be applied to any list item. All <a href="https://router.vuejs.org/en/api/router-link.html" target="_blank">options</a> of <code>router-link</code> can be simply used here:</p>
-
-      <api-table :headings="item.props.headings" :props="item.props.props" slot="props" />
-    </api-item>
+    <ApiItem title="API - md-list-item">
+      <ApiTable e:headings="_api.item.props.headings" e:props="_api.item.props.props" slot-pass:props />
+    </ApiItem>
   </div>
-</page-container>
+</PageContainer>

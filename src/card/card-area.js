@@ -12,6 +12,7 @@ export class CardArea extends Component {
   <_slot />
 </div>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.inset = !!attrs.inset;

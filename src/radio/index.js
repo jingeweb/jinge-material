@@ -22,6 +22,7 @@ export class Radio extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     if (isArray(attrs.value) && !('trueValue' in attrs)) {
       throw new Error('<md-radio>: attribute "trueValue" is required when "value" is array(which means array-mode checkbox)');
@@ -41,37 +42,46 @@ export class Radio extends Component {
     // update classes
     this[UPDATE]();
   }
+
   get disabled() {
     return this._disabled;
   }
+
   set disabled(v) {
     if (this._disabled === v) return;
     this._disabled = v;
     this[UPDATE_IF_NEED]();
   }
+
   get required() {
     return this._required;
   }
+
   set required(v) {
     if (this._required === v) return;
     this._required = v;
     this[UPDATE_IF_NEED]();
   }
+
   get checked() {
     return this._checked;
   }
+
   set checked(v) {
     this._checked = isUndefined(v) ? false : !!v;
     this[UPDATE_IF_NEED]();
   }
+
   get class() {
     return this._class;
   }
+
   set class(v) {
     if (this._class === v) return;
     this._class = v;
     this[UPDATE_IF_NEED](this._updateClasses);
   }
+
   toggleCheck() {
     if (this.disabled || this._checked) return;
     this._checked = true;
@@ -79,6 +89,7 @@ export class Radio extends Component {
     this[UPDATE_IF_NEED]();
     this[NOTIFY]('change', this.value);
   }
+
   [UPDATE]() {
     this.classes = obj2class({
       'md-disabled': this.disabled,

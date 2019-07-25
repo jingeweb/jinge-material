@@ -15,9 +15,11 @@ p /deep/ > .md-spinner + .md-spinner {
   margin: 6px;
 }`;
   }
+
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.v = 10;
@@ -29,6 +31,7 @@ p /deep/ > .md-spinner + .md-spinner {
       }
     }, 2000);
   }
+
   [BEFORE_DESTROY]() {
     clearInterval(this._int);
   }

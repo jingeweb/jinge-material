@@ -19,9 +19,11 @@ export class ApiItem extends Component {
   margin-left: 4px;
 }`;
   }
+
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.slots = VM(Object.keys(this[ARG_COMPONENTS])

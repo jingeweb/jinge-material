@@ -1,6 +1,6 @@
 <!-- import { Wave } from './wave'; -->
 <div 
-  class="md-ripple ${disabled ? 'md-disabled' : ''}"
+  class="md-ripple${className ? ' ' + className : ''}${disabled ? ' md-disabled' : ''}"
   on|passive:touchsart="_eventTrigger && touchStartCheck($event)"
   on|passive:touchmove="_eventTrigger && touchMoveCheck($event)"
   on|passive:mousedown="_eventTrigger && startRipple($event)"

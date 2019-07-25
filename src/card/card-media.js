@@ -10,7 +10,7 @@ import {
 
 const ratioValidator = new EnumAttrValidator(
   '<md-card-media>',
-  'ratio',[
+  'ratio', [
     '16-9', '16/9', '16:9',
     '4-3', '4/3', '4:3',
     '1-1', '1/1', '1:1'
@@ -23,6 +23,7 @@ export class CardMedia extends Component {
   <_slot />
 </div>`;
   }
+
   constructor(attrs) {
     ratioValidator.assert(attrs);
     super(attrs);
@@ -31,9 +32,11 @@ export class CardMedia extends Component {
     this.medium = !!attrs.medium;
     this.ratio = attrs.ratio;
   }
+
   get ratio() {
     return this._ratio;
   }
+
   set ratio(v) {
     if (this._ratio === v) return;
     this._ratio = v;

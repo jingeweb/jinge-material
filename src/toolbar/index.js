@@ -10,6 +10,7 @@ export class Toolbar extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.className = attrs.class;

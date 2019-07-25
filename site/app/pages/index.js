@@ -4,3 +4,4 @@ export * from './getting-started';
 export * from './license';
 export * from './components';
 export * from './ui-elements';
+export * from './debug';

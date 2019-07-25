@@ -17,14 +17,16 @@ export class ListItemDefault extends Component {
 </div>
 `;
   }
+
   constructor(attrs) {
     super(attrs);
     this.className = attrs.class;
   }
-  toggleControl() {
+
+  toggleControl(evt) {
     const $el = this[GET_FIRST_DOM]();
     const control = $el.querySelector('.md-checkbox-container, .md-switch-container, .md-radio-container');
-    if (control) {
+    if (control && !control.contains(evt.target)) {
       control.click();
     }
   }

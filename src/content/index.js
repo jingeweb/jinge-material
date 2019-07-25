@@ -1,7 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
+  Component
 } from 'jinge';
 import {
   EnumAttrValidator
@@ -23,6 +23,7 @@ export class Content extends Component {
 </switch>
     `;
   }
+
   constructor(attrs) {
     tagValidator.assert(attrs);
     super(attrs);

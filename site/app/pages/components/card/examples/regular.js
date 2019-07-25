@@ -14,6 +14,7 @@ export default class ExampleRegularCard extends Component {
   vertical-align: top;
 }`;
   }
+
   static get template() {
     return _tpl;
   }

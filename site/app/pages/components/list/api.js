@@ -1,10 +1,9 @@
+import {
+  interactionEvents
+} from '../../../../../src/_util';
+
 export default {
-  interactionEvents: [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup'
-  ],
+  interactionEvents: interactionEvents,
   list: {
     props: {
       headings: ['Name', 'Description', 'Default'],

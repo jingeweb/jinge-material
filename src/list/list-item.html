@@ -2,26 +2,37 @@
   import { ListItemLink } from './list-item-link.js';
   import { ListItemButton } from './list-item-button.js';
   import { ListItemDefault } from './list-item-default.js';
+  import { ListItemUISref } from './list-item-uisref.js';
 -->
 <li class="md-list-item${className ? ' ' + className : ''}">
 <switch e:test="_tag">
+<ListItemUISref
+  slot-pass:sref
+  e:to="to"
+  e:target="target"
+  e:params="params"
+  e:active="active"
+  e:class="_innerClass"
+>
+  <_slot/>
+</ListItemUISref>
 <ListItemLink
   slot-pass:link
   e:href="href"
   e:target="target"
-  class="md-list-item-container md-button-clean"
+  e:class="_innerClass"
 >
   <_slot/>
 </ListItemLink>
 <ListItemButton
   slot-pass:button
-  class="md-list-item-container md-button-clean"
+  e:class="_innerClass"
 >
   <_slot/>
 </ListItemButton>
 <ListItemDefault
   slot-pass:default
-  class="md-list-item-container md-button-clean"
+  e:class="_innerClass"
 >
   <_slot/>
 </ListItemDefault>

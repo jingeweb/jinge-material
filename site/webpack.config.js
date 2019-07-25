@@ -13,9 +13,9 @@ const jingeMaterialAlias = (function() {
   Object.keys(jingeMaterialAlias).forEach(libPath => {
     alias[
       libPath.replace('jinge-material', path.resolve(__dirname, '..'))
-    ]  = jingeMaterialAlias[libPath];
+    ] = jingeMaterialAlias[libPath];
   });
-  return alias; 
+  return alias;
 })();
 
 function __r(p) {
@@ -53,7 +53,7 @@ module.exports = {
     extensions: ['.js', '.scss', '.html']
   },
   plugins: [
-    new CopyPlugin([  {
+    new CopyPlugin([{
       from: __r('assets'),
       to: path.join(DIST_DIR, 'assets')
     }, {
@@ -99,7 +99,7 @@ module.exports = {
       }]
     }, {
       test: /\.scss$/,
-      use: [ {
+      use: [{
         loader: jingeLoader,
         options: {
           extractStyle: true,
@@ -111,8 +111,8 @@ module.exports = {
           sourceMap: SOURCEMAP,
           includePaths: [path.resolve(__dirname, '../')]
         }
-      } ]
-    } ]
+      }]
+    }]
   },
   devServer: {
     historyApiFallback: true,

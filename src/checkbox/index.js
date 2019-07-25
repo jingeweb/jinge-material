@@ -23,6 +23,7 @@ export class Checkbox extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs, name = 'checkbox') {
     if (isArray(attrs.value) && !('trueValue' in attrs)) {
       throw new Error(`<md-${name}>: attribute "trueValue" is required when "value" is array(which means array-mode ${name})`);
@@ -45,33 +46,41 @@ export class Checkbox extends Component {
 
     this._calcChecked();
   }
+
   get disabled() {
     return this._disabled;
   }
+
   set disabled(v) {
     if (this._disabled === v) return;
     this._disabled = v;
     this[UPDATE_IF_NEED](this._updateClasses);
   }
+
   get required() {
     return this._required;
   }
+
   set required(v) {
     if (this._required === v) return;
     this._required = v;
     this[UPDATE_IF_NEED](this._updateClasses);
   }
+
   get class() {
     return this._class;
   }
+
   set class(v) {
     if (this._class === v) return;
     this._class = v;
     this[UPDATE_IF_NEED](this._updateClasses);
   }
+
   get value() {
     return this._value;
   }
+
   set value(v) {
     const isArr = isArray(v);
     if (isArr !== this._isArrayMode) {
@@ -80,23 +89,29 @@ export class Checkbox extends Component {
     this._value = v;
     this[UPDATE_IF_NEED](this._calcChecked);
   }
+
   get trueValue() {
     return this._trueValue;
   }
+
   set trueValue(v) {
     this._trueValue = isUndefined(v) ? true : v;
     this[UPDATE_IF_NEED](this._calcChecked);
   }
+
   get falseValue() {
     return this._falseValue;
   }
+
   set falseValue(v) {
     this._falseValue = isUndefined(v) ? false : v;
     this[UPDATE_IF_NEED](this._calcChecked);
   }
+
   toggleCheck() {
     this._updateChecked(!this.checked);
   }
+
   _updateChecked(v) {
     if (this.checked === v) return;
     this.checked = v;
@@ -113,6 +128,7 @@ export class Checkbox extends Component {
     this.rippleActive = true;
     this[NOTIFY]('change', this._value);
   }
+
   _updateClasses() {
     this.classes = obj2class({
       'md-disabled': this.disabled,
@@ -120,6 +136,7 @@ export class Checkbox extends Component {
       'md-checked': this.checked
     }, this.class);
   }
+
   _calcChecked() {
     const nc = this._isArrayMode ? this.value.indexOf(this.trueValue) >= 0 : (this.value === this.trueValue);
     if (nc === this.checked) return;

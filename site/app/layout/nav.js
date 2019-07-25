@@ -7,4 +7,3 @@ export class Nav extends Component {
     return '<p>Nav</p>';
   }
 }
-

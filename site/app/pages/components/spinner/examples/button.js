@@ -8,10 +8,12 @@ export default class ExampleLoadingSpinner extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     super(attrs);
     this.loading = false;
   }
+
   submit() {
     this.loading = true;
     setTimeout(() => {

@@ -11,9 +11,11 @@ export class NoteBlock extends Component {
   <_slot />
 </div>`;
   }
+
   static get style() {
     return _sty;
   }
+
   constructor(attrs) {
     super(attrs);
     this.alert = attrs.alert;

@@ -23,7 +23,7 @@ import {
   removeClass
 } from 'jinge/dom';
 import {
-  assert_fail,
+  assertFail,
   isString
 } from 'jinge/util';
 import {
@@ -48,6 +48,7 @@ export class Popover extends Component {
   static get template() {
     return _tpl;
   }
+
   constructor(attrs) {
     triggerValidator.assert(attrs);
     super(attrs);
@@ -70,14 +71,17 @@ export class Popover extends Component {
     this._tsEndHandler = this._onTsEnd.bind(this);
     this._outsideClickHandler = this._onOutsideClick.bind(this);
   }
+
   get active() {
     return this._active;
   }
+
   set active(v) {
     if (this._active === v) return;
     this._active = v;
     this[UPDATE_IF_NEED]();
   }
+
   [AFTER_RENDER]() {
     this._$ref = this[ROOT_NODES][0][GET_FIRST_DOM]();
     if (this._active) {
@@ -90,9 +94,11 @@ export class Popover extends Component {
       addEvent(this._$ref, 'mouseleave', this.hide.bind(this));
     }
   }
+
   [BEFORE_DESTROY]() {
     this.hide(true);
   }
+
   [UPDATE]() {
     if (this._active) {
       this.show();
@@ -100,6 +106,7 @@ export class Popover extends Component {
       this.hide();
     }
   }
+
   toggle() {
     if (this.isShown) {
       this.hide();
@@ -107,6 +114,7 @@ export class Popover extends Component {
       this.show();
     }
   }
+
   show() {
     if (!this._active) {
       this._active = true;
@@ -130,6 +138,7 @@ export class Popover extends Component {
       this.isShown = true;
     }
   }
+
   hide(disableTransition = false) {
     if (this._active) {
       this._active = false;
@@ -157,6 +166,7 @@ export class Popover extends Component {
       this._doHide();
     }
   }
+
   _doHide() {
     this._state = TS_STATE_LEAVED;
     this.isShown = false;
@@ -164,20 +174,23 @@ export class Popover extends Component {
     this._instance = null;
     this._$pop = null;
   }
+
   _onIfSwitched(trueBranch) {
     if (!trueBranch) return;
     this._doShow();
   }
+
   _doShow() {
     this._$pop = this[GET_REF]('pop');
-    if (!this._$pop) assert_fail();
+    if (!this._$pop) assertFail();
     this._state = TS_STATE_ENTERING;
-    
+
     if (this.trigger !== 'none') {
       addEvent(document, 'click', this._outsideClickHandler);
     }
     this._instance = new Popper(this._$ref, this._$pop, this.getPopperOptions());
   }
+
   _onOutsideClick(evt) {
     if (!this.closeWhenOutsideClidk) {
       return;
@@ -188,12 +201,14 @@ export class Popover extends Component {
     }
     this.hide();
   }
+
   _onPopperCreated() {
     if (!this.transition) return;
     this._handleTransition('enter', () => {
       this._state = TS_STATE_ENTERED;
     });
   }
+
   _handleTransition(act, callback) {
     const ce = `${this.transition}-${act}`;
     const ca = `${ce}-active`;
@@ -202,30 +217,32 @@ export class Popover extends Component {
     // force render by calling getComputedStyle
     getDurationType(el);
     addClass(el, ca);
-    const [t_end, t_dur] = getDuration(el);
-    this._ts = [el, ce, ca, t_end, callback, null];
-    if (!t_end) {
+    const [tsEndName, tsDuration] = getDuration(el);
+    this._ts = [el, ce, ca, tsEndName, callback, null];
+    if (!tsEndName) {
       this._tsEndHandler();
     } else {
-      addEvent(el, t_end, this._tsEndHandler);
+      addEvent(el, tsEndName, this._tsEndHandler);
       /**
        * 当快速划过鼠标时，浏览器触发 transitionend 事件。需要用 setTimeout 来双重保障。
        */
-      this._ts[this._ts.length - 1] = setTimeout(this._tsEndHandler, t_dur + 50);
+      this._ts[this._ts.length - 1] = setTimeout(this._tsEndHandler, tsDuration + 50);
     }
   }
+
   _onTsEnd(callCb = true) {
     if (!this._ts) {
       return;
     }
-    const [el, ce, ca, t_end, callback, tm] = this._ts;
+    const [el, ce, ca, tsEndName, callback, tm] = this._ts;
     if (tm) clearTimeout(tm);
     this._ts = null;
     removeClass(el, ce);
     removeClass(el, ca);
-    t_end && removeEvent(el, t_end, this._tsEndHandler);
+    tsEndName && removeEvent(el, tsEndName, this._tsEndHandler);
     callCb && callback && callback();
   }
+
   getPopperOptions() {
     let offset = this.offset;
     if (isString(offset)) {
@@ -243,7 +260,7 @@ export class Popover extends Component {
           padding: 16
         },
         offset: {
-          offset,
+          offset
         }
       },
       onCreate: this._onPopperCreated.bind(this)

@@ -1,0 +1,48 @@
+<div class="full-control">
+  <div class="list">
+    <md-list e:expandSingle="expandSingle">
+      <md-list-item expand e:expanded="expandNews" on:update.expanded="expandNews = args[0]">
+        <md-icon-whatshot/>
+        <span class="md-list-item-text">News</span>
+
+        <md-list slot="md-expand">
+          <md-list-item class="md-inset">World</md-list-item>
+          <md-list-item class="md-inset">Europe</md-list-item>
+          <md-list-item class="md-inset">South America</md-list-item>
+        </md-list>
+      </md-list-item>
+
+      <md-list-item expand>
+        <md-icon-videogame_asset/>
+        <span class="md-list-item-text">Games</span>
+
+        <md-list slot="md-expand">
+          <md-list-item class="md-inset">Console</md-list-item>
+          <md-list-item class="md-inset">PC</md-list-item>
+          <md-list-item class="md-inset">Phone</md-list-item>
+        </md-list>
+      </md-list-item>
+
+      <md-list-item md-expand>
+        <md-icon-video_library/>
+        <span class="md-list-item-text">Video</span>
+
+        <md-list slot="md-expand">
+          <md-list-item class="md-inset">Humor</md-list-item>
+          <md-list-item class="md-inset">Music</md-list-item>
+          <md-list-item class="md-inset">Movies</md-list-item>
+          <md-list-item class="md-inset">TV Shows</md-list-item>
+        </md-list>
+      </md-list-item>
+
+      <md-list-item>
+        <md-icon-shopping_basket/>
+        <span class="md-list-item-text">Shop</span>
+      </md-list-item>
+    </md-list>
+  </div>
+  <div class="control">
+    <md-switch e:value="expandSingle" on:change="expandSingle = args[0]">Expand Only One</md-switch>
+    <md-checkbox e:value="expandNews" on:change="expandNews = args[0]">Expand News</md-checkbox>
+  </div>
+</div>

@@ -22,7 +22,7 @@ module.exports = function exampleSourceLoader() {
   const jsPath = this.resourcePath.replace(/\\/g, '/');
   // console.log('handle', jsPath);
   if (!jsPath.endsWith('.js')) {
-    callback('example-source-loader must be used on .js file');
+    callback(new Error('example-source-loader must be used on .js file'));
     return;
   }
 
@@ -32,7 +32,7 @@ module.exports = function exampleSourceLoader() {
   Promise.all([
     readFileIfExist(this.resourcePath),
     readFileIfExist(path.join(dirName, fileBaseName + '.scss')),
-    readFileIfExist(path.join(dirName, fileBaseName + '.html')),    
+    readFileIfExist(path.join(dirName, fileBaseName + '.html'))
   ]).then(cnts => {
     // console.log(cnts);
     callback(null, `export default ${JSON.stringify({
@@ -44,4 +44,3 @@ module.exports = function exampleSourceLoader() {
     callback(err);
   });
 };
-

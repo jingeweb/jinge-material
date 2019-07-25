@@ -13,6 +13,7 @@ div /deep/ .md-icon.my-icon {
 }
 `;
   }
+
   static get template() {
     return _tpl;
   }

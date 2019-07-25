@@ -9,9 +9,11 @@ export class CodeExample extends Component {
   static get template() {
     return _tpl;
   }
+
   static get style() {
     return _sty;
   }
+
   constructor(attrs) {
     super(attrs);
     this._title = attrs.title;

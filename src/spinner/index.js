@@ -22,7 +22,6 @@ function csize(v, addPre) {
   return `${addPre ? ';' : ''}width:${v};height:${v}`;
 }
 
-
 export class Spinner extends Component {
   static get template() {
     return `
@@ -46,6 +45,7 @@ export class Spinner extends Component {
   </svg>
 </div>`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.className = attrs.class ? ' ' + attrs.class : '';
@@ -53,9 +53,11 @@ export class Spinner extends Component {
     this.value = attrs.value;
     this.style = (attrs.style || '') + (attrs.size ? csize(attrs.size, attrs.style) : '');
   }
+
   get value() {
     return this._value;
   }
+
   set value(v) {
     if (!this._determinate) return;
     v = Number(v);
@@ -63,13 +65,15 @@ export class Spinner extends Component {
     this._value = v;
     this[UPDATE_IF_NEED](this.attachCircleStyle);
   }
-  attachCircleStyle () {
+
+  attachCircleStyle() {
     const circle = this[GET_REF]('circle');
     let v = this.value;
     if (v > 100) v = 100;
     else if (v < 0) v = 0;
     circle.style.strokeDashoffset = 2 * Math.PI * 22 * (100 - v) / 100 + 'px';
   }
+
   [AFTER_RENDER]() {
     if (this._determinate) {
       this.attachCircleStyle();

@@ -6,22 +6,25 @@ import {
 
 export class BaseAttrValidator {
   /**
-   * 
-   * @param {String} componentName 
-   * @param {String} attrName 
-   * @param {Boolean} isOptional 
+   *
+   * @param {String} componentName
+   * @param {String} attrName
+   * @param {Boolean} isOptional
    */
   constructor(componentName, attrName, isOptional = true) {
     this._cn = componentName;
     this._an = attrName;
     this._io = isOptional;
   }
+
   throwRequired() {
     throw new Error(`Attribute "${this._an}" of ${this._cn} is required.`);
   }
+
   throwType(requiredType) {
     throw new Error(`Type of value of attribute "${this._an}" must be ${requiredType} for ${this._cn}.`);
   }
+
   assert(attrs) {
     if (!(this._an in attrs)) {
       if (this._io) return;
@@ -35,6 +38,7 @@ export class NumberAttrValidator extends BaseAttrValidator {
   constructor(componentName, attrName, isOptional = true) {
     super(componentName, attrName, isOptional);
   }
+
   assert(attrs) {
     super.assert(attrs);
     const val = attrs[this._an];
@@ -46,11 +50,11 @@ export class NumberAttrValidator extends BaseAttrValidator {
 
 export class EnumAttrValidator extends BaseAttrValidator {
   /**
-   * 
-   * @param {String} componentName 
-   * @param {String} attrName 
-   * @param {Array} enums 
-   * @param {Boolean} isOptional 
+   *
+   * @param {String} componentName
+   * @param {String} attrName
+   * @param {Array} enums
+   * @param {Boolean} isOptional
    */
   constructor(componentName, attrName, enums, isOptional = true) {
     if (!isArray(enums) || enums.length === 0) {
@@ -59,10 +63,11 @@ export class EnumAttrValidator extends BaseAttrValidator {
     super(componentName, attrName, isOptional);
     this._en = enums;
   }
+
   assert(attrs) {
     super.assert(attrs);
     if (this._an in attrs && this._en.indexOf(attrs[this._an]) < 0) {
       throw new Error(`Value of attribute "${this._an}" must be one of ${JSON.stringify(this._en)} for ${this._cn}`);
-    }    
+    }
   }
 }

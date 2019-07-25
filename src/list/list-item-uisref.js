@@ -12,6 +12,8 @@ export class ListItemUISref extends Component {
 <UISref
   e:to="to"
   e:target="target"
+  e:active="active"
+  e:params="params"
 >
   <a
     class="md-list-item-router\${className ? ' ' + className : ''}"
@@ -24,12 +26,15 @@ export class ListItemUISref extends Component {
 </UISref>
 `;
   }
+
   constructor(attrs) {
     super(attrs);
     this.ripple = attrs.ripple;
     this.disabled = attrs.disabled;
     this.className = attrs.class;
     this.to = attrs.to;
+    this.params = attrs.params;
+    this.active = attrs.active || 'router-link-active';
     this.target = attrs.target;
   }
 }

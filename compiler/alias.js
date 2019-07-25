@@ -20,13 +20,16 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       Avatar: 'md-avatar'
     },
     'jinge-material/src/button': {
-      Button: 'md-button',
+      Button: 'md-button'
     },
     'jinge-material/src/icon': {
-      Icon: 'md-icon',
+      Icon: 'md-icon'
     },
     'jinge-material/src/checkbox': {
       Checkbox: 'md-checkbox'
+    },
+    'jinge-material/src/divider': {
+      Divider: 'md-divider'
     },
     'jinge-material/src/overlay': {
       Overlay: 'md-overlay'
@@ -38,7 +41,7 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       Switch: 'md-switch'
     },
     'jinge-material/src/content': {
-      Content: 'md-content',
+      Content: 'md-content'
     },
     'jinge-material/src/ripple': {
       Ripple: 'md-ripple',
@@ -79,11 +82,24 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       DialogConfirm: 'md-dialog-confirm',
       DialogPrompt: 'md-dialog-prompt'
     },
+    'jinge-material/src/list': {
+      List: 'md-list',
+      ListItem: 'md-list-item',
+      ListItemButton: 'md-list-item-button',
+      ListItemContent: 'md-list-item-content',
+      ListItemDefault: 'md-list-item-default',
+      ListItemLink: 'md-list-item-link',
+      ListItemUISref: 'md-list-item-uisref',
+      ListItemExpand: 'md-list-item-expand'
+    },
     'jinge-material/src/popover': {
       Popover: 'md-popover'
     },
     'jinge-material/src/popconfirm': {
       Popconfirm: 'md-popconfirm'
+    },
+    'jinge-material/src/subheader': {
+      Subheader: 'md-subheader'
     },
     'jinge-material/src/tooltip': {
       Tooltip: 'md-tooltip'

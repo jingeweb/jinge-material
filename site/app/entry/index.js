@@ -4,7 +4,7 @@ import './style'; // import app style
 
 import {
   Component,
-  bootstrap, 
+  bootstrap,
   ON
 } from 'jinge';
 
@@ -20,9 +20,11 @@ class App extends Component {
   static get template() {
     return _tpl;
   }
+
   static get style() {
     return _sty;
   }
+
   constructor(attrs) {
     super(attrs);
     this.isSplash = pageState.isSplash;

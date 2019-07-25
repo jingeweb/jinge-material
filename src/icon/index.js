@@ -14,39 +14,54 @@ const svgCacheStore = new Map();
 const NUM_REGEXP = /^\d+$/;
 function _size(v) {
   if (isNumber(v) || (isString(v) && NUM_REGEXP.test(v))) {
-    return v + 'px'; 
+    return v + 'px';
   } else {
     return v;
   }
+}
+function _style(attrs) {
+  let sty = attrs.style || '';
+  if (attrs.size) {
+    if (sty && !sty.endsWith(';')) {
+      sty += ';';
+    }
+    sty += `font-size:${_size(attrs.size)};`;
+  }
+  return sty;
 }
 
 export class Icon extends Component {
   static get template() {
     return `
 <i
-  class="md-icon\${className}"
+  class="md-icon\${className ? ' ' + className : ''}"
   e:style="style"
 />`;
   }
+
   constructor(attrs) {
     super(attrs);
     this.cache = attrs.cache !== false;
     this.src = attrs.src;
-    this.className = attrs.class ? ' ' + attrs.class : '';
-    this.style = (attrs.style ? `${attrs.style};` : '') + (attrs.size ? `width:${_size(attrs.size)};height:${_size(attrs.size)}` : '');
+    this.className = attrs.class;
+    this.style = attrs.style || attrs.size ? _style(attrs) : undefined;
   }
+
   get src() {
     return this.__src;
   }
+
   set src(v) {
     if (this.__src === v) return;
     this.__src = v;
     this[UPDATE_IF_NEED](this._loadSvg);
   }
+
   get svg() {
     // abstract method
     return null;
   }
+
   _loadSvg() {
     if (!this.src) return;
     if (!svgCacheStore.has(this.src)) {
@@ -63,9 +78,11 @@ export class Icon extends Component {
       this._renderSvg(svgCacheStore.get(this.src));
     }
   }
+
   _renderSvg(svg) {
-    this[ROOT_NODES][0].innerHTML = svg;    
+    this[ROOT_NODES][0].innerHTML = svg;
   }
+
   [AFTER_RENDER]() {
     if (this.svg) {
       this._renderSvg(this.svg);

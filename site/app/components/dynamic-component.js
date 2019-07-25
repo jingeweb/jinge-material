@@ -5,7 +5,7 @@ import {
   RENDER,
   ROOT_NODES,
   CONTEXT,
-  ARG_COMPONENTS,
+  ARG_COMPONENTS
 } from 'jinge/core/component';
 import {
   createComment
@@ -24,7 +24,7 @@ export class DynamicComponent extends Component {
     this._component = attrs._component;
     this._render = attrs._render;
   }
-  
+
   [RENDER]() {
     const roots = this[ROOT_NODES];
     const Clazz = this._component;

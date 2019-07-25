@@ -17,12 +17,14 @@ export class CardHeaderText extends Component {
   <_slot />
 </div>`;
   }
+
   [AFTER_RENDER]() {
     const $pa = this[GET_FIRST_DOM]().parentElement;
     if ($pa && hasClass($pa, 'md-card-header')) {
       addClass($pa, 'md-card-header-flex');
     }
   }
+
   [BEFORE_DESTROY]() {
     const $pa = this[GET_FIRST_DOM]().parentElement;
     if ($pa) removeClass($pa, 'md-card-header-flex');
