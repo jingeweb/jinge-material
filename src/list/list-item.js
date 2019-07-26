@@ -66,8 +66,6 @@ export class ListItem extends Component {
   }
 
   [AFTER_RENDER]() {
-    if (this._tag !== 'button') return;
-    console.log('list item after render');
     bindDOMListeners(this);
   }
 

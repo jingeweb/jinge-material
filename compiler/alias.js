@@ -92,6 +92,10 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       ListItemUISref: 'md-list-item-uisref',
       ListItemExpand: 'md-list-item-expand'
     },
+    'jinge-material/src/menu': {
+      Menu: 'md-menu',
+      MenuItem: 'md-menu-item'
+    },
     'jinge-material/src/popover': {
       Popover: 'md-popover'
     },

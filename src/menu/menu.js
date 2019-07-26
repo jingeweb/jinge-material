@@ -1,12 +1,19 @@
 import './menu.scss';
 
 import {
-  Component
+  Component,
+  Symbol,
+  SET_CONTEXT,
+  AFTER_RENDER,
+  GET_FIRST_DOM,
+  BEFORE_DESTROY,
+  NOTIFY
 } from 'jinge';
-
 import {
   EnumAttrValidator
 } from '../_util';
+
+import _tpl from './menu.html';
 
 const sizeValidator = new EnumAttrValidator(
   '<md-menu>', 'size', [
@@ -14,12 +21,11 @@ const sizeValidator = new EnumAttrValidator(
   ]
 );
 
+export const MENU_PROVIDER = Symbol('menu_provider');
+
 export class Menu extends Component {
   static get template() {
-    return `
-<div class="md-menu">
-  <_slot />
-</div>`;
+    return _tpl;
   }
 
   constructor(attrs) {
@@ -28,14 +34,25 @@ export class Menu extends Component {
     super(attrs);
 
     this.active = attrs.active;
+    this.trigger = attrs.trigger || 'click';
     this.alignTrigger = attrs.alignTrigger;
-    this.offsetX = attrs.offsetX;
-    this.offsetY = attrs.offsetY;
-    this.fullWidth = attrs.fullWidth;
-    this.dense = attrs.dense;
     this.placement = attrs.placement || 'bottom-start';
     this.closeOnSelect = attrs.closeOnSelect !== false;
-    this.closeOnClick = attrs.closeOnClick;
+    this.closeOnOutsideClick = attrs.closeOnOutsideClick;
     this.size = attrs.size || 'small';
+    this.listClass = attrs.listClass;
+
+    this._Menu = {
+      close: this.close.bind(this)
+    };
+    this[SET_CONTEXT](MENU_PROVIDER, this._Menu, true);
+  }
+
+  onUpdateActive(isActive) {
+    this[NOTIFY]('update.active', isActive);
+  }
+
+  close() {
+    this.active = !this.active;
   }
 }

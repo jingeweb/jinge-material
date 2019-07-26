@@ -61,7 +61,7 @@ export class Popover extends Component {
     this.offset = attrs.offset || 0;
     this.className = 'md-popover' + (attrs.class ? ' ' + attrs.class : '');
     this.transition = attrs.transition || 'md-popover';
-    this.closeWhenOutsideClidk = attrs.closeWhenOutsideClidk !== false;
+    this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this._popperOptions = attrs._popperOptions;
 
     this.isShown = !!this.active;
@@ -192,7 +192,7 @@ export class Popover extends Component {
   }
 
   _onOutsideClick(evt) {
-    if (!this.closeWhenOutsideClidk) {
+    if (!this.closeOnOutsideClick) {
       return;
     }
     const $el = evt.target;

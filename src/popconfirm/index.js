@@ -20,7 +20,7 @@ export class Popconfirm extends Component {
     this.trigger = attrs.trigger;
     this.delay = attrs.delay;
     this.offset = attrs.offset || 16;
-    this.closeWhenOutsideClidk = attrs.closeWhenOutsideClidk !== false;
+    this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this.transition = attrs.transition;
     this._popperOptions = attrs._popperOptions;
     this.confirmText = attrs.confirmText || _t('确认');

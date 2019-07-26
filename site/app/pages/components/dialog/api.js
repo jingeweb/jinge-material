@@ -22,7 +22,7 @@ export default {
           defaults: 'true'
         },
         {
-          name: 'closeWhenOutsideClick',
+          name: 'closeOnOutsideClick',
           type: 'Boolean',
           description: 'By the default the dialog will close when clicking outsite. To disabled that, just set this prop as false',
           defaults: 'true'

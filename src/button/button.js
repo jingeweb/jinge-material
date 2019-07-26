@@ -19,7 +19,7 @@ import {
 import _tpl from './button.html';
 
 const IGNORED_EVENTS = [
-  'touchstart', 'touchmove', 'mousedown'
+  'touchstart', 'mousedown'
 ];
 
 export class Button extends Component {
@@ -64,15 +64,6 @@ export class Button extends Component {
       });
     }
     this[NOTIFY]('touchstart', event);
-  }
-
-  touchmove(event) {
-    if (this.ripple && !this.disabled) {
-      this.rippleActive = VM({
-        _event: event
-      });
-    }
-    this[NOTIFY]('touchmove', event);
   }
 
   mousedown(event) {
