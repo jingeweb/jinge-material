@@ -14,6 +14,8 @@ import ListTypes from './examples/list-types';
 import sourceListTypes from './examples/list-types?example';
 import Controls from './examples/controls';
 import sourceControls from './examples/controls?example';
+import Expansion from './examples/expansion';
+import sourceExpansion from './examples/expansion?example';
 
 export class PageList extends Component {
   static get template() {
@@ -43,6 +45,10 @@ export class PageList extends Component {
       controls: {
         component: Controls,
         source: sourceControls
+      },
+      expansion: {
+        component: Expansion,
+        source: sourceExpansion
       }
     };
   }

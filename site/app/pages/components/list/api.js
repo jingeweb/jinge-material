@@ -9,7 +9,7 @@ export default {
       headings: ['Name', 'Description', 'Default'],
       props: [
         {
-          name: 'md-expand-single',
+          name: 'expandSingle',
           type: 'Boolean',
           description: 'If set true, one expandable list item could be expanded at most at a time. The expanded list item will be collapsed when another is expanded',
           defaults: 'false'
@@ -39,13 +39,13 @@ export default {
       headings: ['Name', 'Description', 'Default'],
       props: [
         {
-          name: 'md-expand',
+          name: 'expand',
           type: 'Boolean',
           description: 'Enables the expansion panel',
           defaults: 'false'
         },
         {
-          name: 'md-expanded',
+          name: 'expanded',
           type: 'Boolean',
           description: 'The prop to show/hide the expansion panel. Should be used with the <code>.sync</code> modifier',
           defaults: 'false'

@@ -3,9 +3,24 @@
   import { ListItemButton } from './list-item-button.js';
   import { ListItemDefault } from './list-item-default.js';
   import { ListItemUISref } from './list-item-uisref.js';
+  import { ListItemExpand } from './list-item-expand.js';
 -->
 <li class="md-list-item${className ? ' ' + className : ''}">
 <switch e:test="_tag">
+<_slot slot-pass:expand>
+  <ListItemExpand
+    e:class="_innerClass"
+    e:expanded="expanded"
+    on:update.expanded="notifyExpanded"
+  >
+    <_slot slot-pass:default>
+      <_slot slot-use:default/>
+    </_slot>
+    <_slot slot-pass:expand>
+      <_slot slot-use:expand/>
+    </_slot>
+  </ListItemExpand>
+</_slot>
 <ListItemUISref
   slot-pass:sref
   e:to="to"

@@ -20,7 +20,7 @@ export class ListItemButton extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.ripple = attrs.ripple;
+    this.ripple = attrs.ripple !== false;
     this.disabled = attrs.disabled;
     this.className = attrs.class;
   }

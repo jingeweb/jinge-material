@@ -11,6 +11,7 @@ export default class ExampleListControls extends Component {
 .full-control > .md-list {
   width: 320px;
   max-width: 100%;
+  margin-right: 4px;
   height: 400px;
   display: inline-block;
   overflow: auto;

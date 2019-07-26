@@ -1,11 +1,55 @@
-<div style="margin: 30px 80px;">
-  <md-list>
-    <md-subheader>Notifications</md-subheader>
-    <md-list-item>
-      <md-icon-bluetooth/>
-      <span class="md-list-item-text">Bluetooth</span>
-      <md-switch e:value="tt" on:change="tt = args[0]"/>
-    </md-list-item>
-  </md-list>
-  
+<div class="full-control">
+  <div class="list">
+    <md-list e:expandSingle="expandSingle">
+      <md-list-item expand e:expanded="expandNews" on:update.expanded="expandNews = args[0]">
+        <_slot slot-pass:default>
+          <md-icon-whatshot/>
+          <span class="md-list-item-text">News</span>
+        </_slot>
+
+        <md-list slot-pass:expand>
+          <md-list-item class="md-inset">World</md-list-item>
+          <md-list-item class="md-inset">Europe</md-list-item>
+          <md-list-item class="md-inset">South America</md-list-item>
+        </md-list>
+      </md-list-item>
+
+      <md-list-item expand>
+        <_slot slot-pass:default>
+          <md-icon-videogame_asset/>
+          <span class="md-list-item-text">Games</span>
+        </_slot>
+
+        <md-list slot-pass:expand>
+          <md-list-item class="md-inset">Console</md-list-item>
+          <md-list-item class="md-inset">PC</md-list-item>
+          <md-list-item class="md-inset">Phone</md-list-item>
+        </md-list>
+      </md-list-item>
+
+      <md-list-item expand>
+        <_slot slot-pass:default>
+          <md-icon-video_library/>
+          <span class="md-list-item-text">Video</span>
+        </_slot>
+
+        <md-list slot-pass:expand>
+          <md-list-item class="md-inset">Humor</md-list-item>
+          <md-list-item class="md-inset">Music</md-list-item>
+          <md-list-item class="md-inset">Movies</md-list-item>
+          <md-list-item class="md-inset">TV Shows</md-list-item>
+        </md-list>
+      </md-list-item>
+
+      <md-list-item>
+        <md-icon-shopping_basket/>
+        <span class="md-list-item-text">Shop</span>
+      </md-list-item>
+    </md-list>
+  </div>
+  ${expandNews ? 'ex' : 'nn'}
+  <div class="control">
+    <md-switch e:value="expandSingle" on:change="expandSingle = args[0]">Expand Only One</md-switch>
+    <md-checkbox e:value="expandNews" on:change="expandNews = args[0]">Expand News</md-checkbox>
+  </div>
 </div>

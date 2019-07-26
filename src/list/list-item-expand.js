@@ -1,29 +1,45 @@
+import './list-item-expand.scss';
+
 import {
   Component,
   NOTIFY,
   setImmediate,
   AFTER_RENDER,
-  BEFORE_DESTROY
+  BEFORE_DESTROY,
+  GET_CONTEXT,
+  GET_REF
 } from 'jinge';
+import {
+  LIST_PROVIDER
+} from './list';
+import {
+  addEvent,
+  removeEvent
+} from 'jinge/dom';
 
 export class ListItemExpand extends Component {
   static get template() {
     return `
 <!--
   import { ListItemContent } from './list-item-content.js';
-  import { ArrowDownIcon } from '../_icons/arrow-down.js';
 -->
 
-<div class="md-list-item-expand\${className ? ' ' + className : ''}\${showContent ? ' md-active' : ''}">
+<div
+  ref:item
+  class="md-list-item-expand\${className ? ' ' + className : ''}\${showContent ? ' md-active' : ''}"
+>
   <ListItemContent
     e:disabled="disabled || !ripple"
   >
     <_slot slot-use:default />
 
-    <ArrowDownIcon class="md-list-expand-icon" />
+    <md-icon-keyboard_arrow_down class="md-list-expand-icon" />
   </ListItemContent>
 
-  <div class="md-list-expand" ref:expand :style="expandStyles">
+  <div
+    class="md-list-expand"
+    style="height: \${showContent ? 'auto' : '0'}"
+  >
     <_slot slot-use:expand />
   </div>
 </div>
@@ -32,11 +48,14 @@ export class ListItemExpand extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.ripple = attrs.ripple;
+    this.ripple = attrs.ripple !== false;
     this.disabled = attrs.disabled;
     this.className = attrs.class;
 
     this.expanded = attrs.expanded;
+    this._ch = this._onClick.bind(this);
+    this._List = this[GET_CONTEXT](LIST_PROVIDER);
+    this._List.pushExpandable(this);
   }
 
   get expanded() {
@@ -61,51 +80,48 @@ export class ListItemExpand extends Component {
     setImmediate(() => {
       this[NOTIFY](v ? 'expanded' : 'collapsed');
     });
-    if (v) {
-      this.List.expandATab(this);
+    if (v && this._List) {
+      this._List.expandATab(this);
     }
   }
 
   [AFTER_RENDER]() {
+    const el = this[GET_REF]('item').children[0];
+    addEvent(el, 'click', this._ch);
     if (this.expanded) {
       this.open();
     }
   }
 
   [BEFORE_DESTROY]() {
-    this.List.removeExpandable(this);
+    const el = this[GET_REF]('item').children[0];
+    removeEvent(el, 'click', this._ch);
+    this._List.removeExpandable(this);
   }
 
-  getChildrenSize() {
-    const expandEl = this.$refs.listExpand;
-    let size = 0;
-
-    Array.from(expandEl.children).forEach(child => {
-      size += child.offsetHeight;
-    });
-
-    return size;
+  _onClick() {
+    this.toggleExpand();
   }
 
-  fetchStyle() {
-    return new Promise(resolve => {
-      setImmediate(() => {
-        let fullHeight = 0;
+  // fetchStyle() {
+  //   return new Promise(resolve => {
+  //     setImmediate(() => {
+  //       let fullHeight = 0;
 
-        if (!this.showContent) {
-          fullHeight = 'auto'; // this.getChildrenSize() + 'px'
-        }
+  //       if (!this.showContent) {
+  //         fullHeight = 'auto';
+  //       }
 
-        this.expandStyles = { height: fullHeight };
-        resolve();
-      });
-    });
-  }
+  //       this.expandHeight = fullHeight;
+  //       resolve();
+  //     });
+  //   });
+  // }
 
   toggleExpand() {
-    this.fetchStyle().then(() => {
-      this.showContent = !this.showContent;
-    });
+    // this.fetchStyle().then(() => {
+    this.showContent = !this.showContent;
+    // });
   }
 
   open() {
@@ -113,9 +129,9 @@ export class ListItemExpand extends Component {
       return false;
     }
 
-    this.fetchStyle().then(() => {
-      this.showContent = true;
-    });
+    // this.fetchStyle().then(() => {
+    this.showContent = true;
+    // });
   }
 
   close() {
@@ -123,8 +139,8 @@ export class ListItemExpand extends Component {
       return false;
     }
 
-    this.fetchStyle().then(() => {
-      this.showContent = false;
-    });
+    // this.fetchStyle().then(() => {
+    this.showContent = false;
+    // });
   }
 }

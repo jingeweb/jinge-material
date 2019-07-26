@@ -6,7 +6,7 @@ import {
   BEFORE_DESTROY
 } from 'jinge';
 import {
-  LISTENERS
+  LISTENERS, NOTIFY
 } from 'jinge/core/messenger';
 import {
   bindDOMListeners,
@@ -58,6 +58,11 @@ export class ListItem extends Component {
     this.target = attrs.target || '_self';
     this.params = attrs.params;
     this.active = attrs.active;
+    this.expanded = attrs.expanded;
+  }
+
+  notifyExpanded(v) {
+    this[NOTIFY]('update.expanded', v);
   }
 
   [AFTER_RENDER]() {

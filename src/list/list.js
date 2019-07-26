@@ -2,12 +2,12 @@ import './list.scss';
 
 import {
   Component,
-  VM,
   Symbol,
   SET_CONTEXT
 } from 'jinge';
+import { arrayPushIfNotExist, arrayRemove } from 'jinge/util';
 
-export const LIST_CONTEXT = Symbol('list_context');
+export const LIST_PROVIDER = Symbol('list_provider');
 export class List extends Component {
   static get template() {
     return `
@@ -21,35 +21,31 @@ export class List extends Component {
     this.className = attrs.class;
     this.style = attrs.style;
     this.expandSingle = attrs.expandSingle;
-    this.List = VM({
+    this._List = {
       expandable: [],
-      _expandATab: this.expandATab.bind(this),
-      _pushExpandable: this.pushExpandable.bind(this),
-      _removeExpandable: this.removeExpandable.bind(this)
-    });
-    this[SET_CONTEXT](LIST_CONTEXT, this.List);
+      expandATab: this.expandATab.bind(this),
+      pushExpandable: this.pushExpandable.bind(this),
+      removeExpandable: this.removeExpandable.bind(this)
+    };
+    this[SET_CONTEXT](LIST_PROVIDER, this._List, true);
   }
 
   expandATab(expandedListItem) {
-    if (this.expandSingle && expandedListItem) {
-      const otherExpandableListItems = this.List.expandable.filter(target => target !== expandedListItem);
-      otherExpandableListItems.forEach(expandableListItem => expandableListItem.close());
+    if (!this.expandSingle || !expandedListItem) {
+      return;
+    }
+    for (const item of this._List.expandable) {
+      if (item !== expandedListItem) {
+        item.close();
+      }
     }
   }
 
   pushExpandable(expandableListItem) {
-    const expandableListItems = this.List.expandable;
-
-    if (!expandableListItems.find(target => target === expandableListItem)) {
-      this.List.expandable = expandableListItems.concat([expandableListItem]);
-    }
+    arrayPushIfNotExist(this._List.expandable, expandableListItem);
   }
 
   removeExpandable(expandableListItem) {
-    const expandableListItems = this.List.expandable;
-
-    if (expandableListItems.find(target => target === expandableListItem)) {
-      this.List.expandable = expandableListItems.filter(target => target !== expandableListItem);
-    }
+    arrayRemove(this._List.expandable, expandableListItem);
   }
 }
