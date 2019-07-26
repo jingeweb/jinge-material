@@ -1,0 +1,26 @@
+<md-popover
+ e:trigger="trigger"
+ e:active="active"
+ e:transition="transition"
+ e:placement="placement"
+ e:offset="offset"
+ e:delay="delay"
+ e:closeWhenOutsideClick="closeWhenOutsideClick"
+ e:_popperOptions="_popperOptions"
+ on:update.active="onUpdateActive"
+>
+  <_slot slot-pass:default>
+    <_slot slot-use:default/>
+  </_slot>
+  <_slot slot-pass:content>
+    <div
+      class="md-menu-content${size ? ' ' + size : ''}"
+    >
+      <div class="md-menu-content-container">
+        <md-list e:class="listClass">
+          <_slot slot-use:content />
+        </md-list>
+      </div>
+    </div>
+  </_slot>
+</md-popover>
