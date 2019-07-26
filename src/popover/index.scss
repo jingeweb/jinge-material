@@ -11,6 +11,7 @@
     overflow: hidden;
     border-radius: 2px;
     pointer-events: auto;
+    will-change: opacity, transform;
 
     @include md-elevation(16);
     @include md-theme-property(background-color, background);
@@ -46,16 +47,17 @@
 .md-popover-enter,
 .md-popover-leave-active {
   opacity: 0;
-  transform: scale(0.95);
 }
 
-.md-popover-enter-active,
+.md-popover-enter-active {
+  transition:
+    transform 0.2s $md-transition-stand-timing,
+    opacity 0.3s $md-transition-stand-timing;
+}
+
 .md-popover-leave-active {
   transition-duration: 0.15s;
   transition-property: opacity, transform;
-}
-
-.md-popover-leave-active {
   transition-timing-function: $md-transition-leave-timing;
 }
 
@@ -74,19 +76,31 @@ $pto: (
   right-end: bottom left
 );
 
+$offset: 6px;
+$pof: (
+  bottom: translate3d(0, -$offset, 0),
+  top: translate3d(0, $offset, 0),
+  left: translate3d($offset, 0, 0),
+  right: translate3d(-$offset, 0, 0)
+);
+
 @each $p in (left, right, top, bottom) {
   @each $s in ('', '-start', '-end') {
-    [x-placement=#{$p}#{$s}] {
+    [x-placement='#{$p}#{$s}'] {
       > .md-popover-enter,
       > .md-popover-leave {
         transform-origin: map-get($pto, #{$p}#{$s});
+      }
+
+      > .md-popover-enter,
+      > .md-popover-leave-active {
+        transform: map-get($pof, $p) scale(0.95);
       }
     }
   }
 }
 
-.md-popover-enter-active {
-  transition-timing-function: $md-transition-enter-timing;
+[x-placement] > .md-popover-enter.md-popover-enter-active {
   opacity: 1;
   transform: none;
 }

@@ -36,7 +36,7 @@ export class Menu extends Component {
     this.active = attrs.active;
     this.trigger = attrs.trigger || 'click';
     this.alignTrigger = attrs.alignTrigger;
-    this.placement = attrs.placement || 'bottom-start';
+    this.placement = attrs.placement || 'bottom';
     this.closeOnSelect = attrs.closeOnSelect !== false;
     this.closeOnOutsideClick = attrs.closeOnOutsideClick;
     this.size = attrs.size || 'small';

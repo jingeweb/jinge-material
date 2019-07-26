@@ -27,4 +27,8 @@ $md-tooltip-height-mobile: 32px;
       line-height: $md-tooltip-height-mobile;
     }
   }
+
+  .md-popover-enter-active {
+    transition-duration: 0.15s;
+  }
 }
