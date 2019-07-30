@@ -44,8 +44,8 @@
   </md-card>
 
   <md-card class="md-card-example">
-    <md-card-area md-inset>
-      <md-card-media md-ratio="16:9">
+    <md-card-area inset>
+      <md-card-media ratio="16:9">
         <img src="/assets/examples/card-example.jpg" alt="Coffee House"/>
       </md-card-media>
 
@@ -95,7 +95,7 @@
       </md-card-content>
     </md-card-area>
 
-    <md-card-actions md-alignment="left">
+    <md-card-actions alignment="left">
       <md-button>Action</md-button>
       <md-button>Action</md-button>
     </md-card-actions>
@@ -140,12 +140,12 @@
         <div class="md-subhead">Subtitle here</div>
       </md-card-header-text>
 
-      <md-menu md-size="big" md-direction="bottom-end">
-        <md-button class="md-icon-button" md-menu-trigger>
-          <md-icon>more_vert</md-icon>
+      <md-menu size="big" placement="bottom-end">
+        <md-button class="md-icon-button" slot-pass:default>
+          <md-icon-more_vert/>
         </md-button>
 
-        <md-menu-content>
+        <_slot slot-pass:content>
           <md-menu-item on:click="doACall">
             <span>Call</span>
             <md-icon-phone/>
@@ -155,7 +155,7 @@
             <span>Send a message</span>
             <md-icon-message/>
           </md-menu-item>
-        </md-menu-content>
+        </_slot>
       </md-menu>
     </md-card-header>
 
@@ -163,7 +163,7 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
     </md-card-content>
 
-    <md-card-actions md-alignment="left">
+    <md-card-actions alignment="left">
       <md-button>Action</md-button>
       <md-button>Action</md-button>
     </md-card-actions>

@@ -15,6 +15,8 @@ import ExampleThemeCard from './examples/theme';
 import sourceExampleThemeCard from './examples/theme.js?example';
 import ExampleExpandCard from './examples/expand';
 import sourceExampleExpandCard from './examples/expand.js?example';
+import ExampleLayoutsCard from './examples/layouts';
+import sourceExampleLayoutsCard from './examples/layouts.js?example';
 
 export class PageCard extends Component {
   static get template() {
@@ -44,6 +46,10 @@ export class PageCard extends Component {
       expand: {
         component: ExampleExpandCard,
         source: sourceExampleExpandCard
+      },
+      layouts: {
+        component: ExampleLayoutsCard,
+        source: sourceExampleLayoutsCard
       }
     };
   }

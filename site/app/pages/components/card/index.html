@@ -20,7 +20,7 @@
 
     <p>If you want to elevate the card as the user hovers over it, add the <code>md-with-hover</code> property. You can also add a ripple effect in combination with the elevation behavior. For doing so, wrap the <code>md-card</code>'s content in a <code>md-ripple</code> tag.</p>
 
-    <!-- <CodeExample title="Regular Cards" e:example="_examples.regular" /> -->
+    <CodeExample title="Regular Cards" e:example="_examples.regular" />
 
     <h2>Cards with Images</h2>
 
@@ -30,7 +30,7 @@
 
     <p>For a text-free card with action icon buttons on the side, wrap the card content inside a <code>md-card-media-actions</code> component.</p>
 
-    <!-- <CodeExample title="Media cover" e:example="_examples.media" /> -->
+    <CodeExample title="Media cover" e:example="_examples.media" />
 
     <p>If you want the image to fill the whole card area, wrap the card content inside a <code>md-card-media-cover</code> component. Its basic structure comprises the following components:</p>
 
@@ -43,12 +43,12 @@
     <p></p>
     If there isn't sufficient contrast between background image and title, the latter won't be perfectly legible. To overcome that, apply a solid or gradient background to the text by using the <code>md-card-media-cover</code>'s properties <code>md-solid</code> or <code>md-text-scrim</code>, respectively.
 
-    <!-- <CodeExample title="Card background with Aspect Ratio" e:example="_examples.mediaCover" /> -->
+    <CodeExample title="Card background with Aspect Ratio" e:example="_examples.mediaCover" />
     
     <h2>Themes</h2>
 
     <p>Your cards will stand out if you change their base color... And you can do it by applying themes! Just add a <code>.primary</code> or <code>accent</code> class on them. This will use the current theme. You can specify a custom one with the <code>md-theme</code> property.</p>
-    <!-- <CodeExample title="Theme Colors" e:example="_examples.theme" /> -->
+    <CodeExample title="Theme Colors" e:example="_examples.theme" />
 
     <h2>Expansion Control</h2>
     <p>To avoid too much information inside a card, or keep its height from exceeding the maximum height, hide supplementary information inside a expansible area.</p>
@@ -60,7 +60,7 @@
     <h2>Different Layouts</h2>
     That's pretty much it. You can now combine these and other components in many distinct ways. Here are some examples:
 
-    <!-- <code-example title="Different Layouts" :component="examples['layouts']" /> -->
+    <CodeExample title="Different Layouts" e:example="_examples.layouts" />
 
     <ApiItem title="API - md-card">
       <ApiTable e:headings="_api.card.props.headings" e:props="_api.card.props.props" slot-pass:props />
