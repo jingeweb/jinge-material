@@ -10,7 +10,7 @@ export class IconBaselineEqualizer extends Icon {
 }
 
 const __svg_IconOutlineEqualizer = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"/></svg>`;
 
 export class IconOutlineEqualizer extends Icon {
   get svg() {
@@ -34,6 +34,6 @@ export class IconSharpEqualizer extends Icon {
 export class IconTwotoneEqualizer extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M16 9h4v11h-4zm-6-5h4v16h-4zm-6 8h4v8H4z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 9h4v11h-4zm-6-5h4v16h-4zm-6 8h4v8H4z"/></svg>`;
   }
 }
