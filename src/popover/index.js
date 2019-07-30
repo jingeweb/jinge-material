@@ -246,7 +246,7 @@ export class Popover extends Component {
   getPopperOptions() {
     let offset = this.offset;
     if (isString(offset)) {
-      if (/^\d+$/.test(offset)) {
+      if (/^-?\d+$/.test(offset)) {
         offset = '0,' + Number(offset);
       }
     } else {

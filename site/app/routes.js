@@ -22,7 +22,8 @@ import {
   PagePopconfirm,
   PageCard,
   PageList,
-  PageDebug
+  PageDebug,
+  PageMenu
 } from './pages';
 
 export const componentsStates = [{
@@ -93,6 +94,10 @@ export const componentsStates = [{
     optional: { dynamic: true, squash: true, value: null }
   },
   component: PageList
+}, {
+  name: 'components.menu',
+  url: '/menu',
+  component: PageMenu
 }];
 
 export const uiElementsStates = [{

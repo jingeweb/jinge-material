@@ -10,6 +10,7 @@
 <_slot slot-pass:expand>
   <ListItemExpand
     e:class="_innerClass"
+    e:ripple="ripple"
     e:expanded="expanded"
     on:update.expanded="notifyExpanded"
   >
@@ -42,11 +43,14 @@
 <ListItemButton
   slot-pass:button
   e:class="_innerClass"
+  e:ripple="ripple"
+  e:disabled="disabled"
 >
   <_slot/>
 </ListItemButton>
 <ListItemDefault
   slot-pass:default
+  e:ripple="ripple"
   e:class="_innerClass"
 >
   <_slot/>

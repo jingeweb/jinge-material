@@ -60,24 +60,12 @@ export class MenuItem extends Component {
 
   mousedown($evt) {
     this[NOTIFY]('mousedown', $evt);
-    if (this._Menu.closeOnSelect) {
-      this.closeMenu();
-    }
+    this._Menu.close();
   }
 
   touchstart($evt) {
     this[NOTIFY]('touchstart', $evt);
-    if (this._Menu.closeOnSelect) {
-      this.closeMenu();
-    }
-  }
-
-  closeMenu() {
     this._Menu.close();
-
-    if (this._Menu._eventObserver) {
-      this._Menu._eventObserver.destroy();
-    }
   }
 
   triggerCloseMenu() {

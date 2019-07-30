@@ -66,7 +66,9 @@ export class ListItem extends Component {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this);
+    if (!this.disabled) {
+      bindDOMListeners(this);
+    }
   }
 
   [BEFORE_DESTROY]() {

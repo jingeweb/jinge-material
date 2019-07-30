@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <md-checkbox on:change="closeOnClick = args[0]" e:value="closeOnClick">closeOnOutsideClick</md-checkbox>
+    <md-checkbox on:change="closeOnSelect = args[0]" e:value="closeOnSelect">closeOnSelect</md-checkbox>
+  </div>
+  <div>
+    <md-menu e:closeOnOutsideClick="closeOnClick" e:closeOnSelect="closeOnSelect">
+      <md-button slot-pass:default>Bottom</md-button>
+
+      <_slot slot-pass:content>
+        <md-menu-item disabled on:click="data = 'click disabled'">Disabled</md-menu-item>
+        <md-menu-item on:click="data = 'click 1'">Click Event 1</md-menu-item>
+        <md-menu-item on:click="data = 'click 2'">Click Event 2</md-menu-item>
+        <md-menu-item>Plain text</md-menu-item>
+      </_slot>
+    </md-menu>
+  </div>
+  <div>${data}</div>
+</div>
