@@ -29,6 +29,25 @@
         font-size: 28px;
       }
     }
+
+    .logo {
+      @include md-layout-xsmall {
+        display: none;
+      }
+
+      /deep/ .md-ripple {
+        padding: 0;
+        overflow: visible;
+      }
+    }
+
+    .menu {
+      display: none;
+
+      @include md-layout-xsmall {
+        display: inline-block;
+      }
+    }
   }
 
   &.splash {
@@ -44,24 +63,5 @@
         fill: #fff;
       }
     }
-  }
-}
-
-.logo {
-  @include md-layout-xsmall {
-    display: none;
-  }
-
-  /deep/ .md-ripple {
-    padding: 0;
-    overflow: visible;
-  }
-}
-
-.menu {
-  display: none;
-
-  @include md-layout-xsmall {
-    display: inline-block;
   }
 }

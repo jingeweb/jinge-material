@@ -32,7 +32,11 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       Divider: 'md-divider'
     },
     'jinge-material/src/overlay': {
-      Overlay: 'md-overlay'
+      Overlay: 'md-overlay',
+      AttachedOverlay: 'md-attached-overlay'
+    },
+    'jinge-material/src/drawer': {
+      Drawer: 'md-drawer'
     },
     'jinge-material/src/radio': {
       Radio: 'md-radio'

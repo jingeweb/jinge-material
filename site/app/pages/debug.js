@@ -13,38 +13,28 @@ export class PageDebug extends Component {
 
   static get style() {
     return `
-.full-control {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
-}
-
-.list {
-  width: 320px;
-}
-
-.full-control > .md-list {
-  width: 320px;
-  max-width: 100%;
-  height: 400px;
-  display: inline-block;
-  overflow: auto;
+.page-container {
+  min-height: 300px;
+  margin: 0 30px;
+  overflow: hidden;
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
-  vertical-align: top;
 }
 
-.control {
-  min-width: 250px;
-  display: flex;
-  flex-direction: column;
+.page-container /deep/ .md-drawer {
+  width: 230px;
+  max-width: calc(100vw - 125px);
+}
+
+.page-container /deep/ .md-content {
   padding: 16px;
 }`;
   }
 
   constructor(attrs) {
     super(attrs);
-    this.expandNews = true;
-    this.expandSingle = false;
+    this.showNavigation = false;
+    this.showSidepanel = false;
   }
 
   log(...args) {

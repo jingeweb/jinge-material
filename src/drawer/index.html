@@ -1,4 +1,6 @@
-<div class="md-drawer" :class="[$mdActiveTheme, drawerClasses]">
+<div
+  class="md-drawer${right ? ' md-right' : ' md-left'}${active ? ' md-active' : ''}${fixed ? ' md-fixed' : ''}${!permanent && !persistent ? ' md-temporary' : ''}${permanent ? ' md-permanent md-permanent-' + permanent : ''}${persistent ? ' md-persistent md-persistent-' + persistent : ''}"
+>
   <_slot />
-  <md-overlay e:active="active" on:click="closeDrawer"/>
+  <md-overlay e:__portalTarget="fixed ? 'body' : 'parent'" e:active="active" on:click="close"/>
 </div>
