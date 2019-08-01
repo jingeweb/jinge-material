@@ -1,0 +1,52 @@
+<md-drawer-container
+  pushMode
+  e:active="showNavigation"
+  on:update.active="showNavigation = args[0]"
+>
+  <_slot slot-pass:drawer>
+    <md-toolbar class="md-transparent" elevation="0">
+      <span class="md-title">My App name</span>
+      <div class="md-toolbar-section-end">
+        <md-button class="md-icon-button md-dense" on:click="showNavigation = false">
+          <md-icon-keyboard_arrow_left/>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item>
+        <md-icon-move_to_inbox/>
+        <span class="md-list-item-text">Inbox</span>
+      </md-list-item>
+
+      <md-list-item>
+        <md-icon-send/>
+        <span class="md-list-item-text">Sent Mail</span>
+      </md-list-item>
+
+      <md-list-item>
+        <md-icon-delete/>
+        <span class="md-list-item-text">Trash</span>
+      </md-list-item>
+
+      <md-list-item>
+        <md-icon-error/>
+        <span class="md-list-item-text">Spam</span>
+      </md-list-item>
+    </md-list>
+  </_slot>
+
+  <_slot slot-pass:main>
+    <md-toolbar class="md-primary">
+      <if e:expect="!showNavigation">
+      <md-button class="md-icon-button" on:click="showNavigation = true">
+        <md-icon-menu/>
+      </md-button>
+      </if>
+      <span class="md-title">My Title</span>
+    </md-toolbar>
+    <md-content>
+      Lorem ipsum dolor sit amet, <br/>consectetur adipisicing elit. Error quibusdam,<br/> non molestias et! Earum magnam, similique,<br/> quo recusandae placeat dicta asperiores modi sint ea repudiandae maxime?<br/><br/><br/><br/> Quae non explicabo, neque.
+    </md-content>
+  </_slot>
+</md-drawer-container>

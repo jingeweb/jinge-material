@@ -18,6 +18,7 @@ export * from './popconfirm';
 export * from './card';
 export * from './list';
 export * from './menu';
+export * from './drawer';
 
 export class PageComponents extends Component {
   static get template() {

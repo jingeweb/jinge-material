@@ -36,7 +36,8 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       AttachedOverlay: 'md-attached-overlay'
     },
     'jinge-material/src/drawer': {
-      Drawer: 'md-drawer'
+      Drawer: 'md-drawer',
+      DrawerContainer: 'md-drawer-container'
     },
     'jinge-material/src/radio': {
       Radio: 'md-radio'

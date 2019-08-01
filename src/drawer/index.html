@@ -1,6 +1,8 @@
 <div
-  class="md-drawer${right ? ' md-right' : ' md-left'}${active ? ' md-active' : ''}${fixed ? ' md-fixed' : ''}${!permanent && !persistent ? ' md-temporary' : ''}${permanent ? ' md-permanent md-permanent-' + permanent : ''}${persistent ? ' md-persistent md-persistent-' + persistent : ''}"
+  class="md-drawer${_right ? ' md-right' : ' md-left'}${active ? ' md-active' : ''}${_fixed ? ' md-fixed' : ''}"
 >
   <_slot />
-  <md-overlay e:__portalTarget="fixed ? 'body' : 'parent'" e:active="active" on:click="close"/>
+  <if e:expect="!_pushMode">
+  <md-overlay e:fixed="_fixed" e:__portalDisabled="_fixed" __portalTarget="parent" e:active="active" on:click="close"/>
+  </if>
 </div>

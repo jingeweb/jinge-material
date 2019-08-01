@@ -1,0 +1,40 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="抽屉（Drawer）">
+  <div class="page-container-section">
+    <p>The navigation drawer slides in from the left or right and contains the navigation destinations for your app. It is commonly used with lists inside, although can accept any type of content.</p>
+  </div>
+  <div class="page-container-section">
+    <h2>Over with overlay</h2>
+
+    <CodeExample title="Also works on the right side" e:example="_examples.over" />
+  </div>
+
+  <div class="page-container-section">
+    <h2>Push content</h2>
+
+    <CodeExample title="Push content" e:example="_examples.push" />
+  </div>
+
+  <ApiItem title="API - md-drawer">
+    <_slot slot-pass:default>
+      <p>The following options can be used with any drawer:</p>
+    </_slot>
+    <ApiTable e:headings="_api.drawer.props.headings" e:props="_api.drawer.props.props" slot-pass:props />
+    <ApiTable e:headings="_api.drawer.events.headings" e:props="_api.drawer.events.props" slot-pass:events />
+  </ApiItem>
+
+  <ApiItem title="API - md-drawer-container">
+    <_slot slot-pass:default>
+      <p>The following options can be applied to any <code>md-drawer</code> component that is using <code>md-swipeable</code> prop.</p>
+    </_slot>
+    <ApiTable e:headings="_api.container.props.headings" e:props="_api.container.props.props" slot-pass:props />
+  </ApiItem>
+</PageContainer>

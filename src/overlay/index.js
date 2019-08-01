@@ -13,7 +13,7 @@ export class Overlay extends Component {
 -->
 <Portal e:__disabled="__portalDisabled" e:__target="__portalTarget">
 <if e:expect="active" transition="md-overlay">
-<div on:click="onClick" class="md-overlay\${className ? ' ' + className : ''}"></div>
+<div on:click="onClick" class="md-overlay\${fixed ? ' md-fixed' : ''}\${className ? ' ' + className : ''}"></div>
 </if>
 </Portal>`;
   }
@@ -23,6 +23,7 @@ export class Overlay extends Component {
     this.__portalDisabled = attrs.__portalDisabled;
     this.__portalTarget = attrs.__portalTarget;
     this.active = attrs.active;
+    this.fixed = attrs.fixed;
     this.className = attrs.class || '';
   }
 

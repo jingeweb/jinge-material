@@ -23,7 +23,8 @@ import {
   PageCard,
   PageList,
   PageDebug,
-  PageMenu
+  PageMenu,
+  PageDrawer
 } from './pages';
 
 export const componentsStates = [{
@@ -98,6 +99,10 @@ export const componentsStates = [{
   name: 'components.menu',
   url: '/menu',
   component: PageMenu
+}, {
+  name: 'components.drawer',
+  url: '/drawer',
+  component: PageDrawer
 }];
 
 export const uiElementsStates = [{
