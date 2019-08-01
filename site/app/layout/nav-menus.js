@@ -3,6 +3,8 @@ import {
   Component
 } from 'jinge';
 
+import _sty from './nav-menus.scss';
+
 const menus = [{
   name: _t('首页'),
   state: 'home'
@@ -38,11 +40,11 @@ export class NavMenu extends Component {
   static get template() {
     return `
 <!-- import NavMenu from '.'; -->
-<ui-sref e:to="_menu.state" e:text="_menu.name"/>
+<ui-sref active="active" e:to="_menu.state" e:text="_menu.name"/>
 <if e:expect="_menu.children">
-<div class="main-nav-level">
+<div _co:csty class="main-nav-level">
   <for e:loop="_menu.children" vm:each="_subMenu">
-  <NavMenu e:_menu="_subMenu"/>
+  <NavMenu _co:csty e:_menu="_subMenu"/>
   </for>
 </div>
 </if>`;
@@ -64,6 +66,10 @@ export class NavMenus extends Component {
 </for>
 </div>
     `;
+  }
+
+  static get style() {
+    return _sty;
   }
 
   constructor(attrs) {
