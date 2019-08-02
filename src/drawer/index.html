@@ -3,6 +3,6 @@
 >
   <_slot />
   <if e:expect="!_pushMode">
-  <md-overlay e:fixed="_fixed" e:__portalDisabled="_fixed" __portalTarget="parent" e:active="active" on:click="close"/>
+  <md-overlay e:__portalTarget="_fixed ? 'body' : 'parent'" e:active="active" on:click="close"/>
   </if>
 </div>
