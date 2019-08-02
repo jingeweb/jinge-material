@@ -36,6 +36,7 @@ class App extends Component {
   constructor(attrs) {
     super(attrs);
     this.isSplash = pageState.isSplash;
+    this.menuShown = false;
     this._routes = RouteStates;
     pageState[ON](IS_SPLASH_CHANGED, isSplash => {
       this.isSplash = isSplash;

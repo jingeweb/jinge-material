@@ -17,6 +17,10 @@ export class Nav extends Component {
   constructor(attrs) {
     super(attrs);
     this.isSplash = attrs.isSplash;
-    this.isMenuVisible = false;
+    this.menuShown = attrs.menuShown;
+  }
+
+  hideMenu() {
+    this.menuShown = false;
   }
 }

@@ -7,10 +7,10 @@
 -->
 <ui-html-router e:_states="_routes" _otherwise="home">
 <div class="container${isSplash ? ' splash' : ''}">
-  <Header e:isSplash="isSplash"/>
+  <Header on:open-menu="menuShown = true" e:isSplash="isSplash"/>
 
   <div class="container-wrapper md-layout-row${isSplash ? ' splash' : ''}">
-    <Nav e:isSplash="isSplash"/>
+    <Nav e:menuShown="menuShown" e:isSplash="isSplash"/>
 
     <ui-view/>
   </div>

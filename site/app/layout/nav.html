@@ -7,10 +7,10 @@
   </if>
   
 
-  <md-drawer fixed e:active="isMenuVisible" on:update.active="isMenuVisible = args[0]" on:closed="hideMenu">
+  <md-drawer fixed e:active="menuShown" on:update.active="menuShown = args[0]" on:closed="hideMenu">
     <md-toolbar class="md-transparent" elevation="0">
-      <!-- <logo-vue-material class="md-icon" animated :blending="false" /> -->
-      <span class="md-title">Vue material</span>
+      <md-icon style="font-size: 24px; margin: 0 0 0 8px;" src="assets/logo.svg"/>
+      <span class="md-title">Jinge Material</span>
     </md-toolbar>
 
     <div class="main-nav-drawer-content">

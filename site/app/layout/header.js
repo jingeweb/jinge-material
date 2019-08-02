@@ -1,5 +1,5 @@
 import {
-  Component
+  Component, NOTIFY
 } from 'jinge';
 
 import _tpl from './header.html';
@@ -20,6 +20,6 @@ export class Header extends Component {
   }
 
   showMenu() {
-
+    this[NOTIFY]('open-menu');
   }
 }
