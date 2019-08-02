@@ -66,7 +66,9 @@ export class Ripple extends Component {
   }
 
   startRipple($event) {
-    const { _eventType, disabled, centered } = this;
+    const {
+      _eventType, disabled, centered
+    } = this;
 
     if (!disabled && (!_eventType || _eventType === $event.type)) {
       const size = this.getSize();
@@ -105,7 +107,9 @@ export class Ripple extends Component {
   }
 
   getSize() {
-    const { offsetWidth, offsetHeight } = this[ROOT_NODES][0];
+    const {
+      offsetWidth, offsetHeight
+    } = this[ROOT_NODES][0];
 
     return Math.round(Math.max(offsetWidth, offsetHeight));
   }

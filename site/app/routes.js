@@ -6,7 +6,6 @@ import {
   PageGettingStarted,
   PageUiElements,
   PageElevation,
-  PageComponents,
   PageButton,
   PageCheckbox,
   PageRadio,
@@ -30,7 +29,6 @@ import {
 export const componentsStates = [{
   name: 'components',
   url: '/components',
-  component: PageComponents,
   redirectTo: 'components.button'
 }, {
   name: 'components.button',
@@ -92,7 +90,9 @@ export const componentsStates = [{
   name: 'components.list',
   url: '/list/:optional',
   params: {
-    optional: { dynamic: true, squash: true, value: null }
+    optional: {
+      dynamic: true, squash: true, value: null
+    }
   },
   component: PageList
 }, {

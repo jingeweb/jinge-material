@@ -1,0 +1,54 @@
+<!--
+  import { HomeIconCircle } from './home-icon-circle.js';
+  import { HomeIconSquare } from './home-icon-square.js';
+  import { HomeIconDevices } from './home-icon-devices.js';
+-->
+<div class="home-splash">
+  <header class="home-header">
+    <div class="home-logo">
+      <md-icon src="assets/logo.svg"/>
+    </div>
+  
+    <div class="home-call">
+      <h1 class="home-name">Jinge Material</h1>
+  
+      <p><_t>构建在 Jinge 框架上的 Material Design 组件库</_t></p>
+  
+      <div class="home-actions">
+        <md-button class="md-button-spaced md-plain md-raised" to="getting-started">
+          <_t>快速上手</_t>
+        </md-button>
+        <md-button class="md-button-spaced md-plain md-raised" to="components">
+          <_t>浏览组件</_t>
+        </md-button>
+      </div>
+    </div>
+    <p class="fork-desc">
+      <span><_t>特别说明</_t></span><br/>
+      <span><_t>
+      此项目的主要目的是通过实现一套组件库来不断完善 Jinge 框架本身，
+      代码主要移植自 <a target="_blank" href="https://vuematerial.io">Vue Material</a>，
+      特别是 scss 样式代码绝大部分拷贝自该项目。
+      </_t></span>
+    </p>
+  </header>
+  <section class="home-features md-layout md-gutter md-layout-wrap">
+    <div class="home-feature md-layout-item md-small-size-100">
+      <HomeIconSquare />
+      <h2 class="md-title">Material Design</h2>
+      <p><_t>精准实现 Google Material Design 设计规范。</_t></p>
+    </div>
+  
+    <div class="home-feature md-layout-item md-small-size-100">
+      <HomeIconDevices />
+      <h2 class="md-title">Compatible</h2>
+      <p><_t>适配所有主流的现代浏览器，支持移动设备的响应式。</_t></p>
+    </div>
+  
+    <div class="home-feature md-layout-item md-small-size-100">
+      <HomeIconCircle />
+      <h2 class="md-title">Full-featured</h2>
+      <p><_t>支持多皮肤主题，国际化多语言等丰富全面的功能。</_t></p>
+    </div>
+  </section>
+</div>

@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  AFTER_RENDER
 } from 'jinge';
 import {
   pageState
@@ -33,5 +34,9 @@ export class PageContainer extends Component {
     if (this._t === v) return;
     this._t = v;
     pageState.title = v + ' - Jinge Material';
+  }
+
+  [AFTER_RENDER]() {
+    pageState.isSplash = false;
   }
 }

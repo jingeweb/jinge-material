@@ -1,14 +1,15 @@
 import {
   Component,
-  AFTER_RENDER
+  AFTER_RENDER,
+  _t
 } from 'jinge';
 
-import _tpl from './home.html';
-import _sty from './home.scss';
+import _tpl from './index.html';
+import _sty from './index.scss';
 
 import {
   pageState
-} from '../service';
+} from '../../service';
 
 export class PageHome extends Component {
   static get style() {
@@ -21,5 +22,6 @@ export class PageHome extends Component {
 
   [AFTER_RENDER]() {
     pageState.isSplash = true;
+    pageState.title = _t('Jinge Material - 构建在 Jinge 框架上的 Material Design 组件库');
   }
 }

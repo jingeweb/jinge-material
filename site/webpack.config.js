@@ -1,14 +1,21 @@
 /* eslint-env node */
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const { jingeLoader, JingeWebpackPlugin } = require('jinge/compiler');
-const { uiRouterAlias } = require('jinge-ui-router/compiler');
+const {
+  jingeLoader, JingeWebpackPlugin
+} = require('jinge/compiler');
+const {
+  uiRouterAlias
+} = require('jinge-ui-router/compiler');
+
 const jingeMaterialAlias = (function() {
   /**
    * 由于 site 里的代码也属于 jinge-material 仓库，
    * 所以需要修改下别名对应的 import 路径，改成具体的文件路径。
    */
-  const { jingeMaterialAlias } = require('../compiler');
+  const {
+    jingeMaterialAlias
+  } = require('../compiler');
   const alias = {};
   Object.keys(jingeMaterialAlias).forEach(libPath => {
     alias[

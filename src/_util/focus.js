@@ -66,7 +66,9 @@ function checkPassiveEventSupport() {
   try {
     const opts = defineProperty({}, 'passive', {
       get() {
-        supportsPassiveEvent = { passive: true };
+        supportsPassiveEvent = {
+          passive: true
+        };
       }
     });
     addEvent(window, 'ghost', null, opts);

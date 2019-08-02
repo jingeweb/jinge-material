@@ -20,7 +20,13 @@ table td { padding-right: 10px; }
   constructor(attrs) {
     super(attrs);
     this.v = null;
-    this.persons = VM([{ name: '小葛' }, { name: '小明' }, { name: '小王' }]);
+    this.persons = VM([{
+      name: '小葛'
+    }, {
+      name: '小明'
+    }, {
+      name: '小王'
+    }]);
     this.cities = VM(['Chengdu', 'Beijing', 'Shanghai']);
     this.selectedCity = this.cities[0];
     this.selectedPerson = null;

@@ -10,7 +10,6 @@
       $s.onload = resolve;
       $s.onerror = reject;
       $s.href = `css/jinge-material.${theme}${buildHash ? `.${buildHash[1]}.min` : ''}.css`;
-      console.log($s.src);
       document.head.appendChild($s);
     });
   }

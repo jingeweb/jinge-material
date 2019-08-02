@@ -1,4 +1,4 @@
-.main-nav-content {
+.main-nav-content /deep/ {
   a {
     display: block;
     font-size: 14px;
@@ -9,12 +9,12 @@
     }
   }
 
-  .router-link-active {
+  a.active {
     font-weight: 500;
   }
-}
 
-.main-nav-level {
-  margin-bottom: 16px;
-  margin-left: 20px;
+  .main-nav-level {
+    margin-bottom: 16px;
+    margin-left: 20px;
+  }
 }

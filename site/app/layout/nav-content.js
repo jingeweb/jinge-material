@@ -3,7 +3,7 @@ import {
   Component
 } from 'jinge';
 
-import _sty from './nav-menus.scss';
+import _sty from './nav-content.scss';
 
 const menus = [{
   name: _t('首页'),
@@ -36,36 +36,15 @@ const menus = [{
   state: 'license'
 }];
 
-export class NavMenu extends Component {
+export class NavContent extends Component {
   static get template() {
     return `
-<!-- import NavMenu from '.'; -->
-<ui-sref active="active" e:to="_menu.state" e:text="_menu.name"/>
-<if e:expect="_menu.children">
-<div _co:csty class="main-nav-level">
-  <for e:loop="_menu.children" vm:each="_subMenu">
-  <NavMenu _co:csty e:_menu="_subMenu"/>
-  </for>
-</div>
-</if>`;
-  }
-
-  constructor(attrs) {
-    super(attrs);
-    this._menu = attrs._menu;
-  }
-}
-
-export class NavMenus extends Component {
-  static get template() {
-    return `
-<!-- import NavMenu from '.'; -->
+<!-- import { NavMenu } from './nav-menu.js'; -->
 <div class="main-nav-content">
 <for e:loop="_menus" vm:each="menu">
   <NavMenu e:_menu="menu"/>
 </for>
-</div>
-    `;
+</div>`;
   }
 
   static get style() {

@@ -1,7 +1,3 @@
-import {
-  Component
-} from 'jinge';
-
 export * from './button';
 export * from './checkbox';
 export * from './radio';
@@ -19,9 +15,3 @@ export * from './card';
 export * from './list';
 export * from './menu';
 export * from './drawer';
-
-export class PageComponents extends Component {
-  static get template() {
-    return '<ui-view/>';
-  }
-}

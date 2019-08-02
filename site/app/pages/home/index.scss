@@ -1,0 +1,91 @@
+@import 'src/layout/mixins';
+
+.home-splash {
+  max-width: 1312px;
+  position: relative;
+  letter-spacing: normal;
+  font-size: 15px;
+  line-height: 1.7em;
+  margin: auto;
+
+  section {
+    padding: 32px 0 48px;
+  }
+}
+
+.fork-desc {
+  text-align: center;
+  margin-top: 120px;
+  opacity: 0.6;
+  padding: 0 12px;
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+.home-header {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.home-logo {
+  font-size: 124px;
+}
+
+.home-call {
+  margin-top: 24px;
+  flex: 0 0 50%;
+  font-size: 18px;
+  line-height: 1.6em;
+  padding: 0 12px;
+}
+
+.home-name {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1em;
+
+  @include md-layout-xsmall {
+    font-size: 36px;
+  }
+}
+
+.home-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+
+  .md-button {
+    margin-left: 0;
+  }
+}
+
+.home-features {
+  margin-top: 60px;
+  padding-bottom: 60px;
+  flex: none;
+
+  @media (min-width: 1690px) {
+    margin-top: 120px;
+  }
+
+  @include md-layout-xsmall {
+    margin-top: 60px;
+  }
+}
+
+.home-feature {
+  margin-bottom: 16px;
+
+  @include md-layout-xsmall {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+}

@@ -5,7 +5,9 @@ import {
   Symbol,
   SET_CONTEXT
 } from 'jinge';
-import { arrayPushIfNotExist, arrayRemove } from 'jinge/util';
+import {
+  arrayPushIfNotExist, arrayRemove
+} from 'jinge/util';
 
 export const LIST_PROVIDER = Symbol('list_provider');
 export class List extends Component {

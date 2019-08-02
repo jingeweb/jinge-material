@@ -14,6 +14,6 @@ export class Toolbar extends Component {
   constructor(attrs) {
     super(attrs);
     this.className = attrs.class;
-    this.elevation = Number(attrs.elevation || 4);
+    this.elevation = 'elevation' in attrs ? Number(attrs.elevation) : 4;
   }
 }

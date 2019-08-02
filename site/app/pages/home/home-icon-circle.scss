@@ -1,0 +1,66 @@
+@import 'src/animation/variables';
+@import 'src/layout/mixins';
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+.home-icon-circle {
+  &:hover .circle {
+    &:nth-child(2) {
+      transform: scale(0.66) translate3d(0, -75%, 0);
+
+      @include md-layout-xsmall {
+        transform: scale(0.66) translate3d(-75%, -75%, 0);
+      }
+    }
+
+    &:nth-child(3) {
+      transform: scale(0.33) translate3d(0, -150%, 0);
+
+      @include md-layout-xsmall {
+        transform: scale(0.33) translate3d(-150%, -150%, 0);
+      }
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-radius: 100%;
+  transform: translate3d(0, -50%, 0);
+  transition: $md-transition-stand;
+  will-change: transform;
+
+  @include md-layout-xsmall {
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  &:nth-child(1) {
+    background: md-get-palette-color(cyan, 300);
+    transform: scale(0.98) translate3d(0, -50%, 0);
+
+    @include md-layout-xsmall {
+      transform: scale(0.98) translate3d(-50%, -50%, 0);
+    }
+  }
+
+  &:nth-child(2) {
+    background: md-get-palette-color(red, 400);
+    transform: scale(0.98) translate3d(0, -50%, 0);
+
+    @include md-layout-xsmall {
+      transform: scale(0.98) translate3d(-50%, -50%, 0);
+    }
+  }
+
+  &:nth-child(3) {
+    color: md-get-palette-color(yellow, 900);
+    background: md-get-palette-color(yellow, 500);
+  }
+
+  .md-ripple {
+    border-radius: 50%;
+  }
+}

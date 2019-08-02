@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const https = require('https');
 const HttpsProxyAgent = require('https-proxy-agent');
 const slog = require('single-line-log').stdout;
+
 const HTTP_RPOXY = process.env.PROXY ? (process.env.PROXY === 'local' ? 'http://127.0.0.1:1087' : process.env.PROXY) : null;
 const ICONS_DIR = path.resolve(__dirname, '../icons');
 const ICON_ALIAS_FILE = path.resolve(__dirname, '../compiler/_auto_generated_icons_alias.js');

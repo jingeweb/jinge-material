@@ -20,7 +20,8 @@ import _sty from './index.scss';
 
 import RouteStates from '../routes';
 import {
-  pageState, IS_SPLASH_CHANGED
+  pageState,
+  IS_SPLASH_CHANGED
 } from '../service';
 
 class App extends Component {

@@ -26,8 +26,12 @@ table td { padding-right: 10px; }
     this.v1 = _rnd();
     this.v2 = _rnd() ? 'yes' : 'no';
     this.s = VM({
-      t: { v: true },
-      f: { v: false }
+      t: {
+        v: true
+      },
+      f: {
+        v: false
+      }
     });
     this.v3s = '';
     this.v3 = _rnd() ? this.s.t : this.s.f;

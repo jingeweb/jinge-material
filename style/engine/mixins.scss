@@ -40,8 +40,6 @@
 @mixin md-register-theme ($palette: $md-default-palette) {
   $palette: map-merge($md-default-palette, $palette);
   $md-theme-palette: map-merge($md-theme-palette, $palette) !global;
-
-  @include md-base-theme;
 }
 
 /**
