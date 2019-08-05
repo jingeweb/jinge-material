@@ -1,0 +1,14 @@
+.md-badge-content {
+  position: relative;
+  display: inline-block;
+
+  .md-position {
+    &-top {
+      top: -4px;
+    }
+
+    &-bottom {
+      bottom: -4px;
+    }
+  }
+}

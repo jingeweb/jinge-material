@@ -1,0 +1,55 @@
+@import '../animation/variables';
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+.md-badge {
+  position: absolute;
+  right: 0;
+  transform: translateX(50%);
+  transition: 0.3s $md-transition-default-timing;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-style: normal;
+  min-width: 22px;
+  padding: 0 8px;
+  height: 22px;
+  border-radius: 11px;
+  color: #fff;
+  pointer-events: none;
+  z-index: 11;
+
+  @include md-theme-property(color, text-primary, accent);
+  @include md-theme-property(background-color, accent);
+
+  &.md-primary {
+    @include md-theme-property(color, text-primary, primary);
+    @include md-theme-property(background-color, primary);
+  }
+
+  .md-list-item-content & {
+    position: relative;
+    transform: none;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &.md-dense {
+    padding: 0;
+    border-radius: 50%;
+    min-width: 18px;
+    width: 18px;
+    height: 18px;
+    font-size: 8px;
+  }
+
+  &.md-square {
+    width: auto;
+    border-radius: 3px;
+    transform: none;
+    height: 18px;
+    padding: 0 4px;
+  }
+}

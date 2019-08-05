@@ -1,0 +1,29 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="徽标提示（Badge）">
+  <div class="page-container-section">
+    <p>Small status descriptors for UI elements.</p>
+  </div>
+
+  <div class="page-container-section">
+
+    <p>Some components like <b>button, avatar</b> needs to be wrapped with <code>md-badge</code> component.</p>
+    <CodeExample title="Example with buttons" e:example="_examples.buttons" />
+
+    <CodeExample title="Example with lists" e:example="_examples.lists" />
+
+    <CodeExample title="Dense" e:example="_examples.dense" />
+
+    <ApiItem title="API - md-badge">
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.classes.headings" e:props="_api.classes.props" slot-pass:classes />
+    </ApiItem>
+  </div>
+</PageContainer>

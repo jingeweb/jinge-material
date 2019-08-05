@@ -112,6 +112,10 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/tooltip': {
       Tooltip: 'md-tooltip'
+    },
+    'jinge-material/src/badge': {
+      Badge: 'md-badge',
+      BadgeStandalone: 'md-badge-standalone'
     }
   }, themeIconAlias);
 };
