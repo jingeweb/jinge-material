@@ -7,7 +7,8 @@ import {
   ROOT_NODES,
   isBoolean,
   obj2style,
-  uid
+  uid,
+  isObject
 } from 'jinge';
 import {
   raf
@@ -39,16 +40,20 @@ export class Ripple extends Component {
   set active(v) {
     if (this.__active === v) return;
     this.__active = v;
-    const isBool = isBoolean(v);
+    let isBool = isBoolean(v);
     if (!isBool) {
-      v = v._event;
+      if (isObject(v)) {
+        v = v._event;
+      } else {
+        isBool = true;
+        v = !!v;
+      }
     }
-    const isEvent = v.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent';
     if (isBool && this.centered && v) {
       this.startRipple({
         type: 'mousedown'
       });
-    } else if (isEvent) {
+    } else if (v && v.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent') {
       this.startRipple(v);
     }
 
