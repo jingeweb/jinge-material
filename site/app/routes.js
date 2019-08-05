@@ -24,7 +24,8 @@ import {
   PageDebug,
   PageMenu,
   PageDrawer,
-  PageBadge
+  PageBadge,
+  PageBottomBar
 } from './pages';
 
 export const componentsStates = [{
@@ -108,6 +109,15 @@ export const componentsStates = [{
   name: 'components.badge',
   url: '/badge',
   component: PageBadge
+}, {
+  name: 'components.bottom-bar',
+  url: '/bottom-bar/:sub',
+  params: {
+    sub: {
+      dynamic: true, squash: true, value: null
+    }
+  },
+  component: PageBottomBar
 }];
 
 export const uiElementsStates = [{

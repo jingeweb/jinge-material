@@ -1,0 +1,33 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="底栏（Bottom Bar）">
+  <div class="page-container-section">
+    <p>Bottom navigation bars make it easy to explore and switch between top-level views in a single tap. The bottom bar component is a high-level navigation system made for mobile devices with Vue Router support. Check it out:</p>
+  </div>
+  <div class="page-container-section">
+    <h2>Seamless integration with Jinge UI Router</h2>
+
+    <CodeExample title="With default fixed style" e:example="_examples.fixed" />
+  </div>
+  <div class="page-container-section">
+    <h2>Shift effect</h2>
+
+    <p>You can also use the awesome shift effect on your bars. It is great to keep the focus of the active item and you can show up to 6 items at once:</p>
+    <CodeExample title="With Primary and Accent colors" e:example="_examples.shift" />
+
+    <ApiItem title="API - md-bottom-bar">
+      <ApiTable e:headings="_api.bar.props.headings" e:props="_api.bar.props.props" slot-pass:props />
+    </ApiItem>
+
+    <ApiItem title="API - md-bottom-bar-item">
+      <ApiTable e:headings="_api.item.props.headings" e:props="_api.item.props.props" slot-pass:props />
+    </ApiItem>
+  </div>
+</PageContainer>

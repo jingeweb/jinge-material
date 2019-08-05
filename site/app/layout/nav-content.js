@@ -69,7 +69,7 @@ const menus = [{
     name: _t('小提示（badge）'),
     state: 'components.badge'
   }, {
-    name: _t('[x]底栏（Bottom Bar）'),
+    name: _t('底栏（Bottom Bar）'),
     state: 'components.bottom-bar'
   }, {
     name: _t('按钮 (Button)'),
