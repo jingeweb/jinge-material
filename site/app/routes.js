@@ -25,7 +25,9 @@ import {
   PageMenu,
   PageDrawer,
   PageBadge,
-  PageBottomBar
+  PageBottomBar,
+  PageDivider,
+  PageSubheader
 } from './pages';
 
 export const componentsStates = [{
@@ -118,6 +120,14 @@ export const componentsStates = [{
     }
   },
   component: PageBottomBar
+}, {
+  name: 'components.divider',
+  url: '/divider',
+  component: PageDivider
+}, {
+  name: 'components.subheader',
+  url: '/subheader',
+  component: PageSubheader
 }];
 
 export const uiElementsStates = [{

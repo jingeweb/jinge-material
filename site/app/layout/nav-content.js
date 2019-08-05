@@ -87,7 +87,7 @@ const menus = [{
     name: _t('对话框（Dialog)'),
     state: 'components.dialog'
   }, {
-    name: _t('[x]分割线（Divider）'),
+    name: _t('分隔线（Divider）'),
     state: 'components.divider'
   }, {
     name: _t('抽屉（Drawer）'),
@@ -145,7 +145,7 @@ const menus = [{
     name: _t('[x]步骤条（Steps）'),
     state: 'components.step'
   }, {
-    name: _t('[x]子标题（Subheader）'),
+    name: _t('子标题（Subheader）'),
     state: 'components.subheader'
   }, {
     name: _t('[x]表格（Table）'),
