@@ -63,7 +63,7 @@ const menus = [{
     name: _t('[x]顶栏（App Bar）'),
     state: 'components.app-bar'
   }, {
-    name: _t('头像（Avatar）'),
+    name: _t('[x]头像（Avatar）'),
     state: 'components.avatar'
   }, {
     name: _t('小提示（badge）'),

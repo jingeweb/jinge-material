@@ -32,8 +32,8 @@ export class CodeBlock extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this._lang = attrs._lang;
-    this._code = attrs._code;
+    this._lang = attrs.lang;
+    this._code = attrs.code;
     this.height = attrs.height || 450;
     this.showMessage = false;
     this._$ce = null;
