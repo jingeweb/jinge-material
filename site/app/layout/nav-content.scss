@@ -1,4 +1,25 @@
+.main-nav-content {
+  position: relative;
+}
+
 .main-nav-content /deep/ {
+  > .todo-tip {
+    margin: 0;
+    position: absolute;
+    top: -18px;
+    left: 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.3);
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+
+    > .md-icon {
+      font-size: 14px;
+      margin-right: 2px;
+    }
+  }
+
   a {
     display: block;
     font-size: 14px;

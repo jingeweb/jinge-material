@@ -1,6 +1,12 @@
 import {
-  Component
+  Component,
+  AFTER_RENDER,
+  GET_CONTEXT,
+  BEFORE_DESTROY
 } from 'jinge';
+import {
+  UIROUTER_CONTEXT
+} from 'jinge-ui-router';
 
 import _tpl from './nav.html';
 import _sty from './nav.scss';
@@ -18,9 +24,20 @@ export class Nav extends Component {
     super(attrs);
     this.isSplash = attrs.isSplash;
     this.menuShown = attrs.menuShown;
+    this._router = this[GET_CONTEXT](UIROUTER_CONTEXT);
   }
 
   hideMenu() {
     this.menuShown = false;
+  }
+
+  [AFTER_RENDER]() {
+    this._obd = this._router.transitionService.onBefore({}, () => {
+      this.menuShown = false;
+    });
+  }
+
+  [BEFORE_DESTROY]() {
+    this._obd.dispose();
   }
 }
