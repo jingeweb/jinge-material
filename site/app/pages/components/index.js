@@ -19,3 +19,4 @@ export * from './badge';
 export * from './bottom-bar';
 export * from './divider';
 export * from './subheader';
+export * from './avatar';

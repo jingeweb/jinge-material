@@ -27,7 +27,8 @@ import {
   PageBadge,
   PageBottomBar,
   PageDivider,
-  PageSubheader
+  PageSubheader,
+  PageAvatar
 } from './pages';
 
 export const componentsStates = [{
@@ -128,6 +129,10 @@ export const componentsStates = [{
   name: 'components.subheader',
   url: '/subheader',
   component: PageSubheader
+}, {
+  name: 'components.avatar',
+  url: '/avatar',
+  component: PageAvatar
 }];
 
 export const uiElementsStates = [{

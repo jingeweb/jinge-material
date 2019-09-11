@@ -7,8 +7,14 @@ import {
 export class Avatar extends Component {
   static get template() {
     return `
-<div class="md-avatar">
+<div class="md-avatar\${className ? ' ' + className : ''}" e:style="style">
   <_slot />
 </div>`;
+  }
+
+  constructor(attrs) {
+    super(attrs);
+    this.className = attrs.class;
+    this.style = attrs.style;
   }
 }
