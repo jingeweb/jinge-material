@@ -136,7 +136,7 @@ const menus = [{
     name: _t('进度条（Progress）'),
     state: 'components.progress'
   }, {
-    name: _t('[x]消息提示（Snackbar）'),
+    name: _t('消息提示（Snackbar）'),
     state: 'components.snackbar'
   }, {
     name: _t('正在加载（Spinner）'),

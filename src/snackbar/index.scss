@@ -1,0 +1,108 @@
+@import '../animation/variables';
+@import '../layout/mixins';
+@import '../elevation/mixins';
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+.md-snackbar {
+  @include md-elevation(6);
+
+  min-width: 288px;
+  max-width: 568px;
+  min-height: 48px;
+  max-height: 80px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  border-radius: 2px;
+
+  @include md-theme-property(color, text-primary, text-primary);
+
+  background: #323232;
+
+  // @if md-get-theme-mode() == light {
+  //   background-color: #323232;
+  // } @else {
+  //   background-color: #fff;
+  // }
+  &.md-position-center {
+    margin: 0 auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    // &.md-snackbar-enter,
+    // &.md-snackbar-leave-active {
+    //   transform: translate3d(0, calc(100% + 8px), 0);
+    // }
+  }
+
+  &.md-position-left {
+    bottom: 24px;
+    left: 24px;
+
+    // &.md-snackbar-enter,
+    // &.md-snackbar-leave-active {
+    //   transform: translate3d(0, calc(100% + 32px), 0);
+    // }
+  }
+
+  @include md-layout-xsmall {
+    left: 0;
+    transform: none;
+    border-radius: 0;
+  }
+}
+
+.md-snackbar-enter,
+.md-snackbar-leave {
+  transition: 0.4s $md-transition-default-timing;
+  transition-property: opacity, transform;
+  will-change: background-color, color, opacity, transform;
+}
+
+.md-snackbar-enter,
+.md-snackbar-leave.md-snackbar-leave-active {
+  opacity: 0;
+
+  &.md-position-center {
+    transform: translate3d(0, calc(100% + 8px), 0);
+  }
+
+  &.md-position-left {
+    transform: translate3d(0, calc(100% + 32px), 0);
+  }
+}
+
+.md-snackbar-enter.md-snackbar-enter-active,
+.md-snackbar-leave {
+  opacity: 1;
+
+  &.md-position-center,
+  &.md-position-left {
+    transform: none;
+  }
+}
+
+.md-snackbar-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.38s $md-transition-drop-timing;
+
+  .md-button {
+    min-width: 0;
+    margin: -8px -8px -8px 36px;
+
+    @include md-layout-xsmall {
+      margin-left: 12px;
+    }
+
+    + .md-button {
+      margin-left: 16px;
+    }
+  }
+}

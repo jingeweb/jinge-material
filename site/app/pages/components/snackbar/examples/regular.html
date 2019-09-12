@@ -1,0 +1,30 @@
+<form novalidate>
+  <!-- <div>
+    <div for="snackbar-center" class="md-body-2">Position</div>
+    <md-radio ="position" id="snackbar-center" name="snackbar-horizontal" value="center">Centered</md-radio>
+    <md-radio v-model="position" id="snackbar-left" name="snackbar-horizontal" value="left">Left</md-radio>
+  </div>
+
+  <div>
+    <div class="md-body-2">Duration</div>
+
+    <md-switch v-model="isInfinity">Infinite</md-switch>
+
+    <md-field>
+      <label for="snackbar-duration">Miliseconds</label>
+      <md-input type="number" id="snackbar-duration" v-model.number="duration" :disabled="isInfinity"></md-input>
+    </md-field>
+  </div> -->
+
+  <md-button on:click="showSnackbar = true" class="md-primary md-raised">Open Snackbar</md-button>
+  <md-snackbar
+    e:position="position"
+    e:active="showSnackbar"
+    on:update.active="showSnackbar = args[0]"
+    on:opened="log('opened')"
+    on:closed="log('closed')"
+  >
+    <span>Connection timeout. Showing limited messages!</span>
+    <md-button class="md-primary" on:click="showSnackbar = false">Ok</md-button>
+  </md-snackbar>
+</form>

@@ -1,0 +1,31 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="消息提示（Snackbar）">
+  <div class="page-container-section">
+    <p>Snackbars provide brief feedback about an operation through a message at the bottom of the screen.</p>
+    <p>They can have a custom duration on the screen or be persistent. It can be centered or left aligned.</p>
+    <NoteBlock>On mobile devices the snackbar will fit the whole width space.</NoteBlock>
+  </div>
+
+  <div class="page-container-section">
+    <h2>Duration and position</h2>
+
+    <CodeExample title="Regualr" e:example="_examples.regular" />
+  </div>
+  <div class="page-container-section">
+    <h2>Directly call static method</h2>
+    <CodeExample title="Regualr" e:example="_examples.static" />
+
+    <ApiItem title="API - md-snackbar">
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+</PageContainer>

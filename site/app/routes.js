@@ -28,7 +28,8 @@ import {
   PageBottomBar,
   PageDivider,
   PageSubheader,
-  PageAvatar
+  PageAvatar,
+  PageSnackbar
 } from './pages';
 
 export const componentsStates = [{
@@ -133,6 +134,10 @@ export const componentsStates = [{
   name: 'components.avatar',
   url: '/avatar',
   component: PageAvatar
+}, {
+  name: 'components.snackbar',
+  url: '/snackbar',
+  component: PageSnackbar
 }];
 
 export const uiElementsStates = [{

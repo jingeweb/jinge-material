@@ -1,0 +1,11 @@
+<md-portal e:__disabled="__portalDisabled">
+<if e:expect="isShown" transition="md-snackbar">
+  <div class="md-snackbar md-position-${position}${className ? ' ' + className : ''}">
+    <div class="md-snackbar-content">
+      <_slot>
+        ${message}
+      </_slot>
+    </div>
+  </div>
+</if>
+</md-portal>

@@ -120,6 +120,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/bottom-bar': {
       BottomBar: 'md-bottom-bar',
       BottomBarItem: 'md-bottom-bar-item'
+    },
+    'jinge-material/src/snackbar': {
+      Snackbar: 'md-snackbar'
     }
   }, themeIconAlias);
 };
