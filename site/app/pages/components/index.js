@@ -21,3 +21,4 @@ export * from './divider';
 export * from './subheader';
 export * from './avatar';
 export * from './snackbar';
+export * from './steppers';

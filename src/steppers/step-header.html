@@ -1,0 +1,30 @@
+<md-button
+  class="md-stepper-header${step.done ? ' md-done' : ''}${step.error ? ' md-error' : ''}${step.isActive ? ' md-active' : ''}"
+  e:disabled="(step.done && !step.editable) || (Steppers.linear && !step.isPreviousDone)"
+  on:click="active"
+>
+  <if e:expect="step.error">
+  <md-icon-warning slot-pass:default class="md-stepper-icon"/>
+  <div slot-pass:else class="md-stepper-number">
+    <if e:expect="step.done && step.editable">
+    <md-icon-edit class="md-stepper-editable"/>
+    </if>
+    <if e:expect="step.done && !step.editable">
+    <md-icon-check class="md-stepper-done"/>
+    </if>
+    <if e:expect="!step.done">
+    ${step.index + 1}
+    </if>
+  </div>
+  </if>
+
+  <div class="md-stepper-text">
+    <span class="md-stepper-label">${ step.label }</span>
+    <if e:expect="step.error">
+    <span class="md-stepper-error">${ step.error }</span>
+    </if>
+    <if e:expect="!step.error && step.description">
+    <span class="md-stepper-description">${ step.description }</span>
+    </if>
+  </div>
+</md-button>

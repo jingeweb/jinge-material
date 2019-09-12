@@ -1,0 +1,23 @@
+<!--
+  import { StepHeader } from './step-header.js';
+-->
+<div class="md-steppers${vertical ? ' md-vertical' : ' md-horizontal'}${dynamicHeight ? ' md-dynamic-height' : ''}${noTransition ? ' md-no-transition' : ''}${alternative ? ' md-alternative' : ''}">
+  <if e:expect="!vertical">
+  <div class="md-steppers-navigation">
+    <for e:loop="items" vm:each="step" vm:index="index">
+    <StepHeader e:index="index"/>
+    </for>
+  </div>
+  </if>
+  <div
+    class="md-steppers-wrapper"
+    e:style="contentStyle"
+  >
+    <div
+      class="md-steppers-container"
+      e:style="contentTransform"
+    >
+      <_slot />
+    </div>
+  </div>
+</div>

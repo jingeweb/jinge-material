@@ -1,0 +1,12 @@
+<!--
+  import { StepHeader } from './step-header.js';
+-->
+<div class="md-stepper">
+  <if e:expect="Steppers.vertical">
+  <StepHeader e:index="index" />
+  </if>
+
+  <div class="md-stepper-content${isActive ? ' md-active' : ''}">
+    <_slot />
+  </div>
+</div>

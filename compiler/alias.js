@@ -123,6 +123,10 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/snackbar': {
       Snackbar: 'md-snackbar'
+    },
+    'jinge-material/src/steppers': {
+      Steppers: 'md-steppers',
+      Step: 'md-step'
     }
   }, themeIconAlias);
 };

@@ -29,7 +29,8 @@ import {
   PageDivider,
   PageSubheader,
   PageAvatar,
-  PageSnackbar
+  PageSnackbar,
+  PageSteppers
 } from './pages';
 
 export const componentsStates = [{
@@ -138,6 +139,10 @@ export const componentsStates = [{
   name: 'components.snackbar',
   url: '/snackbar',
   component: PageSnackbar
+}, {
+  name: 'components.steppers',
+  url: '/steppers',
+  component: PageSteppers
 }];
 
 export const uiElementsStates = [{

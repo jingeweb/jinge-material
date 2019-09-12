@@ -142,8 +142,8 @@ const menus = [{
     name: _t('正在加载（Spinner）'),
     state: 'components.spinner'
   }, {
-    name: _t('[x]步骤条（Steps）'),
-    state: 'components.step'
+    name: _t('步骤条（Steppers）'),
+    state: 'components.steppers'
   }, {
     name: _t('子标题（Subheader）'),
     state: 'components.subheader'
@@ -152,7 +152,7 @@ const menus = [{
     state: 'components.table'
   }, {
     name: _t('[x]标签页（Tabs）'),
-    state: 'components.tab'
+    state: 'components.tabs'
   }, {
     name: _t('工具栏（Toolbar）'),
     state: 'components.toolbar'
