@@ -127,6 +127,10 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/steppers': {
       Steppers: 'md-steppers',
       Step: 'md-step'
+    },
+    'jinge-material/src/tabs': {
+      Tab: 'md-tab',
+      Tabs: 'md-tabs'
     }
   }, themeIconAlias);
 };

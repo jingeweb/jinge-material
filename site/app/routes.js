@@ -30,7 +30,8 @@ import {
   PageSubheader,
   PageAvatar,
   PageSnackbar,
-  PageSteppers
+  PageSteppers,
+  PageTabs
 } from './pages';
 
 export const componentsStates = [{
@@ -143,6 +144,18 @@ export const componentsStates = [{
   name: 'components.steppers',
   url: '/steppers',
   component: PageSteppers
+}, {
+  name: 'components.tabs',
+  url: '/tabs/:module/:sub',
+  params: {
+    module: {
+      dynamic: true, squash: true, value: null
+    },
+    sub: {
+      dynamic: true, squash: true, value: null
+    }
+  },
+  component: PageTabs
 }];
 
 export const uiElementsStates = [{

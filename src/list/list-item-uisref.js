@@ -7,7 +7,7 @@ export class ListItemUISref extends Component {
     return `
 <!-- 
  import { ListItemContent } from './list-item-content';
- import { UISref } from 'jinge-ui-router';
+ import { UISref } from '../uisref';
 -->
 <UISref
   e:to="to"

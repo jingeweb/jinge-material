@@ -151,7 +151,7 @@ const menus = [{
     name: _t('[x]表格（Table）'),
     state: 'components.table'
   }, {
-    name: _t('[x]标签页（Tabs）'),
+    name: _t('标签页（Tabs）'),
     state: 'components.tabs'
   }, {
     name: _t('工具栏（Toolbar）'),

@@ -17,3 +17,5 @@ export * from './card';
 export * from './menu';
 export * from './divider';
 export * from './subheader';
+export * from './steppers';
+export * from './tabs';
