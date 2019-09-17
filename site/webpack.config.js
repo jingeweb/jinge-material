@@ -116,7 +116,9 @@ module.exports = {
         loader: 'sass-loader',
         options: {
           sourceMap: SOURCEMAP,
-          includePaths: [path.resolve(__dirname, '../')]
+          sassOptions: {
+            includePaths: [path.resolve(__dirname, '../')]
+          }
         }
       }]
     }]
