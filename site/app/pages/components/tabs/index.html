@@ -23,32 +23,31 @@
     <h2>Tab with inner content</h2>
 
     <p>In the previous example, the tabs worked just like navigation buttons, without content. With that you would need to render the content by yourself. You can pass arbitrary content to your tabs. And it can also work syncing with router:</p>
-    <!-- <CodeExample title="Content syncing with Router" e:component="_examples.content" /> -->
+    <CodeExample title="Content syncing with Router" e:example="_examples.content" />
   </div>
 
   <div class="page-container-section">
     <h2>Alignments</h2>
 
     <p>Tabs have four types of alignments for the navigation buttons: Left, Center, Right and Fixed. You can use them with any tabs:</p>
-    <!-- <CodeExample title="With different hue colors" e:example="_examples.alignments" /> -->
+    <CodeExample title="With different hue colors" e:example="_examples.alignments" />
   </div>
 
   <div class="page-container-section">
     <h2>Icons</h2>
 
     <p>Tabs accept icons, to make it easier for your user to assimilate the contents of a tab:</p>
-    <!-- <CodeExample title="With icon support" e:example="_examples.icons" /> -->
+    <CodeExample title="With icon support" e:example="_examples.icons" />
   </div>
 
   <div class="page-container-section">
     <h2>Custom Template</h2>
 
     <p>You can use a custom template for the navigation buttons. This will be applied to all navigation buttons and allows you to make updates on your tab, like this great example of unread/new content: Simple, uh?</p>
-    <!-- <CodeExample title="Template Slot" e:example="_examples.custom" /> -->
+    <CodeExample title="Template Slot" e:example="_examples.template" />
 
     <ApiItem title="API - md-tabs">
       <ApiTable e:headings="_api.tabs.props.headings" e:props="_api.tabs.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.tabs.slots.headings" e:props="_api.tabs.slots.props" slot-pass:scoped-slots />
       <ApiTable e:headings="_api.tabs.events.headings" e:props="_api.tabs.events.props" slot-pass:events />
     </ApiItem>
 

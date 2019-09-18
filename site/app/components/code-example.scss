@@ -38,14 +38,14 @@ $color: md-get-palette-color(grey, 700);
   position: relative;
   border: 1px solid $color;
   border-top: 0;
+  background-color: md-get-palette-color(grey, 50);
 
-  &.md-theme-demo-light {
-    background-color: md-get-palette-color(grey, 50);
-  }
+  // &.md-theme-demo-light {
+  // }
 
-  &.md-theme-demo-dark {
-    background-color: md-get-palette-color(grey, 900);
-  }
+  // &.md-theme-demo-dark {
+  //   background-color: md-get-palette-color(grey, 900);
+  // }
 }
 
 .demo-content {

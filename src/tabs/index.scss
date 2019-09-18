@@ -153,7 +153,12 @@
       justify-content: center;
     }
 
-    .md-tab-icon + .md-tab-label {
+    .md-icon {
+      font-size: 24px;
+      margin-right: auto;
+    }
+
+    .md-icon + span {
       margin-top: 10px;
     }
   }

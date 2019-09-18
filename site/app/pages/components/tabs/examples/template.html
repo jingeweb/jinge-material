@@ -1,0 +1,16 @@
+<div>
+  <md-tabs on:changed="checkNewPosts">
+    <_slot slot-pass:tab vm-use:tab="tab">
+      ${ tab.label }
+      <if e:expect="tab.data && tab.data.badge">
+        <i class="badge">${ tab.data.badge }</i>
+      </if>
+    </_slot>
+    <_slot slot-pass:default>
+      <md-tab id="tab-home" label="Home"></md-tab>
+      <md-tab id="tab-pages" label="Pages"></md-tab>
+      <md-tab id="tab-posts" label="Posts" e:data="{ badge: newPosts }"></md-tab>
+      <md-tab id="tab-favorites" label="Favorites"></md-tab>
+    </_slot>
+  </md-tabs>
+</div>

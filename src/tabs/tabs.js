@@ -9,8 +9,6 @@ import {
   UPDATE_IF_NEED,
   AFTER_RENDER,
   NOTIFY,
-  ARG_COMPONENTS,
-  STR_DEFAULT,
   GET_REF,
   GET_CONTEXT,
   BEFORE_DESTROY
@@ -39,17 +37,21 @@ export class Tabs extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this._hasContent = attrs[ARG_COMPONENTS][STR_DEFAULT];
+
     this.activeTab = attrs.activeTab || 0;
     this.alignment = attrs.alignment || 'left';
     this.elevation = Number(attrs.elevation || 0);
     this.dynamicHeight = attrs.dynamicHeight;
+    this.className = attrs.class;
 
     this.noTransition = true;
     this._syncRoute = 0;
     this._activeEl = null;
     this._resizeOb = null;
-    this._resizeHandler = this._resize.bind(this);
+    this._resizeHandler = this._reCalc.bind(this);
+    this.hasContent = true;
+    this.contentStyles = undefined;
+    this.containerStyles = undefined;
 
     this.items = VM([]);
     this[SET_CONTEXT](TABS_PROVIDER, this); // pass parent to children
@@ -66,6 +68,8 @@ export class Tabs extends Component {
   }
 
   [AFTER_RENDER]() {
+    this.hasContent = this.items.some(it => it._hasContent);
+
     if (this._syncRoute === 0) {
       this._update(false);
     } else {
@@ -110,16 +114,18 @@ export class Tabs extends Component {
     addEvent(window, 'resize', this._resizeHandler);
   }
 
-  _sync() {
+  _sync(activeIndex) {
     const $nav = this[GET_REF]('nav');
-    const el = $nav.querySelector('.md-tab-nav-button.md-active');
+    const isN = isNumber(activeIndex);
+    const el = $nav.querySelector(`.md-tab-nav-button${isN ? `:nth-child(${activeIndex + 1})` : '.md-active'}`);
     if (this._activeEl === el) {
       return;
     }
     this._activeEl = el;
-    this._activeTab = el ? fnIndexOf.call($nav.children, el) : -1;
-    this._calcIndicator();
-    this._calcTab();
+    if (!isN) { // reset active index
+      this._activeTab = el ? fnIndexOf.call($nav.children, el) : -1;
+    }
+    this._reCalc();
   }
 
   _update(notify = true) {
@@ -161,12 +167,11 @@ export class Tabs extends Component {
       const tab = this.items[i];
       tab.isActive = i === index;
     }
-    this._calcIndicator();
-    this._calcTab();
+    setImmediate(() => this._sync(this._activeTab));
     notify && this[NOTIFY]('changed', index, this.items[index]);
   }
 
-  _resize() {
+  _reCalc() {
     this._calcIndicator();
     this._calcTab();
   }
@@ -190,7 +195,10 @@ export class Tabs extends Component {
   }
 
   _calcTab() {
-    if (!this._hasContent) return;
+    if (!this.hasContent) {
+      this.contentStyles = 'height: 0';
+      return;
+    }
     const tabElement = this[GET_FIRST_DOM]().querySelector(`.md-tab:nth-child(${this._activeTab + 1})`);
     this.contentStyles = `height: ${tabElement ? `${tabElement.offsetHeight}px` : 0}`;
     this.containerStyles = `transform: translate3D(${-this._activeTab * 100}%, 0, 0)`;

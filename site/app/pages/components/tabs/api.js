@@ -94,6 +94,18 @@ export default {
         type: 'Boolean',
         description: 'Disable/enable a tab',
         defaults: 'null'
+      },
+      {
+        name: 'to',
+        type: 'String',
+        description: 'ui router state',
+        defaults: 'null'
+      },
+      {
+        name: 'data',
+        type: 'Object',
+        description: 'The external data to be passed to the respective tab button.',
+        defaults: 'null'
       }
     ]
   }
