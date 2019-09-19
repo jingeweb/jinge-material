@@ -2,20 +2,22 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const {
-  jingeLoader, JingeWebpackPlugin
+  jingeLoader,
+  JingeWebpackPlugin
 } = require('jinge/compiler');
 const {
   uiRouterAlias
 } = require('jinge-ui-router/compiler');
+const {
+  jingeMaterialAlias,
+  jingeMaterialFieldBase
+} = require('../compiler');
 
-const jingeMaterialAlias = (function() {
+const jingeMaterialSrcAlias = (function() {
   /**
    * 由于 site 里的代码也属于 jinge-material 仓库，
    * 所以需要修改下别名对应的 import 路径，改成具体的文件路径。
    */
-  const {
-    jingeMaterialAlias
-  } = require('../compiler');
   const alias = {};
   Object.keys(jingeMaterialAlias).forEach(libPath => {
     alias[
@@ -97,7 +99,8 @@ module.exports = {
         use: {
           loader: jingeLoader,
           options: {
-            componentAlias: Object.assign({}, uiRouterAlias, jingeMaterialAlias),
+            componentAlias: [uiRouterAlias, jingeMaterialSrcAlias],
+            componentBase: jingeMaterialFieldBase,
             i18n: I18N_OPTIONS,
             extractStyle: true,
             compress: !NO_COMPRESS

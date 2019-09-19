@@ -111,7 +111,7 @@ const menus = [{
       name: _t('[x]文件（File）'),
       state: 'components.file'
     }, {
-      name: _t('[x]文本框（Input）'),
+      name: _t('文本框（Input & Textarea）'),
       state: 'components.input'
     }, {
       name: _t('单选项 (Radio)'),

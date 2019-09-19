@@ -1,0 +1,26 @@
+<div>
+  <md-field>
+    <label>Counter</label>
+    <md-input e:value="regular" on:change="regular = args[0]" counter="30"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Max Length</label>
+    <md-input e:value="maxLength" on:change="maxLength = args[0]" maxlength="30"></md-input>
+  </md-field>
+
+  <md-field e:counter="false">
+    <label>Maxlength with disabled counter</label>
+    <md-input e:value="disabled" on:change="disabled = args[0]" maxlength="10"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Autogrow</label>
+    <md-textarea e:value="autogrow" on:change="autogrow = args[0]" autogrow maxlength="20"></md-textarea>
+  </md-field>
+
+  <md-field>
+    <label>Textarea</label>
+    <md-textarea e:value="textarea" on:change="textarea = args[0]" maxlength="80"></md-textarea>
+  </md-field>
+</div>

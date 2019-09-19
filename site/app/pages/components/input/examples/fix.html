@@ -1,0 +1,13 @@
+<div>
+  <md-field>
+    <label>Prefix</label>
+    <span class="md-prefix">&#x24;</span>
+    <md-input type="number" min="0" step="1" e:value="initial" on:change="initial = args[0]"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Suffix</label>
+    <md-input e:value="empty" on:change="empty = args[0]"></md-input>
+    <span class="md-suffix">@gmail.com</span>
+  </md-field>
+</div>

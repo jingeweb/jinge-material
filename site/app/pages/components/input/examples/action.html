@@ -1,0 +1,16 @@
+<div>
+  <md-field clearable>
+    <label>Cleareable</label>
+    <md-input e:value="initial" on:change="initial = args[0]"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Password toggle</label>
+    <md-input e:value="password" on:change="password = args[0]" type="password"></md-input>
+  </md-field>
+
+  <md-field e:togglePassword="false">
+    <label>Password field without toggle</label>
+    <md-input e:value="password" on:change="password = args[0]" type="password"></md-input>
+  </md-field>
+</div>

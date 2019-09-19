@@ -1,0 +1,47 @@
+<div>
+  <md-field>
+    <label>Initial Value</label>
+    <md-input maxlength="20" e:value="initial" on:change="initial = args[0]"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Initial Value (Read Only)</label>
+    <md-input e:value="initial" readonly></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Type here!</label>
+    <md-input e:value="type"></md-input>
+    <span class="md-helper-text">Helper text</span>
+  </md-field>
+
+  <md-field>
+    <label>With label</label>
+    <md-input e:value="withLabel" on:change="withLabel = args[0]" placeholder="A nice placeholder"></md-input>
+  </md-field>
+
+  <md-field inline>
+    <label>Inline</label>
+    <md-input e:value="inline" on:change="inline = args[0]"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Number</label>
+    <md-input e:value="number" on:change="number = args[0]" type="number"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Textarea</label>
+    <md-textarea e:value="textarea" on:change="textarea = args[0]"></md-textarea>
+  </md-field>
+
+  <md-field>
+    <label>Textarea with Autogrow</label>
+    <md-textarea e:value="autogrow" on:change="autogrow = args[0]" autogrow></md-textarea>
+  </md-field>
+
+  <md-field>
+    <label>Disabled</label>
+    <md-input e:value="disabled" disabled></md-input>
+  </md-field>
+</div>

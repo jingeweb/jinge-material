@@ -1,0 +1,33 @@
+<!--
+  import { IconPasswordOn, IconPasswordOff } from '../_icons/password';
+-->
+<div class="md-field${className ? ' ' + className : ''}${fieldClass ? ' ' + fieldClass : ''}" e:style="style" on:blur="onBlur">
+  <_slot />
+
+  <if e:expect="showCounter && (counter || maxlength)">
+  <span class="md-count">${valueLength} / ${ counter || maxlength }</span>
+  </if>
+
+  <if e:expect="hasValue && clearable" transition="md-input-action">
+  <md-button
+    tabindex="-1"
+    class="md-icon-button md-dense md-input-action md-clear"
+    on:click="clearInput"
+    e:disabled="disabled"
+  >
+    <md-icon-clear/>
+  </md-button>
+  </if>
+  <if e:expect="hasTogglePassword && hasPassword" transition="md-input-action">
+  <md-button
+    tabindex="-1"
+    class="md-icon-button md-dense md-input-action md-toggle-password"
+    on:click="_togglePassword"
+  >
+    <if e:expect="togglePassword">
+      <IconPasswordOn slot-pass:default />
+      <IconPasswordOff slot-pass:else />
+    </if>
+  </md-button>
+  </if>
+</div>

@@ -131,6 +131,15 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/tabs': {
       Tab: 'md-tab',
       Tabs: 'md-tabs'
+    },
+    'jinge-material/src/field': {
+      Field: 'md-field'
+    },
+    'jinge-material/src/input': {
+      Input: 'md-input'
+    },
+    'jinge-material/src/textarea': {
+      Textarea: 'md-textarea'
     }
   }, themeIconAlias);
 };

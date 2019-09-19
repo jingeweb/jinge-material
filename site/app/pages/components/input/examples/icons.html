@@ -1,0 +1,26 @@
+<div>
+  <md-field>
+    <md-icon-event/>
+    <label>Date</label>
+    <md-input e:value="date" on:change="date = args[0]"></md-input>
+  </md-field>
+
+  <md-field>
+    <label>Voice</label>
+    <md-input e:value="voice" on:change="voice = args[0]"></md-input>
+    <md-icon-keyboard_voice/>
+  </md-field>
+
+  <md-field>
+    <label>Description</label>
+    <md-textarea e:value="description" on:change="description = args[0]"></md-textarea>
+    <md-icon-description/>
+  </md-field>
+
+  <md-field>
+    <md-icon-warning class="md-accent"/>
+    <label>Transfer Money</label>
+    <md-input e:value="money" on:change="money = args[0]"></md-input>
+    <md-icon-attach_money/>
+  </md-field>
+</div>
