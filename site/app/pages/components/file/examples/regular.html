@@ -1,0 +1,31 @@
+<div>
+  <md-field>
+    <label>Single</label>
+    <md-file e:value="single" on:change="single = args[0]" />
+  </md-field>
+
+  <md-field>
+    <label>Upload files</label>
+    <md-file e:value="placeholder" on:change="placeholder = args[0]" placeholder="A nice input placeholder" />
+  </md-field>
+
+  <md-field>
+    <label>Disabled</label>
+    <md-file e:value="disabled" on:change="disabled = args[0]" disabled/>
+  </md-field>
+
+  <md-field>
+    <label>Initial value</label>
+    <md-file e:value="initial" on:change="initial = args[0]" />
+  </md-field>
+
+  <md-field>
+    <label>Multiple</label>
+    <md-file e:value="multiple" on:change="multiple = args[0]" multiple />
+  </md-field>
+
+  <md-field>
+    <label>Only images</label>
+    <md-file e:value="single" on:change="single = args[0]" accept="image/*" />
+  </md-field>
+</div>

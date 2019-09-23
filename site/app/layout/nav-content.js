@@ -108,7 +108,7 @@ const menus = [{
       name: _t('[x]（Chips）'),
       state: 'components.chip'
     }, {
-      name: _t('[x]文件（File）'),
+      name: _t('文件选择（File）'),
       state: 'components.file'
     }, {
       name: _t('文本框（Input & Textarea）'),

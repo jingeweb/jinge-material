@@ -1,0 +1,25 @@
+<div class="md-file">
+  <md-icon-attach_file
+    class="md-file-icon${disabled? ' md-disabled' : ''}"
+    on:click="openPicker"
+  />
+
+  <input
+    class="md-input"
+    readonly
+    e:value="value"
+    e:placeholder="placeholder"
+    e:required="required"
+    e:disabled="disabled"
+    on:click="openPicker"
+    on:blur="onBlur"
+  />
+
+  <input
+    type="file"
+    ref:file
+    e:multiple="multiple"
+    e:accept="accept"
+    on:change="onChange"
+  />
+</div>

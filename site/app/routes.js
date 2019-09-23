@@ -32,7 +32,8 @@ import {
   PageSnackbar,
   PageSteppers,
   PageTabs,
-  PageInput
+  PageInput,
+  PageFile
 } from './pages';
 
 export const componentsStates = [{
@@ -161,6 +162,10 @@ export const componentsStates = [{
   name: 'components.input',
   url: '/input',
   component: PageInput
+}, {
+  name: 'components.file',
+  url: '/file',
+  component: PageFile
 }];
 
 export const uiElementsStates = [{

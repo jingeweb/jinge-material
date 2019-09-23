@@ -24,3 +24,4 @@ export * from './snackbar';
 export * from './steppers';
 export * from './tabs';
 export * from './input';
+export * from './file';

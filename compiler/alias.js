@@ -140,6 +140,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/textarea': {
       Textarea: 'md-textarea'
+    },
+    'jinge-material/src/file': {
+      File: 'md-file'
     }
   }, themeIconAlias);
 };
