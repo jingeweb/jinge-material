@@ -1,4 +1,5 @@
 <md-popover
+ class="md-menu${className ? ' ' + className : ''}"
  e:trigger="trigger"
  e:active="active"
  e:transition="transition"
@@ -14,10 +15,11 @@
   </_slot>
   <_slot slot-pass:content>
     <div
+      e:style="contentStyles"
       class="md-menu-content${size ? ' ' + size : ''}"
     >
       <div class="md-menu-content-container">
-        <md-list e:class="listClass">
+        <md-list class="${dense ? ' md-dense' : ''}${listClass ? ' ' + listClass : ''}">
           <_slot slot-use:content />
         </md-list>
       </div>

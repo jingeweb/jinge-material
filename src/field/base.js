@@ -6,7 +6,8 @@ import {
   BEFORE_DESTROY,
   OFF,
   AFTER_RENDER,
-  GET_FIRST_DOM
+  GET_FIRST_DOM,
+  isUndefined
 } from 'jinge';
 import {
   FIELD_PROVIDER
@@ -46,6 +47,12 @@ export class BaseField extends Component {
   }
 
   set value(v) {
+    if (isUndefined(v)) {
+      v = null;
+    }
+    if (isUndefined(this._value)) {
+      this._value = null;
+    }
     if (this._value === v) {
       return;
     }

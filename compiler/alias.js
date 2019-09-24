@@ -147,6 +147,12 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/chips': {
       Chips: 'md-chips',
       Chip: 'md-chip'
+    },
+    'jinge-material/src/autocomplete': {
+      Autocomplete: 'md-autocomplete'
+    },
+    'jinge-material/src/highlight': {
+      HighlightText: 'md-highlight'
     }
   }, themeIconAlias);
 };

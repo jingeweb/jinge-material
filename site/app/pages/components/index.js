@@ -26,3 +26,5 @@ export * from './tabs';
 export * from './input';
 export * from './file';
 export * from './chips';
+export * from './autocomplete';
+export * from './highlight';

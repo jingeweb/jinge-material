@@ -6,7 +6,8 @@ import {
   NOTIFY,
   vmWatch,
   SET_CONTEXT,
-  UPDATE_IF_NEED
+  UPDATE_IF_NEED,
+  isUndefined
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -61,7 +62,7 @@ export class Field extends Component {
       hasTextarea: this.hasTextarea,
       autogrow: this.autogrow
     };
-    this.fieldClass = '';
+    this.fieldClass = null;
     vmWatch(this, '*', (props) => {
       if (props.length !== 1 || !(props[0] in this._fieldClassObj)) {
         return;
@@ -75,12 +76,14 @@ export class Field extends Component {
 
   _updateFieldClass() {
     // console.log('check upfc');
-    let changed = false;
+    let changed = this.fieldClass === null;
     const obj = this._fieldClassObj;
-    for (const prop in obj) {
-      if (this[prop] !== obj[prop]) {
-        changed = true;
-        obj[prop] = this[prop];
+    if (!changed) { // skip if filedClass === null
+      for (const prop in obj) {
+        if (this[prop] !== obj[prop]) {
+          changed = true;
+          obj[prop] = this[prop];
+        }
       }
     }
     if (!changed) {
@@ -99,7 +102,7 @@ export class Field extends Component {
   set value(v) {
     if (this._value === v) return;
     this._value = v;
-    const stringValue = (v || v === 0) && v.toString();
+    const stringValue = isUndefined(v) || v === null ? '' : v.toString();
     const hasValue = stringValue && stringValue.length > 0;
     if (this.hasValue !== hasValue) {
       this.hasValue = hasValue;

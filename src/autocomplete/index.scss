@@ -1,0 +1,85 @@
+@import '../animation/variables';
+@import '../elevation/mixins';
+@import '../layout/mixins';
+
+.md-autocomplete {
+  .md-menu {
+    width: 100%;
+    display: flex;
+  }
+}
+
+.md-autocomplete-loading {
+  max-height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.md-field.md-inline.md-autocomplete-box {
+  @include md-elevation(2);
+
+  padding-top: 2px;
+  border-radius: 2px;
+  align-items: center;
+
+  &.md-focused {
+    z-index: 100;
+  }
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  .md-toolbar & {
+    min-height: 40px;
+    height: 40px;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .md-menu {
+    align-items: center;
+  }
+
+  .md-input {
+    padding-left: 16px;
+  }
+
+  &.md-focused label,
+  label,
+  .md-input-action {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .md-input-action {
+    right: 8px;
+  }
+
+  &.md-focused label,
+  label {
+    margin-top: 2px;
+    left: 16px;
+  }
+}
+
+.md-autocomplete-box-content::after {
+  height: 6px;
+  position: absolute;
+  top: -6px;
+  right: 0;
+  left: 0;
+  z-index: 120;
+  border-bottom: 1px solid;
+  content: '';
+}
+
+@import './theme.scss';

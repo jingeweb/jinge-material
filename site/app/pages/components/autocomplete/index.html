@@ -1,0 +1,109 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="自动补全（Autocomplete）">
+  <div class="page-container-section">
+    <p>Input text can be used with autocomplete to help users who have limited literacy or who write in a foreign language. For example, autocomplete can suggest input as it’s typed (refreshing suggestions with each keystroke).</p>
+    <p>Jinge Material autocomplete is really simple, yet powerfull. With simple options you can create great suggestions with async feedbacks.</p>
+    <p>Autocomplete works like <code>md-field</code>. This means that you can pass labels, validation messages, helper texts and even icons:</p>
+  </div>
+  <div class="page-container-section">
+    <h2>Static Data</h2>
+
+    <p>If you have a small amount of data or if it's static, you can pass the options to <code>md-autocomplete</code> in a simple and intuitive way:</p>
+    <CodeExample title="Normal and Dense" e:example="_examples.static" />
+  </div>
+  <div class="page-container-section">
+    <h2>Trigger</h2>
+
+    <p>By default the suggestions will appear along with a focus trigger. If you want something less intrusive, you can disable this behaviour by canceling the focus event. If this, the suggestions will appear right after a keystroke:</p>
+    <CodeExample title="Focus vs Input" e:example="_examples.trigger" />
+  </div>
+  <div class="page-container-section">
+    <h2>Box Layout</h2>
+    <p>Autocomplete have types two layouts: Default with floating labels and a boxed layout with inline labels. The box layout will apply a boxed layout with a small elevation, that also works really great as search bar inside a toolbar. Gorgeous:</p>
+    <CodeExample title="Works with dense variant too!" e:example="_examples.box" />
+  </div>
+  <div class="page-container-section">
+    <h2>Custom Template</h2>
+    <p>Autocomplete also accepts a custom template, flexible to accept any HTML element and with an 'empty state' built in. You can also highlight the search term inside the matches, to give a feedback on why that item has been in the results. Awesome:</p>
+    <CodeExample title="With highlight text" e:example="_examples.template" />
+    <NoteBlock tip>Although the <code>md-highlight</code> component is most used with autocomplete, you can use it anywhere.</NoteBlock>
+  </div>
+  <div class="page-container-section search-algorithms">
+    <h2>Search Algorithms</h2>
+
+    <p>Jinge Material autocomplete comes with 3 ways of search: <a href="https://en.wikipedia.org/wiki/Approximate_string_matching" target="_blank">Fuzzy search</a> , search by includes, search by starts. Default is fuzzy search. The fuzzy search tries to match the results by approximation, finding patterns inside the available options. This will help with accidental type errors and improve the results. If you think that this may be confusing, you can disable this. Example:</p>
+    <div class="md-layout md-gutter">
+      <div class="md-layout-item md-size-33">
+        <p>
+          <strong>Fuzzy search</strong> - search term: <code>pam</code>
+        </p>
+        <div>
+          Matches:
+          <ul>
+            <li>
+              <md-highlight term="pam" text="Pam Beesly"/>
+            </li>
+
+            <li>
+              <md-highlight term="pam" text="Meredith Palmer"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="md-layout-item md-size-33">
+        <p>
+          <strong>Includes Search</strong> - search term: <code>pam</code>
+        </p>
+        <div>
+          Matches:
+          <ul>
+            <li>
+              <md-highlight term="pam" searchMethod="includes" text="Pam Beesly"/>
+            </li>
+            <li>
+              <md-highlight term="pam" searchMethod="includes" text="Ki Pam Beesly"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="md-layout-item md-size-33">
+        <p>
+          <strong>Starts Search</strong> - search term: <code>pam</code>
+        </p>
+        <div>
+          Matches:
+          <ul>
+            <li>
+              <md-highlight searchMethod="starts" term="pam" text="Pam Beesly"/>
+            </li>
+            <li>
+              <md-highlight searchMethod="starts" term="pam" text="Ki Pam Beesly"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <CodeExample title="Fuzzy or Normal" e:example="_examples.search" />
+  </div>
+  <div class="page-container-section">
+    <h2>Async Options</h2>
+
+    <p>Sometimes the options are inside a database in a remote server. Instead of giving a static data, we can provide a <code>Promise</code> that will resolve with the data from a backend servide, for example. This is great to save Bandwidth on the initial load and to improve the performance. Look at this example:</p>
+    <CodeExample title="Spinner Loading" e:example="_examples.async" />
+
+    <ApiItem title="API - md-autocomplete">
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.slots.headings" e:props="_api.slots.props" slot-pass:scoped-slots />
+      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+</PageContainer>

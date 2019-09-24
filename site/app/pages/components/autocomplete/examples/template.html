@@ -1,0 +1,28 @@
+<div>
+  <md-autocomplete
+    e:value="value"
+    on:change="value = args[0]"
+    on:selected="onSelected"
+    e:options="colors"
+    searchProp="name"
+  >
+    <_slot slot-pass:option vm:option vm:term>
+      <span class="color" style="background-color: ${ option.color };"></span>
+      <md-highlight e:term="term" e:text="option.name"/>
+    </_slot>
+
+    <_slot slot-pass:empty vm-use:term>
+      No colors matching "${ term }" were found. <a on:click="noop()">Create a new</a> one!
+    </_slot>
+
+    <_slot slot-pass:default>
+    <label>Color</label>
+    <if e:expect="selected">
+      <div class="md-helper-text">
+        <strong>Selected Color:</strong>
+        <span class="color" style="background-color: ${selected.color};"></span>
+      </div>
+    </if>
+    </_slot>
+  </md-autocomplete>
+</div>

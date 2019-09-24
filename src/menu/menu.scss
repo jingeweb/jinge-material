@@ -2,6 +2,12 @@
 @import '../elevation/mixins';
 @import '../layout/mixins';
 
+.md-popover.md-menu {
+  > .content {
+    @include md-elevation(8);
+  }
+}
+
 .md-menu {
   display: inline-block;
 
@@ -94,6 +100,10 @@
 // }
 
 .md-menu-content {
+  max-height: 35vh;
+  display: flex;
+  flex-direction: row;
+
   $md-menu-base-width: 56px;
 
   &.medium {

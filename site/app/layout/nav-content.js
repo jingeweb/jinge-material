@@ -99,7 +99,7 @@ const menus = [{
     name: _t('表单 (Forms)'),
     state: 'components.forms',
     children: [{
-      name: _t('[x]自动补全（Autocomplete）'),
+      name: _t('自动补全（Autocomplete）'),
       state: 'components.autocomplete'
     }, {
       name: _t('多选框 (Checkbox)'),
@@ -123,6 +123,9 @@ const menus = [{
       name: _t('切换 (Switch)'),
       state: 'components.switch'
     }]
+  }, {
+    name: _t('文本高亮（Highlight）'),
+    state: 'components.highlight'
   }, {
     name: _t('图标（Icon）'),
     state: 'components.icon'

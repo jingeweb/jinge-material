@@ -4,6 +4,7 @@ import {
   Component,
   Symbol,
   isUndefined,
+  isString,
   SET_CONTEXT,
   NOTIFY,
   UPDATE_IF_NEED,
@@ -39,11 +40,16 @@ export class Menu extends Component {
 
     super(attrs);
 
+    this.contentStyles = undefined;
+    this.className = attrs.class;
     this.active = attrs.active;
     this.trigger = attrs.trigger || 'click';
     this.popperOffset = null;
     this.offset = attrs.offset;
     this.placement = attrs.placement || 'bottom-start';
+    this.dense = attrs.dense;
+    this.fullWidth = attrs.fullWidth;
+    this.alignTrigger = attrs.alignTrigger;
     this.closeOnSelect = attrs.closeOnSelect !== false;
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this.size = attrs.size || 'auto';
@@ -100,6 +106,7 @@ export class Menu extends Component {
 
   [AFTER_RENDER]() {
     this.updateOffset();
+    this.updateWidth();
   }
 
   updateOffset() {
@@ -113,6 +120,10 @@ export class Menu extends Component {
     const pl = this.placement;
     let offsetX = 0;
     let offsetY = 0;
+    if (this.alignTrigger) {
+      this.popperOffset = isString(this.alignTrigger) ? this.alignTrigger : '0, 0';
+      return;
+    }
     if (startsWith(pl, 'bottom') || startsWith(pl, 'top')) {
       offsetY = -(el.offsetHeight + 11);
       if (endsWith(pl, '-start')) {
@@ -129,5 +140,15 @@ export class Menu extends Component {
       }
     }
     this.popperOffset = `${offsetX}, ${offsetY}`;
+  }
+
+  updateWidth() {
+    if (!this.fullWidth) {
+      return;
+    }
+    const el = this[GET_FIRST_DOM]();
+    if (!el) return;
+    const w = el.offsetWidth;
+    this.contentStyles = `width: ${w}px; max-width: ${w}px;`;
   }
 }

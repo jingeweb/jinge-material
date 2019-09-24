@@ -1,0 +1,42 @@
+<md-field class="md-autocomplete${layout === 'box' ? ' md-autocomplete-box' : ''}" clearable e:inline="layout === 'box'">
+  <md-menu placement="bottom" trigger="none" e:dense="dense" e:alignTrigger="layout === 'box' ? '0,8' : true" fullWidth e:active="showMenu && (hasFilteredItems || _hasScopedEmptySlot)" on:update.active="showMenu = args[0]">
+    <md-input
+      slot-pass:default
+      e:value="value"
+      e:id="id"
+      e:name="name"
+      e:maxlength="maxlength"
+      e:placeholder="placeholder"
+      on|stop:focus="_openOnFocus"
+      on|stop,prevent:click="_openOnFocus"
+      on:blur="hideOptions"
+      on:change="onInput"
+    />
+    <_slot slot-pass:content>
+    <if e:expect="promisePendingKey !== null">
+    <div class="md-autocomplete-loading">
+      <md-spinner diameter="40" stroke="4" mode="indeterminate" />
+    </div>
+    </if>
+    <if e:expect="hasFilteredItems">
+    <div class="md-autocomplete-items">
+      <for e:loop="filteredOptions" vm:each="item">
+      <md-menu-item on:click="selectItem(item, args[0])">
+        <_slot slot-use:option vm-pass:option="item" vm-pass:term="value">
+          ${searchProp ? item[searchProp] : item}
+        </_slot>
+      </md-menu-item>
+      </for>
+    </div>
+    </if>
+    <if e:expect="!hasFilteredItems && _hasScopedEmptySlot">
+    <md-menu-item>
+      <div class="md-autocomplete-empty">
+        <_slot slot-use:empty vm-pass:term="value" />
+      </div>
+    </md-menu-item>
+    </if>
+    </_slot>
+  </md-menu>
+  <_slot />
+</md-field>

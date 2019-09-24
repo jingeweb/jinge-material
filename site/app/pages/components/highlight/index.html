@@ -1,0 +1,20 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="文本高亮（Highlight）">
+  <div class="page-container-section">
+    <h2>Highlight Text</h2>
+
+    <CodeExample title="Highlight" e:example="_examples.text" />
+
+    <ApiItem title="API - md-highlight">
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+    </ApiItem>
+  </div>
+</PageContainer>

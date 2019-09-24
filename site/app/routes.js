@@ -34,7 +34,9 @@ import {
   PageTabs,
   PageInput,
   PageFile,
-  PageChips
+  PageChips,
+  PageAutocomplete,
+  PageHighlight
 } from './pages';
 
 export const componentsStates = [{
@@ -171,6 +173,14 @@ export const componentsStates = [{
   name: 'components.chips',
   url: '/chips',
   component: PageChips
+}, {
+  name: 'components.autocomplete',
+  url: '/autocomplete',
+  component: PageAutocomplete
+}, {
+  name: 'components.highlight',
+  url: '/highlight',
+  component: PageHighlight
 }];
 
 export const uiElementsStates = [{

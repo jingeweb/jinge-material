@@ -1,0 +1,9 @@
+<div>
+  <md-autocomplete e:value="selectedCountry" on:change="selectedCountry = args[0]; log(selectedCountry)" e:options="countries">
+    <label>Country</label>
+  </md-autocomplete>
+
+  <md-autocomplete e:value="selectedEmployee" on:change="selectedEmployee = args[0]; log(selectedEmployee)" e:options="employees" dense>
+    <label>Employees</label>
+  </md-autocomplete>
+</div>
