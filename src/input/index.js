@@ -65,4 +65,16 @@ export class Input extends BaseField {
   onInput(evt) {
     this.value = evt.target.value;
   }
+
+  focus() {
+    this[GET_FIRST_DOM]().focus();
+  }
+
+  select() {
+    this[GET_FIRST_DOM]().select();
+  }
+
+  blur() {
+    this[GET_FIRST_DOM]().blur();
+  }
 }

@@ -105,8 +105,8 @@ const menus = [{
       name: _t('多选框 (Checkbox)'),
       state: 'components.checkbox'
     }, {
-      name: _t('[x]（Chips）'),
-      state: 'components.chip'
+      name: _t('纸片（Chips）'),
+      state: 'components.chips'
     }, {
       name: _t('文件选择（File）'),
       state: 'components.file'

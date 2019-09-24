@@ -1,0 +1,31 @@
+<!-- import { Chip } from './chip'; -->
+<md-field class="md-chips${className ? ' ' + className : ''}${value && value.length ? ' md-has-value' : ''}" e:style="style">
+  <_slot slot-use:default/>
+  <for e:loop="value" vm:each="chip">
+  <Chip
+    e:deletable="!static"
+    e:clickable="!static"
+    e:duplicated="duplicatedChip === chip"
+    on:click="onChipClicked(chip, args[0])"
+    on:delete="removeChip(chip, args[0])">
+    <_slot slot-use:chip vm-pass:chip>
+      ${chip}
+    </_slot>
+  </Chip>
+  </for>
+  
+  <if e:expect="!static && (!limit || value.length < limit)">
+  <md-input
+    ref:input
+    e:value="inputValue"
+    on:change="handleInput"
+    e:type="inputType"
+    e:id="id"
+    e:placeholder="placeholder"
+    on:input="handleInput"
+    on:keydown="onKeyDown"
+    on:jinge.before-destroy="onInputDestroy"
+    on:jinge.after-render="onInputRender"
+  ></md-input>
+  </if>
+</md-field>

@@ -1,0 +1,11 @@
+<div>
+  <md-chips on:chip-clicked="currentProject = args[0]" e:value="projects" limit="5" placeholder="Add project...">
+    <_slot slot-pass:chip vm-use:chip>
+      ${chip}
+      <if e:expect="chip === currentProject">
+      <small>(Marcos Moura)</small>
+      </if>
+    </_slot>
+    <div slot-pass:default class="md-helper-text">Up to 5 projects</div>
+  </md-chips>
+</div>

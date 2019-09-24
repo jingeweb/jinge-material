@@ -1,0 +1,61 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="纸片（Chips）">
+  <div class="page-container-section">
+    <p>Chips represent complex entities in small blocks, such as a contact. They can be used as a way for a user to create arbitrary items, like categories or tags.</p>
+  </div>
+
+  <div class="page-container-section">
+    <h2>Standalone Chip</h2>
+
+    <p>A chip can be used as standalone, without any connection with another chip. It can be used like a badge or a category of an entity in your application. You can specify if your chip can be deletable and clickable:</p>
+    <CodeExample title="Single" e:example="_examples.single" />
+
+    <ApiItem title="API - md-chip">
+      <ApiTable e:headings="_api.chip.props.headings" e:props="_api.chip.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.chip.events.headings" e:props="_api.chip.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+  <div class="page-container-section">
+    <h2>Editable model</h2>
+
+    <p>Sometimes we need to edit the set of items on screen, for example, when editing tags, the user may need to remove/add tags. In this case you can use the editable chips, that is the default behaviour:</p>
+    <CodeExample title="Editable" e:example="_examples.editable" />
+  </div>
+  <div class="page-container-section">
+    <h2>Readonly</h2>
+
+    <p>Let's think in an entity that have tags. Sometimes you might need to show all of them in a single row, but not allow the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
+    <CodeExample title="Static" e:example="_examples.static" />
+  </div>
+  <div class="page-container-section">
+    <h2>Custom Template</h2>
+
+    <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a look at this example:</p>
+    <CodeExample title="Scoped Slot" e:example="_examples.template" />
+  </div>
+  <div class="page-container-section">
+    <h2>Duplicated Chip</h2>
+
+    <p>Chips would reject insertion if a chip is duplicated. You can customize feedback style of the duplicated chip:</p>
+    <CodeExample title="Duplicated Feedback" e:example="_examples.duplicated" />
+  </div>
+  <div class="page-container-section">
+    <h2>Hue Colors</h2>
+
+    <p>You can always use the hue modifiers in single chips:</p>
+    <CodeExample title="Themed Chips" e:example="_examples.theme" />
+
+    <ApiItem title="API - md-chips">
+      <ApiTable e:headings="_api.chips.props.headings" e:props="_api.chips.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.chips.events.headings" e:props="_api.chips.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+</PageContainer>

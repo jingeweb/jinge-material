@@ -33,7 +33,8 @@ import {
   PageSteppers,
   PageTabs,
   PageInput,
-  PageFile
+  PageFile,
+  PageChips
 } from './pages';
 
 export const componentsStates = [{
@@ -166,6 +167,10 @@ export const componentsStates = [{
   name: 'components.file',
   url: '/file',
   component: PageFile
+}, {
+  name: 'components.chips',
+  url: '/chips',
+  component: PageChips
 }];
 
 export const uiElementsStates = [{

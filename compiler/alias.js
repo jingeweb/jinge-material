@@ -143,6 +143,10 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/file': {
       File: 'md-file'
+    },
+    'jinge-material/src/chips': {
+      Chips: 'md-chips',
+      Chip: 'md-chip'
     }
   }, themeIconAlias);
 };
