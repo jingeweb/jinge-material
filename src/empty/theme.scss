@@ -1,0 +1,34 @@
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+@mixin md-empty-state-spec($color) {
+  .md-empty-state-icon {
+    &.md-icon {
+      @include md-theme-property(color, $color, background);
+    }
+  }
+}
+
+.md-empty-state {
+  @include md-empty-state-spec(disabled);
+
+  &.md-rounded {
+    @include md-theme-property(background-color, disabled, '', 0.06);
+  }
+
+  &.md-primary {
+    @include md-empty-state-spec(primary);
+
+    .md-icon {
+      @include md-theme-property(color, primary, color);
+    }
+  }
+
+  &.md-accent {
+    @include md-empty-state-spec(accent);
+
+    .md-icon {
+      @include md-theme-property(color, accent, color);
+    }
+  }
+}

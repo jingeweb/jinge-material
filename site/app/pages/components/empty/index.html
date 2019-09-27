@@ -1,0 +1,33 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="空提示（Empty State）">
+  <div class="page-container-section">
+    <p>A list that doesn’t contain any items, or a search that doesn’t display any results, are examples of empty states. Although these states aren’t typical, they should be designed to prevent user confusion.</p>
+    <p>The most basic empty state displays a non-interactive image and a text tagline. For that you can use an icon, title and an empty state description. Vue Material already provide a nice design for your empty states, but you can always create your own design on top of <code>md-empty-state</code>.</p>
+    <p>The empty state can be basic or rounded. The rounded variant is recommended only for desktop, as it size is fixed and do not work responsivelly.</p>
+  </div>
+
+  <div class="page-container-section">
+    <h2>Empty State</h2>
+
+    <p>The default empty state can be used on any screen size. You can combine designs with icon, label and description, as any of this are optional. It also accepts a default <code>&lt;slot&gt;</code> to pass any arbitrary content, like a button to give an option to continue the screen flow:</p>
+    <CodeExample title="Default" e:example="_examples.basic" />
+
+    <p>The rounded empty state gives a fresh look with a nice background color, to gain the attention of your user.</p>
+    <CodeExample title="Rounded" e:example="_examples.rounded" />
+
+    <p>You can also combine both layouts with primary or accent colors, to match your theme. Gorgeous!</p>
+    <CodeExample title="Hue Colors" e:example="_examples.colors" />
+
+    <ApiItem title="API - md-empty-state">
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+    </ApiItem>
+  </div>
+</PageContainer>

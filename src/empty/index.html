@@ -1,0 +1,15 @@
+<div
+  class="md-empty-state${className ? ' ' + className : ''}${rounded ? ' md-rounded' : ''}"
+  e:style="rounded ? `${style ? style + '; ' : ''}width: ${size}px; height: ${size}px;` : style"
+>
+  <div class="md-empty-state-container">
+    <_slot slot-use:icon/>
+    <if e:expect="label">
+    <strong class="md-empty-state-label">${ label }</strong>    
+    </if>
+    <if e:expect="description">
+    <p class="md-empty-state-description">${ description }</p>
+    </if>
+    <_slot slot-use:default />
+  </div>
+</div>

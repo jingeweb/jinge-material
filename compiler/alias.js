@@ -153,6 +153,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/highlight': {
       HighlightText: 'md-highlight'
+    },
+    'jinge-material/src/empty': {
+      EmptyState: 'md-empty-state'
     }
   }, themeIconAlias);
 };

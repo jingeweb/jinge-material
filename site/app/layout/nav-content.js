@@ -93,7 +93,7 @@ const menus = [{
     name: _t('抽屉（Drawer）'),
     state: 'components.drawer'
   }, {
-    name: _t('[x]空提示（Empty State）'),
+    name: _t('空提示（Empty State）'),
     state: 'components.empty-state'
   }, {
     name: _t('表单 (Forms)'),

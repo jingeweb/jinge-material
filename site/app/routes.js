@@ -36,7 +36,8 @@ import {
   PageFile,
   PageChips,
   PageAutocomplete,
-  PageHighlight
+  PageHighlight,
+  PageEmptyState
 } from './pages';
 
 export const componentsStates = [{
@@ -181,6 +182,10 @@ export const componentsStates = [{
   name: 'components.highlight',
   url: '/highlight',
   component: PageHighlight
+}, {
+  name: 'components.empty-state',
+  url: '/empty',
+  component: PageEmptyState
 }];
 
 export const uiElementsStates = [{
