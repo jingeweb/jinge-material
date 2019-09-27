@@ -33,8 +33,8 @@ export class MenuItem extends Component {
   e:expanded="expanded"
   e:disabled="disabled"
   e:tabindex="highlighted && -1"
-  on:touchstart="touchstart($event)"
-  on:mousedown="mousedown($event)"
+  on:touchstart="touchstart(args[0])"
+  on:mousedown="mousedown(args[0])"
 >
   <_slot />
 </md-list-item>`;
@@ -59,13 +59,13 @@ export class MenuItem extends Component {
   }
 
   mousedown($evt) {
+    !this.disabled && this._Menu.close();
     this[NOTIFY]('mousedown', $evt);
-    this._Menu.close();
   }
 
   touchstart($evt) {
+    !this.disabled && this._Menu.close();
     this[NOTIFY]('touchstart', $evt);
-    this._Menu.close();
   }
 
   triggerCloseMenu() {

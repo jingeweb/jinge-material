@@ -1,0 +1,34 @@
+<md-menu
+  trigger="none"
+  class="md-select${disabled ? ' md-disabled' : ''}"
+  e:closeOnSelect="false"
+  e:active="showSelect"
+  e:alignTrigger="alignTrigger"
+  e:fullWidth="fullWidth"
+  e:dense="dense"
+>
+  <div class="md-field-container" slot-pass:default>
+    <md-input
+      class="md-input md-select-value"
+      e:value="label"
+      ref:input
+      readonly
+      e:disabled="disabled"
+      e:required="required"
+      e:placeholder="placeholder"
+      on|prevent:focus="onFocus"
+      on|prevent:blur="closeSelect"
+      on:click="openSelect"
+      on:keydown="onKeyDown"
+    />
+    <md-icon-arrow_drop_down on:click="openSelect"/>
+  </div>
+  <_slot slot-pass:content>
+    <_slot/>
+  </_slot>
+</md-menu>
+<if on:branch-switched="onHelperSwitched" e:expect="!showSelect && showHelper">
+<div class="jg-hide">
+<_slot/>
+</div>
+</if>

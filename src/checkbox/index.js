@@ -4,7 +4,9 @@ import {
   Component,
   NOTIFY,
   UPDATE_IF_NEED,
-  ARG_COMPONENTS
+  ARG_COMPONENTS,
+  AFTER_RENDER,
+  BEFORE_DESTROY
 } from 'jinge';
 
 import {
@@ -16,6 +18,10 @@ import {
   obj2class,
   isUndefined
 } from 'jinge/util';
+import {
+  bindDOMListeners,
+  unbindDOMListeners
+} from 'jinge/core/component';
 
 import _tpl from './index.html';
 
@@ -106,6 +112,14 @@ export class Checkbox extends Component {
   set falseValue(v) {
     this._falseValue = isUndefined(v) ? false : v;
     this[UPDATE_IF_NEED](this._calcChecked);
+  }
+
+  [AFTER_RENDER]() {
+    bindDOMListeners(this);
+  }
+
+  [BEFORE_DESTROY]() {
+    unbindDOMListeners(this);
   }
 
   toggleCheck() {

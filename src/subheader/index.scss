@@ -1,3 +1,6 @@
+@import 'style/engine/index';
+@import 'style/themes/default';
+
 .md-subheader {
   min-height: 48px;
   padding: 0 16px;
@@ -6,4 +9,10 @@
   flex-flow: row wrap;
   font-size: 14px;
   font-weight: 500;
+
+  @include md-theme-property(color, text-accent, background);
+
+  &.md-primary {
+    @include md-theme-property(color, primary, background);
+  }
 }

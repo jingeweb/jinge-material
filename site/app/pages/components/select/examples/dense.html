@@ -1,0 +1,43 @@
+<div>
+  <div class="md-layout md-gutter">
+    <div class="md-layout-item">
+      <md-field>
+        <label for="movie">Movie</label>
+        <md-select dense e:value="selectedMovie" on:change="selectedMovie = args[0]" name="movie" id="movie">
+          <md-option value="fight-club">Fight Club</md-option>
+          <md-option value="godfather">Godfather</md-option>
+          <md-option value="godfather-ii">Godfather II</md-option>
+          <md-option value="godfather-iii">Godfather III</md-option>
+          <md-option value="godfellas">Godfellas</md-option>
+          <md-option value="pulp-fiction">Pulp Fiction</md-option>
+          <md-option value="scarface">Scarface</md-option>
+        </md-select>
+      </md-field>
+    </div>
+
+    <div class="md-layout-item">
+      <md-field>
+        <md-select dense alignTrigger fullWidth e:value="selectedCountry" on:change="selectedCountry = args[0]" name="country" id="country" placeholder="Country">
+          <for e:loop="allCountries" key="each" vm:each="country">
+          <md-option e:value="country"/>
+          </for>
+        </md-select>
+      </md-field>
+    </div>
+
+    <div class="md-layout-item">
+      <md-field>
+        <label for="font">Font</label>
+        <md-select dense e:value="selectedFont" on:change="onFontChange" name="font" id="font">
+          <for e:loop="allFonts" key="each.id" vm:each="font">
+          <md-option e:value="font">${font.name}</md-option>
+          </for>
+        </md-select>
+      </md-field>
+    </div>
+  </div>
+
+  <md-button class="md-primary md-raised" on:click="selectedMovie = 'pulp-fiction'">Set Pulp Fiction</md-button>
+  <md-button class="md-primary md-raised" on:click="selectedFont = allFonts[1]">Set Roboto</md-button>
+
+</div>

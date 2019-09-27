@@ -156,6 +156,11 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/empty': {
       EmptyState: 'md-empty-state'
+    },
+    'jinge-material/src/select': {
+      Select: 'md-select',
+      Option: 'md-option',
+      Optgroup: 'md-optgroup'
     }
   }, themeIconAlias);
 };

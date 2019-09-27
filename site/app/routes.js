@@ -37,7 +37,8 @@ import {
   PageChips,
   PageAutocomplete,
   PageHighlight,
-  PageEmptyState
+  PageEmptyState,
+  PageSelect
 } from './pages';
 
 export const componentsStates = [{
@@ -186,6 +187,10 @@ export const componentsStates = [{
   name: 'components.empty-state',
   url: '/empty',
   component: PageEmptyState
+}, {
+  name: 'components.select',
+  url: '/select',
+  component: PageSelect
 }];
 
 export const uiElementsStates = [{

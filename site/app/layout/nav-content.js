@@ -117,7 +117,7 @@ const menus = [{
       name: _t('单选项 (Radio)'),
       state: 'components.radio'
     }, {
-      name: _t('[x]下拉选择 (Select)'),
+      name: _t('下拉选择 (Select)'),
       state: 'components.select'
     }, {
       name: _t('切换 (Switch)'),
