@@ -30,3 +30,4 @@ export * from './autocomplete';
 export * from './highlight';
 export * from './empty';
 export * from './select';
+export * from './datepicker';

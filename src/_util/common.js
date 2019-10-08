@@ -24,3 +24,13 @@ export function mergePopperOpts(src, dst) {
   }
   return src;
 }
+
+export function debounce(fn, time) {
+  let tm;
+  return function() {
+    clearTimeout(tm);
+    tm = setTimeout((...args) => {
+      fn(...args);
+    }, time);
+  };
+}

@@ -81,7 +81,7 @@ const menus = [{
     name: _t('内容（Content）'),
     state: 'components.content'
   }, {
-    name: _t('[x]日期选择（Datepicker）'),
+    name: _t('日期选择（Datepicker）'),
     state: 'components.datepicker'
   }, {
     name: _t('对话框（Dialog)'),

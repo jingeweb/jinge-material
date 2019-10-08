@@ -1,13 +1,13 @@
 import {
   Component,
   GET_CONTEXT,
-  NOTIFY,
   ON,
   BEFORE_DESTROY,
   OFF,
   AFTER_RENDER,
   GET_FIRST_DOM,
-  isUndefined
+  isUndefined,
+  NOTIFY
 } from 'jinge';
 import {
   FIELD_PROVIDER
@@ -58,7 +58,6 @@ export class BaseField extends Component {
     }
     this._value = v;
     this.Field.value = v;
-    this[NOTIFY]('change', v);
   }
 
   get placeholder() {
@@ -117,7 +116,14 @@ export class BaseField extends Component {
 
   clearField() {
     this[GET_FIRST_DOM]().value = '';
-    this.value = '';
+    this._doClear();
+  }
+
+  _doClear() {
+    if (this.value !== null) {
+      this.value = null;
+      this[NOTIFY]('change', null);
+    }
   }
 
   onFocus() {

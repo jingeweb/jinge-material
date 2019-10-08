@@ -1,0 +1,115 @@
+<div class="md-datepicker-dialog" on:mousedown="$event.preventDefault()">
+  <div class="md-datepicker-header">
+    <span
+      class="md-datepicker-year-select${currentView === 'year' ? ' md-selected' : ''}"
+      on:click="currentView = 'year'"
+    >
+      ${ selectedDay ? selectedDay.y : currentDay.y }
+    </span>
+    <div
+      class="md-datepicker-date-select${currentView !== 'year' ? ' md-selected' : ''}"
+      on:click="currentView = 'day';$event.preventDefault()"
+    >
+      <strong class="md-datepicker-dayname">${ locale.weekdaysShort[selectedDay ? selectedDay.w : currentDay.w] }, </strong>
+      <strong class="md-datepicker-monthname">${ locale.monthsShort[selectedDay ? selectedDay.m : currentDay.m] }</strong>
+      <strong class="md-datepicker-day">${ selectedDay ? selectedDay.d : currentDay.d }</strong>
+    </div>
+  </div>
+
+  <div class="md-datepicker-body">
+    <if e:expect="currentView === 'day'">
+    <div class="md-datepicker-body-header">
+      <md-button class="md-dense md-icon-button" on:click="previousMonth">
+        <md-icon-keyboard_arrow_left/>
+      </md-button>
+
+      <md-button class="md-dense md-icon-button" on:click="nextMonth">
+        <md-icon-keyboard_arrow_right/>
+      </md-button>
+    </div>
+    </if>
+    
+
+    <div
+      class="md-datepicker-body-content"
+      e:style="contentStyle"
+    >
+      <!-- begin day picker -->
+      <if e:expect="currentView === 'day'">
+      <div class="md-datepicker-panel md-datepicker-month">
+        <md-button
+          class="md-dense md-datepicker-month-trigger"
+          on:click="currentView = 'month'"
+        >
+          ${ dayPickerHeader }
+        </md-button>
+
+        <div class="md-datepicker-week">
+          <for e:loop="weekdays" vm:each="day">
+          <span>${ day }</span>          
+          </for>
+        </div>
+
+        <div class="md-datepicker-days">
+          <for e:loop="renderDays" vm:each="day">
+          <if e:expect="day.empty">
+            <span slot-pass:default class="md-datepicker-empty"></span>
+            <div slot-pass:else class="md-datepicker-day">
+              <span
+                class="md-datepicker-day-button${day.selected ? ' md-datepicker-selected' : ''}${day.today ? ' md-datepicker-today' : ''}${day.disabled ? ' md-datepicker-disabled' : ''}"
+                on:click="selectDate(day)"
+              >
+                ${ day.d }
+              </span>
+            </div>
+          </if>
+          </for>
+        </div>
+      </div>
+      </if>
+      <!-- end day picker -->
+
+      <!-- begin month picker -->
+      <if e:expect="currentView === 'month'">
+      <div class="md-datepicker-panel md-datepicker-month-selector">
+        <md-button class="md-datepicker-year-trigger" on:click="currentView = 'year'">${ currentDay.y }</md-button>
+        <for e:loop="locale.months" vm:each="month" vm:index="index">
+        <span
+          class="md-datepicker-month-button${currentDay.m === index ? ' md-datepicker-selected' : ''}"
+          on:click="switchMonth(index)"
+        >
+          ${ month }
+        </span>
+        </for>
+      </div>
+      </if>
+      <!-- end month picker -->
+
+      <!-- begin year picker -->
+      <if e:expect="currentView === 'year'">
+      <md-content class="md-datepicker-panel md-datepicker-year-selector">
+        <for e:loop="_years" key="each" vm:each="year">
+        <span
+          class="md-datepicker-year-button${currentDay.y === year ? ' md-datepicker-selected' : ''}"
+          on:click="switchYear(year)"
+        >
+          ${ year }
+        </span>
+        </for>
+      </md-content>
+      </if>
+      <!-- end year picker -->
+    </div>
+
+    <md-dialog-actions class="md-datepicker-body-footer">
+      <md-button class="md-primary" on:click="onCancel">
+        ${locale.Cancel}
+      </md-button>
+      <if e:expect="!immediately">
+      <md-button class="md-primary" on:click="onConfirm">
+        ${locale.Ok}
+      </md-button>
+      </if>
+    </md-dialog-actions>
+  </div>
+</div>

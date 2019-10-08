@@ -1,0 +1,41 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="日期选择（Datepicker）">
+  <div class="page-container-section">
+    <p>Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set. The component can have disabled dates and it's really easy to use.</p>
+  </div>
+  <div class="page-container-section">
+    <h2>Datepicker</h2>
+
+    <CodeExample title="Basic" e:example="_examples.basic" />
+
+  </div>
+  <div class="page-container-section">
+    <h2>Cancel open on focus</h2>
+    <p>By default Datepicker component open on focus to it's input. This will make the input useless and the user will not be able to type the date manually. You can disable this behavior:</p>
+    <CodeExample title="With initial date selected" e:example="_examples.init" />
+  </div>
+
+  <div class="page-container-section">
+    <h2>Immediately selection</h2>
+    <p>The Datepicker dialog can be made to close instantly after a date is selected. The date will be selected immediately without any additional confirmation or user action:</p>
+    <CodeExample title="Close dialog on select" e:example="_examples.immediately" />
+  </div>
+  <div class="page-container-section">
+    <h2>Disabled dates</h2>
+    <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you want to let the user select only week days:</p>
+    <CodeExample title="No weekends available" e:example="_examples.disable" />
+
+    <ApiItem title="API - md-datepicker">
+      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+</PageContainer>

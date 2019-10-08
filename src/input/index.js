@@ -3,7 +3,8 @@ import {
   AFTER_RENDER,
   BEFORE_DESTROY,
   ON,
-  OFF
+  OFF,
+  NOTIFY
 } from 'jinge';
 import {
   bindDOMListeners,
@@ -57,13 +58,23 @@ export class Input extends BaseField {
     this.Field.togglePassword = false;
   }
 
+  _doClear() {
+    if (this.value) {
+      this.value = '';
+      this[NOTIFY]('change', this._value);
+    }
+  }
+
   onPwdToggle(pwdToggled) {
     const el = this[GET_FIRST_DOM]();
     el.type = pwdToggled ? 'text' : 'password';
   }
 
   onInput(evt) {
-    this.value = evt.target.value;
+    const v = evt.target.value;
+    if (this.value === v) return;
+    this.value = v;
+    this[NOTIFY]('change', v);
   }
 
   focus() {

@@ -67,6 +67,7 @@
   ],
   "dependencies": {
     "clipboard": "^2.0.4",
+    "date-fns": "^2.4.1",
     "highlight.js": "^9.15.10",
     "popper.js": "^1.15.0"
   }

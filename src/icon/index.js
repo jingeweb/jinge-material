@@ -3,12 +3,17 @@ import './index.scss';
 import {
   Component,
   AFTER_RENDER,
+  BEFORE_DESTROY,
   ROOT_NODES,
   UPDATE_IF_NEED,
   NOTIFY,
   isNumber,
   isString
 } from 'jinge';
+import {
+  bindDOMListeners,
+  unbindDOMListeners
+} from 'jinge/core/component';
 
 const svgCacheStore = new Map();
 const NUM_REGEXP = /^\d+$/;
@@ -89,5 +94,10 @@ export class Icon extends Component {
     } else if (this.src) {
       this._loadSvg();
     }
+    bindDOMListeners(this);
+  }
+
+  [BEFORE_DESTROY]() {
+    unbindDOMListeners(this);
   }
 }

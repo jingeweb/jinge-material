@@ -13,7 +13,11 @@ import {
 import _tpl from './index.html';
 
 export const FIELD_PROVIDER = Symbol('FIELD_PROVIDER');
-
+const CLASS_PROPS = [
+  'inline', 'clearable', 'highlight', 'focused', 'disabled',
+  'required', 'hasValue', 'hasPlaceholder', 'hasPassword',
+  'hasFile', 'hasSelect', 'hasTextarea', 'autogrow'
+];
 export class Field extends Component {
   static get template() {
     return _tpl;
@@ -32,39 +36,19 @@ export class Field extends Component {
     this.showPassword = false;
     this.maxlength = null;
 
-    this.highlight = false;
     this.counter = false;
-    this.focused = false;
-    this.disabled = false;
-    this.required = false;
-    this.hasValue = false;
     this.valueLength = 0;
-    this.hasPlaceholder = false;
     this.togglePassword = false;
-    this.hasPassword = false;
-    this.hasFile = false;
-    this.hasSelect = false;
-    this.hasTextarea = false;
-    this.autogrow = false;
 
-    this._fieldClassObj = {
-      inline: this.inline,
-      clearable: this.clearable,
-      highlight: this.highlight,
-      focused: this.focused,
-      disabled: this.disabled,
-      required: this.required,
-      hasValue: this.hasValue,
-      hasPlaceholder: this.hasPlaceholder,
-      hasPassword: this.hasPassword,
-      hasFile: this.hasFile,
-      hasSelect: this.hasSelect,
-      hasTextarea: this.hasTextarea,
-      autogrow: this.autogrow
-    };
+    CLASS_PROPS.forEach(prop => {
+      if (!(prop in this)) {
+        this[prop] = false;
+      }
+    });
+
     this.fieldClass = null;
     vmWatch(this, '*', (props) => {
-      if (props.length !== 1 || !(props[0] in this._fieldClassObj)) {
+      if (props.length !== 1 || CLASS_PROPS.indexOf(props[0]) < 0) {
         return;
       }
       this[UPDATE_IF_NEED](this._updateFieldClass);
@@ -75,21 +59,7 @@ export class Field extends Component {
   }
 
   _updateFieldClass() {
-    // console.log('check upfc');
-    let changed = this.fieldClass === null;
-    const obj = this._fieldClassObj;
-    if (!changed) { // skip if filedClass === null
-      for (const prop in obj) {
-        if (this[prop] !== obj[prop]) {
-          changed = true;
-          obj[prop] = this[prop];
-        }
-      }
-    }
-    if (!changed) {
-      return;
-    }
-    this.fieldClass = Object.keys(obj).filter(k => obj[k]).map(k => {
+    this.fieldClass = CLASS_PROPS.filter(k => this[k]).map(k => {
       return `md-${k.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)}`;
     }).join(' ').trim();
     // console.log('update fc', JSON.stringify(this.fieldClass));
