@@ -3,15 +3,10 @@ import './list-item.scss';
 import {
   Component,
   AFTER_RENDER,
-  BEFORE_DESTROY
+  DOM_PASS_LISTENERS,
+  NOTIFY,
+  LISTENERS
 } from 'jinge';
-import {
-  LISTENERS, NOTIFY
-} from 'jinge/core/messenger';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 import {
   interactionEvents
 } from '../_util';
@@ -66,10 +61,6 @@ export class ListItem extends Component {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this);
-  }
-
-  [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
+    this[DOM_PASS_LISTENERS]();
   }
 }

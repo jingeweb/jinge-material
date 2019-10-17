@@ -9,7 +9,8 @@ import {
   ROOT_NODES,
   UPDATE_IF_NEED,
   UPDATE,
-  NOTIFY
+  NOTIFY,
+  DOM_ON
 } from 'jinge';
 import {
   mergePopperOpts,
@@ -17,14 +18,13 @@ import {
 } from '../_util';
 import Popper from 'popper.js';
 import {
-  addEvent,
-  removeEvent,
   addClass,
   removeClass
 } from 'jinge/dom';
 import {
   assertFail,
-  isString
+  isString,
+  isArray
 } from 'jinge/util';
 import {
   getDuration,
@@ -68,8 +68,8 @@ export class Popover extends Component {
     this._state = this.isShown ? TS_STATE_ENTERED : TS_STATE_LEAVED;
     this._delayTM = null;
     this._ts = null;
-    this._tsEndHandler = this._onTsEnd.bind(this);
-    this._outsideClickHandler = this._onOutsideClick.bind(this);
+    this._tsEndDeregister = null;
+    this._outsideClickDeregister = null;
   }
 
   get active() {
@@ -88,10 +88,10 @@ export class Popover extends Component {
       this.show();
     }
     if (this.trigger === 'click') {
-      addEvent(this._$ref, 'click', this.toggle.bind(this));
+      this[DOM_ON](this._$ref, 'click', this.toggle);
     } else if (this.trigger === 'hover') {
-      addEvent(this._$ref, 'mouseenter', this.show.bind(this));
-      addEvent(this._$ref, 'mouseleave', this.hide.bind(this));
+      this[DOM_ON](this._$ref, 'mouseenter', this.show);
+      this[DOM_ON](this._$ref, 'mouseleave', this.hide);
     }
   }
 
@@ -154,8 +154,9 @@ export class Popover extends Component {
     if (this._state === TS_STATE_LEAVING || this._state === TS_STATE_LEAVED) {
       return;
     }
-    if (this.trigger !== 'none') {
-      removeEvent(document, 'click', this._outsideClickHandler);
+    if (this.trigger !== 'none' && this._outsideClickDeregister) {
+      this._outsideClickDeregister();
+      this._outsideClickDeregister = null;
     }
     if (disableTransition === false && this.transition) {
       this._state = TS_STATE_LEAVING;
@@ -182,11 +183,11 @@ export class Popover extends Component {
 
   _doShow() {
     this._$pop = this[GET_REF]('pop');
-    if (!this._$pop) assertFail();
+    if (!this._$pop || isArray(this._$pop)) assertFail();
     this._state = TS_STATE_ENTERING;
 
     if (this.trigger !== 'none') {
-      addEvent(document, 'click', this._outsideClickHandler);
+      this._outsideClickDeregister = this[DOM_ON](document, 'click', this._onOutsideClick);
     }
     this._instance = new Popper(this._$ref, this._$pop, this.getPopperOptions());
   }
@@ -220,9 +221,9 @@ export class Popover extends Component {
     const [tsEndName, tsDuration] = getDuration(el);
     this._ts = [el, ce, ca, tsEndName, callback, null];
     if (!tsEndName) {
-      this._tsEndHandler();
+      this._onTsEnd();
     } else {
-      addEvent(el, tsEndName, this._tsEndHandler);
+      this._tsEndDeregister = this[DOM_ON](el, tsEndName, this._onTsEnd);
       /**
        * 当快速划过鼠标时，浏览器触发 transitionend 事件。需要用 setTimeout 来双重保障。
        */
@@ -239,7 +240,10 @@ export class Popover extends Component {
     this._ts = null;
     removeClass(el, ce);
     removeClass(el, ca);
-    tsEndName && removeEvent(el, tsEndName, this._tsEndHandler);
+    if (tsEndName && this._tsEndDeregister) {
+      this._tsEndDeregister();
+      this._tsEndDeregister = null;
+    }
     callCb && callback && callback();
   }
 

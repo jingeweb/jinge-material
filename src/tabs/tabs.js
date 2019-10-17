@@ -11,12 +11,9 @@ import {
   NOTIFY,
   GET_REF,
   GET_CONTEXT,
-  BEFORE_DESTROY
+  BEFORE_DESTROY,
+  DOM_ON
 } from 'jinge';
-import {
-  addEvent,
-  removeEvent
-} from 'jinge/dom';
 import {
   UIROUTER_CONTEXT
 } from '../uisref';
@@ -48,10 +45,9 @@ export class Tabs extends Component {
     this._syncRoute = 0;
     this._activeEl = null;
     this._resizeOb = null;
-    this._resizeHandler = this._reCalc.bind(this);
     this.hasContent = true;
-    this.contentStyles = undefined;
-    this.containerStyles = undefined;
+    this.contentStyles = null;
+    this.containerStyles = null;
 
     this.items = VM([]);
     this[SET_CONTEXT](TABS_PROVIDER, this); // pass parent to children
@@ -99,7 +95,6 @@ export class Tabs extends Component {
     if (this._resizeOb) {
       this._resizeOb.disconnect();
     }
-    removeEvent(window, 'resize', this._resizeHandler);
   }
 
   _setupObservers() {
@@ -108,10 +103,10 @@ export class Tabs extends Component {
       characterData: true,
       subtree: true
     }, () => {
-      this._resize();
+      this._reCalc();
     });
 
-    addEvent(window, 'resize', this._resizeHandler);
+    this[DOM_ON](window, 'resize', this._reCalc);
   }
 
   _sync(activeIndex) {

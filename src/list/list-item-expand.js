@@ -7,15 +7,12 @@ import {
   AFTER_RENDER,
   BEFORE_DESTROY,
   GET_CONTEXT,
-  GET_REF
+  GET_REF,
+  DOM_ON
 } from 'jinge';
 import {
   LIST_PROVIDER
 } from './list';
-import {
-  addEvent,
-  removeEvent
-} from 'jinge/dom';
 
 export class ListItemExpand extends Component {
   static get template() {
@@ -53,7 +50,6 @@ export class ListItemExpand extends Component {
     this.className = attrs.class;
 
     this.expanded = attrs.expanded;
-    this._ch = this._onClick.bind(this);
     this._List = this[GET_CONTEXT](LIST_PROVIDER);
     this._List.pushExpandable(this);
   }
@@ -87,16 +83,15 @@ export class ListItemExpand extends Component {
 
   [AFTER_RENDER]() {
     const el = this[GET_REF]('item').children[0];
-    addEvent(el, 'click', this._ch);
+    this[DOM_ON](el, 'click', this._onClick);
     if (this.expanded) {
       this.open();
     }
   }
 
   [BEFORE_DESTROY]() {
-    const el = this[GET_REF]('item').children[0];
-    removeEvent(el, 'click', this._ch);
     this._List.removeExpandable(this);
+    this._List = null;
   }
 
   _onClick() {

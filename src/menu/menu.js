@@ -40,7 +40,7 @@ export class Menu extends Component {
 
     super(attrs);
 
-    this.contentStyles = undefined;
+    this.contentStyles = null;
     this.className = attrs.class;
     this.active = attrs.active;
     this.trigger = attrs.trigger || 'click';

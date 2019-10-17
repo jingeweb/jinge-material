@@ -3,14 +3,10 @@ import './index.scss';
 import {
   uid,
   AFTER_RENDER,
-  BEFORE_DESTROY,
   NOTIFY,
-  GET_REF
+  GET_REF,
+  DOM_PASS_LISTENERS
 } from 'jinge';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 import {
   BaseField
 } from '../field/base';
@@ -33,13 +29,8 @@ export class File extends BaseField {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this, ['change']);
+    this[DOM_PASS_LISTENERS](['change']);
     super[AFTER_RENDER]();
-  }
-
-  [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
-    super[BEFORE_DESTROY]();
   }
 
   getMultipleName(files) {

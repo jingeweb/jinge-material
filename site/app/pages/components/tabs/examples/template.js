@@ -1,5 +1,5 @@
 import {
-  Component, AFTER_RENDER
+  Component, AFTER_RENDER, BEFORE_DESTROY
 } from 'jinge';
 
 import _tpl from './template.html';
@@ -47,5 +47,9 @@ export default class ExampleTabsTemplate extends Component {
 
   [AFTER_RENDER]() {
     this.checkNewPosts();
+  }
+
+  [BEFORE_DESTROY]() {
+    this.clearCheckPosts();
   }
 }

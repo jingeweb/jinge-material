@@ -2,12 +2,9 @@ import {
   Component,
   AFTER_RENDER,
   BEFORE_DESTROY,
-  NOTIFY
+  NOTIFY,
+  DOM_PASS_LISTENERS
 } from 'jinge';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 import {
   registerFocus,
   deregisterFocus
@@ -36,12 +33,11 @@ export class Chip extends Component {
 
   [AFTER_RENDER]() {
     registerFocus(this);
-    bindDOMListeners(this);
+    this[DOM_PASS_LISTENERS]();
   }
 
   [BEFORE_DESTROY]() {
     deregisterFocus(this);
-    unbindDOMListeners(this);
   }
 
   onDelClick(evt) {

@@ -43,7 +43,7 @@
       该函数接收的第二个参数是可选的关闭对话框后的回调函数。
       如果该回调函数返回了<code>false</code>则会阻止对话框的关闭。
     </p>
-    <CodeExample title="Accepts custom HTML too!" e:example="_examples.dialogAlert" />
+    <CodeExample title="Alert" e:example="_examples.dialogAlert" />
 
     <ApiItem title="API - md-dialog-alert">
       <p slot-pass:default>The following props can be applied to alerts:</p>
@@ -76,9 +76,9 @@
       返回一个 Promise 对象。对话框会等待该 Promise，直到其 resolve 返回的数据
       不是 `false` 才关闭对话框。
     </p>
-    <CodeExample title="Accepts custom HTML too!" e:example="_examples.dialogConfirm" />
+    <CodeExample title="Confirm" e:example="_examples.dialogConfirm" />
 
-    <ApiItem title="API - md-dialog-alert">
+    <ApiItem title="API - md-dialog-confirm">
       <p slot-pass:default>The following props can be applied to confirms:</p>
 
       <ApiTable e:headings="_api.confirm.props.headings" e:props="_api.confirm.props.props" slot-pass:props />

@@ -15,7 +15,7 @@
           on:focus="onFocus"
           on:blur="onBlur"
           e:pattern="pattern"
-          e:placeholder="placeholder || (showDefaultPlaceholder ? (showDialog ? (inputDateFormat || locale.dateFormat) : locale.datePlaceholder) : undefined)"
+          e:placeholder="placeholder || (showDefaultPlaceholder ? (showDialog ? (inputDateFormat || locale.dateFormat) : locale.datePlaceholder) : null)"
         />
       
         <_slot />

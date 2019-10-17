@@ -8,7 +8,6 @@ import {
   NOTIFY,
   GET_REF,
   GET_FIRST_DOM,
-  VM,
   BEFORE_DESTROY
 } from 'jinge';
 import {
@@ -127,7 +126,7 @@ export class Datepicker extends Component {
     const v = this.parseIpt();
     if (!v) return;
     if (isDateEqual(this._value, v)) return;
-    this.value = VM(v);
+    this.value = v;
     this[NOTIFY]('change', this.value);
   }
 

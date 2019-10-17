@@ -160,7 +160,10 @@ const menus = [{
     name: _t('工具栏（Toolbar）'),
     state: 'components.toolbar'
   }, {
-    name: _t('悬浮提示（Tooltip)'),
+    name: _t('气泡提示（Popover）'),
+    state: 'components.popover'
+  }, {
+    name: _t('悬浮提示（Tooltip）'),
     state: 'components.tooltip'
   }]
 }, {

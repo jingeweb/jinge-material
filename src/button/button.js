@@ -5,12 +5,9 @@ import {
   VM,
   AFTER_RENDER,
   BEFORE_DESTROY,
-  NOTIFY
+  NOTIFY,
+  DOM_PASS_LISTENERS
 } from 'jinge';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 import {
   registerFocus,
   deregisterFocus
@@ -49,12 +46,11 @@ export class Button extends Component {
 
   [AFTER_RENDER]() {
     registerFocus(this);
-    bindDOMListeners(this, IGNORED_EVENTS);
+    this[DOM_PASS_LISTENERS](IGNORED_EVENTS);
   }
 
   [BEFORE_DESTROY]() {
     deregisterFocus(this);
-    unbindDOMListeners(this);
   }
 
   touchstart(event) {

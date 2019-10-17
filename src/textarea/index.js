@@ -1,13 +1,10 @@
 import {
   uid,
   AFTER_RENDER,
-  BEFORE_DESTROY
-} from 'jinge';
-import {
-  bindDOMListeners,
-  unbindDOMListeners,
+  BEFORE_DESTROY,
+  DOM_PASS_LISTENERS,
   GET_FIRST_DOM
-} from 'jinge/core/component';
+} from 'jinge';
 import {
   BaseField
 } from '../field/base';
@@ -33,7 +30,7 @@ export class Textarea extends BaseField {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this, ['input', 'change']);
+    this[DOM_PASS_LISTENERS](['input', 'change']);
     super[AFTER_RENDER]();
     if (this.autogrow) {
       this._calcStyles(this[GET_FIRST_DOM]());
@@ -41,7 +38,6 @@ export class Textarea extends BaseField {
   }
 
   [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
     this.Field.hasTextarea = false;
     super[BEFORE_DESTROY]();
   }

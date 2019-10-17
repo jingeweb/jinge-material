@@ -199,7 +199,7 @@ export class DatepickerDialog extends Component {
       rd.selected = rd === day;
     });
     this.selectedDay = day;
-    this._date = VM(new Date(day.y, day.m, day.d));
+    this._date = new Date(day.y, day.m, day.d);
     this[NOTIFY]('change', this._date);
     if (this.immediately) {
       this.onCancel();

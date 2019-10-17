@@ -6,13 +6,9 @@ import {
   GET_CONTEXT,
   VM,
   AFTER_RENDER,
-  BEFORE_DESTROY,
-  NOTIFY
+  NOTIFY,
+  DOM_PASS_LISTENERS
 } from 'jinge';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 import {
   BOTTOM_BAR_PROVIDER
 } from './bar';
@@ -60,10 +56,6 @@ export class BottomBarItem extends Component {
 
   [AFTER_RENDER]() {
     this.Bar._register(this);
-    bindDOMListeners(this, ['click']);
-  }
-
-  [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
+    this[DOM_PASS_LISTENERS](['click']);
   }
 }

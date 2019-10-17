@@ -6,9 +6,8 @@ import {
   UPDATE_IF_NEED,
   ARG_COMPONENTS,
   AFTER_RENDER,
-  BEFORE_DESTROY
+  DOM_PASS_LISTENERS
 } from 'jinge';
-
 import {
   STR_DEFAULT,
   uid,
@@ -18,10 +17,6 @@ import {
   obj2class,
   isUndefined
 } from 'jinge/util';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 
 import _tpl from './index.html';
 
@@ -115,11 +110,7 @@ export class Checkbox extends Component {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this);
-  }
-
-  [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
+    this[DOM_PASS_LISTENERS]();
   }
 
   toggleCheck() {

@@ -1,5 +1,5 @@
 import {
-  Component, VM
+  Component
 } from 'jinge';
 
 import _tpl from './disable.html';
@@ -24,7 +24,7 @@ div {
 
   constructor(attrs) {
     super(attrs);
-    this.selectedDate = VM(new Date('2018-07-12'));
+    this.selectedDate = new Date('2018-07-12');
   }
 
   isHoliday(year, month, date, weekday) {

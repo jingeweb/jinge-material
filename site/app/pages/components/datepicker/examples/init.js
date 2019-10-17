@@ -1,5 +1,5 @@
 import {
-  Component, VM
+  Component
 } from 'jinge';
 
 import _tpl from './init.html';
@@ -11,6 +11,6 @@ export default class ExampleDatepickerInit extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.selectedDate = VM(new Date('1990-04-02'));
+    this.selectedDate = new Date('1990-04-02');
   }
 }

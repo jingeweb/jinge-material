@@ -4,13 +4,10 @@ import {
   BEFORE_DESTROY,
   ON,
   OFF,
-  NOTIFY
+  NOTIFY,
+  GET_FIRST_DOM,
+  DOM_PASS_LISTENERS
 } from 'jinge';
-import {
-  bindDOMListeners,
-  unbindDOMListeners,
-  GET_FIRST_DOM
-} from 'jinge/core/component';
 import {
   BaseField
 } from '../field/base';
@@ -37,12 +34,11 @@ export class Input extends BaseField {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this, ['input', 'change']);
+    this[DOM_PASS_LISTENERS](['input', 'change']);
     super[AFTER_RENDER]();
   }
 
   [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
     this.Field[OFF]('password-toggled', this._pwdTHandler);
     super[BEFORE_DESTROY]();
   }

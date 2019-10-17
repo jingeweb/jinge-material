@@ -57,6 +57,5 @@ export class DrawerContainer extends Component {
     if (!this._pushMode) return;
     const el = this[GET_FIRST_DOM]().children[0]; // .md-drawer
     this.mainMargin = el.offsetWidth;
-    console.log(this.mainMargin);
   }
 }

@@ -2,16 +2,12 @@ import {
   Component,
   GET_CONTEXT,
   AFTER_RENDER,
-  BEFORE_DESTROY,
-  NOTIFY
+  NOTIFY,
+  DOM_PASS_LISTENERS
 } from 'jinge';
 import {
   MENU_PROVIDER
 } from './menu';
-import {
-  bindDOMListeners,
-  unbindDOMListeners
-} from 'jinge/core/component';
 
 const IGNORED_EVENTS = [
   'touchstart', 'mousedown'
@@ -75,10 +71,6 @@ export class MenuItem extends Component {
   }
 
   [AFTER_RENDER]() {
-    bindDOMListeners(this, IGNORED_EVENTS);
-  }
-
-  [BEFORE_DESTROY]() {
-    unbindDOMListeners(this);
+    this[DOM_PASS_LISTENERS](IGNORED_EVENTS);
   }
 }

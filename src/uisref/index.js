@@ -22,14 +22,11 @@ import {
   BEFORE_DESTROY,
   isObject,
   GET_FIRST_DOM,
-  STR_DEFAULT
+  STR_DEFAULT,
+  DOM_ON,
+  ARG_COMPONENTS
 } from 'jinge';
 import {
-  ARG_COMPONENTS
-} from 'jinge/core/component';
-import {
-  addEvent,
-  removeEvent,
   setAttribute,
   addClass,
   removeClass
@@ -47,7 +44,6 @@ const TAG = Symbol('tag');
 const UPDATE_HREF = Symbol('update_href');
 const UPDATE_ACTIVE = Symbol('update_active');
 const UPDATE_TARGET = Symbol('update_target');
-const CLICK_HANDLER = Symbol('click_handler');
 const ON_CLICK = Symbol('on_click');
 const DEREGISTER = Symbol('deregister');
 
@@ -82,7 +78,6 @@ export class UISref extends Component {
     this[EL] = null;
     this[DEREGISTER] = null;
     this[TAG] = attrs[ARG_COMPONENTS] && attrs[ARG_COMPONENTS][STR_DEFAULT] ? 0 : -1;
-    this[CLICK_HANDLER] = this[ON_CLICK].bind(this);
     this.isActive = false;
     this.to = attrs.to;
     this.params = attrs.params;
@@ -173,11 +168,10 @@ export class UISref extends Component {
     this[UPDATE_TARGET]();
     this[UPDATE_HREF]();
     this[UPDATE_ACTIVE]();
-    addEvent(el, 'click', this[CLICK_HANDLER]);
+    this[DOM_ON](el, 'click', this[ON_CLICK]);
   }
 
   [BEFORE_DESTROY]() {
-    removeEvent(this[EL], 'click', this[CLICK_HANDLER]);
     this[DEREGISTER]();
   }
 

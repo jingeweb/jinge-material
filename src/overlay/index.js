@@ -21,7 +21,7 @@ export class Overlay extends Component {
   constructor(attrs) {
     super(attrs);
     this.__portalDisabled = attrs.__portalDisabled;
-    this.__portalTarget = attrs.__portalTarget;
+    this.__portalTarget = attrs.__portalTarget || 'body';
     this.active = attrs.active;
     this.fixed = attrs.fixed;
     this.className = attrs.class || '';
