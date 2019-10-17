@@ -1,0 +1,25 @@
+<div class="md-table">
+  <thead>
+    <tr>
+      <for e:loop="columns" vm:each="column" vm:index="columnIndex">
+      <th>
+        <_slot renderFunc:column.th vm-pass:column vm-pass:columnIndex/>
+      </th>
+      </for>
+    </tr>
+  </thead>
+  <tbody>
+    <for e:loop="data" e:key="rowLoopKey" vm:each="row" vm:index="rowIndex">
+    <tr>
+      <for e:loop="columns" e:key="columnLoopKey" vm:each="column" vm:index="columnIndex">
+      <td>
+      <_slot renderFunc:column.td vm-pass:column vm-pass:columnIndex vm-pass:row vm-pass:rowIndex/>
+      </td>
+      </for>
+    </tr>
+    </for>
+  </tbody>
+</table>
+
+<!-- render helper to register <md-table-item> -->
+<_slot/>

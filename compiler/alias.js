@@ -165,6 +165,9 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     'jinge-material/src/datepicker': {
       Datepicker: 'md-datepicker',
       DatepickerDialog: 'md-datepicker-dialog'
+    },
+    'jinge-material/src/pagination': {
+      Pagination: 'md-pagination'
     }
   }, themeIconAlias);
 };

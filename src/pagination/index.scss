@@ -1,0 +1,89 @@
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+.md-table-pagination {
+  height: 56px;
+  display: flex;
+  align-items: center;
+
+  &,
+  > .md-field.md-has-value .md-input,
+  > .md-icon-button {
+    font-size: 12px;
+  }
+
+  > .md-icon-button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    margin-right: 0;
+
+    .md-button-content > .md-icon {
+      margin-right: 0;
+    }
+
+    .md-button-content > .md-spinner:only-child {
+      font-size: 12px;
+    }
+
+    &.num {
+      width: auto;
+    }
+
+    &.pp {
+      .arrow {
+        display: none;
+
+        @include md-theme-property(color, primary, background);
+      }
+
+      &:hover {
+        .arrow {
+          display: inline;
+        }
+
+        .dot {
+          display: none;
+        }
+      }
+    }
+  }
+
+  > .md-field {
+    width: 48px;
+    min-height: auto;
+    height: 22px;
+    margin: 0;
+    padding-top: 0;
+    align-items: center;
+
+    .md-field-container {
+      align-items: center;
+      position: relative;
+    }
+
+    .md-input {
+      height: 22px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .md-icon {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+    }
+
+    &.options {
+      margin-right: 12px;
+
+      .md-input {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  > span {
+    white-space: nowrap;
+  }
+}

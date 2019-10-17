@@ -1,4 +1,8 @@
+/* eslint-disable no-template-curly-in-string */
 export default {
+  sizePerPage: '每页条数：',
+  jumpToPage: '跳到页码：',
+  totalCount: '共 ${count} 条，',
   Cancel: '取消',
   Ok: '确认',
   datePlaceholder: '请选择日期',

@@ -1,0 +1,18 @@
+<p>禁用整个分页选择</p>
+<div style="display: flex; justify-content: flex-end;">
+  <md-pagination
+    disabled
+    on:change="onPaginationChanged"
+    e:totalSize="130"
+  />
+</div>
+<p>提示正在加载某页</p>
+<div style="display: flex; justify-content: flex-end;">
+  <md-pagination
+    on:change="onPaginationChanged"
+    e:loadingPage="4"
+    e:totalSize="130"
+    pageSizeOptions
+    useJumper
+  />
+</div>

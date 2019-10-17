@@ -184,7 +184,7 @@ export class Select extends BaseField {
   }
 
   openSelect() {
-    if (this.showSelect) return;
+    if (this.showSelect || this.disabled) return;
     this.showSelect = true;
   }
 

@@ -39,7 +39,8 @@ import {
   PageHighlight,
   PageEmptyState,
   PageSelect,
-  PageDatepicker
+  PageDatepicker,
+  PagePagination
 } from './pages';
 
 export const componentsStates = [{
@@ -196,6 +197,10 @@ export const componentsStates = [{
   name: 'components.datepicker',
   url: '/datepicker',
   component: PageDatepicker
+}, {
+  name: 'components.pagination',
+  url: '/pagination',
+  component: PagePagination
 }];
 
 export const uiElementsStates = [{

@@ -151,6 +151,9 @@ const menus = [{
     name: _t('子标题（Subheader）'),
     state: 'components.subheader'
   }, {
+    name: _t('分页（Pagination）'),
+    state: 'components.pagination'
+  }, {
     name: _t('[x]表格（Table）'),
     state: 'components.table'
   }, {
