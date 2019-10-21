@@ -4,7 +4,6 @@ import {
   Component,
   VM,
   UPDATE_IF_NEED,
-  isNumber,
   NOTIFY
 } from 'jinge';
 import {
@@ -17,6 +16,11 @@ import {
 import _tpl from './index.html';
 
 const DEFAULT_PAGE_SIZE_OPTIONS = VM([10, 20, 40, 80]);
+
+function _n(v, dn) {
+  const n = Number(v);
+  return Number.isNaN(n) || n <= 0 ? dn : n;
+}
 
 export class Pagination extends Component {
   static get template() {
@@ -36,11 +40,12 @@ export class Pagination extends Component {
     this.pageSize = attrs.pageSize;
     this.totalSize = attrs.totalSize;
     this.currentPage = attrs.currentPage;
-    this.loadingPage = attrs.loadingPage || 0;
+    this.loadingPage = _n(attrs.loadingPage, 0);
     this.itemCount = attrs.itemCount;
     this.useJumper = attrs.useJumper;
     this.showTotal = attrs.showTotal;
     this.disabled = attrs.disabled;
+    this.hideOnSinglePage = attrs.hideOnSinglePage;
 
     this._updateTotalInfo();
     this._updatePageItems(); // calc page items
@@ -76,7 +81,7 @@ export class Pagination extends Component {
   }
 
   set totalSize(v) {
-    if (!isNumber(v) || v < 0) v = 0;
+    v = _n(v, 0);
     if (this._totalSize === v) return;
     this._totalSize = v;
     this[UPDATE_IF_NEED](this._updatePageItems);
@@ -87,7 +92,7 @@ export class Pagination extends Component {
   }
 
   set pageSize(v) {
-    if (!isNumber(v) || v <= 0) v = 10;
+    v = _n(v, 10);
     if (this._pageSize === v) return;
     this._pageSize = v;
     this[UPDATE_IF_NEED](this._updatePageItems);
@@ -98,7 +103,7 @@ export class Pagination extends Component {
   }
 
   set currentPage(v) {
-    if (!isNumber(v) || v <= 0) v = 1;
+    v = _n(v, 1);
     if (this._currentPage === v) return;
     this._currentPage = v;
     this[UPDATE_IF_NEED](this._updatePageItems);
@@ -109,7 +114,7 @@ export class Pagination extends Component {
   }
 
   set itemCount(v) {
-    if (!isNumber(v) || v <= 0) v = 7;
+    v = _n(v, 7);
     if (this._itemCount === v) return;
     this._itemCount = v;
     this[UPDATE_IF_NEED](this._updatePageItems);
@@ -197,7 +202,7 @@ export class Pagination extends Component {
     let cp = this._currentPage;
 
     if (cp > tp) {
-      cp = this._currentPage = Math.max(tp, 1);
+      cp = this._currentPage = tp > 1 ? tp : 1;
     }
 
     const halfIc = ic / 2 | 0;

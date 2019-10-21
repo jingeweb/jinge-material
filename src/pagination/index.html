@@ -1,9 +1,9 @@
-<div class="md-table-pagination">
+<div class="md-table-pagination${hideOnSinglePage && totalPage <= 1 ? ' jg-hide' : ''}">
   <if e:expect="showTotal">
   <span>${totalInfo}</span>
   </if>
   <if e:expect="pageSizeOptions">
-  <span class="md-table-pagination-label">
+  <span>
     ${locale.sizePerPage}
   </span>
 
