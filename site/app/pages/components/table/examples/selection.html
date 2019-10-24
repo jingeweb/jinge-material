@@ -1,0 +1,17 @@
+<div>
+  <md-table
+    e:data="data"
+    selectable
+    e:selection="selection"
+    on:select="onSelectionChange"
+  >
+    <md-table-column numeric label="Framework" prop="id"/>
+    <md-table-column label="Framework" prop="name"/>
+    <md-table-column label="Author" prop="eamil"/>
+    <md-table-column label="Version" prop="gender"/>
+    <md-table-column label="Version" prop="title"/>
+  </md-table>
+</div>
+<div>
+  <md-button on:click="test">Test</md-button>
+</div>

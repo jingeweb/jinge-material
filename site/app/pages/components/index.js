@@ -32,3 +32,4 @@ export * from './empty';
 export * from './select';
 export * from './datepicker';
 export * from './pagination';
+export * from './table';

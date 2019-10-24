@@ -1,0 +1,29 @@
+<tr e:class="className">
+  <if e:expect="selectable">
+  <td>
+    <md-checkbox
+      e:value="selected"
+      on:change="toggleSelect()"
+    />
+  </td>
+  </if>
+  <for
+    e:loop="columns"
+    e:key="columnLoopKey"
+    vm:each="column"
+    vm:index="columnIndex"
+  >
+    <td e:class="column.numeric ? 'md-numeric' : ''">
+      <_slot
+        slot-use|column:default
+        vm-pass:column
+        vm-pass:columnIndex
+        vm-pass:row="data"
+        vm-pass:rowIndex="index"
+        vm-pass:rowSelected="selected"
+      >
+        ${data[column.prop]}
+      </_slot>
+    </td>
+  </for>
+</tr>

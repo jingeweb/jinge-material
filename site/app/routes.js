@@ -40,7 +40,8 @@ import {
   PageEmptyState,
   PageSelect,
   PageDatepicker,
-  PagePagination
+  PagePagination,
+  PageTable
 } from './pages';
 
 export const componentsStates = [{
@@ -201,6 +202,10 @@ export const componentsStates = [{
   name: 'components.pagination',
   url: '/pagination',
   component: PagePagination
+}, {
+  name: 'components.table',
+  url: '/table',
+  component: PageTable
 }];
 
 export const uiElementsStates = [{

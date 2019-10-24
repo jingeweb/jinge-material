@@ -1,7 +1,8 @@
 import {
   isNumber,
   isString,
-  isArray
+  isArray,
+  isFunction
 } from 'jinge';
 
 export class BaseAttrValidator {
@@ -45,6 +46,19 @@ export class NumberAttrValidator extends BaseAttrValidator {
     if (isNumber(val)) return;
     if (isString(val) && NUM_REGEXP.test(val)) return;
     this.throwType('number');
+  }
+}
+
+export class FunctionAttrValidator extends BaseAttrValidator {
+  constructor(componentName, attrName, isOptional = true) {
+    super(componentName, attrName, isOptional);
+  }
+
+  assert(attrs) {
+    super.assert(attrs);
+    if (this._an in attrs && !isFunction(attrs[this._an])) {
+      this.throwType('function');
+    }
   }
 }
 

@@ -1,25 +1,49 @@
-<div class="md-table">
+<!--
+  import { TableRow } from './row';
+  import { Column } from './column';
+-->
+<table class="md-table">
   <thead>
     <tr>
-      <for e:loop="columns" vm:each="column" vm:index="columnIndex">
+      <if e:expect="selectable">
       <th>
-        <_slot renderFunc:column.th vm-pass:column vm-pass:columnIndex/>
+        <md-checkbox
+          e:value="selectionCount > 0 && selectionCount === selectionMask.length"
+          on:change="toggleAllSelect"
+        />
       </th>
+      </if>
+      <for
+        e:loop="columns"
+        e:key="_columnLoopKey"
+        vm:each="column"
+        vm:index="columnIndex"
+      >
+        <th e:style="column.style" e:class="column.numeric ? 'md-numeric' : ''">
+          <_slot slot-use|column:head vm-pass:column vm-pass:columnIndex>
+          ${column.label}
+          </_slot>
+        </th>
       </for>
     </tr>
   </thead>
   <tbody>
-    <for e:loop="data" e:key="rowLoopKey" vm:each="row" vm:index="rowIndex">
-    <tr>
-      <for e:loop="columns" e:key="columnLoopKey" vm:each="column" vm:index="columnIndex">
-      <td>
-      <_slot renderFunc:column.td vm-pass:column vm-pass:columnIndex vm-pass:row vm-pass:rowIndex/>
-      </td>
-      </for>
-    </tr>
+    <for
+      e:loop="data"
+      e:key="_rowLoopKey"
+      vm:each="row"
+      vm:index
+    >
+      <TableRow
+        ref:rows
+        e:selected="selectionMask[index]"
+        e:selectable="selectable"
+        e:columns="columns"
+        e:data="row"
+        e:index="index"
+        e:rowClass="rowClass"
+        on:select="onRowSelect"
+      />
     </for>
   </tbody>
 </table>
-
-<!-- render helper to register <md-table-item> -->
-<_slot/>

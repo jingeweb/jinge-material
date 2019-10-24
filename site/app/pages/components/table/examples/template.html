@@ -1,0 +1,31 @@
+<md-card>
+  <md-table e:data="data">
+    <md-table-column width="10" numeric label="ID" vm:rowIndex>
+      ${rowIndex + 1}
+    </md-table-column>
+    <!-- custom table cell -->
+    <md-table-column label="Framework" vm:row>
+      ${row.name}
+    </md-table-column>
+    <!-- custom table head -->
+    <md-table-column prop="author">
+      <_slot slot-pass:head>Author</_slot>
+    </md-table-column>
+    <!-- both custom head and cell -->
+    <md-table-column numeric>
+      <_slot slot-pass:head>Version</_slot>
+      <span style="color: #9c27b0;" slot-pass:default vm:row>${row.version}</span>
+    </md-table-column>
+    <!-- all vm variables -->
+    <md-table-column>
+      <_slot slot-pass:head>Custom</_slot>
+      <span style="color: #2196f3;" slot-pass:default vm:row vm:rowIndex vm:columnIndex>
+        r:${rowIndex}-c:${columnIndex}-${row.name}
+      </span>
+    </md-table-column>
+    <md-table-column label="Operate" vm:row>
+      <a on:click="log('view', row)">View</a>
+      <a on:click="log('delete', row)">Delete</a>
+    </md-table-column>
+  </md-table>
+</md-card>

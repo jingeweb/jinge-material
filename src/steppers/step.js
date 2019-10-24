@@ -3,7 +3,6 @@ import {
   GET_CONTEXT,
   uid,
   BEFORE_DESTROY,
-  AFTER_RENDER,
   NOTIFY
 } from 'jinge';
 import {
@@ -29,7 +28,7 @@ export class Step extends Component {
     this.isActive = false;
     this.isPreviousDone = false;
     this.Steppers = this[GET_CONTEXT](STEPPERS_PROVIDER);
-    this.Steppers.vertical && this.Steppers._add(this);
+    this.Steppers._add(this);
   }
 
   get done() {
@@ -50,10 +49,6 @@ export class Step extends Component {
     if (this._error === v) return;
     this._error = v;
     this[NOTIFY]('update.error', v);
-  }
-
-  [AFTER_RENDER]() {
-    !this.Steppers.vertical && this.Steppers._add(this);
   }
 
   [BEFORE_DESTROY]() {

@@ -168,6 +168,10 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
     },
     'jinge-material/src/pagination': {
       Pagination: 'md-pagination'
+    },
+    'jinge-material/src/table': {
+      Table: 'md-table',
+      TableColumn: 'md-table-column'
     }
   }, themeIconAlias);
 };

@@ -6,8 +6,11 @@ import {
   isNumber,
   UPDATE_IF_NEED,
   GET_FIRST_DOM,
-  VM
+  VM,
+  VM_NOTIFY,
+  VM_ATTRS
 } from 'jinge';
+
 import _tpl from './steppers.html';
 
 export const STEPPERS_PROVIDER = Symbol('steppers');
@@ -28,15 +31,16 @@ export class Steppers extends Component {
       _remove: this._remove.bind(this),
       _active: this._active.bind(this)
     });
-    this[SET_CONTEXT](STEPPERS_PROVIDER, this._Steppers);
+    this.contentStyle = null;
+    this.contentTransform = null;
 
     this.vertical = attrs.vertical;
     this.dynamicHeight = attrs.dynamicHeight;
     this.alternative = attrs.alternative;
     this.activeStep = attrs.activeStep || 0;
     this.linear = attrs.linear;
-    this.contentStyle = null;
-    this.contentTransform = null;
+
+    this[SET_CONTEXT](STEPPERS_PROVIDER, this._Steppers);
   }
 
   get vertical() {
@@ -78,6 +82,7 @@ export class Steppers extends Component {
 
   [AFTER_RENDER]() {
     this._update(false);
+    this.items[VM_ATTRS][VM_NOTIFY]('length');
   }
 
   _add(step) {
