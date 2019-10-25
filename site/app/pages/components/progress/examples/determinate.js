@@ -1,18 +1,8 @@
 import {
-  Component, BEFORE_DESTROY
+  Component
 } from 'jinge';
 
-// import _tpl from './determinate.html';
-
-export class T extends Component {
-  static get template() {
-    return 'yeap!';
-  }
-
-  [BEFORE_DESTROY]() {
-    console.log('bd');
-  }
-}
+import _tpl from './determinate.html';
 
 export default class ExampleDeterminateProgress extends Component {
   static get style() {
@@ -20,14 +10,7 @@ export default class ExampleDeterminateProgress extends Component {
   }
 
   static get template() {
-    // return _tpl;
-    return `
-<div>
-  <md-tooltip title="hello">
-    <span>click me</span>
-  </md-tooltip>
-</div>
-`;
+    return _tpl;
   }
 
   constructor(attrs) {

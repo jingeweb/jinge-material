@@ -14,11 +14,6 @@ export class CodeExample extends Component {
     return _sty;
   }
 
-  __tt() {
-    window.__dd = true;
-    this.tab = 'js';
-  }
-
   constructor(attrs) {
     super(attrs);
     this._title = attrs.title;

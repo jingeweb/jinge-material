@@ -1,5 +1,7 @@
 <div>
   <md-progress-bar mode="determinate" e:value="amount"/>
   <md-progress-bar class="md-accent" mode="determinate" e:value="amount"/>
-  <input type="range" e:value="amount" on:change="amount = $event.target.value"/> ${ amount }%
+  <div>
+    <input type="range" e:value="amount" on:change="amount = $event.target.value"/> ${ amount }%
+  </div>
 </div>
