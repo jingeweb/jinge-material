@@ -60,9 +60,9 @@ const menus = [{
   name: _t('组件'),
   state: 'components',
   children: [{
-    name: _t('[x]顶栏（App Bar）'),
-    state: 'components.app-bar'
-  }, {
+  //   name: _t('[x]顶栏（App Bar）'),
+  //   state: 'components.app-bar'
+  // }, {
     name: _t('头像（Avatar）'),
     state: 'components.avatar'
   }, {
