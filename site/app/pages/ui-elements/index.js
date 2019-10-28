@@ -3,6 +3,8 @@ import {
 } from 'jinge';
 
 export * from './elevation';
+export * from './typography';
+export * from './layout';
 
 export class PageUiElements extends Component {
   static get template() {

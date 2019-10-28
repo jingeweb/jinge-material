@@ -1,0 +1,23 @@
+<!--
+  import {
+    PageContainer,
+    CodeExample,
+    ApiTable,
+    ApiItem,
+    NoteBlock
+  } from '../../../components';
+-->
+<PageContainer centered _t:title="阴影（Elevation）">
+  <div class="page-container-section">
+    <p>Measured from the front of one surface to the front of another, an element’s elevation indicates the distance between surfaces and the depth of its shadow.</p>
+    <p>Elevation classes range from 1px to 24px in depth. You can add this class to any HTML tag.</p>
+  </div>
+
+  <div class="page-container-section">
+    <CodeExample title="Elevation" e:example="_examples.basic" />
+    <ApiItem title="API - md-elevation">
+
+      <ApiTable e:headings="_api.classes.headings" e:props="_api.classes.props" slot-pass:classes />
+    </ApiItem>
+  </div>
+</PageContainer>

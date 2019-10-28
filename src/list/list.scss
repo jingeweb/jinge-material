@@ -56,7 +56,7 @@
   }
 
   .md-selected,
-  .router-link-active {
+  .ui-router-active {
     .md-list-item-content {
       @include md-theme-property(color, primary, background);
     }

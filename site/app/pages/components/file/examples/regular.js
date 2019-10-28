@@ -11,7 +11,7 @@ export default class ExampleFileRegular extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.initial = 'vue-material-is-awesome.jpg';
+    this.initial = 'jinge-material-is-awesome.jpg';
     this.single = null;
     this.placeholder = null;
     this.disabled = null;

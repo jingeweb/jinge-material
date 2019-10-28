@@ -1,0 +1,14 @@
+@import 'style/engine/index';
+@import 'style/themes/default';
+
+.md-layout-item {
+  height: 40px;
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: md-get-palette-color(red, 200);
+    content: ' ';
+  }
+}

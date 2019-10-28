@@ -7,7 +7,7 @@
 >
   <_slot/>
   <if e:expect="!disabled || ripples.length > 0">
-  <for e:loop="ripples" vm:each="ripple" _key="each.uuid">
+  <for e:loop="ripples" vm:each="ripple" key="each.uuid">
   <Wave
     class="md-ripple-wave ${centered ? 'md-centered' : ''}"
     e:uuid="ripple.uuid"

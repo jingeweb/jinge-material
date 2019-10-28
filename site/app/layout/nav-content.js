@@ -28,17 +28,14 @@ const menus = [{
   name: _t('UI 元素'),
   state: 'ui',
   children: [{
-    name: '[x]阴影（Elevation）',
+    name: '阴影（Elevation）',
     state: 'ui.elevation'
   }, {
-    name: '[x]布局（Layout）',
+    name: '布局（Layout）',
     state: 'ui.layout'
   }, {
-    name: '[x]文本选中（Selection）',
-    state: 'ui.selection'
-  }, {
-    name: '[x]排版（Typography)',
-    state: 'ui.typo'
+    name: '排版（Typography)',
+    state: 'ui.typography'
   }]
 }, {
   name: '高级',

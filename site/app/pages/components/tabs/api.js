@@ -80,7 +80,7 @@ export default {
       {
         name: 'href',
         type: 'String',
-        description: 'The tab href link. Useful when you don\'t have Vue Router on your app, but you still want to change the current URL based on the tab.',
+        description: 'The tab href link. Useful when you don\'t have Jinge UI Router on your app, but you still want to change the current URL based on the tab.',
         defaults: 'null'
       },
       {

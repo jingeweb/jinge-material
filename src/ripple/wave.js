@@ -3,8 +3,7 @@ import './wave.scss';
 import {
   Component,
   AFTER_RENDER,
-  NOTIFY,
-  setImmediate
+  NOTIFY
 } from 'jinge';
 
 import _tpl from './wave.html';
@@ -23,9 +22,7 @@ export class Wave extends Component {
   }
 
   [AFTER_RENDER]() {
-    setImmediate(() => {
-      this.animating = true;
-    });
+    this.animating = true;
   }
 
   onTransition(action) {

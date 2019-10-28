@@ -41,7 +41,9 @@ import {
   PageSelect,
   PageDatepicker,
   PagePagination,
-  PageTable
+  PageTable,
+  PageTypography,
+  PageLayout
 } from './pages';
 
 export const componentsStates = [{
@@ -209,14 +211,22 @@ export const componentsStates = [{
 }];
 
 export const uiElementsStates = [{
-  name: 'ui-elements',
-  url: '/ui-elements',
+  name: 'ui',
+  url: '/ui',
   component: PageUiElements,
-  redirectTo: 'ui-elements.elevation'
+  redirectTo: 'ui.elevation'
 }, {
-  name: 'ui-elements.elevation',
+  name: 'ui.elevation',
   url: '/elevation',
   component: PageElevation
+}, {
+  name: 'ui.layout',
+  url: '/layout',
+  component: PageLayout
+}, {
+  name: 'ui.typography',
+  url: '/typography',
+  component: PageTypography
 }];
 export const singleStates = [{
   name: 'home',

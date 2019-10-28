@@ -34,7 +34,7 @@ export class ListItemUISref extends Component {
     this.className = attrs.class;
     this.to = attrs.to;
     this.params = attrs.params;
-    this.active = attrs.active || 'router-link-active';
+    this.active = attrs.active || 'ui-router-active';
     this.target = attrs.target;
   }
 }
