@@ -154,7 +154,7 @@ const menus = [{
     name: _t('分页（Pagination）'),
     state: 'components.pagination'
   }, {
-    name: _t('[x]表格（Table）'),
+    name: _t('表格（Table）'),
     state: 'components.table'
   }, {
     name: _t('标签页（Tabs）'),

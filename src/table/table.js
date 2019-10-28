@@ -12,7 +12,8 @@ import {
 } from 'jinge';
 import {
   arrayRemove,
-  arrayPushIfNotExist
+  arrayPushIfNotExist,
+  isArray
 } from 'jinge/util';
 import {
   createElementWithoutAttrs
@@ -59,6 +60,7 @@ export class Table extends Component {
     this.columns = VM([]);
 
     this[SET_CONTEXT](TABLE_PROVIDER, this, true);
+    this._updateSelectionMask();
   }
 
   [RENDER]() {
@@ -73,12 +75,11 @@ export class Table extends Component {
   set data(v) {
     if (this._data === v) return;
     this._data = v;
-    if (!v || v.length === 0) {
-      this.selectionMask.length = 0;
-      this.selectionCount = 0;
-    } else {
-      this.selectionMask.length = v.length;
-      this._updateSelectionMask();
+    if (v && !isArray(v)) {
+      throw new Error('<md-table>: data attribute must be Array.');
+    }
+    if (this.selection && this.selection.length > 0) {
+      this[UPDATE_IF_NEED](this._updateSelectionMask);
     }
   }
 
@@ -87,9 +88,7 @@ export class Table extends Component {
   }
 
   set selection(v) {
-    console.log('ss');
     if (this._selection === v) return;
-    console.log('ss2');
     this._selection = v;
     if (this.data && this.data.length > 0) {
       this[UPDATE_IF_NEED](this._updateSelectionMask);
@@ -98,6 +97,13 @@ export class Table extends Component {
 
   _updateSelectionMask() {
     const data = this.data;
+    if (!data || data.length === 0) {
+      this.selectionMask.length = 0;
+      this.selectionCount = 0;
+      return;
+    }
+
+    this.selectionMask.length = data.length;
     let sc = 0;
     data.forEach((d, i) => {
       const isS = this.selection ? this.selection.indexOf(d) >= 0 : false;
@@ -134,8 +140,9 @@ export class Table extends Component {
   }
 
   toggleAllSelect(evt) {
-    this.selectionCount = this.selectionCount === 0 ? this.selectionMask.length : 0;
-    this.selectionMask.fill(this.selectionCount !== 0);
+    const total = this.selectionMask.length;
+    this.selectionCount = this.selectionCount === total ? 0 : total;
+    this.selectionMask.fill(this.selectionCount === total);
     this._updateSelection();
   }
 
@@ -146,8 +153,8 @@ export class Table extends Component {
   }
 
   _updateSelection() {
-    this._selection = this.selectionMask === 0 ? VM([]) : (
-      this.selectionCount === this.selectionMask ? this.data.slice() : this.data.filter((d, i) => {
+    this._selection = this.selectionCount === 0 ? VM([]) : (
+      this.selectionCount === this.selectionMask.length ? this.data.slice() : this.data.filter((d, i) => {
         return this.selectionMask[i];
       })
     );

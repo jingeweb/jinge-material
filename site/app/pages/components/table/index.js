@@ -11,6 +11,10 @@ import Template from './examples/template';
 import sourceTemplate from './examples/template?example';
 import Selection from './examples/selection';
 import sourceSelection from './examples/selection?example';
+import RowClass from './examples/row-class';
+import sourceRowClass from './examples/row-class?example';
+import Pagination from './examples/pagination';
+import sourcePagination from './examples/pagination?example';
 
 export class PageTable extends Component {
   static get template() {
@@ -35,6 +39,14 @@ export class PageTable extends Component {
       selection: {
         component: Selection,
         source: sourceSelection
+      },
+      rowClass: {
+        component: RowClass,
+        source: sourceRowClass
+      },
+      pagination: {
+        component: Pagination,
+        source: sourcePagination
       }
     };
   }

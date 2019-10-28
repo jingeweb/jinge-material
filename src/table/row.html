@@ -13,7 +13,7 @@
     vm:each="column"
     vm:index="columnIndex"
   >
-    <td e:class="column.numeric ? 'md-numeric' : ''">
+    <td e:class="column.numeric ? 'md-numeric' : null">
       <_slot
         slot-use|column:default
         vm-pass:column

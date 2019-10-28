@@ -25,8 +25,9 @@ export class TableRow extends Component {
     this.selected = attrs.selected;
 
     vmWatch(attrs, 'data.**', props => {
-      console.log(props);
-      this[UPDATE_IF_NEED](this._updateClass);
+      if (this.rowClassFn) {
+        this[UPDATE_IF_NEED](this._updateClass);
+      }
     });
     this._updateClass();
   }

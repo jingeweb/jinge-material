@@ -3,7 +3,7 @@ import {
   VM
 } from 'jinge';
 
-import _tpl from './selection.html';
+import _tpl from './row-class.html';
 
 const data = VM([{
   name: 'jinge',
@@ -23,19 +23,25 @@ const data = VM([{
   author: 'google'
 }]);
 
-export default class ExampleTableSelection extends Component {
+export default class ExampleTableBasic extends Component {
   static get template() {
     return _tpl;
   }
 
-  constructor(attrs) {
-    super(attrs);
-    this.data = data;
-    this.selection = data.slice(0, 1);
+  static get style() {
+    return `
+div /deep/ tr.highlight {
+  background: #e3f2fd; 
+}`;
   }
 
-  onSelectionChange(selection) {
-    this.selection = selection;
-    console.log(selection.length);
+  constructor(attrs) {
+    super(attrs);
+
+    this.data = data;
+  }
+
+  getRowClass(row) {
+    return row.name === 'jinge' ? 'highlight' : null;
   }
 }

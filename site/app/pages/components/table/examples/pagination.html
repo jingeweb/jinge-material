@@ -1,0 +1,18 @@
+<div>
+  <md-card>
+    <md-toolbar class="md-transparent" elevation="0">
+      <h1 class="md-title">Users</h1>
+    </md-toolbar>
+    <md-table e:data="data">
+      <md-table-column label="Name" prop="name"/>
+      <md-table-column label="Age" prop="age"/>
+    </md-table>
+    <md-pagination
+      e:totalSize="pagination.totalSize"
+      e:pageSize="pagination.pageSize"
+      e:currentPage="pagination.currentPage"
+      e:loadingPage="pagination.loadingPage"
+      on:change="onPaginationChange"
+    />
+  </md-card>
+</div>
