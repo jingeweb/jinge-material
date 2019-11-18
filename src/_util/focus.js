@@ -1,12 +1,8 @@
 import {
   arrayPushIfNotExist,
   defineProperty,
-  arrayRemove
-} from 'jinge/util';
-import {
-  addEvent
-} from 'jinge/dom';
-import {
+  arrayRemove,
+  addEvent,
   GET_FIRST_DOM
 } from 'jinge';
 

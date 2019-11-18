@@ -10,9 +10,6 @@ import {
   uid,
   isObject
 } from 'jinge';
-import {
-  raf
-} from '../_util';
 
 import _tpl from './ripple.html';
 
@@ -66,7 +63,7 @@ export class Ripple extends Component {
 
   touchStartCheck($event) {
     this._touchTimeout = setTimeout(() => {
-      raf(this.startRipple.bind(this, $event));
+      this.startRipple.bind(this, $event);
     }, 100);
   }
 

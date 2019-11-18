@@ -5,7 +5,6 @@
     Footer
   } from '../layout';
 -->
-<ui-html-router e:_states="_routes" _otherwise="home">
 <div class="container${isSplash ? ' splash' : ''}">
   <Header on:open-menu="menuShown = true" e:isSplash="isSplash"/>
 
@@ -17,4 +16,3 @@
 
   <Footer/>
 </div>
-</ui-html-router>

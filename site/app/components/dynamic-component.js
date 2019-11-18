@@ -1,28 +1,20 @@
 import {
-  Component
-} from 'jinge';
-import {
+  Component,
   RENDER,
   ROOT_NODES,
   CONTEXT,
-  ARG_COMPONENTS
-} from 'jinge/core/component';
-import {
-  createComment
-} from 'jinge/dom';
-import {
+  ARG_COMPONENTS,
+  createComment,
   STR_EMPTY,
-  STR_DEFAULT
-} from 'jinge/util';
-import {
+  STR_DEFAULT,
   wrapAttrs
-} from 'jinge/viewmodel/proxy';
+} from 'jinge';
 
 export class DynamicComponent extends Component {
   constructor(attrs) {
     super(attrs);
-    this._component = attrs._component;
-    this._render = attrs._render;
+    this._component = attrs.component;
+    this._render = attrs.render;
   }
 
   [RENDER]() {

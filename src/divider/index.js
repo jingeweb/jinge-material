@@ -3,11 +3,9 @@ import './index.scss';
 import {
   Component,
   AFTER_RENDER,
-  GET_FIRST_DOM
-} from 'jinge';
-import {
+  GET_FIRST_DOM,
   hasClass
-} from 'jinge/dom';
+} from 'jinge';
 
 export class Divider extends Component {
   static get template() {

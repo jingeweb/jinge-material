@@ -6,9 +6,7 @@ import {
   UPDATE_IF_NEED,
   ARG_COMPONENTS,
   AFTER_RENDER,
-  DOM_PASS_LISTENERS
-} from 'jinge';
-import {
+  DOM_PASS_LISTENERS,
   STR_DEFAULT,
   uid,
   isArray,
@@ -16,7 +14,7 @@ import {
   arrayRemove,
   obj2class,
   isUndefined
-} from 'jinge/util';
+} from 'jinge';
 
 import _tpl from './index.html';
 

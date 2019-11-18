@@ -22,16 +22,18 @@
         html
       </md-button>
     </md-tooltip>
+    <if e:expect="_example.source.scss">
     <md-tooltip _t:title="显示 scss 代码">
       <md-button on:click="tab = 'scss'" class="md-icon-button md-dense">
         scss
       </md-button>
     </md-tooltip>
+    </if>
   </md-toolbar>
   <switch e:test="tab">
     <md-content slot-pass:demo class="demo">
       <div class="demo-content">
-        <DynamicComponent e:_component="_example.component"/>
+        <DynamicComponent e:component="_example.component"/>
       </div>
     </md-content>
     

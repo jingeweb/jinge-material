@@ -12,16 +12,22 @@ import './style';
 import {
   Component,
   bootstrap,
-  ON
+  ON,
+  i18n,
+  SET_CONTEXT
 } from 'jinge';
+import {
+  UIROUTER_CONTEXT
+} from 'jinge-ui-router';
 
 import _tpl from './index.html';
 import _sty from './index.scss';
 
-import RouteStates from '../routes';
 import {
+  router,
   pageState,
-  IS_SPLASH_CHANGED
+  IS_SPLASH_CHANGED,
+  setCurrentLocale
 } from '../service';
 
 class App extends Component {
@@ -35,13 +41,18 @@ class App extends Component {
 
   constructor(attrs) {
     super(attrs);
+
+    // this code is important!
+    // register ui router in root component
+    this[SET_CONTEXT](UIROUTER_CONTEXT, router);
+
     this.isSplash = pageState.isSplash;
     this.menuShown = false;
-    this._routes = RouteStates;
     pageState[ON](IS_SPLASH_CHANGED, isSplash => {
       this.isSplash = isSplash;
     });
   }
 }
 
+setCurrentLocale(i18n.locale);
 bootstrap(App, document.getElementById('root-app'));

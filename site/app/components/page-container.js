@@ -11,7 +11,7 @@ import _sty from './page-container.scss';
 export class PageContainer extends Component {
   static get template() {
     return `
-<div class="page-container main-container \${centered ? 'centered' : ''}">
+<div class="page-container main-container\${centered ? ' centered' : ''}">
   <_slot slot-use:default />
 </div>`;
   }

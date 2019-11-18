@@ -5,16 +5,13 @@ import {
   NOTIFY,
   UPDATE_IF_NEED,
   UPDATE,
-  ARG_COMPONENTS
-} from 'jinge';
-
-import {
+  ARG_COMPONENTS,
   STR_DEFAULT,
   uid,
   isArray,
   obj2class,
   isUndefined
-} from 'jinge/util';
+} from 'jinge';
 
 import _tpl from './index.html';
 

@@ -1,3 +1,6 @@
+/**
+ * This webpack loader is only used for development of jinge-material site.
+ */
 
 const path = require('path');
 const fs = require('fs');
@@ -36,9 +39,9 @@ module.exports = function exampleSourceLoader() {
   ]).then(cnts => {
     // console.log(cnts);
     callback(null, `export default ${JSON.stringify({
-      js: cnts[0] || '/* empty */',
-      scss: cnts[1] || '/* empty */',
-      html: cnts[2] || '<!-- empty -->'
+      js: cnts[0],
+      scss: cnts[1],
+      html: cnts[2]
     })}`);
   }, err => {
     callback(err);

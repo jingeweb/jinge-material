@@ -3,12 +3,10 @@ import {
   Component,
   ARG_COMPONENTS,
   NOTIFY,
-  UPDATE_IF_NEED
-} from 'jinge';
-import {
+  UPDATE_IF_NEED,
   isPromise,
   uid
-} from 'jinge/util';
+} from 'jinge';
 import {
   fuzzySearch,
   startsSearch,

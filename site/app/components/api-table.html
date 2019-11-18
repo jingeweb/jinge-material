@@ -1,11 +1,11 @@
 <div class="api-table">
   <table>
     <tr>
-      <for e:loop="headings" _key="each" vm:each="heading">
+      <for e:loop="_headings" vm:each="heading">
       <th>${ heading }</th>
       </for>
     </tr>
-    <for e:loop="props" _key="each.name" vm:each="prop">
+    <for e:loop="_props" vm:each="prop">
     <tr>
       <td class="prop ${prop.offset ? 'offset' : ''}">
         <span class="prop-name"><bind-html e:content="prop.name"/></span>

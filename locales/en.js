@@ -1,6 +1,11 @@
+/* eslint-disable no-template-curly-in-string */
 export default {
+  sizePerPage: 'items per page:',
+  jumpToPage: 'Jump to page:',
+  totalCount: '${count} total,',
   Cancel: 'Cancel',
   Ok: 'Ok',
+  datePlaceholder: 'Please choose date',
   dateFormat: 'yyyy-MM-dd',
   firstDayOfWeek: 0,
   dayPickerHeader: 'MMMM YYYY',

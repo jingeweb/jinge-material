@@ -9,10 +9,20 @@
       <span class="md-xsmall-hide">Jinge Material</span>
     </div>
 
-    <md-button class="md-icon-button">
-      <a href="https://github.com/YuhangGe/jinge-material" target="_blank">
-        <md-icon src="assets/icon/github.svg" class="icon-github" />
-      </a>
+    <md-menu size="medium">
+      <md-button slot-pass:default class="md-button">
+        <md-icon-g_translate/>
+        <span>${locale.name}</span>
+      </md-button>    
+      <_slot slot-pass:content>
+        <for e:loop="locales" vm:each="loc">
+        <md-menu-item on:click="changeLocale(loc.locale)">${loc.name}</md-menu-item>
+        </for>
+      </_slot>
+    </md-menu>
+    
+    <md-button class="md-icon-button" href="https://github.com/YuhangGe/jinge-material" target="_blank">
+      <md-icon src="assets/icon/github.svg" class="icon-github" />
     </md-button>
   </div>
 </md-toolbar>

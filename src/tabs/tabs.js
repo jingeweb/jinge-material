@@ -12,7 +12,9 @@ import {
   GET_REF,
   GET_CONTEXT,
   BEFORE_DESTROY,
-  DOM_ON
+  DOM_ON,
+  VM_ATTRS,
+  VM_NOTIFY
 } from 'jinge';
 import {
   UIROUTER_CONTEXT
@@ -65,6 +67,7 @@ export class Tabs extends Component {
 
   [AFTER_RENDER]() {
     this.hasContent = this.items.some(it => it._hasContent);
+    this.items.length > 0 && this.items[VM_ATTRS][VM_NOTIFY]('length', true);
 
     if (this._syncRoute === 0) {
       this._update(false);
@@ -174,6 +177,7 @@ export class Tabs extends Component {
   _calcIndicator() {
     const $indicator = this[GET_REF]('indicator');
     if (!this._activeEl || !$indicator) {
+      console.log(this._activeEl, $indicator);
       this.indicatorStyles = 'left: 100%; right: 100%';
       return;
     }

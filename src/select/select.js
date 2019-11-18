@@ -9,21 +9,15 @@ import {
   ARG_COMPONENTS,
   Component,
   wrapAttrs,
-  CONTEXT
-} from 'jinge';
-import {
+  CONTEXT,
   arrayPushIfNotExist,
   arrayRemove,
   isArray,
-  isUndefined
-} from 'jinge/util';
-import {
+  isUndefined,
   DESTROY,
-  RENDER_TO_DOM
-} from 'jinge/core/component';
-import {
+  RENDER_TO_DOM,
   createElementWithoutAttrs
-} from 'jinge/dom';
+} from 'jinge';
 import {
   BaseField
 } from '../field/base';

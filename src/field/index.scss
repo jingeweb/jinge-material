@@ -9,7 +9,6 @@ $md-input-height: 32px;
   padding-top: 16px;
   display: flex;
   position: relative;
-  font-family: inherit;
 
   &::before,
   &::after {
@@ -40,6 +39,11 @@ $md-input-height: 32px;
   > .md-field-container {
     display: flex;
     flex: 1;
+
+    > .md-icon {
+      margin: 4px auto;
+      font-size: 24px;
+    }
   }
 
   label {
@@ -86,11 +90,10 @@ $md-input-height: 32px;
     background: none;
     transition: $md-transition-stand;
     transition-property: font-size, padding-top, color;
-    font-family: inherit;
     font-size: 16px;
     line-height: $md-input-height;
 
-    &[type='date'] {
+    &[type=date] {
       font-size: 16px;
     }
 
@@ -161,18 +164,14 @@ $md-input-height: 32px;
     }
   }
 
-  .md-icon {
+  > .md-icon {
     margin: 4px auto;
     font-size: 24px;
     position: relative;
     z-index: 3;
     transition: $md-transition-stand;
 
-    &:last-of-type:not(:first-child)::after {
-      display: none;
-    }
-
-    &::after {
+    &:first-child::after {
       width: 37px;
       height: 4px;
       position: absolute;

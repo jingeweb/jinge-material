@@ -2,13 +2,14 @@
 import './card-header.scss';
 
 import {
-  Component, AFTER_RENDER, GET_FIRST_DOM, BEFORE_DESTROY
-} from 'jinge';
-import {
+  Component,
+  AFTER_RENDER,
+  GET_FIRST_DOM,
+  BEFORE_DESTROY,
   hasClass,
   addClass,
   removeClass
-} from 'jinge/dom';
+} from 'jinge';
 
 export class CardHeaderText extends Component {
   static get template() {

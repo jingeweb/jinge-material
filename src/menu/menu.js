@@ -9,12 +9,10 @@ import {
   NOTIFY,
   UPDATE_IF_NEED,
   AFTER_RENDER,
-  GET_FIRST_DOM
-} from 'jinge';
-import {
+  GET_FIRST_DOM,
   startsWith,
   endsWith
-} from 'jinge/util';
+} from 'jinge';
 import {
   EnumAttrValidator,
   mergePopperOpts

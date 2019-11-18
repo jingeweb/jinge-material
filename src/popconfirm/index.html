@@ -25,7 +25,7 @@
         e:disabled="confirmSpinner"     
         on:click="onCancel"
       >
-        <span>${cancelText}</span>
+        <span>${cancelText || locale.Cancel}</span>
       </md-button>
       <md-button
         class="md-primary"
@@ -35,7 +35,7 @@
         <if e:expect="confirmSpinner">
           <md-spinner/>
         </if>
-        <span>${confirmText}</span>
+        <span>${confirmText || locale.OK}</span>
       </md-button>
     </div>
     </_slot>

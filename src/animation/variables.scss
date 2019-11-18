@@ -11,7 +11,6 @@ $md-transition-default-timing: cubic-bezier(0.4, 0, 0.2, 1);
 $md-transition-default-duration: 0.4s;
 $md-transition-default: $md-transition-default-duration $md-transition-default-timing;
 
-
 /**
  * The enter transition, used when the element is not visible on the screen
  * since the beginning of the animation and become visible
@@ -24,7 +23,6 @@ $md-transition-default: $md-transition-default-duration $md-transition-default-t
 $md-transition-enter-timing: cubic-bezier(0, 0, 0.2, 1);
 $md-transition-enter-duration: 0.4s;
 $md-transition-enter: $md-transition-enter-duration $md-transition-enter-timing;
-
 
 /**
  * The leave transition, used when the element is visible on the screen
@@ -39,7 +37,6 @@ $md-transition-leave-timing: cubic-bezier(0.4, 0, 1, 1);
 $md-transition-leave-duration: 0.4s;
 $md-transition-leave: $md-transition-leave-duration $md-transition-leave-timing;
 
-
 /**
  * The stand transition, used when the element is going to accelerate,
  * like movements from bottom to top
@@ -52,7 +49,6 @@ $md-transition-leave: $md-transition-leave-duration $md-transition-leave-timing;
 $md-transition-stand-timing: cubic-bezier(0.25, 0.8, 0.25, 1);
 $md-transition-stand-duration: 0.4s;
 $md-transition-stand: $md-transition-stand-duration $md-transition-stand-timing;
-
 
 /**
  * The out transition, used when the element is going to deaccelerate,

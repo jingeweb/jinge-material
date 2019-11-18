@@ -8,21 +8,15 @@ import {
   RENDER,
   wrapAttrs,
   ARG_COMPONENTS,
-  BEFORE_DESTROY
-} from 'jinge';
-import {
+  BEFORE_DESTROY,
   arrayRemove,
   arrayPushIfNotExist,
-  isArray
-} from 'jinge/util';
-import {
-  createElementWithoutAttrs
-} from 'jinge/dom';
-import {
+  isArray,
+  createElementWithoutAttrs,
   RENDER_TO_DOM,
   DESTROY,
   UPDATE_IF_NEED
-} from 'jinge/core/component';
+} from 'jinge';
 import {
   FunctionAttrValidator
 } from '../_util/attr-validator';

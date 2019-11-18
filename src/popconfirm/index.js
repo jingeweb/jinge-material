@@ -1,8 +1,10 @@
 import {
-  _t,
   Component,
   NOTIFY
 } from 'jinge';
+import {
+  getAndWatchLocale
+} from '../_config';
 
 import _tpl from './index.html';
 
@@ -23,10 +25,17 @@ export class Popconfirm extends Component {
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this.transition = attrs.transition;
     this._popperOptions = attrs._popperOptions;
-    this.confirmText = attrs.confirmText || _t('确认');
-    this.cancelText = attrs.cancelText || _t('取消');
+    this.confirmText = attrs.confirmText;
+    this.cancelText = attrs.cancelText;
     this.confirmSpinner = attrs.confirmSpinner;
     this.hideWhenConfirmClick = attrs.hideWhenConfirmClick !== false;
+
+    this._localeChangeHandler = this._onLocaleChange.bind(this);
+    this.locale = getAndWatchLocale(this._localeChangeHandler);
+  }
+
+  _onLocaleChange(locale) {
+    this.locale = locale;
   }
 
   onUpdateActive(isActive) {

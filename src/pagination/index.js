@@ -4,11 +4,9 @@ import {
   Component,
   VM,
   UPDATE_IF_NEED,
-  NOTIFY
+  NOTIFY,
+  i18n
 } from 'jinge';
-import {
-  format as formatText
-} from 'jinge/core/i18n';
 import {
   getAndWatchLocale
 } from '../_config';
@@ -57,7 +55,7 @@ export class Pagination extends Component {
   }
 
   _updateTotalInfo() {
-    this.totalInfo = formatText(this.locale.totalCount, {
+    this.totalInfo = i18n.parse(this.locale.totalCount, {
       count: this.totalSize
     });
   }

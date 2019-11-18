@@ -6,14 +6,12 @@ import {
   GET_CONTEXT,
   AFTER_RENDER,
   GET_FIRST_DOM,
-  DOM_ON
+  DOM_ON,
+  addClass
 } from 'jinge';
 import {
   CARD_PROVIDER
 } from './card';
-import {
-  addClass
-} from 'jinge/dom';
 
 export class CardExpandTrigger extends Component {
   static get template() {

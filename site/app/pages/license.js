@@ -6,7 +6,7 @@ export class PageLicense extends Component {
   static get template() {
     return `
 <!-- import { PageContainer } from '../components/page-container.js'; -->
-<PageContainer centered _t:title="许可证（License）">
+<PageContainer centered _t:title="许可证">
   <section class="page-container-section">
     <h2 class="md-title">The MIT License (MIT)</h2>
 

@@ -1,12 +1,9 @@
 import {
   Component,
-  VM
+  ARG_COMPONENTS
 } from 'jinge';
 
 import _tpl from './api-item.html';
-import {
-  ARG_COMPONENTS
-} from 'jinge/core/component';
 
 export class ApiItem extends Component {
   static get style() {
@@ -26,7 +23,8 @@ export class ApiItem extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.slots = VM(Object.keys(this[ARG_COMPONENTS])
+    this._title = attrs.title;
+    const slots = Object.keys(this[ARG_COMPONENTS])
       .filter(slotName => slotName !== 'default')
       .map(slotName => ({
         name: slotName,
@@ -34,10 +32,9 @@ export class ApiItem extends Component {
           /(?:^|\s)\S/g,
           transformed => transformed.toUpperCase()
         ).replace(/-/g, ' '),
-        _render: this[ARG_COMPONENTS][slotName]
-      })));
-    // console.log(this._slots);
-    this.title = attrs.title;
-    this.currentSlot = this.slots[0];
+        render: this[ARG_COMPONENTS][slotName]
+      }));
+    this._slots = slots;
+    this.currentSlot = slots.length > 0 ? slots[0].name : null;
   }
 }

@@ -3,14 +3,12 @@ import {
   GET_CONTEXT,
   BEFORE_DESTROY,
   RENDER,
-  isNumber
+  isNumber,
+  createComment
 } from 'jinge';
 import {
   TABLE_PROVIDER
 } from './table';
-import {
-  createComment
-} from 'jinge/dom';
 
 function _w(v) {
   if (!v) return null;

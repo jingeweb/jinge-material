@@ -105,7 +105,6 @@ td.offset {
 
 code {
   color: md-get-palette-color(red, A200);
-  font-family: 'Roboto Mono', monospace;
 
   /deep/ span {
     color: md-get-palette-color(blue, A200);
@@ -116,6 +115,5 @@ code {
 .prop-name {
   /deep/ code {
     color: md-get-palette-color(red, A200);
-    font-family: 'Roboto Mono', monospace;
   }
 }

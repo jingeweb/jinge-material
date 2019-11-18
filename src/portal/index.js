@@ -2,20 +2,15 @@ import {
   Component,
   RENDER,
   Symbol,
-  ROOT_NODES
-} from 'jinge';
-
-import {
-  appendChild,
-  createComment
-} from 'jinge/dom';
-import {
+  ROOT_NODES,
   HANDLE_AFTER_RENDER,
   HANDLE_BEFORE_DESTROY,
   DESTROY,
   GET_FIRST_DOM,
-  GET_TRANSITION_DOM
-} from 'jinge/core/component';
+  GET_TRANSITION_DOM,
+  appendChild,
+  createComment
+} from 'jinge';
 import {
   EnumAttrValidator
 } from '../_util';

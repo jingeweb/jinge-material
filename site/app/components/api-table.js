@@ -16,7 +16,7 @@ export class ApiTable extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.headings = attrs.headings;
-    this.props = attrs.props;
+    this._headings = attrs.headings;
+    this._props = attrs.props;
   }
 }

@@ -4,11 +4,9 @@ import {
   Component,
   NOTIFY,
   wrapAttrs,
-  isString
-} from 'jinge';
-import {
+  isString,
   RENDER_TO_DOM
-} from 'jinge/core/component';
+} from 'jinge';
 import {
   SnackbarQueueManager
 } from './queue';

@@ -8,4 +8,3 @@ node_modules
 .jshintignore
 .jshintrc
 /dist
-/src

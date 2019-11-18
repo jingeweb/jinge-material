@@ -10,31 +10,24 @@ import {
   UPDATE_IF_NEED,
   UPDATE,
   NOTIFY,
-  DOM_ON
-} from 'jinge';
-import {
-  mergePopperOpts,
-  EnumAttrValidator
-} from '../_util';
-import Popper from 'popper.js';
-import {
+  DOM_ON,
   addClass,
-  removeClass
-} from 'jinge/dom';
-import {
+  removeClass,
   assertFail,
   isString,
-  isArray
-} from 'jinge/util';
-import {
+  isArray,
   getDuration,
   TS_STATE_ENTERED,
   TS_STATE_ENTERING,
   TS_STATE_LEAVED,
   TS_STATE_LEAVING,
   getDurationType
-} from 'jinge/core/transition';
-
+} from 'jinge';
+import Popper from 'popper.js';
+import {
+  mergePopperOpts,
+  EnumAttrValidator
+} from '../_util';
 import _tpl from './index.html';
 
 const triggerValidator = new EnumAttrValidator(

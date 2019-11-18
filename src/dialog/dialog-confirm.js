@@ -1,18 +1,18 @@
 import {
   Component,
   NOTIFY,
-  _t,
   wrapAttrs,
   ON,
   setImmediate,
   isFunction,
   isObject,
-  isString
-} from 'jinge';
-import {
+  isString,
   DESTROY,
   RENDER_TO_DOM
-} from 'jinge/core/component';
+} from 'jinge';
+import {
+  getAndWatchLocale
+} from '../_config';
 
 import _tpl from './dialog-confirm.html';
 
@@ -99,8 +99,15 @@ export class DialogConfirm extends Component {
     this.title = attrs.title;
     this.content = attrs.content;
     this.confirmSpinner = attrs.confirmSpinner;
-    this.confirmText = attrs.confirmText || _t('Ok');
-    this.cancelText = attrs.cancelText || _t('Cancel');
+    this.confirmText = attrs.confirmText;
+    this.cancelText = attrs.cancelText;
+
+    this._localeChangeHandler = this._onLocaleChange.bind(this);
+    this.locale = getAndWatchLocale(this._localeChangeHandler);
+  }
+
+  _onLocaleChange(locale) {
+    this.locale = locale;
   }
 
   passActive(active, action) {

@@ -1,5 +1,12 @@
+@import 'style/engine/index';
+@import 'style/themes/default';
+
 .main-nav-content {
   position: relative;
+
+  &.w {
+    width: 214px;
+  }
 }
 
 .main-nav-content /deep/ {
@@ -24,9 +31,23 @@
     display: block;
     font-size: 14px;
     line-height: 2em;
+    text-decoration: none;
 
-    &:not(.active) {
-      color: inherit;
+    @include md-theme-property(color, text-primary);
+
+    > span.tip {
+      margin-left: 4px;
+      font-size: 12px;
+
+      @include md-theme-property(color, text-hint);
+    }
+
+    &:hover,
+    &.active {
+      &,
+      & > span.tip {
+        @include md-theme-property(color, primary);
+      }
     }
   }
 

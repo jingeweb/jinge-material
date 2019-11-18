@@ -7,12 +7,10 @@ import {
   STR_DEFAULT,
   isFunction,
   ARG_COMPONENTS,
-  ROOT_NODES
-} from 'jinge';
-import {
+  ROOT_NODES,
   createElement,
   appendChild
-} from 'jinge/dom';
+} from 'jinge';
 import {
   SELECT_PROVIDER,
   HELPER_MODE

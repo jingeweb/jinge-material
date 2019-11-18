@@ -24,13 +24,12 @@ import {
   GET_FIRST_DOM,
   STR_DEFAULT,
   DOM_ON,
-  ARG_COMPONENTS
-} from 'jinge';
-import {
+  ARG_COMPONENTS,
   setAttribute,
   addClass,
-  removeClass
-} from 'jinge/dom';
+  removeClass,
+  I18N_WATCH
+} from 'jinge';
 
 /**
  * 此处的 context 名称必须和 jinge-ui-router 库保持一致。
@@ -88,6 +87,12 @@ export class UISref extends Component {
     this.target = attrs.target || '_self';
     this.className = attrs.class;
     this.style = attrs.style;
+
+    /**
+     * 切换语言后，不少场景下都需要更新链接，比如 baseHref 或 url 参数需要相应地改变，等等。
+     * 考虑到一个页面同时渲染的链接不会太多（就算 1000 个更新也很快），就统一在i18n 的 locale 变化时更新链接。
+     */
+    this[I18N_WATCH](this[UPDATE_HREF]);
   }
 
   get target() {

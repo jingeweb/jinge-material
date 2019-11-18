@@ -82,7 +82,7 @@ export class Steppers extends Component {
 
   [AFTER_RENDER]() {
     this._update(false);
-    this.items[VM_ATTRS][VM_NOTIFY]('length');
+    this.items.length > 0 && this.items[VM_ATTRS][VM_NOTIFY]('length', true);
   }
 
   _add(step) {

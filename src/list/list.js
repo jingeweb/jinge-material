@@ -3,11 +3,10 @@ import './list.scss';
 import {
   Component,
   Symbol,
-  SET_CONTEXT
+  SET_CONTEXT,
+  arrayPushIfNotExist,
+  arrayRemove
 } from 'jinge';
-import {
-  arrayPushIfNotExist, arrayRemove
-} from 'jinge/util';
 
 export const LIST_PROVIDER = Symbol('list_provider');
 export class List extends Component {

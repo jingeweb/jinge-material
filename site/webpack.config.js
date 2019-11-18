@@ -32,63 +32,61 @@ function __r(p) {
 }
 const PRODUCTION = 'PRODUCTION' in process.env;
 const NO_COMPRESS = !PRODUCTION || ('NO_COMPRESS' in process.env);
-const SOURCEMAP = NO_COMPRESS || ('SOURCEMAP' in process.env);
 const DIST_DIR = PRODUCTION ? path.resolve(__dirname, '../docs/') : __r('dist/');
-const BUILD_LOCALE = process.env.BUILD_LOCALE || 'zh_cn';
-const I18N_OPTIONS = {
-  mode: 'compiler-translate',
-  translateDir: __r('translate'),
-  buildLocale: BUILD_LOCALE,
-  defaultLocale: 'zh_cn',
-  generateCSV: 'GENERATE_I18N_CSV' in process.env
-};
+
 const GIT_HASH = PRODUCTION ? (function() {
   const output = require('child_process').execSync('git log -n 1');
   const m = output.toString().match(/commit\s+([a-f0-9]+)/);
   return m[1].substring(0, 10);
 })() : null;
 
+const plugins = PRODUCTION ? [new CopyPlugin([{
+  from: __r('assets'),
+  to: path.join(DIST_DIR, 'assets')
+}, {
+  from: __r('index.html'),
+  to: DIST_DIR,
+  transform: content => {
+    return content.toString().replace(
+      'src="loader.js"',
+      `src="js/loader.${GIT_HASH}.min.js"`
+    );
+  }
+}, {
+  from: __r('loader.js'),
+  to: path.join(DIST_DIR, `js/loader.${GIT_HASH}.min.js`),
+  transform: content => {
+    return NO_COMPRESS ? content : require('terser').minify(content.toString()).code;
+  }
+}])] : [];
+
+plugins.push(new JingeWebpackPlugin({
+  compress: !NO_COMPRESS,
+  style: {
+    extract: true,
+    filename: `css/jinge-material-site.default${PRODUCTION ? `.${GIT_HASH}.min` : ''}.css`
+  },
+  i18n: {
+    translateDir: __r('translate'),
+    defaultLocale: 'zh_cn',
+    filename: 'locales/[locale].js'
+  }
+}));
+
 module.exports = {
-  watch: 'WATCH' in process.env,
   mode: NO_COMPRESS ? 'development' : 'production',
   target: 'web',
   entry: __r('app/entry/index.js'),
   output: {
-    filename: `js/jinge-material.${BUILD_LOCALE}.${PRODUCTION ? `${GIT_HASH}.min.` : ''}js`,
-    path: DIST_DIR
+    filename: `js/jinge-material-site.${PRODUCTION ? `${GIT_HASH}.min.` : ''}js`,
+    path: DIST_DIR,
+    publicPath: 'dist'
   },
-  devtool: SOURCEMAP ? 'source-map' : false,
+  devtool: NO_COMPRESS ? 'source-map' : false,
   resolve: {
     extensions: ['.js', '.scss', '.html']
   },
-  plugins: [
-    new CopyPlugin([{
-      from: __r('assets'),
-      to: path.join(DIST_DIR, 'assets')
-    }, {
-      from: __r('index.html'),
-      to: DIST_DIR,
-      transform: PRODUCTION ? content => {
-        return content.toString().replace(
-          'src="loader.js"',
-          `src="js/loader.${GIT_HASH}.min.js"`
-        );
-      } : undefined
-    }, {
-      from: __r('loader.js'),
-      to: path.join(DIST_DIR, PRODUCTION ? `js/loader.${GIT_HASH}.min.js` : ''),
-      transform: PRODUCTION ? content => {
-        return NO_COMPRESS ? content : require('terser').minify(content.toString()).code;
-      } : undefined
-    }]),
-    new JingeWebpackPlugin({
-      extractStyle: {
-        filename: `css/jinge-material.default${PRODUCTION ? `.${GIT_HASH}.min` : ''}.css`
-      },
-      compress: !NO_COMPRESS,
-      i18n: I18N_OPTIONS
-    })
-  ],
+  plugins,
   module: {
     rules: [{
       test: /\.(js|html)$/,
@@ -99,26 +97,21 @@ module.exports = {
         use: {
           loader: jingeLoader,
           options: {
-            componentAlias: [uiRouterAlias, jingeMaterialSrcAlias],
-            componentBase: jingeMaterialFieldBase,
-            i18n: I18N_OPTIONS,
-            extractStyle: true,
-            compress: !NO_COMPRESS
+            componentAlias: [
+              uiRouterAlias, jingeMaterialSrcAlias
+            ],
+            componentBase: jingeMaterialFieldBase
           }
         }
       }]
     }, {
       test: /\.scss$/,
       use: [{
-        loader: jingeLoader,
-        options: {
-          extractStyle: true,
-          compress: !NO_COMPRESS
-        }
+        loader: jingeLoader
       }, {
         loader: 'sass-loader',
         options: {
-          sourceMap: SOURCEMAP,
+          sourceMap: !NO_COMPRESS,
           sassOptions: {
             includePaths: [path.resolve(__dirname, '../')]
           }
@@ -129,8 +122,7 @@ module.exports = {
   devServer: {
     host: '0.0.0.0',
     historyApiFallback: true,
-    writeToDisk: true,
-    contentBase: DIST_DIR,
+    contentBase: __dirname,
     port: 9000
   }
 };

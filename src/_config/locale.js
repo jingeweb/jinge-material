@@ -7,26 +7,29 @@ import {
   arrayRemove
 } from 'jinge/util';
 
-import zhCN from '../../locale/zh_cn';
-
-const defaultLocale = VM(zhCN);
 let watcher;
 let currentLocale;
 
 export function setLocale(v) {
-  currentLocale = v ? VM(v) : defaultLocale;
+  currentLocale = VM(v);
   watcher && watcher.forEach(listener => {
     listener(currentLocale);
   });
 }
 
 export function getLocale() {
-  return currentLocale || defaultLocale;
+  if (!currentLocale) {
+    throw new Error('locale not found. use setLocale() first.');
+  }
+  return currentLocale;
 }
 
-export function watchLocale(listener) {
+export function watchLocale(listener, immediate = false) {
   if (!watcher) watcher = [];
   arrayPushIfNotExist(watcher, listener);
+  if (immediate) {
+    listener(getLocale());
+  }
 }
 
 export function getAndWatchLocale(listener) {

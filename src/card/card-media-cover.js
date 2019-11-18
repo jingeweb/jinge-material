@@ -3,11 +3,9 @@ import './card-media-cover.scss';
 import {
   Component,
   AFTER_RENDER,
-  GET_FIRST_DOM
-} from 'jinge';
-import {
+  GET_FIRST_DOM,
   createElement
-} from 'jinge/dom';
+} from 'jinge';
 
 function getImageLightness(image, onLoad, onError) {
   const canvas = createElement('canvas');

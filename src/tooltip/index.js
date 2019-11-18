@@ -1,7 +1,8 @@
 import './index.scss';
 
 import {
-  Component, NOTIFY
+  Component,
+  NOTIFY
 } from 'jinge';
 
 import _tpl from './index.html';

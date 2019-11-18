@@ -13,8 +13,8 @@ import {
   getDaysInMonth
 } from '../_util/date';
 import {
-  getAndWatchLocale,
-  unwatchLocale
+  unwatchLocale,
+  watchLocale
 } from '../_config';
 
 import _tpl from './datepicker-dialog.html';
@@ -43,9 +43,6 @@ export class DatepickerDialog extends Component {
     }
     super(attrs);
 
-    this._localeChangedHandler = this._onLocaleChanged.bind(this);
-    this.locale = getAndWatchLocale(this._localeChangedHandler);
-
     this.currentDay = null;
     this.selectedDay = null;
     this.contentStyle = '';
@@ -60,12 +57,12 @@ export class DatepickerDialog extends Component {
     this.disabledDates = attrs.disabledDates;
     this.immediately = attrs.immediately;
 
-    this._updateRenderDays();
-    this._updateWeekdays();
-    this._updateDayPickerHeader();
     if (!this.currentDay) {
       this.currentDay = createDay();
     }
+
+    this._localeChangedHandler = this._onLocaleChanged.bind(this);
+    watchLocale(this._localeChangedHandler, true);
   }
 
   _onLocaleChanged(locale) {
@@ -76,7 +73,6 @@ export class DatepickerDialog extends Component {
   }
 
   [BEFORE_DESTROY]() {
-    this.locale = null; // unlink global view model
     unwatchLocale(this._localeChangedHandler);
   }
 
@@ -179,11 +175,12 @@ export class DatepickerDialog extends Component {
       const di = i - emptyDays + 1;
       const wi = (di + firstDayOfMonth - 1) % 7;
       return i < emptyDays ? {
-        empty: true
+        empty: true,
+        selected: false
       } : {
         empty: false,
-        selected: sd && sd.y === cd.y && sd.m === cd.m && sd.d === di,
-        disabled: this.disabledDates && this.disabledDates(y, m, di, wi),
+        selected: (!!sd) && sd.y === cd.y && sd.m === cd.m && sd.d === di,
+        disabled: (!!this.disabledDates) && this.disabledDates(y, m, di, wi),
         y: y,
         m: m,
         w: wi,

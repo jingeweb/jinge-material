@@ -21,15 +21,18 @@ $color: md-get-palette-color(grey, 700);
   .md-icon {
     color: #fff;
   }
+
+  .md-button {
+    margin: 0 8px;
+    font-family: 'Roboto Mono', Menlo, Monaco, 'Courier New', monospace;
+    width: 38px;
+    height: 38px;
+  }
 }
 
 .md-title {
   flex: 1;
   color: #fff !important;
-}
-
-.md-button {
-  margin: 8px;
 }
 
 .demo {
@@ -46,10 +49,6 @@ $color: md-get-palette-color(grey, 700);
   // &.md-theme-demo-dark {
   //   background-color: md-get-palette-color(grey, 900);
   // }
-}
-
-.demo-content {
-  font-family: 'Roboto', sans-serif;
 }
 
 .button-theme {

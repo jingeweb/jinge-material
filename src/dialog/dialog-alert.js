@@ -1,18 +1,17 @@
 import {
   Component,
   NOTIFY,
-  _t,
   wrapAttrs,
   setImmediate,
   ON,
   isFunction,
-  isString
-} from 'jinge';
-
-import {
+  isString,
   RENDER_TO_DOM,
   DESTROY
-} from 'jinge/core/component';
+} from 'jinge';
+import {
+  getAndWatchLocale
+} from '../_config';
 
 import _tpl from './dialog-alert.html';
 
@@ -50,7 +49,13 @@ export class DialogAlert extends Component {
     this.active = attrs.active;
     this.title = attrs.title;
     this.content = attrs.content;
-    this.confirmText = attrs.confirmText || _t('Ok');
+    this.confirmText = attrs.confirmText;
+    this._localeChangeHandler = this._onLocaleChange.bind(this);
+    this.locale = getAndWatchLocale(this._localeChangeHandler);
+  }
+
+  _onLocaleChange(locale) {
+    this.locale = locale;
   }
 
   onClick() {
