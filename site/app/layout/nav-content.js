@@ -58,10 +58,10 @@ function generateMenus() {
     state: 'advance',
     children: [{
       name: _t('路由整合'),
-      state: 'advance.with-router'
+      state: 'use-router'
     }, {
       name: _t('国际化'),
-      state: 'advance.i18n'
+      state: 'i18n'
     // }, {
     //   name: _t('在 React 中使用'),
     //   state: 'advance.react'

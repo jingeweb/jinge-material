@@ -1,6 +1,7 @@
 import highlight from 'highlight.js/lib/highlight.js';
 import highlightSCSS from 'highlight.js/lib/languages/scss';
 import highlightXML from 'highlight.js/lib/languages/xml';
+import highlightBash from 'highlight.js/lib/languages/bash';
 import highlightJavascript from 'highlight.js/lib/languages/javascript';
 import Clipboard from 'clipboard';
 import {
@@ -20,6 +21,7 @@ import './code-block.global.scss';
 highlight.registerLanguage('scss', highlightSCSS);
 highlight.registerLanguage('xml', highlightXML);
 highlight.registerLanguage('javascript', highlightJavascript);
+highlight.registerLanguage('bash', highlightBash);
 
 export class CodeBlock extends Component {
   static get template() {
@@ -33,7 +35,7 @@ export class CodeBlock extends Component {
   constructor(attrs) {
     super(attrs);
     this._lang = attrs.lang;
-    this._code = attrs.code;
+    this._code = attrs.code || '';
     this.height = attrs.height || 450;
     this.showMessage = false;
     this._$ce = null;

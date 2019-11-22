@@ -43,7 +43,9 @@ import {
   PagePagination,
   PageTable,
   PageTypography,
-  PageLayout
+  PageLayout,
+  PageI18N,
+  PageUseRouter
 } from './pages';
 
 export const componentsStates = [{
@@ -236,6 +238,14 @@ export const singleStates = [{
   name: 'getting-started',
   url: '/getting-started',
   component: PageGettingStarted
+}, {
+  name: 'i18n',
+  url: '/i18n',
+  component: PageI18N
+}, {
+  name: 'use-router',
+  url: '/use-router',
+  component: PageUseRouter
 }, {
   name: 'about',
   url: '/about',
