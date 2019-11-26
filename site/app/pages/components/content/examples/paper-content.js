@@ -2,14 +2,11 @@ import {
   Component
 } from 'jinge';
 
+import _tpl from './paper-content.html';
+
 export default class ExamplePaperContent extends Component {
   static get template() {
-    return `
-<div>
-  <md-content>Background</md-content>
-  <md-content class="md-primary">Primary</md-content>
-  <md-content class="md-accent">Accent</md-content>
-</div>`;
+    return _tpl;
   }
 
   static get style() {

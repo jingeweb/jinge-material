@@ -8,11 +8,15 @@ import {
   Component,
   AFTER_RENDER,
   GET_REF,
-  GET_FIRST_DOM
+  GET_FIRST_DOM,
+  _t
 } from 'jinge';
 import {
   getIndentedSource
 } from '../service';
+import {
+  Snackbar
+} from '../../../src/snackbar';
 
 import _tpl from './code-block.html';
 import _sty from './code-block.scss';
@@ -60,17 +64,12 @@ export class CodeBlock extends Component {
     const clipboard = new Clipboard($cb[GET_FIRST_DOM](), {
       target: () => this._$ce
     });
-    let timer = null;
-
     clipboard.on('success', event => {
       event.clearSelection();
-      this.showMessage = true;
-
-      timer && clearTimeout(timer);
-      timer = setTimeout(() => {
-        timer = null;
-        this.showMessage = false;
-      }, 2000);
+      Snackbar.show({
+        message: _t('代码已复制！'),
+        duration: 1500
+      });
     });
   }
 }

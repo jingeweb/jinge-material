@@ -1,16 +1,11 @@
-@import 'src/animation/variables';
-@import 'style/engine/index';
+@import 'src/animation/variables.scss';
+@import 'style/palette.scss';
 
 .code-block {
   max-width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: md-get-palette-color(grey, 900);
-
-  ::selection {
-    background-color: md-get-palette-color(grey, 400);
-    color: inherit;
-  }
+  background-color: #2e2e2e;
 
   + .code-block {
     margin-top: 24px;
@@ -69,11 +64,11 @@
   position: absolute;
   top: 8px;
   right: 8px;
-  background-color: md-get-palette-color(grey, 200);
+  background-color: var(--md-snackbar-background);
   border-radius: 2px;
   transform: translate3d(0, -48px, 0);
   transition: 0.3s $md-transition-drop-timing;
-  color: md-get-palette-color(grey, 900);
+  color: var(--md-snackbar-text);
   font-size: 14px;
   line-height: 1em;
 

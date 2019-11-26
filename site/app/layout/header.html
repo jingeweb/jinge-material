@@ -1,6 +1,8 @@
 <md-toolbar class="main-header${isSplash ? ' splash' : ''}" e:elevation="isSplash ? 0 : 2">
   <div class="md-toolbar-row">
-    <md-icon class="logo" src="assets/logo.svg"/>
+    <ui-sref to="home">
+      <a><md-icon class="logo jinge-material-site-logo" src="assets/logo_nc.svg"/></a>
+    </ui-sref>
     <md-button class="md-icon-button menu" on:click="showMenu">
       <md-icon-menu/>
     </md-button>
@@ -10,17 +12,29 @@
     </div>
 
     <md-menu size="medium">
-      <md-button slot-pass:default class="md-button">
+      <md-button slot-pass:default>
         <md-icon-g_translate/>
-        <span>${locale.name}</span>
+        <span>${locale}</span>
       </md-button>    
       <_slot slot-pass:content>
-        <for e:loop="locales" vm:each="loc">
-        <md-menu-item on:click="changeLocale(loc.locale)">${loc.name}</md-menu-item>
+        <for e:loop="_locales" vm:each="loc">
+        <md-menu-item on:click="changeLocale(loc)">${loc.name}</md-menu-item>
         </for>
       </_slot>
     </md-menu>
-    
+    <md-menu size="medium" class="header-theme-menu">
+      <md-button slot-pass:default class="md-icon-button">
+        <md-icon-color_lens/>
+      </md-button>    
+      <_slot slot-pass:content>
+        <for e:loop="_themes" vm:each="theme">
+        <md-menu-item on:click="changeTheme(theme)">
+          <i class="theme-preview ${theme.theme}" />
+          ${theme.name}
+        </md-menu-item>
+        </for>
+      </_slot>
+    </md-menu>
     <md-button class="md-icon-button" href="https://github.com/YuhangGe/jinge-material" target="_blank">
       <md-icon src="assets/icon/github.svg" class="icon-github" />
     </md-button>

@@ -1,7 +1,5 @@
-@import 'src/animation/variables';
-@import 'style/engine/index';
-
-$color: md-get-palette-color(grey, 700);
+@import 'style/palette.scss';
+@import 'src/animation/variables.scss';
 
 .code-example {
   margin: 36px 0;
@@ -12,16 +10,7 @@ $color: md-get-palette-color(grey, 700);
   }
 }
 
-.md-toolbar.md-primary {
-  position: relative;
-  z-index: 1;
-  background-color: $color;
-  color: #fff;
-
-  .md-icon {
-    color: #fff;
-  }
-
+.md-toolbar {
   .md-button {
     margin: 0 8px;
     font-family: 'Roboto Mono', Menlo, Monaco, 'Courier New', monospace;
@@ -32,23 +21,15 @@ $color: md-get-palette-color(grey, 700);
 
 .md-title {
   flex: 1;
-  color: #fff !important;
 }
 
 .demo {
   min-height: 86px;
   padding: 16px;
   position: relative;
-  border: 1px solid $color;
+  border: 1px solid var(--md-outline);
   border-top: 0;
-  background-color: md-get-palette-color(grey, 50);
-
-  // &.md-theme-demo-light {
-  // }
-
-  // &.md-theme-demo-dark {
-  //   background-color: md-get-palette-color(grey, 900);
-  // }
+  background-color: var(--md-elevation-8);
 }
 
 .button-theme {

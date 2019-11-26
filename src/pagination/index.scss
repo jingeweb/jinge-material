@@ -1,6 +1,3 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
 .md-table-pagination {
   height: 56px;
   display: flex;
@@ -33,8 +30,7 @@
     &.pp {
       .arrow {
         display: none;
-
-        @include md-theme-property(color, primary, background);
+        color: var(--md-primary);
       }
 
       &:hover {

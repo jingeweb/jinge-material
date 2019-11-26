@@ -1,54 +1,27 @@
-@import '../animation/variables';
-@import '../elevation/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import '../../style/elevation/mixins.scss';
+@import '../animation/variables.scss';
 
 @mixin md-bottom-bar-spec ($primary) {
   &.md-type-fixed {
-    @include md-theme-property(background-color, background);
-
     .md-bottom-bar-item.md-active {
-      @include md-theme-property(color, $primary, background);
-
-      .md-icon {
-        @include md-theme-property(color, $primary, background);
-
-        svg {
-          @include md-theme-property(fill, $primary, background);
-        }
-      }
+      color: var(--md-#{$primary});
     }
   }
 
   &.md-type-shift {
-    @include md-theme-property(background-color, $primary);
-    @include md-theme-property(color, text-primary, $primary, 0.7);
+    background-color: var(--md-#{$primary});
 
-    > .md-ripple {
-      .md-ripple-wave {
-        @include md-theme-property-darken(background-color, $primary, $primary, 10%);
-      }
-    }
-
-    .md-icon {
-      @include md-theme-property(color, icon, $primary);
-
-      svg {
-        @include md-theme-property(fill, icon, $primary);
-      }
-    }
+    // .md-ripple {
+    //   .md-ripple-wave {
+    //     background-color: var(--md-#{$primary});
+    //   }
+    // }
 
     .md-bottom-bar-item {
-      @include md-theme-property(color, text-primary, $primary);
+      color: var(--md-on-primary-medium);
 
-      .md-active {
-        .md-icon {
-          @include md-theme-property(color, text-primary, $primary);
-
-          svg {
-            @include md-theme-property(fill, text-primary, $primary);
-          }
-        }
+      &.md-active {
+        color: var(--md-on-#{$primary});
       }
     }
   }
@@ -60,23 +33,33 @@
   width: 100%;
   transition: background-color 0.5s $md-transition-default-timing;
 
+  > .md-ripple {
+    display: flex;
+  }
+
   @include md-bottom-bar-spec(primary);
 
   &.md-accent {
-    @include md-bottom-bar-spec(accent);
-  }
-
-  > .md-ripple {
-    display: flex;
-    flex-wrap: wrap;
+    @include md-bottom-bar-spec(secondary);
   }
 
   &.md-type-fixed {
     justify-content: center;
 
+    &.md-accent {
+      > .md-ripple .md-ripple-wave {
+        background-color: var(--md-secondary);
+      }
+    }
+
+    > .md-ripple .md-ripple-wave {
+      background-color: var(--md-primary);
+    }
+
     .md-bottom-bar-item {
       min-width: 80px;
       max-width: 168px;
+      color: var(--md-on-surface-medium);
       transition: $md-transition-default;
       transition-property: color;
       will-change: color;
@@ -104,16 +87,6 @@
   &.md-type-shift {
     justify-content: center;
 
-    > .md-ripple {
-      .md-ripple-enter-active {
-        transition-duration: 1.1s !important;
-      }
-
-      .md-ripple-enter {
-        opacity: 1;
-      }
-    }
-
     .md-bottom-bar-item {
       min-width: 56px;
       max-width: 96px;
@@ -122,7 +95,7 @@
       transition-property: padding, min-width, max-width, flex, color;
       will-change: padding, min-width, max-width, flex, color;
 
-      .md-ripple {
+      > .md-ripple {
         padding: 16px;
       }
 
@@ -178,10 +151,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      .md-icon {
-        @include md-theme-property(color, icon, background);
-      }
 
       & > .md-icon:not(:only-child),
       & > .md-spinner:not(:only-child) {

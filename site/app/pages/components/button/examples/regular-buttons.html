@@ -6,7 +6,10 @@
       <span>Default</span>
     </md-button>
     <md-button e:ripple="false">Ripple Off</md-button>
-    <md-button on:click="onClick" class="md-primary">Primary</md-button>
+    <md-button on:click="onClick" class="md-primary">
+      <md-icon-home/>
+      <span>Primary</span>
+    </md-button>
     <md-button class="md-accent">Accent</md-button>
     <md-button disabled>Disabled</md-button>
   </div>
@@ -17,7 +20,10 @@
       <span>Default</span>
     </md-button>
     <md-button class="md-raised" e:ripple="false">Ripple Off</md-button>
-    <md-button on:click="load" e:disabled="loading" class="md-raised md-primary">Primary</md-button>
+    <md-button on:click="load" e:disabled="loading" class="md-raised md-primary">
+      <md-icon-home/>
+      <span>Primary</span>
+    </md-button>
     <md-button class="md-raised">
       <md-icon-home/>
     </md-button>

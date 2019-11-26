@@ -1,43 +1,31 @@
 @import '../animation/variables.scss';
-@import 'style/engine/index';
-@import 'style/themes/default';
 
 @mixin md-progress-bar-indeterminate ($hue) {
-  @include md-theme-property(background-color, $hue, null, 0.38);
-
-  .md-progress-bar-track,
+  .md-progress-bar-buffer,
   .md-progress-bar-fill {
     &::after {
-      @include md-theme-property(background-color, $hue);
+      background-color: var(--md-#{$hue});
     }
   }
-}
 
-@mixin md-progress-bar-determinate ($hue) {
-  @include md-theme-property(background-color, $hue, null, 0.38);
-
-  .md-progress-bar-fill {
-    @include md-theme-property(background-color, $hue);
+  .md-progress-bar-buffer {
+    opacity: 0.38;
   }
 }
 
 @mixin md-progress-bar-buffer ($hue) {
-  .md-progress-bar-fill {
-    @include md-theme-property(background-color, $hue);
-  }
-
+  .md-progress-bar-fill,
   .md-progress-bar-track {
-    @include md-theme-property(background-color, $hue, null, 0.38);
+    background-color: var(--md-#{$hue});
   }
 
   .md-progress-bar-buffer {
-    @include md-theme-property(border-color, $hue, null, 0.38);
+    border-color: var(--md-#{$hue});
   }
-}
 
-@mixin md-progress-spinner-spec ($hue) {
-  .md-progress-spinner-circle {
-    @include md-theme-property(stroke, $hue);
+  .md-progress-bar-buffer,
+  .md-progress-bar-track {
+    opacity: 0.38;
   }
 }
 
@@ -88,6 +76,10 @@
 
   &.md-determinate,
   &.md-buffer {
+    .md-progress-bar-track {
+      opacity: 0.38;
+    }
+
     .md-progress-bar-fill,
     .md-progress-bar-track,
     .md-progress-bar-buffer {
@@ -96,10 +88,10 @@
   }
 
   &.md-determinate {
-    @include md-progress-bar-determinate(primary);
+    @include md-progress-bar-indeterminate(primary);
 
     &.md-accent {
-      @include md-progress-bar-determinate(accent);
+      @include md-progress-bar-indeterminate(accent);
     }
 
     .md-progress-bar-track {
@@ -116,7 +108,7 @@
     @include md-progress-bar-buffer(primary);
 
     &.md-accent {
-      @include md-progress-bar-buffer(accent);
+      @include md-progress-bar-buffer(secondary);
     }
   }
 

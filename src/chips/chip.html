@@ -1,8 +1,10 @@
 <div
-  class="md-chip${className ? ' ' + className : ''}${disabled ? ' md-disabled' : ''}${hasFocus ? ' md-focused' : ''}${deletable ? ' md-deletable' : ''}${clickable ? ' md-clickable' : ''}${duplicated ? ' md-duplicated' : ''}"
+  class="md-chip md-state-container${className ? ' ' + className : ''}${hasFocus ? ' md-focused' : ''}${deletable ? ' md-deletable' : ''}${clickable ? ' md-clickable' : ''}${duplicated ? ' md-duplicated' : ''}"
   e:style="style"
+  e:disabled="disabled"
   tabindex="0"
 >
+  <div class="md-state-overlay"></div>
   <if e:expect="clickable || !ripple">
   <md-ripple slot-pass:default e:disabled="disabled">
     <_slot />

@@ -1,9 +1,16 @@
 @import 'src/animation/variables';
-@import 'src/layout/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import 'style/layout/mixins';
+@import 'style/palette.scss';
 
 .home-icon-circle {
+  width: 80px;
+  height: 100px;
+
+  > div {
+    width: 80px;
+    height: 80px;
+  }
+
   &:hover .circle {
     &:nth-child(2) {
       transform: scale(0.66) translate3d(0, -75%, 0);
@@ -25,7 +32,7 @@
 
 .circle {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10px);
   left: 0;
   border-radius: 100%;
   transform: translate3d(0, -50%, 0);

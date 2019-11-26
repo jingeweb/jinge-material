@@ -1,10 +1,9 @@
 @import 'src/animation/variables';
-@import 'src/layout/mixins';
+@import 'style/layout/mixins';
 
 .main-nav {
   width: 230px;
   padding: 24px 16px 112px;
-  border-right: 1px solid rgba(#000, 0.12);
   display: flex;
   align-items: flex-start;
   flex-direction: column;

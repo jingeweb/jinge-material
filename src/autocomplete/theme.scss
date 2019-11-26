@@ -1,63 +1,37 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
 .md-list {
   .md-autocomplete-items {
     .md-highlight-text-match {
-      @include md-theme-property(color, primary, background);
+      color: var(--md-primary);
     }
   }
 
   .md-autocomplete-loading {
     font-size: 24px;
-
-    @include md-theme-property(color, primary, color);
-    @include md-theme-property(background-color, background, '', 0.54);
+    color: var(--md-primary, color);
+    background-color: var(--md-outline);
+    opacity: 0.38;
   }
 }
 
 .md-autocomplete {
   &.md-autocomplete-box {
-    @include md-theme-property(background-color, background);
+    background-color: var(--md-surface);
 
     &.md-focused {
       label {
-        @include md-theme-property(color, text-hint, background);
+        color: var(--md-text-on-surface-medium);
       }
     }
 
     .md-toolbar & {
-      @include md-theme-property(background-color, background, '', 0.12);
-
-      label,
-      input {
-        @include md-theme-property(color, text-primary, primary);
-        @include md-theme-property(
-          -webkit-text-fill-color,
-          text-primary,
-          primary
-        );
-      }
-
-      svg {
-        @include md-theme-property(fill, text-primary, primary);
-      }
+      background-color: rgba(255, 255, 255, 0.12);
 
       &.md-focused {
-        @include md-theme-property(background-color, background);
+        background-color: var(--md-elevation-6);
 
         label,
         input {
-          @include md-theme-property(color, text-hint, background);
-          @include md-theme-property(
-            -webkit-text-fill-color,
-            text-hint,
-            background
-          );
-        }
-
-        svg {
-          @include md-theme-property(fill, text-hint, background);
+          color: var(--md-on-surface);
         }
       }
     }
@@ -66,7 +40,7 @@
 
 .md-autocomplete-box-content {
   &::after {
-    @include md-theme-property(background-color, background);
-    @include md-theme-property(border-bottom-color, divider);
+    background-color: var(--md-surface);
+    border-bottom-color: var(--md-outline);
   }
 }

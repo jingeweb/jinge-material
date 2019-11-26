@@ -1,35 +1,7 @@
 
-@import 'style/engine/index';
-@import 'style/themes/default';
 @import '../animation/variables.scss';
-@import '../elevation/mixins.scss';
-@import '../layout/mixins.scss';
-
-@mixin md-toolbar-icon($primary, $secondary) {
-  .md-icon {
-    @include md-theme-property(color, $primary, $secondary);
-
-    svg {
-      @include md-theme-property(fill, $primary, $secondary);
-    }
-  }
-}
-
-@mixin md-toolbar-button($primary, $secondary) {
-  .md-button:not([disabled]) {
-    &:not(.md-raised) {
-      @include md-theme-property(color, $primary, $secondary);
-    }
-  }
-}
-
-@mixin md-toolbar-title($primary, $secondary) {
-  .md-title,
-  .md-display-1,
-  .md-display-2 {
-    @include md-theme-property(color, $primary, $secondary);
-  }
-}
+@import '../../style/elevation/mixins.scss';
+@import '../../style/layout/mixins.scss';
 
 $md-toolbar-height: 64px;
 $md-toolbar-height-portrait: 56px;
@@ -62,45 +34,22 @@ $md-toolbar-height-dense: 48px;
   position: relative;
   z-index: 2;
 
-  @include md-theme-property(color, text-primary, background-variant);
-
-  /*
-  @if md-get-theme-mode() == light {
-    @include md-theme-property-by-hue(background-color, grey, 100, toolbar, background);
-  } @else {
-    @include md-theme-property-by-hue(background-color, grey, 900, toolbar, background);
-  }
-  */
-  @include md-theme-property-by-hue(background-color, grey, 100, toolbar, background);
-  @include md-toolbar-icon(text-primary, background-variant);
-  @include md-toolbar-title(text-primary, background-variant);
-
   @include md-layout-small {
     padding: 0 8px;
   }
 
   &.md-primary {
-    @include md-theme-property(background-color, primary);
-    @include md-theme-property(color, text-primary, primary);
-    @include md-toolbar-icon(text-primary, primary);
-    @include md-toolbar-button(text-primary, primary);
-    @include md-toolbar-title(text-primary, primary);
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
   }
 
   &.md-accent {
-    @include md-theme-property(background-color, accent);
-    @include md-theme-property(color, text-primary, accent);
-    @include md-toolbar-icon(text-primary, accent);
-    @include md-toolbar-button(text-primary, accent);
-    @include md-toolbar-title(text-primary, accent);
+    background-color: var(--md-secondary);
+    color: var(--md-on-secondary);
   }
 
   &.md-transparent {
     background-color: transparent;
-
-    @include md-theme-property(color, text-primary, background);
-    @include md-toolbar-icon(text-primary, background);
-    @include md-toolbar-title(text-primary, background);
   }
 
   &.md-dense {

@@ -1,5 +1,5 @@
-@import 'src/animation/variables';
-@import 'style/engine/index';
+@import 'style/palette.scss';
+@import 'src/animation/variables.scss';
 
 .page-container.centered {
   max-width: 1100px;
@@ -37,8 +37,8 @@
   .note-block code {
     padding: 0 4px;
     display: inline-block;
-    color: md-get-palette-color(red, A200);
-    background: rgba(#000, 0.07);
+    color: #{ md-get-palette-color(red, A200) };
+    background: var(--md-outline);
     border-radius: 2px;
     line-height: 1.45em;
   }

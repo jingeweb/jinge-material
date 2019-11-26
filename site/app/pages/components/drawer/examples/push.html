@@ -1,5 +1,6 @@
 <md-drawer-container
   pushMode
+  class="md-elevation-24"
   e:active="showNavigation"
   on:update.active="showNavigation = args[0]"
 >
@@ -37,9 +38,9 @@
   </_slot>
 
   <_slot slot-pass:main>
-    <md-toolbar class="md-primary">
+    <md-toolbar class="md-accent">
       <if e:expect="!showNavigation">
-      <md-button class="md-icon-button" on:click="showNavigation = true">
+      <md-button class="md-icon-button md-on-accent" on:click="showNavigation = true">
         <md-icon-menu/>
       </md-button>
       </if>

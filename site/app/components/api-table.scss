@@ -1,51 +1,7 @@
-@import 'src/animation/variables';
-@import 'style/engine/index';
-
-$bg-color: md-get-palette-color(grey, 200);
-$border-color: darken($bg-color, 3%);
+@import 'style/palette.scss';
 
 .api-table {
   padding-bottom: 16px;
-
-  // @if md-get-theme-mode() == light {
-  table {
-    background-color: md-get-palette-color(grey, 50);
-  }
-
-  tr:first-child {
-    background-color: md-get-palette-color(grey, 200);
-  }
-
-  td,
-  th {
-    border-color: md-get-palette-color(grey, 300);
-    color: md-get-palette-color(grey, 800);
-  }
-
-  th {
-    color: md-get-palette-color(grey, 700);
-  }
-  // }
-
-  // @else {
-  //   table {
-  //     background-color: md-get-palette-color(grey, 900);
-  //   }
-
-  //   tr:first-child {
-  //     background-color: md-get-palette-color(grey, 800);
-  //   }
-
-  //   td,
-  //   th {
-  //     border-color: md-get-palette-color(grey, 800);
-  //     color: md-get-palette-color(grey, 50);
-  //   }
-
-  //   th {
-  //     color: md-get-palette-color(grey, 100);
-  //   }
-  // }
 }
 
 table {
@@ -59,17 +15,19 @@ table {
 
 tr:first-child {
   font-weight: 500;
+  background-color: var(--md-elevation-1);
 }
 
 td,
 th {
   padding: 8px 16px;
-  border: 1px solid;
+  border: 1px solid var(--md-outline);
   text-align: left;
   vertical-align: middle;
 }
 
 th {
+  color: var(--md-on-surface-medium);
   height: 40px;
   line-height: 23px;
 
@@ -95,7 +53,7 @@ td.offset {
 }
 
 .prop-type {
-  color: md-get-palette-color(grey, 600);
+  color: var(--md-on-surface-disabled);
   text-transform: capitalize;
 }
 

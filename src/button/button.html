@@ -5,13 +5,14 @@
 <switch e:test="_tag">
 <button
   slot-pass:default
-  class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+  class="md-button md-state-container${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
   e:disabled="disabled"
   e:style="style"
   e:type="type"
   on:touchstart="touchstart($event)"
   on:mousedown="mousedown($event)"
 >
+  <div class="md-state-overlay"></div>
   <ButtonContent
     e:ripple="ripple"
     e:disabled="disabled"
@@ -23,7 +24,7 @@
 </button>
 <a
   slot-pass:a
-  class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+  class="md-button md-state-container${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
   e:style="style"
   e:disabled="disabled"
   e:href="href"
@@ -32,6 +33,7 @@
   on:touchmove="touchmove($event)"
   on:mousedown="mousedown($event)"
 >
+  <div class="md-state-overlay"></div>
   <ButtonContent
     e:ripple="ripple"
     e:disabled="disabled"
@@ -49,13 +51,14 @@
   e:active="active" 
 >
   <a
-    class="md-button${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+    class="md-button md-state-container${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
     e:style="style"
     e:disabled="disabled"
     on:touchstart="touchstart($event)"
     on:touchmove="touchmove($event)"
     on:mousedown="mousedown($event)"
   >
+  <div class="md-state-overlay"></div>
   <ButtonContent
     e:ripple="ripple"
     e:disabled="disabled"

@@ -1,7 +1,5 @@
 @import '../animation/variables';
-@import '../layout/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import '../../style/layout/mixins';
 
 $md-tooltip-height: 22px;
 $md-tooltip-height-mobile: 32px;
@@ -17,9 +15,8 @@ $md-tooltip-height-mobile: 32px;
     line-height: $md-tooltip-height;
     text-transform: none;
     white-space: nowrap;
-
-    @include md-theme-property(color, text-primary, tooltip);
-    @include md-theme-property(background-color, tooltip, background, 0.9);
+    color: var(--md-surface);
+    background-color: var(--md-on-surface-medium);
 
     @include md-layout-small {
       height: $md-tooltip-height-mobile;

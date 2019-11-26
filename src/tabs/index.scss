@@ -1,62 +1,34 @@
 @import '../animation/variables';
-@import '../elevation/mixins';
-@import '../layout/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import '../../style/elevation/mixins';
+@import '../../style/layout/mixins';
 
-@mixin md-tabs-spec($primary, $indicator, $text) {
+@mixin md-tabs-spec($primary) {
   .md-tabs-navigation {
-    @include md-theme-property(background-color, $primary, background);
+    background-color: var(--md-#{$primary});
 
     .md-button {
-      @if $text == text-primary {
-        @include md-theme-property(color, $text, $primary, 0.7);
+      @if $primary == 'background' {
+        color: var(--md-on-surface-medium);
 
-        &[disabled] {
-          @include md-theme-property(color, $text, $primary, 0.38);
-        }
-
-        .md-icon {
-          @include md-theme-property(color, $text, $primary, 0.7);
-
-          svg {
-            @include md-theme-property(fill, $text, $primary, 0.7);
-          }
+        &.md-active {
+          color: var(--md-primary);
         }
       }
 
       @else {
-        @include md-theme-property(color, text-primary, $primary, 0.7);
-
-        &[disabled] {
-          @include md-theme-property(color, text-primary, $primary, 0.38);
-        }
-
-        .md-icon {
-          @include md-theme-property(color, text-primary, $primary, 0.7);
-
-          svg {
-            @include md-theme-property(fill, text-primary, $primary, 0.7);
-          }
-        }
-      }
-
-      &.md-active {
-        @include md-theme-property(color, $text, $primary);
-
-        .md-icon {
-          @include md-theme-property(color, $text, $primary);
-
-          svg {
-            @include md-theme-property(fill, $text, $primary);
-          }
-        }
+        color: var(--md-on-#{$primary});
       }
     }
   }
 
   .md-tabs-indicator {
-    @include md-theme-property(background-color, $indicator, $primary);
+    @if $primary == 'background' {
+      background-color: var(--md-primary);
+    }
+
+    @else {
+      background-color: var(--md-on-#{$primary});
+    }
   }
 }
 
@@ -64,14 +36,14 @@
   display: flex;
   flex-direction: column;
 
-  @include md-tabs-spec(background, primary, primary);
+  @include md-tabs-spec(background);
 
   &.md-primary {
-    @include md-tabs-spec(primary, text-primary, text-primary);
+    @include md-tabs-spec(primary);
   }
 
   &.md-accent {
-    @include md-tabs-spec(accent, text-primary, text-primary);
+    @include md-tabs-spec(secondary);
   }
 
   &.md-no-transition * {

@@ -1,253 +1,295 @@
-"site/app/pages/components/subheader/index.html","子标题（Subheader）"
-"site/app/pages/components/divider/index.html","分隔线 Divider"
-"site/app/pages/components/file/index.html","文件选择 File"
-"site/app/pages/components/highlight/index.html","文本高亮 Highlight"
-"site/app/pages/components/checkbox/index.html","多选框"
-"site/app/pages/components/checkbox/index.html","多选框有两种使用模式，单一模式（Single)和数组（Array）模式。"
-"site/app/pages/components/checkbox/index.html","单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。"
-"site/app/pages/components/checkbox/index.html","单一模式多选框"
-"site/app/pages/components/checkbox/index.html","数组模式下多选框的 value 是数组，需要指定 trueValue 但不需要指定 falseValue。该多选框被点击时，会向 value 指定的数组里添加或删除 trueValue 指定的元素。需要注意这种模式下，value 指定的数组，会被直接修改，并通过 change 事件向外传递修改后的数组。"
-"site/app/pages/components/checkbox/index.html","数组模式多选框"
-"site/app/pages/components/checkbox/index.html","The following options can be applied to all checkboxes:"
-"site/app/pages/components/checkbox/index.html","多选框 Checkbox"
-"site/app/pages/components/snackbar/index.html","消息提示 Snackbar"
-"site/app/pages/components/switch/examples/array-switch.html","描述"
-"site/app/pages/components/switch/examples/array-switch.html","示例"
-"site/app/pages/components/switch/examples/array-switch.html","值"
-"site/app/pages/components/switch/examples/array-switch.html","简单字符串数组"
-"site/app/pages/components/switch/examples/array-switch.html","城市开关："
-"site/app/pages/components/switch/examples/array-switch.html","Object 数组"
-"site/app/pages/components/switch/examples/array-switch.html","用户开关："
-"site/app/pages/components/pagination/index.html","基础分页"
-"site/app/pages/components/pagination/index.html","完整分页"
-"site/app/pages/components/pagination/index.html","禁用分页"
-"site/app/pages/components/pagination/index.html","分页 Pagination"
-"site/app/pages/components/dialog/index.html","自定义内容"
-"site/app/pages/components/dialog/index.html","对话框 Dialog"
-"site/app/pages/components/checkbox/examples/array-checkbox.html","描述"
-"site/app/pages/components/checkbox/examples/array-checkbox.html","示例"
-"site/app/pages/components/checkbox/examples/array-checkbox.html","值"
-"site/app/pages/components/checkbox/examples/array-checkbox.html","简单字符串数组"
-"site/app/pages/components/checkbox/examples/array-checkbox.html","请选择城市："
-"site/app/pages/components/checkbox/examples/array-checkbox.html","Object 数组"
-"site/app/pages/components/checkbox/examples/array-checkbox.html","请选择用户："
-"site/app/pages/components/checkbox/examples/single-checkbox.html","描述"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","示例"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","值"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","无任何属性的最简单选择框"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","标签"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","(无)"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","传递简单的布尔值"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","传递简单的字符串值"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","我已阅读并同意协议"
-"site/app/pages/components/checkbox/examples/single-checkbox.html","传递 Object 值"
-"site/app/pages/components/datepicker/index.html","日期选择 Datepicker"
-"site/app/pages/components/toolbar/index.html","工具栏 Toolbar"
-"site/app/pages/components/snackbar/examples/static.html","Show snackbar directly by calling static method <code>Snackbar.show</code>"
-"site/app/pages/components/autocomplete/index.html","自动补全 Autocomplete"
-"site/app/components/code-example.html","显示示例"
-"site/app/components/code-example.html","显示 javascript 代码"
-"site/app/components/code-example.html","显示 html 代码"
-"site/app/components/code-example.html","显示 scss 代码"
-"site/app/pages/ui-elements/layout/index.html","布局"
-"site/app/pages/components/card/index.html","Card"
-"site/app/pages/components/chips/index.html","纸片 Chips"
-"site/app/pages/components/input/index.html","文本框 Input & Textarea"
-"site/app/components/code-block.html","代码已复制！"
-"site/app/components/code-block.html","复制"
-"site/app/pages/components/list/index.html","列表 List"
-"site/app/pages/components/button/api.js","属性名称"
-"site/app/pages/components/button/api.js","描述"
-"site/app/pages/components/button/api.js","默认值"
-"site/app/pages/components/button/api.js","直接传递到原生 &lt;button&gt; 元素的 type 属性"
-"site/app/pages/components/button/api.js","禁用按钮。"
-"site/app/pages/components/button/api.js","是否启用 ripple 效果。"
-"site/app/pages/components/button/api.js","事件名称"
-"site/app/pages/components/button/api.js","参数"
-"site/app/pages/components/button/api.js","鼠标点击事件。"
-"site/app/pages/components/button/api.js","任意可作用到原生 &lt;button&gt; 元素的事件，组件会将事件绑定传递到原生 &lt;button&gt; 元素。"
-"site/app/pages/components/button/api.js","名称"
-"site/app/pages/components/button/api.js","主题 Primary 颜色按钮。"
-"site/app/pages/components/button/api.js","主题 Accent 颜色按钮。"
-"site/app/pages/components/button/index.html","按钮组件用于响应用户的点（触）击操作。按钮类型包括 <strong>Flat</strong>, <strong>Raised</strong> 和 <strong>Floating</strong>。Flat 和 Raised 类型的按钮默认情况下只展示文本，但也可以通过特殊的 class 来附加图标(Icon)。Floating 类型的按钮只展示图标(Icon)。按钮可以通过添加 <strong>Dense</strong> 这个 class 来调整为较小的大小。"
-"site/app/pages/components/button/index.html","Flat 和 Raised 类型"
-"site/app/pages/components/button/index.html","不添加任何 class 的情况下，按钮的默认类型即 Flat。添加 <code>md-raised</code> 这个 class 即可指定按钮类型为 Raised。"
-"site/app/pages/components/button/index.html","常规按钮"
-"site/app/pages/components/button/index.html","包括 FAB 类型的所有按钮都有以下接口："
-"site/app/pages/components/button/index.html","图标（Icons）类型"
-"site/app/pages/components/button/index.html","To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class."
-"site/app/pages/components/button/index.html","图标按钮"
-"site/app/pages/components/button/index.html","FAB"
-"site/app/pages/components/button/index.html","Links and Buttons"
-"site/app/pages/components/button/index.html","UI Router Buttons"
-"site/app/pages/components/button/index.html","按钮（Button）"
-"site/app/pages/components/table/index.html","表格 Table"
-"site/app/pages/components/select/index.html","下拉选择 Select"
-"site/app/pages/components/tabs/index.html","标签页 Tabs"
-"site/app/pages/components/steppers/index.html","步骤条 Steppers"
-"site/app/pages/components/menu/index.html","菜单 Menu"
-"site/app/pages/components/progress/index.html","进度条"
-"site/app/pages/components/progress/index.html","Determinate"
-"site/app/pages/components/progress/index.html","Indeterminate"
-"site/app/pages/components/progress/index.html","进度条 Progress Bar"
-"site/app/pages/components/empty/index.html","空提示 Empty State"
-"site/app/pages/components/avatar/index.html","头像 Avatar"
-"site/app/pages/components/badge/index.html","徽标提示 Badge"
-"site/app/pages/components/bottom-bar/index.html","底栏（Bottom Bar）"
-"site/app/pages/components/drawer/index.html","抽屉 Drawer"
-"site/app/pages/components/spinner/index.html","该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。"
-"site/app/pages/components/spinner/index.html","指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，<code>value</code> 属性为 0-100 的数字。"
-"site/app/pages/components/spinner/index.html","不指定 <code>value</code> 属性时，属于指示正在加载状态的 Spinner,Spinner 表现为一个旋转的加载动画。"
-"site/app/pages/components/spinner/index.html","指示正在加载状态的 Spinner"
-"site/app/pages/components/spinner/index.html","指示具体的加载进度的 Spinner"
-"site/app/pages/components/spinner/index.html","在按钮中使用 Spinner"
-"site/app/pages/components/spinner/index.html","默认情况下，Spinner 的大小为 <code>1em</code>（即字号大小），颜色为 <code>currentColor</code>（即文字颜色）。在实际使用时，可以通过调整父元素的字号和颜色来改变 Spinner 的大小和颜色，也可以通过以下接口来调整："
-"site/app/pages/components/spinner/index.html","加载指示 Spinner"
-"site/app/pages/components/icon/index.html","Material 图标"
-"site/app/pages/components/icon/index.html","Icon Font 图标"
-"site/app/pages/components/icon/index.html","Font Icon 图标"
-"site/app/pages/components/icon/index.html","SVG 图标"
-"site/app/pages/components/icon/index.html","图标 Icon"
-"site/app/pages/components/switch/index.html","切换按钮"
-"site/app/pages/components/switch/index.html","切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。"
-"site/app/pages/components/switch/index.html","单一模式的切换按钮，这种模式是最常见的使用模式。"
-"site/app/pages/components/switch/index.html","单一模式切换按钮"
-"site/app/pages/components/switch/index.html","数组模式的切换按钮，这种模式很少使用。典型的使用场景就是配置由个开关组成的开关分组。"
-"site/app/pages/components/switch/index.html","数组模式切换按钮"
-"site/app/pages/components/switch/index.html","和<code>&lt;md-checkbox&gt;</code>完全一样，请参看<code>&lt;md-checkbox&gt;</code>的 API 文档"
-"site/app/pages/components/switch/index.html","切换按钮 Switch"
-"site/app/pages/ui-elements/typography/index.html","排版 Typography"
-"site/app/pages/ui-elements/elevation/index.html","阴影"
-"site/app/pages/components/popconfirm/examples/simple.js","未命名"
-"site/app/pages/components/popconfirm/api.js","文字提示的内容"
-"site/app/pages/components/popconfirm/api.js","点击确认按钮后是否隐藏气泡。"
-"site/app/pages/components/popconfirm/api.js","是否进入正在确认的加载状态"
-"site/app/pages/components/popconfirm/api.js","同 Popover 组件"
-"site/app/pages/components/popconfirm/api.js","用户点击确认按钮"
-"site/app/pages/components/popconfirm/api.js","用户点击取消按钮"
-"site/app/pages/components/popconfirm/index.html","气泡确认框"
-"site/app/pages/components/popconfirm/index.html","Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。"
-"site/app/pages/components/popconfirm/index.html","气泡确认框 Popconfirm"
-"site/app/pages/components/switch/examples/single-switch.html","描述"
-"site/app/pages/components/switch/examples/single-switch.html","示例"
-"site/app/pages/components/switch/examples/single-switch.html","值"
-"site/app/pages/components/switch/examples/single-switch.html","无任何属性的最简单切换按钮"
-"site/app/pages/components/switch/examples/single-switch.html","标签"
-"site/app/pages/components/switch/examples/single-switch.html","(无)"
-"site/app/pages/components/switch/examples/single-switch.html","传递简单的布尔值"
-"site/app/pages/components/switch/examples/single-switch.html","传递简单的字符串值"
-"site/app/pages/components/switch/examples/single-switch.html","自动更新"
-"site/app/pages/components/switch/examples/single-switch.html","传递 Object 值"
-"site/app/pages/components/tooltip/api.js","文字提示的内容"
-"site/app/pages/components/tooltip/api.js","参看 Popover 组件"
-"site/app/pages/components/tooltip/index.html","文字提示"
-"site/app/pages/components/tooltip/index.html","Popover 组件的所有 API 也可用于 Tooltip 组件。但部分属性的默认值不同。"
-"site/app/pages/components/tooltip/index.html","文字提示 Tooltip"
-"site/app/pages/components/popover/api.js","控制气泡卡片是否展示。外部父组件可通过此属性手动控制。"
-"site/app/pages/components/popover/api.js","气泡卡片的触发方式，包括 click, hover 和 none。如果指定为 none，代表气泡卡片不自动绑定触发元素，完全靠 active 属性控制。"
-"site/app/pages/components/popover/api.js","卡片在延迟一定的时间后显示，单位为毫秒。"
-"site/app/pages/components/popover/api.js","卡片显示时的相对位置，参看 Popper.js 的 placement 概念。"
-"site/app/pages/components/popover/api.js","卡片显示时的偏移量，参看 Popper.js 的 offset 概念。"
-"site/app/pages/components/popover/api.js","附加在卡片的 DOM 上的 html class。"
-"site/app/pages/components/popover/api.js","卡片显示和隐藏时的 css 动画。"
-"site/app/pages/components/popover/api.js","点击卡片之外的其它区域时，是否隐藏卡片。"
-"site/app/pages/components/popover/api.js","Popper.js 的更多自定义高级配置。"
-"site/app/pages/components/popover/api.js","用于控制气泡里面顶部的标题样式。"
-"site/app/pages/components/popover/api.js","控制气泡里面中间的内容样式。"
-"site/app/pages/components/popover/api.js","控制气泡里面底部的按钮区域样式。"
-"site/app/pages/components/popover/api.js","气泡显示或隐藏时的事件"
-"site/app/pages/components/popover/index.html","气泡卡片"
-"site/app/pages/components/popover/index.html","气泡卡片 Popover"
-"site/app/pages/components/popconfirm/examples/simple.html","简单的 Popconfirm："
-"site/app/pages/components/popconfirm/examples/simple.html","删除"
-"site/app/pages/components/popconfirm/examples/simple.html","您确认要删除 ${some.name} 吗？"
-"site/app/pages/components/popconfirm/examples/simple.html","配合服务器端 API 接口："
-"site/app/pages/components/tooltip/examples/simple.html","简单的 Tooltip："
-"site/app/pages/components/tooltip/examples/simple.html","你好，世界！"
-"site/app/pages/components/tooltip/examples/simple.html","改变 placement 和 delay："
-"site/app/pages/components/tooltip/examples/simple.html","通过父组件里的参数控制显示和隐藏："
-"site/app/pages/components/tooltip/examples/simple.html","展示自定义的内容："
-"site/app/pages/components/content/index.html","内容框"
-"site/app/pages/components/content/index.html","内容框示例"
-"site/app/pages/components/content/index.html","The following option can be applied to md-content component:"
-"site/app/pages/components/content/index.html","内容框 Content"
-"site/app/pages/components/radio/index.html","单选项"
-"site/app/pages/components/radio/index.html","简单单选项"
-"site/app/pages/components/radio/index.html","The following options can be applied to all checkboxes:"
-"site/app/pages/components/radio/index.html","单选项 Radio"
-"site/app/pages/components/popover/examples/simple.html","简单地使用内置 Trigger 触发气泡卡片展示和隐藏："
-"site/app/pages/components/popover/examples/simple.html","通过父组件里的参数控制气泡的显示和隐藏："
-"site/app/pages/components/radio/examples/simple-radios.html","描述"
-"site/app/pages/components/radio/examples/simple-radios.html","示例"
-"site/app/pages/components/radio/examples/simple-radios.html","值"
-"site/app/pages/components/radio/examples/simple-radios.html","简单选择项"
-"site/app/pages/components/radio/examples/simple-radios.html","字符串数组"
-"site/app/pages/components/radio/examples/simple-radios.html","Object 数组"
-"site/app/layout/footer.html","关于","About"
-"site/app/layout/footer.html","许可证","License"
-"site/app/pages/license.js","许可证","License"
-"site/app/layout/nav-content.js","首页","Home"
-"site/app/layout/nav-content.js","快速上手","Getting Started"
-"site/app/layout/nav-content.js","样式主题","Theme"
-"site/app/layout/nav-content.js","概念","Concept"
-"site/app/layout/nav-content.js","预置主题","Pre-Themes"
-"site/app/layout/nav-content.js","自定义主题","Custom Theme"
-"site/app/layout/nav-content.js","UI 元素","UI"
-"site/app/layout/nav-content.js","阴影","Elevation"
-"site/app/layout/nav-content.js","布局","Layout"
-"site/app/layout/nav-content.js","排版","Typography"
-"site/app/layout/nav-content.js","高级","Advance"
-"site/app/layout/nav-content.js","路由整合","Router"
-"site/app/layout/nav-content.js","国际化","I18N"
-"site/app/layout/nav-content.js","组件","Components"
-"site/app/layout/nav-content.js","头像|Avatar","Avatar"
-"site/app/layout/nav-content.js","小提示|Badge","Badge"
-"site/app/layout/nav-content.js","底栏|Bottom Bar","Bottom Bar"
-"site/app/layout/nav-content.js","按钮|Button","Button"
-"site/app/layout/nav-content.js","卡片|Card","Card"
-"site/app/layout/nav-content.js","内容|Content","Content"
-"site/app/layout/nav-content.js","日期选择|Datepicker","Datepicker"
-"site/app/layout/nav-content.js","对话框|Dialog","Dialog"
-"site/app/layout/nav-content.js","分隔线|Divider","Divider"
-"site/app/layout/nav-content.js","抽屉|Drawer","Drawer"
-"site/app/layout/nav-content.js","空提示|Empty State","Empty State"
-"site/app/layout/nav-content.js","表单|Forms","Forms"
-"site/app/layout/nav-content.js","自动补全|Autocomplete","Autocomplete"
-"site/app/layout/nav-content.js","多选框|Checkbox","Checkbox"
-"site/app/layout/nav-content.js","纸片|Chips","Chips"
-"site/app/layout/nav-content.js","文件选择|File","File"
-"site/app/layout/nav-content.js","文本框|Input & Textarea","Input & Textarea"
-"site/app/layout/nav-content.js","单选项|Radio","Radio"
-"site/app/layout/nav-content.js","下拉选择|Select","Select"
-"site/app/layout/nav-content.js","切换|Switch","Switch"
-"site/app/layout/nav-content.js","文本高亮|Highlight","Highlight"
-"site/app/layout/nav-content.js","图标|Icon","Icon"
-"site/app/layout/nav-content.js","列表|List","List"
-"site/app/layout/nav-content.js","菜单|Menu","Menu"
-"site/app/layout/nav-content.js","进度条|Progress","Progress"
-"site/app/layout/nav-content.js","消息提示|Snackbar","Snackbar"
-"site/app/layout/nav-content.js","正在加载|Spinner","Spinner"
-"site/app/layout/nav-content.js","步骤条|Steppers","Steppers"
-"site/app/layout/nav-content.js","子标题|Subheader","Subheader"
-"site/app/layout/nav-content.js","分页|Pagination","Pagination"
-"site/app/layout/nav-content.js","表格|Table","Table"
-"site/app/layout/nav-content.js","标签页|Tabs","Tabs"
-"site/app/layout/nav-content.js","工具栏|Toolbar","Toolbar"
-"site/app/layout/nav-content.js","气泡提示|Popover","Popover"
-"site/app/layout/nav-content.js","悬浮提示|Tooltip","Tooltip"
-"site/app/layout/nav-content.js","关于","About"
-"site/app/layout/nav-content.js","许可证","License"
-"site/app/pages/home/index.js","Jinge Material - 构建在 Jinge 框架上的 Material Design 组件库","Jinge Material - Material Desgin components built on jinge framework"
-"site/app/pages/about.html","构建在 Jinge 框架上的 Material Design 组件库","Material Desgin components built on jinge framework"
-"site/app/pages/about.html","作者","Author"
-"site/app/pages/about.html","项目介绍","Introduction"
-"site/app/pages/about.html","<p>在长期的业务项目研发中，我探索并开发了一个和主流 mvvm 框架的核心都不同的 <a target=\"_blank\" href=\"https://github.com/YuhangGe/jinge\">Jinge</a> 框架。为了验证这个框架的能力，我决定在这个框架上开发一个 UI 组件库。</p><p>考虑到主要是为了快速验证 Jinge 框架的能力，并在组件库开发的过程中同步地不断完善这个框架，而不想在组件本身的开发上耗费过多精力，我决定直接从 <a target=\"_blank\" href=\"https://vuematerial.io\">Vue Material</a> 这个项目分叉（Fork）。</p><p>但由于 Jinge 框架和 Vue 框架除了在功能和使用方式上都保持了现代 mvvm 框架的一致性外，核心几乎完全不同，因此从 Vue Material 项目分叉后，会需要把整个项目除了 scss 样式之外的代码几乎全部重写。因此我并没有采用在 Github 平台上直接分叉（Fork）该项目的方式，而是另起炉灶新开了 Jinge Material 仓库。所以更准确的说法是，Jinge Materail 项目移植（Port）自 Vue Material 项目。</p><p>Jinge Material 在移植自 Vue Material 项目的过程中，同时也参考 <a href=\"https://ant.design\" target=\"_blank\">Ant Design</a> 等现代组件库，对项目的目录结构和各别组件的设计进行了重构。中文相关的翻译，也大量参考了 Ant Design。</p>","<p>In the long-term business project development, I explored and developed a mvvm framework named <a target=\"_blank\" href=\"https://github.com/YuhangGe/jinge\">jinge</a> which is different from other frameworks. To verify the capabilities of jinge mvvm framework, I decided to develop a UI library named jinge-material with jinge mvvm framework. </p><p>Considering that jinge-material is mainly to verify the capabilities of the jinge mvvm framework and to continuously improve the jinge mvvm framework, I don't want to spend too much effort on developing components. So I decided to fork directly from the <a target=\"_blank\" href=\"https://vuematerial.io\">vue-material</a> project.</p><p>But since the cores of jinge framework and the vue framework are almost completely different, I need to rewrite almost all of the code except the scss style for the entire project. So I didn't fork the project directly on github, but instead created a new project. So more accurately, jinge-material is ported from the vue-material. </p>"
-"site/app/pages/about.html","关于","About"
-"site/app/pages/home/index.html","构建在 Jinge 框架上的 Material Design 组件库","Material Desgin components built on jinge framework"
-"site/app/pages/home/index.html","快速上手","Getting Started"
-"site/app/pages/home/index.html","浏览组件","Components"
-"site/app/pages/home/index.html","特别说明","Special Note"
-"site/app/pages/home/index.html","此项目的主要目的是通过实现一套组件库来不断完善 Jinge 框架本身，代码主要移植自 <a target=\"_blank\" href=\"https://vuematerial.io\">Vue Material</a>，特别是 scss 样式代码绝大部分拷贝自该项目。","The main purpose of this project is to continuously improve the jinge framework by implementing a set of components. The code is mainly ported from <a target=\"_blank\" href=\"https://vuematerial.io\">vue-material</a>, especially the scss style code is mostly forked from the project."
-"site/app/pages/home/index.html","精准实现 Google Material Design 设计规范。","Built exactly according to the Google Material Design specs."
-"site/app/pages/home/index.html","适配所有主流的现代浏览器，支持移动设备的响应式。","Fit on every screen with support for all modern Web and Mobile Browsers."
-"site/app/pages/home/index.html","支持多皮肤主题，国际化多语言等丰富全面的功能。","Support multi-themes, i18n and more features."
+location,zh_cn,en
+site/app/layout/header.js,默认蓝,Default
+site/app/layout/header.js,暗夜蓝,Default-Dark
+site/app/layout/header.js,炫酷紫,Purple
+site/app/layout/header.js,暗夜紫,Purple-Dark
+site/app/layout/footer.html,关于,About
+site/app/layout/footer.html,许可证,License
+site/app/pages/license.js,许可证,License
+site/app/layout/nav-content.js,首页,Home
+site/app/layout/nav-content.js,快速上手,Getting Started
+site/app/layout/nav-content.js,主题,Theme
+site/app/layout/nav-content.js,路由整合,Router
+site/app/layout/nav-content.js,国际化,I18N
+site/app/layout/nav-content.js,UI 元素,UI
+site/app/layout/nav-content.js,阴影,Elevation
+site/app/layout/nav-content.js,布局,Layout
+site/app/layout/nav-content.js,排版,Typography
+site/app/layout/nav-content.js,状态,States
+site/app/layout/nav-content.js,组件,Components
+site/app/layout/nav-content.js,头像|Avatar,Avatar
+site/app/layout/nav-content.js,小提示|Badge,Badge
+site/app/layout/nav-content.js,底栏|Bottom Bar,Bottom Bar
+site/app/layout/nav-content.js,按钮|Button,Button
+site/app/layout/nav-content.js,卡片|Card,Card
+site/app/layout/nav-content.js,内容|Content,Content
+site/app/layout/nav-content.js,日期选择|Datepicker,Datepicker
+site/app/layout/nav-content.js,对话框|Dialog,Dialog
+site/app/layout/nav-content.js,分隔线|Divider,Divider
+site/app/layout/nav-content.js,抽屉|Drawer,Drawer
+site/app/layout/nav-content.js,空提示|Empty State,Empty State
+site/app/layout/nav-content.js,表单|Forms,Forms
+site/app/layout/nav-content.js,自动补全|Autocomplete,Autocomplete
+site/app/layout/nav-content.js,多选框|Checkbox,Checkbox
+site/app/layout/nav-content.js,纸片|Chips,Chips
+site/app/layout/nav-content.js,文件选择|File,File
+site/app/layout/nav-content.js,文本框|Input & Textarea,Input & Textarea
+site/app/layout/nav-content.js,单选项|Radio,Radio
+site/app/layout/nav-content.js,下拉选择|Select,Select
+site/app/layout/nav-content.js,切换|Switch,Switch
+site/app/layout/nav-content.js,文本高亮|Highlight,Highlight
+site/app/layout/nav-content.js,图标|Icon,Icon
+site/app/layout/nav-content.js,列表|List,List
+site/app/layout/nav-content.js,菜单|Menu,Menu
+site/app/layout/nav-content.js,进度条|Progress,Progress
+site/app/layout/nav-content.js,消息提示|Snackbar,Snackbar
+site/app/layout/nav-content.js,正在加载|Spinner,Spinner
+site/app/layout/nav-content.js,步骤条|Steppers,Steppers
+site/app/layout/nav-content.js,子标题|Subheader,Subheader
+site/app/layout/nav-content.js,分页|Pagination,Pagination
+site/app/layout/nav-content.js,表格|Table,Table
+site/app/layout/nav-content.js,标签页|Tabs,Tabs
+site/app/layout/nav-content.js,工具栏|Toolbar,Toolbar
+site/app/layout/nav-content.js,气泡提示|Popover,Popover
+site/app/layout/nav-content.js,悬浮提示|Tooltip,Tooltip
+site/app/layout/nav-content.js,关于,Abount
+site/app/layout/nav-content.js,许可证,License
+site/app/pages/home/index.js,Jinge Material - 构建在 Jinge 框架上的 Material Design 组件库,Jinge Material - Material Desgin components built on jinge framework
+site/app/pages/getting-started.html,Jinge Material 是构建在 jinge 框架上的 Material Design 组件库，此处假设你已经知道如何搭建基本的 jinge 框架的项目，比如如何在 webpack 中配置和使用 jinge-loader。,
+site/app/pages/getting-started.html,jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。 因此，体验 jinge 框架和 Jinge Material 组件库的最佳方式是直接克隆 jinge-material仓库，或者克隆这个包含 jinge、jinge-ui-router 和 jinge-material 组件库的<a>脚手架项目</a>。,
+site/app/pages/getting-started.html,安装,
+site/app/pages/getting-started.html,要使用 Jinge Material 组件库，需要先通过 npm 或 yarn 的方式安装：,
+site/app/pages/getting-started.html,使用,
+site/app/pages/getting-started.html,我们推荐使用编译后的发布版本，样式文件位于 jinge-material/dist 目录下，组件文件位于 jinge-material/lib 目录下。同时，我们推荐按需引入组件，这样可以获得最快地构建速度和开发体验。,
+site/app/pages/getting-started.html,在项目的入口 js 文件中引入样式和语言包：,
+site/app/pages/getting-started.html,在模板 html 文件中按需使用组件：,
+site/app/pages/getting-started.html,Jinge Material 组件库没有默认语言，必须主动引入语言资源并注册。如果项目需要支持多种语言，参看<a>国际化</a>章节。,
+site/app/pages/getting-started.html,浏览器引入,
+site/app/pages/getting-started.html,对于微服务架构的大型前端项目，可能多个动态加载的服务/模块都会使用 jinge 框架和Jinge Material 组件库，这种情况下需要在项目入口 index.html 中通过 script的方式引入样式、语言资源和组件库：,
+site/app/pages/getting-started.html,然后在模板 html 文中可以简单地引用组件：,
+site/app/pages/getting-started.html,上述代码需要配置打包工具的外部依赖（比如 webpack 的 externals），让 jinge-material 实际指向 window.JingeMaterial 对象。,
+site/app/pages/getting-started.html,使用组件别名,
+site/app/pages/getting-started.html,jinge 框架支持注册自定义组件别名，这样在模板 html 文件中可以不需要引入组件而直接使用。Jinge Material 组件库提供了默认的别名，只需要在 webpack.config.js 文件中注册即可：,
+site/app/pages/getting-started.html,注册别名后，在模板 html 文件中，可以直接使用 <code>md-[component]</code> 这样格式的别名：,
+site/app/pages/getting-started.html,按需加载样式,
+site/app/pages/getting-started.html,上述的使用方式，都会完整引入全部的样式文件。你可以通过直接使用 Jinge Material 源码的形式，来按需加载样式和组件。你可以克隆这个脚手架项目，里面有完整的 webpack 的配置文件示例，此处不再赘述。,
+site/app/pages/getting-started.html,快速上手,
+site/app/pages/about.html,构建在 Jinge 框架上的 Material Design 组件库,Material Desgin components built on jinge framework
+site/app/pages/about.html,作者,Author
+site/app/pages/about.html,项目介绍,Introduction
+site/app/pages/about.html,"<p>在长期的业务项目研发中，我探索并开发了一个和主流 mvvm 框架的核心都不同的 <a target=""_blank"" href=""https://github.com/YuhangGe/jinge"">Jinge</a> 框架。为了验证这个框架的能力，我决定在这个框架上开发一个 UI 组件库。</p><p>考虑到主要是为了快速验证 Jinge 框架的能力，并在组件库开发的过程中同步地不断完善这个框架，而不想在组件本身的开发上耗费过多精力，我决定直接从 <a target=""_blank"" href=""https://vuematerial.io"">Vue Material</a> 这个项目分叉（Fork）。</p><p>但由于 Jinge 框架和 Vue 框架除了在功能和使用方式上都保持了现代 mvvm 框架的一致性外，核心几乎完全不同，因此从 Vue Material 项目分叉后，会需要把整个项目除了 scss 样式之外的代码几乎全部重写。因此我并没有采用在 Github 平台上直接分叉（Fork）该项目的方式，而是另起炉灶新开了 Jinge Material 仓库。所以更准确的说法是，Jinge Materail 项目移植（Port）自 Vue Material 项目。</p><p>Jinge Material 在移植自 Vue Material 项目的过程中，同时也参考 <a href=""https://ant.design"" target=""_blank"">Ant Design</a> 等现代组件库，对项目的目录结构和各别组件的设计进行了重构。中文相关的翻译，也大量参考了 Ant Design。</p>","<p>In the long-term business project development, I explored and developed a mvvm framework named <a target=""_blank"" href=""https://github.com/YuhangGe/jinge"">jinge</a> which is different from other frameworks. To verify the capabilities of jinge mvvm framework, I decided to develop a UI library named jinge-material with jinge mvvm framework. </p><p>Considering that jinge-material is mainly to verify the capabilities of the jinge mvvm framework and to continuously improve the jinge mvvm framework, I don't want to spend too much effort on developing components. So I decided to fork directly from the <a target=""_blank"" href=""https://vuematerial.io"">vue-material</a> project.</p><p>But since the cores of jinge framework and the vue framework are almost completely different, I need to rewrite almost all of the code except the scss style for the entire project. So I didn't fork the project directly on github, but instead created a new project. So more accurately, jinge-material is ported from the vue-material. </p>"
+site/app/pages/about.html,关于,About
+site/app/pages/home/index.html,构建在 Jinge 框架上的 Material Design 组件库,Material Desgin components built on jinge framework
+site/app/pages/home/index.html,快速上手,Getting Started
+site/app/pages/home/index.html,浏览组件,Components
+site/app/pages/home/index.html,精准实现 Google Material Design 设计规范。,Built exactly according to the Google Material Design specs.
+site/app/pages/home/index.html,适配所有主流的现代浏览器，支持移动设备的响应式。,Fit on every screen with support for all modern Web and Mobile Browsers.
+site/app/pages/home/index.html,支持多皮肤主题，国际化多语言等丰富全面的功能。,"Support multi-themes, i18n and more features."
+site/app/pages/advance/i18n.html,jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。,
+site/app/pages/advance/i18n.html,Jinge Material 组件库没有直接依赖 jinge 框架内置的国际化方案，而是自己实现了一套国际化方案。因为使用 Jinge Material 组件的项目不一定需要支持多语言。接下来会分不同的情况，介绍如何使用不同语言的 Jinge Material 组件。,
+site/app/pages/advance/i18n.html,使用 npm 或 yarn 包,
+site/app/pages/advance/i18n.html,项目只使用一种语言,
+site/app/pages/advance/i18n.html,如果只需要支持一种语言，只需要在项目的入口文件里，加入以下的代码：,
+site/app/pages/advance/i18n.html,Jinge Material 组件库没有默认的语言，因此必须指定语言并引入语言资源。,
+site/app/pages/advance/i18n.html,项目使用多种语言,
+site/app/pages/advance/i18n.html,如果需要支持多种语言，建议一次性将项目需要支持的语言资源全部引入。这样做的好处是切换语言时不再需要额外的通过 ajax 加载资源的逻辑，并且 Jinge Material 的语言资源也很小，不会引入带宽负担。加载的资源可以存放在某个 service 中，比如：,
+site/app/pages/advance/i18n.html,然后将上述的 service 暴露给业务层，比如项目的入口文件设置默认语言，或者在某个按钮的点击事件中切换语言：,
+site/app/pages/advance/i18n.html,使用浏览器引入的 script,
+site/app/pages/advance/i18n.html,通过浏览器引入 script 的方式使用 Jinge Material 时，多语言资源文件需要保证在 jinge-material.min.js 文件之后执行。语言资源文件会向 `JingeMaterial` 对象的 `locales` 属性字典写入对应的值。然后在业务代码中，只需要使用这个 `locales` 属性，即可得到所有语言资源。,
+site/app/pages/advance/i18n.html,具体来讲，在 html 文件中，用如下的方式加载 script：,
+site/app/pages/advance/i18n.html,也可以一次性加载涵盖所有语言资源的包（Gzip 压缩和 CDN 加载后，加载全部语言资源也几乎不影响启动速度）：,
+site/app/pages/advance/i18n.html,然后在业务 js 代码中，用如下的方式配置默认语言（或切换语言）：,
+site/app/pages/advance/i18n.html,上述代码需要在打包工具中配置对 jinge-material 的引用指向 window.JingeMaterial 对象，比如 webpack.config.js 中配置 externals。,
+site/app/pages/advance/i18n.html,补充,
+site/app/pages/advance/i18n.html,通过 npm 或 yarn 包的方式使用 jinge-materail，但又一定要用 ajax 的方式按需加载语言资源，可以有不同的实现方式。其中一种方式是，以文本的形式 fetch 到语言资源的源码，然后通过 `new Function()` 的形式包裹并执行该源码，同时传递一个 `JingeMaterial` 对象给上下文：,
+site/app/pages/advance/i18n.html,国际化,
+site/app/pages/advance/use-router.html,jinge 框架没有实现内置的路由功能，取而代之的是基于 @uirouter/core 的 jinge-ui-router 库。在 Jinge Material 组件库中，个别组件可以直接集成 jinge-ui-router 的路由功能。,
+site/app/pages/advance/use-router.html,"这些组件目前包括：<UISref to=""components.button"" text=""md-button""/>、<UISref to=""components.list"" text=""md-list-item""/>、<UISref to=""components.bottom-bar"" text=""md-bottom-bar""/> 和 <UISref to=""components.list"" text=""md-tab""/>。在这些组件上，可以直接使用 <code>ui-sref</code> 组件的 to、params、target 和 active 属性。详见这些组件的示例。",
+site/app/pages/advance/use-router.html,需要说明的是，Jinge Material 组件库并不直接依赖 jinge-ui-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 GET_CONTEXT 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装jinge-ui-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中启用 jinge-ui-router，则会报错。,
+site/app/pages/advance/use-router.html,路由整合,
+site/app/pages/components/subheader/index.html,子标题（Subheader）,
+site/app/components/code-example.html,显示示例,
+site/app/components/code-example.html,显示 javascript 代码,
+site/app/components/code-example.html,显示 html 代码,
+site/app/components/code-example.html,显示 scss 代码,
+site/app/pages/components/divider/index.html,分隔线 Divider,
+site/app/pages/components/file/index.html,文件选择 File,
+site/app/pages/components/switch/index.html,切换按钮,
+site/app/pages/components/switch/index.html,切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。,
+site/app/pages/components/switch/index.html,单一模式的切换按钮，这种模式是最常见的使用模式。,
+site/app/pages/components/switch/index.html,单一模式切换按钮,
+site/app/pages/components/switch/index.html,数组模式的切换按钮，这种模式很少使用。典型的使用场景就是配置由个开关组成的开关分组。,
+site/app/pages/components/switch/index.html,数组模式切换按钮,
+site/app/pages/components/switch/index.html,和<code>&lt;md-checkbox&gt;</code>完全一样，请参看<code>&lt;md-checkbox&gt;</code>的 API 文档,
+site/app/pages/components/switch/index.html,切换按钮 Switch,
+site/app/pages/ui-elements/elevation/index.html,阴影,
+site/app/pages/components/checkbox/index.html,多选框,
+site/app/pages/components/checkbox/index.html,多选框有两种使用模式，单一模式（Single)和数组（Array）模式。,
+site/app/pages/components/checkbox/index.html,单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。,
+site/app/pages/components/checkbox/index.html,单一模式多选框,
+site/app/pages/components/checkbox/index.html,数组模式下多选框的 value 是数组，需要指定 trueValue 但不需要指定 falseValue。该多选框被点击时，会向 value 指定的数组里添加或删除 trueValue 指定的元素。需要注意这种模式下，value 指定的数组，会被直接修改，并通过 change 事件向外传递修改后的数组。,
+site/app/pages/components/checkbox/index.html,数组模式多选框,
+site/app/pages/components/checkbox/index.html,The following options can be applied to all checkboxes:,
+site/app/pages/components/checkbox/index.html,多选框 Checkbox,
+site/app/pages/components/snackbar/index.html,消息提示 Snackbar,
+site/app/pages/components/bottom-bar/index.html,底栏（Bottom Bar）,
+site/app/pages/components/switch/examples/array-switch.html,描述,
+site/app/pages/components/switch/examples/array-switch.html,示例,
+site/app/pages/components/switch/examples/array-switch.html,值,
+site/app/pages/components/switch/examples/array-switch.html,简单字符串数组,
+site/app/pages/components/switch/examples/array-switch.html,城市开关：,
+site/app/pages/components/switch/examples/array-switch.html,Object 数组,
+site/app/pages/components/switch/examples/array-switch.html,用户开关：,
+site/app/pages/components/switch/examples/single-switch.html,描述,
+site/app/pages/components/switch/examples/single-switch.html,示例,
+site/app/pages/components/switch/examples/single-switch.html,值,
+site/app/pages/components/switch/examples/single-switch.html,无任何属性的最简单切换按钮,
+site/app/pages/components/switch/examples/single-switch.html,标签,
+site/app/pages/components/switch/examples/single-switch.html,(无),
+site/app/pages/components/switch/examples/single-switch.html,传递简单的布尔值,
+site/app/pages/components/switch/examples/single-switch.html,传递简单的字符串值,
+site/app/pages/components/switch/examples/single-switch.html,自动更新,
+site/app/pages/components/switch/examples/single-switch.html,传递 Object 值,
+site/app/pages/components/dialog/index.html,自定义内容,
+site/app/pages/components/dialog/index.html,对话框 Dialog,
+site/app/pages/components/checkbox/examples/array-checkbox.html,描述,
+site/app/pages/components/checkbox/examples/array-checkbox.html,示例,
+site/app/pages/components/checkbox/examples/array-checkbox.html,值,
+site/app/pages/components/checkbox/examples/array-checkbox.html,简单字符串数组,
+site/app/pages/components/checkbox/examples/array-checkbox.html,请选择城市：,
+site/app/pages/components/checkbox/examples/array-checkbox.html,Object 数组,
+site/app/pages/components/checkbox/examples/array-checkbox.html,请选择用户：,
+site/app/pages/components/checkbox/examples/single-checkbox.html,描述,
+site/app/pages/components/checkbox/examples/single-checkbox.html,示例,
+site/app/pages/components/checkbox/examples/single-checkbox.html,值,
+site/app/pages/components/checkbox/examples/single-checkbox.html,无任何属性的最简单选择框,
+site/app/pages/components/checkbox/examples/single-checkbox.html,标签,
+site/app/pages/components/checkbox/examples/single-checkbox.html,(无),
+site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的布尔值,
+site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的字符串值,
+site/app/pages/components/checkbox/examples/single-checkbox.html,我已阅读并同意协议,
+site/app/pages/components/checkbox/examples/single-checkbox.html,传递 Object 值,
+site/app/pages/components/checkbox/examples/single-checkbox.html,禁用状态,
+site/app/pages/components/datepicker/index.html,日期选择 Datepicker,
+site/app/pages/components/table/index.html,表格 Table,
+site/app/pages/components/snackbar/examples/static.html,Show snackbar directly by calling static method <code>Snackbar.show</code>,
+site/app/pages/components/autocomplete/index.html,自动补全 Autocomplete,
+site/app/components/code-block.js,代码已复制！,
+site/app/pages/ui-elements/layout/index.html,布局,Layout
+site/app/components/code-block.html,复制,Copy
+site/app/pages/components/card/index.html,Card,
+site/app/pages/components/chips/index.html,纸片 Chips,
+site/app/pages/components/input/index.html,文本框 Input & Textarea,
+site/app/pages/components/list/index.html,列表 List,
+site/app/pages/components/button/api.js,属性名称,
+site/app/pages/components/button/api.js,描述,
+site/app/pages/components/button/api.js,默认值,
+site/app/pages/components/button/api.js,直接传递到原生 &lt;button&gt; 元素的 type 属性,
+site/app/pages/components/button/api.js,禁用按钮。,
+site/app/pages/components/button/api.js,是否启用 ripple 效果。,
+site/app/pages/components/button/api.js,事件名称,
+site/app/pages/components/button/api.js,参数,
+site/app/pages/components/button/api.js,鼠标点击事件。,
+site/app/pages/components/button/api.js,任意可作用到原生 &lt;button&gt; 元素的事件，组件会将事件绑定传递到原生 &lt;button&gt; 元素。,
+site/app/pages/components/button/api.js,名称,
+site/app/pages/components/button/api.js,主题 Primary 颜色按钮。,
+site/app/pages/components/button/api.js,主题 Accent 颜色按钮。,
+site/app/pages/components/button/index.html,"按钮组件用于响应用户的点（触）击操作。按钮类型包括 <strong>Flat</strong>, <strong>Raised</strong> 和 <strong>Floating</strong>。Flat 和 Raised 类型的按钮默认情况下只展示文本，但也可以通过特殊的 class 来附加图标(Icon)。Floating 类型的按钮只展示图标(Icon)。按钮可以通过添加 <strong>Dense</strong> 这个 class 来调整为较小的大小。",
+site/app/pages/components/button/index.html,Flat 和 Raised 类型,
+site/app/pages/components/button/index.html,不添加任何 class 的情况下，按钮的默认类型即 Flat。添加 <code>md-raised</code> 这个 class 即可指定按钮类型为 Raised。,
+site/app/pages/components/button/index.html,常规按钮,
+site/app/pages/components/button/index.html,包括 FAB 类型的所有按钮都有以下接口：,
+site/app/pages/components/button/index.html,图标（Icons）类型,
+site/app/pages/components/button/index.html,To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.,
+site/app/pages/components/button/index.html,图标按钮,
+site/app/pages/components/button/index.html,FAB,
+site/app/pages/components/button/index.html,Links and Buttons,
+site/app/pages/components/button/index.html,UI Router Buttons,
+site/app/pages/components/button/index.html,按钮（Button）,
+site/app/pages/components/select/index.html,下拉选择 Select,
+site/app/pages/components/tabs/index.html,标签页 Tabs,
+site/app/pages/components/steppers/index.html,步骤条 Steppers,
+site/app/pages/components/menu/index.html,菜单 Menu,
+site/app/pages/components/progress/index.html,进度条,
+site/app/pages/components/progress/index.html,Determinate,
+site/app/pages/components/progress/index.html,Indeterminate,
+site/app/pages/components/progress/index.html,进度条 Progress Bar,
+site/app/pages/components/toolbar/index.html,工具栏 Toolbar,
+site/app/pages/components/pagination/index.html,基础分页,
+site/app/pages/components/pagination/index.html,完整分页,
+site/app/pages/components/pagination/index.html,禁用分页,
+site/app/pages/components/pagination/index.html,分页 Pagination,
+site/app/pages/components/empty/index.html,空提示 Empty State,
+site/app/pages/components/avatar/index.html,头像 Avatar,
+site/app/pages/components/badge/index.html,徽标提示 Badge,
+site/app/pages/components/drawer/index.html,抽屉 Drawer,
+site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。,
+site/app/pages/components/spinner/index.html,指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，<code>value</code> 属性为 0-100 的数字。,
+site/app/pages/components/spinner/index.html,"不指定 <code>value</code> 属性时，属于指示正在加载状态的 Spinner,Spinner 表现为一个旋转的加载动画。",
+site/app/pages/components/spinner/index.html,指示正在加载状态的 Spinner,
+site/app/pages/components/spinner/index.html,指示具体的加载进度的 Spinner,
+site/app/pages/components/spinner/index.html,在按钮中使用 Spinner,
+site/app/pages/components/spinner/index.html,默认情况下，Spinner 的大小为 <code>1em</code>（即字号大小），颜色为 <code>currentColor</code>（即文字颜色）。在实际使用时，可以通过调整父元素的字号和颜色来改变 Spinner 的大小和颜色，也可以通过以下接口来调整：,
+site/app/pages/components/spinner/index.html,加载指示 Spinner,
+site/app/pages/components/icon/index.html,Material 图标,
+site/app/pages/components/icon/index.html,Icon Font 图标,
+site/app/pages/components/icon/index.html,Font Icon 图标,
+site/app/pages/components/icon/index.html,SVG 图标,
+site/app/pages/components/icon/index.html,图标 Icon,
+site/app/pages/ui-elements/typography/index.html,排版 Typography,Typography
+site/app/pages/components/popconfirm/examples/simple.js,未命名,
+site/app/pages/components/popconfirm/api.js,文字提示的内容,
+site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。,
+site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态,
+site/app/pages/components/popconfirm/api.js,同 Popover 组件,
+site/app/pages/components/popconfirm/api.js,用户点击确认按钮,
+site/app/pages/components/popconfirm/api.js,用户点击取消按钮,
+site/app/pages/components/popconfirm/index.html,气泡确认框,
+site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。,
+site/app/pages/components/popconfirm/index.html,气泡确认框 Popconfirm,
+site/app/pages/components/tooltip/api.js,文字提示的内容,
+site/app/pages/components/tooltip/api.js,参看 Popover 组件,
+site/app/pages/components/tooltip/index.html,文字提示,
+site/app/pages/components/tooltip/index.html,Popover 组件的所有 API 也可用于 Tooltip 组件。但部分属性的默认值不同。,
+site/app/pages/components/tooltip/index.html,文字提示 Tooltip,
+site/app/pages/components/popover/api.js,控制气泡卡片是否展示。外部父组件可通过此属性手动控制。,
+site/app/pages/components/popover/api.js,"气泡卡片的触发方式，包括 click, hover 和 none。如果指定为 none，代表气泡卡片不自动绑定触发元素，完全靠 active 属性控制。",
+site/app/pages/components/popover/api.js,卡片在延迟一定的时间后显示，单位为毫秒。,
+site/app/pages/components/popover/api.js,卡片显示时的相对位置，参看 Popper.js 的 placement 概念。,
+site/app/pages/components/popover/api.js,卡片显示时的偏移量，参看 Popper.js 的 offset 概念。,
+site/app/pages/components/popover/api.js,附加在卡片的 DOM 上的 html class。,
+site/app/pages/components/popover/api.js,卡片显示和隐藏时的 css 动画。,
+site/app/pages/components/popover/api.js,点击卡片之外的其它区域时，是否隐藏卡片。,
+site/app/pages/components/popover/api.js,Popper.js 的更多自定义高级配置。,
+site/app/pages/components/popover/api.js,用于控制气泡里面顶部的标题样式。,
+site/app/pages/components/popover/api.js,控制气泡里面中间的内容样式。,
+site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域样式。,
+site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件,
+site/app/pages/components/popover/index.html,气泡卡片,
+site/app/pages/components/popover/index.html,气泡卡片 Popover,
+site/app/pages/components/content/index.html,内容框,
+site/app/pages/components/content/index.html,内容框示例,
+site/app/pages/components/content/index.html,The following option can be applied to md-content component:,
+site/app/pages/components/content/index.html,内容框 Content,
+site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：,
+site/app/pages/components/popconfirm/examples/simple.html,删除,
+site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,
+site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,
+site/app/pages/components/radio/index.html,单选项,
+site/app/pages/components/radio/index.html,简单单选项,
+site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:,
+site/app/pages/components/radio/index.html,单选项 Radio,
+site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：,
+site/app/pages/components/tooltip/examples/simple.html,你好，世界！,
+site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：,
+site/app/pages/components/tooltip/examples/simple.html,通过父组件里的参数控制显示和隐藏：,
+site/app/pages/components/tooltip/examples/simple.html,展示自定义的内容：,
+site/app/pages/components/highlight/index.html,文本高亮 Highlight,
+site/app/pages/components/radio/examples/simple-radios.html,描述,
+site/app/pages/components/radio/examples/simple-radios.html,示例,
+site/app/pages/components/radio/examples/simple-radios.html,值,
+site/app/pages/components/radio/examples/simple-radios.html,简单选择项,
+site/app/pages/components/radio/examples/simple-radios.html,字符串数组,
+site/app/pages/components/radio/examples/simple-radios.html,Object 数组,
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：,
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：,

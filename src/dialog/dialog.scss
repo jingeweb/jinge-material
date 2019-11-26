@@ -1,8 +1,6 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
 @import '../animation/variables.scss';
-@import '../elevation/mixins.scss';
-@import '../layout/mixins.scss';
+@import '../../style/elevation/mixins.scss';
+@import '../../style/layout/mixins.scss';
 
 .md-dialog {
   @include md-elevation(24);
@@ -24,9 +22,6 @@
   pointer-events: auto;
   transform: translate(-50%, -50%);
   transform-origin: center center;
-
-  @include md-theme-property(background-color, background);
-  @include md-theme-property(color, text-primary, background);
 }
 
 .md-dialog-enter,

@@ -112,6 +112,7 @@ export class Checkbox extends Component {
   }
 
   toggleCheck() {
+    if (this.disabled) return;
     this._updateChecked(!this.checked);
   }
 

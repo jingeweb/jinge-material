@@ -1,5 +1,5 @@
 @import 'src/animation/variables';
-@import 'src/layout/mixins';
+@import 'style/layout/mixins';
 
 .main-header {
   margin: auto;
@@ -8,7 +8,7 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: 9;
+  z-index: 100;
   transition:
     0.3s $md-transition-default-timing,
     box-shadow 0.4s 0.1s $md-transition-stand-timing;
@@ -27,6 +27,7 @@
 
       .md-icon {
         font-size: 28px;
+        color: var(--md-on-surface);
       }
     }
 
@@ -58,10 +59,6 @@
       .md-title,
       .md-icon {
         color: #fff;
-      }
-
-      .md-icon svg {
-        fill: #fff;
       }
     }
   }

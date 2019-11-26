@@ -1,6 +1,4 @@
 @import '../animation/variables';
-@import 'style/engine/index';
-@import 'style/themes/default';
 
 .md-list-item {
   height: auto;
@@ -17,15 +15,14 @@
     font-size: 24px;
     margin: 0;
     transition-property: color, margin-right;
-
-    @include md-theme-property(color, icon, background);
+    color: var(--md-on-surface-medium);
 
     &.md-primary {
-      @include md-theme-property(color, primary, background);
+      color: var(--md-primary);
     }
 
     &.md-accent {
-      @include md-theme-property(color, accent, background);
+      color: var(--md-secondary);
     }
   }
 }
@@ -48,6 +45,16 @@
     opacity: 1;
     text-decoration: none;
   }
+}
+
+button.md-list-item-button {
+  background-color: transparent;
+  border: 0;
+  color: var(--md-on-surface);
+}
+
+a.md-list-item-container {
+  color: var(--md-on-surface);
 }
 
 .md-list-item-content {

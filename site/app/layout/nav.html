@@ -1,7 +1,7 @@
 <!-- import { NavContent } from './nav-content.js' -->
 <div class="main-nav-container">
   <if e:expect="!isSplash">
-  <md-content class="main-nav">
+  <md-content class="main-nav md-elevation-1">
     <NavContent/>
   </md-content>
   </if>
@@ -9,7 +9,7 @@
 
   <md-drawer fixed e:active="menuShown" on:update.active="menuShown = args[0]" on:closed="hideMenu">
     <md-toolbar class="md-transparent" elevation="0">
-      <md-icon style="font-size: 24px; margin: 0 0 0 8px;" src="assets/logo.svg"/>
+      <md-icon class="jinge-material-site-logo" style="font-size: 24px; margin: 0 0 0 8px;" src="assets/logo_nc.svg"/>
       <span class="md-title">Jinge Material</span>
     </md-toolbar>
 

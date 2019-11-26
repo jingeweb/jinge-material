@@ -1,34 +1,21 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
-@mixin md-empty-state-spec($color) {
-  .md-empty-state-icon {
-    &.md-icon {
-      @include md-theme-property(color, $color, background);
-    }
-  }
-}
-
 .md-empty-state {
-  @include md-empty-state-spec(disabled);
+  .md-icon {
+    color: var(--md-on-surface-medium);
+  }
 
   &.md-rounded {
-    @include md-theme-property(background-color, disabled, '', 0.06);
+    background-color: var(--md-outline);
   }
 
   &.md-primary {
-    @include md-empty-state-spec(primary);
-
     .md-icon {
-      @include md-theme-property(color, primary, color);
+      color: var(--md-primary);
     }
   }
 
   &.md-accent {
-    @include md-empty-state-spec(accent);
-
     .md-icon {
-      @include md-theme-property(color, accent, color);
+      color: var(--md-secondary);
     }
   }
 }

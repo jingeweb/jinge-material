@@ -1,7 +1,5 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
 @import '../animation/variables.scss';
-@import '../elevation/mixins.scss';
+@import '../../style/elevation/mixins.scss';
 
 $md-switch-width: 34px;
 $md-switch-height: 14px;
@@ -12,6 +10,7 @@ $md-switch-touch-size: 48px;
   width: auto;
   margin: 16px 16px 16px 0;
   display: inline-flex;
+  align-items: center;
   position: relative;
 
   &:not(.md-disabled) {
@@ -26,24 +25,36 @@ $md-switch-touch-size: 48px;
     width: $md-switch-width;
     min-width: $md-switch-width;
     height: $md-switch-height;
-    margin: 3px 0;
-    display: flex;
-    align-items: center;
     position: relative;
-    border-radius: $md-switch-height;
-    transition: $md-transition-stand;
-    background-color: rgba(#000, 0.38);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.38;
+      z-index: 0;
+      border-radius: $md-switch-height;
+      transition: $md-transition-stand;
+      background-color: var(--md-on-surface-disabled);
+    }
   }
 
   .md-switch-thumb {
     @include md-elevation(1);
-    @include md-theme-property-by-hue(background-color, grey, 100, switch, thumb);
 
     width: $md-switch-size;
     height: $md-switch-size;
-    position: relative;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    top: 50%;
     border-radius: 50%;
     transition: $md-transition-stand;
+    background-color: var(--md-on-surface-medium);
+    transform: translate3d(0, -50%, 0);
 
     &::before {
       width: $md-switch-touch-size;
@@ -81,31 +92,27 @@ $md-switch-touch-size: 48px;
 }
 
 .md-switch.md-checked {
-  .md-switch-container {
-    @include md-theme-property(background-color, accent, null, 0.38);
+  .md-switch-container::before {
+    background-color: var(--md-secondary);
   }
 
   .md-switch-thumb {
-    transform: translate3d(15px, 0, 0);
-
-    @include md-theme-property(background-color, accent);
+    transform: translate3d(15px, -50%, 0);
+    background-color: var(--md-secondary);
   }
 
   .md-ripple {
-    @include md-theme-property(color, accent);
+    color: var(--md-secondary);
   }
 
   &.md-primary {
-    .md-switch-container {
-      @include md-theme-property(background-color, primary, null, 0.38);
-    }
-
+    .md-switch-container::before,
     .md-switch-thumb {
-      @include md-theme-property(background-color, primary);
+      background-color: var(--md-primary);
     }
 
     .md-ripple {
-      @include md-theme-property(color, primary);
+      color: var(--md-primary);
     }
   }
 }
@@ -123,51 +130,5 @@ $md-switch-touch-size: 48px;
 }
 
 .md-switch.md-disabled {
-  .md-switch-container {
-    background-color: rgba(#000, 0.12);
-  }
-
-  .md-switch-thumb {
-    @include md-theme-property-by-hue(background-color, grey, 400, switch, thumb);
-  }
+  opacity: 0.38;
 }
-
-/*
-@if md-get-theme-mode() == light {
-  .md-switch-container {
-    background-color: rgba(#000, .38);
-  }
-
-  .md-switch-thumb {
-    @include md-theme-property-by-hue(background-color, grey, 100, switch, thumb);
-  }
-
-  &.md-disabled {
-    .md-switch-container {
-      background-color: rgba(#000, .12);
-    }
-
-    .md-switch-thumb {
-      @include md-theme-property-by-hue(background-color, grey, 400, switch, thumb);
-    }
-  }
-} @else {
-  .md-switch-container {
-    background-color: rgba(#fff, .3);
-  }
-
-  .md-switch-thumb {
-    @include md-theme-property-by-hue(background-color, grey, 400, switch, thumb);
-  }
-
-  &.md-disabled {
-    .md-switch-container {
-      background-color: rgba(#fff, .1);
-    }
-
-    .md-switch-thumb {
-      @include md-theme-property-by-hue(background-color, grey, 800, switch, thumb);
-    }
-  }
-}
-*/

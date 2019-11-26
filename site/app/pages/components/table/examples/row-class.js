@@ -31,7 +31,8 @@ export default class ExampleTableBasic extends Component {
   static get style() {
     return `
 div /deep/ tr.highlight {
-  background: #e3f2fd; 
+  color: var(--md-on-primary);
+  background: var(--demo-table-row-class-highlight); 
 }`;
   }
 

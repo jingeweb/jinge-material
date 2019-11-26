@@ -1,10 +1,10 @@
 @import 'src/animation/variables';
-@import 'src/layout/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import 'style/layout/mixins';
+@import 'style/palette.scss';
 
 .home-icon-devices {
   width: 160px;
+  height: 100px;
 
   &:hover .device {
     &:nth-child(2) {

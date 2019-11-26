@@ -1,0 +1,23 @@
+@import './_elevation.scss';
+
+:root {
+  @include theme-elevation(false, #fff);
+
+  --md-primary: #6200ee;
+  --md-secondary: #03dac5;
+  --md-background: #fff;
+  --md-surface: #fff;
+  --md-surface-disabled: rgba(0, 0, 0, 0.12);
+  --md-error: #b00020;
+  --md-on-primary: #fff;
+  --md-on-primary-medium: rgba(255, 255, 255, 0.74);
+  --md-on-primary-disabled: rgba(255, 255, 255, 0.38);
+  --md-on-secondary: #fff;
+  --md-on-secondary-disabled: rgba(255, 255, 255, 0.38);
+  --md-on-background: #000;
+  --md-on-surface: rgba(0, 0, 0, 0.87);
+  --md-on-surface-medium: rgba(0, 0, 0, 0.6);
+  --md-on-surface-disabled: rgba(0, 0, 0, 0.38);
+  --md-on-error: #fff;
+  --md-outline: rgba(0, 0, 0, 0.12);
+}

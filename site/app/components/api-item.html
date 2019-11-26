@@ -7,7 +7,7 @@
   <div class="api-item-navigation">
     <for e:loop="_slots" vm:each="_slot" >
     <md-button
-      class="${ currentSlot === _slot ? 'md-primary': '' }"
+      class="${ currentSlot === _slot.name ? 'md-primary': '' }"
       on:click="currentSlot = _slot.name">
       ${ _slot.title }
     </md-button>

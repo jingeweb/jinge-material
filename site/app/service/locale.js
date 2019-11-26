@@ -19,7 +19,32 @@ const locales = {
   en
 };
 
+let fontCheckLocale = null;
+function loadFontIfNeed(locale) {
+  if (fontCheckLocale === false) {
+    return;
+  }
+  if (locale === 'en') {
+    if (fontCheckLocale) {
+      const $s = document.createElement('link');
+      $s.rel = 'stylesheet';
+      $s.href = 'https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,500,700';
+      document.head.appendChild($s);
+    }
+    fontCheckLocale = false;
+  } else {
+    fontCheckLocale = locale;
+  }
+}
+
 export function setCurrentLocale(locale) {
+  /**
+   * 首次从非英文切换到英文时，加载 Roboto 字体。
+   */
+  loadFontIfNeed(locale);
+  /**
+   * 切换组件库语言资源
+   */
   setLocale(locales[locale]);
   if (locale === i18n.locale) {
     return;
@@ -32,8 +57,9 @@ export function setCurrentLocale(locale) {
   router.baseHref = `/${locale}/`;
   i18n.switch(
     locale,
-    (env.production ? '' : 'dist/') + 'locales/[locale].js'
+    env.localeTpl.replace('[locale]', locale)
   );
   history.replaceState(null, null, location.pathname.replace(/^\/\w+/, `/${locale}`));
   localStorage.setItem(env.localeKey, locale);
+  env.locale = locale;
 }

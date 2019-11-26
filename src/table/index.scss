@@ -1,13 +1,8 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
 .md-table {
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
   overflow: hidden;
-
-  @include md-theme-property(background-color, background);
 
   th,
   td {
@@ -24,20 +19,17 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
-    @include md-theme-property(color, text-accent, background);
+    color: var(--md-on-surface-medium);
   }
 
   > tbody > tr > td {
     height: 48px;
     position: relative;
-    // transition: .3s cubic-bezier(.4,0,.2,1);
     font-size: 13px;
     line-height: 18px;
     padding: 6px 32px 6px 24px;
     border-top: 1px solid;
-
-    @include md-theme-property(border-top-color, divider, background);
+    border-top-color: var(--md-outline);
 
     > a {
       cursor: pointer;
@@ -53,6 +45,6 @@
   }
 
   > tbody > tr:hover > td {
-    @include md-theme-property(background-color, highlight, background, 0.08);
+    background-color: var(--md-outline);
   }
 }

@@ -1,7 +1,5 @@
 @import '../animation/variables.scss';
-@import '../elevation/mixins.scss';
-@import 'style/engine/index.scss';
-@import 'style/themes/default';
+@import '../../style/elevation/mixins.scss';
 
 .md-popover {
   position: fixed;
@@ -12,17 +10,16 @@
     border-radius: 2px;
     pointer-events: auto;
     will-change: opacity, transform;
+    background-color: var(--md-background);
 
     @include md-elevation(16);
-    @include md-theme-property(background-color, background);
-    @include md-theme-property(color, text-primary, background);
 
     /* util classes */
 
     > .md-popover-title {
       font-weight: bold;
       padding: 12px;
-      border-bottom: 1px solid rgba(#000, 0.2);
+      border-bottom: 1px solid var(--md-border);
     }
 
     > .md-popover-content {

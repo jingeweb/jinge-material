@@ -31,7 +31,7 @@ export class Drawer extends Component {
 export class DrawerContainer extends Component {
   static get template() {
     return `
-<div class="md-drawer-container\${active ? ' md-active' : ''}">
+<div class="md-drawer-container\${className ? ' ' + className : ''}\${active ? ' md-active' : ''}">
   <md-drawer e:_pushMode="_pushMode" e:active="active" e:right="_right" on:update.active="onUpdateActive">
     <_slot slot-use:drawer/>
   </md-drawer>
@@ -45,6 +45,7 @@ export class DrawerContainer extends Component {
     super(attrs);
     this.active = attrs.active;
     this.mainMargin = 0;
+    this.className = attrs.class;
     this._right = attrs.right;
     this._pushMode = attrs.pushMode;
   }

@@ -1,64 +1,52 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
 .md-field {
   &::after {
-    background-color: rgba(#000, 0.42);
+    background-color: var(--md-outline);
   }
 
   &::before {
-    @include md-theme-property(background-color, primary);
+    background-color: var(--md-primary);
   }
 
   .md-icon {
-    color: rgba(#000, 0.54);
+    color: var(--md-on-surface-medium);
 
     &::after {
-      @include md-theme-property(background-color, background-variant);
+      background-color: var(--md-ouline);
     }
 
     &.md-primary {
-      @include md-theme-property(color, primary, background);
+      color: var(--md-primary);
     }
 
     &.md-accent {
-      @include md-theme-property(color, accent, background);
+      color: var(--md-secondary);
     }
   }
 
   .md-helper-text,
   .md-count,
-  label {
-    color: rgba(#000, 0.54);
-  }
-
   .md-suffix,
-  .md-prefix {
-    color: rgba(#000, 0.54);
+  .md-prefix,
+  label {
+    color: var(--md-on-surface-medium);
   }
 
   .md-input,
   .md-textarea {
-    &::-webkit-input-placeholder {
-      color: rgba(#000, 0.54);
-    }
-  }
+    color: var(--md-on-surface);
 
-  &.md-focused,
-  &.md-has-value {
-    .md-input,
-    .md-textarea {
-      -webkit-text-fill-color: rgba(#000, 0.87);
+    &::-webkit-input-placeholder {
+      color: var(--md-on-surface-medium);
     }
   }
 
   &.md-has-textarea:not(.md-autogrow) {
     &::after {
-      border-color: rgba(#000, 0.42);
+      border-color: var(--md-outline);
     }
 
     &::before {
-      @include md-theme-property(border-color, primary);
+      border-color: var(--md-primary);
     }
   }
 
@@ -67,8 +55,8 @@
       background-image:
         linear-gradient(
           to right,
-          rgba(#000, 0.38) 0%,
-          rgba(#000, 0.38) 33%,
+          var(--md-on-surface-disabled) 0%,
+          var(--md-on-surface-disabled) 33%,
           transparent 0%
         );
     }
@@ -76,143 +64,39 @@
     label,
     .md-input,
     .md-textarea {
-      color: rgba(#000, 0.42);
+      color: var(--md-on-surface-disabled);
     }
   }
 
-  &.md-focused,
-  &.md-highlight {
-    .md-input,
-    .md-textarea {
-      @include md-theme-property(color, primary, background);
-    }
-
-    > .md-icon {
-      @include md-theme-property(color, primary, background);
-      @include md-theme-property(fill, primary, background);
-    }
-  }
+  // &.md-focused,
+  // &.md-highlight {
+  //   .md-input,
+  //   .md-textarea {
+  //     color: var(--md-primary);
+  //   }
+  // }
 
   &.md-invalid {
     &::after {
-      @include md-theme-property-by-hue(background-color, red, A400, field, error);
+      background-color: var(--md-error);
     }
 
     &.md-has-textarea:not(.md-autogrow) {
       &::before {
-        @include md-theme-property-by-hue(border-color, red, A400, field, error);
+        border-color: var(--md-error);
       }
     }
 
-    label {
-      @include md-theme-property-by-hue(color, red, A400, field, error);
-    }
-
-    .md-error {
-      @include md-theme-property-by-hue(color, red, A400, field, error);
-    }
-
-    .md-date-icon,
-    .md-date-icon svg {
-      @include md-theme-property-by-hue(color, red, A400, field, error);
-      @include md-theme-property-by-hue(fill, red, A400, field, error);
+    label,
+    .md-error,
+    .md-date-icon {
+      color: var(--md-error);
     }
   }
 
   &.md-focused {
     label {
-      @include md-theme-property(color, primary, background);
+      color: var(--md-primary);
     }
   }
-
-  //   @if md-get-theme-mode() == light {
-
-  //   } @else {
-  //     &:after {
-  //       background-color: rgba(#fff, .7);
-  //     }
-
-  //     &:before {
-  //       @include md-theme-property(background-color, primary);
-  //     }
-
-  //     .md-helper-text,
-  //     .md-count,
-  //     label {
-  //       color: rgba(#fff, .7);
-  //     }
-
-  //     .md-suffix, .md-prefix {
-  //       color: rgba(#fff, .7);
-  //     }
-
-  //     .md-input,
-  //     .md-textarea {
-  //       &::-webkit-input-placeholder {
-  //         color: rgba(#fff, .7);
-  //       }
-  //     }
-
-  //     &.md-focused,
-  //     &.md-has-value {
-  //       .md-input,
-  //       .md-textarea {
-  //         -webkit-text-fill-color: #fff;
-  //       }
-  //     }
-
-  //     &.md-has-textarea:not(.md-autogrow) {
-  //       &:after {
-  //         border-color: #fff;
-  //       }
-
-  //       &:before {
-  //         @include md-theme-property(border-color, primary);
-  //       }
-  //     }
-
-  //     &.md-disabled {
-  //       &:after {
-  //         background-image: linear-gradient(to right, rgba(#fff, .7) 0%, rgba(#fff, .7) 33%, transparent 0%);
-  //       }
-
-  //       label,
-  //       .md-input,
-  //       .md-textarea {
-  //         color: rgba(#fff, .5);
-  //       }
-  //     }
-  //   }
-
-  //   > .md-icon {
-  //     &:after {
-  //       @include md-theme-property(background-color, background-variant);
-  //     }
-  //   }
-
-  //   &.md-focused,
-  //   &.md-highlight {
-  //     .md-input,
-  //     .md-textarea {
-  //       @include md-theme-property(color, primary, background);
-  //     }
-
-  //     > .md-icon {
-  //       @include md-theme-property(color, primary, background);
-  //       @include md-theme-property(fill, primary, background);
-  //     }
-  //   }
-
-  //   &.md-focused {
-  //     label {
-  //       @include md-theme-property(color, primary, background);
-  //     }
-  //   }
-
-  //   &.md-disabled {
-  //     .md-icon svg {
-  //       @include md-theme-property(fill, disabled, background);
-  //     }
-  //   }
-  // }
 }

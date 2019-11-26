@@ -1,5 +1,5 @@
 @import '../animation/variables';
-@import '../elevation/mixins.scss';
+@import '../../style/elevation/mixins.scss';
 
 .md-chips.md-field {
   padding-top: 12px;
@@ -40,31 +40,24 @@ $md-chips-height: 32px;
   vertical-align: middle;
   white-space: nowrap;
 
+  > .md-state-overlay {
+    border-radius: $md-chips-height;
+  }
+
   &:focus {
     outline: none;
   }
 
-  &.md-chip-enter-active,
-  &.md-chip-leave-active {
-    opacity: 0;
-    transform: transformz(0) scale(0.8);
-  }
+  // &.md-clickable,
+  // &.md-deletable {
+  //   &:not(.md-disabled):active {
+  //     @include md-elevation(3);
+  //   }
+  // }
 
-  &.md-chip-enter-to {
-    opacity: 1;
-    transform: transformz(0) scale(1);
-  }
-
-  &.md-clickable,
-  &.md-deletable {
-    &:not(.md-disabled):active {
-      @include md-elevation(3);
-    }
-  }
-
-  &.md-focused {
-    @include md-elevation(3);
-  }
+  // &.md-focused {
+  //   @include md-elevation(3);
+  // }
 
   &.md-clickable {
     padding: 0;
@@ -119,16 +112,8 @@ $md-chips-height: 32px;
     }
 
     .md-icon {
-      width: 14px;
-      min-width: 14px;
-      height: 14px;
-      font-size: 14px !important;
+      font-size: 14px;
       vertical-align: top;
-
-      svg {
-        transition-duration: 0.3s;
-        transition-timing-function: $md-transition-stand-timing;
-      }
     }
   }
 }

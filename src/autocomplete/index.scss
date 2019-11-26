@@ -1,6 +1,6 @@
 @import '../animation/variables';
-@import '../elevation/mixins';
-@import '../layout/mixins';
+@import '../../style/elevation/mixins';
+@import '../../style/layout/mixins';
 
 .md-autocomplete {
   .md-menu {

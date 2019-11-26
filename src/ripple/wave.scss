@@ -20,7 +20,7 @@
 }
 
 .md-ripple-wave.md-ripple-wave-enter {
-  opacity: 0.26;
+  opacity: 0.1;
   transform: scale(0.26) translateZ(0);
   transition: 0.8s $md-transition-stand-timing;
   transition-property: opacity, transform;

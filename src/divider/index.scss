@@ -1,6 +1,4 @@
 @import '../animation/variables';
-@import 'style/engine/index';
-@import 'style/themes/default';
 
 .md-divider {
   height: 1px;
@@ -10,10 +8,9 @@
   border: 0;
   transition: margin-left 0.3s $md-transition-default-timing;
   will-change: margin-left;
+  background-color: var(--md-outline);
 
   &.md-inset {
     margin-left: 72px;
   }
-
-  @include md-theme-property(background-color, divider);
 }

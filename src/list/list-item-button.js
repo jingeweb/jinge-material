@@ -8,9 +8,10 @@ export class ListItemButton extends Component {
 <!-- import { ListItemContent } from './list-item-content' -->
 <button
   type="button"
-  class="md-list-item-button\${className ? ' ' + className : ''}"
+  class="md-list-item-button md-state-container\${className ? ' ' + className : ''}"
   e:disabled="disabled"
 >
+  <div class="md-state-overlay"></div>
   <ListItemContent e:disabled="disabled || !ripple">
     <_slot />
   </ListItemContent>

@@ -1,8 +1,6 @@
 @import '../animation/variables';
-@import '../layout/mixins';
-@import '../elevation/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import '../../style/layout/mixins';
+@import '../../style/elevation/mixins';
 
 .md-snackbar {
   @include md-elevation(6);
@@ -17,36 +15,19 @@
   position: fixed;
   z-index: 1000;
   border-radius: 2px;
+  background-color: var(--md-on-background);
+  color: var(--md-background);
 
-  @include md-theme-property(color, text-primary, text-primary);
-
-  background: #323232;
-
-  // @if md-get-theme-mode() == light {
-  //   background-color: #323232;
-  // } @else {
-  //   background-color: #fff;
-  // }
   &.md-position-center {
     margin: 0 auto;
     right: 0;
     bottom: 0;
     left: 0;
-
-    // &.md-snackbar-enter,
-    // &.md-snackbar-leave-active {
-    //   transform: translate3d(0, calc(100% + 8px), 0);
-    // }
   }
 
   &.md-position-left {
     bottom: 24px;
     left: 24px;
-
-    // &.md-snackbar-enter,
-    // &.md-snackbar-leave-active {
-    //   transform: translate3d(0, calc(100% + 32px), 0);
-    // }
   }
 
   @include md-layout-xsmall {

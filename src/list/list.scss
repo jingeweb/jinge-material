@@ -1,6 +1,3 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
 .md-list {
   margin: 0;
   padding: 8px 0;
@@ -27,50 +24,44 @@
     margin-top: -8px;
   }
 
-  @include md-theme-property(background-color, background);
-  @include md-theme-property(color, text-primary, background);
-
   &.md-double-line .md-list-item-text :nth-child(2) {
-    @include md-theme-property(color, text-accent, background);
+    color: var(--md-text-accent);
   }
 
   &.md-triple-line .md-list-item-text :nth-child(3) {
-    @include md-theme-property(color, text-accent, background);
+    color: var(--md-text-accent);
   }
 
   .md-highlight .md-list-item-container {
-    @include md-theme-property(background-color, divider, background);
+    background-color: var(--md-outline);
   }
 
   .md-list-item-container {
-    @include md-theme-property(color, text-primary, background);
-
     &:not(.md-list-item-default):not(.md-list-item-expand):not([disabled]):hover {
-      @include md-theme-property(background-color, divider, background);
-      @include md-theme-property(color, text-primary, background);
+      background-color: var(--md-outline);
     }
   }
 
   [disabled] {
-    @include md-theme-property(color, disabled, background);
+    color: var(--md-on-surface-disabled);
   }
 
   .md-selected,
   .ui-router-active {
     .md-list-item-content {
-      @include md-theme-property(color, primary, background);
+      color: var(--md-primary);
     }
   }
 
   .md-list-item-expand {
     &.md-active {
-      @include md-theme-property(border-color, divider, background);
+      border-color: var(--md-outline);
     }
 
     &:not(.md-list-item-default):not([disabled]) {
       > .md-list-item-content:hover {
-        @include md-theme-property(background-color, divider, background);
-        @include md-theme-property(color, text-primary, background);
+        background-color: var(--md-outline);
+        color: var(--md-on-surface);
       }
     }
   }

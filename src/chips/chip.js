@@ -25,7 +25,7 @@ export class Chip extends Component {
     this.rippleActive = false;
     this.hasFocus = false;
 
-    this.disabled = attrs.disable;
+    this.disabled = attrs.disabled;
     this.deletable = attrs.deletable;
     this.clickable = attrs.clickable;
     this.duplicated = attrs.duplicated;

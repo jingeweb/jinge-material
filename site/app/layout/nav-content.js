@@ -28,18 +28,14 @@ function generateMenus() {
     name: _t('快速上手'),
     state: 'getting-started'
   }, {
-    name: _t('样式主题'),
-    state: 'themes',
-    children: [{
-      name: _t('概念'),
-      state: 'themes.concepts'
-    }, {
-      name: _t('预置主题'),
-      state: 'themes.prebuilt'
-    }, {
-      name: _t('自定义主题'),
-      state: 'themes.custom'
-    }]
+    name: _t('主题'),
+    state: 'theme'
+  }, {
+    name: _t('路由整合'),
+    state: 'use-router'
+  }, {
+    name: _t('国际化'),
+    state: 'i18n'
   }, {
     name: _t('UI 元素'),
     state: 'ui',
@@ -52,22 +48,9 @@ function generateMenus() {
     }, {
       name: _t('排版'),
       state: 'ui.typography'
-    }]
-  }, {
-    name: _t('高级'),
-    state: 'advance',
-    children: [{
-      name: _t('路由整合'),
-      state: 'use-router'
     }, {
-      name: _t('国际化'),
-      state: 'i18n'
-    // }, {
-    //   name: _t('在 React 中使用'),
-    //   state: 'advance.react'
-    // }, {
-    //   name: _t('在 Vue 中使用'),
-    //   state: 'advance.vue'
+      name: _t('状态'),
+      state: 'ui.states'
     }]
   }, {
     name: _t('组件'),

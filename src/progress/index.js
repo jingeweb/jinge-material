@@ -18,9 +18,9 @@ export class Progress extends Component {
     this.mode = attrs.mode || 'determinate';
     this.value = Number(attrs.value || 0);
     this.buffer = Number(attrs.buffer || 0);
-    this.valueStyle = '';
-    this.trackStyle = '';
-    this.bufferStyle = '';
+    this.valueStyle = null;
+    this.trackStyle = null;
+    this.bufferStyle = null;
     this.updateStyles();
   }
 
@@ -55,9 +55,9 @@ export class Progress extends Component {
   }
 
   updateStyles() {
-    this.valueStyle = '';
-    this.trackStyle = '';
-    this.bufferStyle = '';
+    this.valueStyle = null;
+    this.trackStyle = null;
+    this.bufferStyle = null;
     if (this.mode !== 'buffer' && this.mode !== 'determinate') {
       return;
     }

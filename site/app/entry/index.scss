@@ -1,5 +1,5 @@
-@import 'src/animation/variables';
-@import 'src/layout/mixins';
+@import 'src/animation/variables.scss';
+@import 'style/layout/mixins';
 
 .container {
   min-height: 100%;
@@ -27,6 +27,20 @@
     .main-footer-container {
       max-width: 1312px;
       margin: 0 auto;
+    }
+
+    .main-footer-container {
+      align-items: center;
+    }
+
+    .main-footer {
+      max-width: 100%;
+      padding: 0 16px;
+      background: var(--md-surface);
+
+      a {
+        color: var(--md-on-surface);
+      }
     }
   }
 }

@@ -1,8 +1,6 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
 @import '../animation/variables';
-@import '../elevation/mixins';
-@import '../elevation/variables';
+@import '../../style/elevation/mixins';
+@import '../../style/state/mixins';
 
 $md-button-min-width: 88px;
 $md-button-height: 36px;
@@ -16,31 +14,13 @@ $md-button-icon-size: 40px;
 $md-button-fab-size: 56px;
 $md-button-fab-size-mini: $md-button-icon-size;
 
-@mixin md-icon-on-buttons($state, $type) {
-  .md-icon {
-    @include md-theme-property(color, $state, $type);
-  }
-}
-
-.md-button-clean {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  outline: none;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  transition: $md-transition-default;
-  text-decoration: none;
-  vertical-align: top;
-  white-space: nowrap;
-}
-
 .md-button {
-  @extend .md-button-clean;
-
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  transition: $md-transition-default;
   min-width: $md-button-min-width;
   height: $md-button-height;
   margin: 6px 8px;
@@ -49,17 +29,24 @@ $md-button-fab-size-mini: $md-button-icon-size;
   font-size: $md-button-font-size;
   font-weight: 500;
   text-transform: uppercase;
-
-  @include md-theme-property(color, text-primary, background);
+  color: var(--md-on-surface);
+  background-color: transparent;
+  cursor: pointer;
 
   &.md-primary {
-    @include md-theme-property(color, primary, background);
-    @include md-icon-on-buttons(primary, background);
+    color: var(--md-primary);
+  }
+
+  &.md-on-primary {
+    color: var(--md-on-primary);
   }
 
   &.md-accent {
-    @include md-theme-property(color, accent, background);
-    @include md-icon-on-buttons(accent, background);
+    color: var(--md-secondary);
+  }
+
+  &.md-on-accent {
+    color: var(--md-on-secondary);
   }
 
   &:active {
@@ -67,129 +54,13 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 
   &[disabled] {
+    cursor: default;
     pointer-events: none;
-
-    @include md-theme-property(color, disabled, background);
-    @include md-icon-on-buttons(icon-disabled, background);
-  }
-
-  &:not([disabled]) {
-    cursor: pointer;
-
-    &:hover,
-    &:active,
-    &.md-focused {
-      &::before {
-        background-color: currentColor;
-        opacity: 0.12;
-      }
-    }
-
-    &.md-focused {
-      &.md-primary,
-      &.md-accent {
-        &::before {
-          opacity: 0.2;
-        }
-      }
-    }
-
-    &:active {
-      &::before {
-        opacity: 0.2;
-      }
-    }
-
-    &.md-ripple-off:active::before {
-      opacity: 0.26;
-    }
-  }
-
-  &.md-plain.md-button.md-raised:not([disabled]) {
-    color: rgba(#000, 0.87);
-    background-color: #fff;
-
-    .md-icon {
-      color: rgba(#000, 0.87);
-    }
-  }
-
-  &::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-  }
-
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0;
-    transition: $md-transition-default;
-    will-change: background-color, opacity;
-    content: ' ';
   }
 
   &.md-dense {
     height: $md-button-dense-height;
     font-size: 13px;
-  }
-
-  &.md-raised[disabled] {
-    @include md-theme-property(
-      background-color,
-      disabled-background,
-      background
-    );
-    @include md-theme-property(color, disabled);
-  }
-
-  &.md-raised:not([disabled]) {
-    @include md-elevation(2);
-    @include md-theme-property(background-color, background);
-    @include md-theme-property(color, text-primary, background);
-
-    &.md-primary {
-      @include md-theme-property(color, text-primary, primary);
-      @include md-theme-property(background-color, primary);
-      @include md-icon-on-buttons(text-primary, primary);
-    }
-
-    &.md-accent {
-      @include md-theme-property(color, text-primary, accent);
-      @include md-theme-property(background-color, accent);
-      @include md-icon-on-buttons(text-primary, accent);
-    }
-
-    &:active {
-      @include md-elevation(8);
-    }
-
-    &.md-ripple-off:active::before {
-      opacity: 0.2;
-    }
-  }
-
-  &.md-fab {
-    &[disabled] {
-      @include md-theme-property(
-        background-color,
-        disabled-background,
-        background
-      );
-    }
-
-    &:not([disabled]) {
-      @include md-theme-property(background-color, accent);
-      @include md-icon-on-buttons(text-primary, accent);
-
-      &.md-primary {
-        @include md-theme-property(background-color, primary);
-        @include md-icon-on-buttons(text-primary, primary);
-      }
-    }
   }
 
   + .md-button {
@@ -204,12 +75,33 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 }
 
-.md-button-spaced .md-ripple {
+.md-button.md-spaced .md-ripple {
   padding: 0 16px;
 }
 
-.md-icon-button,
-.md-fab {
+.md-button.md-raised {
+  @include md-elevation(2);
+
+  background-color: var(--md-surface);
+
+  &.md-primary {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+  }
+
+  &.md-accent {
+    background-color: var(--md-secondary);
+    color: var(--md-on-secondary);
+  }
+
+  &.md-ripple-off:active::before {
+    opacity: 0.2;
+  }
+}
+
+.md-button.md-icon-button,
+.md-button.md-fab {
+  overflow: hidden;
   border-radius: 50%;
 
   &::before {
@@ -221,9 +113,9 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 }
 
-.md-icon-button,
-.md-fab.md-mini,
-.md-fab.md-dense {
+.md-button.md-icon-button,
+.md-button.md-fab.md-mini,
+.md-button.md-fab.md-dense {
   .md-ripple-wave {
     top: 0 !important;
     right: 0 !important;
@@ -232,11 +124,23 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 }
 
-.md-icon-button {
+.md-button.md-icon-button {
   width: $md-button-icon-size;
   min-width: $md-button-icon-size;
   height: $md-button-icon-size;
   margin: 0 6px;
+
+  &:not(.md-primary):not(.md-accent) {
+    color: var(--md-on-surface-medium);
+
+    &.md-on-primary {
+      color: var(--md-on-primary-medium);
+    }
+
+    &.md-on-accent {
+      color: var(--md-on-secondary-medium);
+    }
+  }
 
   &.md-dense {
     width: $md-button-dense-height;
@@ -249,16 +153,19 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 }
 
-.md-fab {
+.md-button.md-fab {
   @include md-elevation(6);
 
   width: $md-button-fab-size;
   height: $md-button-fab-size;
   min-width: 0;
   overflow: hidden;
+  color: var(--md-on-secondary);
+  background-color: var(--md-secondary);
 
-  &:active {
-    @include md-elevation(12);
+  &.md-primary {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
   }
 
   &.md-mini,
@@ -310,5 +217,20 @@ $md-button-fab-size-mini: $md-button-icon-size;
 
   .md-ripple {
     padding: 0;
+  }
+}
+
+.md-button.md-raised,
+.md-button.md-fab {
+  &.md-primary,
+  &.md-accent {
+    .md-state-overlay {
+      background-color: #fff;
+    }
+
+    &.md-disabled,
+    &[disabled] {
+      opacity: 0.38;
+    }
   }
 }

@@ -2,10 +2,6 @@
 // import framework base style
 import '../../../style';
 
-// import pure css components:
-import '../../../src/elevation';
-import '../../../src/layout';
-
 // import app style
 import './style';
 

@@ -1,9 +1,5 @@
 /**
  * The complete material palette
- * ---
- * @access public
- * @type map
- * @group themes
  */
 
 $md-palette: (
@@ -344,3 +340,7 @@ $md-palette: (
     A700: #000
   )
 );
+
+@function md-get-palette-color($color, $hue) {
+  @return map-get(map-get($md-palette, $color), $hue);
+}

@@ -1,6 +1,6 @@
 @import '../animation/variables';
-@import '../layout/mixins';
-@import '../elevation/mixins';
+@import '../../style/layout/mixins';
+@import '../../style/elevation/mixins';
 
 $md-calendar-width: 320px;
 $md-calendar-mobile-width: 296px;

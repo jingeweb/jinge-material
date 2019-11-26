@@ -1,9 +1,7 @@
 @import '../animation/variables';
-@import '../layout/mixins';
-@import '../elevation/mixins';
+@import '../../style/layout/mixins';
+@import '../../style/elevation/mixins';
 @import '../card/base';
-@import 'style/engine/index';
-@import 'style/themes/default';
 
 @mixin md-drawer-base() {
   position: absolute;
@@ -15,7 +13,7 @@
 @mixin md-drawer-temporary() {
   @include md-drawer-base;
 
-  z-index: 30;
+  z-index: 102;
   transform: translate3d(-100%, 0, 0);
   transition: transform 0.4s $md-transition-default-timing;
   will-change: transform, box-shadow;
@@ -36,9 +34,7 @@
   max-width: calc(100vw - 56px);
   overflow-x: hidden;
   overflow-y: auto;
-
-  @include md-theme-property(background-color, background);
-  @include md-theme-property(color, text-primary, background);
+  background: var(--md-background);
 
   @include md-layout-xsmall {
     width: 320px;
@@ -57,27 +53,6 @@
   &.md-active {
     @include md-drawer-temporary-active;
   }
-
-  // &:not(.md-temporary) {
-  //   ~ .md-overlay {
-  //     @include md-layout-small-and-up {
-  //       background: none;
-  //       pointer-events: none;
-  //     }
-  //   }
-  // }
-
-  // &.md-temporary {
-  //   &.md-left {
-  //     + .md-app-container .md-content {
-  //       border-left: none;
-  //     }
-  //   }
-
-  //   &.md-active {
-  //     @include md-elevation(16);
-  //   }
-  // }
 
   .md-list-item-container {
     font-size: 14px;

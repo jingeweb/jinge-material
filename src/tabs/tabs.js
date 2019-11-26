@@ -20,10 +20,16 @@ import {
   UIROUTER_CONTEXT
 } from '../uisref';
 import {
-  MutationObserveDOM
+  MutationObserveDOM,
+  EnumAttrValidator,
+  ELEVATION_ENUMS
 } from '../_util';
 
 import _tpl from './tabs.html';
+
+const elevationValidator = new EnumAttrValidator(
+  '<md-toolbar>', 'elevation', ELEVATION_ENUMS
+);
 
 export const TABS_PROVIDER = Symbol('tabs_provider');
 
@@ -35,11 +41,12 @@ export class Tabs extends Component {
   }
 
   constructor(attrs) {
+    attrs.elevation = Number(attrs.elevation || 0);
+    elevationValidator.assert(attrs);
     super(attrs);
-
     this.activeTab = attrs.activeTab || 0;
     this.alignment = attrs.alignment || 'left';
-    this.elevation = Number(attrs.elevation || 0);
+    this.elevation = attrs.elevation;
     this.dynamicHeight = attrs.dynamicHeight;
     this.className = attrs.class;
 

@@ -1,69 +1,44 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
-
 .md-datepicker-dialog {
-  @include md-theme-property(background-color, background);
-  @include md-theme-property(color, text-primary, background);
-
   .md-datepicker-header {
-    @if md-get-theme-mode() == light {
-      @include md-theme-property(background-color, primary);
-      @include md-theme-property(color, text-primary, primary);
-    }
-
-    @else {
-      @include md-theme-property(background-color, text-primary, '', 0.06);
-      @include md-theme-property(color, text-primary, background);
-    }
-  }
-
-  .md-datepicker-body-header {
-    &::after,
-    &::before {
-      @include md-theme-property(background-color, background);
-    }
-  }
-
-  .md-datepicker-body-footer {
-    @include md-theme-property(background-color, background);
-    @include md-theme-property(color, text-primary, background);
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
   }
 
   .md-datepicker-week {
-    @include md-theme-property(color, text-accent, background);
+    color: var(--md-on-surface-medium);
   }
 
   .md-datepicker-disabled {
-    @include md-theme-property(color, disabled, background);
+    color: var(--md-on-surface-disabled);
   }
 
   .md-datepicker-today {
-    @include md-theme-property(color, primary, background);
+    color: var(--md-primary);
   }
 
   .md-datepicker-day-button,
   .md-datepicker-month-button,
   .md-datepicker-year-button {
     &:hover {
-      @include md-theme-property(background-color, divider);
+      background-color: var(--md-outline);
     }
   }
 
   .md-datepicker-day-button {
     &.md-datepicker-selected {
-      @include md-theme-property(background-color, primary);
-      @include md-theme-property(color, text-primary, primary);
+      background-color: var(--md-primary);
+      color: var(--md-on-primary);
     }
   }
 
   .md-datepicker-month-button,
   .md-datepicker-year-button {
     &.md-datepicker-selected {
-      @include md-theme-property(color, primary, background);
+      color: var(--md-primary);
     }
   }
 
   .md-datepicker-year-selector {
-    @include md-theme-property(border-bottom-color, divider, background);
+    border-bottom-color: var(--md-outline);
   }
 }

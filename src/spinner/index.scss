@@ -1,12 +1,4 @@
-@import 'style/engine/index';
-@import 'style/themes/default';
 @import '../animation/variables.scss';
-
-@mixin md-spinner-spec ($hue) {
-  > svg > circle {
-    @include md-theme-property(stroke, $hue);
-  }
-}
 
 $md-spinner-radius: 48px;
 $md-spinner-stroke: 4px;
@@ -41,11 +33,15 @@ $md-spinner-end-offset: 0.2 * $md-spinner-full-offset;
   }
 
   &.md-primary {
-    @include md-spinner-spec(primary);
+    > svg > circle {
+      stroke: var(--md-primary);
+    }
   }
 
   &.md-accent {
-    @include md-spinner-spec(accent);
+    > svg > circle {
+      stroke: var(--md-secondary);
+    }
   }
 
   &.md-indeterminate {

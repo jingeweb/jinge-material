@@ -3,9 +3,13 @@
   z-index: 2;
   display: flex;
   align-items: center;
+  font-size: 14px;
+  font-weight: medium;
+  letter-spacing: 1.25px;
 
   > .md-icon:not(:only-child),
   > .md-spinner:not(:only-child) {
+    font-size: 1.2em;
     margin-right: 6px;
   }
 

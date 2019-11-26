@@ -1,8 +1,6 @@
 @import '../animation/variables';
-@import '../elevation/mixins';
-@import '../layout/mixins';
-@import 'style/engine/index';
-@import 'style/themes/default';
+@import '../../style/elevation/mixins';
+@import '../../style/layout/mixins';
 
 $md-stepper-icon-size: 24px;
 
@@ -311,63 +309,51 @@ $md-stepper-icon-size: 24px;
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .md-steppers {
-  @include md-theme-property(background-color, background);
-  @include md-theme-property(color, text-primary, background);
-
   .md-stepper-icon,
   .md-stepper-number,
   .md-stepper {
     &::after,
     &::before {
-      @include md-theme-property(background-color, divider, background);
+      background-color: var(--md-outline);
     }
   }
 
   .md-stepper-number {
-    @include md-theme-property(background-color, text-hint, background);
-    @include md-theme-property(color, text-primary, text-hint);
-
-    svg {
-      @include md-theme-property(color, text-primary, text-hint);
-      @include md-theme-property(fill, text-primary, text-hint);
-    }
+    background-color: var(--md-on-surface-medium);
   }
 
   .md-stepper-header {
     .md-button-content {
-      @include md-theme-property(color, text-hint, background);
+      color: var(--md-on-surface-medium);
+
+      .md-stepper-number {
+        color: var(--md-on-primary);
+      }
 
       &::after,
       &::before {
-        @include md-theme-property(background-color, divider, background);
+        background-color: var(--md-outline);
       }
     }
 
     &.md-active,
     &.md-done {
       .md-button-content {
-        @include md-theme-property(color, text-primary, background);
+        color: var(--md-on-surface);
       }
 
       .md-stepper-number {
-        @include md-theme-property(background-color, primary, background);
-        @include md-theme-property(color, text-primary, primary);
-
-        svg {
-          @include md-theme-property(color, text-primary, primary);
-          @include md-theme-property(fill, text-primary, primary);
-        }
+        background-color: var(--md-primary);
       }
     }
 
     &.md-error {
       .md-button-content {
-        @include md-theme-property-by-hue(color, red, A400, stepper, error);
-      }
+        color: var(--md-error);
 
-      .md-icon svg {
-        @include md-theme-property-by-hue(color, red, A400, stepper, error);
-        @include md-theme-property-by-hue(fill, red, A400, stepper, error);
+        .md-icon {
+          font-size: 24px;
+        }
       }
     }
   }
