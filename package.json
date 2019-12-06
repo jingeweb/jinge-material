@@ -6,14 +6,15 @@
   "scripts": {
     "start": "npm run dev-site",
     "dev-site": "node ./script/site-dev.js",
-    "build-site": "node ./script/site-build.js",
-    "build": "node ./script/build.js",
+    "build-site": "rm -rf ./docs && node ./script/site-build.js",
+    "build": "rm -rf ./dist && node ./script/build.js",
     "lint": "npm run stylelint && npm run eslint",
     "stylelint": "stylelint '**/*.scss' --syntax scss",
     "eslint": "eslint .",
     "fixstylelint": "stylelint '**/*.scss' --syntax scss --fix",
     "fixeslint": "eslint --fix .",
-    "update-icons": "node ./script/update_icons.js"
+    "update-icons": "node ./script/update_icons.js",
+    "validate": "npm ls"
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,8 @@
     "clean-css": "^4.2.1",
     "clipboard": "^2.0.4",
     "copy-webpack-plugin": "^5.0.5",
-    "eslint": "^6.7.1",
+    "css-loader": "^3.2.1",
+    "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
@@ -48,6 +50,7 @@
     "fs-extra": "^8.1.0",
     "highlight.js": "^9.16.2",
     "lodash-es": "^4.17.15",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "precommit-hook": "^3.0.0",
     "sass-loader": "^8.0.0",
@@ -56,7 +59,7 @@
     "stylelint-config-recommended-scss": "^4.1.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-scss": "^3.13.0",
-    "terser": "^4.4.0",
+    "terser": "^4.4.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"

@@ -36,7 +36,7 @@ function getGitHash() {
   return m[1].substring(0, 10);
 }
 
-module.exports = function getWebpackConfig(isProdMode = false, noCompress = false) {
+module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
   const gitHash = isProdMode ? getGitHash() : '';
   const plugins = [new JingeWebpackPlugin({
     compress: isProdMode && !noCompress,
@@ -50,7 +50,7 @@ module.exports = function getWebpackConfig(isProdMode = false, noCompress = fals
       filename: `locale.[locale]${isProdMode ? `.${gitHash}.min` : ''}.js`
     }
   })];
-  isProdMode && plugins.push([new CopyPlugin([{
+  isProdMode && plugins.push(new CopyPlugin([{
     from: __r('assets'),
     to: path.resolve(__dirname, '../docs/assets')
   }, {
@@ -68,8 +68,8 @@ module.exports = function getWebpackConfig(isProdMode = false, noCompress = fals
     transform: content => {
       return noCompress ? content : require('terser').minify(content.toString()).code;
     }
-  }])]);
-  const opts = {
+  }]));
+  return {
     mode: !isProdMode || noCompress ? 'development' : 'production',
     target: 'web',
     entry: __r('app/entry/index.js'),
@@ -85,6 +85,9 @@ module.exports = function getWebpackConfig(isProdMode = false, noCompress = fals
     module: {
       rules: [{
         test: /\.(js|html)$/,
+        parser: {
+          node: false
+        },
         oneOf: [{
           resourceQuery: /example/,
           use: path.resolve(__dirname, '../compiler/loader.js')
@@ -101,6 +104,9 @@ module.exports = function getWebpackConfig(isProdMode = false, noCompress = fals
         }]
       }, {
         test: /\.scss$/,
+        parser: {
+          node: false
+        },
         use: [{
           loader: jingeLoader
         }, {
@@ -115,5 +121,4 @@ module.exports = function getWebpackConfig(isProdMode = false, noCompress = fals
       }]
     }
   };
-  return opts;
 };

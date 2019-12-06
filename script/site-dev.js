@@ -1,28 +1,20 @@
 const path = require('path');
 const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server/lib/Server');
-const getWebpackConfig = require('./_webpack');
-const buildThemes = require('./_theme');
+const getWebpackBuildMainConfig = require('./_webpack_main');
+const getWebpackBuildThemeConfig = require('./_webpack_theme');
 
-const webpackConfig = getWebpackConfig();
-webpackConfig.cache = {
-  type: 'filesystem'
-};
-const compiler = Webpack(webpackConfig);
+const webpackConfigs = [
+  getWebpackBuildThemeConfig(path.resolve(__dirname, '../site/app/themes')),
+  getWebpackBuildMainConfig()
+];
 
-let hasBuiltThemes = false;
-compiler.hooks.emit.tapPromise('JINGE_MATERIAL_SITE_THEME', async compilation => {
-  // build themes and only build once.
-  if (hasBuiltThemes) return;
-  hasBuiltThemes = true;
-  const themes = await buildThemes();
-  themes.forEach(theme => {
-    compilation.assets[`theme.${theme.name}.css`] = {
-      source: () => theme.css,
-      size: () => theme.css.length
-    };
-  });
+webpackConfigs.forEach(cfg => {
+  cfg.cache = {
+    type: 'filesystem'
+  };
 });
+const compiler = Webpack(webpackConfigs);
 
 const server = new WebpackDevServer(compiler, {
   publicPath: '/',
