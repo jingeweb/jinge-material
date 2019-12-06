@@ -2,7 +2,8 @@ import {
   Component,
   AFTER_RENDER,
   GET_CONTEXT,
-  BEFORE_DESTROY
+  BEFORE_DESTROY,
+  NOTIFY
 } from 'jinge';
 import {
   UIROUTER_CONTEXT
@@ -29,11 +30,12 @@ export class Nav extends Component {
 
   hideMenu() {
     this.menuShown = false;
+    this[NOTIFY]('hide-menu');
   }
 
   [AFTER_RENDER]() {
     this._obd = this._router.transitionService.onBefore({}, () => {
-      this.menuShown = false;
+      this.hideMenu();
     });
   }
 

@@ -3,14 +3,16 @@ import {
   GET_CONTEXT,
   AFTER_RENDER,
   NOTIFY,
-  DOM_PASS_LISTENERS
+  DOM_PASS_LISTENERS,
+  GET_FIRST_DOM
 } from 'jinge';
 import {
   MENU_PROVIDER
 } from './menu';
 
 const IGNORED_EVENTS = [
-  'touchstart', 'mousedown'
+  // 'touchstart', 'mousedown'
+  'click'
 ];
 
 export class MenuItem extends Component {
@@ -29,8 +31,7 @@ export class MenuItem extends Component {
   e:expanded="expanded"
   e:disabled="disabled"
   e:tabindex="highlighted && -1"
-  on:touchstart="touchstart(args[0])"
-  on:mousedown="mousedown(args[0])"
+  on:click="handleClick"
 >
   <_slot />
 </md-list-item>`;
@@ -54,14 +55,9 @@ export class MenuItem extends Component {
     this._tch = this.triggerCloseMenu.bind(this);
   }
 
-  mousedown($evt) {
+  handleClick(event) {
     !this.disabled && this._Menu.close();
-    this[NOTIFY]('mousedown', $evt);
-  }
-
-  touchstart($evt) {
-    !this.disabled && this._Menu.close();
-    this[NOTIFY]('touchstart', $evt);
+    this[NOTIFY]('click', event);
   }
 
   triggerCloseMenu() {
@@ -71,6 +67,11 @@ export class MenuItem extends Component {
   }
 
   [AFTER_RENDER]() {
-    this[DOM_PASS_LISTENERS](IGNORED_EVENTS);
+    /**
+     * 在移动设备上，只有 <button> 可以响应 click 等全部事件。
+     * 因此，将外部的事件监听全部绑定到 <li> 元素的子元素（<button>或<a>）上。
+     */
+    const $el = this[GET_FIRST_DOM]().children[0];
+    this[DOM_PASS_LISTENERS](IGNORED_EVENTS, $el);
   }
 }

@@ -52,8 +52,8 @@ export class Header extends Component {
     this.locale = locales.find(l => l.locale === i18n.locale).name;
   }
 
-  showMenu() {
-    this[NOTIFY]('open-menu');
+  toggleMenu() {
+    this[NOTIFY]('toggle-menu');
   }
 
   changeLocale(loc) {

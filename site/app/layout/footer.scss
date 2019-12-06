@@ -9,11 +9,10 @@
   margin: auto;
   padding: 16px;
   max-width: 1100px;
+  margin-top: 32px;
 
   @include md-layout-xsmall {
-    height: 152px;
-    flex-direction: column;
-    justify-content: space-around;
+    height: 106px;
   }
 }
 
@@ -27,6 +26,7 @@ div.main-footer-container {
   transition-property: max-width;
 
   @include md-layout-xsmall {
+    align-items: center;
     flex-direction: column;
     justify-content: space-around;
   }
@@ -35,9 +35,6 @@ div.main-footer-container {
     color: var(--md-on-surface-medium);
 
     &:hover {
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-
       .red {
         transform: scale(1.4);
         color: md-get-palette-color(red, 700);
@@ -55,22 +52,15 @@ div.main-footer-container {
 
   + .main-footer-section {
     @include md-layout-xsmall {
-      &::after {
+      &::before {
         width: 60px;
         height: 1px;
         position: absolute;
         top: 0;
         left: 50%;
-        z-index: 1;
-        transform: translate(-50%, -30px);
-        background-color: md-get-palette-color(grey, 400);
+        transform: translate(-50%, -8px);
+        background-color: #{ rgba(md-get-palette-color(grey, 400), 0.6) };
         content: ' ';
-      }
-    }
-
-    a {
-      @include md-layout-xsmall {
-        color: md-get-palette-color(grey, 800);
       }
     }
   }

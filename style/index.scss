@@ -144,6 +144,10 @@ a:not(.md-button) {
   &.md-accent {
     color: var(--md-secondary);
   }
+
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 a.md-button {

@@ -49,6 +49,17 @@
         display: inline-block;
       }
     }
+
+    .md-button.locale {
+      @include md-layout-xsmall {
+        width: 40px;
+        min-width: 40px;
+
+        span {
+          display: none;
+        }
+      }
+    }
   }
 
   &.splash {

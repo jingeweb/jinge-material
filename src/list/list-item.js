@@ -5,7 +5,8 @@ import {
   AFTER_RENDER,
   DOM_PASS_LISTENERS,
   NOTIFY,
-  LISTENERS
+  LISTENERS,
+  GET_FIRST_DOM
 } from 'jinge';
 import {
   interactionEvents
@@ -61,6 +62,15 @@ export class ListItem extends Component {
   }
 
   [AFTER_RENDER]() {
-    this[DOM_PASS_LISTENERS]();
+    if (!this[LISTENERS]) {
+      return;
+    }
+    let el = this[GET_FIRST_DOM]();
+    const tag = this._tag;
+    if (tag === 'button' || tag === 'sref' || tag === 'link') {
+      el = el.children[0];
+    }
+    console.log('lii', el);
+    this[DOM_PASS_LISTENERS](el);
   }
 }

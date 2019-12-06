@@ -25,6 +25,7 @@ export class Drawer extends Component {
   close() {
     this.active = false;
     this[NOTIFY]('update.active', false);
+    this[NOTIFY]('closed');
   }
 }
 

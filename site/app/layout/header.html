@@ -3,7 +3,7 @@
     <ui-sref to="home">
       <a><md-icon class="logo jinge-material-site-logo" src="assets/logo_nc.svg"/></a>
     </ui-sref>
-    <md-button class="md-icon-button menu" on:click="showMenu">
+    <md-button class="md-icon-button menu" on:click="toggleMenu">
       <md-icon-menu/>
     </md-button>
 
@@ -12,7 +12,7 @@
     </div>
 
     <md-menu size="medium">
-      <md-button slot-pass:default>
+      <md-button class="locale" slot-pass:default>
         <md-icon-g_translate/>
         <span>${locale}</span>
       </md-button>    

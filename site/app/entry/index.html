@@ -6,10 +6,10 @@
   } from '../layout';
 -->
 <div class="container${isSplash ? ' splash' : ''}">
-  <Header on:open-menu="menuShown = true" e:isSplash="isSplash"/>
+  <Header on:toggle-menu="menuShown = !menuShown;" e:isSplash="isSplash"/>
 
   <div class="container-wrapper md-layout-row${isSplash ? ' splash' : ''}">
-    <Nav e:menuShown="menuShown" e:isSplash="isSplash"/>
+    <Nav on:hide-menu="menuShown = false;" e:menuShown="menuShown" e:isSplash="isSplash"/>
 
     <ui-view/>
     <Footer/>

@@ -29,13 +29,9 @@
       margin: 0 auto;
     }
 
-    .main-footer-container {
-      align-items: center;
-    }
-
     .main-footer {
       max-width: 100%;
-      padding: 0 16px;
+      margin-top: 0;
       background: var(--md-surface);
 
       a {
