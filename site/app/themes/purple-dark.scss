@@ -1,4 +1,5 @@
 @import 'style/palette.scss';
+@import 'style/themes/purple-dark.scss';
 
 :root {
   --demo-table-row-class-highlight: #{ md-get-palette-color(amber, 200) };

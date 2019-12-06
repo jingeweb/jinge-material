@@ -23,7 +23,8 @@ import {
   router,
   pageState,
   IS_SPLASH_CHANGED,
-  setCurrentLocale
+  setCurrentLocale,
+  TITLE_CHANGED
 } from '../service';
 
 class App extends Component {
@@ -43,9 +44,13 @@ class App extends Component {
     this[SET_CONTEXT](UIROUTER_CONTEXT, router);
 
     this.isSplash = pageState.isSplash;
+    this.appTitle = pageState.title;
     this.menuShown = false;
     pageState[ON](IS_SPLASH_CHANGED, isSplash => {
       this.isSplash = isSplash;
+    });
+    pageState[ON](TITLE_CHANGED, title => {
+      this.appTitle = title;
     });
   }
 }

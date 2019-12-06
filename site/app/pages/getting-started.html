@@ -10,8 +10,9 @@
     <h2 class="md-headline">Jinge Material</h2>
     <p><_t>Jinge Material 是构建在 jinge 框架上的 Material Design 组件库，此处假设你已经知道如何搭建基本的 jinge 框架的项目，比如如何在 webpack 中配置和使用 jinge-loader。</_t></p>
     <NoteBlock><_t>
-      jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。 因此，体验 jinge 框架和 Jinge Material 组件库的最佳方式是直接克隆 jinge-material
-      仓库，或者克隆这个包含 jinge、jinge-ui-router 和 jinge-material 组件库的<a>脚手架项目</a>。
+      jinge 框架还处于实验性的阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。
+      因此，体验 jinge 框架和 Jinge Material 组件库的最佳方式是直接克隆 Jinge Material 的源码仓库。
+      这个仓库包含了所有组件的源码，以及一个涵盖所有组件的使用示例的完整应用（也就是你现在看到的这个网站）。
     </_t></NoteBlock>
   </section>
 
@@ -33,7 +34,8 @@
     </_t></p>
     <p><_t>在项目的入口 js 文件中引入样式和语言包：</_t></p>
     <CodeBlock lang="js">
-      import &apos;jinge-material/dist/jinge-material.default.min.css&apos;;
+      import &apos;jinge-material/dist/themes/default.min.css&apos;;
+      import &apos;jinge-material/dist/jinge-material.min.css&apos;;
       import zhCN from 'jinge-material/dist/locales/zh_cn.min.js';
       import { setLocale } from 'jinge-material/lib/_config';
       setLocale(zhCN);
@@ -43,7 +45,7 @@
       &lt;!-- import { Button } from &apos;jinge-material/lib/button&apos;; --&gt;
       &lt;Button&gt;Click Me&lt;/Button&gt;
     </CodeBlock>
-    <p><_t>Jinge Material 组件库没有默认语言，必须主动引入语言资源并注册。如果项目需要支持多种语言，参看<a>国际化</a>章节。</_t></p>
+    <p><_t>Jinge Material 组件库支持多种样式主题和多种语言，但没有默认的样式或语言。因此，只使用一种样式或语言也需要先主动注册资源。如果项目需要支持多种主题和语言，参看<ui-sref to="i18n">国际化</ui-sref>和<ui-sref to="theme">主题</ui-sref>章节。</_t></p>
   </section>
 
   <section class="page-container-section">
@@ -54,6 +56,7 @@
       的方式引入样式、语言资源和组件库：
     </_t></p>
     <CodeBlock lang="html">
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/jinge-material/dist/themes/default.min.css&quot;/&gt;
       &lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/jinge-material/dist/jinge-material.default.min.css&quot;/&gt;
       &lt;script src=&quot;node_modules/jinge-material/dist/locales/zh_cn.min.js&quot;&gt;&lt;/script&gt;
       &lt;script src=&quot;node_modules/jinge-material/dist/jinge-material.min.js&quot;&gt;&lt;/script&gt;

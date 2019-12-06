@@ -2,7 +2,9 @@ import {
   Component,
   NOTIFY,
   i18n,
-  _t
+  _t,
+  I18N_WATCH,
+  VM
 } from 'jinge';
 import {
   setCurrentLocale,
@@ -21,19 +23,6 @@ const locales = [{
   locale: 'en',
   name: 'English'
 }];
-const themes = [{
-  theme: 'default',
-  name: _t('默认蓝')
-}, {
-  theme: 'default-dark',
-  name: _t('暗夜蓝')
-}, {
-  theme: 'purple',
-  name: _t('炫酷紫')
-}, {
-  theme: 'purple-dark',
-  name: _t('暗夜紫')
-}];
 
 export class Header extends Component {
   static get style() {
@@ -47,8 +36,23 @@ export class Header extends Component {
   constructor(attrs) {
     super(attrs);
     this.isSplash = attrs.isSplash;
+    this.title = attrs.title;
     this._locales = locales;
-    this._themes = themes;
+    this[I18N_WATCH](() => {
+      this.themes = VM([{
+        theme: 'default',
+        name: _t('默认蓝')
+      }, {
+        theme: 'default-dark',
+        name: _t('暗夜蓝')
+      }, {
+        theme: 'purple',
+        name: _t('炫酷紫')
+      }, {
+        theme: 'purple-dark',
+        name: _t('暗夜紫')
+      }]);
+    }, true);
     this.locale = locales.find(l => l.locale === i18n.locale).name;
   }
 

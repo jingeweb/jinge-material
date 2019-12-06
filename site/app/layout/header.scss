@@ -23,6 +23,14 @@
 
       .md-title {
         flex: 1;
+
+        .app-title {
+          display: none;
+
+          @include md-layout-xsmall {
+            display: inline;
+          }
+        }
       }
 
       .md-icon {

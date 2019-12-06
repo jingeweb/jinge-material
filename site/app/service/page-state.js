@@ -20,8 +20,8 @@ class PageStateManager extends Messenger {
 
   set title(v) {
     if (this._title === v) return;
-    this._title = v;
-    document.title = v;
+    this._title = v ? (v + ' - Jinge Material') : 'Jinge Material';
+    document.title = this._title;
     this[NOTIFY](TITLE_CHANGED, v);
   }
 

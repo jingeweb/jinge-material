@@ -9,6 +9,7 @@
 
     <div class="md-title">
       <span class="md-xsmall-hide">Jinge Material</span>
+      <span class="app-title">${title}</span>
     </div>
 
     <md-menu size="medium">
@@ -27,7 +28,7 @@
         <md-icon-color_lens/>
       </md-button>    
       <_slot slot-pass:content>
-        <for e:loop="_themes" vm:each="theme">
+        <for e:loop="themes" vm:each="theme">
         <md-menu-item on:click="changeTheme(theme)">
           <i class="theme-preview ${theme.theme}" />
           ${theme.name}

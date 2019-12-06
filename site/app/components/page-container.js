@@ -33,7 +33,7 @@ export class PageContainer extends Component {
   set title(v) {
     if (this._t === v) return;
     this._t = v;
-    pageState.title = v + ' - Jinge Material';
+    pageState.title = v;
   }
 
   [AFTER_RENDER]() {

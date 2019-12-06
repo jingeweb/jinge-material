@@ -6,7 +6,7 @@
   } from '../layout';
 -->
 <div class="container${isSplash ? ' splash' : ''}">
-  <Header on:toggle-menu="menuShown = !menuShown;" e:isSplash="isSplash"/>
+  <Header e:title="appTitle" on:toggle-menu="menuShown = !menuShown;" e:isSplash="isSplash"/>
 
   <div class="container-wrapper md-layout-row${isSplash ? ' splash' : ''}">
     <Nav on:hide-menu="menuShown = false;" e:menuShown="menuShown" e:isSplash="isSplash"/>
