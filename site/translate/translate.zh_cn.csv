@@ -11,11 +11,11 @@ site/app/layout/nav-content.js,快速上手
 site/app/layout/nav-content.js,主题
 site/app/layout/nav-content.js,路由整合
 site/app/layout/nav-content.js,国际化
-site/app/layout/nav-content.js,UI 元素
-site/app/layout/nav-content.js,阴影
-site/app/layout/nav-content.js,布局
-site/app/layout/nav-content.js,排版
-site/app/layout/nav-content.js,状态
+site/app/layout/nav-content.js,UI 规范
+site/app/layout/nav-content.js,阴影|Elevation
+site/app/layout/nav-content.js,布局|Layout
+site/app/layout/nav-content.js,版式|Typography
+site/app/layout/nav-content.js,状态|States
 site/app/layout/nav-content.js,组件
 site/app/layout/nav-content.js,头像|Avatar
 site/app/layout/nav-content.js,小提示|Badge
@@ -85,10 +85,7 @@ site/app/pages/home/index.html,浏览组件
 site/app/pages/home/index.html,精准实现 Google Material Design 设计规范。
 site/app/pages/home/index.html,适配所有主流的现代浏览器，支持移动设备的响应式。
 site/app/pages/home/index.html,支持多皮肤主题，国际化多语言等丰富全面的功能。
-site/app/pages/advance/use-router.html,jinge 框架没有实现内置的路由功能，取而代之的是基于 @uirouter/core 的 jinge-ui-router 库。在 Jinge Material 组件库中，个别组件可以直接集成 jinge-ui-router 的路由功能。
-site/app/pages/advance/use-router.html,"这些组件目前包括：<UISref to=""components.button"" text=""md-button""/>、<UISref to=""components.list"" text=""md-list-item""/>、<UISref to=""components.bottom-bar"" text=""md-bottom-bar""/> 和 <UISref to=""components.list"" text=""md-tab""/>。在这些组件上，可以直接使用 <code>ui-sref</code> 组件的 to、params、target 和 active 属性。详见这些组件的示例。"
-site/app/pages/advance/use-router.html,需要说明的是，Jinge Material 组件库并不直接依赖 jinge-ui-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 GET_CONTEXT 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装jinge-ui-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中启用 jinge-ui-router，则会报错。
-site/app/pages/advance/use-router.html,路由整合
+site/app/pages/advance/i18n.html,国际化
 site/app/pages/advance/i18n.html,jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。
 site/app/pages/advance/i18n.html,Jinge Material 组件库没有直接依赖 jinge 框架内置的国际化方案，而是自己实现了一套国际化方案。因为使用 Jinge Material 组件的项目不一定需要支持多语言。接下来会分不同的情况，介绍如何使用不同语言的 Jinge Material 组件。
 site/app/pages/advance/i18n.html,使用 npm 或 yarn 包
@@ -106,7 +103,21 @@ site/app/pages/advance/i18n.html,然后在业务 js 代码中，用如下的方�
 site/app/pages/advance/i18n.html,上述代码需要在打包工具中配置对 jinge-material 的引用指向 window.JingeMaterial 对象，比如 webpack.config.js 中配置 externals。
 site/app/pages/advance/i18n.html,补充
 site/app/pages/advance/i18n.html,通过 npm 或 yarn 包的方式使用 jinge-materail，但又一定要用 ajax 的方式按需加载语言资源，可以有不同的实现方式。其中一种方式是，以文本的形式 fetch 到语言资源的源码，然后通过 `new Function()` 的形式包裹并执行该源码，同时传递一个 `JingeMaterial` 对象给上下文：
-site/app/pages/advance/i18n.html,国际化
+site/app/pages/advance/use-router.html,路由整合
+site/app/pages/advance/use-router.html,jinge 框架没有实现内置的路由功能，取而代之的是基于 @uirouter/core 的 jinge-ui-router 库。在 Jinge Material 组件库中，个别组件可以直接集成 jinge-ui-router 的路由功能。
+site/app/pages/advance/use-router.html,"这些组件目前包括：<UISref to=""components.button"" text=""md-button""/>、<UISref to=""components.list"" text=""md-list-item""/>、<UISref to=""components.bottom-bar"" text=""md-bottom-bar""/> 和 <UISref to=""components.list"" text=""md-tab""/>。在这些组件上，可以直接使用 <code>ui-sref</code> 组件的 to、params、target 和 active 属性。详见这些组件的示例。"
+site/app/pages/advance/use-router.html,需要说明的是，Jinge Material 组件库并不直接依赖 jinge-ui-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 GET_CONTEXT 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装jinge-ui-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中启用 jinge-ui-router，则会报错。
+site/app/pages/advance/theme.html,主题
+site/app/pages/advance/theme.html,"Jinge Material 组件库<ui-sref to=""about"">移植自 Vue Material</ui-sref>，但在多主题的支持上，进行了彻底地重构。主要包括两个方面："
+site/app/pages/advance/theme.html,完全依赖 CSS 变量（css3 variable）来实现颜色的指定和色板的切换。
+site/app/pages/advance/theme.html,完全遵循 Material Design 最新的设计规范中关于色板的规定，包括暗色主题。
+site/app/pages/advance/theme.html,预置主题
+site/app/pages/advance/theme.html,Jinge Material 提供了 4 个预先构建好的主题，包括蓝色（default）、紫色（purple）、暗色蓝（default-dark）和暗色紫（purple-dark）。构建好的主题文件位于 <code>dist/themes</code> 目录下，使用时只需要和主样式文件一起加载即可：
+site/app/pages/advance/theme.html,自定义主题
+site/app/pages/advance/theme.html,自定义主题可以通过加载自定义的主题文件（即色板文件）实现。色板里颜色的定义严格遵循 Material Design 的规范。可在参考 dist 目录下构建好的色板 css 文件创建自定义色板文件，也可以参考下面的 scss 源码创建并构建色板文件：
+site/app/pages/advance/theme.html,切换主题
+site/app/pages/advance/theme.html,组件的颜色全部通过 CSS 变量引用色板中定义的颜色，因此切换主题只需要简单地替换色板文件即可。从技术角度讲，替换色板本质上是替换(覆盖) CSS 变量的值。
+site/app/pages/advance/theme.html,有多种方式可以实现替换（覆盖）CSS 变量的值。一种简单的方案是，在 html 中加载默认的色板时，为 <code>link</code> 元素赋予 id 属性，然后在切换主题的 js 逻辑里，通过这个 id 删除旧的<code>link</code> 元素，然后插入一个指向新主题色板的 css 文件的 <code>link</code> 元素。
 site/app/pages/components/subheader/index.html,子标题（Subheader）
 site/app/components/code-example.html,显示示例
 site/app/components/code-example.html,显示 javascript 代码
@@ -114,6 +125,14 @@ site/app/components/code-example.html,显示 html 代码
 site/app/components/code-example.html,显示 scss 代码
 site/app/pages/components/divider/index.html,分隔线 Divider
 site/app/pages/components/file/index.html,文件选择 File
+site/app/pages/ui-elements/states/apis.js,名称
+site/app/pages/ui-elements/states/apis.js,描述
+site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Container，指定状态的容器层。
+site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Overlay，指定状态的悬停层。
+site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Content，指定状态的内容层。
+site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: On Surface 类型。
+site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: Primary 类型。
+site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: On Primary 类型。
 site/app/pages/components/switch/index.html,切换按钮
 site/app/pages/components/switch/index.html,切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。
 site/app/pages/components/switch/index.html,单一模式的切换按钮，这种模式是最常见的使用模式。
@@ -122,7 +141,8 @@ site/app/pages/components/switch/index.html,数组模式的切换按钮，这种
 site/app/pages/components/switch/index.html,数组模式切换按钮
 site/app/pages/components/switch/index.html,和<code>&lt;md-checkbox&gt;</code>完全一样，请参看<code>&lt;md-checkbox&gt;</code>的 API 文档
 site/app/pages/components/switch/index.html,切换按钮 Switch
-site/app/pages/ui-elements/typography/index.html,排版 Typography
+site/app/pages/ui-elements/states/index.html,状态包括悬停，点击，焦点，禁用等情况下的交互响应。Material Design 使用 Content/Overlay/Container 三层模型来统一了状态的设计。
+site/app/pages/ui-elements/states/index.html,状态
 site/app/pages/components/checkbox/index.html,多选框
 site/app/pages/components/checkbox/index.html,多选框有两种使用模式，单一模式（Single)和数组（Array）模式。
 site/app/pages/components/checkbox/index.html,单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。
@@ -206,7 +226,7 @@ site/app/pages/components/button/index.html,图标按钮
 site/app/pages/components/button/index.html,FAB
 site/app/pages/components/button/index.html,Links and Buttons
 site/app/pages/components/button/index.html,UI Router Buttons
-site/app/pages/components/button/index.html,按钮（Button）
+site/app/pages/components/button/index.html,按钮
 site/app/pages/components/select/index.html,下拉选择 Select
 site/app/pages/components/tabs/index.html,标签页 Tabs
 site/app/pages/components/steppers/index.html,步骤条 Steppers
@@ -236,14 +256,23 @@ site/app/pages/components/icon/index.html,Icon Font 图标
 site/app/pages/components/icon/index.html,Font Icon 图标
 site/app/pages/components/icon/index.html,SVG 图标
 site/app/pages/components/icon/index.html,图标 Icon
+site/app/pages/ui-elements/typography/index.html,字体
+site/app/pages/ui-elements/typography/index.html,Material Design 设计规范里的字体为 Roboto，推荐使用 Google Fonts 来加载字体资源。你需要在 html 的头里，加入以下的代码：
+site/app/pages/ui-elements/typography/index.html,"当没有加载 Roboto 字体文件，或遇到 Roboto 字体未涵盖的字符（比如中文字符），会倒退到使用 <a href=""https://ant.design/docs/spec/font"" target=""_blank"">Ant Desgin</a> 里指定的兼容性字体列表："
+site/app/pages/ui-elements/typography/index.html,Material Desgin 设计规范约束了可以使用的文字样式（包括字号、粗细和行距）。Jinge Material 提供了这几类样式的 class 可供使用：
+site/app/pages/ui-elements/typography/index.html,版式
+site/app/pages/ui-elements/elevation/apis.js,名称
+site/app/pages/ui-elements/elevation/apis.js,描述
+site/app/pages/ui-elements/elevation/apis.js,为元素添加阴影（Elevation），深度可以是 1、2、3、4、6、8、12、16 或 24，例如：md-elevation-4。
+site/app/pages/ui-elements/elevation/index.html,"阴影（Elevation）用于指示元素距离表面（Surface）的距离。Material Design 设计规范中定义了 9 种程度的阴影深度，依次是 1, 2, 3, 4, 6, 8, 12, 16, 24。Jinge Material 提供了对应的 9 种 class 可供使用："
 site/app/pages/ui-elements/elevation/index.html,阴影
+site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/api.js,文字提示的内容
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态
 site/app/pages/components/popconfirm/api.js,同 Popover 组件
 site/app/pages/components/popconfirm/api.js,用户点击确认按钮
 site/app/pages/components/popconfirm/api.js,用户点击取消按钮
-site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/index.html,气泡确认框
 site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。
 site/app/pages/components/popconfirm/index.html,气泡确认框 Popconfirm
@@ -267,14 +296,14 @@ site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域
 site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件
 site/app/pages/components/popover/index.html,气泡卡片
 site/app/pages/components/popover/index.html,气泡卡片 Popover
-site/app/pages/components/content/index.html,内容框
-site/app/pages/components/content/index.html,内容框示例
-site/app/pages/components/content/index.html,The following option can be applied to md-content component:
-site/app/pages/components/content/index.html,内容框 Content
 site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：
 site/app/pages/components/popconfirm/examples/simple.html,删除
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：
+site/app/pages/components/content/index.html,内容框
+site/app/pages/components/content/index.html,内容框示例
+site/app/pages/components/content/index.html,The following option can be applied to md-content component:
+site/app/pages/components/content/index.html,内容框 Content
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：
@@ -285,11 +314,11 @@ site/app/pages/components/radio/index.html,简单单选项
 site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:
 site/app/pages/components/radio/index.html,单选项 Radio
 site/app/pages/components/highlight/index.html,文本高亮 Highlight
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：
 site/app/pages/components/radio/examples/simple-radios.html,描述
 site/app/pages/components/radio/examples/simple-radios.html,示例
 site/app/pages/components/radio/examples/simple-radios.html,值
 site/app/pages/components/radio/examples/simple-radios.html,简单选择项
 site/app/pages/components/radio/examples/simple-radios.html,字符串数组
 site/app/pages/components/radio/examples/simple-radios.html,Object 数组
-site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
-site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：

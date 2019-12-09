@@ -1,11 +1,16 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   classes: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
-        name: 'md-elevation-[size]',
-        description: 'Add an elevation to the target element. The size can be 1 to 24. Ex.: <code>md-elevation-4</code>'
+        name: 'md-elevation-[depth]',
+        description: _t('为元素添加阴影（Elevation），深度可以是 1、2、3、4、6、8、12、16 或 24，例如：md-elevation-4。')
       }
     ]
   }
-};
+});

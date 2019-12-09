@@ -45,7 +45,9 @@ import {
   PageTypography,
   PageLayout,
   PageI18N,
-  PageUseRouter
+  PageUseRouter,
+  PageTheme,
+  PageStates
 } from './pages';
 
 export const componentsStates = [{
@@ -229,6 +231,10 @@ export const uiElementsStates = [{
   name: 'ui.typography',
   url: '/typography',
   component: PageTypography
+}, {
+  name: 'ui.states',
+  url: '/states',
+  component: PageStates
 }];
 export const singleStates = [{
   name: 'home',
@@ -242,6 +248,10 @@ export const singleStates = [{
   name: 'i18n',
   url: '/i18n',
   component: PageI18N
+}, {
+  name: 'theme',
+  url: '/theme',
+  component: PageTheme
 }, {
   name: 'use-router',
   url: '/use-router',

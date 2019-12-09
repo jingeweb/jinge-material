@@ -7,7 +7,7 @@
 -->
 <PageContainer centered _t:title="主题">
   <section class="page-container-section">
-    <h2 class="md-headline">主题</h2>
+    <h2 class="md-headline"><_t>主题</_t></h2>
     <p><_t>
       Jinge Material 组件库<ui-sref to="about">移植自 Vue Material</ui-sref>，但在多主题的支持上，进行了彻底地重构。主要包括两个方面：
     </_t></p>
@@ -19,45 +19,56 @@
   <section class="page-container-section">
     <h2 class="md-title"><_t>预置主题</_t></h2>
     <p><_t>
-      Jinge Material 提供了 4 个预先构建好的主题，包括
+      Jinge Material 提供了 4 个预先构建好的主题，包括蓝色（default）、紫色（purple）、暗色蓝（default-dark）和暗色紫（purple-dark）。
+      构建好的主题文件位于 <code>dist/themes</code> 目录下，使用时只需要和主样式文件一起加载即可：
     </_t></p>
-    <p><_t>具体来讲，在 html 文件中，用如下的方式加载 script：</_t></p>
     <CodeBlock lang="html">
-      &lt;script src=&quot;jinge-material/dist/js/jinge-material.min.js&quot;&gt;&lt;/script&gt;
-      &lt;script src=&quot;jinge-material/dist/locales/zh_cn.min.js&quot;&gt;&lt;/script&gt;
-      &lt;script src=&quot;jinge-material/dist/locales/en.min.js&quot;&gt;&lt;/script&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/jinge-material/dist/themes/default.min.css&quot;/&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/jinge-material/dist/jinge-material.min.css&quot;/&gt;
     </CodeBlock>
-    <p><_t>也可以一次性加载涵盖所有语言资源的包（Gzip 压缩和 CDN 加载后，加载全部语言资源也几乎不影响启动速度）：</_t></p>
-    <CodeBlock lang="html">
-      &lt;script src=&quot;jinge-material/dist/js/jinge-material-with-locales.min.js&quot;&gt;&lt;/script&gt;
-    </CodeBlock>
-    <p><_t>然后在业务 js 代码中，用如下的方式配置默认语言（或切换语言）：</_t></p>
-    <CodeBlock lang="js">
-      import {
-        locales,
-        setLocale
-      } from 'jinge-material';
-      
-      setLocale(locales['zh_cn']);
-    </CodeBlock>
-    <p><_t>上述代码需要在打包工具中配置对 jinge-material 的引用指向 window.JingeMaterial 对象，比如 webpack.config.js 中配置 externals。</_t></p>
   </section>
   <section class="page-container-section">
-    <h2 class="md-title"><_t>补充</_t></h2>
-    <p><_t>通过 npm 或 yarn 包的方式使用 jinge-materail，但又一定要用 ajax 的方式按需加载语言资源，可以有不同的实现方式。其中一种方式是，以文本的形式 fetch 到语言资源的源码，然后通过 `new Function()` 的形式包裹并执行该源码，同时传递一个 `JingeMaterial` 对象给上下文：</_t></p>
-    <CodeBlock lang="js">
-      import {
-        setLocale
-      } from 'jinge-material/_config';
-      
-      const locales = {};
-      const locale = 'zh_cn';
-      fetch(`jinge-material/dist/locales/${locale}.js`).then(res => res.text()).then(code => {
-        new Function('JingeMaterial', code)({
-          locales
-        });
-        setLocale(locales[locale]);
-      });
+    <h2 class="md-title"><_t>自定义主题</_t></h2>
+    <p><_t>
+      自定义主题可以通过加载自定义的主题文件（即色板文件）实现。色板里颜色的定义严格遵循 Material Design 的规范。
+      可在参考 dist 目录下构建好的色板 css 文件创建自定义色板文件，也可以参考下面的 scss 源码创建并构建色板文件：
+    </_t></p>
+    <CodeBlock lang="scss">
+      @import 'jinge-material/style/themes/_elevation.scss';
+
+      :root {
+        @include theme-elevation(false, #fff);
+
+        --md-primary: #3f51b5;
+        --md-secondary: #ff4081;
+        --md-background: #fff;
+        --md-surface: #fff;
+        --md-surface-disabled: rgba(0, 0, 0, 0.12);
+        --md-error: #b00020;
+        --md-on-primary: #fff;
+        --md-on-primary-medium: rgba(255, 255, 255, 0.74);
+        --md-on-primary-disabled: rgba(255, 255, 255, 0.38);
+        --md-on-secondary: #fff;
+        --md-on-secondary-disabled: rgba(255, 255, 255, 0.38);
+        --md-on-background: #000;
+        --md-on-surface: rgba(0, 0, 0, 0.87);
+        --md-on-surface-medium: rgba(0, 0, 0, 0.6);
+        --md-on-surface-disabled: rgba(0, 0, 0, 0.38);
+        --md-on-error: #fff;
+        --md-outline: rgba(0, 0, 0, 0.12);
+      }
     </CodeBlock>
+  </section>
+  <section class="page-container-section">
+    <h2 class="md-title"><_t>切换主题</_t></h2>
+    <p><_t>
+      组件的颜色全部通过 CSS 变量引用色板中定义的颜色，因此切换主题只需要简单地替换色板文件即可。
+      从技术角度讲，替换色板本质上是替换(覆盖) CSS 变量的值。 
+    </_t></p>
+    <p><_t>
+      有多种方式可以实现替换（覆盖）CSS 变量的值。一种简单的方案是，在 html 中加载默认的色板时，
+      为 <code>link</code> 元素赋予 id 属性，然后在切换主题的 js 逻辑里，通过这个 id 删除旧的
+      <code>link</code> 元素，然后插入一个指向新主题色板的 css 文件的 <code>link</code> 元素。
+    </_t></p>
   </section>
 </PageContainer>

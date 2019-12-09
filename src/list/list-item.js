@@ -70,7 +70,6 @@ export class ListItem extends Component {
     if (tag === 'button' || tag === 'sref' || tag === 'link') {
       el = el.children[0];
     }
-    console.log('lii', el);
     this[DOM_PASS_LISTENERS](el);
   }
 }

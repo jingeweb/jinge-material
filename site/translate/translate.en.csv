@@ -1,52 +1,15 @@
 location,zh_cn,en
-site/app/pages/getting-started.html,Jinge Material 是构建在 jinge 框架上的 Material Design 组件库，此处假设你已经知道如何搭建基本的 jinge 框架的项目，比如如何在 webpack 中配置和使用 jinge-loader。,
-site/app/pages/getting-started.html,jinge 框架还处于实验性的阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。因此，体验 jinge 框架和 Jinge Material 组件库的最佳方式是直接克隆 Jinge Material 的源码仓库。这个仓库包含了所有组件的源码，以及一个涵盖所有组件的使用示例的完整应用（也就是你现在看到的这个网站）。,
-site/app/pages/getting-started.html,安装,
-site/app/pages/getting-started.html,要使用 Jinge Material 组件库，需要先通过 npm 或 yarn 的方式安装：,
-site/app/pages/getting-started.html,使用,
-site/app/pages/getting-started.html,我们推荐使用编译后的发布版本，样式文件位于 jinge-material/dist 目录下，组件文件位于 jinge-material/lib 目录下。同时，我们推荐按需引入组件，这样可以获得最快地构建速度和开发体验。,
-site/app/pages/getting-started.html,在项目的入口 js 文件中引入样式和语言包：,
-site/app/pages/getting-started.html,在模板 html 文件中按需使用组件：,
-site/app/pages/getting-started.html,"Jinge Material 组件库支持多种样式主题和多种语言，但没有默认的样式或语言。因此，只使用一种样式或语言也需要先主动注册资源。如果项目需要支持多种主题和语言，参看<ui-sref to=""i18n"">国际化</ui-sref>和<ui-sref to=""theme"">主题</ui-sref>章节。",
-site/app/pages/getting-started.html,浏览器引入,
-site/app/pages/getting-started.html,对于微服务架构的大型前端项目，可能多个动态加载的服务/模块都会使用 jinge 框架和Jinge Material 组件库，这种情况下需要在项目入口 index.html 中通过 script的方式引入样式、语言资源和组件库：,
-site/app/pages/getting-started.html,然后在模板 html 文中可以简单地引用组件：,
-site/app/pages/getting-started.html,上述代码需要配置打包工具的外部依赖（比如 webpack 的 externals），让 jinge-material 实际指向 window.JingeMaterial 对象。,
-site/app/pages/getting-started.html,使用组件别名,
-site/app/pages/getting-started.html,jinge 框架支持注册自定义组件别名，这样在模板 html 文件中可以不需要引入组件而直接使用。Jinge Material 组件库提供了默认的别名，只需要在 webpack.config.js 文件中注册即可：,
-site/app/pages/getting-started.html,注册别名后，在模板 html 文件中，可以直接使用 <code>md-[component]</code> 这样格式的别名：,
-site/app/pages/getting-started.html,按需加载样式,
-site/app/pages/getting-started.html,上述的使用方式，都会完整引入全部的样式文件。你可以通过直接使用 Jinge Material 源码的形式，来按需加载样式和组件。你可以克隆这个脚手架项目，里面有完整的 webpack 的配置文件示例，此处不再赘述。,
-site/app/pages/getting-started.html,快速上手,
-site/app/pages/advance/use-router.html,jinge 框架没有实现内置的路由功能，取而代之的是基于 @uirouter/core 的 jinge-ui-router 库。在 Jinge Material 组件库中，个别组件可以直接集成 jinge-ui-router 的路由功能。,
-site/app/pages/advance/use-router.html,"这些组件目前包括：<UISref to=""components.button"" text=""md-button""/>、<UISref to=""components.list"" text=""md-list-item""/>、<UISref to=""components.bottom-bar"" text=""md-bottom-bar""/> 和 <UISref to=""components.list"" text=""md-tab""/>。在这些组件上，可以直接使用 <code>ui-sref</code> 组件的 to、params、target 和 active 属性。详见这些组件的示例。",
-site/app/pages/advance/use-router.html,需要说明的是，Jinge Material 组件库并不直接依赖 jinge-ui-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 GET_CONTEXT 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装jinge-ui-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中启用 jinge-ui-router，则会报错。,
-site/app/pages/advance/use-router.html,路由整合,
-site/app/pages/advance/i18n.html,jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。,
-site/app/pages/advance/i18n.html,Jinge Material 组件库没有直接依赖 jinge 框架内置的国际化方案，而是自己实现了一套国际化方案。因为使用 Jinge Material 组件的项目不一定需要支持多语言。接下来会分不同的情况，介绍如何使用不同语言的 Jinge Material 组件。,
-site/app/pages/advance/i18n.html,使用 npm 或 yarn 包,
-site/app/pages/advance/i18n.html,项目只使用一种语言,
-site/app/pages/advance/i18n.html,如果只需要支持一种语言，只需要在项目的入口文件里，加入以下的代码：,
-site/app/pages/advance/i18n.html,Jinge Material 组件库没有默认的语言，因此必须指定语言并引入语言资源。,
-site/app/pages/advance/i18n.html,项目使用多种语言,
-site/app/pages/advance/i18n.html,如果需要支持多种语言，建议一次性将项目需要支持的语言资源全部引入。这样做的好处是切换语言时不再需要额外的通过 ajax 加载资源的逻辑，并且 Jinge Material 的语言资源也很小，不会引入带宽负担。加载的资源可以存放在某个 service 中，比如：,
-site/app/pages/advance/i18n.html,然后将上述的 service 暴露给业务层，比如项目的入口文件设置默认语言，或者在某个按钮的点击事件中切换语言：,
-site/app/pages/advance/i18n.html,使用浏览器引入的 script,
-site/app/pages/advance/i18n.html,通过浏览器引入 script 的方式使用 Jinge Material 时，多语言资源文件需要保证在 jinge-material.min.js 文件之后执行。语言资源文件会向 `JingeMaterial` 对象的 `locales` 属性字典写入对应的值。然后在业务代码中，只需要使用这个 `locales` 属性，即可得到所有语言资源。,
-site/app/pages/advance/i18n.html,具体来讲，在 html 文件中，用如下的方式加载 script：,
-site/app/pages/advance/i18n.html,也可以一次性加载涵盖所有语言资源的包（Gzip 压缩和 CDN 加载后，加载全部语言资源也几乎不影响启动速度）：,
-site/app/pages/advance/i18n.html,然后在业务 js 代码中，用如下的方式配置默认语言（或切换语言）：,
-site/app/pages/advance/i18n.html,上述代码需要在打包工具中配置对 jinge-material 的引用指向 window.JingeMaterial 对象，比如 webpack.config.js 中配置 externals。,
-site/app/pages/advance/i18n.html,补充,
-site/app/pages/advance/i18n.html,通过 npm 或 yarn 包的方式使用 jinge-materail，但又一定要用 ajax 的方式按需加载语言资源，可以有不同的实现方式。其中一种方式是，以文本的形式 fetch 到语言资源的源码，然后通过 `new Function()` 的形式包裹并执行该源码，同时传递一个 `JingeMaterial` 对象给上下文：,
-site/app/pages/advance/i18n.html,国际化,
 site/app/pages/components/subheader/index.html,子标题（Subheader）,
-site/app/components/code-example.html,显示示例,
-site/app/components/code-example.html,显示 javascript 代码,
-site/app/components/code-example.html,显示 html 代码,
-site/app/components/code-example.html,显示 scss 代码,
 site/app/pages/components/divider/index.html,分隔线 Divider,
 site/app/pages/components/file/index.html,文件选择 File,
+site/app/pages/ui-elements/states/apis.js,名称,
+site/app/pages/ui-elements/states/apis.js,描述,
+site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Container，指定状态的容器层。,
+site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Overlay，指定状态的悬停层。,
+site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Content，指定状态的内容层。,
+site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: On Surface 类型。,
+site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: Primary 类型。,
+site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: On Primary 类型。,
 site/app/pages/components/switch/index.html,切换按钮,
 site/app/pages/components/switch/index.html,切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。,
 site/app/pages/components/switch/index.html,单一模式的切换按钮，这种模式是最常见的使用模式。,
@@ -55,7 +18,6 @@ site/app/pages/components/switch/index.html,数组模式的切换按钮，这种
 site/app/pages/components/switch/index.html,数组模式切换按钮,
 site/app/pages/components/switch/index.html,和<code>&lt;md-checkbox&gt;</code>完全一样，请参看<code>&lt;md-checkbox&gt;</code>的 API 文档,
 site/app/pages/components/switch/index.html,切换按钮 Switch,
-site/app/pages/components/checkbox/index.html,多选框,
 site/app/pages/components/checkbox/index.html,多选框有两种使用模式，单一模式（Single)和数组（Array）模式。,
 site/app/pages/components/checkbox/index.html,单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。,
 site/app/pages/components/checkbox/index.html,单一模式多选框,
@@ -136,7 +98,7 @@ site/app/pages/components/button/index.html,图标按钮,
 site/app/pages/components/button/index.html,FAB,
 site/app/pages/components/button/index.html,Links and Buttons,
 site/app/pages/components/button/index.html,UI Router Buttons,
-site/app/pages/components/button/index.html,按钮（Button）,
+site/app/pages/components/button/index.html,按钮,
 site/app/pages/components/select/index.html,下拉选择 Select,
 site/app/pages/components/tabs/index.html,标签页 Tabs,
 site/app/pages/components/steppers/index.html,步骤条 Steppers,
@@ -166,14 +128,18 @@ site/app/pages/components/icon/index.html,Icon Font 图标,
 site/app/pages/components/icon/index.html,Font Icon 图标,
 site/app/pages/components/icon/index.html,SVG 图标,
 site/app/pages/components/icon/index.html,图标 Icon,
-site/app/pages/ui-elements/elevation/index.html,阴影,
+site/app/pages/ui-elements/typography/index.html,字体,
+site/app/pages/ui-elements/typography/index.html,Material Design 设计规范里的字体为 Roboto，推荐使用 Google Fonts 来加载字体资源。你需要在 html 的头里，加入以下的代码：,
+site/app/pages/ui-elements/typography/index.html,"当没有加载 Roboto 字体文件，或遇到 Roboto 字体未涵盖的字符（比如中文字符），会倒退到使用 <a href=""https://ant.design/docs/spec/font"" target=""_blank"">Ant Desgin</a> 里指定的兼容性字体列表：",
+site/app/pages/ui-elements/typography/index.html,Material Desgin 设计规范约束了可以使用的文字样式（包括字号、粗细和行距）。Jinge Material 提供了这几类样式的 class 可供使用：,
+site/app/pages/ui-elements/typography/index.html,版式,
+site/app/pages/components/popconfirm/examples/simple.js,未命名,
 site/app/pages/components/popconfirm/api.js,文字提示的内容,
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。,
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态,
 site/app/pages/components/popconfirm/api.js,同 Popover 组件,
 site/app/pages/components/popconfirm/api.js,用户点击确认按钮,
 site/app/pages/components/popconfirm/api.js,用户点击取消按钮,
-site/app/pages/components/popconfirm/examples/simple.js,未命名,
 site/app/pages/components/popconfirm/index.html,气泡确认框,
 site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。,
 site/app/pages/components/popconfirm/index.html,气泡确认框 Popconfirm,
@@ -197,14 +163,14 @@ site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域
 site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件,
 site/app/pages/components/popover/index.html,气泡卡片,
 site/app/pages/components/popover/index.html,气泡卡片 Popover,
-site/app/pages/components/content/index.html,内容框,
-site/app/pages/components/content/index.html,内容框示例,
-site/app/pages/components/content/index.html,The following option can be applied to md-content component:,
-site/app/pages/components/content/index.html,内容框 Content,
 site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：,
 site/app/pages/components/popconfirm/examples/simple.html,删除,
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,
+site/app/pages/components/content/index.html,内容框,
+site/app/pages/components/content/index.html,内容框示例,
+site/app/pages/components/content/index.html,The following option can be applied to md-content component:,
+site/app/pages/components/content/index.html,内容框 Content,
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：,
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！,
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：,
@@ -215,14 +181,14 @@ site/app/pages/components/radio/index.html,简单单选项,
 site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:,
 site/app/pages/components/radio/index.html,单选项 Radio,
 site/app/pages/components/highlight/index.html,文本高亮 Highlight,
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：,
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：,
 site/app/pages/components/radio/examples/simple-radios.html,描述,
 site/app/pages/components/radio/examples/simple-radios.html,示例,
 site/app/pages/components/radio/examples/simple-radios.html,值,
 site/app/pages/components/radio/examples/simple-radios.html,简单选择项,
 site/app/pages/components/radio/examples/simple-radios.html,字符串数组,
 site/app/pages/components/radio/examples/simple-radios.html,Object 数组,
-site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：,
-site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：,
 site/app/layout/header.js,默认蓝,Default
 site/app/layout/header.js,暗夜蓝,Default-Dark
 site/app/layout/header.js,炫酷紫,Purple
@@ -235,11 +201,11 @@ site/app/layout/nav-content.js,快速上手,Getting Started
 site/app/layout/nav-content.js,主题,Theme
 site/app/layout/nav-content.js,路由整合,Router
 site/app/layout/nav-content.js,国际化,I18N
-site/app/layout/nav-content.js,UI 元素,UI
-site/app/layout/nav-content.js,阴影,Elevation
-site/app/layout/nav-content.js,布局,Layout
-site/app/layout/nav-content.js,排版,Typography
-site/app/layout/nav-content.js,状态,States
+site/app/layout/nav-content.js,UI 规范,UI
+site/app/layout/nav-content.js,阴影|Elevation,Elevation
+site/app/layout/nav-content.js,布局|Layout,Layout
+site/app/layout/nav-content.js,版式|Typography,Typography
+site/app/layout/nav-content.js,状态|States,States
 site/app/layout/nav-content.js,组件,Components
 site/app/layout/nav-content.js,头像|Avatar,Avatar
 site/app/layout/nav-content.js,小提示|Badge,Badge
@@ -279,6 +245,25 @@ site/app/layout/nav-content.js,悬浮提示|Tooltip,Tooltip
 site/app/layout/nav-content.js,关于,Abount
 site/app/layout/nav-content.js,许可证,License
 site/app/pages/home/index.js,Jinge Material - 构建在 Jinge 框架上的 Material Design 组件库,Jinge Material - Material Desgin components built on jinge framework
+site/app/pages/getting-started.html,Jinge Material 是构建在 jinge 框架上的 Material Design 组件库，此处假设你已经知道如何搭建基本的 jinge 框架的项目，比如如何在 webpack 中配置和使用 jinge-loader。,"Jinge Material is a Material Design component library built on the jinge framework. It is assumed here that you already know how to build a basic jinge framework project, such as how to configure and use jinge-loader in webpack."
+site/app/pages/getting-started.html,jinge 框架还处于实验性的阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。因此，体验 jinge 框架和 Jinge Material 组件库的最佳方式是直接克隆 Jinge Material 的源码仓库。这个仓库包含了所有组件的源码，以及一个涵盖所有组件的使用示例的完整应用（也就是你现在看到的这个网站）。,"The jinge framework is still experimental, and there is almost no documentation. The documentation for the Jinge Material component library here is also not guaranteed to be valid. Therefore, the best way to experience the jinge framework and Jinge Material component library is to clone Jinge Material's source code repository directly. This repository contains the source code for all components, as well as a complete application that covers all component usage examples (that is, the website you see now)."
+site/app/pages/getting-started.html,安装,Install
+site/app/pages/getting-started.html,要使用 Jinge Material 组件库，需要先通过 npm 或 yarn 的方式安装：,"To use the Jinge Material component library, you need to install it through npm or yarn first:"
+site/app/pages/getting-started.html,使用,Usage
+site/app/pages/getting-started.html,我们推荐使用编译后的发布版本，样式文件位于 jinge-material/dist 目录下，组件文件位于 jinge-material/lib 目录下。同时，我们推荐按需引入组件，这样可以获得最快地构建速度和开发体验。,"We recommend using the compiled release version. The style files are located in the jinge-material/dist directory and the component files are located in the jinge-material/lib directory. At the same time, we recommend introducing components as needed to get the fastest build speed and development experience."
+site/app/pages/getting-started.html,在项目的入口 js 文件中引入样式和语言包：,Introduce styles and language packs in the project's entry js file:
+site/app/pages/getting-started.html,在模板 html 文件中按需使用组件：,Use components as needed in the template html file:
+site/app/pages/getting-started.html,"Jinge Material 组件库支持多种样式主题和多种语言，但没有默认的样式或语言。因此，只使用一种样式或语言也需要先主动注册资源。如果项目需要支持多种主题和语言，参看<ui-sref to=""i18n"">国际化</ui-sref>和<ui-sref to=""theme"">主题</ui-sref>章节。","Jinge Material component library supports multiple style themes and multiple languages, but there is no default style or language. Therefore, using only one style or language also requires proactive registration of resources. If your project needs to support multiple themes and languages, see the <ui-sref to=""i18n"">I18N</ui-sref> and <ui-sref to=""theme"">Theme</ui-sref> sections."
+site/app/pages/getting-started.html,浏览器引入,Import in Browser
+site/app/pages/getting-started.html,对于微服务架构的大型前端项目，可能多个动态加载的服务/模块都会使用 jinge 框架和Jinge Material 组件库，这种情况下需要在项目入口 index.html 中通过 script的方式引入样式、语言资源和组件库：,"For a large front-end project with a microservice architecture, it is possible that multiple dynamically loaded services / modules will use the jinge framework and the Jinge Material component library. In this case, you need to introduce styles, language resources and Component library:"
+site/app/pages/getting-started.html,然后在模板 html 文中可以简单地引用组件：,Then you can simply reference the component in the template html text:
+site/app/pages/getting-started.html,上述代码需要配置打包工具的外部依赖（比如 webpack 的 externals），让 jinge-material 实际指向 window.JingeMaterial 对象。,The above code needs to configure the external dependencies of the packaging tool (such as webpack externals) so that jinge-material actually points to the window.JingeMaterial object.
+site/app/pages/getting-started.html,使用组件别名,Using component aliases
+site/app/pages/getting-started.html,jinge 框架支持注册自定义组件别名，这样在模板 html 文件中可以不需要引入组件而直接使用。Jinge Material 组件库提供了默认的别名，只需要在 webpack.config.js 文件中注册即可：,"The jinge framework supports registering custom component aliases, so that you can use them directly in the template html file without importing components. The Jinge Material component library provides default aliases, just register in the webpack.config.js file:"
+site/app/pages/getting-started.html,注册别名后，在模板 html 文件中，可以直接使用 <code>md-[component]</code> 这样格式的别名：,"After registering the alias, in the template html file, you can use the alias of the form <code>md-[component]</ code> directly:"
+site/app/pages/getting-started.html,按需加载样式,Load styles on demand
+site/app/pages/getting-started.html,上述的使用方式，都会完整引入全部的样式文件。你可以通过直接使用 Jinge Material 源码的形式，来按需加载样式和组件。你可以克隆这个脚手架项目，里面有完整的 webpack 的配置文件示例，此处不再赘述。,"The above usage methods will completely load all the style files. You can load styles and components on demand by using Jinge Material source code directly. You can clone this scaffolding project, which contains a complete example of a webpack configuration file, which will not be repeated here."
+site/app/pages/getting-started.html,快速上手,Getting Started
 site/app/pages/about.html,构建在 Jinge 框架上的 Material Design 组件库,Material Desgin components built on jinge framework
 site/app/pages/about.html,作者,Author
 site/app/pages/about.html,项目介绍,Introduction
@@ -290,6 +275,50 @@ site/app/pages/home/index.html,浏览组件,Components
 site/app/pages/home/index.html,精准实现 Google Material Design 设计规范。,Built exactly according to the Google Material Design specs.
 site/app/pages/home/index.html,适配所有主流的现代浏览器，支持移动设备的响应式。,Fit on every screen with support for all modern Web and Mobile Browsers.
 site/app/pages/home/index.html,支持多皮肤主题，国际化多语言等丰富全面的功能。,"Support multi-themes, i18n and more features."
-site/app/pages/ui-elements/typography/index.html,排版 Typography,Typography
+site/app/pages/advance/i18n.html,国际化,I18N
+site/app/pages/advance/i18n.html,jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。,The jinge framework is still experimental and there is almost no documentation. The documentation for the Jinge Material component library here is also not guaranteed to be valid.
+site/app/pages/advance/i18n.html,Jinge Material 组件库没有直接依赖 jinge 框架内置的国际化方案，而是自己实现了一套国际化方案。因为使用 Jinge Material 组件的项目不一定需要支持多语言。接下来会分不同的情况，介绍如何使用不同语言的 Jinge Material 组件。,"The Jinge Material component library does not directly rely on the internationalization scheme built into the jinge framework, but implements a set of internationalization schemes by itself. Because projects using Jinge Material components do not necessarily need to support multiple languages. Next, I will introduce how to use Jinge Material components in different languages in different situations."
+site/app/pages/advance/i18n.html,使用 npm 或 yarn 包,Use npm or yarn packages
+site/app/pages/advance/i18n.html,项目只使用一种语言,Project uses only one language
+site/app/pages/advance/i18n.html,如果只需要支持一种语言，只需要在项目的入口文件里，加入以下的代码：,"If you only need to support one language, just add the following code to the project's entry file:"
+site/app/pages/advance/i18n.html,Jinge Material 组件库没有默认的语言，因此必须指定语言并引入语言资源。,"The Jinge Material component library does not have a default language, so you must specify a language and import language resources."
+site/app/pages/advance/i18n.html,项目使用多种语言,Project uses multiple languages
+site/app/pages/advance/i18n.html,如果需要支持多种语言，建议一次性将项目需要支持的语言资源全部引入。这样做的好处是切换语言时不再需要额外的通过 ajax 加载资源的逻辑，并且 Jinge Material 的语言资源也很小，不会引入带宽负担。加载的资源可以存放在某个 service 中，比如：,"If you need to support multiple languages, it is recommended to introduce all the language resources that the project needs to support at one time. The advantage of this is that no additional logic for loading resources through ajax is needed when switching languages, and the language resources of Jinge Material are also very small, which will not introduce bandwidth burden. Loaded resources can be stored in a service, such as:"
+site/app/pages/advance/i18n.html,然后将上述的 service 暴露给业务层，比如项目的入口文件设置默认语言，或者在某个按钮的点击事件中切换语言：,"Then expose the above service to the business layer, such as setting the default language for the entry file of the project, or switching the language in the event of a button click:"
+site/app/pages/advance/i18n.html,使用浏览器引入的 script,Import script in browser
+site/app/pages/advance/i18n.html,通过浏览器引入 script 的方式使用 Jinge Material 时，多语言资源文件需要保证在 jinge-material.min.js 文件之后执行。语言资源文件会向 `JingeMaterial` 对象的 `locales` 属性字典写入对应的值。然后在业务代码中，只需要使用这个 `locales` 属性，即可得到所有语言资源。,"When using Jinge Material through the browser to import script, the multilingual resource file needs to be guaranteed to be executed after the jinge-material.min.js file. The language resource file writes the corresponding values to the locales attribute dictionary of the JingeMaterial object. Then in the business code, just use this `locales` property to get all the language resources."
+site/app/pages/advance/i18n.html,具体来讲，在 html 文件中，用如下的方式加载 script：,"Specifically, in the html file, load the script as follows:"
+site/app/pages/advance/i18n.html,也可以一次性加载涵盖所有语言资源的包（Gzip 压缩和 CDN 加载后，加载全部语言资源也几乎不影响启动速度）：,"It is also possible to load a package that covers all language resources at once (after Gzip compression and CDN loading, loading all language resources has almost no impact on startup speed):"
+site/app/pages/advance/i18n.html,然后在业务 js 代码中，用如下的方式配置默认语言（或切换语言）：,"Then in the business js code, configure the default language (or switch languages) as follows:"
+site/app/pages/advance/i18n.html,上述代码需要在打包工具中配置对 jinge-material 的引用指向 window.JingeMaterial 对象，比如 webpack.config.js 中配置 externals。,"The above code needs to configure the reference to jinge-material in the packaging tool to point to the window.JingeMaterial object, such as externals in webpack.config.js."
+site/app/pages/advance/i18n.html,补充,Supplement
+site/app/pages/advance/i18n.html,通过 npm 或 yarn 包的方式使用 jinge-materail，但又一定要用 ajax 的方式按需加载语言资源，可以有不同的实现方式。其中一种方式是，以文本的形式 fetch 到语言资源的源码，然后通过 `new Function()` 的形式包裹并执行该源码，同时传递一个 `JingeMaterial` 对象给上下文：,"If you wan’t to use jinge-materail through npm or yarn packages and use ajax to load language resources on demand, there are different implementations. One way is to fetch the source code of the language resource in text form, then wrap and execute the source code in the form of `new Function ()`, while passing a `JingeMaterial` object to the context:"
+site/app/pages/advance/use-router.html,路由整合,Use Router
+site/app/pages/advance/use-router.html,jinge 框架没有实现内置的路由功能，取而代之的是基于 @uirouter/core 的 jinge-ui-router 库。在 Jinge Material 组件库中，个别组件可以直接集成 jinge-ui-router 的路由功能。,"The jinge framework does not implement built-in routing functions, instead it uses the jinge-ui-router library based on @uirouter/core. In the Jinge Material component library, individual components can directly integrate the routing functions of jinge-ui-router."
+site/app/pages/advance/use-router.html,"这些组件目前包括：<UISref to=""components.button"" text=""md-button""/>、<UISref to=""components.list"" text=""md-list-item""/>、<UISref to=""components.bottom-bar"" text=""md-bottom-bar""/> 和 <UISref to=""components.list"" text=""md-tab""/>。在这些组件上，可以直接使用 <code>ui-sref</code> 组件的 to、params、target 和 active 属性。详见这些组件的示例。","These components currently include: <UISref to=""components.button"" text=""md-button""/>, <UISref to=""components.list"" text=""md-list-item""/>, <UISref to=""components.bottom-bar"" text=""md-bottom-bar""/> and <UISref to=""components.list"" text=""md-tab""/>. On these components, you can use the to, params, target, and active attributes of the <code>ui-sref</ code> component directly. See examples of these components for details."
+site/app/pages/advance/use-router.html,需要说明的是，Jinge Material 组件库并不直接依赖 jinge-ui-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 GET_CONTEXT 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装jinge-ui-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中启用 jinge-ui-router，则会报错。,"It should be noted that the Jinge Material component library does not directly rely on jinge-ui-router, but uses the context of the jinge framework to obtain the router in the context through GET_CONTEXT when needed. In other words, if you do not need to use the routing function of the above components, you do not need to install the jinge-ui-router library. However, if the routing function is used (the to attribute is specified for the above components) and jinge-ui-router is not enabled in the entire project, an error will be reported."
+site/app/pages/advance/theme.html,主题,Theme
+site/app/pages/advance/theme.html,"Jinge Material 组件库<ui-sref to=""about"">移植自 Vue Material</ui-sref>，但在多主题的支持上，进行了彻底地重构。主要包括两个方面：","Jinge Material component library is <ui-sref to = ""about"">ported from vue-material</ ui-sref>, but it has been completely refactored with support for multiple themes. It mainly includes two aspects:"
+site/app/pages/advance/theme.html,完全依赖 CSS 变量（css3 variable）来实现颜色的指定和色板的切换。,Completely rely on CSS variable to achieve the color designation and swatch switching.
+site/app/pages/advance/theme.html,完全遵循 Material Design 最新的设计规范中关于色板的规定，包括暗色主题。,"Full compliance with Material Design’s latest design specifications, including dark theme."
+site/app/pages/advance/theme.html,预置主题,Pre-built themes
+site/app/pages/advance/theme.html,Jinge Material 提供了 4 个预先构建好的主题，包括蓝色（default）、紫色（purple）、暗色蓝（default-dark）和暗色紫（purple-dark）。构建好的主题文件位于 <code>dist/themes</code> 目录下，使用时只需要和主样式文件一起加载即可：,"Jinge Material provides 4 pre-built themes, including default, purple, default-dark and purple-dark. The theme files are located at <code>dist/themes</ code> directory. You only need to load it with the main style file when using it:"
+site/app/pages/advance/theme.html,自定义主题,Custom themes
+site/app/pages/advance/theme.html,自定义主题可以通过加载自定义的主题文件（即色板文件）实现。色板里颜色的定义严格遵循 Material Design 的规范。可在参考 dist 目录下构建好的色板 css 文件创建自定义色板文件，也可以参考下面的 scss 源码创建并构建色板文件：,"Custom themes can be implemented by loading custom theme files (ie palette files). The definition of colors in palette strictly follows the specifications of Material Design. You can create a custom palette file in the referenced css file located at the dist directory, or you can refer to the following scss source code to create and build a palette file:"
+site/app/pages/advance/theme.html,切换主题,Switch theme
+site/app/pages/advance/theme.html,组件的颜色全部通过 CSS 变量引用色板中定义的颜色，因此切换主题只需要简单地替换色板文件即可。从技术角度讲，替换色板本质上是替换(覆盖) CSS 变量的值。,"The colors of the components all refer to the colors defined in the palette through CSS variables, so switching themes requires simply replacing the palette. Technically speaking, replacing a palette is essentially replacing (overriding) the value of a CSS variable."
+site/app/pages/advance/theme.html,有多种方式可以实现替换（覆盖）CSS 变量的值。一种简单的方案是，在 html 中加载默认的色板时，为 <code>link</code> 元素赋予 id 属性，然后在切换主题的 js 逻辑里，通过这个 id 删除旧的<code>link</code> 元素，然后插入一个指向新主题色板的 css 文件的 <code>link</code> 元素。,"There are several ways to replace (overwrite) the values of CSS variables. A simple solution is to assign the id attribute to the <code>link</ code> element when loading the default theme file in html. When switching theme, delete the old <code>link</code> by this id and insert a new <code>link</ code> element pointing to a css file for the new theme."
+site/app/components/code-example.html,显示示例,View demo
+site/app/components/code-example.html,显示 javascript 代码,Show javascript code
+site/app/components/code-example.html,显示 html 代码,Show html code
+site/app/components/code-example.html,显示 scss 代码,Show scss code
+site/app/pages/ui-elements/states/index.html,状态包括悬停，点击，焦点，禁用等情况下的交互响应。Material Design 使用 Content/Overlay/Container 三层模型来统一了状态的设计。,"The status includes interactive responses under hover, click, focus, disable, etc. Material Design uses a three-layer model of Content / Overlay / Container to unify the design of states."
+site/app/pages/ui-elements/states/index.html,状态,States
+site/app/pages/components/checkbox/index.html,多选框,Checkbox
 site/app/pages/ui-elements/layout/index.html,布局,Layout
 site/app/components/code-block.html,复制,Copy
+site/app/pages/ui-elements/elevation/apis.js,名称,Name
+site/app/pages/ui-elements/elevation/apis.js,描述,Description
+site/app/pages/ui-elements/elevation/apis.js,为元素添加阴影（Elevation），深度可以是 1、2、3、4、6、8、12、16 或 24，例如：md-elevation-4。,"Add elevation to element, depth can be one of [1, 2, 3, 4, 6, 8, 12, 16, 24], ex. md-elevation-4"
+site/app/pages/ui-elements/elevation/index.html,"阴影（Elevation）用于指示元素距离表面（Surface）的距离。Material Design 设计规范中定义了 9 种程度的阴影深度，依次是 1, 2, 3, 4, 6, 8, 12, 16, 24。Jinge Material 提供了对应的 9 种 class 可供使用：","Elevation is used to indicate how far an element is from the surface. There are 9 levels of shadow depth defined in the Material Design design specifications, in order 1, 2, 3, 4, 6, 8, 12, 16, 24. Jinge Material provides corresponding 9 types of classes to use:"
+site/app/pages/ui-elements/elevation/index.html,阴影,Elevation

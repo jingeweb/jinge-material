@@ -1,6 +1,5 @@
 import {
-  Component,
-  I18N_WATCH
+  Component
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -9,7 +8,7 @@ import apis from './apis';
 import Basic from './examples/basic';
 import sourceBasic from './examples/basic?example';
 
-export class PageElevation extends Component {
+export class PageStates extends Component {
   static get template() {
     return _tpl;
   }
@@ -17,9 +16,7 @@ export class PageElevation extends Component {
   constructor(attrs) {
     super(attrs);
 
-    this[I18N_WATCH](() => {
-      this.api = apis();
-    }, true);
+    this.api = apis();
     this._examples = {
       basic: {
         component: Basic,

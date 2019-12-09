@@ -37,19 +37,19 @@ function generateMenus() {
     name: _t('国际化'),
     state: 'i18n'
   }, {
-    name: _t('UI 元素'),
+    name: _t('UI 规范'),
     state: 'ui',
     children: [{
-      name: _t('阴影'),
+      name: _t('阴影|Elevation'),
       state: 'ui.elevation'
     }, {
-      name: _t('布局'),
+      name: _t('布局|Layout'),
       state: 'ui.layout'
     }, {
-      name: _t('排版'),
+      name: _t('版式|Typography'),
       state: 'ui.typography'
     }, {
-      name: _t('状态'),
+      name: _t('状态|States'),
       state: 'ui.states'
     }]
   }, {

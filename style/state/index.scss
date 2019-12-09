@@ -22,32 +22,26 @@
   @include md-state-actions();
 }
 
-.md-state-container.md-flat {
-  @include md-state-surface('surface');
-
-  background-color: transparent;
-}
-
-.md-state-container.md-surface {
+.md-state-container.md-content-on-surface {
   @include md-state-surface('surface');
 }
 
-.md-state-container.md-surface-with-primary {
+.md-state-container.md-content-is-primary {
   @include md-state-surface('primary');
 
   color: var(--md-primary);
 }
 
-.md-state-container.md-surface-with-accent {
+.md-state-container.md-content-is-assect {
   @include md-state-surface('secondary');
 
   color: var(--md-secondary);
 }
 
-.md-state-container.md-primary-container {
+.md-state-container.md-content-on-primary {
   @include md-state-primary('primary');
 }
 
-.md-state-container.md-accent-container {
+.md-state-container.md-content-on-accent {
   @include md-state-primary('secondary');
 }

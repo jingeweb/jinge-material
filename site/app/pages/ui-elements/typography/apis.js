@@ -3,44 +3,48 @@ export default {
     headings: ['Name', 'Description'],
     props: [
       {
-        name: 'md-display-4',
-        description: 'Create the biggest display text'
+        name: 'md-headline-1',
+        description: '对应于 Material Design 设计规范中的 Headline 1 样式。'
       },
       {
-        name: 'md-display-3',
-        description: 'Create the second biggest display text'
+        name: 'md-headline-2',
+        description: '对应于 Material Design 设计规范中的 Headline 2 样式。'
       },
       {
-        name: 'md-display-2',
-        description: 'Create the third biggest display text'
+        name: 'md-headline-3',
+        description: '对应于 Material Design 设计规范中的 Headline 3 样式。'
       },
       {
-        name: 'md-display-1',
-        description: 'Create the forth biggest display text'
+        name: 'md-headline-4',
+        description: '对应于 Material Design 设计规范中的 Headline 4 样式。'
       },
       {
-        name: 'md-headline',
-        description: 'Create a headline text, that is bigger than a title'
+        name: 'md-headline-5',
+        description: '对应于 Material Design 设计规范中的 Headline 5 样式。'
       },
       {
-        name: 'md-title',
-        description: 'Create the regular title. Commonly used inside toolbars'
+        name: 'md-headline-6',
+        description: '对应于 Material Design 设计规范中的 Headline 6 样式。'
       },
       {
-        name: 'md-subheading',
-        description: 'Create a subtitle like element'
+        name: 'md-subtitle-1',
+        description: '对应于 Material Design 设计规范中的 Subtitle 1 样式。'
       },
       {
-        name: 'md-body-2',
-        description: 'Create a medium weight variation of body text'
+        name: 'md-subtitle-2',
+        description: '对应于 Material Design 设计规范中的 Subtitle 2 样式。'
       },
       {
         name: 'md-body-1',
-        description: 'Create a regular text. This has the same effect as the body text'
+        description: '对应于 Material Design 设计规范中的 Body 1 样式。'
+      },
+      {
+        name: 'md-body-2',
+        description: '对应于 Material Design 设计规范中的 Body 2 样式。'
       },
       {
         name: 'md-caption',
-        description: 'Create a caption text. This has the same effect as the <small> tag'
+        description: '对应于 Material Design 设计规范中的 Caption 样式。'
       }
     ]
   }

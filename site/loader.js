@@ -32,12 +32,12 @@
     });
   }
   function loadScript(src) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       const $s = document.createElement('script');
       $s.src = src;
       $s.async = false; // force execute sequence
       $s.onload = resolve;
-      $s.onerror = reject;
+      // $s.onerror = reject; // won't work any more.
       document.body.appendChild($s);
     });
   }
@@ -80,7 +80,11 @@
     loadStyle(`theme.${getTheme()}${buildHash ? `.${buildHash[1]}.min` : ''}.css`, THEME_LINK_ID),
     loadScript(`locale.${locale}${buildHash ? `.${buildHash[1]}.min` : ''}.js`),
     loadScript(`jinge-material-site${buildHash ? `.${buildHash[1]}.min` : ''}.js`)
-  ]).catch(err => {
-    alert(`load fail with message: ${err.message || 'none'}!\nplease check console.`);
+  ]).then(() => {
+    if (!window.JINGE_I18N_DATA) {
+      alert('load failed due to i18n data not loaded.\nplease check console.');
+    }
+  }, err => {
+    alert(`load failed with message: ${err.message || 'none'}!\nplease check console.`);
   });
 })();
