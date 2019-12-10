@@ -18,7 +18,7 @@ site/app/layout/nav-content.js,版式|Typography
 site/app/layout/nav-content.js,状态|States
 site/app/layout/nav-content.js,组件
 site/app/layout/nav-content.js,头像|Avatar
-site/app/layout/nav-content.js,小提示|Badge
+site/app/layout/nav-content.js,徽章|Badge
 site/app/layout/nav-content.js,底栏|Bottom Bar
 site/app/layout/nav-content.js,按钮|Button
 site/app/layout/nav-content.js,卡片|Card
@@ -298,7 +298,16 @@ site/app/pages/components/avatar/index.html,假设您要显示联系人列表，
 site/app/pages/components/avatar/index.html,多种大小
 site/app/pages/components/avatar/index.html,可以指定三种不同的大小：常规、小或大。默认情况下，头像具有常规大小。
 site/app/pages/components/avatar/index.html,头像
-site/app/pages/components/badge/index.html,徽标提示 Badge
+site/app/pages/components/badge/api.js,名称
+site/app/pages/components/badge/api.js,描述
+site/app/pages/components/badge/api.js,创建静态的方形徽标
+site/app/pages/components/badge/api.js,默认值
+site/app/pages/components/badge/api.js,指定徽章内容
+site/app/pages/components/badge/api.js,指定徽章位置，<code>top</code> 或 <code>bottom</code>
+site/app/pages/components/badge/api.js,使用紧凑型徽章
+site/app/pages/components/badge/index.html,徽章是用于在 UI 元素上提示小状态的描述符。
+site/app/pages/components/badge/index.html,按钮，头像等组件需要使用 <code>md-badge</code> 进行包装。
+site/app/pages/components/badge/index.html,徽章
 site/app/pages/components/drawer/index.html,抽屉 Drawer
 site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。
 site/app/pages/components/spinner/index.html,指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，<code>value</code> 属性为 0-100 的数字。
@@ -371,12 +380,12 @@ site/app/pages/components/radio/index.html,单选项
 site/app/pages/components/radio/index.html,简单单选项
 site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:
 site/app/pages/components/radio/index.html,单选项 Radio
-site/app/pages/components/highlight/index.html,文本高亮 Highlight
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：
 site/app/pages/components/radio/examples/simple-radios.html,描述
 site/app/pages/components/radio/examples/simple-radios.html,示例
 site/app/pages/components/radio/examples/simple-radios.html,值
 site/app/pages/components/radio/examples/simple-radios.html,简单选择项
 site/app/pages/components/radio/examples/simple-radios.html,字符串数组
 site/app/pages/components/radio/examples/simple-radios.html,Object 数组
-site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
-site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：
+site/app/pages/components/highlight/index.html,文本高亮 Highlight

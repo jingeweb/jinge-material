@@ -62,7 +62,7 @@ function generateMenus() {
       name: _t('头像|Avatar'),
       state: 'components.avatar'
     }, {
-      name: _t('小提示|Badge'),
+      name: _t('徽章|Badge'),
       state: 'components.badge'
     }, {
       name: _t('底栏|Bottom Bar'),

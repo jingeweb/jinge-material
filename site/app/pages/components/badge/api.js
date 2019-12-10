@@ -1,34 +1,39 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   classes: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
         name: 'md-square',
-        description: 'Created square type badge.'
+        description: _t('创建静态的方形徽标')
       }
     ]
   },
   props: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'content',
         type: 'String, Number',
-        description: 'A content for badge',
+        description: _t('指定徽章内容'),
         defaults: ' '
       },
       {
         name: 'position',
         type: 'String',
-        description: 'Position of badge <code>top</code> or <code>bottom</code>',
+        description: _t('指定徽章位置，<code>top</code> 或 <code>bottom</code>'),
         defaults: 'top'
       },
       {
         name: 'dense',
         type: 'Boolean',
-        description: 'Enables the dense layout',
+        description: _t('使用紧凑型徽章'),
         defaults: 'false'
       }
     ]
   }
-};
+});
