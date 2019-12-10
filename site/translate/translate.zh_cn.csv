@@ -285,7 +285,19 @@ site/app/pages/components/pagination/index.html,完整分页
 site/app/pages/components/pagination/index.html,禁用分页
 site/app/pages/components/pagination/index.html,分页 Pagination
 site/app/pages/components/empty/index.html,空提示 Empty State
-site/app/pages/components/avatar/index.html,头像 Avatar
+site/app/pages/components/avatar/api.js,名称
+site/app/pages/components/avatar/api.js,描述
+site/app/pages/components/avatar/api.js,创建可以显示图标的头像。
+site/app/pages/components/avatar/api.js,制作小头像，更改图像，图标或文字的大小。
+site/app/pages/components/avatar/api.js,大头像，通常用于在 <md-drawer> 中展示当前用户头像。
+site/app/pages/components/avatar/index.html,头像（Avatar）可以用来代表人物。当与特定徽标一起使用时，也可以用来代表品牌。当没有要显示的图像时，它们也可以用作占位符，例如，在还没有图片的联系人上显示姓名的首字母。
+site/app/pages/components/avatar/index.html,图片
+site/app/pages/components/avatar/index.html,头像可以用来展示单个图片，也可以和 <code>&lt;md-icon&gt;</code> 搭配用于展示图标。
+site/app/pages/components/avatar/index.html,占位字符
+site/app/pages/components/avatar/index.html,假设您要显示联系人列表，但是其中一些在数据库中没有图片。可以使用联系人姓名的首字母作为占位符，最多支持 2 个字符：
+site/app/pages/components/avatar/index.html,多种大小
+site/app/pages/components/avatar/index.html,可以指定三种不同的大小：常规、小或大。默认情况下，头像具有常规大小。
+site/app/pages/components/avatar/index.html,头像
 site/app/pages/components/badge/index.html,徽标提示 Badge
 site/app/pages/components/drawer/index.html,抽屉 Drawer
 site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。
@@ -342,14 +354,14 @@ site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域
 site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件
 site/app/pages/components/popover/index.html,气泡卡片
 site/app/pages/components/popover/index.html,气泡卡片 Popover
-site/app/pages/components/content/index.html,内容框
-site/app/pages/components/content/index.html,内容框示例
-site/app/pages/components/content/index.html,The following option can be applied to md-content component:
-site/app/pages/components/content/index.html,内容框 Content
 site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：
 site/app/pages/components/popconfirm/examples/simple.html,删除
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：
+site/app/pages/components/content/index.html,内容框
+site/app/pages/components/content/index.html,内容框示例
+site/app/pages/components/content/index.html,The following option can be applied to md-content component:
+site/app/pages/components/content/index.html,内容框 Content
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：

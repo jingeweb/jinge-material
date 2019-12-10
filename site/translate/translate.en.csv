@@ -104,7 +104,6 @@ site/app/pages/components/pagination/index.html,完整分页,
 site/app/pages/components/pagination/index.html,禁用分页,
 site/app/pages/components/pagination/index.html,分页 Pagination,
 site/app/pages/components/empty/index.html,空提示 Empty State,
-site/app/pages/components/avatar/index.html,头像 Avatar,
 site/app/pages/components/badge/index.html,徽标提示 Badge,
 site/app/pages/components/drawer/index.html,抽屉 Drawer,
 site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。,
@@ -150,14 +149,14 @@ site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域
 site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件,
 site/app/pages/components/popover/index.html,气泡卡片,
 site/app/pages/components/popover/index.html,气泡卡片 Popover,
-site/app/pages/components/content/index.html,内容框,
-site/app/pages/components/content/index.html,内容框示例,
-site/app/pages/components/content/index.html,The following option can be applied to md-content component:,
-site/app/pages/components/content/index.html,内容框 Content,
 site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：,
 site/app/pages/components/popconfirm/examples/simple.html,删除,
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,
+site/app/pages/components/content/index.html,内容框,
+site/app/pages/components/content/index.html,内容框示例,
+site/app/pages/components/content/index.html,The following option can be applied to md-content component:,
+site/app/pages/components/content/index.html,内容框 Content,
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：,
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！,
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：,
@@ -357,6 +356,19 @@ site/app/pages/ui-elements/layout/index.html,以下类可以被应用到任何 H
 site/app/pages/ui-elements/layout/index.html,以下类可以应用于任何<code>md-layout</code>的直接子元素：,The following classes can be applied to any HTML Element that are direct children of <code>md-layout</code>:
 site/app/pages/ui-elements/layout/index.html,布局,Layout
 site/app/components/code-block.html,复制,Copy
+site/app/pages/components/avatar/api.js,名称,Name
+site/app/pages/components/avatar/api.js,描述,Description
+site/app/pages/components/avatar/api.js,创建可以显示图标的头像。,Creates a avatar that can show a icon.
+site/app/pages/components/avatar/api.js,制作小头像，更改图像，图标或文字的大小。,"Makes a small avatar, changing the size of image, icon or text."
+site/app/pages/components/avatar/api.js,大头像，通常用于在 <md-drawer> 中展示当前用户头像。,Makes a large avatar. Commonly used as the current user avatar inside a left md-drawer.
+site/app/pages/components/avatar/index.html,头像（Avatar）可以用来代表人物。当与特定徽标一起使用时，也可以用来代表品牌。当没有要显示的图像时，它们也可以用作占位符，例如，在还没有图片的联系人上显示姓名的首字母。,"Avatars can be used to represent people. When used with a specific logo, avatars can also be used to represent a brand. They also can be a placeholder when there is no image to be shown, showing a initial letter of a name on contacts that have no picture yet, for example."
+site/app/pages/components/avatar/index.html,图片,Avatar
+site/app/pages/components/avatar/index.html,头像可以用来展示单个图片，也可以和 <code>&lt;md-icon&gt;</code> 搭配用于展示图标。,Avatars can show a single image by default but can also display an icon (using the <code>md-icon</code> component):
+site/app/pages/components/avatar/index.html,占位字符,Initial letter as a placeholder
+site/app/pages/components/avatar/index.html,假设您要显示联系人列表，但是其中一些在数据库中没有图片。可以使用联系人姓名的首字母作为占位符，最多支持 2 个字符：,"Let's assume that you want to show a list of contacts, but some of them do not have a picture in your database. You can use the initial letter of the contact name as a placeholder. It can even show 2 letters (for compound names) without problems:"
+site/app/pages/components/avatar/index.html,多种大小,Multiple sizes
+site/app/pages/components/avatar/index.html,可以指定三种不同的大小：常规、小或大。默认情况下，头像具有常规大小。,"You can specify three different sizes, if you want: Regular, Small or Large. By default the avatar have a regular size."
+site/app/pages/components/avatar/index.html,头像,Avatar
 site/app/pages/ui-elements/typography/index.html,字体,Font Family
 site/app/pages/ui-elements/typography/index.html,Material Design 设计规范里的字体为 Roboto，推荐使用 Google Fonts 来加载字体资源。你需要在 html 的头里，加入以下的代码：,Material Design use Roboto as default font-family. It is recommended to load font resources by google fonts. You need to add the following code to the html header:
 site/app/pages/ui-elements/typography/index.html,"当没有加载 Roboto 字体文件，或遇到 Roboto 字体未涵盖的字符（比如中文字符），会倒退到使用 <a href=""https://ant.design/docs/spec/font"" target=""_blank"">Ant Desgin</a> 里指定的兼容性字体列表：","When Roboto font files are not loaded, or when characters not covered by Roboto fonts (such as Chinese characters) are encountered, they will fallback to using <a href=""https://ant.design/docs/spec/font"" target=""_blank"">fonts specified in ant-desgin</a>:"

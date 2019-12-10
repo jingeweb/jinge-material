@@ -1,24 +1,29 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   regular: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
         name: 'md-avatar-icon',
-        description: 'Creates a avatar that can show a icon.'
+        description: _t('创建可以显示图标的头像。')
       }
     ]
   },
   sizes: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
         name: 'md-small',
-        description: 'Makes a small avatar, changing the size of image, icon or text.'
+        description: _t('制作小头像，更改图像，图标或文字的大小。')
       },
       {
         name: 'md-large',
-        description: 'Makes a large avatar. Commonly used as the current user avatar inside a left md-drawer.'
+        description: _t('大头像，通常用于在 <md-drawer> 中展示当前用户头像。')
       }
     ]
   }
-};
+});
