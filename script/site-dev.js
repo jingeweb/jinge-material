@@ -20,7 +20,7 @@ const server = new WebpackDevServer(compiler, {
   publicPath: '/',
   stats: {
     colors: true,
-    children: false
+    children: 'NO_LOG' in process.env
   },
   historyApiFallback: true,
   contentBase: path.resolve(__dirname, '../site')

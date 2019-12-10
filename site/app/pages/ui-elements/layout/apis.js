@@ -1,120 +1,118 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   breakpoints: {
-    props: {
-      headings: ['Name', 'Size', 'Description'],
-      props: [
-        {
-          name: 'xsmall',
-          description: 'Applicable to screens that are maximum 599px wide. For small, medium and large handsets in portrait. Also applies to small tablets in portrait.',
-          value: '<599px'
-        },
-        {
-          name: 'small',
-          description: 'Applicable to screens that are between 600px and 959px wide. For medium and large handsets in landscape. For small and large tablets in portrait mode and for some desktop monitors.',
-          value: '959px'
-        },
-        {
-          name: 'medium',
-          description: 'Applicable to screens that are between 960px and 1279px wide. For small and large tablets in landscape and desktop monitors.',
-          value: '1279px'
-        },
-        {
-          name: 'large',
-          description: 'Applicable to screens that are between 1280px and 1919px wide. For large desktop monitors.',
-          value: '1919px'
-        },
-        {
-          name: 'xlarge',
-          description: 'Applicable to screens wider than 1920px. For huge desktop monitors or side-by-side screens.',
-          value: '>1920px'
-        }
-      ]
-    }
+    headings: [_t('名称'), _t('描述'), _t('宽度')],
+    props: [
+      {
+        name: 'xsmall',
+        description: _t('适用于最大 599px 宽的屏幕，比如大、中、小型人像手机以及纵向的小型平板电脑。'),
+        value: '< 599px'
+      },
+      {
+        name: 'small',
+        description: _t('适用于宽度介于 600 像素到 959 像素之间的屏幕，比如中型和大型手机、纵向模式的小型和大型平板电脑以及某些台式机显示器。'),
+        value: '959px'
+      },
+      {
+        name: 'medium',
+        description: _t('适用于 960 像素至 1279 像素之间的屏幕，比如横向和台式显示器中的小型和大型平板电脑。'),
+        value: '1279px'
+      },
+      {
+        name: 'large',
+        description: _t('适用于 1280 像素至 1919 像素之间的屏幕，比如大型台式机显示器。'),
+        value: '1919px'
+      },
+      {
+        name: 'xlarge',
+        description: _t('适用于宽于 1920 像素的屏幕，比如大型台式机显示器或并排屏幕。'),
+        value: '> 1920px'
+      }
+    ]
   },
   gutter: {
-    props: {
-      headings: ['Screen Size', 'Amount'],
-      props: [
-        {
-          name: 'xsmall',
-          value: '8px'
-        },
-        {
-          name: 'small',
-          value: '16px'
-        },
-        {
-          name: 'medium',
-          value: '24px'
-        },
-        {
-          name: 'large',
-          value: '48px'
-        }
-      ]
-    }
+    headings: [_t('屏幕大小'), _t('间隙')],
+    props: [
+      {
+        name: 'xsmall',
+        value: '8px'
+      },
+      {
+        name: 'small',
+        value: '16px'
+      },
+      {
+        name: 'medium',
+        value: '24px'
+      },
+      {
+        name: 'large',
+        value: '48px'
+      }
+    ]
   },
   layout: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
         name: 'md-gutter',
-        description: 'Enable the automatic gutter space between layout items.'
+        description: _t('布局项目之间使用自动计算的间隙。')
       },
       {
         name: 'md-layout-nowrap',
-        description: 'By default the layout items will always be wrapped under the parent layout. Use this class if you want to disable this behaviour, but the responsiveness will not work.'
+        description: _t('默认情况下，布局项目将始终包装在父布局下。 如果要禁用此行为，请使用此类，但是响应性将不起作用。')
       },
       {
         name: 'md-alignment-<code>[x]</code>-<code>[y]</code>',
-        description: `Sets the alignment of all children based on a value per coordinate. The alignment only works if both x and y are present e.g. <code>md-alignment-top-center</code>. The possible values are: <br>
-          <ul>
-            <li>top</li>
-            <li>center</li>
-            <li>left</li>
-            <li>space-around</li>
-            <li>space-between</li>
-          </ul>
-        `
+        description: _t('设置所有子项的对齐方式，仅当 [x] 和 [y] 同时存在时，对齐方式才有效，例如 <code>md-alignment-top-center</code>。 可能的值包括：') + `<br>
+<ul>
+  <li>top</li>
+  <li>center</li>
+  <li>left</li>
+  <li>space-around</li>
+  <li>space-between</li>
+</ul>`
       }
     ]
   },
   item: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
         name: 'md-size-<code>[amount]</code>',
-        description: 'Sets a size to a particular item. The value can be multiples of 5, e.g. <code>md-size-25</code>. Also accepts 33, 66 and 100 for easy prototyping.'
+        description: _t('设置元素的布局大小，按百分比计算，[amount] 可以是 33、66 或 5 的倍数，例如 <code>md-size-25</code>。')
       },
       {
-        name: `md-<code>[breakpoint]</code>-size-<code>[amount]</code>',
-        description: 'Sets a size to a particular item for a particular breakpoint. The breakpoints follow the <a href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints" target="_blank">Material Design guidelines</a> for layout. The possible values are:
-          <ul>
-            <li>xsmall</li>
-            <li>small</li>
-            <li>medium</li>
-            <li>large</li>
-            <li>xlarge</li>
-          </ul>
-        `
+        name: 'md-<code>[breakpoint]</code>-size-<code>[amount]</code>',
+        description: _t('设置元素在特定断点下的布局大小，可能的值包括：') + `<br/>
+<ul>
+  <li>xsmall</li>
+  <li>small</li>
+  <li>medium</li>
+  <li>large</li>
+  <li>xlarge</li>
+</ul>`
       }
     ]
   },
   hide: {
-    headings: ['Name', 'Description'],
+    headings: [_t('名称'), _t('描述')],
     props: [
       {
         name: 'md-<code>[breakpoint]</code>-hide',
-        description: `Hides a particular element for a particular breakpoint. The breakpoints follow the <a href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints" target="_blank">Material Design guidelines</a> for layout. The possible values are:
-          <ul>
-            <li>xsmall</li>
-            <li>small</li>
-            <li>medium</li>
-            <li>large</li>
-            <li>xlarge</li>
-          </ul>
-        `
+        description: _t('设置元素在特定断点下隐藏，可能的值包括：') + `<br/>
+<ul>
+  <li>xsmall</li>
+  <li>small</li>
+  <li>medium</li>
+  <li>large</li>
+  <li>xlarge</li>
+</ul>`
       }
     ]
   }
-};
+});

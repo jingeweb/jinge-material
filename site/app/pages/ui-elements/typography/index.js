@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  I18N_WATCH
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -16,7 +17,9 @@ export class PageTypography extends Component {
   constructor(attrs) {
     super(attrs);
 
-    this.api = apis();
+    this[I18N_WATCH](() => {
+      this.api = apis();
+    }, true);
     this._examples = {
       basic: {
         component: Basic,
