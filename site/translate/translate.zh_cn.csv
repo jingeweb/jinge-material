@@ -143,6 +143,19 @@ site/app/pages/components/switch/index.html,和<code>&lt;md-checkbox&gt;</code>�
 site/app/pages/components/switch/index.html,切换按钮 Switch
 site/app/pages/ui-elements/states/index.html,状态包括悬停，点击，焦点，禁用等情况下的交互响应。Material Design 使用 Content/Overlay/Container 三层模型来统一了状态的设计。
 site/app/pages/ui-elements/states/index.html,状态
+site/app/pages/ui-elements/typography/apis.js,名称
+site/app/pages/ui-elements/typography/apis.js,描述
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Headline 1 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Headline 2 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Headline 3 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Headline 4 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Headline 5 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Headline 6 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Subtitle 1 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Subtitle 2 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Body 1 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Body 2 样式。
+site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Caption 样式。
 site/app/pages/components/checkbox/index.html,多选框
 site/app/pages/components/checkbox/index.html,多选框有两种使用模式，单一模式（Single)和数组（Array）模式。
 site/app/pages/components/checkbox/index.html,单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。
@@ -259,6 +272,7 @@ site/app/pages/components/icon/index.html,图标 Icon
 site/app/pages/ui-elements/typography/index.html,字体
 site/app/pages/ui-elements/typography/index.html,Material Design 设计规范里的字体为 Roboto，推荐使用 Google Fonts 来加载字体资源。你需要在 html 的头里，加入以下的代码：
 site/app/pages/ui-elements/typography/index.html,"当没有加载 Roboto 字体文件，或遇到 Roboto 字体未涵盖的字符（比如中文字符），会倒退到使用 <a href=""https://ant.design/docs/spec/font"" target=""_blank"">Ant Desgin</a> 里指定的兼容性字体列表："
+site/app/pages/ui-elements/typography/index.html,文字样式
 site/app/pages/ui-elements/typography/index.html,Material Desgin 设计规范约束了可以使用的文字样式（包括字号、粗细和行距）。Jinge Material 提供了这几类样式的 class 可供使用：
 site/app/pages/ui-elements/typography/index.html,版式
 site/app/pages/ui-elements/elevation/apis.js,名称
@@ -294,31 +308,31 @@ site/app/pages/components/popover/api.js,用于控制气泡里面顶部的标题
 site/app/pages/components/popover/api.js,控制气泡里面中间的内容样式。
 site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域样式。
 site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件
-site/app/pages/components/popover/index.html,气泡卡片
-site/app/pages/components/popover/index.html,气泡卡片 Popover
 site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：
 site/app/pages/components/popconfirm/examples/simple.html,删除
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：
+site/app/pages/components/popover/index.html,气泡卡片
+site/app/pages/components/popover/index.html,气泡卡片 Popover
 site/app/pages/components/content/index.html,内容框
 site/app/pages/components/content/index.html,内容框示例
 site/app/pages/components/content/index.html,The following option can be applied to md-content component:
 site/app/pages/components/content/index.html,内容框 Content
+site/app/pages/components/radio/index.html,单选项
+site/app/pages/components/radio/index.html,简单单选项
+site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:
+site/app/pages/components/radio/index.html,单选项 Radio
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：
 site/app/pages/components/tooltip/examples/simple.html,通过父组件里的参数控制显示和隐藏：
 site/app/pages/components/tooltip/examples/simple.html,展示自定义的内容：
-site/app/pages/components/radio/index.html,单选项
-site/app/pages/components/radio/index.html,简单单选项
-site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:
-site/app/pages/components/radio/index.html,单选项 Radio
 site/app/pages/components/highlight/index.html,文本高亮 Highlight
-site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
-site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：
 site/app/pages/components/radio/examples/simple-radios.html,描述
 site/app/pages/components/radio/examples/simple-radios.html,示例
 site/app/pages/components/radio/examples/simple-radios.html,值
 site/app/pages/components/radio/examples/simple-radios.html,简单选择项
 site/app/pages/components/radio/examples/simple-radios.html,字符串数组
 site/app/pages/components/radio/examples/simple-radios.html,Object 数组
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：

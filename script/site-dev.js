@@ -19,7 +19,8 @@ const compiler = Webpack(webpackConfigs);
 const server = new WebpackDevServer(compiler, {
   publicPath: '/',
   stats: {
-    colors: true
+    colors: true,
+    children: false
   },
   historyApiFallback: true,
   contentBase: path.resolve(__dirname, '../site')

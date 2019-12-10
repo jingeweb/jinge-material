@@ -16,8 +16,7 @@ export class PageTypography extends Component {
   constructor(attrs) {
     super(attrs);
 
-    this._api = apis;
-    this._link = '<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"/>';
+    this.api = apis();
     this._examples = {
       basic: {
         component: Basic,
