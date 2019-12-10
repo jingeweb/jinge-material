@@ -1,91 +1,80 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   card: {
-    props: {
-      headings: ['Name', 'Description', 'Default'],
-      props: [
-        {
-          name: 'withHover',
-          type: 'Boolean',
-          description: 'Enables full hover elevation in card.',
-          defaults: 'false'
-        },
-        {
-          name: 'theme',
-          type: 'String',
-          description: 'Speficies a custom theme for the card. Works only if a theme class like <code>primary</code> or <code>accent</code> is applied to the card.',
-          defaults: '-'
-        }
-      ]
-    }
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
+    props: [
+      {
+        name: 'withHover',
+        type: 'Boolean',
+        description: _t('卡片在鼠标悬停时启用阴影（elevation）效果'),
+        defaults: 'false'
+      }
+    ]
   },
   cardActions: {
-    props: {
-      headings: ['Name', 'Description', 'Default'],
-      props: [
-        {
-          name: 'alignment',
-          type: 'String',
-          description: 'Alignment of action buttons.',
-          defaults: 'right'
-        }
-      ]
-    }
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
+    props: [
+      {
+        name: 'alignment',
+        type: 'String',
+        description: _t('操作按钮的对齐方式'),
+        defaults: 'right'
+      }
+    ]
   },
   cardArea: {
-    props: {
-      headings: ['Name', 'Description', 'Default'],
-      props: [
-        {
-          name: 'inset',
-          type: 'Boolean',
-          description: 'Applies a inset border.',
-          defaults: 'false'
-        }
-      ]
-    }
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
+    props: [
+      {
+        name: 'inset',
+        type: 'Boolean',
+        description: _t('使用 inset 类型的边框'),
+        defaults: 'false'
+      }
+    ]
   },
   cardMedia: {
-    props: {
-      headings: ['Name', 'Description', 'Default'],
-      props: [
-        {
-          name: 'ratio',
-          type: 'String',
-          description: 'Resizes or clip the image automatically based on the following options: 1:1 or 1/1, 4:3 or 4/3 and 16:9 or 16/9.',
-          defaults: 'null'
-        },
-        {
-          name: 'medium',
-          type: 'Boolean',
-          description: 'Applies medium size to the media. Works only inside md-card-header.',
-          defaults: 'false'
-        },
-        {
-          name: 'big',
-          type: 'Boolean',
-          description: 'Applies big size to the media. Works only inside md-card-header.',
-          defaults: 'false'
-        }
-      ]
-    }
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
+    props: [
+      {
+        name: 'ratio',
+        type: 'String',
+        description: _t('自动调整大小或裁剪图像。可选比例包括：1:1、1/1、4:3、4/3、16:9 或 16/9。'),
+        defaults: 'null'
+      },
+      {
+        name: 'medium',
+        type: 'Boolean',
+        description: _t('指定使用中等大小的媒介。仅在 md-card-header 内部起作用。'),
+        defaults: 'false'
+      },
+      {
+        name: 'big',
+        type: 'Boolean',
+        description: _t('指定使用大尺寸的媒介。仅在 md-card-header 内部起作用。'),
+        defaults: 'false'
+      }
+    ]
   },
   cardMediaCover: {
-    props: {
-      headings: ['Name', 'Description', 'Default'],
-      props: [
-        {
-          name: 'textCcrim',
-          type: 'Boolean',
-          description: 'Applies a gradient background based on the image. This option increases the legibility of the text, applying background colors by extracting the amount of lightness on the image. If the image is dark the background of the text will be lighter. If it\'s not dark then the background will be darker. This will be calculated automatically.',
-          defaults: 'false'
-        },
-        {
-          name: 'solid',
-          type: 'Boolean',
-          description: 'Applies a solid background with the same calculation logic of the md-text-scrim.',
-          defaults: 'false'
-        }
-      ]
-    }
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
+    props: [
+      {
+        name: 'textScrim',
+        type: 'Boolean',
+        description: _t('根据图像应用自动计算出来的渐变背景。此选项通过提取图像上的明暗度来应用背景颜色，从而增加了文本的清晰度。如果图像较暗，则文本的背景会更亮。如果不是很暗，则背景会更暗。'),
+        defaults: 'false'
+      },
+      {
+        name: 'solid',
+        type: 'Boolean',
+        description: _t('以与 textScrim 相同的计算逻辑应用纯色背景。'),
+        defaults: 'false'
+      }
+    ]
   }
-};
+});

@@ -7,79 +7,110 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="Card">
+<PageContainer centered _t:title="卡片">
   <div class="page-container-section">
-    <p>Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.</p>
-    <p>The cards components are very granular. Every single part of a card is a component. You can combine them in any order that you'd like, following the same logic of the examples.</p>
+    <p><_t>
+      卡片可能包含照片，文字和超链接。它们可能会显示包含大小可变的元素的内容，例如带有可变长度标题的照片。
+    </_t></p>
+    <p><_t>
+      卡片被拆分成了非常细的子组件。卡片的每个部分都是一个组件。可以按照示例的相同逻辑以任意顺序组合它们。
+    </_t></p>
   </div>
 
   <div class="page-container-section">
-    <h2>Regular Cards</h2>
+    <h2><_t>常规卡片</_t></h2>
 
-    <p>The simplest card structure has a header, content area and action buttons, defined by <code>md-card-header</code>, <code>md-card-content</code> and <code>md-card-actions</code>, respectively. The header may contain a title and a subtitle <code>div</code> or <code>span</code> with classes <code>.md-title</code> and <code>.md-subhead</code>. In the content area, you may use any kind of text elements and for the actions, use at most two <code>md-buttons</code>.</p>
+    <p><_t>
+      最简单的卡片由卡片头（header）、内容区（content area）和动作按钮（action buttons）构成，依次对应组件 <code>md-card-header</code>、<code>md-card-content</code> 和 <code>md-card-actions</code>。
+      卡片头可以包含标题和副标题，依次通过类 <code>.md-title</code> 和 <code>.md-subhead</code> 指定。内容区可以包含各种文本和图片。动作按钮通常包含 <code>md-button</code> 组件。
+    </_t></p>
 
-    <p>If you want to elevate the card as the user hovers over it, add the <code>md-with-hover</code> property. You can also add a ripple effect in combination with the elevation behavior. For doing so, wrap the <code>md-card</code>'s content in a <code>md-ripple</code> tag.</p>
+    <p><_t>
+      如果想在用户将鼠标悬停在卡片上时添加阴影（elevation），请添加 <code>withHover</code>属性。还可以添加波纹效果，只需要将 <code>md-card</code> 的包裹在 <code>md-ripple</code> 组件里。
+    </_t></p>
 
     <CodeExample title="Regular Cards" e:example="_examples.regular" />
 
-    <h2>Cards with Images</h2>
+    <h2><_t>带图片的卡片</_t></h2>
 
-    <p>To add visual appeal to your cards, you can add images inside the <code>md-header</code> tag with a <code>md-card-media</code> wraping an <code>img</code> tag. It's possible to increase the image size to medium or big with the properties <code>md-medium</code> and <code>md-big</code>.</p>
+    <p><_t>
+      为了给卡片增添视觉吸引力，可以在 <code>md-header</code> 标签内添加包含有图片（<code>img</code> 标签）的 <code>md-card-media</code> 组件。使用属性 <code>md-medium</code> 和 <code>md-big</code> 可以将图像大小增加到中等或大尺寸。
+    </_t></p>
 
-    <p>Although not necessary with text-only headers, when using a <code>md-card-media</code>, the title and subtitle should be wrapped around a <code>md-card-header-text</code> tag.</p>
+    <p><_t>
+      尽管对于纯文本标题不是必需的，但是当使用 <code>md-card-media</code>时，标题和副标题应包裹在 <code>md-card-header-text</code> 组件周围。
+    </_t></p>
 
-    <p>For a text-free card with action icon buttons on the side, wrap the card content inside a <code>md-card-media-actions</code> component.</p>
+    <p><_t>
+      对于侧面带有操作图标按钮的无文本卡片，请将卡片内容包裹在 <code>md-card-media-actions</code> 组件内。
+    </_t></p>
 
     <CodeExample title="Media cover" e:example="_examples.media" />
 
-    <p>If you want the image to fill the whole card area, wrap the card content inside a <code>md-card-media-cover</code> component. Its basic structure comprises the following components:</p>
+    <p><_t>
+      如果要使图像充满整个卡片区域，请将卡片内容包装在 <code>md-card-media-cover</code> 组件内。它的基本结构包括以下组件：
+    </_t></p>
 
     <ul>
-      <li><code>md-card-media</code>, where you specify the imagine with an <code>img</code> tag. The image's aspect ratio can be specified with <code>md-card-media</code>'s <code>md-ratio</code> property;</li>
+      <li><_t>
+        <code>md-card-media</code>，用于展示图片。图片的缩放比例可以通过 <code>md-card-media</code> 组件的 <code>md-ratio</code> 属性控制。
+      </_t></li>
 
-      <li><code>md-card-area</code>, where header (<code>md-header</code>) and actions (<code>md-card-actions</code>) are specified.</li>
+      <li><_t>
+        <code>md-card-area</code>，用于有卡片头（<code>md-header</code>）和动作（<code>md-card-actions</code>）的情况。
+      </_t></li>
     </ul>
 
-    <p></p>
-    If there isn't sufficient contrast between background image and title, the latter won't be perfectly legible. To overcome that, apply a solid or gradient background to the text by using the <code>md-card-media-cover</code>'s properties <code>md-solid</code> or <code>md-text-scrim</code>, respectively.
+    <p><_t>
+      如果背景图片和标题之间的对比度不足，则后者将无法清晰辨认。为了解决这个问题，请使用 <code>md-card-media-cover</code>的属性 <code>solid</code> 或 <code>textScrim</code>。
+    </_t></p>
 
     <CodeExample title="Card background with Aspect Ratio" e:example="_examples.mediaCover" />
     
-    <h2>Themes</h2>
+    <h2><_t>不同底色的卡片</_t></h2>
 
-    <p>Your cards will stand out if you change their base color... And you can do it by applying themes! Just add a <code>.primary</code> or <code>accent</code> class on them. This will use the current theme. You can specify a custom one with the <code>md-theme</code> property.</p>
+    <p><_t>
+      为卡片添加 <code>.md-primary</code> 或 <code>.md-accent</code> 类可以指定卡片底色。
+    </_t></p>
     <CodeExample title="Theme Colors" e:example="_examples.theme" />
 
-    <h2>Expansion Control</h2>
-    <p>To avoid too much information inside a card, or keep its height from exceeding the maximum height, hide supplementary information inside a expansible area.</p>
+    <h2><_t>可展开的卡片</_t></h2>
+    <p><_t>
+      为避免卡内信息过多或使卡片的高度不超过最大高度，可以将补充信息隐藏在可扩展区域内。
+    </_t></p>
 
-    <p>It can be done with the <code>md-card-expand</code> component, that has a <code>md-card-action</code> with a <code>md-card-expand-trigger</code> that toggles a <code>md-card-expand-content</code>.</p>
+    <p><_t>
+      使用  <code>md-card-expand</code> 组件可以实现可展开卡片，同时需要搭配 <code>md-card-expand-content</code> 用于展示内容，
+      以及 <code>md-card-action</code> 用于提供一个触发展开动作的 <code>md-card-expand-trigger</code> 组件。
+    </_t></p>
 
     <CodeExample title="Expansion Control" e:example="_examples.expand"/>
 
-    <h2>Different Layouts</h2>
-    That's pretty much it. You can now combine these and other components in many distinct ways. Here are some examples:
+    <h2><_t>不同布局的卡片</_t></h2>
+    <p><_t>
+      可以通过许多不同的方式组合这些和其他组件。比如下面的例子：
+    </_t></p>
 
     <CodeExample title="Different Layouts" e:example="_examples.layouts" />
 
     <ApiItem title="API - md-card">
-      <ApiTable e:headings="_api.card.props.headings" e:props="_api.card.props.props" slot-pass:props />
+      <ApiTable e:headings="api.card.headings" e:props="api.card.props" slot-pass:props />
     </ApiItem>
 
     <ApiItem title="API - md-card-actions">
-      <ApiTable e:headings="_api.cardActions.props.headings" :props="_api.cardActions.props.props" slot-pass:props />
+      <ApiTable e:headings="api.cardActions.headings" e:props="api.cardActions.props" slot-pass:props />
     </ApiItem>
 
     <ApiItem title="API - md-card-area">
-      <ApiTable e:headings="_api.cardArea.props.headings" e:props="_api.cardArea.props.props" slot-pass:props />
+      <ApiTable e:headings="api.cardArea.headings" e:props="api.cardArea.props" slot-pass:props />
     </ApiItem>
 
     <ApiItem title="API - md-card-media">
-      <ApiTable e:headings="_api.cardMedia.props.headings" e:props="_api.cardMedia.props.props" slot-pass:props />
+      <ApiTable e:headings="api.cardMedia.headings" e:props="api.cardMedia.props" slot-pass:props />
     </ApiItem>
 
     <ApiItem title="API - md-card-media-cover">
-      <ApiTable e:headings="_api.cardMediaCover.props.headings" e:props="_api.cardMediaCover.props.props" slot-pass:props />
+      <ApiTable e:headings="api.cardMediaCover.headings" e:props="api.cardMediaCover.props" slot-pass:props />
     </ApiItem>
   </div>
 </PageContainer>

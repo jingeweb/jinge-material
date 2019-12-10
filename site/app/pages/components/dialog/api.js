@@ -1,7 +1,12 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   dialog: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'active',
@@ -209,4 +214,4 @@ export default {
       ]
     }
   }
-};
+});

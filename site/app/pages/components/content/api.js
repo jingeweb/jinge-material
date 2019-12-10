@@ -1,13 +1,18 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   props: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'tag',
         type: 'String',
-        description: 'The output tag. Useful when you want to create a section instead of div, for example.',
+        description: _t('渲染的 HTML 标签，用于创建不是默认的 div 标签。'),
         defaults: 'div'
       }
     ]
   }
-};
+});

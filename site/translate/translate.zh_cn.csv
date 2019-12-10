@@ -165,7 +165,20 @@ site/app/pages/components/checkbox/index.html,数组模式多选框
 site/app/pages/components/checkbox/index.html,The following options can be applied to all checkboxes:
 site/app/pages/components/checkbox/index.html,多选框 Checkbox
 site/app/pages/components/snackbar/index.html,消息提示 Snackbar
-site/app/pages/components/bottom-bar/index.html,底栏（Bottom Bar）
+site/app/pages/components/bottom-bar/api.js,名称
+site/app/pages/components/bottom-bar/api.js,描述
+site/app/pages/components/bottom-bar/api.js,默认值
+site/app/pages/components/bottom-bar/api.js,设置显示模式。请参见下面每种类型的详细说明。
+site/app/pages/components/bottom-bar/api.js,用固定项目制作栏。适合少量元素。
+site/app/pages/components/bottom-bar/api.js,突出显示所选项目，并隐藏其他项目的标签。适合最多达 6 个的大量元素。
+site/app/pages/components/bottom-bar/api.js,动态更改所选项目，通过传递底部栏项目的 id 来实现。
+site/app/pages/components/bottom-bar/api.js,项目的编号，需要动态更改所选项目时可指定
+site/app/pages/components/bottom-bar/api.js,禁用底部栏，阻止包括单击在内的所有操作。
+site/app/pages/components/bottom-bar/index.html,底部导航栏使您轻松单击即可浏览和在顶级视图之间切换。
+site/app/pages/components/bottom-bar/index.html,和 jinge-ui-router 无缝结合
+site/app/pages/components/bottom-bar/index.html,移位效果
+site/app/pages/components/bottom-bar/index.html,可以在底栏上使用超棒的移位效果。可以最多同时展示 6 个项目，并让活动项目保持焦点：
+site/app/pages/components/bottom-bar/index.html,底栏
 site/app/pages/components/switch/examples/array-switch.html,描述
 site/app/pages/components/switch/examples/array-switch.html,示例
 site/app/pages/components/switch/examples/array-switch.html,值
@@ -203,9 +216,33 @@ site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的
 site/app/pages/components/checkbox/examples/single-checkbox.html,我已阅读并同意协议
 site/app/pages/components/checkbox/examples/single-checkbox.html,传递 Object 值
 site/app/pages/components/checkbox/examples/single-checkbox.html,禁用状态
-site/app/pages/components/datepicker/index.html,日期选择 Datepicker
+site/app/pages/components/datepicker/api.js,名称
+site/app/pages/components/datepicker/api.js,描述
+site/app/pages/components/datepicker/api.js,默认值
+site/app/pages/components/datepicker/api.js,绑定所选日期的值
+site/app/pages/components/datepicker/api.js,禁用日期。必须是接受4个参数（年，月，日，星期几）的函数。
+site/app/pages/components/datepicker/api.js,禁用焦点事件，仅在用户单击图标时打开。
+site/app/pages/components/datepicker/api.js,选择日期而不进行确认，然后立即关闭对话框。
+site/app/pages/components/datepicker/api.js,通过将输入类型更改为文本来覆盖原生的日期选择器。
+site/app/pages/components/datepicker/api.js,防反跳纯文本到日期对象的转换。如果您的用户输入速度较慢，则设置为较长的时间；如果用户的输入速度非常快，则设置为较短的时间。
+site/app/pages/components/datepicker/api.js,参数
+site/app/pages/components/datepicker/api.js,选择/单击日期选择器日期时触发
+site/app/pages/components/datepicker/api.js,单击确认按钮时触发
+site/app/pages/components/datepicker/api.js,当日期选择器对话框打开时触发
+site/app/pages/components/datepicker/api.js,当日期选择器对话框关闭时触发
+site/app/pages/components/datepicker/index.html,日期选择器通过弹出一个对话窗口，让用户从预定日期集中选择单个日期。该组件可以禁用日期，并且非常易于使用。
+site/app/pages/components/datepicker/index.html,简单选择器
+site/app/pages/components/datepicker/index.html,焦点时不自动打开
+site/app/pages/components/datepicker/index.html,默认情况下，日期选择器会在输入框获取焦点时自动打开。这将使得用户无法手动输入日期。您可以禁用此行为：
+site/app/pages/components/datepicker/index.html,立即选中模式
+site/app/pages/components/datepicker/index.html,选择日期后，可以使“日期选择器”对话框立即关闭。该日期将立即被选择，而无需任何其他确认或用户操作：
+site/app/pages/components/datepicker/index.html,禁用部分日期
+site/app/pages/components/datepicker/index.html,有时您可能需要禁用某些日期的选择。下面这个例子是只想让用户选择工作日的示例：
+site/app/pages/components/datepicker/index.html,日期选择器
 site/app/pages/components/toolbar/index.html,工具栏 Toolbar
 site/app/pages/components/table/index.html,表格 Table
+site/app/pages/components/datepicker/examples/basic.html,请选择日期
+site/app/pages/components/datepicker/examples/basic.html,选择日期
 site/app/pages/components/snackbar/examples/static.html,Show snackbar directly by calling static method <code>Snackbar.show</code>
 site/app/pages/components/autocomplete/index.html,自动补全 Autocomplete
 site/app/components/code-block.js,代码已复制！
@@ -243,11 +280,42 @@ site/app/pages/ui-elements/layout/index.html,以下类可以被应用到任何 H
 site/app/pages/ui-elements/layout/index.html,以下类可以应用于任何<code>md-layout</code>的直接子元素：
 site/app/pages/ui-elements/layout/index.html,布局
 site/app/components/code-block.html,复制
-site/app/pages/components/card/index.html,Card
+site/app/pages/components/card/api.js,名称
+site/app/pages/components/card/api.js,描述
+site/app/pages/components/card/api.js,默认值
+site/app/pages/components/card/api.js,卡片在鼠标悬停时启用阴影（elevation）效果
+site/app/pages/components/card/api.js,操作按钮的对齐方式
+site/app/pages/components/card/api.js,使用 inset 类型的边框
+site/app/pages/components/card/api.js,自动调整大小或裁剪图像。可选比例包括：1:1、1/1、4:3、4/3、16:9 或 16/9。
+site/app/pages/components/card/api.js,指定使用中等大小的媒介。仅在 md-card-header 内部起作用。
+site/app/pages/components/card/api.js,指定使用大尺寸的媒介。仅在 md-card-header 内部起作用。
+site/app/pages/components/card/api.js,根据图像应用自动计算出来的渐变背景。此选项通过提取图像上的明暗度来应用背景颜色，从而增加了文本的清晰度。如果图像较暗，则文本的背景会更亮。如果不是很暗，则背景会更暗。
+site/app/pages/components/card/api.js,以与 textScrim 相同的计算逻辑应用纯色背景。
+site/app/pages/components/card/index.html,卡片可能包含照片，文字和超链接。它们可能会显示包含大小可变的元素的内容，例如带有可变长度标题的照片。
+site/app/pages/components/card/index.html,卡片被拆分成了非常细的子组件。卡片的每个部分都是一个组件。可以按照示例的相同逻辑以任意顺序组合它们。
+site/app/pages/components/card/index.html,常规卡片
+site/app/pages/components/card/index.html,最简单的卡片由卡片头（header）、内容区（content area）和动作按钮（action buttons）构成，依次对应组件 <code>md-card-header</code>、<code>md-card-content</code> 和 <code>md-card-actions</code>。卡片头可以包含标题和副标题，依次通过类 <code>.md-title</code> 和 <code>.md-subhead</code> 指定。内容区可以包含各种文本和图片。动作按钮通常包含 <code>md-button</code> 组件。
+site/app/pages/components/card/index.html,如果想在用户将鼠标悬停在卡片上时添加阴影（elevation），请添加 <code>withHover</code>属性。还可以添加波纹效果，只需要将 <code>md-card</code> 的包裹在 <code>md-ripple</code> 组件里。
+site/app/pages/components/card/index.html,带图片的卡片
+site/app/pages/components/card/index.html,为了给卡片增添视觉吸引力，可以在 <code>md-header</code> 标签内添加包含有图片（<code>img</code> 标签）的 <code>md-card-media</code> 组件。使用属性 <code>md-medium</code> 和 <code>md-big</code> 可以将图像大小增加到中等或大尺寸。
+site/app/pages/components/card/index.html,尽管对于纯文本标题不是必需的，但是当使用 <code>md-card-media</code>时，标题和副标题应包裹在 <code>md-card-header-text</code> 组件周围。
+site/app/pages/components/card/index.html,对于侧面带有操作图标按钮的无文本卡片，请将卡片内容包裹在 <code>md-card-media-actions</code> 组件内。
+site/app/pages/components/card/index.html,如果要使图像充满整个卡片区域，请将卡片内容包装在 <code>md-card-media-cover</code> 组件内。它的基本结构包括以下组件：
+site/app/pages/components/card/index.html,<code>md-card-media</code>，用于展示图片。图片的缩放比例可以通过 <code>md-card-media</code> 组件的 <code>md-ratio</code> 属性控制。
+site/app/pages/components/card/index.html,<code>md-card-area</code>，用于有卡片头（<code>md-header</code>）和动作（<code>md-card-actions</code>）的情况。
+site/app/pages/components/card/index.html,如果背景图片和标题之间的对比度不足，则后者将无法清晰辨认。为了解决这个问题，请使用 <code>md-card-media-cover</code>的属性 <code>solid</code> 或 <code>textScrim</code>。
+site/app/pages/components/card/index.html,不同底色的卡片
+site/app/pages/components/card/index.html,为卡片添加 <code>.md-primary</code> 或 <code>.md-accent</code> 类可以指定卡片底色。
+site/app/pages/components/card/index.html,可展开的卡片
+site/app/pages/components/card/index.html,为避免卡内信息过多或使卡片的高度不超过最大高度，可以将补充信息隐藏在可扩展区域内。
+site/app/pages/components/card/index.html,使用  <code>md-card-expand</code> 组件可以实现可展开卡片，同时需要搭配 <code>md-card-expand-content</code> 用于展示内容，以及 <code>md-card-action</code> 用于提供一个触发展开动作的 <code>md-card-expand-trigger</code> 组件。
+site/app/pages/components/card/index.html,不同布局的卡片
+site/app/pages/components/card/index.html,可以通过许多不同的方式组合这些和其他组件。比如下面的例子：
+site/app/pages/components/card/index.html,卡片
 site/app/pages/components/chips/index.html,纸片 Chips
 site/app/pages/components/input/index.html,文本框 Input & Textarea
 site/app/pages/components/list/index.html,列表 List
-site/app/pages/components/button/api.js,属性名称
+site/app/pages/components/button/api.js,名称
 site/app/pages/components/button/api.js,描述
 site/app/pages/components/button/api.js,默认值
 site/app/pages/components/button/api.js,直接传递到原生 &lt;button&gt; 元素的 type 属性
@@ -257,19 +325,30 @@ site/app/pages/components/button/api.js,事件名称
 site/app/pages/components/button/api.js,参数
 site/app/pages/components/button/api.js,鼠标点击事件。
 site/app/pages/components/button/api.js,任意可作用到原生 &lt;button&gt; 元素的事件，组件会将事件绑定传递到原生 &lt;button&gt; 元素。
-site/app/pages/components/button/api.js,名称
 site/app/pages/components/button/api.js,主题 Primary 颜色按钮。
 site/app/pages/components/button/api.js,主题 Accent 颜色按钮。
-site/app/pages/components/button/index.html,"按钮组件用于响应用户的点（触）击操作。按钮类型包括 <strong>Flat</strong>, <strong>Raised</strong> 和 <strong>Floating</strong>。Flat 和 Raised 类型的按钮默认情况下只展示文本，但也可以通过特殊的 class 来附加图标(Icon)。Floating 类型的按钮只展示图标(Icon)。按钮可以通过添加 <strong>Dense</strong> 这个 class 来调整为较小的大小。"
+site/app/pages/components/button/api.js,创建带有阴影的凸起按钮
+site/app/pages/components/button/api.js,使用紧凑型的按钮样式。
+site/app/pages/components/button/api.js,使用圆形的图标按钮。
+site/app/pages/components/button/api.js,使用 FAB 按钮
+site/app/pages/components/button/api.js,指定 FAB 按钮的位置。位置 [position] 可选值包括：
+site/app/pages/components/button/api.js,使用 fixed 模式展示按钮。推荐和上述的 6 种位置配合使用。
+site/app/pages/components/button/index.html,"按钮组件用于响应用户的点（触）击操作。按钮类型包括 <strong>Flat</strong>, <strong>Raised</strong> 和 <strong>Floating</strong>。Flat 和 Raised 类型的按钮默认情况下只展示文本，但也可以通过特殊的 class 来附加图标。Floating 类型的按钮只展示图标。按钮可以通过添加 <strong>Dense</strong> 这个 class 来调整为较小的紧凑型大小。"
 site/app/pages/components/button/index.html,Flat 和 Raised 类型
 site/app/pages/components/button/index.html,不添加任何 class 的情况下，按钮的默认类型即 Flat。添加 <code>md-raised</code> 这个 class 即可指定按钮类型为 Raised。
-site/app/pages/components/button/index.html,常规按钮
-site/app/pages/components/button/index.html,包括 FAB 类型的所有按钮都有以下接口：
-site/app/pages/components/button/index.html,图标（Icons）类型
-site/app/pages/components/button/index.html,To display icons inside buttons you only need to add a class and you're good to go. And you can also combine it with the raised class.
-site/app/pages/components/button/index.html,图标按钮
+site/app/pages/components/button/index.html,Regular
+site/app/pages/components/button/index.html,所有按钮都有以下接口：
+site/app/pages/components/button/index.html,图标类型
+site/app/pages/components/button/index.html,要在按钮内显示图标，只需要添加 md-icon-button 类就可以了。您还可以将其与 md-raised 类结合使用。
+site/app/pages/components/button/index.html,Icon
+site/app/pages/components/button/index.html,FAB 按钮
+site/app/pages/components/button/index.html,FAB 按钮代表应用程序中的主要动作，用于升级动作。FAB 按钮可以是常规大小或小型，默认情况下带有强调色。这种类型的按钮只能有图标，因此应与 md-icon 一起使用。
+site/app/pages/components/button/index.html,每屏最多只使用一个 FAB 按钮，并且仅在按钮的目的是触发屏幕的主要操作时才使用。否则，请使用 <code>md-icon-button</code>。
 site/app/pages/components/button/index.html,FAB
-site/app/pages/components/button/index.html,Links and Buttons
+site/app/pages/components/button/index.html,链接 vs 按钮
+site/app/pages/components/button/index.html,默认情况下，所有按钮都会输出一个<code>button</code>标签。 如果要将其更改为 <code>a</code>标记，只需为其指定 href 属性：
+site/app/pages/components/button/index.html,和 jinge-ui-router 无缝整合
+site/app/pages/components/button/index.html,"按钮可以默认和 jinge-ui-router 整合。可以把 md-button 当 ui-sref 一样使用，为其指定 to, params, active, target 等属性。"
 site/app/pages/components/button/index.html,UI Router Buttons
 site/app/pages/components/button/index.html,按钮
 site/app/pages/components/select/index.html,下拉选择 Select
@@ -333,13 +412,13 @@ site/app/pages/ui-elements/elevation/apis.js,描述
 site/app/pages/ui-elements/elevation/apis.js,为元素添加阴影（Elevation），深度可以是 1、2、3、4、6、8、12、16 或 24，例如：md-elevation-4。
 site/app/pages/ui-elements/elevation/index.html,"阴影（Elevation）用于指示元素距离表面（Surface）的距离。Material Design 设计规范中定义了 9 种程度的阴影深度，依次是 1, 2, 3, 4, 6, 8, 12, 16, 24。Jinge Material 提供了对应的 9 种 class 可供使用："
 site/app/pages/ui-elements/elevation/index.html,阴影
-site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/api.js,文字提示的内容
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态
 site/app/pages/components/popconfirm/api.js,同 Popover 组件
 site/app/pages/components/popconfirm/api.js,用户点击确认按钮
 site/app/pages/components/popconfirm/api.js,用户点击取消按钮
+site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/index.html,气泡确认框
 site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。
 site/app/pages/components/popconfirm/index.html,气泡确认框 Popconfirm
@@ -363,14 +442,16 @@ site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域
 site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件
 site/app/pages/components/popover/index.html,气泡卡片
 site/app/pages/components/popover/index.html,气泡卡片 Popover
+site/app/pages/components/content/api.js,名称
+site/app/pages/components/content/api.js,描述
+site/app/pages/components/content/api.js,默认值
+site/app/pages/components/content/api.js,渲染的 HTML 标签，用于创建不是默认的 div 标签。
+site/app/pages/components/content/index.html,包含任意信息的内容容器在 Material Design 规范中称为材料或材料片。
+site/app/pages/components/content/index.html,内容框
 site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：
 site/app/pages/components/popconfirm/examples/simple.html,删除
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：
-site/app/pages/components/content/index.html,内容框
-site/app/pages/components/content/index.html,内容框示例
-site/app/pages/components/content/index.html,The following option can be applied to md-content component:
-site/app/pages/components/content/index.html,内容框 Content
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：
@@ -380,12 +461,12 @@ site/app/pages/components/radio/index.html,单选项
 site/app/pages/components/radio/index.html,简单单选项
 site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:
 site/app/pages/components/radio/index.html,单选项 Radio
-site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
-site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：
+site/app/pages/components/highlight/index.html,文本高亮 Highlight
 site/app/pages/components/radio/examples/simple-radios.html,描述
 site/app/pages/components/radio/examples/simple-radios.html,示例
 site/app/pages/components/radio/examples/simple-radios.html,值
 site/app/pages/components/radio/examples/simple-radios.html,简单选择项
 site/app/pages/components/radio/examples/simple-radios.html,字符串数组
 site/app/pages/components/radio/examples/simple-radios.html,Object 数组
-site/app/pages/components/highlight/index.html,文本高亮 Highlight
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：

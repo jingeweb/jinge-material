@@ -7,23 +7,19 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="内容框 Content">
+<PageContainer centered _t:title="内容框">
   <div class="page-container-section">
-    <p>The Content surfaces that comprise applications are referred to in this spec as material, or sheets of material. The content component is commonly used to resemble a piece of paper. It'll be useful to theme an arbitrary content.</p>
+    <p><_t>
+      包含任意信息的内容容器在 Material Design 规范中称为材料或材料片。
+    </_t></p>
   </div>
   <div class="page-container-section">
     <h2><_t>内容框</_t></h2>
     
-    <CodeExample _t:_title="内容框示例" e:example="_examples.paperContent" />
+    <CodeExample title="Content" e:example="_examples.paperContent" />
 
     <ApiItem title="API - md-content">
-      <p slot-pass:default>
-        <_t>
-          The following option can be applied to md-content component: 
-        </_t>
-      </p>
-
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
     </ApiItem>
 
   </div>

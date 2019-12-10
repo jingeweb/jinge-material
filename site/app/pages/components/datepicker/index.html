@@ -7,35 +7,43 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="日期选择 Datepicker">
+<PageContainer centered _t:title="日期选择器">
   <div class="page-container-section">
-    <p>Datepickers use a dialog window and provide a simple way to select a single value from a pre-determined set. The component can have disabled dates and it's really easy to use.</p>
+    <p><_t>
+      日期选择器通过弹出一个对话窗口，让用户从预定日期集中选择单个日期。该组件可以禁用日期，并且非常易于使用。
+    </_t></p>
   </div>
   <div class="page-container-section">
-    <h2>Datepicker</h2>
+    <h2><_t>简单选择器</_t></h2>
 
     <CodeExample title="Basic" e:example="_examples.basic" />
 
   </div>
   <div class="page-container-section">
-    <h2>Cancel open on focus</h2>
-    <p>By default Datepicker component open on focus to it's input. This will make the input useless and the user will not be able to type the date manually. You can disable this behavior:</p>
+    <h2><_t>焦点时不自动打开</_t></h2>
+    <p><_t>
+      默认情况下，日期选择器会在输入框获取焦点时自动打开。这将使得用户无法手动输入日期。您可以禁用此行为：
+    </_t></p>
     <CodeExample title="With initial date selected" e:example="_examples.init" />
   </div>
 
   <div class="page-container-section">
-    <h2>Immediately selection</h2>
-    <p>The Datepicker dialog can be made to close instantly after a date is selected. The date will be selected immediately without any additional confirmation or user action:</p>
+    <h2><_t>立即选中模式</_t></h2>
+    <p><_t>
+      选择日期后，可以使“日期选择器”对话框立即关闭。该日期将立即被选择，而无需任何其他确认或用户操作：
+    </_t></p>
     <CodeExample title="Close dialog on select" e:example="_examples.immediately" />
   </div>
   <div class="page-container-section">
-    <h2>Disabled dates</h2>
-    <p>Sometimes you may need to disable certain dates from being selected. Let's suppose that you want to let the user select only week days:</p>
+    <h2><_t>禁用部分日期</_t></h2>
+    <p><_t>
+      有时您可能需要禁用某些日期的选择。下面这个例子是只想让用户选择工作日的示例：
+    </_t></p>
     <CodeExample title="No weekends available" e:example="_examples.disable" />
 
     <ApiItem title="API - md-datepicker">
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>

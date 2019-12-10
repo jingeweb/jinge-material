@@ -1,68 +1,73 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   props: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'value',
         type: 'Date|Number|String',
-        description: 'The value to bind the selected date',
+        description: _t('绑定所选日期的值'),
         defaults: 'null'
       },
       {
         name: 'disabledDates',
         type: 'Function',
-        description: 'The optional disabled dates. Must be Function which accepts 4 arguments (year, month, date, weekday).',
+        description: _t('禁用日期。必须是接受4个参数（年，月，日，星期几）的函数。'),
         defaults: 'null'
       },
       {
         name: 'openOnFocus',
         type: 'Boolean',
-        description: 'Disable the on focus event. Will open only if the user clicks on the icon.',
+        description: _t('禁用焦点事件，仅在用户单击图标时打开。'),
         defaults: 'true'
       },
       {
         name: 'immediately',
         type: 'Boolean',
-        description: 'Select the date without confirm and close the dialog immediately.',
+        description: _t('选择日期而不进行确认，然后立即关闭对话框。'),
         defaults: 'false'
       },
       {
         name: 'overrideNative',
         type: 'Boolean',
-        description: 'Override native browser pickers by changing type of input to text.',
+        description: _t('通过将输入类型更改为文本来覆盖原生的日期选择器。'),
         defaults: 'true'
       },
       {
         name: 'inputDebounce',
         type: 'Number',
-        description: 'Debounces the conversion of plaintext into a date object. Set to a longer time if your users type slowly, or shorter if your users type really fast.',
+        description: _t('防反跳纯文本到日期对象的转换。如果您的用户输入速度较慢，则设置为较长的时间；如果用户的输入速度非常快，则设置为较短的时间。'),
         defaults: 1000
       }
     ]
   },
   events: {
-    headings: ['Name', 'Description', 'Value'],
+    headings: [_t('名称'), _t('描述'), _t('参数')],
     props: [
       {
         name: 'change',
-        description: 'Triggered when datepicker day is selected/clicked',
+        description: _t('选择/单击日期选择器日期时触发'),
         value: 'value of Date'
       },
       {
         name: 'confirm',
-        description: 'Triggered when Confirm button is clicked',
+        description: _t('单击确认按钮时触发'),
         value: 'value of selected Date'
       },
       {
         name: 'opened',
-        description: 'Triggered when a datepicker dialog opens',
+        description: _t('当日期选择器对话框打开时触发'),
         value: 'null'
       },
       {
         name: 'closed',
-        description: 'Triggered when a datepicker dialog closes',
+        description: _t('当日期选择器对话框关闭时触发'),
         value: 'null'
       }
     ]
   }
-};
+});

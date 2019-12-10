@@ -7,27 +7,31 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="底栏（Bottom Bar）">
+<PageContainer centered _t:title="底栏">
   <div class="page-container-section">
-    <p>Bottom navigation bars make it easy to explore and switch between top-level views in a single tap. The bottom bar component is a high-level navigation system made for mobile devices with Jinge UI Router support. Check it out:</p>
+    <p><_t>
+      底部导航栏使您轻松单击即可浏览和在顶级视图之间切换。
+    </_t></p>
   </div>
   <div class="page-container-section">
-    <h2>Seamless integration with Jinge UI Router</h2>
+    <h2><_t>和 jinge-ui-router 无缝结合</_t></h2>
 
     <CodeExample title="With default fixed style" e:example="_examples.fixed" />
   </div>
   <div class="page-container-section">
-    <h2>Shift effect</h2>
+    <h2><_t>移位效果</_t></h2>
 
-    <p>You can also use the awesome shift effect on your bars. It is great to keep the focus of the active item and you can show up to 6 items at once:</p>
+    <p><_t>
+      可以在底栏上使用超棒的移位效果。可以最多同时展示 6 个项目，并让活动项目保持焦点：
+    </_t></p>
     <CodeExample title="With Primary and Accent colors" e:example="_examples.shift" />
 
     <ApiItem title="API - md-bottom-bar">
-      <ApiTable e:headings="_api.bar.props.headings" e:props="_api.bar.props.props" slot-pass:props />
+      <ApiTable e:headings="api.bar.props.headings" e:props="api.bar.props.props" slot-pass:props />
     </ApiItem>
 
     <ApiItem title="API - md-bottom-bar-item">
-      <ApiTable e:headings="_api.item.props.headings" e:props="_api.item.props.props" slot-pass:props />
+      <ApiTable e:headings="api.item.props.headings" e:props="api.item.props.props" slot-pass:props />
     </ApiItem>
   </div>
 </PageContainer>

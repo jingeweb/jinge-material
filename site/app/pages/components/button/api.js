@@ -1,11 +1,12 @@
 import {
-  _t
+  _t,
+  VM
 } from 'jinge';
 
-export default {
+export default () => VM({
   regular: {
     props: {
-      headings: [_t('属性名称'), _t('描述'), _t('默认值')],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'type',
@@ -55,12 +56,11 @@ export default {
         },
         {
           name: 'md-raised',
-          description: 'Creates raised buttons with elevation'
+          description: _t('创建带有阴影的凸起按钮')
         },
         {
           name: 'md-dense',
-          description:
-            'A slight small variant of buttons. Useful to create a compact UI.'
+          description: _t('使用紧凑型的按钮样式。')
         }
       ]
     }
@@ -71,7 +71,7 @@ export default {
       props: [
         {
           name: 'md-icon-button',
-          description: 'Enables the rounded-shape icon button'
+          description: _t('使用圆形的图标按钮。')
         }
       ]
     }
@@ -82,56 +82,29 @@ export default {
       props: [
         {
           name: 'md-fab',
-          description: 'Turns a button into a FAB'
-        },
-        {
-          name: 'md-plain',
-          description: 'Makes the button white'
-        },
-        {
-          name: 'md-mini',
-          description: 'Creates a smaller FAB'
+          description: _t('使用 FAB 按钮')
         },
         {
           name: 'md-dense',
-          description: 'An alias for "md-mini"'
+          description: _t('使用紧凑型的按钮样式。')
         },
         {
-          name: 'md-fab-top-right',
-          description:
-            'Positions the FAB on the top right of the nearest relative parent'
-        },
-        {
-          name: 'md-fab-top-center',
-          description:
-            'Positions the FAB on the top center of the nearest relative parent'
-        },
-        {
-          name: 'md-fab-top-left',
-          description:
-            'Positions the FAB on the top left of the nearest relative parent'
-        },
-        {
-          name: 'md-fab-bottom-right',
-          description:
-            'Positions the FAB on the bottom right of the nearest relative parent'
-        },
-        {
-          name: 'md-fab-bottom-center',
-          description:
-            'Positions the FAB on the bottom center of the nearest relative parent'
-        },
-        {
-          name: 'md-fab-bottom-left',
-          description:
-            'Positions the FAB on the bottom left of the nearest relative parent'
+          name: 'md-fab-[position]',
+          description: _t('指定 FAB 按钮的位置。位置 [position] 可选值包括：') + `<br/>
+<ul>
+  <li>top-right</li>
+  <li>top-center</li>
+  <li>top-left</li>
+  <li>bottom-right</li>
+  <li>bottom-center</li>
+  <li>bottom-left</li>
+</ul>`
         },
         {
           name: 'md-fixed',
-          description:
-            'Apply position: fixed to FAB. Better used with the 4 position coordinates above'
+          description: _t('使用 fixed 模式展示按钮。推荐和上述的 6 种位置配合使用。')
         }
       ]
     }
   }
-};
+});
