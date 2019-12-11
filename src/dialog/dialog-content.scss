@@ -16,4 +16,10 @@
   p:last-child:not(:only-child) {
     margin-bottom: 0;
   }
+
+  &.md-dialog-prompt-content {
+    > .md-field {
+      margin: 0;
+    }
+  }
 }

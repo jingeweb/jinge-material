@@ -38,59 +38,7 @@ export class DialogConfirm extends Component {
    * 不是 `false` 才关闭对话框。
    */
   static show(opts, confirmCallback, cancelCallback) {
-    if (isString(opts)) {
-      opts = {
-        title: opts
-      };
-    }
-    const el = new DialogConfirm(wrapAttrs({
-      __portalDisabled: true,
-      active: false,
-      title: opts.title,
-      content: opts.content,
-      confirmSpinner: false,
-      confirmText: opts.confirmText,
-      cancelText: opts.cancelText
-    }));
-    setImmediate(() => {
-      el.active = true;
-    });
-    el[ON]('update.active', (active, action) => {
-      if (active || action === 'confirm') return;
-      if (isFunction(cancelCallback) && cancelCallback() === false) {
-        return;
-      }
-      el[DESTROY]();
-    });
-    el[ON]('cancel', () => {
-      if (isFunction(cancelCallback) && cancelCallback() === false) {
-        return;
-      }
-      el[DESTROY]();
-    });
-    el[ON]('confirm', () => {
-      if (!isFunction(confirmCallback)) {
-        return el[DESTROY]();
-      }
-      const result = confirmCallback();
-      if (result === false) {
-        return;
-      } else if (isObject(result) && isFunction(result.then)) {
-        el.confirmSpinner = true;
-        result.then(rr => {
-          if (rr !== false) {
-            el[DESTROY]();
-          } else {
-            el.confirmSpinner = false;
-          }
-        }, () => {
-          el.confirmSpinner = false;
-        });
-        return;
-      }
-      el[DESTROY]();
-    });
-    el[RENDER_TO_DOM](document.body, false);
+    return showConfirmOrPrompt(DialogConfirm, opts, confirmCallback, cancelCallback);
   }
 
   constructor(attrs) {
@@ -110,17 +58,91 @@ export class DialogConfirm extends Component {
     this.locale = locale;
   }
 
-  passActive(active, action) {
-    this[NOTIFY]('update.active', active, action);
+  passActive(active) {
+    this[NOTIFY]('update.active', active);
   }
 
   onCancel() {
     this[NOTIFY]('cancel');
-    this[NOTIFY]('update.active', false, 'cancel');
   }
 
   onConfirm() {
     this[NOTIFY]('confirm');
-    this[NOTIFY]('update.active', false, 'confirm');
   }
+}
+
+export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback) {
+  const isConfirm = Clazz === DialogConfirm;
+  if (isString(opts)) {
+    opts = {
+      title: opts
+    };
+  }
+  const attrs = {
+    __portalDisabled: true,
+    active: false,
+    title: opts.title,
+    confirmSpinner: false,
+    confirmText: opts.confirmText,
+    cancelText: opts.cancelText
+  };
+  if (isConfirm) {
+    attrs.content = opts.content;
+  } else {
+    attrs.errorTip = opts.errorTip;
+    attrs.inputPlaceholder = opts.inputPlaceholder;
+    attrs.inputRequired = opts.inputRequired;
+    attrs.inputMaxlength = opts.inputMaxlength;
+    attrs.defaultValue = opts.defaultValue;
+  }
+  const el = new Clazz(wrapAttrs(attrs));
+  setImmediate(() => {
+    el.active = true;
+  });
+  el[ON]('update.active', (active, action) => {
+    if (active) return;
+    if (isFunction(cancelCallback) && cancelCallback() === false) {
+      return;
+    }
+    el[DESTROY]();
+  });
+  el[ON]('cancel', () => {
+    if (isFunction(cancelCallback) && cancelCallback() === false) {
+      return;
+    }
+    el[DESTROY]();
+  });
+  el[ON]('confirm', () => {
+    if (!isFunction(confirmCallback)) {
+      return el[DESTROY]();
+    }
+    const result = confirmCallback(isConfirm ? null : el.inputValue);
+    if (result === false || isString(result)) {
+      if (!isConfirm) {
+        el.errorTip = result;
+      }
+      return;
+    } else if (isObject(result) && isFunction(result.then)) {
+      el.confirmSpinner = true;
+      result.then(rr => {
+        if (rr === false || isString(rr)) {
+          if (!isConfirm) {
+            el.errorTip = rr;
+          }
+          el.confirmSpinner = false;
+        } else {
+          el[DESTROY]();
+        }
+      }, err => {
+        el.confirmSpinner = false;
+        if (!isConfirm) {
+          el.errorTip = err.toString();
+        }
+      });
+      return;
+    }
+    el[DESTROY]();
+  });
+  el[RENDER_TO_DOM](document.body, false);
+  return el;
 }

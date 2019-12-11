@@ -1,0 +1,45 @@
+<md-dialog
+  on:update.active="passActive"
+  e:__portalDisabled="__portalDisabled"
+  e:fullscreen="false"
+  e:active="active"
+  e:closeOnOutsideClick="false"
+>
+  <if e:expect="title">
+  <md-dialog-title>${ title }</md-dialog-title>
+  </if>
+  <md-dialog-content class="md-dialog-prompt-content">
+    <md-field e:class="errorTip || requiredTip ? 'md-invalid' : ''">
+      <md-input
+        e:value="inputValue"
+        e:disabled="confirmSpinner"
+        e:id="inputId"
+        e:name="inputName"
+        e:maxlength="inputMaxlength"
+        e:required="inputRequired"
+        e:placeholder="inputPlaceholder"
+        on:change="onInputChange"
+        on:keydown="onInputKeydown"
+      />
+      <span class="md-error">${ requiredTip || errorTip || ''}</span>
+    </md-field>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button
+     e:disabled="confirmSpinner"     
+     on:click="onCancel"
+    >
+      <span>${ cancelText || locale.Cancel }</span>
+    </md-button>
+    <md-button
+      class="md-primary"
+      e:disabled="confirmSpinner || (inputRequired && !inputValue)"
+      on:click="onConfirm"
+    >
+      <if e:expect="confirmSpinner">
+        <md-spinner/>
+      </if>
+      <span>${ confirmText || locale.Ok }</span>
+    </md-button>
+  </md-dialog-actions>
+</md-dialog>

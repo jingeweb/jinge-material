@@ -5,7 +5,8 @@ import {
   NOTIFY,
   wrapAttrs,
   isString,
-  RENDER_TO_DOM
+  RENDER_TO_DOM,
+  setImmediate
 } from 'jinge';
 import {
   SnackbarQueueManager

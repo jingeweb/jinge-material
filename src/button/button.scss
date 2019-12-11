@@ -20,7 +20,6 @@ $md-button-fab-size-mini: $md-button-icon-size;
   white-space: nowrap;
   border: 0;
   padding: 0;
-  transition: $md-transition-default;
   min-width: $md-button-min-width;
   height: $md-button-height;
   margin: 6px 8px;
@@ -31,6 +30,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
   text-transform: uppercase;
   color: var(--md-on-surface);
   background-color: transparent;
+  transition: all $md-transition-default;
   cursor: pointer;
 
   &.md-primary {
@@ -56,6 +56,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
   &[disabled] {
     cursor: default;
     pointer-events: none;
+    color: var(--md-on-surface-disabled);
   }
 
   &.md-dense {
@@ -75,15 +76,30 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 }
 
-.md-button.md-spaced .md-ripple {
-  padding: 0 16px;
+.md-button.md-stroked {
+  border: 1px solid var(--md-outline);
+
+  &.md-primary,
+  &.md-accent {
+    border-color: currentColor;
+  }
 }
 
-.md-button.md-raised {
-  @include md-elevation(2);
-
+.md-button.md-flat {
   background-color: var(--md-surface);
 
+  > .md-state-overlay {
+    // disable hover state on flat-button
+    display: none;
+  }
+}
+
+.md-button.md-raised:not([disabled]) {
+  @include md-elevation(2);
+}
+
+.md-button.md-flat,
+.md-button.md-raised {
   &.md-primary {
     background-color: var(--md-primary);
     color: var(--md-on-primary);
@@ -94,8 +110,9 @@ $md-button-fab-size-mini: $md-button-icon-size;
     color: var(--md-on-secondary);
   }
 
-  &.md-ripple-off:active::before {
-    opacity: 0.2;
+  &:not(.md-primary):not(.md-accent)[disabled] {
+    background-color: var(--md-outline);
+    color: var(--md-on-surface-disabled);
   }
 }
 
@@ -114,7 +131,6 @@ $md-button-fab-size-mini: $md-button-icon-size;
 }
 
 .md-button.md-icon-button,
-.md-button.md-fab.md-mini,
 .md-button.md-fab.md-dense {
   .md-ripple-wave {
     top: 0 !important;
@@ -221,6 +237,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
 }
 
 .md-button.md-raised,
+.md-button.md-flat,
 .md-button.md-fab {
   &.md-primary,
   &.md-accent {

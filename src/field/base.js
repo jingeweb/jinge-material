@@ -127,11 +127,11 @@ export class BaseField extends Component {
   }
 
   onFocus() {
-    this.Field.focused = true;
+    this.Field && (this.Field.focused = true);
   }
 
   onBlur() {
-    this.Field.focused = false;
+    this.Field && (this.Field.focused = false);
   }
 
   _setLabelFor(el) {
