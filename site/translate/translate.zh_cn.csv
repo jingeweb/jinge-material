@@ -243,14 +243,21 @@ site/app/pages/components/datepicker/index.html,有时您可能需要禁用某�
 site/app/pages/components/datepicker/index.html,日期选择器
 site/app/pages/components/datepicker/examples/basic.html,请选择日期
 site/app/pages/components/datepicker/examples/basic.html,选择日期
-site/app/pages/components/dialog/examples/prompt.js,请输入您的名字
+site/app/pages/components/dialog/examples/confirm.html,确认要使用谷歌的定位服务？
+site/app/pages/components/dialog/examples/confirm.html,使用谷歌定位服务意味着，应用在被使用或处于后台时，都会向谷歌发送<strong>匿名</strong>位置数据。
+site/app/pages/components/dialog/examples/confirm.html,同意
+site/app/pages/components/dialog/examples/confirm.html,拒绝
+site/app/pages/components/dialog/examples/alert.html,您的文章已被删除。
+site/app/pages/components/dialog/examples/alert.html,漂亮！
+site/app/pages/components/dialog/examples/alert.html,提交成功！
+site/app/pages/components/dialog/examples/alert.html,您的文章 <strong>你好世界</strong> 已经创建成功！
+site/app/pages/components/dialog/examples/prompt.js,请输入您的名字：
 site/app/pages/components/dialog/examples/prompt.js,名字
-site/app/pages/components/dialog/examples/prompt.js,名字不能为空！
+site/app/pages/components/dialog/examples/prompt.js,名字必须以字符 a 打头！
 site/app/pages/components/dialog/examples/prompt.js,你好，${name}
 site/app/pages/components/snackbar/examples/static.html,Show snackbar directly by calling static method <code>Snackbar.show</code>
 site/app/pages/components/autocomplete/index.html,自动补全 Autocomplete
-site/app/pages/components/dialog/examples/prompt.html,打开模板里定义的对话框：
-site/app/pages/components/dialog/examples/prompt.html,直接通过 js 代码弹出对话框：
+site/app/pages/components/dialog/examples/prompt.html,请输入您的名字：
 site/app/pages/ui-elements/layout/apis.js,名称
 site/app/pages/ui-elements/layout/apis.js,描述
 site/app/pages/ui-elements/layout/apis.js,宽度
@@ -319,6 +326,9 @@ site/app/pages/components/card/index.html,可以通过许多不同的方式组�
 site/app/pages/components/card/index.html,卡片
 site/app/components/code-block.html,复制
 site/app/pages/components/chips/index.html,纸片 Chips
+site/app/pages/components/input/api.js,名称
+site/app/pages/components/input/api.js,描述
+site/app/pages/components/input/api.js,默认值
 site/app/pages/components/input/index.html,文本框 Input & Textarea
 site/app/pages/components/list/index.html,列表 List
 site/app/pages/components/button/api.js,名称
@@ -359,8 +369,8 @@ site/app/pages/components/button/index.html,UI Router Buttons
 site/app/pages/components/button/index.html,按钮
 site/app/pages/components/table/index.html,表格 Table
 site/app/pages/components/select/index.html,下拉选择 Select
-site/app/pages/components/tabs/index.html,标签页 Tabs
 site/app/pages/components/steppers/index.html,步骤条 Steppers
+site/app/pages/components/tabs/index.html,标签页 Tabs
 site/app/pages/components/menu/index.html,菜单 Menu
 site/app/pages/components/progress/index.html,进度条
 site/app/pages/components/progress/index.html,Determinate
@@ -369,11 +379,48 @@ site/app/pages/components/progress/index.html,进度条 Progress Bar
 site/app/pages/components/dialog/api.js,名称
 site/app/pages/components/dialog/api.js,描述
 site/app/pages/components/dialog/api.js,默认值
-site/app/pages/components/dialog/index.html,自定义内容
-site/app/pages/components/dialog/index.html,输入对话框（Prompt）
+site/app/pages/components/dialog/api.js,控制对话框的打开和关闭
+site/app/pages/components/dialog/api.js,是否启用叠加的灰色蒙层
+site/app/pages/components/dialog/api.js,默认情况下，按 esc 时对话框将关闭。设置为 false 可取消此行为。
+site/app/pages/components/dialog/api.js,默认情况下，单击外部时该对话框将关闭。设置为 false 可取消此行为。
+site/app/pages/components/dialog/api.js,控制该对话框将在移动屏幕上是否会变为全屏。
+site/app/pages/components/dialog/api.js,参数
+site/app/pages/components/dialog/api.js,对话框打开时触发
+site/app/pages/components/dialog/api.js,对话框关闭时触发
+site/app/pages/components/dialog/api.js,在叠加层外点击时触发
+site/app/pages/components/dialog/api.js,通知对话框的标题
+site/app/pages/components/dialog/api.js,通知对话框的内容。支持 html。
+site/app/pages/components/dialog/api.js,确认按钮的文案
+site/app/pages/components/dialog/api.js,确认
+site/app/pages/components/dialog/api.js,确认对话框的标题
+site/app/pages/components/dialog/api.js,确认对话框的内容。支持 html。
+site/app/pages/components/dialog/api.js,取消按钮的文案
+site/app/pages/components/dialog/api.js,取消
+site/app/pages/components/dialog/api.js,确认按钮是否处于加载状态。当该参数为 true 时，确认按钮会展示 md-spinner，并处于 disabled 状态。
+site/app/pages/components/dialog/api.js,点击确认按钮时触发
+site/app/pages/components/dialog/api.js,点击取消按钮时触发
+site/app/pages/components/dialog/api.js,输入框的默认值
+site/app/pages/components/dialog/api.js,输入框是否必须填写
+site/app/pages/components/dialog/api.js,可选参数，指定输入框的最大允许字符数
+site/app/pages/components/dialog/api.js,输入框的占位提示信息
+site/app/pages/components/dialog/api.js,对话框的标题
+site/app/pages/components/dialog/index.html,对话框用于通知用户有关特定任务的信息，并且可能包含关键信息，需要做出决定或涉及多个任务。您可以在其中包含选项卡，所有表单组件等等。
+site/app/pages/components/dialog/index.html,对话框包含了一组模拟浏览器原生对话框的预设对话框，例如通知（alert）、确认（confirm）和提示输入（prompt）。
+site/app/pages/components/dialog/index.html,对话框
+site/app/pages/components/dialog/index.html,对话框组件内部可以包含任何 HTML 内容，用于创建丰富的对话框内容。
+site/app/pages/components/dialog/index.html,提示对话框
+site/app/pages/components/dialog/index.html,可以通过在 html 模板里使用 <code>md-dialog-alert</code> 组件，也可以通过在 js 代码中直接调用 <code>DialogAlert</code> 组件的静态函数 <code>show</code> 来触发。
+site/app/pages/components/dialog/index.html,<code>DialogAlert.show</code> 函数第一个参数为必须的 Object 类型的 options，该 options 可指定的属性和 <code>md-dialog-alert</code> 组件的属性一致。
+site/app/pages/components/dialog/index.html,该函数接收的第二个参数是可选的关闭对话框后的回调函数。如果该回调函数返回了 <code>false</code> 则会阻止对话框的关闭。
+site/app/pages/components/dialog/index.html,确认对话框
+site/app/pages/components/dialog/index.html,展示确认对话框，可以通过在 html 模板里使用 <code>md-dialog-confirm</code> 组件，也可以通过在 js 代码中直接调用 <code>DialogConfirm</code> 组件的静态函数 <code>show</code> 来触发。
+site/app/pages/components/dialog/index.html,<code>DialogConfirm.show</code> 函数第一个参数为必须的 Object 类型的 options，该 options 里的可指定的属性和 <code>md-dialog-confirm</code> 组件的属性一致。
+site/app/pages/components/dialog/index.html,该函数接收的可选的第二个参数和第三个参数依次是确认和取消的回调，如果回调函数返回了 <code>false</code> 则会阻止对话框的关闭。
+site/app/pages/components/dialog/index.html,在实际业务使用时，有一种常见情况是，在 confirm 回调中要调用服务器的 api 接口更新，api 请求成功后，才关闭对话框（如果失败，则允许用户重试），api 请求过程中 Confirm 按钮不能点击且有 spinner 状态。
+site/app/pages/components/dialog/index.html,针对这种情况，confirmCallback 允许返回 `false` 来阻止对话框关闭，还允许直接返回一个 Promise 对象。对话框会等待该 Promise，直到其 resolve 返回的数据不是 `false` 才关闭对话框。
+site/app/pages/components/dialog/index.html,输入对话框
 site/app/pages/components/dialog/index.html,输入对话框和确认对话框类似，可以通过在 html 模板里使用 <code>md-dialog-prompt</code> 组件，也可以通过在 js 代码中直接调用 <code>DialogPrompt</code> 组件的静态函数 <code>show</code> 来触发。
 site/app/pages/components/dialog/index.html,<code>DialogPrompt.show</code> 函数和 <code>DialogConfirm.show</code> 的参数一致，但有一个区别是：confirmCallback 如果返回字符串，会认为是对输入值的错误提示；如果返回 Promise，对于 reject 的数据或 resolve 的字符串 也会认为是错误提示。
-site/app/pages/components/dialog/index.html,对话框
 site/app/pages/components/empty/index.html,空提示 Empty State
 site/app/pages/components/avatar/api.js,名称
 site/app/pages/components/avatar/api.js,描述
@@ -423,13 +470,13 @@ site/app/pages/ui-elements/elevation/apis.js,描述
 site/app/pages/ui-elements/elevation/apis.js,为元素添加阴影（Elevation），深度可以是 1、2、3、4、6、8、12、16 或 24，例如：md-elevation-4。
 site/app/pages/ui-elements/elevation/index.html,"阴影（Elevation）用于指示元素距离表面（Surface）的距离。Material Design 设计规范中定义了 9 种程度的阴影深度，依次是 1, 2, 3, 4, 6, 8, 12, 16, 24。Jinge Material 提供了对应的 9 种 class 可供使用："
 site/app/pages/ui-elements/elevation/index.html,阴影
+site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/api.js,文字提示的内容
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态
 site/app/pages/components/popconfirm/api.js,同 Popover 组件
 site/app/pages/components/popconfirm/api.js,用户点击确认按钮
 site/app/pages/components/popconfirm/api.js,用户点击取消按钮
-site/app/pages/components/popconfirm/examples/simple.js,未命名
 site/app/pages/components/popconfirm/index.html,气泡确认框
 site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。
 site/app/pages/components/popconfirm/index.html,气泡确认框 Popconfirm
