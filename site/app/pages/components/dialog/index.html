@@ -7,7 +7,7 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="对话框 Dialog">
+<PageContainer centered _t:title="对话框">
   <div class="page-container-section">
     <p>Dialogs informs users about a specific task and may contain critical information, require decisions, or involve multiple tasks. The dialog component works with any plain html content. You can have tabs inside, all form components and many more.</p>
     <p>The component can be used with a custom markup, using the auxiliary components or with presets made by Jinge Material. Those presets emulates the default Dialogs from Javascript, like confirm, alert and prompt.</p>
@@ -55,16 +55,16 @@
     <h2>确认对话框（Confirm）</h2>
 
     <p>
-      展示确认对话框，可以通过在 html 模板里使用<code>&lt;md-dialog-confirm&gt;</code>组件，
-      也可以通过在 js 代码中直接调用<code>DialogConfirm</code>组件的静态函数<code>show</code>来触发。
+      展示确认对话框，可以通过在 html 模板里使用 <code>md-dialog-confirm</code> 组件，
+      也可以通过在 js 代码中直接调用 <code>DialogConfirm</code> 组件的静态函数 <code>show</code> 来触发。
     </p>
     <p>
-      <code>DialogConfirm.show</code>函数第一个参数为必须的 Object 类型的 options，
-      该 options 里的可指定的属性和<code>&lt;md-dialog-confirm&gt;</code>组件的属性一致。
+      <code>DialogConfirm.show</code> 函数第一个参数为必须的 Object 类型的 options，
+      该 options 里的可指定的属性和 <code>md-dialog-confirm</code> 组件的属性一致。
     </p>
     <p>
       该函数接收的可选的第二个参数和第三个参数依次是确认和取消的回调，
-      如果回调函数返回了<code>false</code>则会阻止对话框的关闭。
+      如果回调函数返回了 <code>false</code> 则会阻止对话框的关闭。
     </p>
     <p>
       在实际业务使用时，有一种常见情况是，在 confirm 回调中要调用服务器的 api 接口更新，
@@ -83,5 +83,19 @@
 
       <ApiTable e:headings="_api.confirm.props.headings" e:props="_api.confirm.props.props" slot-pass:props />
     </ApiItem>
+  </div>
+  <div class="page-container-section">
+    <h2><_t>输入对话框（Prompt）</_t></h2>
+    <p><_t>
+      输入对话框和确认对话框类似，可以通过在 html 模板里使用 <code>md-dialog-prompt</code> 组件，
+      也可以通过在 js 代码中直接调用 <code>DialogPrompt</code> 组件的静态函数 <code>show</code> 来触发。
+    </_t></p>
+    <p><_t>
+      <code>DialogPrompt.show</code> 函数和 <code>DialogConfirm.show</code> 的参数一致，但有一个区别是：
+      confirmCallback 如果返回字符串，会认为是对输入值的错误提示；如果返回 Promise，对于 reject 的数据或 resolve 的字符串 也会认为
+      是错误提示。
+    </_t></p>
+    <CodeExample title="Prompt" e:example="_examples.dialogPrompt" />
+
   </div>
 </PageContainer>

@@ -1,0 +1,13 @@
+<div>
+  <md-dialog-prompt
+    e:active="active"
+    e:defaultValue="value"
+    inputMaxlength="30"
+    inputRequired
+    title="请输入您的名字："
+    on:cancel="active = false"
+    on:confirm="active = false;onConfirm(args[0]);"
+  />
+  <md-button class="md-primary md-raised" on:click="active = true">Prompt</md-button>
+  <md-button class="md-primary md-raised" on:click="show">Prompt by static method</md-button>
+</div>

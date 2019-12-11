@@ -11,7 +11,7 @@ export default () => VM({
         {
           name: 'active',
           type: 'Boolean',
-          description: 'The prop to show/hide the dialog. Should be used with the <code>.sync</code> modifier.',
+          description: 'Whether to show/hide the dialog.',
           defaults: 'false'
         },
         {

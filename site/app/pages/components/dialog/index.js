@@ -11,6 +11,8 @@ import Alert from './examples/alert';
 import sourceAlert from './examples/alert.js?example';
 import Confirm from './examples/confirm';
 import sourceConfirm from './examples/confirm.js?example';
+import Prompt from './examples/prompt';
+import sourcePrompt from './examples/prompt?example';
 
 export class PageDialog extends Component {
   static get template() {
@@ -32,6 +34,10 @@ export class PageDialog extends Component {
       dialogConfirm: {
         component: Confirm,
         source: sourceConfirm
+      },
+      dialogPrompt: {
+        component: Prompt,
+        source: sourcePrompt
       }
     };
   }

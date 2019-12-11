@@ -124,7 +124,6 @@ site/app/components/code-example.html,显示 javascript 代码
 site/app/components/code-example.html,显示 html 代码
 site/app/components/code-example.html,显示 scss 代码
 site/app/pages/components/divider/index.html,分隔线 Divider
-site/app/pages/components/file/index.html,文件选择 File
 site/app/pages/ui-elements/states/apis.js,名称
 site/app/pages/ui-elements/states/apis.js,描述
 site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Container，指定状态的容器层。
@@ -196,8 +195,11 @@ site/app/pages/components/switch/examples/single-switch.html,传递简单的布�
 site/app/pages/components/switch/examples/single-switch.html,传递简单的字符串值
 site/app/pages/components/switch/examples/single-switch.html,自动更新
 site/app/pages/components/switch/examples/single-switch.html,传递 Object 值
-site/app/pages/components/dialog/index.html,自定义内容
-site/app/pages/components/dialog/index.html,对话框 Dialog
+site/app/pages/components/pagination/index.html,基础分页
+site/app/pages/components/pagination/index.html,完整分页
+site/app/pages/components/pagination/index.html,禁用分页
+site/app/pages/components/pagination/index.html,分页 Pagination
+site/app/pages/components/toolbar/index.html,工具栏 Toolbar
 site/app/pages/components/checkbox/examples/array-checkbox.html,描述
 site/app/pages/components/checkbox/examples/array-checkbox.html,示例
 site/app/pages/components/checkbox/examples/array-checkbox.html,值
@@ -239,13 +241,16 @@ site/app/pages/components/datepicker/index.html,选择日期后，可以使“�
 site/app/pages/components/datepicker/index.html,禁用部分日期
 site/app/pages/components/datepicker/index.html,有时您可能需要禁用某些日期的选择。下面这个例子是只想让用户选择工作日的示例：
 site/app/pages/components/datepicker/index.html,日期选择器
-site/app/pages/components/toolbar/index.html,工具栏 Toolbar
-site/app/pages/components/table/index.html,表格 Table
 site/app/pages/components/datepicker/examples/basic.html,请选择日期
 site/app/pages/components/datepicker/examples/basic.html,选择日期
+site/app/pages/components/dialog/examples/prompt.js,请输入您的名字
+site/app/pages/components/dialog/examples/prompt.js,名字
+site/app/pages/components/dialog/examples/prompt.js,名字不能为空！
+site/app/pages/components/dialog/examples/prompt.js,你好，${name}
 site/app/pages/components/snackbar/examples/static.html,Show snackbar directly by calling static method <code>Snackbar.show</code>
 site/app/pages/components/autocomplete/index.html,自动补全 Autocomplete
-site/app/components/code-block.js,代码已复制！
+site/app/pages/components/dialog/examples/prompt.html,打开模板里定义的对话框：
+site/app/pages/components/dialog/examples/prompt.html,直接通过 js 代码弹出对话框：
 site/app/pages/ui-elements/layout/apis.js,名称
 site/app/pages/ui-elements/layout/apis.js,描述
 site/app/pages/ui-elements/layout/apis.js,宽度
@@ -279,7 +284,7 @@ site/app/pages/ui-elements/layout/index.html,可以使用 <code>md-[breakpoint]-
 site/app/pages/ui-elements/layout/index.html,以下类可以被应用到任何 HTML 元素上：
 site/app/pages/ui-elements/layout/index.html,以下类可以应用于任何<code>md-layout</code>的直接子元素：
 site/app/pages/ui-elements/layout/index.html,布局
-site/app/components/code-block.html,复制
+site/app/components/code-block.js,代码已复制！
 site/app/pages/components/card/api.js,名称
 site/app/pages/components/card/api.js,描述
 site/app/pages/components/card/api.js,默认值
@@ -312,6 +317,7 @@ site/app/pages/components/card/index.html,使用  <code>md-card-expand</code> �
 site/app/pages/components/card/index.html,不同布局的卡片
 site/app/pages/components/card/index.html,可以通过许多不同的方式组合这些和其他组件。比如下面的例子：
 site/app/pages/components/card/index.html,卡片
+site/app/components/code-block.html,复制
 site/app/pages/components/chips/index.html,纸片 Chips
 site/app/pages/components/input/index.html,文本框 Input & Textarea
 site/app/pages/components/list/index.html,列表 List
@@ -351,6 +357,7 @@ site/app/pages/components/button/index.html,和 jinge-ui-router 无缝整合
 site/app/pages/components/button/index.html,"按钮可以默认和 jinge-ui-router 整合。可以把 md-button 当 ui-sref 一样使用，为其指定 to, params, active, target 等属性。"
 site/app/pages/components/button/index.html,UI Router Buttons
 site/app/pages/components/button/index.html,按钮
+site/app/pages/components/table/index.html,表格 Table
 site/app/pages/components/select/index.html,下拉选择 Select
 site/app/pages/components/tabs/index.html,标签页 Tabs
 site/app/pages/components/steppers/index.html,步骤条 Steppers
@@ -359,10 +366,14 @@ site/app/pages/components/progress/index.html,进度条
 site/app/pages/components/progress/index.html,Determinate
 site/app/pages/components/progress/index.html,Indeterminate
 site/app/pages/components/progress/index.html,进度条 Progress Bar
-site/app/pages/components/pagination/index.html,基础分页
-site/app/pages/components/pagination/index.html,完整分页
-site/app/pages/components/pagination/index.html,禁用分页
-site/app/pages/components/pagination/index.html,分页 Pagination
+site/app/pages/components/dialog/api.js,名称
+site/app/pages/components/dialog/api.js,描述
+site/app/pages/components/dialog/api.js,默认值
+site/app/pages/components/dialog/index.html,自定义内容
+site/app/pages/components/dialog/index.html,输入对话框（Prompt）
+site/app/pages/components/dialog/index.html,输入对话框和确认对话框类似，可以通过在 html 模板里使用 <code>md-dialog-prompt</code> 组件，也可以通过在 js 代码中直接调用 <code>DialogPrompt</code> 组件的静态函数 <code>show</code> 来触发。
+site/app/pages/components/dialog/index.html,<code>DialogPrompt.show</code> 函数和 <code>DialogConfirm.show</code> 的参数一致，但有一个区别是：confirmCallback 如果返回字符串，会认为是对输入值的错误提示；如果返回 Promise，对于 reject 的数据或 resolve 的字符串 也会认为是错误提示。
+site/app/pages/components/dialog/index.html,对话框
 site/app/pages/components/empty/index.html,空提示 Empty State
 site/app/pages/components/avatar/api.js,名称
 site/app/pages/components/avatar/api.js,描述
@@ -468,5 +479,6 @@ site/app/pages/components/radio/examples/simple-radios.html,值
 site/app/pages/components/radio/examples/simple-radios.html,简单选择项
 site/app/pages/components/radio/examples/simple-radios.html,字符串数组
 site/app/pages/components/radio/examples/simple-radios.html,Object 数组
+site/app/pages/components/file/index.html,文件选择 File
 site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：
 site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：

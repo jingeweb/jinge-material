@@ -1,7 +1,12 @@
-export default {
+import {
+  VM,
+  _t
+} from 'jinge';
+
+export default () => VM({
   field: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'inline',
@@ -178,4 +183,4 @@ export default {
       ]
     }
   }
-};
+});
