@@ -7,46 +7,65 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="文本框 Input & Textarea">
+<PageContainer centered _t:title="文本框">
   <div class="page-container-section">
-    <p>Text fields allow users to input, edit and select text typically inside forms. But they can appear in other places as well like dialog boxes and search.</p>
-    <p>Jinge Material fields work with a <code>md-field</code> wrapped around an input component, that can be <code>md-input</code>, <code>md-textarea</code> or even a <code>md-select</code>.</p>
+    <p><_t>
+      文本框允许用户通常在表单内部输入，编辑和选择文本。可以用在包括对话框和搜索等场景。
+    </_t></p>
+    <p><_t>
+      典型的输入型组件都需要被包裹在表单项 <code>md-field</code> 组件里搭配使用，
+      包括 <code>md-input</code>、<code>md-textarea</code> 和 <code>md-select</code>。
+    </_t></p>
   </div>
   <div class="page-container-section">
-    <h2>Text Fields</h2>
+    <h2><_t>文本输入</_t></h2>
 
-    <p>Fields mimic the HTML5 attributes to keep the same compatibility with native inputs, but has extra options. This allows Jinge Material to accordingly setup the various <code>md-field</code> with its corresponding input options.</p>
-    <p>You will be able to set the same properties of a regular <code>input</code> element on <code>md-input</code>. This is also valid for <code>textarea</code> and <code>select</code>. Take a look:</p>
+    <p><_t>
+      表单项组件支持和原生 html5 相兼容的属性，并支持更多额外属性。 
+    </_t></p>
+    <p><_t>
+      可以在 <code>md-input</code> 和 <code>md-textarea</code> 上设置和原生标签一致的属性，例如：
+    </_t></p>
     <CodeExample title="Input and Textarea" e:example="_examples.text" />
   </div>
   <div class="page-container-section">
-    <h2>Errors and Messages</h2>
+    <h2><_t>错误提示</_t></h2>
 
-    <p>Jinge Material has validation states to show error messages. </p>
+    <p><_t>
+      文本框可以添加验证状态以显示错误消息。
+    </_t></p>
     <CodeExample title="Validation" e:example="_examples.error" />
   </div>
   <div class="page-container-section">
-    <h2>Character count</h2>
+    <h2><_t>字符计数</_t></h2>
 
-    <p>You can use character counters where you need to limit the user input, like on Twitter's 280 character tweet:</p>
+    <p><_t>
+      可以在需要限制用户输入的地方使用字符计数器，例如新浪微博最多允许 140 个字符。
+    </_t></p>
     <CodeExample title="Counter" e:example="_examples.counter" />
   </div>
   <div class="page-container-section">
-    <h2>Icons</h2>
+    <h2><_t>图标</_t></h2>
 
-    <p>Sometimes we may want to differentiate our inputs based on it content value:</p>
+    <p><_t>
+      可以为文本框添加图标来区分其内容代表的含义：
+    </_t></p>
     <CodeExample title="Outside and inline icons" e:example="_examples.icons" />
   </div>
   <div class="page-container-section">
-    <h2>Inline Actions</h2>
+    <h2><_t>内部动作</_t></h2>
 
-    <p>Fields can have a clearable feature to make it easier for users to clear the value. To use passwords better we can show a toggle button to reveal the password. This is really useful for mobile applications:</p>
+    <p><_t>
+      输入框可以具有可清除的功能，以使用户更容易清除值。为了更好地使用密码，我们可以显示一个切换按钮来显示密码。这对于移动应用程序确实非常有用：
+    </_t></p>
     <CodeExample title="Clear and password" e:example="_examples.action" />
   </div>
   <div class="page-container-section">
-    <h2>Prefixes & suffixes</h2>
+    <h2><_t>前缀和后缀</_t></h2>
 
-    <p>Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field whereas suffixes are right justified. Text fields can have both prefixes and suffixes.</p>
+    <p><_t>
+      前缀和后缀可用于澄清单位或预先添加输入。前缀在文本字段中左对齐，而后缀右对齐。文本框可以同时具有前缀和后缀。
+    </_t></p>
     <CodeExample title="Prefixes & suffixes" e:example="_examples.fix" />
   </div>
   <div class="page-container-section">
@@ -65,6 +84,8 @@
       <ApiTable e:headings="api.input.textarea.headings" e:props="api.textarea.events.props" slot-pass:events />
     </ApiItem>
 
-    <NoteBlock tip>Any <code>input</code> or <code>textarea</code> attributes can be used on <code>md-input</code>/<code>md-textarea</code> respectively.</NoteBlock>
+    <NoteBlock tip><_t>
+      任何原生 <code>input</code> 和 <code>textarea</code> 的属性，都可以被应用到 <code>md-input</code> 和 <code>md-textarea</code> 组件上。
+    </_t></NoteBlock>
   </div>
 </PageContainer>

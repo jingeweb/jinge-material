@@ -7,21 +7,23 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="分隔线 Divider">
+<PageContainer centered _t:title="分隔线">
   <div class="page-container-section">
-    <p>A divider is a thin, lightweight rule that groups content in lists and page layouts and helps to organize page content and hierarchy into individual tiles.</p>
-    <p>The dividers can be used in lists and to separate content. They fit well in navigation panels and menus.</p>
+    <p><_t>
+      分隔线是一个轻量级的细法则，用于将列表和页面布局中的内容分组，并有助于将页面内容和层次结构组织到各个图块中。
+    </_t></p>
+    <p><_t>
+      分隔符可用于列表中并分隔内容。它们非常适合导航面板和菜单。
+    </_t></p>
   </div>
 
   <div class="page-container-section">
-    <h2>Divider</h2>
+    <h2><_t>分隔线</_t></h2>
 
     <CodeExample title="Divider" e:example="_examples.divider" />
 
     <ApiItem title="API - md-divider">
-      <p slot-pass:default>The following class can be use in dividers inside any component:</p>
-
-      <ApiTable e:headings="_api.classes.headings" e:props="_api.classes.props" slot-pass:classes />
+      <ApiTable e:headings="api.classes.headings" e:props="api.classes.props" slot-pass:classes />
     </ApiItem>
   </div>
 </PageContainer>

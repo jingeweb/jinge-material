@@ -7,41 +7,55 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="下拉选择 Select">
+<PageContainer centered _t:title="下拉选择">
     <div class="page-container-section">
-      <p>A select picks between multiple options. The select displays the current state and a down arrow. They can have single selection or multiple.</p>
-      <NoteBlock tip>Select component mimics the HTML5 <code>&lt;select&gt;</code> attributes. This means that you can add attributes like <code>required</code> and <code>multiple</code> and it will react to them to give the best experience.</NoteBlock>
+      <p><_t>
+        下拉选择可用于在多个选项之间进行选择，可以选择一个或多个选项。组件显示当前状态和向下箭头。
+      </_t></p>
+      <NoteBlock tip><_t>
+        <code>md-select</code> 组件可兼容原生 <code>select</code> 标签的各种属性，包括 <code>required</code> 和 <code>multiple</code> 等。
+      </_t></NoteBlock>
     </div>
 
     <div class="page-container-section">
-      <h2>Select</h2>
+      <h2><_t>下拉选择</_t></h2>
 
-      <p>Jinge Material selects works along with <code>md-option</code> component to provide the possible selection options. You should use it inside the <code>md-field</code> component The selection is will always react to changes on the <code>value</code> prop:</p>
+      <p><_t>
+        <code>md-select</code> 需要和 <code>md-option</code> 组件搭配使用，后者提供可能的选择项，且必须指定 <code>value</code> 属性。同时，<code>md-select</code> 组件应该在 <code>md-field</code> 组件内使用。
+      </_t></p>
       <CodeExample title="Single selection" e:example="_examples.basic" />
 
-      <p>Selects also work with multiple selection with a <code>value</code> as an <code>Array</code>. </p>
+      <p><_t>
+        如果向 <code>md-select</code> 传递的 <code>value</code> 属性是数组，则代表使用多选功能。
+      </_t></p>
       <CodeExample title="Multiple selection" e:example="_examples.multiple" />
 
-      <p>Selects can have groups to make easy to distinguish different data sets:</p>
+      <p><_t>
+        可以使用紧凑型布局，以便在屏幕上容纳更多项目：
+      </_t></p>
       <CodeExample title="Dense" e:example="_examples.dense" />
 
-      <p>Selects can have groups to make easy to distinguish different data sets:</p>
+      <p><_t>
+        可以对选择项进行分组，以便于区分不同的数据集：
+      </_t></p>
       <CodeExample title="Optgroup" e:example="_examples.groups" />
 
-      <p>It is really easy to disable a select, option and even an optgroup. This will prevent them from being selected. Just pass a <code>disabled</code> prop to the desired component:</p>
+      <p><_t>
+        可以禁用整个下拉选择组件，也可以禁用单个选择项，或禁用某个分组。通过指定 <code>disabled</code> 属性来实现：
+      </_t></p>
       <CodeExample title="Disabled" e:example="_examples.disabled" />
 
       <ApiItem title="API - md-select">
-        <ApiTable e:headings="_api.select.props.headings" e:props="_api.select.props.props" slot-pass:props />
-        <ApiTable e:headings="_api.select.events.headings" e:props="_api.select.events.props" slot-pass:events />
+        <ApiTable e:headings="api.select.props.headings" e:props="api.select.props.props" slot-pass:props />
+        <ApiTable e:headings="api.select.events.headings" e:props="api.select.events.props" slot-pass:events />
       </ApiItem>
 
       <ApiItem title="API - md-option">
-        <ApiTable e:headings="_api.option.headings" e:props="_api.option.props" slot-pass:props />
+        <ApiTable e:headings="api.option.headings" e:props="api.option.props" slot-pass:props />
       </ApiItem>
 
       <ApiItem title="API - md-optgroup">
-        <ApiTable e:headings="_api.optgroup.headings" e:props="_api.optgroup.props" slot-pass:props />
+        <ApiTable e:headings="api.optgroup.headings" e:props="api.optgroup.props" slot-pass:props />
       </ApiItem>
     </div>
 </PageContainer>

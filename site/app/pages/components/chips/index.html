@@ -7,55 +7,69 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="纸片 Chips">
+<PageContainer centered _t:title="纸片">
   <div class="page-container-section">
-    <p>Chips represent complex entities in small blocks, such as a contact. They can be used as a way for a user to create arbitrary items, like categories or tags.</p>
+    <p><_t>
+      纸片以小块的形式表示复杂的实体，例如触点。它们可以用作用户创建任意项目（例如类别或标签）的方式。
+    </_t></p>
   </div>
 
   <div class="page-container-section">
-    <h2>Standalone Chip</h2>
+    <h2><_t>独立纸片</_t></h2>
 
-    <p>A chip can be used as standalone, without any connection with another chip. It can be used like a badge or a category of an entity in your application. You can specify if your chip can be deletable and clickable:</p>
+    <p><_t>
+      一个纸片可以独立使用，而无需与其它纸片组合。它可以像徽章或应用程序中的实体类别一样使用。同时可以指定纸片是否可以删除和点击：
+    </_t></p>
     <CodeExample title="Single" e:example="_examples.single" />
 
     <ApiItem title="API - md-chip">
-      <ApiTable e:headings="_api.chip.props.headings" e:props="_api.chip.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.chip.events.headings" e:props="_api.chip.events.props" slot-pass:events />
+      <ApiTable e:headings="api.chip.props.headings" e:props="api.chip.props.props" slot-pass:props />
+      <ApiTable e:headings="api.chip.events.headings" e:props="api.chip.events.props" slot-pass:events />
     </ApiItem>
   </div>
   <div class="page-container-section">
-    <h2>Editable model</h2>
+    <h2><_t>可编辑的纸片集</_t></h2>
 
-    <p>Sometimes we need to edit the set of items on screen, for example, when editing tags, the user may need to remove/add tags. In this case you can use the editable chips, that is the default behaviour:</p>
+    <p><_t>
+      有时我们需要在屏幕上编辑项目集，例如，在编辑标签时，用户可能需要删除/添加标签。在这种情况下，您可以使用可编辑的纸片集：
+    </_t></p>
     <CodeExample title="Editable" e:example="_examples.editable" />
   </div>
   <div class="page-container-section">
-    <h2>Readonly</h2>
+    <h2><_t>只读模式</_t></h2>
 
-    <p>Let's think in an entity that have tags. Sometimes you might need to show all of them in a single row, but not allow the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:</p>
+    <p><_t>
+      对于一个具有标签的实体，可能需要将这些标签显示在同一行中，但不允许用户对其进行编辑。这种情况下可以使用带有静态选项的 <code>md-chips</code> 组件来实现：
+    </_t></p>
     <CodeExample title="Static" e:example="_examples.static" />
   </div>
   <div class="page-container-section">
-    <h2>Custom Template</h2>
+    <h2><_t>自定义模板</_t></h2>
 
-    <p>Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a look at this example:</p>
+    <p><_t>
+      有时需要显示有关纸片的丰富信息，希望为纸片本身可以支持自定义 HTML 结构。可以通过指定自定义的 slot 来实现：
+    </_t></p>
     <CodeExample title="Scoped Slot" e:example="_examples.template" />
   </div>
   <div class="page-container-section">
-    <h2>Duplicated Chip</h2>
+    <h2><_t>重复检测</_t></h2>
 
-    <p>Chips would reject insertion if a chip is duplicated. You can customize feedback style of the duplicated chip:</p>
+    <p><_t>
+      如果待插入的新纸片和现有纸片有重复，则无法插入。可以自定义重复纸片的反馈样式：
+    </_t></p>
     <CodeExample title="Duplicated Feedback" e:example="_examples.duplicated" />
   </div>
   <div class="page-container-section">
-    <h2>Hue Colors</h2>
+    <h2><_t>多种颜色</_t></h2>
 
-    <p>You can always use the hue modifiers in single chips:</p>
+    <p><_t>
+      可以使用 <code>md-primary</code> 或其它方式赋予纸片不同颜色：
+    </_t></p>
     <CodeExample title="Themed Chips" e:example="_examples.theme" />
 
     <ApiItem title="API - md-chips">
-      <ApiTable e:headings="_api.chips.props.headings" e:props="_api.chips.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.chips.events.headings" e:props="_api.chips.events.props" slot-pass:events />
+      <ApiTable e:headings="api.chips.props.headings" e:props="api.chips.props.props" slot-pass:props />
+      <ApiTable e:headings="api.chips.events.headings" e:props="api.chips.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>

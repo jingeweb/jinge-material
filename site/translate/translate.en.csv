@@ -1,82 +1,20 @@
 location,zh_cn,en
-site/app/pages/components/subheader/index.html,子标题（Subheader）,
-site/app/pages/components/divider/index.html,分隔线 Divider,
-site/app/pages/components/switch/index.html,切换按钮,
-site/app/pages/components/switch/index.html,切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。,
-site/app/pages/components/switch/index.html,单一模式的切换按钮，这种模式是最常见的使用模式。,
-site/app/pages/components/switch/index.html,单一模式切换按钮,
-site/app/pages/components/switch/index.html,数组模式的切换按钮，这种模式很少使用。典型的使用场景就是配置由个开关组成的开关分组。,
-site/app/pages/components/switch/index.html,数组模式切换按钮,
-site/app/pages/components/switch/index.html,和<code>&lt;md-checkbox&gt;</code>完全一样，请参看<code>&lt;md-checkbox&gt;</code>的 API 文档,
-site/app/pages/components/switch/index.html,切换按钮 Switch,
-site/app/pages/components/checkbox/index.html,多选框有两种使用模式，单一模式（Single)和数组（Array）模式。,
-site/app/pages/components/checkbox/index.html,单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。,
-site/app/pages/components/checkbox/index.html,单一模式多选框,
-site/app/pages/components/checkbox/index.html,数组模式下多选框的 value 是数组，需要指定 trueValue 但不需要指定 falseValue。该多选框被点击时，会向 value 指定的数组里添加或删除 trueValue 指定的元素。需要注意这种模式下，value 指定的数组，会被直接修改，并通过 change 事件向外传递修改后的数组。,
-site/app/pages/components/checkbox/index.html,数组模式多选框,
-site/app/pages/components/checkbox/index.html,The following options can be applied to all checkboxes:,
-site/app/pages/components/checkbox/index.html,多选框 Checkbox,
 site/app/pages/components/snackbar/index.html,消息提示 Snackbar,
-site/app/pages/components/switch/examples/array-switch.html,描述,
-site/app/pages/components/switch/examples/array-switch.html,示例,
-site/app/pages/components/switch/examples/array-switch.html,值,
-site/app/pages/components/switch/examples/array-switch.html,简单字符串数组,
-site/app/pages/components/switch/examples/array-switch.html,城市开关：,
-site/app/pages/components/switch/examples/array-switch.html,Object 数组,
-site/app/pages/components/switch/examples/array-switch.html,用户开关：,
-site/app/pages/components/switch/examples/single-switch.html,描述,
-site/app/pages/components/switch/examples/single-switch.html,示例,
-site/app/pages/components/switch/examples/single-switch.html,值,
-site/app/pages/components/switch/examples/single-switch.html,无任何属性的最简单切换按钮,
-site/app/pages/components/switch/examples/single-switch.html,标签,
-site/app/pages/components/switch/examples/single-switch.html,(无),
-site/app/pages/components/switch/examples/single-switch.html,传递简单的布尔值,
-site/app/pages/components/switch/examples/single-switch.html,传递简单的字符串值,
-site/app/pages/components/switch/examples/single-switch.html,自动更新,
-site/app/pages/components/switch/examples/single-switch.html,传递 Object 值,
 site/app/pages/components/pagination/index.html,基础分页,
 site/app/pages/components/pagination/index.html,完整分页,
 site/app/pages/components/pagination/index.html,禁用分页,
 site/app/pages/components/pagination/index.html,分页 Pagination,
 site/app/pages/components/toolbar/index.html,工具栏 Toolbar,
-site/app/pages/components/checkbox/examples/array-checkbox.html,描述,
-site/app/pages/components/checkbox/examples/array-checkbox.html,示例,
-site/app/pages/components/checkbox/examples/array-checkbox.html,值,
-site/app/pages/components/checkbox/examples/array-checkbox.html,简单字符串数组,
-site/app/pages/components/checkbox/examples/array-checkbox.html,请选择城市：,
-site/app/pages/components/checkbox/examples/array-checkbox.html,Object 数组,
-site/app/pages/components/checkbox/examples/array-checkbox.html,请选择用户：,
-site/app/pages/components/checkbox/examples/single-checkbox.html,描述,
-site/app/pages/components/checkbox/examples/single-checkbox.html,示例,
-site/app/pages/components/checkbox/examples/single-checkbox.html,值,
-site/app/pages/components/checkbox/examples/single-checkbox.html,无任何属性的最简单选择框,
-site/app/pages/components/checkbox/examples/single-checkbox.html,标签,
-site/app/pages/components/checkbox/examples/single-checkbox.html,(无),
-site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的布尔值,
-site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的字符串值,
-site/app/pages/components/checkbox/examples/single-checkbox.html,我已阅读并同意协议,
-site/app/pages/components/checkbox/examples/single-checkbox.html,传递 Object 值,
-site/app/pages/components/checkbox/examples/single-checkbox.html,禁用状态,
 site/app/pages/components/snackbar/examples/static.html,Show snackbar directly by calling static method <code>Snackbar.show</code>,
-site/app/pages/components/autocomplete/index.html,自动补全 Autocomplete,
-site/app/components/code-block.js,代码已复制！,
-site/app/pages/components/chips/index.html,纸片 Chips,
-site/app/pages/components/input/api.js,名称,
-site/app/pages/components/input/api.js,描述,
-site/app/pages/components/input/api.js,默认值,
-site/app/pages/components/input/index.html,文本框 Input & Textarea,
 site/app/pages/components/list/index.html,列表 List,
 site/app/pages/components/table/index.html,表格 Table,
-site/app/pages/components/select/index.html,下拉选择 Select,
-site/app/pages/components/steppers/index.html,步骤条 Steppers,
 site/app/pages/components/tabs/index.html,标签页 Tabs,
+site/app/pages/components/steppers/index.html,步骤条 Steppers,
 site/app/pages/components/menu/index.html,菜单 Menu,
 site/app/pages/components/progress/index.html,进度条,
 site/app/pages/components/progress/index.html,Determinate,
 site/app/pages/components/progress/index.html,Indeterminate,
 site/app/pages/components/progress/index.html,进度条 Progress Bar,
-site/app/pages/components/empty/index.html,空提示 Empty State,
-site/app/pages/components/drawer/index.html,抽屉 Drawer,
 site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。,
 site/app/pages/components/spinner/index.html,指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，<code>value</code> 属性为 0-100 的数字。,
 site/app/pages/components/spinner/index.html,"不指定 <code>value</code> 属性时，属于指示正在加载状态的 Spinner,Spinner 表现为一个旋转的加载动画。",
@@ -124,23 +62,13 @@ site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm�
 site/app/pages/components/popconfirm/examples/simple.html,删除,
 site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,
 site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,
+site/app/pages/components/radio/api.js,用于标识分组的 name，会传递给原生 input，实现多个 radio 关联,
 site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：,
 site/app/pages/components/tooltip/examples/simple.html,你好，世界！,
 site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：,
 site/app/pages/components/tooltip/examples/simple.html,通过父组件里的参数控制显示和隐藏：,
 site/app/pages/components/tooltip/examples/simple.html,展示自定义的内容：,
-site/app/pages/components/radio/index.html,单选项,
-site/app/pages/components/radio/index.html,简单单选项,
-site/app/pages/components/radio/index.html,The following options can be applied to all checkboxes:,
-site/app/pages/components/radio/index.html,单选项 Radio,
 site/app/pages/components/highlight/index.html,文本高亮 Highlight,
-site/app/pages/components/radio/examples/simple-radios.html,描述,
-site/app/pages/components/radio/examples/simple-radios.html,示例,
-site/app/pages/components/radio/examples/simple-radios.html,值,
-site/app/pages/components/radio/examples/simple-radios.html,简单选择项,
-site/app/pages/components/radio/examples/simple-radios.html,字符串数组,
-site/app/pages/components/radio/examples/simple-radios.html,Object 数组,
-site/app/pages/components/file/index.html,文件选择 File,
 site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：,
 site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：,
 site/app/layout/header.js,默认蓝,Default
@@ -262,10 +190,20 @@ site/app/pages/advance/theme.html,自定义主题可以通过加载自定义的�
 site/app/pages/advance/theme.html,切换主题,Switch theme
 site/app/pages/advance/theme.html,组件的颜色全部通过 CSS 变量引用色板中定义的颜色，因此切换主题只需要简单地替换色板文件即可。从技术角度讲，替换色板本质上是替换(覆盖) CSS 变量的值。,"The colors of the components all refer to the colors defined in the palette through CSS variables, so switching themes requires simply replacing the palette. Technically speaking, replacing a palette is essentially replacing (overriding) the value of a CSS variable."
 site/app/pages/advance/theme.html,有多种方式可以实现替换（覆盖）CSS 变量的值。一种简单的方案是，在 html 中加载默认的色板时，为 <code>link</code> 元素赋予 id 属性，然后在切换主题的 js 逻辑里，通过这个 id 删除旧的<code>link</code> 元素，然后插入一个指向新主题色板的 css 文件的 <code>link</code> 元素。,"There are several ways to replace (overwrite) the values of CSS variables. A simple solution is to assign the id attribute to the <code>link</ code> element when loading the default theme file in html. When switching theme, delete the old <code>link</code> by this id and insert a new <code>link</ code> element pointing to a css file for the new theme."
+site/app/pages/components/subheader/index.html,子标题是用于描述列表或网格列表各部分的列表图块。,Subheaders are list tiles that delineate sections of a list or grid list.
+site/app/pages/components/subheader/index.html,子标题可以在列表，网格甚至选择中使用，并且通常与过滤或排序标准有关。它们非常适合导航面板和网格列表。,"The subheader can be used in lists, grid and even on selects and are typically related to filtering or sorting criteria. They fit well in navigation panels and grid lists."
+site/app/pages/components/subheader/index.html,子标题,Subheader
+site/app/pages/components/subheader/index.html,子标题组件没有可配置的属性。,This component does not have any extra option.
 site/app/components/code-example.html,显示示例,View demo
 site/app/components/code-example.html,显示 javascript 代码,Show javascript code
 site/app/components/code-example.html,显示 html 代码,Show html code
 site/app/components/code-example.html,显示 scss 代码,Show scss code
+site/app/pages/components/divider/index.html,分隔线是一个轻量级的细法则，用于将列表和页面布局中的内容分组，并有助于将页面内容和层次结构组织到各个图块中。,"A divider is a thin, lightweight rule that groups content in lists and page layouts and helps to organize page content and hierarchy into individual tiles."
+site/app/pages/components/divider/index.html,分隔符可用于列表中并分隔内容。它们非常适合导航面板和菜单。,The dividers can be used in lists and to separate content. They fit well in navigation panels and menus.
+site/app/pages/components/divider/index.html,分隔线,Divider
+site/app/pages/components/divider/api.js,名称,Name
+site/app/pages/components/divider/api.js,描述,Description
+site/app/pages/components/divider/api.js,创建一个插入分隔符，通常用于分隔相关内容。,"Creates a inset divider, which is commonly used to separate related content."
 site/app/pages/ui-elements/states/apis.js,名称,Name
 site/app/pages/ui-elements/states/apis.js,描述,Description
 site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范里的 Container，指定状态的容器层。,Corresponds to the Container in the Material Design States specification and specifies the container layer for the state.
@@ -274,6 +212,11 @@ site/app/pages/ui-elements/states/apis.js,对应 Material Design States 规范�
 site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: On Surface 类型。,Specifies to use the Content: On Surface type from the design specification.
 site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: Primary 类型。,Specifies to use the Content: Primary type from the design specification.
 site/app/pages/ui-elements/states/apis.js,指定使用设计规范里的 Content: On Primary 类型。,Specifies to use the Content: On Primary type from the design specification.
+site/app/pages/components/switch/index.html,切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。,"The switch component can be understood as another way to display the checkbox. Its core logic is exactly the same as the checkbox. Therefore, the toggle button is also divided into single mode and array mode, and the API interface and checkbox are exactly the same."
+site/app/pages/components/switch/index.html,切换按钮,Switch
+site/app/pages/components/switch/index.html,单一模式的切换按钮，这种模式是最常见的使用模式。,"Single mode switch, this mode is the most common usage mode."
+site/app/pages/components/switch/index.html,数组模式的切换按钮，这种模式很少使用。典型的使用场景就是配置由个开关组成的开关分组。,"Array mode switch, this mode is rarely used. A typical use scenario is to configure a switch group consisting of switches."
+site/app/pages/components/switch/index.html,和 <code>md-checkbox</code> 完全一样，请参看 <code>md-checkbox</code> 的 API 文档。,"It is exactly the same as <code>md-checkbox</code>, please refer to the API documentation of <code>md-checkbox</code>."
 site/app/pages/ui-elements/states/index.html,状态包括悬停，点击，焦点，禁用等情况下的交互响应。Material Design 使用 Content/Overlay/Container 三层模型来统一了状态的设计。,"The status includes interactive responses under hover, click, focus, disable, etc. Material Design uses a three-layer model of Content / Overlay / Container to unify the design of states."
 site/app/pages/ui-elements/states/index.html,状态,States
 site/app/pages/ui-elements/typography/apis.js,名称,Name
@@ -289,7 +232,23 @@ site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计�
 site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Body 1 样式。,Corresponds to the body-1 style in the Material Design specification.
 site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Body 2 样式。,Corresponds to the body-2 style in the Material Design specification.
 site/app/pages/ui-elements/typography/apis.js,对应于 Material Design 设计规范中的 Caption 样式。,Corresponds to the caption style in the Material Design specification.
+site/app/pages/components/switch/examples/array-switch.js,小葛,Mr. Ge
+site/app/pages/components/switch/examples/array-switch.js,小明,Mr. Ming
+site/app/pages/components/switch/examples/array-switch.js,小王,Ms. Wang
+site/app/pages/components/checkbox/api.js,名称,Name
+site/app/pages/components/checkbox/api.js,描述,Description
+site/app/pages/components/checkbox/api.js,默认值,Default
+site/app/pages/components/checkbox/api.js,多选框的值,Current value of checkbox.
+site/app/pages/components/checkbox/api.js,选中状态下的值,Value of checked state.
+site/app/pages/components/checkbox/api.js,未选中状态下的值,Value of unchecked state.
+site/app/pages/components/checkbox/api.js,多选框的唯一标识,The unique id.
+site/app/pages/components/checkbox/api.js,参数,Parameters
+site/app/pages/components/checkbox/api.js,多选框的值发生变化时触发,Triggered after a value is selected
 site/app/pages/components/checkbox/index.html,多选框,Checkbox
+site/app/pages/components/checkbox/index.html,多选框有两种使用模式，单一模式（Single）和数组（Array）模式。,"There are two modes of use of md-checkbox, single mode and array mode."
+site/app/pages/components/checkbox/index.html,单一模式下多选框的 value 是一个单一的值，该多选框被点击切换时，其 value 会在 trueValue 和 falseValue 这两个单一值之间切换，并通过 change 事件向外传递切换后的值。,"The value of a checkbox in a single mode is a single value. When the checkbox is clicked to switch, its value will switch between two single values of trueValue and falseValue, and the changed value will be passed out through the change event ."
+site/app/pages/components/checkbox/index.html,数组模式下多选框的 value 是数组，需要指定 trueValue 但不需要指定 falseValue。该多选框被点击时，会向 value 指定的数组里添加或删除 trueValue 指定的元素。需要注意这种模式下，value 指定的数组，会被直接修改，并通过 change 事件向外传递修改后的数组。,"The value of the checkbox in array mode is an array. You need to specify trueValue but you do not need to specify falseValue. When the checkbox is clicked, the element specified by trueValue is added or removed from the array specified by value. Note that in this mode, the array specified by value will be directly modified, and the modified array will be passed out through the change event."
+site/app/pages/components/checkbox/index.html,浏览器原生 <code>&lt;input type=&quot;checkbox&quot;&gt;</code> 标签上可以使用的属性，比如 <strong>name</strong> 和 <strong>required</strong> 等，也可以被应用到 <code>md-checkbox</code> 组件上。,"All other <code>&lt;input type=&quot;checkbox&quot;&gt;</code> attributes, such as <strong>name</strong> and <strong>required</strong>, can be used on <code>md-checkbox</code>."
 site/app/pages/components/bottom-bar/api.js,名称,Name
 site/app/pages/components/bottom-bar/api.js,描述,Description
 site/app/pages/components/bottom-bar/api.js,默认值,Default
@@ -304,6 +263,44 @@ site/app/pages/components/bottom-bar/index.html,和 jinge-ui-router 无缝结合
 site/app/pages/components/bottom-bar/index.html,移位效果,Shift effect
 site/app/pages/components/bottom-bar/index.html,可以在底栏上使用超棒的移位效果。可以最多同时展示 6 个项目，并让活动项目保持焦点：,You can also use the awesome shift effect on your bars. It is great to keep the focus of the active item and you can show up to 6 items at once:
 site/app/pages/components/bottom-bar/index.html,底栏,Bottom Bar
+site/app/pages/components/switch/examples/array-switch.html,描述,Description
+site/app/pages/components/switch/examples/array-switch.html,示例,Example
+site/app/pages/components/switch/examples/array-switch.html,值,Value
+site/app/pages/components/switch/examples/array-switch.html,简单字符串数组,Simple array of String
+site/app/pages/components/switch/examples/array-switch.html,城市开关：,City switch:
+site/app/pages/components/switch/examples/array-switch.html,Object 数组,Array of Object
+site/app/pages/components/switch/examples/array-switch.html,用户开关：,User switch:
+site/app/pages/components/switch/examples/single-switch.html,描述,Description
+site/app/pages/components/switch/examples/single-switch.html,示例,Example
+site/app/pages/components/switch/examples/single-switch.html,值,Value
+site/app/pages/components/switch/examples/single-switch.html,无任何属性的最简单切换按钮,Simplest switch without any attribute
+site/app/pages/components/switch/examples/single-switch.html,标签,Label
+site/app/pages/components/switch/examples/single-switch.html,(无),(none)
+site/app/pages/components/switch/examples/single-switch.html,传递简单的布尔值,Pass simple Boolean
+site/app/pages/components/switch/examples/single-switch.html,传递简单的字符串值,Pass simple String
+site/app/pages/components/switch/examples/single-switch.html,自动更新,Auto update
+site/app/pages/components/switch/examples/single-switch.html,传递 Object 值,Pass Object
+site/app/pages/components/checkbox/examples/array-checkbox.js,小葛,Mr. Ge
+site/app/pages/components/checkbox/examples/array-checkbox.js,小明,Mr. Ming
+site/app/pages/components/checkbox/examples/array-checkbox.js,小王,Ms. Wang
+site/app/pages/components/checkbox/examples/array-checkbox.html,描述,Description
+site/app/pages/components/checkbox/examples/array-checkbox.html,示例,Example
+site/app/pages/components/checkbox/examples/array-checkbox.html,值,Value
+site/app/pages/components/checkbox/examples/array-checkbox.html,简单字符串数组,Simple Array of String
+site/app/pages/components/checkbox/examples/array-checkbox.html,请选择城市：,Please choose city:
+site/app/pages/components/checkbox/examples/array-checkbox.html,Object 数组,Array of Object
+site/app/pages/components/checkbox/examples/array-checkbox.html,请选择用户：,Please choose user:
+site/app/pages/components/checkbox/examples/single-checkbox.html,描述,Description
+site/app/pages/components/checkbox/examples/single-checkbox.html,示例,Example
+site/app/pages/components/checkbox/examples/single-checkbox.html,值,Value
+site/app/pages/components/checkbox/examples/single-checkbox.html,无任何属性的最简单选择框,Simplest checkbox without any attributes
+site/app/pages/components/checkbox/examples/single-checkbox.html,标签,Label
+site/app/pages/components/checkbox/examples/single-checkbox.html,(无),(none)
+site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的布尔值,Pass simple Boolean
+site/app/pages/components/checkbox/examples/single-checkbox.html,传递简单的字符串值,Pass simple String
+site/app/pages/components/checkbox/examples/single-checkbox.html,我已阅读并同意协议,I have read and agree to the agreement
+site/app/pages/components/checkbox/examples/single-checkbox.html,传递 Object 值,Pass object
+site/app/pages/components/checkbox/examples/single-checkbox.html,禁用状态,Disabled state
 site/app/pages/components/datepicker/api.js,名称,Name
 site/app/pages/components/datepicker/api.js,描述,Description
 site/app/pages/components/datepicker/api.js,默认值,Default
@@ -341,6 +338,48 @@ site/app/pages/components/dialog/examples/prompt.js,请输入您的名字：,Wha
 site/app/pages/components/dialog/examples/prompt.js,名字,Type your name...
 site/app/pages/components/dialog/examples/prompt.js,名字必须以字符 a 打头！,Name must starts with character 'a'!
 site/app/pages/components/dialog/examples/prompt.js,你好，${name},"Hello, ${name}"
+site/app/pages/components/autocomplete/api.js,名称,Name
+site/app/pages/components/autocomplete/api.js,描述,Description
+site/app/pages/components/autocomplete/api.js,示例,Usage
+site/app/pages/components/autocomplete/api.js,创建自定义的匹配项,Creates a custom autocomplete result item
+site/app/pages/components/autocomplete/api.js,将收到匹配选项的每个选项。,Will receive each item of the matched options.
+site/app/pages/components/autocomplete/api.js,当前输入的搜索词。,The current input search term.
+site/app/pages/components/autocomplete/api.js,在零匹配的情况下创建一个空状态,Creates a empty state in case of zero matches
+site/app/pages/components/autocomplete/api.js,默认值,Default
+site/app/pages/components/autocomplete/api.js,自动补全输入框的值,bind the autocomplete value
+site/app/pages/components/autocomplete/api.js,要搜索的可用选项。如果为 Array，则自动完成功能将使用内部搜索引擎。 如果是 Promise，则需要您自己执行搜索（这通常是由后端服务进行的）。,"The available options to be searched. If Array, the autocomplete will use a inner search engine. If Promise, you will need to implement the search by yourself (this is commonly made by a backend service)."
+site/app/pages/components/autocomplete/api.js,传递给输入框的 name 属性,The input name attribute
+site/app/pages/components/autocomplete/api.js,传递给输入框的 id 属性,The input id attribute
+site/app/pages/components/autocomplete/api.js,指定允许输入的最大的字符数量,"Enables a character count, based on the given value."
+site/app/pages/components/autocomplete/api.js,输入框的占位提示,Sets a optional placeholder on autocomplete.
+site/app/pages/components/autocomplete/api.js,使用紧凑型的自动补全组件,Enable the dense layout for options
+site/app/pages/components/autocomplete/api.js,设置布局方式，请参见下面每种布局的详细说明。,Sets the input layout. The floating variant is the default. See below the detailed description of each layout.
+site/app/pages/components/autocomplete/api.js,布局方式使用 floating 模式。这是默认的布局。,Sets the input layout to floating. This is the default.
+site/app/pages/components/autocomplete/api.js,布局方式使用 boxed 模式。,Sets the input layout to a boxed layout.
+site/app/pages/components/autocomplete/api.js,禁用/启用焦点事件。 如果 false，则选项将在按键后立即显示结果。,"Disable/enable the on focus event. If <code>false</code>, the options will show the results right after a keystroke."
+site/app/pages/components/autocomplete/api.js,如果 option 为 object，则需要指定哪个属性将用于搜索过滤器。,"If option is object, you need to specify which attribute will be used for the search filter."
+site/app/pages/components/autocomplete/api.js,选项过滤器的搜索算法。如果传递的 <code>options</code> 属性是 Promise，则此选项不起作用。有关更多详细信息，请参见 <code>md-highlight</code> 的 API。,"Disable/enable the fuzzy search algorithm. If <code>false</code>, the search will match the whole search term. This option do not take any effects if the <code>md-options</code> is a Promise"
+site/app/pages/components/autocomplete/api.js,参数,Parameters
+site/app/pages/components/autocomplete/api.js,用户在输入字段上键入时触发,Triggered when the user types on the input field
+site/app/pages/components/autocomplete/api.js,当用户选择一个选项时触发,Triggered when the user selects an option
+site/app/pages/components/autocomplete/api.js,在打开选项面板时触发,Triggered when the options panel is opened
+site/app/pages/components/autocomplete/api.js,在关闭选项面板时触发,Triggered when the options panel is closed
+site/app/pages/components/autocomplete/index.html,输入文本可以与自动完成功能一起使用，以帮助识字能力有限或使用外语书写的用户。 例如，自动完成功能可以在输入时建议输入（每次击键都会刷新建议）。,"Input text can be used with autocomplete to help users who have limited literacy or who write in a foreign language. For example, autocomplete can suggest input as it’s typed (refreshing suggestions with each keystroke)."
+site/app/pages/components/autocomplete/index.html,自动补全组件类似于 <code>md-field</code>，可以传递标签，验证消息，帮助程序文本甚至图标。,"Autocomplete works like <code>md-field</code>. This means that you can pass labels, validation messages, helper texts and even icons:"
+site/app/pages/components/autocomplete/index.html,使用静态数据,Static Data
+site/app/pages/components/autocomplete/index.html,如果数据量少或是静态数据，则可以通过简单直观的方式将数据选项传递给 <code>md-autocomplete</code>：,"If you have a small amount of data or if it's static, you can pass the options to <code>md-autocomplete</code> in a simple and intuitive way:"
+site/app/pages/components/autocomplete/index.html,触发方式,Trigger
+site/app/pages/components/autocomplete/index.html,默认情况下，建议在输入框获取焦点时打开自动补全。如果希望减少干扰，可以通过取消焦点事件来禁用此行为。如果是这样，则建议将在按键后立即显示：,"By default the suggestions will appear along with a focus trigger. If you want something less intrusive, you can disable this behaviour by canceling the focus event. If this, the suggestions will appear right after a keystroke:"
+site/app/pages/components/autocomplete/index.html,Box 布局,Box Layout
+site/app/pages/components/autocomplete/index.html,自动补全组件可以使用两种布局：默认带有浮动标签，而盒装版式带有内联标签。框式布局将应用具有小高程的框式布局，这也非常适合用作工具栏内的搜索栏。,"Autocomplete have types two layouts: Default with floating labels and a boxed layout with inline labels. The box layout will apply a boxed layout with a small elevation, that also works really great as search bar inside a toolbar. Gorgeous:"
+site/app/pages/components/autocomplete/index.html,自定义模板,Custom Template
+site/app/pages/components/autocomplete/index.html,自动补全组件还接受自定义模板，该模板可以灵活地接受任何HTML元素并内置“空状态”。您还可以突出显示匹配项中的搜索词，以提供有关该项目为何出现在结果中的反馈。,"Autocomplete also accepts a custom template, flexible to accept any HTML element and with an 'empty state' built in. You can also highlight the search term inside the matches, to give a feedback on why that item has been in the results. Awesome:"
+site/app/pages/components/autocomplete/index.html,尽管 <code>md-highlight</code> 组件最常与自动补全组件一起使用，但你可以在任何地方使用它。,"Although the <code>md-highlight</code> component is most used with autocomplete, you can use it anywhere."
+site/app/pages/components/autocomplete/index.html,搜索算法,Search Algorithms
+site/app/pages/components/autocomplete/index.html,"自动补全组件可以使用 3 种搜索算法：<a href=""https://en.wikipedia.org/wiki/roximate_string_matching"" target=""_blank"">fuzzy</a>，includes 和 starts。","Vue Material autocomplete comes with 2 ways of search: <a href=""https://en.wikipedia.org/wiki/Approximate_string_matching"" target=""_blank"">Fuzzy search</a> and search by whole term. The fuzzy search tries to match the results by approximation, finding patterns inside the available options. This will help with accidental type errors and improve the results. If you think that this may be confusing, you can disable this. Example:"
+site/app/pages/components/autocomplete/index.html,异步加载数据项,Async Options
+site/app/pages/components/autocomplete/index.html,很多时候需要从远程服务器的 API 接口中获取数据项。可以提供一个 <code>Promise</code>，它将使用例如后端接口中的数据进行解析。,"Sometimes the options are inside a database in a remote server. Instead of giving a static data, we can provide a <code>Promise</code> that will resolve with the data from a backend servide, for example. This is great to save Bandwidth on the initial load and to improve the performance. Look at this example:"
+site/app/pages/components/autocomplete/index.html,自动补全,Autocomplete
 site/app/pages/components/dialog/examples/prompt.html,请输入您的名字：,What's your name?
 site/app/pages/ui-elements/layout/apis.js,名称,Name
 site/app/pages/ui-elements/layout/apis.js,描述,Description
@@ -375,6 +414,7 @@ site/app/pages/ui-elements/layout/index.html,可以使用 <code>md-[breakpoint]-
 site/app/pages/ui-elements/layout/index.html,以下类可以被应用到任何 HTML 元素上：,The following classes can be applied to any HTML Element:
 site/app/pages/ui-elements/layout/index.html,以下类可以应用于任何<code>md-layout</code>的直接子元素：,The following classes can be applied to any HTML Element that are direct children of <code>md-layout</code>:
 site/app/pages/ui-elements/layout/index.html,布局,Layout
+site/app/components/code-block.js,代码已复制！,Code copied!
 site/app/pages/components/card/api.js,名称,Name
 site/app/pages/components/card/api.js,描述,Description
 site/app/pages/components/card/api.js,默认值,Default
@@ -408,6 +448,90 @@ site/app/pages/components/card/index.html,不同布局的卡片,Different Layout
 site/app/pages/components/card/index.html,可以通过许多不同的方式组合这些和其他组件。比如下面的例子：,That's pretty much it. You can now combine these and other components in many distinct ways. Here are some examples:
 site/app/pages/components/card/index.html,卡片,Card
 site/app/components/code-block.html,复制,Copy
+site/app/pages/components/chips/api.js,名称,Name
+site/app/pages/components/chips/api.js,描述,Description
+site/app/pages/components/chips/api.js,默认值,Default
+site/app/pages/components/chips/api.js,启用/禁用纸片上的点击动作。,Enables/Disables the click action in the chip.
+site/app/pages/components/chips/api.js,创建一个可以执行删除操作的纸片。,"Creates a chip that can hold a delete action. Useful when editing a chip series, like tags or categories."
+site/app/pages/components/chips/api.js,指定是否禁用纸片（包括点击和删除）。,Enables/Disables the chip to be clickable of deletable.
+site/app/pages/components/chips/api.js,参数,Parameters
+site/app/pages/components/chips/api.js,鼠标单击删除图标后触发，仅在 deletable 属性为 true 时才有效。,Triggered after a mouse click on delete icon. Only fired when md-deletable is true.
+site/app/pages/components/chips/api.js,指定全部的纸片。除非您指定自定义模板，否则必须是字符串数组。,"The content to be displayed as chips. Need to be a array of strings, unless you specify a custom template."
+site/app/pages/components/chips/api.js,唯一标识，如果为 null，将自动创建。,"The input id. If null, it will be created automatically."
+site/app/pages/components/chips/api.js,输入框的类型,The input type. Cannot be file.
+site/app/pages/components/chips/api.js,输入框的占位符，可用于向用户显示将插入哪种数据类型。,The input placeholder. It is useful to show to the user which type of data will be inserted.
+site/app/pages/components/chips/api.js,创建一个不可编辑的纸片集，可以用在显示详细信息的页面。,Creates a non-editable chips. Useful to show inside a details page.
+site/app/pages/components/chips/api.js,当纸片集的数量超过限定时，不允许再创建纸片。,Blocks the chips to create items above the limit.
+site/app/pages/components/chips/api.js,更改输入值时始终检查纸片是否重复，或者仅在插入时检查纸片是否重复,"Always check if there is a duplicated chip while changing the input value, or check it only on insertion"
+site/app/pages/components/chips/api.js,纸片集发生变化（增删）时触发。,"Triggered when chips change, inserted or deleted."
+site/app/pages/components/chips/api.js,鼠标单击纸片的删除图标后触发。,Triggered after a mouse click on delete icon of a chip.
+site/app/pages/components/chips/api.js,鼠标点击纸片时触发。,Triggered after a mouse click on a single chip.
+site/app/pages/components/chips/api.js,插入纸片后触发,Triggered after a chip inserted.
+site/app/pages/components/chips/api.js,新插入的 chip,The last inserted chip
+site/app/pages/components/chips/index.html,纸片以小块的形式表示复杂的实体，例如触点。它们可以用作用户创建任意项目（例如类别或标签）的方式。,"Chips represent complex entities in small blocks, such as a contact. They can be used as a way for a user to create arbitrary items, like categories or tags."
+site/app/pages/components/chips/index.html,独立纸片,Standalone Chip
+site/app/pages/components/chips/index.html,一个纸片可以独立使用，而无需与其它纸片组合。它可以像徽章或应用程序中的实体类别一样使用。同时可以指定纸片是否可以删除和点击：,"A chip can be used as standalone, without any connection with another chip. It can be used like a badge or a category of an entity in your application. You can specify if your chip can be deletable and clickable:"
+site/app/pages/components/chips/index.html,可编辑的纸片集,Editable Chips
+site/app/pages/components/chips/index.html,有时我们需要在屏幕上编辑项目集，例如，在编辑标签时，用户可能需要删除/添加标签。在这种情况下，您可以使用可编辑的纸片集：,"Sometimes we need to edit the set of items on screen, for example, when editing tags, the user may need to remove/add tags. In this case you can use the editable chips, that is the default behaviour:"
+site/app/pages/components/chips/index.html,只读模式,Readonly
+site/app/pages/components/chips/index.html,对于一个具有标签的实体，可能需要将这些标签显示在同一行中，但不允许用户对其进行编辑。这种情况下可以使用带有静态选项的 <code>md-chips</code> 组件来实现：,"Let's think in an entity that have tags. Sometimes you might need to show all of them in a single row, but not allow the user to edit them. You can achieve that using the <code>md-chips</code> component, with a static option:"
+site/app/pages/components/chips/index.html,自定义模板,Custom Template
+site/app/pages/components/chips/index.html,有时需要显示有关纸片的丰富信息，希望为纸片本身可以支持自定义 HTML 结构。可以通过指定自定义的 slot 来实现：,"Sometimes we need to show more information about a chip, so we want to have a custom HTML structure for the chip itself. To create that scenario we can use the template scope. In this case all you have to do is to create a slot with your custom template and you're good to go. Take a look at this example:"
+site/app/pages/components/chips/index.html,重复检测,Duplicated Chip
+site/app/pages/components/chips/index.html,如果待插入的新纸片和现有纸片有重复，则无法插入。可以自定义重复纸片的反馈样式：,Chips would reject insertion if a chip is duplicated. You can customize feedback style of the duplicated chip:
+site/app/pages/components/chips/index.html,多种颜色,Hue Colors
+site/app/pages/components/chips/index.html,可以使用 <code>md-primary</code> 或其它方式赋予纸片不同颜色：,You can always use the hue modifiers in single chips:
+site/app/pages/components/chips/index.html,纸片,Clips
+site/app/pages/components/input/api.js,名称,Name
+site/app/pages/components/input/api.js,描述,Description
+site/app/pages/components/input/api.js,默认值,Default
+site/app/pages/components/input/api.js,使用内联标签，当输入获得焦点时，标签将消失。,Make the label inline. This means that the label will disappear when the input receives a focus.
+site/app/pages/components/input/api.js,启用字符计数器，仅适用于 input 和 textarea 等有 maxlength 属性的组件。,Enable the character counter. Only works with fields that have a <code>md-input</code> or <code>md-textarea</code> with a <code>maxlength</code> or <code>md-counter</code> attributes.
+site/app/pages/components/input/api.js,在输入的右侧添加一个清除按钮。,Add a clear button on the right of the input.
+site/app/pages/components/input/api.js,在输入的右侧添加一个切换按钮以显示/隐藏密码。仅适用于具有密码类型的 input 组件。,Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>md-input</code> with type password.
+site/app/pages/components/input/api.js,参数,Parameters
+site/app/pages/components/input/api.js,鼠标单击清除图标后触发。仅在 clearable 为 true 时才有效。,Triggered after a mouse click on clear icon. Only fired when md-clearable is true.
+site/app/pages/components/input/api.js,绑定到输入框的值,Value bind to input.
+site/app/pages/components/input/api.js,传递给原生 input 标签的 type 属性,The input type. Similar to HTML5 type attribute.
+site/app/pages/components/input/api.js,占位提示信息,The input placeholder. Similar to HTML5 placeholder attribute.
+site/app/pages/components/input/api.js,传递给原生 input 标签的 required 属性,The input required. Similar to HTML5 required attribute.
+site/app/pages/components/input/api.js,唯一标识,The input id. Similar to HTML5 id attribute.
+site/app/pages/components/input/api.js,传递给原生 input 标签的 name 属性,The input name. Similar to HTML5 name attribute.
+site/app/pages/components/input/api.js,禁用输入框,Disable the input and prevent it interactions.
+site/app/pages/components/input/api.js,启用该字段的计数器并设置最大长度,Enable the counter for the field and set a maxlength
+site/app/pages/components/input/api.js,启用该字段的计数器。当您只需要一个计数器而不设置最大长度时，这很有用。设置最大长度后，如果不想显示计数器，请将此属性设置为 false,"Enable the counter for the field. This is useful when you want only a counter without setting a maxlength. After setting a maxlength, in case if you do not want to display the counter, set this prop to false"
+site/app/pages/components/input/api.js,文本发生变化时的事件，等价于原生 input 标签的 input 事件。,"The event when the text changes, equivalent to the input event of the native input tag."
+site/app/pages/components/input/api.js,绑定到文本框的值,Value bind to textarea.
+site/app/pages/components/input/api.js,文本框随录入文本自动增加高度,Enable the textarea autogrow with content.
+site/app/pages/components/input/api.js,文本发生变化时的事件，等价于原生 textarea 标签的 input 事件。,"The event when the text changes, equivalent to the input event of the native textarea tag."
+site/app/pages/components/input/index.html,文本框允许用户通常在表单内部输入，编辑和选择文本。可以用在包括对话框和搜索等场景。,"Text fields allow users to input, edit and select text typically inside forms. But they can appear in other places as well like dialog boxes and search."
+site/app/pages/components/input/index.html,典型的输入型组件都需要被包裹在表单项 <code>md-field</code> 组件里搭配使用，包括 <code>md-input</code>、<code>md-textarea</code> 和 <code>md-select</code>。,"form fields work with a <code>md-field</code> wrapped around an input component, that can be <code>md-input</code>, <code>md-textarea</code> or even a <code>md-select</code>."
+site/app/pages/components/input/index.html,文本输入,Input & Textarea
+site/app/pages/components/input/index.html,表单项组件支持和原生 html5 相兼容的属性，并支持更多额外属性。,"Fields mimic the HTML5 attributes to keep the same compatibility with native inputs, but has extra options. This allows Vue Material to accordingly setup the various <code>md-field</code> with its corresponding input options."
+site/app/pages/components/input/index.html,可以在 <code>md-input</code> 和 <code>md-textarea</code> 上设置和原生标签一致的属性，例如：,You will be able to set the same properties of a regular <code>input</code> element on <code>md-input</code>. This is also valid for <code>textarea</code> and <code>select</code>. Take a look:
+site/app/pages/components/input/index.html,错误提示,Errors and Messages
+site/app/pages/components/input/index.html,文本框可以添加验证状态以显示错误消息。,You can add validation states to show error messages. 
+site/app/pages/components/input/index.html,字符计数,Character count
+site/app/pages/components/input/index.html,可以在需要限制用户输入的地方使用字符计数器，例如新浪微博最多允许 140 个字符。,"You can use character counters where you need to limit the user input, like on Twitter's 280 character tweet:"
+site/app/pages/components/input/index.html,图标,Icons
+site/app/pages/components/input/index.html,可以为文本框添加图标来区分其内容代表的含义：,Sometimes we may want to differentiate our inputs based on it content value:
+site/app/pages/components/input/index.html,内部动作,Inline Actions
+site/app/pages/components/input/index.html,输入框可以具有可清除的功能，以使用户更容易清除值。为了更好地使用密码，我们可以显示一个切换按钮来显示密码。这对于移动应用程序确实非常有用：,Fields can have a clearable feature to make it easier for users to clear the value. To use passwords better we can show a toggle button to reveal the password. This is really useful for mobile applications:
+site/app/pages/components/input/index.html,前缀和后缀,Prefixes & suffixes
+site/app/pages/components/input/index.html,前缀和后缀可用于澄清单位或预先添加输入。前缀在文本字段中左对齐，而后缀右对齐。文本框可以同时具有前缀和后缀。,Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field whereas suffixes are right justified. Text fields can have both prefixes and suffixes.
+site/app/pages/components/input/index.html,任何原生 <code>input</code> 和 <code>textarea</code> 的属性，都可以被应用到 <code>md-input</code> 和 <code>md-textarea</code> 组件上。,Any <code>input</code> or <code>textarea</code> attributes can be used on <code>md-input</code>/<code>md-textarea</code> respectively.
+site/app/pages/components/input/index.html,文本框,Input & Textarea
+site/app/pages/components/input/examples/text.html,初始值,Initial Value
+site/app/pages/components/input/examples/text.html,初始值（只读）,Initial Value (Readonly)
+site/app/pages/components/input/examples/text.html,请在此处输入！,Type here...
+site/app/pages/components/input/examples/text.html,这是一些辅助说明的文字,Some helper text
+site/app/pages/components/input/examples/text.html,使用标签,Label
+site/app/pages/components/input/examples/text.html,可读性更高的占位信息,A nice placeholder
+site/app/pages/components/input/examples/text.html,内联样式,Inline
+site/app/pages/components/input/examples/text.html,输入数字,Number
+site/app/pages/components/input/examples/text.html,可换行长文本,Textarea
+site/app/pages/components/input/examples/text.html,随文本内容自动适应高度,Autogrow textarea
+site/app/pages/components/input/examples/text.html,禁用状态,Disabled
 site/app/pages/components/button/api.js,名称,Name
 site/app/pages/components/button/api.js,描述,Description
 site/app/pages/components/button/api.js,默认值,Default
@@ -444,6 +568,32 @@ site/app/pages/components/button/index.html,和 jinge-ui-router 无缝整合,Sea
 site/app/pages/components/button/index.html,"按钮可以默认和 jinge-ui-router 整合。可以把 md-button 当 ui-sref 一样使用，为其指定 to, params, active, target 等属性。","Buttons can be integrated with jinge-ui-router by default. You can use the md-button as a ui-sref, and specify to, params, active, target and other attributes for it."
 site/app/pages/components/button/index.html,UI Router Buttons,UI Router Buttons
 site/app/pages/components/button/index.html,按钮,Button
+site/app/pages/components/select/api.js,名称,Name
+site/app/pages/components/select/api.js,描述,Description
+site/app/pages/components/select/api.js,默认值,Default
+site/app/pages/components/select/api.js,绑定到下拉选择组件的值,Value bind to select.
+site/app/pages/components/select/api.js,占位提示信息,The select placeholder. Similar to HTML5 placeholder attribute.
+site/app/pages/components/select/api.js,指定是否必须选择一项,The select required. Similar to HTML5 required attribute.
+site/app/pages/components/select/api.js,唯一标识,The select id. Similar to HTML5 id attribute.
+site/app/pages/components/select/api.js,禁用下拉选择组件,Disable the select and prevent it selection.
+site/app/pages/components/select/api.js,创建一个带有复选框的多重选择。需要搭配传递 <code>Array</code> 类型的 <code>value</code> 属性。,Create a multi selection with checkboxes inside. Only works with a <code>value</code> with an <code>Array</code> type.
+site/app/pages/components/select/api.js,使用紧凑型布局,Enable the dense layout
+site/app/pages/components/select/api.js,参数,Parameters
+site/app/pages/components/select/api.js,选项发生变化时触发,Triggered when selection changes.
+site/app/pages/components/select/api.js,下拉框打开时触发,Triggered when select is opened.
+site/app/pages/components/select/api.js,下拉框关闭时触发,Triggered when select is closed.
+site/app/pages/components/select/api.js,单个选择项的值。,The option value. This is used to bind to <code>md-select</code> model
+site/app/pages/components/select/api.js,禁用单个选择项,Disable the option and prevent it selection.
+site/app/pages/components/select/api.js,分组的标签,The group label
+site/app/pages/components/select/api.js,禁用分组并阻止选择其中的所有选择项。,Disable the optgroup and prevent the selection of all options inside.
+site/app/pages/components/select/index.html,下拉选择可用于在多个选项之间进行选择，可以选择一个或多个选项。组件显示当前状态和向下箭头。,A select picks between multiple options. The select displays the current state and a down arrow. They can have single selection or multiple.
+site/app/pages/components/select/index.html,<code>md-select</code> 组件可兼容原生 <code>select</code> 标签的各种属性，包括 <code>required</code> 和 <code>multiple</code> 等。,Select component mimics the HTML5 <code>&lt;select&gt;</code> attributes. This means that you can add attributes like <code>required</code> and <code>multiple</code> and it will react to them to give the best experience.
+site/app/pages/components/select/index.html,下拉选择,Select
+site/app/pages/components/select/index.html,<code>md-select</code> 需要和 <code>md-option</code> 组件搭配使用，后者提供可能的选择项，且必须指定 <code>value</code> 属性。同时，<code>md-select</code> 组件应该在 <code>md-field</code> 组件内使用。,<code>md-select</code> works along with <code>md-option</code> component to provide the possible selection options. You should use it inside the <code>md-field</code> component.
+site/app/pages/components/select/index.html,如果向 <code>md-select</code> 传递的 <code>value</code> 属性是数组，则代表使用多选功能。,"If the <code>value</code> attribute passed to <code>md-select</code> is an array, then multiple selection is used."
+site/app/pages/components/select/index.html,可以使用紧凑型布局，以便在屏幕上容纳更多项目：,There is also a dense layout to accommodate more items on the screen:
+site/app/pages/components/select/index.html,可以对选择项进行分组，以便于区分不同的数据集：,Selects can have groups to make easy to distinguish different data sets:
+site/app/pages/components/select/index.html,可以禁用整个下拉选择组件，也可以禁用单个选择项，或禁用某个分组。通过指定 <code>disabled</code> 属性来实现：,"It is really easy to disable a select, option and even an optgroup. This will prevent them from being selected. Just pass a <code>disabled</code> prop to the desired component:"
 site/app/pages/components/dialog/api.js,名称,Name
 site/app/pages/components/dialog/api.js,描述,Description
 site/app/pages/components/dialog/api.js,默认值,Default
@@ -489,6 +639,21 @@ site/app/pages/components/dialog/index.html,针对这种情况，confirmCallback
 site/app/pages/components/dialog/index.html,输入对话框,Prompt Dialog
 site/app/pages/components/dialog/index.html,输入对话框和确认对话框类似，可以通过在 html 模板里使用 <code>md-dialog-prompt</code> 组件，也可以通过在 js 代码中直接调用 <code>DialogPrompt</code> 组件的静态函数 <code>show</code> 来触发。,"The prompt dialog is similar to the comfirm dialog, you can use the <code>md-dialog-prompt</code> component in the html template, or you can directly call the <code>DialogPrompt</code> component's static function <code>show</ code> in the js code. "
 site/app/pages/components/dialog/index.html,<code>DialogPrompt.show</code> 函数和 <code>DialogConfirm.show</code> 的参数一致，但有一个区别是：confirmCallback 如果返回字符串，会认为是对输入值的错误提示；如果返回 Promise，对于 reject 的数据或 resolve 的字符串 也会认为是错误提示。,"The parameters of the <code>DialogPrompt.show</code> function are the same as those of <code>DialogConfirm.show</code>, but there is one difference: if confirmCallback returns a string, it will be considered as an error prompt for the input value; if it returns Promise, for the rejected data or the resolved string will also be considered as an error prompt."
+site/app/pages/components/empty/api.js,名称,Name
+site/app/pages/components/empty/api.js,描述,Description
+site/app/pages/components/empty/api.js,默认值,Default
+site/app/pages/components/empty/api.js,空状态的标签，用作标题。,The label of the empty state. Works as a title. Optional.
+site/app/pages/components/empty/api.js,空状态的描述。,The description of the empty state. Optional.
+site/app/pages/components/empty/api.js,使空状态变圆，并具有漂亮的背景颜色。,"Make the empty state rounded, with a nice background color."
+site/app/pages/components/empty/api.js,圆角的宽度/高度大小。仅适用于 <code>rounded</code>。,The rounded width/height size. Only works with <code>md-rounded</code>.
+site/app/pages/components/empty/index.html,空状态的示例是不包含任何项目的列表，或者不显示任何结果的搜索。尽管这些状态并不常见，但应设计为防止用户混淆。,"A list that doesn’t contain any items, or a search that doesn’t display any results, are examples of empty states. Although these states aren’t typical, they should be designed to prevent user confusion."
+site/app/pages/components/empty/index.html,最基本的空白状态显示非交互式图像和文本标语。 为此，您可以使用图标，标题和空状态描述。 空状态默认提供了不错的设计，但是您始终可以在 <code>md-empty-state</code> 之上创建自己的设计。,"The most basic empty state displays a non-interactive image and a text tagline. For that you can use an icon, title and an empty state description. Vue Material already provide a nice design for your empty states, but you can always create your own design on top of <code>md-empty-state</code>."
+site/app/pages/components/empty/index.html,空状态可以是基本状态或圆形状态。仅对台式机建议使用四舍五入的变体，因为它的大小是固定的，并且无法响应。,"The empty state can be basic or rounded. The rounded variant is recommended only for desktop, as it size is fixed and do not work responsivelly."
+site/app/pages/components/empty/index.html,空状态,Empty State
+site/app/pages/components/empty/index.html,可以在任何屏幕尺寸上使用默认的空状态。您可以将设计与图标，标签和说明结合使用，因为这些都是可选的。,"The default empty state can be used on any screen size. You can combine designs with icon, label and description, as any of this are optional. It also accepts a default <code>&lt;slot&gt;</code> to pass any arbitrary content, like a button to give an option to continue the screen flow:"
+site/app/pages/components/empty/index.html,圆角的空状态以清新的外观和漂亮的背景色来引起用户的注意。,"The rounded empty state gives a fresh look with a nice background color, to gain the attention of your user."
+site/app/pages/components/empty/index.html,还可以将两种布局与原色或强调色结合使用，以匹配您的主题。,"You can also combine both layouts with primary or accent colors, to match your theme. Gorgeous!"
+site/app/pages/components/empty/index.html,空提示,Empty State
 site/app/pages/components/avatar/api.js,名称,Name
 site/app/pages/components/avatar/api.js,描述,Description
 site/app/pages/components/avatar/api.js,创建可以显示图标的头像。,Creates a avatar that can show a icon.
@@ -502,6 +667,9 @@ site/app/pages/components/avatar/index.html,假设您要显示联系人列表，
 site/app/pages/components/avatar/index.html,多种大小,Multiple sizes
 site/app/pages/components/avatar/index.html,可以指定三种不同的大小：常规、小或大。默认情况下，头像具有常规大小。,"You can specify three different sizes, if you want: Regular, Small or Large. By default the avatar have a regular size."
 site/app/pages/components/avatar/index.html,头像,Avatar
+site/app/pages/components/empty/examples/basic.html,创建第一个项目,Create first project
+site/app/pages/components/empty/examples/basic.html,创建你的第一个项目,Create your first project
+site/app/pages/components/empty/examples/basic.html,创建项目后，你就可以上传设计稿并和他人协作,"Creating project, you'll be able to upload your design and collaborate with people."
 site/app/pages/components/badge/api.js,名称,Name
 site/app/pages/components/badge/api.js,描述,Description
 site/app/pages/components/badge/api.js,创建静态的方形徽标,Created square type badge.
@@ -512,6 +680,20 @@ site/app/pages/components/badge/api.js,使用紧凑型徽章,Enables the dense l
 site/app/pages/components/badge/index.html,徽章是用于在 UI 元素上提示小状态的描述符。,Small status descriptors for UI elements.
 site/app/pages/components/badge/index.html,按钮，头像等组件需要使用 <code>md-badge</code> 进行包装。,"Some components like <b>button, avatar</b> needs to be wrapped with <code>md-badge</code> component."
 site/app/pages/components/badge/index.html,徽章,Badge
+site/app/pages/components/drawer/api.js,名称,Name
+site/app/pages/components/drawer/api.js,描述,Description
+site/app/pages/components/drawer/api.js,默认值,Default
+site/app/pages/components/drawer/api.js,将抽屉的打开设置为从侧面推送模式，会挤压内容。,"Open drawer with push mode, ie. drawer will push content"
+site/app/pages/components/drawer/api.js,控制抽屉的打开和关闭,Trigger drawer open or close
+site/app/pages/components/drawer/api.js,将 position:fixed 应用于抽屉。可用作应用程序的主抽屉（类似于本文档）。,Applies position:fixed to drawer. Useful to be used as the main drawer of the application (like on this documentation).
+site/app/pages/components/drawer/api.js,将抽屉放置在屏幕的右侧。,Place the drawer on the right of the screen.
+site/app/pages/components/drawer/api.js,参数,Parameters
+site/app/pages/components/drawer/api.js,抽屉打开时触发,Triggered when a drawer opens
+site/app/pages/components/drawer/api.js,抽屉关闭时触发,Triggered when a drawer closes
+site/app/pages/components/drawer/index.html,导航抽屉从左侧或右侧滑入，并包含应用程序的导航目标。尽管可以接受任何类型的内容，但通常与内部列表一起使用。,"The navigation drawer slides in from the left or right and contains the navigation destinations for your app. It is commonly used with lists inside, although can accept any type of content."
+site/app/pages/components/drawer/index.html,覆盖在上方,Over page content
+site/app/pages/components/drawer/index.html,从侧边推出,Push page content
+site/app/pages/components/drawer/index.html,抽屉,Drawer
 site/app/pages/ui-elements/typography/index.html,字体,Font Family
 site/app/pages/ui-elements/typography/index.html,Material Design 设计规范里的字体为 Roboto，推荐使用 Google Fonts 来加载字体资源。你需要在 html 的头里，加入以下的代码：,Material Design use Roboto as default font-family. It is recommended to load font resources by google fonts. You need to add the following code to the html header:
 site/app/pages/ui-elements/typography/index.html,"当没有加载 Roboto 字体文件，或遇到 Roboto 字体未涵盖的字符（比如中文字符），会倒退到使用 <a href=""https://ant.design/docs/spec/font"" target=""_blank"">Ant Desgin</a> 里指定的兼容性字体列表：","When Roboto font files are not loaded, or when characters not covered by Roboto fonts (such as Chinese characters) are encountered, they will fallback to using <a href=""https://ant.design/docs/spec/font"" target=""_blank"">fonts specified in ant-desgin</a>:"
@@ -529,3 +711,31 @@ site/app/pages/components/content/api.js,默认值,Default
 site/app/pages/components/content/api.js,渲染的 HTML 标签，用于创建不是默认的 div 标签。,"The output tag. Useful when you want to create a section instead of div, for example."
 site/app/pages/components/content/index.html,包含任意信息的内容容器在 Material Design 规范中称为材料或材料片。,"The Content surfaces that comprise applications are referred to in this spec as material, or sheets of material. The content component is commonly used to resemble a piece of paper. It'll be useful to theme an arbitrary content."
 site/app/pages/components/content/index.html,内容框,Content
+site/app/pages/components/radio/examples/simple-radios.js,小葛,Mr. Ge
+site/app/pages/components/radio/examples/simple-radios.js,小明,Mr. Ming
+site/app/pages/components/radio/examples/simple-radios.js,小王,Ms. Wang
+site/app/pages/components/radio/api.js,名称,Name
+site/app/pages/components/radio/api.js,描述,Description
+site/app/pages/components/radio/api.js,默认值,Default
+site/app/pages/components/radio/api.js,点击选中时通过 change 事件向外传递的值,Value emited when radio is checked.
+site/app/pages/components/radio/api.js,是否为选中状态,Whether the radio is checked.
+site/app/pages/components/radio/api.js,唯一标识,The radio unique id.
+site/app/pages/components/radio/api.js,参数,Parameters
+site/app/pages/components/radio/api.js,选中的值变化时触发,Triggered when selected value changed.
+site/app/pages/components/radio/index.html,单选按钮允许用户从一组选项中选择唯一一个选项。如果认为用户需要并排查看所有可用选项，请使用单选按钮进行独占选择。,Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you think that the user needs to see all available options side-by-side.
+site/app/pages/components/radio/index.html,单选项,Radio
+site/app/pages/components/radio/index.html,浏览器原生 <code>&lt;input type=&quot;radio&quot;&gt;</code> 标签上可以使用的属性，比如 <strong>name</strong> 和 <strong>required</strong> 等，也可以被应用到 <code>md-radio</code> 组件上。,"All other <code>&lt;input type=&quot;radio&quot;&gt;</code> attributes, such as <strong>name</strong> and <strong>required</strong>, can be used on <code>md-radio</code>."
+site/app/pages/components/file/api.js,名称,Name
+site/app/pages/components/file/api.js,描述,Description
+site/app/pages/components/file/api.js,参数,Parameters
+site/app/pages/components/file/api.js,每次选择文件时触发，传递 FileList 参数。,Emits a FileList. Triggered every time a file is selected.
+site/app/pages/components/radio/examples/simple-radios.html,描述,Description
+site/app/pages/components/radio/examples/simple-radios.html,示例,Example
+site/app/pages/components/radio/examples/simple-radios.html,值,Value
+site/app/pages/components/radio/examples/simple-radios.html,简单选择项,Simple Radio
+site/app/pages/components/radio/examples/simple-radios.html,字符串数组,Array of String
+site/app/pages/components/radio/examples/simple-radios.html,Object 数组,Array of Object
+site/app/pages/components/file/index.html,文件选择组件允许用户选择一个或多个文件。可以像普通输入文件一样过滤文件类型，或选择多个文件。,File inputs allows the user to pick one or multiple files. It can also filter the file type just like a normal input file or select multiple files.
+site/app/pages/components/file/index.html,<code>md-file</code> 组件可以像 <code>md-input</code> 组件一样使用。即，可以使用包括 <strong>placeholder</strong> 和 <strong>required</strong> 以及 <strong>disabled</strong> 等属性。,"<code>md-file</code> works just like a regular <code>md-input</code> component. This means that you can pass any <code>md-input</code> prop to <code>md-file</code>, like <strong>placeholder</strong>, <strong>required</strong> and <strong>disabled</strong>, for example."
+site/app/pages/components/file/index.html,文件选择,Regular File
+site/app/pages/components/file/index.html,浏览器原生 <code>&lt;input type=&quot;file&quot;&gt;</code> 支持的各种属性，比如 <strong>multiple</strong> 和 <strong>accept</strong> 等，都可以使用到 <code>md-file</code> 上。,"All other <code>&lt;input type=&quot;file&quot;&gt;</code> attributes, such as <strong>multiple</strong> and <strong>accept</strong>, can be used on <code>md-file</code>."

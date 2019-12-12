@@ -7,36 +7,28 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="切换按钮 Switch">
+<PageContainer centered _t:title="切换按钮">
+  <div class="page-container-section">
+    <p><_t>
+      切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。
+      因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。
+    </_t></p>
+  </div>
   <div class="page-container-section">
     <h2><_t>切换按钮</_t></h2>
-    <p>
-      <_t>
-        切换按钮可以理解成多选框的另一种展示方式，其核心逻辑和多选框完全一样。
-        因此，切换按钮也分为单一模式和数组模式，且 API 接口和多选框完全一样。
-      </_t>
-    </p>
-    <p>
-      <_t>
-        单一模式的切换按钮，这种模式是最常见的使用模式。
-      </_t>
-    </p>
-    <CodeExample _t:_title="单一模式切换按钮" e:example="_examples.singleSwitch" />
+    <p><_t>
+      单一模式的切换按钮，这种模式是最常见的使用模式。
+    </_t></p>
+    <CodeExample title="Single" e:example="_examples.singleSwitch" />
+    <p><_t>
+      数组模式的切换按钮，这种模式很少使用。典型的使用场景就是配置由个开关组成的开关分组。
+    </_t></p>
+    <CodeExample title="Array" e:example="_examples.arraySwitch" />
 
-    <p>
-      <_t>
-        数组模式的切换按钮，这种模式很少使用。
-        典型的使用场景就是配置由个开关组成的开关分组。
-      </_t>
-    </p>
-    <CodeExample _t:_title="数组模式切换按钮" e:example="_examples.arraySwitch" />
-
-    <ApiItem title="API - md-button">
-      <p slot-pass:default>
-        <_t>
-          和<code>&lt;md-checkbox&gt;</code>完全一样，请参看<code>&lt;md-checkbox&gt;</code>的 API 文档
-        </_t>
-      </p>
+    <ApiItem title="API - md-switch">
+      <p slot-pass:default><_t>
+        和 <code>md-checkbox</code> 完全一样，请参看 <code>md-checkbox</code> 的 API 文档。
+      </_t></p>
     </ApiItem>
   </div>
 </PageContainer>

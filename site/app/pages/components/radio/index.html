@@ -7,25 +7,24 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="单选项 Radio">
+<PageContainer centered _t:title="单选项">
+  <div class="page-container-section">
+    <p><_t>
+      单选按钮允许用户从一组选项中选择唯一一个选项。如果认为用户需要并排查看所有可用选项，请使用单选按钮进行独占选择。
+    </_t></p>
+  </div>
   <div class="page-container-section">
     <h2><_t>单选项</_t></h2>
     
-    <CodeExample _t:_title="简单单选项" e:example="_examples.simpleRadio" />
+    <CodeExample title="Radio" e:example="_examples.simpleRadio" />
 
     <ApiItem title="API - md-radio">
-      <p slot-pass:default>
-        <_t>
-          The following options can be applied to all checkboxes:
-        </_t>
-      </p>
-
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
     </ApiItem>
 
-    <NoteBlock tip>
-      All other <code>&lt;input type=&quot;checkbox&quot;&gt;</code> attributes, such as <strong>name</strong> and <strong>required</strong>, can be used on <code>md-checkbox</code>.
-    </NoteBlock>
+    <NoteBlock tip><_t>
+      浏览器原生 <code>&lt;input type=&quot;radio&quot;&gt;</code> 标签上可以使用的属性，比如 <strong>name</strong> 和 <strong>required</strong> 等，也可以被应用到 <code>md-radio</code> 组件上。
+    </_t></NoteBlock>
   </div>
 </PageContainer>

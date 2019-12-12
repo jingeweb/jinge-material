@@ -1,47 +1,47 @@
 <div>
   <md-field>
-    <label>Initial Value</label>
+    <label><_t>初始值</_t></label>
     <md-input maxlength="20" e:value="initial" on:change="initial = args[0]"></md-input>
   </md-field>
 
   <md-field>
-    <label>Initial Value (Read Only)</label>
+    <label><_t>初始值（只读）</_t></label>
     <md-input e:value="initial" readonly></md-input>
   </md-field>
 
   <md-field>
-    <label>Type here!</label>
+    <label><_t>请在此处输入！</_t></label>
     <md-input e:value="type"></md-input>
-    <span class="md-helper-text">Helper text</span>
+    <span class="md-helper-text"><_t>这是一些辅助说明的文字</_t></span>
   </md-field>
 
   <md-field>
-    <label>With label</label>
-    <md-input e:value="withLabel" on:change="withLabel = args[0]" placeholder="A nice placeholder"></md-input>
+    <label><_t>使用标签</_t></label>
+    <md-input e:value="withLabel" on:change="withLabel = args[0]" _t:placeholder="可读性更高的占位信息"></md-input>
   </md-field>
 
   <md-field inline>
-    <label>Inline</label>
+    <label><_t>内联样式</_t></label>
     <md-input e:value="inline" on:change="inline = args[0]"></md-input>
   </md-field>
 
   <md-field>
-    <label>Number</label>
+    <label><_t>输入数字</_t></label>
     <md-input e:value="number" on:change="number = args[0]" type="number"></md-input>
   </md-field>
 
   <md-field>
-    <label>Textarea</label>
+    <label><_t>可换行长文本</_t></label>
     <md-textarea e:value="textarea" on:change="textarea = args[0]"></md-textarea>
   </md-field>
 
   <md-field>
-    <label>Textarea with Autogrow</label>
+    <label><_t>随文本内容自动适应高度</_t></label>
     <md-textarea e:value="autogrow" on:change="autogrow = args[0]" autogrow></md-textarea>
   </md-field>
 
   <md-field>
-    <label>Disabled</label>
+    <label><_t>禁用状态</_t></label>
     <md-input e:value="disabled" disabled></md-input>
   </md-field>
 </div>

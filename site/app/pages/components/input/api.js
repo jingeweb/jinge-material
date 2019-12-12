@@ -11,173 +11,173 @@ export default () => VM({
         {
           name: 'inline',
           type: 'Boolean',
-          description: 'Make the label inline. This means that the label will disappear when the input receives a focus.',
+          description: _t('使用内联标签，当输入获得焦点时，标签将消失。'),
           defaults: 'false'
         },
         {
           name: 'counter',
           type: 'Boolean',
-          description: 'Enable the character counter. Only works with fields that have a <code>input</code> or <code>textarea</code> with a <code>maxlength</code> or <code>counter</code> attributes.',
+          description: _t('启用字符计数器，仅适用于 input 和 textarea 等有 maxlength 属性的组件。'),
           defaults: 'false'
         },
         {
           name: 'clearable',
           type: 'Boolean',
-          description: 'Add a clear button on the right of the input.',
+          description: _t('在输入的右侧添加一个清除按钮。'),
           defaults: 'false'
         },
         {
           name: 'togglePassword',
           type: 'Boolean',
-          description: 'Add a toggle button on the right of the input to reveal/hide the password. Only works with fields that have a <code>input</code> with type password.',
+          description: _t('在输入的右侧添加一个切换按钮以显示/隐藏密码。仅适用于具有密码类型的 input 组件。'),
           defaults: 'false'
         }
       ]
     },
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'clear',
-          description: 'Triggered after a mouse click on clear icon. Only fired when clearable is true.',
+          description: _t('鼠标单击清除图标后触发。仅在 clearable 为 true 时才有效。'),
           value: '-'
         }
       ]
     }
   },
   input: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'value',
-        type: 'String|Number|Boolean|Array',
-        description: 'The model variable to bind the input value',
+        type: 'Any',
+        description: _t('绑定到输入框的值'),
         defaults: 'null'
       },
       {
         name: 'type',
         type: 'String',
-        description: 'The input type. Similar to HTML5 type attribute.',
+        description: _t('传递给原生 input 标签的 type 属性'),
         defaults: 'text'
       },
       {
         name: 'placeholder',
         type: 'String',
-        description: 'The input placeholder. Similar to HTML5 placeholder attribute.',
+        description: _t('占位提示信息'),
         defaults: 'null'
       },
       {
         name: 'required',
         type: 'Boolean',
-        description: 'The input required. Similar to HTML5 required attribute.',
+        description: _t('传递给原生 input 标签的 required 属性'),
         defaults: 'false'
       },
       {
         name: 'id',
         type: 'String',
-        description: 'The input id. Similar to HTML5 id attribute.',
+        description: _t('唯一标识'),
         defaults: 'a random string'
       },
       {
         name: 'name',
         type: 'String',
-        description: 'The input name. Similar to HTML5 name attribute.',
+        description: _t('传递给原生 input 标签的 name 属性'),
         defaults: 'null'
       },
       {
         name: 'disabled',
         type: 'Boolean',
-        description: 'Disable the input and prevent it interactions.',
+        description: _t('禁用输入框'),
         defaults: 'false'
       },
       {
         name: 'maxlength',
         type: 'Number',
-        description: 'Enable the counter for the field and set a maxlength',
+        description: _t('启用该字段的计数器并设置最大长度'),
         defaults: 'null'
       },
       {
         name: 'counter',
         type: 'Number|Boolean',
-        description: 'Enable the counter for the field. This is useful when you want only a counter without setting a maxlength. After setting a maxlength, in case if you do not want to display the counter, set this prop to false',
+        description: _t('启用该字段的计数器。当您只需要一个计数器而不设置最大长度时，这很有用。设置最大长度后，如果不想显示计数器，请将此属性设置为 false'),
         defaults: 'true'
       }
     ],
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'change',
-          description: '文本发生变化时的事件，等价于原生 input 元素的 input 事件。',
+          description: _t('文本发生变化时的事件，等价于原生 input 标签的 input 事件。'),
           value: 'event'
         }
       ]
     }
   },
   textarea: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'value',
-        type: 'String|Number|Boolean|Array',
-        description: 'The model variable to bind the textarea value',
+        type: 'Any',
+        description: _t('绑定到文本框的值'),
         defaults: 'null'
       },
       {
         name: 'placeholder',
         type: 'String',
-        description: 'The textarea placeholder. Similar to HTML5 placeholder attribute.',
+        description: _t('占位提示信息'),
         defaults: 'null'
       },
       {
         name: 'required',
         type: 'Boolean',
-        description: 'The input required. Similar to HTML5 required attribute.',
+        description: _t('传递给原生 input 标签的 required 属性'),
         defaults: 'false'
       },
       {
         name: 'id',
         type: 'String',
-        description: 'The textarea id. Similar to HTML5 id attribute.',
+        description: _t('唯一标识'),
         defaults: 'a random string'
       },
       {
         name: 'name',
         type: 'String',
-        description: 'The textarea name. Similar to HTML5 name attribute.',
+        description: _t('传递给原生 input 标签的 name 属性'),
         defaults: 'null'
       },
       {
         name: 'disabled',
         type: 'Boolean',
-        description: 'Disable the textarea and prevent it interactions.',
+        description: _t('禁用输入框'),
         defaults: 'false'
       },
       {
         name: 'maxlength',
         type: 'Number',
-        description: 'Enable the counter for the field and set a maxlength',
+        description: _t('启用该字段的计数器并设置最大长度'),
         defaults: 'null'
       },
       {
         name: 'counter',
-        type: 'Number',
-        description: 'Enable the counter for the field. This is useful when you want only a counter without set a maxlength',
-        defaults: 'null'
+        type: 'Number|Boolean',
+        description: _t('启用该字段的计数器。当您只需要一个计数器而不设置最大长度时，这很有用。设置最大长度后，如果不想显示计数器，请将此属性设置为 false'),
+        defaults: 'true'
       },
       {
         name: 'autogrow',
         type: 'Boolean',
-        description: 'Enable the textarea autogrow',
+        description: _t('文本框随录入文本自动增加高度'),
         defaults: 'false'
       }
     ],
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'change',
-          description: '文本发生变化时的事件，等价于原生 textarea 元素的 input 事件。',
+          description: _t('文本发生变化时的事件，等价于原生 textarea 标签的 input 事件。'),
           value: 'event'
         }
       ]

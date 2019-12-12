@@ -7,11 +7,15 @@ import {
 export const TITLE_CHANGED = Symbol('title-changed');
 export const IS_SPLASH_CHANGED = Symbol('is-splash-changed');
 
+function isHome(pathname) {
+  return pathname === '/' || pathname === '/zh_cn/' || pathname === '/en/';
+}
+
 class PageStateManager extends Messenger {
   constructor() {
     super();
     this._title = '';
-    this._splash = location.pathname === '/';
+    this._splash = isHome(location.pathname);
   }
 
   get title() {

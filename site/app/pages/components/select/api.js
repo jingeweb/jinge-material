@@ -1,111 +1,110 @@
-export default {
+import {
+  VM,
+  _t
+} from 'jinge';
+
+export default () => VM({
   select: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'value',
-          type: 'String|Number|Boolean|Array',
-          description: 'The value variable to bind the select value',
+          type: 'Any',
+          description: _t('绑定到下拉选择组件的值'),
           defaults: 'null'
         },
         {
           name: 'placeholder',
           type: 'String',
-          description: 'The select placeholder. Similar to HTML5 placeholder attribute.',
+          description: _t('占位提示信息'),
           defaults: 'null'
         },
         {
           name: 'required',
           type: 'String',
-          description: 'The select required. Similar to HTML5 required attribute.',
+          description: _t('指定是否必须选择一项'),
           defaults: 'null'
         },
         {
           name: 'id',
           type: 'String',
-          description: 'The select id. Similar to HTML5 id attribute.',
-          defaults: 'null'
-        },
-        {
-          name: 'name',
-          type: 'String',
-          description: 'The select name. Similar to HTML5 name attribute.',
+          description: _t('唯一标识'),
           defaults: 'null'
         },
         {
           name: 'disabled',
           type: 'Boolean',
-          description: 'Disable the select and prevent it selection.',
+          description: _t('禁用下拉选择组件'),
           defaults: 'false'
         },
         {
           name: 'multiple',
           type: 'Boolean',
-          description: 'Create a multi selection with checkboxes inside. Only works with a <code>v-model</code> with an <code>Array</code>',
+          description: _t('创建一个带有复选框的多重选择。需要搭配传递 <code>Array</code> 类型的 <code>value</code> 属性。'),
           defaults: 'false'
         },
         {
-          name: 'md-dense',
+          name: 'dense',
           type: 'Boolean',
-          description: 'Enable the dense layout',
+          description: _t('使用紧凑型布局'),
           defaults: 'false'
         }
       ]
     },
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'change',
-          description: 'Triggered when value is changed.',
+          description: _t('选项发生变化时触发'),
           value: 'value'
         },
         {
           name: 'opened',
-          description: 'Triggered when select is opened.',
-          value: ' '
+          description: _t('下拉框打开时触发'),
+          value: '-'
         },
         {
           name: 'closed',
-          description: 'Triggered when select is closed.',
-          value: ' '
+          description: _t('下拉框关闭时触发'),
+          value: '-'
         }
       ]
     }
   },
   option: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'value',
-        type: 'String|Number|Boolean',
-        description: 'The option value. This is used to bind to <code>md-select</code> model',
+        type: 'Any',
+        description: _t('单个选择项的值。'),
         defaults: 'null'
       },
       {
         name: 'disabled',
         type: 'Boolean',
-        description: 'Disable the option and prevent it selection.',
+        description: _t('禁用单个选择项'),
         defaults: 'false'
       }
     ]
   },
   optgroup: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'label',
         type: 'String',
-        description: 'The group label',
+        description: _t('分组的标签'),
         defaults: 'null'
       },
       {
         name: 'disabled',
         type: 'Boolean',
-        description: 'Disable the optgroup and prevent the selection of all options inside.',
+        description: _t('禁用分组并阻止选择其中的所有选择项。'),
         defaults: 'false'
       }
     ]
   }
-};
+});

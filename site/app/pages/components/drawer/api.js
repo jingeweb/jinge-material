@@ -1,12 +1,17 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   container: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'pushMode',
           type: 'Boolean',
-          description: 'todo',
+          description: _t('将抽屉的打开设置为从侧面推送模式，会挤压内容。'),
           defaults: 'false'
         }
       ]
@@ -14,42 +19,42 @@ export default {
   },
   drawer: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'active',
           type: 'Boolean',
-          description: 'Option used to trigger the drawer visibility. Should be used with the <code>.sync</code> modifier.',
+          description: _t('控制抽屉的打开和关闭'),
           defaults: 'false'
         },
         {
           name: 'fixed',
           type: 'Boolean',
-          description: 'Applies <code>position: fixed</code> to drawer. Useful to be used as the main drawer of the application (like on this documentation).',
+          description: _t('将 position:fixed 应用于抽屉。可用作应用程序的主抽屉（类似于本文档）。'),
           defaults: 'false'
         },
         {
           name: 'right',
           type: 'Boolean',
-          description: 'This is used to place the drawer on the right of the screen.',
+          description: _t('将抽屉放置在屏幕的右侧。'),
           defaults: 'false'
         }
       ]
     },
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'opened',
-          description: 'Triggered when a drawer opens',
+          description: _t('抽屉打开时触发'),
           value: 'null'
         },
         {
           name: 'closed',
-          description: 'Triggered when a drawer closes',
+          description: _t('抽屉关闭时触发'),
           value: 'null'
         }
       ]
     }
   }
-};
+});

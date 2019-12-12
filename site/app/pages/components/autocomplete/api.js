@@ -1,29 +1,34 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   slots: {
-    headings: ['Name', 'Description', 'Values'],
+    headings: [_t('名称'), _t('描述'), _t('示例')],
     props: [
       {
         name: 'item',
-        description: 'Creates a custom autocomplete result item',
+        description: _t('创建自定义的匹配项'),
         options: [
           {
             name: 'option',
-            description: 'Will receive each option of the matched options.'
+            description: _t('将收到匹配选项的每个选项。')
           },
           {
             name: 'term',
-            description: 'The current input search term.'
+            description: _t('当前输入的搜索词。')
           }
         ],
         usage: '<_slot slot-pass:"item" vm-use:option="option" vm:term > ... </_slot>'
       },
       {
         name: 'empty',
-        description: 'Creates a empty state in case of zero matches',
+        description: _t('在零匹配的情况下创建一个空状态'),
         options: [
           {
             name: 'term',
-            description: 'The current input search term.'
+            description: _t('当前输入的搜索词。')
           }
         ],
         usage: '<_slot slot-pass:empty vm-use:term="term"> ... </_slot>'
@@ -31,113 +36,113 @@ export default {
     ]
   },
   props: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'value',
         type: 'String',
-        description: 'The model variable to bind the autocomplete value',
+        description: _t('自动补全输入框的值'),
         defaults: 'null'
       },
       {
         name: 'options',
         type: 'Array|Promise',
-        description: 'The available options to be searched. If <code>Array</code>, the autocomplete will use a inner search engine. If <code>Promise</code>, you will need to implement the search by yourself (this is commonly made by a backend service).',
+        description: _t('要搜索的可用选项。如果为 Array，则自动完成功能将使用内部搜索引擎。 如果是 Promise，则需要您自己执行搜索（这通常是由后端服务进行的）。'),
         defaults: '[]'
       },
       {
         name: 'name',
         type: 'String',
-        description: 'The input name attribute',
+        description: _t('传递给输入框的 name 属性'),
         defaults: 'null'
       },
       {
         name: 'id',
         type: 'String',
-        description: 'The input id attribute',
+        description: _t('传递给输入框的 id 属性'),
         defaults: 'a random string'
       },
       {
         name: 'maxlength',
         type: 'Number',
-        description: 'Enables a character count, based on the given value.',
+        description: _t('指定允许输入的最大的字符数量'),
         defaults: 'null'
       },
       {
         name: 'placeholder',
         type: 'Number',
-        description: 'Sets a optional placeholder on autocomplete.',
+        description: _t('输入框的占位提示'),
         defaults: 'null'
       },
       {
         name: 'dense',
         type: 'Boolean',
-        description: 'Enable the dense layout for options',
+        description: _t('使用紧凑型的自动补全组件'),
         defaults: 'false'
       },
       {
         name: 'layout',
         type: 'String',
-        description: 'Sets the input layout. The floating variant is the default. See below the detailed description of each layout.',
+        description: _t('设置布局方式，请参见下面每种布局的详细说明。'),
         defaults: 'floating'
       },
       {
         offset: true,
         name: 'layout="floating"',
         type: 'String',
-        description: 'Sets the input layout to floating. This is the default.',
+        description: _t('布局方式使用 floating 模式。这是默认的布局。'),
         defaults: '-'
       },
       {
         offset: true,
         name: 'layout="box"',
         type: 'String',
-        description: 'Sets the input layout to a boxed layout.',
+        description: _t('布局方式使用 boxed 模式。'),
         defaults: '-'
       },
       {
         name: 'openOnFocus',
         type: 'Boolean',
-        description: 'Disable/enable the on focus event. If <code>false</code>, the options will show the results right after a keystroke.',
+        description: _t('禁用/启用焦点事件。 如果 false，则选项将在按键后立即显示结果。'),
         defaults: 'true'
       },
       {
         name: 'searchProp',
         type: 'String',
-        description: 'if option is object, you need specify which property will be used for search filter.',
+        description: _t('如果 option 为 object，则需要指定哪个属性将用于搜索过滤器。'),
         defaults: 'null'
       },
       {
         name: 'searchMethod',
         type: 'String',
-        description: 'search algorithm for option filter. This option do not take any effects if the <code>md-options</code> is a Promise. see api of <code>md-highlight</code> for more details.',
+        description: _t('选项过滤器的搜索算法。如果传递的 <code>options</code> 属性是 Promise，则此选项不起作用。有关更多详细信息，请参见 <code>md-highlight</code> 的 API。'),
         defaults: 'fuzzy'
       }
     ]
   },
   events: {
-    headings: ['Name', 'Description', 'Value'],
+    headings: [_t('名称'), _t('描述'), _t('参数')],
     props: [
       {
         name: 'change',
-        description: 'Triggered when the user types on the input field',
+        description: _t('用户在输入字段上键入时触发'),
         value: 'The term string'
       },
       {
         name: 'selected',
-        description: 'Triggered when the user selects an option',
+        description: _t('当用户选择一个选项时触发'),
         value: 'The selected option'
       },
       {
         name: 'opened',
-        description: 'Triggered when the options panel is opened',
+        description: _t('在打开选项面板时触发'),
         value: 'null'
       },
       {
         name: 'closed',
-        description: 'Triggered when the options panel is closed',
+        description: _t('在关闭选项面板时触发'),
         value: 'null'
       }
     ]
   }
-};
+});

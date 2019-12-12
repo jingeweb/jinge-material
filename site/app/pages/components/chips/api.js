@@ -1,34 +1,39 @@
-export default {
+import {
+  _t,
+  VM
+} from 'jinge';
+
+export default () => VM({
   chip: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'clickable',
           type: 'Boolean',
-          description: 'Enables/Disables the click action in the chip.',
+          description: _t('启用/禁用纸片上的点击动作。'),
           defaults: 'false'
         },
         {
           name: 'deletable',
           type: 'Boolean',
-          description: 'Creates a chip that can hold a delete action. Useful when editing a chip series, like tags or categories.',
+          description: _t('创建一个可以执行删除操作的纸片。'),
           defaults: 'false'
         },
         {
           name: 'disabled',
           type: 'Boolean',
-          description: 'Enables/Disables the chip to be clickable of deletable.',
+          description: _t('指定是否禁用纸片（包括点击和删除）。'),
           defaults: 'false'
         }
       ]
     },
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'delete',
-          description: 'Triggered after a mouse click on delete icon. Only fired when deletable is true.',
+          description: _t('鼠标单击删除图标后触发，仅在 deletable 属性为 true 时才有效。'),
           value: '$event'
         }
       ]
@@ -36,75 +41,75 @@ export default {
   },
   chips: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'value',
           type: 'Array',
-          description: 'The content to be displayed as chips. Need to be a array of strings, unless you specify a custom template.',
+          description: _t('指定全部的纸片。除非您指定自定义模板，否则必须是字符串数组。'),
           defaults: '[]'
         },
         {
           name: 'id',
           type: 'String',
-          description: 'The input id. If null, it will be created automatically.',
+          description: _t('唯一标识，如果为 null，将自动创建。'),
           defaults: 'null'
         },
         {
           name: 'inputType',
           type: 'String',
-          description: 'The input type. Cannot be \'file\'',
+          description: _t('输入框的类型'),
           defaults: 'text'
         },
         {
           name: 'placeholder',
           type: 'String',
-          description: 'The input placeholder. It is useful to show to the user which type of data will be inserted.',
+          description: _t('输入框的占位符，可用于向用户显示将插入哪种数据类型。'),
           defaults: 'null'
         },
         {
           name: 'static',
           type: 'Boolean',
-          description: 'Creates a non-editable chips. Useful to show inside a details page.',
+          description: _t('创建一个不可编辑的纸片集，可以用在显示详细信息的页面。'),
           defaults: 'false'
         },
         {
           name: 'limit',
           type: 'Number',
-          description: 'Blocks the chips to create items above the limit.',
+          description: _t('当纸片集的数量超过限定时，不允许再创建纸片。'),
           defaults: 'false'
         },
         {
           name: 'checkDuplicated',
           type: 'Boolean',
-          description: 'Always check if there is a duplicated chip while changing the input value, or check it only on insertion',
+          description: _t('更改输入值时始终检查纸片是否重复，或者仅在插入时检查纸片是否重复'),
           defaults: 'false'
         }
       ]
     },
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'change',
-          description: 'Triggered after chips changed.'
+          description: _t('纸片集发生变化（增删）时触发。')
         },
         {
           name: 'delete',
-          description: 'Triggered after a mouse click on delete icon of a chip.',
-          value: '<span>Two params:</span> <br/> text, index'
+          description: _t('鼠标单击纸片的删除图标后触发。'),
+          value: 'chip, index'
         },
         {
           name: 'chipClicked',
-          description: 'Triggered after a mouse click on a single chip.',
-          value: '<span>Two params:</span> <br/> text, index'
+          description: _t('鼠标点击纸片时触发。'),
+          value: 'chip, index'
         },
         {
           name: 'insert',
-          description: 'Triggered after a chip inserted.',
-          value: 'The last inserted chip value'
+          description: _t('插入纸片后触发'),
+          value: _t('新插入的 chip')
         }
       ]
     }
   }
-};
+});

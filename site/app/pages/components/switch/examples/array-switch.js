@@ -1,6 +1,8 @@
 import {
   Component,
-  VM
+  VM,
+  I18N_WATCH,
+  _t
 } from 'jinge';
 
 import _tpl from './array-switch.html';
@@ -12,13 +14,23 @@ export default class ExampleArrayCheckbox extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.persons = VM([{
-      name: '小葛'
-    }, {
-      name: '小明'
-    }, {
-      name: '小王'
-    }]);
+    this[I18N_WATCH](() => {
+      const persons = VM([{
+        name: _t('小葛')
+      }, {
+        name: _t('小明')
+      }, {
+        name: _t('小王')
+      }]);
+      if (!this.persons) {
+        this.persons = persons;
+      } else {
+        persons.forEach((p, i) => {
+          this.persons[i].name = p.name;
+        });
+        this.selectedPersonsDisplay = JSON.stringify(this.selectedPersons);
+      }
+    }, true);
     this.cities = VM(['Chengdu', 'Beijing', 'Shanghai']);
     this.selectedPersons = VM([]);
     this.selectedCities = VM(['Beijing']);
