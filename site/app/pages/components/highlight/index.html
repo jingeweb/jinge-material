@@ -7,14 +7,20 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="文本高亮 Highlight">
+<PageContainer centered _t:title="文本高亮">
   <div class="page-container-section">
-    <h2>Highlight Text</h2>
-
+    <h2><_t>文本高亮</_t></h2>
+    <p><_t>
+      文本高亮组件用于在浏览器端进行字符串关键字搜索并以高亮匹配字符的形式展示结果。
+      搜索算法是在浏览器中执行的，但通常情况下，都应该尽可能使用后端接口来实现字符串的关键字搜索。
+    </_t></p>
+    <p><_t>
+      文本高亮组件支持三种查询算法，包括 <a href="https://en.wikipedia.org/wiki/roximate_string_matching" target="_blank">fuzzy</a>、includes 和 starts，依次代表模糊匹配、包含子串匹配和以子串打头匹配。默认情况下使用模糊匹配。
+    </_t></p>
     <CodeExample title="Highlight" e:example="_examples.text" />
 
     <ApiItem title="API - md-highlight">
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
     </ApiItem>
   </div>
 </PageContainer>

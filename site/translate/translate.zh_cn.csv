@@ -448,12 +448,38 @@ site/app/pages/components/file/index.html,文件选择组件允许用户选择�
 site/app/pages/components/file/index.html,<code>md-file</code> 组件可以像 <code>md-input</code> 组件一样使用。即，可以使用包括 <strong>placeholder</strong> 和 <strong>required</strong> 以及 <strong>disabled</strong> 等属性。
 site/app/pages/components/file/index.html,文件选择
 site/app/pages/components/file/index.html,浏览器原生 <code>&lt;input type=&quot;file&quot;&gt;</code> 支持的各种属性，比如 <strong>multiple</strong> 和 <strong>accept</strong> 等，都可以使用到 <code>md-file</code> 上。
-site/app/pages/components/highlight/index.html,文本高亮 Highlight
-site/app/pages/components/icon/index.html,Material 图标
-site/app/pages/components/icon/index.html,Icon Font 图标
-site/app/pages/components/icon/index.html,Font Icon 图标
-site/app/pages/components/icon/index.html,SVG 图标
-site/app/pages/components/icon/index.html,图标 Icon
+site/app/pages/components/highlight/api.js,名称
+site/app/pages/components/highlight/api.js,描述
+site/app/pages/components/highlight/api.js,默认值
+site/app/pages/components/highlight/api.js,待进行关键字搜索的文本
+site/app/pages/components/highlight/api.js,待查询的高亮关键字
+site/app/pages/components/highlight/api.js,搜索算法忽略大小写
+site/app/pages/components/highlight/api.js,指定使用哪种算法进行搜索，默认使用模糊查询（fuzzysearch）
+site/app/pages/components/highlight/api.js,使用模糊查询（fuzzysearch）算法来搜索关键字。
+site/app/pages/components/highlight/api.js,使用包含子串（includes）算法来搜索关键字。
+site/app/pages/components/highlight/api.js,使用以子串打头（starts）算法来搜索关键字。
+site/app/pages/components/highlight/index.html,文本高亮
+site/app/pages/components/highlight/index.html,文本高亮组件用于在浏览器端进行字符串关键字搜索并以高亮匹配字符的形式展示结果。搜索算法是在浏览器中执行的，但通常情况下，都应该尽可能使用后端接口来实现字符串的关键字搜索。
+site/app/pages/components/highlight/index.html,"文本高亮组件支持三种查询算法，包括 <a href=""https://en.wikipedia.org/wiki/roximate_string_matching"" target=""_blank"">fuzzy</a>、includes 和 starts，依次代表模糊匹配、包含子串匹配和以子串打头匹配。默认情况下使用模糊匹配。"
+site/app/pages/components/icon/api.js,名称
+site/app/pages/components/icon/api.js,描述
+site/app/pages/components/icon/api.js,默认值
+site/app/pages/components/icon/api.js,图标大小，可以指定为数字，也可以指定为 css 字符串值。默认大小为当前字号。
+site/app/pages/components/icon/api.js,指定需要下载并渲染的远程 svg 资源路径。
+site/app/pages/components/icon/api.js,当使用 src 指定远程资源时，可以通过 cache 参数指定是否缓存该资源。
+site/app/pages/components/icon/api.js,参数
+site/app/pages/components/icon/api.js,当 src 属性指定的远程 svg 资源被加载结束时触发。如果加载出错，则会将错误信息做为参数传递。
+site/app/pages/components/icon/examples/material-icons.html,不同主题的图标：
+site/app/pages/components/icon/index.html,图标通过相对抽象的几何形状来在视觉上表达信息，包括核心思想、功能或主题等等。
+site/app/pages/components/icon/index.html,Material Design 的图标包含 5 种主题，每种主题下都有超过 1000 个图标，共计超过 5000 个图标。所有图标在 Jinge Material 中都可以使用，并且只会按需加载。图标资源位于 <code>dist/icons/</code> 目录。
+site/app/pages/components/icon/index.html,使用 Material 图标
+site/app/pages/components/icon/index.html,"通过 <code>md-icon-{THEME}-{ICON_ID}</code> 这个格式的组件别名可以使用 Material 官方的全部图标。其中，<code>{THEME}</code> 请替换为实际需要的主题。可用的主题包括 <code>baseline</code>、<code>outline</code>、<code>round</code>、<code>sharp</code> 和 <code>twotone</code>，依次对应 Material Desgin 官网上的 Filled, Outlined, Rounded, Sharp, Two-Tone 主题。同时，<code>{ICON_ID}</code> 请替换为实际的图标的 id，比如 <code>home</code>, <code>3d_rotation</code> 等，更多的图标 id 请在使用时直接参考 <a href=""https://material.io/tools/icons"" target=""_blank"">Material Desgin Icons</a>  官网。"
+site/app/pages/components/icon/index.html,通常情况下，一个项目只会使用同一个主题的图标。因此，还可以直接使用 <code>md-icon-{ICON_ID}</code> 这个格式的组件别名来引用默认主题的图标组件。默认主题为 <code>baseline</code>，但可以在构建工具（比如 webpack）的配置中指定其它主题为默认主题。
+site/app/pages/components/icon/index.html,使用 Icon Font 图标
+site/app/pages/components/icon/index.html,"直接使用 <code>md-icon</code> 组件并搭配 <code>class</code> 属性，可以使用 Icon Font 图标库，比如 <a href=""http://fontawesome.io/"" target=""_blank"">Font Awesome</a>。但请注意，你需要自己引入相应的 Web Font 资源。参看下面的示例："
+site/app/pages/components/icon/index.html,加载 SVG
+site/app/pages/components/icon/index.html,如果给 <code>md-icon</code> 组件指定 <code>src</code> 属性，组件会使用 ajax 来加载该指定的远程图片，加载完后渲染到组件内部。
+site/app/pages/components/icon/index.html,图标
 site/app/pages/components/input/api.js,名称
 site/app/pages/components/input/api.js,描述
 site/app/pages/components/input/api.js,默认值
