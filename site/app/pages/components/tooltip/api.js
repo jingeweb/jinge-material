@@ -1,14 +1,15 @@
 import {
+  VM,
   _t
 } from 'jinge';
 
-export default {
+export default () => VM({
   props: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'title',
-        description: _t('文字提示的内容'),
+        description: _t('工具提示的内容'),
         defaults: 'an empty string'
       },
       {
@@ -38,4 +39,4 @@ export default {
       }
     ]
   }
-};
+});

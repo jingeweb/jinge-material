@@ -1,46 +1,51 @@
-export default {
+import {
+  VM,
+  _t
+} from 'jinge';
+
+export default () => VM({
   steppers: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'activeStep',
           type: 'String/Number',
-          description: 'The id of the step to be set as the current one. Useful to programatically change the active step.',
+          description: _t('指定当前激活的步骤，可以是数字索引，或某个步骤的 id。'),
           defaults: '0'
         },
         {
           name: 'alternative',
           type: 'Boolean',
-          description: 'Change the steppers into a alternative layout',
+          description: _t('使用替代布局'),
           defaults: 'false'
         },
         {
           name: 'vertical',
           type: 'Boolean',
-          description: 'Change the steppers into a vertical orientation. For mobile.',
+          description: _t('使用垂直布局，通常用于移动平台。'),
           defaults: 'false'
         },
         {
           name: 'linear',
           type: 'Boolean',
-          description: 'Set steppers to work in a linear flow.',
+          description: _t('使用线性工作流模式。'),
           defaults: 'false'
         },
         {
           name: 'dynamicHeight',
           type: 'Boolean',
-          description: 'Calculate the stepper height automatically and add an awesome height transition between them.',
+          description: _t('自动计算步骤的高度，并在它们之间使用高度过渡。'),
           defaults: 'false'
         }
       ]
     },
     events: {
-      headings: ['Name', 'Description', 'Value'],
+      headings: [_t('名称'), _t('描述'), _t('参数')],
       props: [
         {
           name: 'changed',
-          description: 'Triggered when the active stepper changes',
+          description: _t('当前激活步骤发生变化时触发'),
           value: '(index, step)'
         }
       ]
@@ -48,45 +53,45 @@ export default {
   },
   step: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'id',
           type: 'String',
-          description: 'The step id. Used when changing the active step dynamically',
+          description: _t('唯一标识，可用于和 activeStep 属性配合指定当前激活步骤'),
           defaults: 'a random string'
         },
         {
           name: 'label',
           type: 'String',
-          description: 'The step label',
+          description: _t('步骤的标签文本'),
           defaults: 'null'
         },
         {
           name: 'description',
           type: 'String',
-          description: 'The step description. When a step is optional, use this prop to tell the user that.',
+          description: _t('步骤的描述文本。如果某个步骤是可选的，请使用此属性说明。'),
           defaults: 'null'
         },
         {
           name: 'error',
           type: 'String',
-          description: 'The error message. When set, the stepper will automatically raise an error. To clear the error, set this variable as null.',
+          description: _t('错误消息。设置此属性后，步骤将自动变成错误状态。要清除错误，请将此属性设置为 null。'),
           defaults: 'null'
         },
         {
           name: 'done',
           type: 'Boolean',
-          description: 'Set this prop to true to tell that a particular step is finished.',
+          description: _t('将此属性设置为 true 可提示特定步骤已完成。'),
           defaults: 'false'
         },
         {
           name: 'editable',
           type: 'Boolean',
-          description: 'Make a step editable or non editable.',
+          description: _t('使步骤可编辑或不可编辑。'),
           defaults: 'true'
         }
       ]
     }
   }
-};
+});

@@ -7,25 +7,34 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="消息提示 Snackbar">
+<PageContainer centered _t:title="消息提示">
   <div class="page-container-section">
-    <p>Snackbars provide brief feedback about an operation through a message at the bottom of the screen.</p>
-    <p>They can have a custom duration on the screen or be persistent. It can be centered or left aligned.</p>
-    <NoteBlock>On mobile devices the snackbar will fit the whole width space.</NoteBlock>
+    <p><_t>
+      消息提示组件通过屏幕底部的消息提供有关操作的简短反馈。
+    </_t></p>
+    <p><_t>
+      它们可以在屏幕上具有自定义的持续时间，也可以是持续的。可以居中或左对齐。
+    </_t></p>
+    <NoteBlock><_t>
+      在移动设备上，消息提示将占满整个宽度空间。
+    </_t></NoteBlock>
   </div>
 
   <div class="page-container-section">
-    <h2>Duration and position</h2>
-
+    <h2><_t>持续时间和位置</_t></h2>
+    
     <CodeExample title="Regualr" e:example="_examples.regular" />
   </div>
   <div class="page-container-section">
-    <h2>Directly call static method</h2>
-    <CodeExample title="Regualr" e:example="_examples.static" />
+    <h2><_t>在 js 代码里调用</_t></h2>
+    <p><_t>
+      除了直接在 html 模板里使用 <code>md-snackbar</code> 组件外，也可以在 js 代码里直接通过调用 <code>Snackbar.show</code> 来展示消息。
+    </_t></p>
+    <CodeExample title="Static method" e:example="_examples.static" />
 
     <ApiItem title="API - md-snackbar">
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>

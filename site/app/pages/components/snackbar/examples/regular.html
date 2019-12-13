@@ -16,7 +16,7 @@
     </md-field>
   </div> -->
 
-  <md-button on:click="showSnackbar = true" class="md-accent md-raised">Open Snackbar</md-button>
+  <md-button on:click="showSnackbar = true" class="md-accent md-raised"><_t>打开消息提示</_t></md-button>
   <md-snackbar
     e:position="position"
     e:active="showSnackbar"
@@ -24,7 +24,9 @@
     on:opened="log('opened')"
     on:closed="log('closed')"
   >
-    <span>Connection timeout. Showing limited messages!</span>
-    <md-button class="md-accent" on:click="showSnackbar = false">Ok</md-button>
+    <span><_t>
+      连接超时。巴拉巴拉的错误提示信息...
+    </_t></span>
+    <md-button class="md-accent" on:click="showSnackbar = false"><_t>确认</_t></md-button>
   </md-snackbar>
 </form>

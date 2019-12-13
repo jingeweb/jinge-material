@@ -1,56 +1,57 @@
-import {
-  interactionEvents
-} from '../../../../../src/_util';
 
-export default {
-  interactionEvents: interactionEvents,
+import {
+  VM,
+  _t
+} from 'jinge';
+
+export default () => VM({
   list: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'expandSingle',
           type: 'Boolean',
-          description: 'If set true, one expandable list item could be expanded at most at a time. The expanded list item will be collapsed when another is expanded',
+          description: _t('如果设置为 true，则一个列表最多只能有一个列表项展开。当展开另一个列表项时，原先展开的列表项将被折叠'),
           defaults: 'false'
         }
       ]
     },
     classes: {
-      headings: ['Name', 'Description'],
+      headings: [_t('名称'), _t('描述')],
       props: [
         {
           name: 'md-dense',
-          description: 'Enables the dense layout'
+          description: _t('使用紧凑型布局')
         },
         {
           name: 'md-double-line',
-          description: 'The double line lists are good to show additional information about single items'
+          description: _t('双行列表可以更好地显示有关单个项目的其他信息')
         },
         {
           name: 'md-triple-line',
-          description: 'The three line lists are great for showing a preview of the full content of the item'
+          description: _t('三行列表适合显示项目的全部内容的预览')
         }
       ]
     }
   },
   item: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
           name: 'expand',
           type: 'Boolean',
-          description: 'Enables the expansion panel',
+          description: _t('启用可展开面板'),
           defaults: 'false'
         },
         {
           name: 'expanded',
           type: 'Boolean',
-          description: 'The prop to show/hide the expansion panel. Should be used with the <code>.sync</code> modifier',
+          description: _t('控制面板的展开和关闭'),
           defaults: 'false'
         }
       ]
     }
   }
-};
+});

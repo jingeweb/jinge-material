@@ -1,10 +1,11 @@
 import {
+  VM,
   _t
 } from 'jinge';
 
-export default {
+export default () => VM({
   props: {
-    headings: ['Name', 'Description', 'Default'],
+    headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [
       {
         name: 'active',
@@ -76,11 +77,11 @@ export default {
     }]
   },
   events: {
-    headings: ['Name', 'Description', 'Value'],
+    headings: [_t('名称'), _t('描述'), _t('参数')],
     props: [{
       name: 'update.active',
       description: _t('气泡显示或隐藏时的事件'),
-      value: 'active'
+      value: 'isActive'
     }]
   }
-};
+});

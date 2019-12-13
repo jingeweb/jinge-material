@@ -132,6 +132,15 @@ function generateMenus() {
       name: _t('菜单|Menu'),
       state: 'components.menu'
     }, {
+      name: _t('分页|Pagination'),
+      state: 'components.pagination'
+    }, {
+      name: _t('气泡确认框|Popconfirm'),
+      state: 'components.popconfirm'
+    }, {
+      name: _t('气泡卡片|Popover'),
+      state: 'components.popover'
+    }, {
       name: _t('进度条|Progress'),
       state: 'components.progress'
     }, {
@@ -147,9 +156,6 @@ function generateMenus() {
       name: _t('子标题|Subheader'),
       state: 'components.subheader'
     }, {
-      name: _t('分页|Pagination'),
-      state: 'components.pagination'
-    }, {
       name: _t('表格|Table'),
       state: 'components.table'
     }, {
@@ -159,10 +165,7 @@ function generateMenus() {
       name: _t('工具栏|Toolbar'),
       state: 'components.toolbar'
     }, {
-      name: _t('气泡提示|Popover'),
-      state: 'components.popover'
-    }, {
-      name: _t('悬浮提示|Tooltip'),
+      name: _t('工具提示|Tooltip'),
       state: 'components.tooltip'
     }]
   }, {

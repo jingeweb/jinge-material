@@ -7,44 +7,54 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="工具栏 Toolbar">
+<PageContainer centered _t:title="工具栏">
   <div class="page-container-section">
-    <p>Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.</p>
+    <p><_t>
+      工具栏操作显示在受其操作影响的视图前面。工具栏会显示在受其影响的内容前面一个层阶。工具栏可以控制宽度来容纳其中的内容。
+    </_t></p>
   </div>
 
   <div class="page-container-section">
-    <h2>常规工具栏</h2>
+    <h2><_t>常规工具栏</_t></h2>
 
-    <p>Toolbars adjusts its height dimensions based on the screen width to best fit the visible area on small devices. Try to resize your browser to see the difference:</p>
+    <p><_t>
+      工具栏会根据屏幕宽度调整高度尺寸，以最适合小型设备上的可见区域。 尝试调整您的浏览器大小以查看区别：
+    </_t></p>
 
     <CodeExample title="Regular Toolbars" e:example="_examples.regularToolbar" />
 
     <ApiItem title="API - md-toolbar">
-      <p slot-pass:default>The following options can be applied to all toolbars:</p>
-
-      <ApiTable e:headings="_api.regular.classes.headings" e:props="_api.regular.classes.props" slot-pass:classes />
-      <ApiTable e:headings="_api.regular.props.headings" e:props="_api.regular.props.props" slot-pass:props />
+      <ApiTable e:headings="api.regular.classes.headings" e:props="api.regular.classes.props" slot-pass:classes />
+      <ApiTable e:headings="api.regular.props.headings" e:props="api.regular.props.props" slot-pass:props />
     </ApiItem>
   </div>
 
   <div class="page-container-section">
-    <h2>不同大小的工具栏</h2>
+    <h2><_t>不同大小的工具栏</_t></h2>
 
     <CodeExample title="Sizes" e:example="_examples.toolbarSizes" />
   </div>
 
   <div class="page-container-section">
-    <h2>内容和响应</h2>
-    <p>As the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it.</p>
-    <p>Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the <code>md-toolbar-row</code> class. A row can also have a <code>md-toolbar-offset</code> to add a little space on the left of it. This is commonly used inside the second row of an large toolbar.</p>
-    <p>The sections are used to split the content of the toolbar horizontally (or the row inside). You can apply them using two types of section: <code>md-toolbar-section-start</code> will be left-aligned and <code>md-toolbar-section-end</code> right-aligned.</p>
+    <h2><_t>内容和响应</_t></h2>
+    <p><_t>
+      由于工具栏主要用于执行影响整个应用程序的操作，因此您可以在其中创建行或节。
+    </_t></p>
+    <p><_t>
+      尽管这些行适用于每个工具栏，但它们的创建是为了分隔大型工具栏的内容。该元素由 <code>md-toolbar-row</code> 类表示。行还可以具有 <code>md-toolbar-offset</code> 在其左侧添加一些空格。这通常在大型工具栏的第二行中使用。
+    </_t></p>
+    <p><_t>
+      这些部分用于水平拆分工具栏的内容（或内部的行）。可以使用两种类型的部分来应用它们：<code>md-toolbar-section-start</code> 将左对齐，而 <code>md-toolbar-section-end</code> 右对齐。
+    </_t></p>
 
     <CodeExample title="Rows, Title and Icons" e:example="_examples.contentActions" />
 
     <ApiItem title="Elements">
-      <p slot-pass:default>The following classes creates parts of a toolbar:</p>
+      <p slot-pass:default><_t>
+        以下的类用于构造工具栏中的各种元素。
+      </_t></p>
 
-      <ApiTable e:headings="_api.elements.classes.headings" e:props="_api.elements.classes.props" slot-pass:classes />
+      <ApiTable e:headings="api.elements.classes.headings" e:props="api.elements.classes.props" slot-pass:classes />
     </ApiItem>
   </div>
 </PageContainer>

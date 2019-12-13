@@ -7,48 +7,64 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="步骤条 Steppers">
+<PageContainer centered _t:title="步骤条">
   <div class="page-container-section">
-    <p>Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation and have two main types: Horizontal or Vertical. The horizontal type can have an alternative layout.</p>
-    <p>Individual steps are editable and optional by default, but you can change that.</p>
+    <p><_t>
+      步骤条通过一串顺序编号的步骤显示进度。它们也可以用于导航，并且有两种主要类型：水平或垂直。水平类型可以具有其他布局。
+    </_t></p>
+    <p><_t>
+      默认情况下，各个步骤都是可编辑的，并且是可选的。
+    </_t></p>
   </div>
 
   <div class="page-container-section">
-    <h2>Horizontal Steppers</h2>
+    <h2><_t>水平步骤条</_t></h2>
 
-    <p>Horizontal steppers are ideal when the contents of one step depend on an earlier step. You should avoid using long step names in horizontal steppers.</p>
-    <p>This is the default type of steppers. They are not recommended for mobile:</p>
+    <p><_t>
+      当一个步骤的内容取决于较早的步骤时，水平步骤条是理想的选择。应该避免在水平步骤条中使用较长的步骤名。
+    </_t></p>
+    <p><_t>
+      这是步骤条的默认类型。不建议将它用于移动设备：
+    </_t></p>
     <CodeExample title="Default layout" e:example="_examples.horizontal" />
 
-    <p>They can also have a alternative layout to give greater emphasis to the steps titles:</p>
+    <p><_t>
+      他们还可以使用其他布局来更加强调步骤标题：
+    </_t></p>
     <CodeExample title="Alternative Layout" e:example="_examples.alternative" />
   </div>
 
   <div class="page-container-section">
-    <h2>Vertical Steppers</h2>
+    <h2><_t>垂直步骤条</_t></h2>
 
-    <p>Vertical steppers are great deal for mobile devices or to be inserted on small areas of your application, like a dialog or a card.</p>
+    <p><_t>
+      垂直步骤条非常适合用于移动设备或插入对话框及卡片等应用程序的小区域。
+    </_t></p>
     <CodeExample title="Ideal for Mobile" e:example="_examples.vertical" />
   </div>
   <div class="page-container-section">
-    <h2>Linear Steppers</h2>
+    <h2><_t>线性工作流</_t></h2>
 
-    <p>By default steps are optional and this means that you can advance to the last step without pass through the other ones. But sometimes we're guiding an user through a linear flow and all steps matter or are connected together. Linear steppers require users to complete one step in order to move on to the next:</p>
+    <p><_t>
+      默认情况下，步骤是可选的，这意味着您可以前进到最后一步，而无需先完成前面的其他步骤。但是有时我们会通过线性流程引导用户，所有步骤都很重要或连接在一起。线性步骤条要求用户完成前一个步骤才能继续进行下一个步骤：
+    </_t></p>
     <CodeExample title="With error handler" e:example="_examples.linear" />
   </div> 
   <div class="page-container-section">
-    <h2>Non Editable Steps</h2>
+    <h2><_t>不可编辑</_t></h2>
 
-    <p>By default steps are also editable. But you can disable this by manually setting on each step that could be non-editable. This makes sense when users cannot edit a step later or when step editing poses a distraction risk to form completion:</p>
+    <p><_t>
+      默认情况下，步骤也是可编辑的。可以通过手动设置每个不可编辑的步骤来禁用此功能。通常适用于，当用户以后无法编辑某个步骤或步骤编辑对完成表单构成干扰时：
+    </_t></p>
     <CodeExample title="Disable Edit" e:example="_examples.nonEditable" />
 
     <ApiItem title="API - md-steppers">
-      <ApiTable e:headings="_api.steppers.props.headings" e:props="_api.steppers.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.steppers.events.headings" e:props="_api.steppers.events.props" slot-pass:events />
+      <ApiTable e:headings="api.steppers.props.headings" e:props="api.steppers.props.props" slot-pass:props />
+      <ApiTable e:headings="api.steppers.events.headings" e:props="api.steppers.events.props" slot-pass:events />
     </ApiItem>
 
     <ApiItem title="API - md-step">
-      <ApiTable e:headings="_api.step.props.headings" e:props="_api.step.props.props" slot-pass:props />
+      <ApiTable e:headings="api.step.props.headings" e:props="api.step.props.props" slot-pass:props />
     </ApiItem>
   </div>
 </PageContainer>

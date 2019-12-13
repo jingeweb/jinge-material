@@ -7,11 +7,14 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="气泡卡片 Popover">
+<PageContainer centered _t:title="气泡卡片">
   <div class="page-container-section">
-    <p>点击/鼠标移入元素，弹出气泡式的卡片浮层。</p>
-    <p>当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。</p>
-    <p>和 <code>Tooltip</code> 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。</p>
+    <p><_t>
+      当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。点击/鼠标移入元素，弹出气泡式的卡片浮层。
+    </_t></p>
+    <p><_t>
+      和 <code>Tooltip</code> 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。
+    </_t></p>
   </div>
 
   <div class="page-container-section">
@@ -19,9 +22,9 @@
     <CodeExample title="Popover" e:example="_examples.simple" />
 
     <ApiItem title="API - md-popover">
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.classes.headings" e:props="_api.classes.props" slot-pass:classes />
-      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.classes.headings" e:props="api.classes.props" slot-pass:classes />
+      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>

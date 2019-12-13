@@ -7,7 +7,7 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="加载指示 Spinner">
+<PageContainer centered _t:title="加载指示">
   <div class="page-container-section">
     <p>
       <_t>
@@ -47,8 +47,8 @@
         </_t>
       </p>
 
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.classes.headings" e:props="_api.classes.props" slot-pass:classes />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.classes.headings" e:props="api.classes.props" slot-pass:classes />
     </ApiItem>
   </div>
 </PageContainer>

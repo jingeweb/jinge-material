@@ -7,50 +7,63 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="菜单 Menu">
+<PageContainer centered _t:title="菜单">
   <div class="page-container-section">
-    <p>Menus appear upon interaction with a button, action, or other control. They usually display a list of choices, with one choice per line, but can also show a rich content.</p>
+    <p><_t>
+      菜单用于弹出一组按钮或其他控件以进行交互。列表通常展示为一个选项列表，每行一个选项，但也可以显示更丰富的内容。
+    </_t></p>
+    <p><_t>
+      菜单的底层靠 <code>md-popover</code> 组件以及 <code>popper.js</code> 库驱动。
+    </_t></p>
   </div>
   <div class="page-container-section">
-    <h2>Placement</h2>
-    <p>Default placement is <code>bottom</code>, support all <code>popper.js</code> placements</p>
+    <h2><_t>弹出位置</_t></h2>
+    <p><_t>
+      默认的弹位置是 <code>bottom-start</code>，支持所有 <code>popper.js</code> 的位置（placement）参数。
+    </_t></p>
     <CodeExample title="Placement" e:example="_examples.placement" />
   </div>
 
   <div class="page-container-section">
-    <h2>Offset</h2>
+    <h2><_t>位移</_t></h2>
 
-    <p>By default menu will have offset relative to trigger. If it is not what we want, we can simple set <code>offset="0"</code> or set some custom offset. </p>
+    <p><_t>
+      默认情况下，会自动计算菜单的弹出位移。可以通过设置 <code>offset="0"</code> 来禁用位移，或指定自定义的位移值。
+    </_t></p>
     <CodeExample title="Offset" e:example="_examples.offset" />
   </div>
   <div class="page-container-section">
-    <h2>Sizes</h2>
+    <h2><_t>大小</_t></h2>
 
-    <p><code>md-menu</code> has 4 different sizes and an auto mode:</p>
+    <p><_t>
+      <code>md-menu</code> 可以指定 4 种大小之一，或指定为自动适应内容。
+    </_t></p>
     <CodeExample title="5 possible sizes" e:example="_examples.size" />
-    <NoteBlock>The max-width of a menu is 280px.</NoteBlock>
+    <NoteBlock><_t>
+      菜单最大宽度为 280px，如果需要更大的宽度，请使用 css 设置。
+    </_t></NoteBlock>
   </div>
 
   <div class="page-container-section">
-    <h2>AutoClose</h2>
+    <h2><_t>自动关闭</_t></h2>
 
-    <p><code>md-menu</code> can be auto closed on click or select:</p>
+    <p><_t>
+      菜单可以指定为在单击或选择后自动关闭。
+    </_t></p>
     <CodeExample title="Auto close menu on events" e:example="_examples.close"/>
   </div>
 
   <div class="page-container-section">
-    <h2>Rich Content and Icon Alignment</h2>
+    <h2><_t>丰富的信息和对齐</_t></h2>
 
-    <p>Sometimes you may need to toggle your menu dynamically. You can also show arbitrary content inside a <code>md-menu-content</code>, like this card example:</p>
+    <p><_t>
+      可以动态切换菜单，还可以在 <code> md-menu-content</code> 中显示任意内容，例如此卡片示例：
+    </_t></p>
     <CodeExample title="Open a menu programatically" e:example="_examples.multiple" />
-    <NoteBlock tip>A <code>md-menu</code> with items that have icons aligns perfectly with <code>md-icon-button</code>.</NoteBlock>
 
     <ApiItem title="API - md-menu">
-      <_slot slot-pass:default>
-        <p>The following options can be used with any menu:</p>
-      </_slot>
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>

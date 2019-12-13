@@ -1,8 +1,13 @@
 import {
   Component,
   VM,
-  _t
+  _t,
+  I18N_WATCH
 } from 'jinge';
+
+import {
+  Snackbar
+} from '../../../../../../src/snackbar';
 
 import _tpl from './simple.html';
 
@@ -11,7 +16,7 @@ function mockDeleteApi() {
   return new Promise((resolve, reject) => setTimeout(() => {
     if (Math.random() > 0.5) resolve();
     else reject(new Error('server error.'));
-  }, 3000));
+  }, 1500));
 }
 
 export default class ExampleSimplePopover extends Component {
@@ -25,9 +30,11 @@ export default class ExampleSimplePopover extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.some = VM({
-      name: _t('未命名')
-    });
+    this[I18N_WATCH](() => {
+      this.some = VM({
+        name: _t('未命名')
+      });
+    }, true);
     this.isConfirmShown = false;
     this.fetching = false;
   }
@@ -42,11 +49,13 @@ export default class ExampleSimplePopover extends Component {
 
   submitDelete() {
     this.fetching = true;
+    this.errorTip = null;
     mockDeleteApi().then(() => {
+      Snackbar.show(_t('删除成功！'));
       this.isConfirmShown = false;
       this.fetching = false;
     }, err => {
-      alert(err);
+      this.errorTip = err.toString();
       this.fetching = false;
     });
   }

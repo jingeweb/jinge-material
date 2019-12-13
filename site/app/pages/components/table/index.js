@@ -1,7 +1,10 @@
 import {
-  Component
+  Component,
+  I18N_WATCH
 } from 'jinge';
+
 import _tpl from './index.html';
+import apis from './api';
 
 import Basic from './examples/basic';
 import sourceBasic from './examples/basic?example';
@@ -23,6 +26,9 @@ export class PageTable extends Component {
 
   constructor(attrs) {
     super(attrs);
+    this[I18N_WATCH](() => {
+      this.api = apis();
+    }, true);
     this._examples = {
       basic: {
         component: Basic,

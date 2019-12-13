@@ -1,63 +1,68 @@
-export default {
+import {
+  VM,
+  _t
+} from 'jinge';
+
+export default () => VM({
   regular: {
     props: {
-      headings: ['Name', 'Description', 'Default'],
+      headings: [_t('名称'), _t('描述'), _t('默认值')],
       props: [
         {
-          name: 'md-elevation',
+          name: 'elevation',
           type: 'String|Number',
-          description: 'Sets the toolbar shadow elevation',
+          description: _t('设置工具栏的阴影（Elevation）'),
           defaults: '4'
         }
       ]
     },
     classes: {
-      headings: ['Name', 'Description'],
+      headings: [_t('名称'), _t('描述')],
       props: [
         {
           name: 'md-transparent',
-          description: 'Makes the Toolbar background transparent'
+          description: _t('使用透明工具栏')
         },
         {
           name: 'md-dense',
-          description: 'Creates a small sized toolbar'
+          description: _t('使用紧凑型布局')
         },
         {
           name: 'md-medium',
-          description: 'Creates a medium sized toolbar'
+          description: _t('使用中等大小的工具栏')
         },
         {
           name: 'md-large',
-          description: 'Creates a large sized toolbar'
+          description: _t('使用大型工具栏')
         }
       ]
     }
   },
   elements: {
     classes: {
-      headings: ['Name', 'Description'],
+      headings: [_t('名称'), _t('描述')],
       props: [
         {
           name: 'md-toolbar-row',
-          description: 'Creates a toolbar row, commonly used on large toolbars'
+          description: _t('创建工具栏行，通常在大型工具栏上使用')
         },
         {
           name: 'md-toolbar-offset',
-          description: 'Adds an left offset to any toolbar row. Only works in md-toolbar-row'
+          description: _t('向任何工具栏行添加左偏移量，仅适用于 md-toolbar-row。')
         },
         {
           name: 'md-toolbar-section-start',
-          description: 'Creates a section on the left of a toolbar or toolbar row. Commonly used to hold the application menu button and the title'
+          description: _t('在工具栏或工具栏行的左侧创建一个区域，该区域通常用于放置应用程序菜单按钮和标题。')
         },
         {
           name: 'md-toolbar-section-end',
-          description: 'Creates a section on the right of a toolbar or toolbar row. Commonly used to hold the main action of a toolbar, such as overflow buttons'
+          description: _t('在工具栏或工具栏行的右侧创建一个区域，该区域通常用于放置工具栏的主要动作，例如更多操作的按钮。')
         },
         {
           name: 'md-title',
-          description: 'Will create the toolbar title. Works inside or outside a toolbar row'
+          description: _t('创建工具栏的标题。')
         }
       ]
     }
   }
-};
+});

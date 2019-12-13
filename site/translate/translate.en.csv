@@ -1,70 +1,4 @@
 location,zh_cn,en
-site/app/pages/components/list/index.html,列表 List,
-site/app/pages/components/menu/index.html,菜单 Menu,
-site/app/pages/components/pagination/index.html,基础分页,
-site/app/pages/components/pagination/index.html,完整分页,
-site/app/pages/components/pagination/index.html,禁用分页,
-site/app/pages/components/pagination/index.html,分页 Pagination,
-site/app/pages/components/popconfirm/api.js,文字提示的内容,
-site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。,
-site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态,
-site/app/pages/components/popconfirm/api.js,同 Popover 组件,
-site/app/pages/components/popconfirm/api.js,用户点击确认按钮,
-site/app/pages/components/popconfirm/api.js,用户点击取消按钮,
-site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：,
-site/app/pages/components/popconfirm/examples/simple.html,删除,
-site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,
-site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,
-site/app/pages/components/popconfirm/examples/simple.js,未命名,
-site/app/pages/components/popconfirm/index.html,气泡确认框,
-site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。,
-site/app/pages/components/popconfirm/index.html,气泡确认框 Popconfirm,
-site/app/pages/components/popover/api.js,控制气泡卡片是否展示。外部父组件可通过此属性手动控制。,
-site/app/pages/components/popover/api.js,"气泡卡片的触发方式，包括 click, hover 和 none。如果指定为 none，代表气泡卡片不自动绑定触发元素，完全靠 active 属性控制。",
-site/app/pages/components/popover/api.js,卡片在延迟一定的时间后显示，单位为毫秒。,
-site/app/pages/components/popover/api.js,卡片显示时的相对位置，参看 Popper.js 的 placement 概念。,
-site/app/pages/components/popover/api.js,卡片显示时的偏移量，参看 Popper.js 的 offset 概念。,
-site/app/pages/components/popover/api.js,附加在卡片的 DOM 上的 html class。,
-site/app/pages/components/popover/api.js,卡片显示和隐藏时的 css 动画。,
-site/app/pages/components/popover/api.js,点击卡片之外的其它区域时，是否隐藏卡片。,
-site/app/pages/components/popover/api.js,Popper.js 的更多自定义高级配置。,
-site/app/pages/components/popover/api.js,用于控制气泡里面顶部的标题样式。,
-site/app/pages/components/popover/api.js,控制气泡里面中间的内容样式。,
-site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域样式。,
-site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件,
-site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：,
-site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：,
-site/app/pages/components/popover/index.html,气泡卡片,
-site/app/pages/components/popover/index.html,气泡卡片 Popover,
-site/app/pages/components/progress/index.html,进度条,
-site/app/pages/components/progress/index.html,Determinate,
-site/app/pages/components/progress/index.html,Indeterminate,
-site/app/pages/components/progress/index.html,进度条 Progress Bar,
-site/app/pages/components/radio/api.js,用于标识分组的 name，会传递给原生 input，实现多个 radio 关联,
-site/app/pages/components/snackbar/examples/static.html,Show snackbar directly by calling static method <code>Snackbar.show</code>,
-site/app/pages/components/snackbar/index.html,消息提示 Snackbar,
-site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。,
-site/app/pages/components/spinner/index.html,指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，<code>value</code> 属性为 0-100 的数字。,
-site/app/pages/components/spinner/index.html,"不指定 <code>value</code> 属性时，属于指示正在加载状态的 Spinner,Spinner 表现为一个旋转的加载动画。",
-site/app/pages/components/spinner/index.html,指示正在加载状态的 Spinner,
-site/app/pages/components/spinner/index.html,指示具体的加载进度的 Spinner,
-site/app/pages/components/spinner/index.html,在按钮中使用 Spinner,
-site/app/pages/components/spinner/index.html,默认情况下，Spinner 的大小为 <code>1em</code>（即字号大小），颜色为 <code>currentColor</code>（即文字颜色）。在实际使用时，可以通过调整父元素的字号和颜色来改变 Spinner 的大小和颜色，也可以通过以下接口来调整：,
-site/app/pages/components/spinner/index.html,加载指示 Spinner,
-site/app/pages/components/steppers/index.html,步骤条 Steppers,
-site/app/pages/components/table/index.html,表格 Table,
-site/app/pages/components/tabs/index.html,标签页 Tabs,
-site/app/pages/components/toolbar/index.html,工具栏 Toolbar,
-site/app/pages/components/tooltip/api.js,文字提示的内容,
-site/app/pages/components/tooltip/api.js,参看 Popover 组件,
-site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：,
-site/app/pages/components/tooltip/examples/simple.html,你好，世界！,
-site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：,
-site/app/pages/components/tooltip/examples/simple.html,通过父组件里的参数控制显示和隐藏：,
-site/app/pages/components/tooltip/examples/simple.html,展示自定义的内容：,
-site/app/pages/components/tooltip/index.html,文字提示,
-site/app/pages/components/tooltip/index.html,Popover 组件的所有 API 也可用于 Tooltip 组件。但部分属性的默认值不同。,
-site/app/pages/components/tooltip/index.html,文字提示 Tooltip,
 site/app/components/code-block.html,复制,Copy
 site/app/components/code-block.js,代码已复制！,Code copied!
 site/app/components/code-example.html,显示示例,View demo
@@ -112,23 +46,24 @@ site/app/layout/nav-content.js,文本高亮|Highlight,Highlight
 site/app/layout/nav-content.js,图标|Icon,Icon
 site/app/layout/nav-content.js,列表|List,List
 site/app/layout/nav-content.js,菜单|Menu,Menu
+site/app/layout/nav-content.js,分页|Pagination,Pagination
+site/app/layout/nav-content.js,气泡确认框|Popconfirm,Popconfirm
+site/app/layout/nav-content.js,气泡卡片|Popover,Popover
 site/app/layout/nav-content.js,进度条|Progress,Progress
 site/app/layout/nav-content.js,消息提示|Snackbar,Snackbar
 site/app/layout/nav-content.js,正在加载|Spinner,Spinner
 site/app/layout/nav-content.js,步骤条|Steppers,Steppers
 site/app/layout/nav-content.js,子标题|Subheader,Subheader
-site/app/layout/nav-content.js,分页|Pagination,Pagination
 site/app/layout/nav-content.js,表格|Table,Table
 site/app/layout/nav-content.js,标签页|Tabs,Tabs
 site/app/layout/nav-content.js,工具栏|Toolbar,Toolbar
-site/app/layout/nav-content.js,气泡提示|Popover,Popover
-site/app/layout/nav-content.js,悬浮提示|Tooltip,Tooltip
+site/app/layout/nav-content.js,工具提示|Tooltip,Tooltip
 site/app/layout/nav-content.js,关于,Abount
 site/app/layout/nav-content.js,许可证,License
 site/app/pages/about.html,构建在 Jinge 框架上的 Material Design 组件库,Material Desgin components built on jinge framework
 site/app/pages/about.html,作者,Author
 site/app/pages/about.html,项目介绍,Introduction
-site/app/pages/about.html,"<p>在长期的业务项目研发中，我探索并开发了一个和主流 mvvm 框架的核心都不同的 <a target=""_blank"" href=""https://github.com/YuhangGe/jinge"">Jinge</a> 框架。为了验证这个框架的能力，我决定在这个框架上开发一个 UI 组件库。</p><p>考虑到主要是为了快速验证 Jinge 框架的能力，并在组件库开发的过程中同步地不断完善这个框架，而不想在组件本身的开发上耗费过多精力，我决定直接从 <a target=""_blank"" href=""https://vuematerial.io"">Vue Material</a> 这个项目分叉（Fork）。</p><p>但由于 Jinge 框架和 Vue 框架除了在功能和使用方式上都保持了现代 mvvm 框架的一致性外，核心几乎完全不同，因此从 Vue Material 项目分叉后，会需要把整个项目除了 scss 样式之外的代码几乎全部重写。因此我并没有采用在 Github 平台上直接分叉（Fork）该项目的方式，而是另起炉灶新开了 Jinge Material 仓库。所以更准确的说法是，Jinge Materail 项目移植（Port）自 Vue Material 项目。</p><p>Jinge Material 在移植自 Vue Material 项目的过程中，同时也参考 <a href=""https://ant.design"" target=""_blank"">Ant Design</a> 等现代组件库，对项目的目录结构和各别组件的设计进行了重构。中文相关的翻译，也大量参考了 Ant Design。</p>","<p>In the long-term business project development, I explored and developed a mvvm framework named <a target=""_blank"" href=""https://github.com/YuhangGe/jinge"">jinge</a> which is different from other frameworks. To verify the capabilities of jinge mvvm framework, I decided to develop a UI library named jinge-material with jinge mvvm framework. </p><p>Considering that jinge-material is mainly to verify the capabilities of the jinge mvvm framework and to continuously improve the jinge mvvm framework, I don't want to spend too much effort on developing components. So I decided to fork directly from the <a target=""_blank"" href=""https://vuematerial.io"">vue-material</a> project.</p><p>But since the cores of jinge framework and the vue framework are almost completely different, I need to rewrite almost all of the code except the scss style for the entire project. So I didn't fork the project directly on github, but instead created a new project. So more accurately, jinge-material is ported from the vue-material. </p>"
+site/app/pages/about.html,"<p>在长期的业务项目研发中，我探索并开发了一个和主流 mvvm 框架的核心都不同的 <a target=""_blank"" href=""https://github.com/YuhangGe/jinge"">Jinge</a> 框架。为了验证这个框架的能力，我决定在这个框架上开发一个 UI 组件库。</p><p>考虑到主要是为了快速验证 Jinge 框架的能力，并在组件库开发的过程中同步地不断完善这个框架，而不想在组件本身的开发上耗费过多精力，我决定直接从 <a target=""_blank"" href=""https://vuematerial.io"">Vue Material</a> 这个项目分叉（Fork）。</p><p>但由于 Jinge 框架和 Vue 框架除了在功能和使用方式上都保持了现代 mvvm 框架的一致性外，核心几乎完全不同，因此从 Vue Material 项目分叉后，会需要把整个项目除了 scss 样式之外的代码几乎全部重写。因此我并没有采用在 Github 平台上直接分叉（Fork）该项目的方式，而是另起炉灶新开了 Jinge Material 仓库。所以更准确的说法是，Jinge Materail 项目移植（Port）自 Vue Material 项目。</p><p>Jinge Material 在移植自 Vue Material 项目的过程中，同时也参考 <a href=""https://ant.design"" target=""_blank"">Ant Design</a> 和 <a href=""https://element.eleme.cn/"" target=""_blank"">Element</a> 等现代组件库，对项目的目录结构和各别组件的设计进行了重构。</p>","<p>In the long-term business project development, I explored and developed a mvvm framework named <a target=""_blank"" href=""https://github.com/YuhangGe/jinge"">jinge</a> which is different from other frameworks. To verify the capabilities of jinge mvvm framework, I decided to develop a UI library named jinge-material with jinge mvvm framework. </p><p>Considering that jinge-material is mainly to verify the capabilities of the jinge mvvm framework and to continuously improve the jinge mvvm framework, I don't want to spend too much effort on developing components. So I decided to fork directly from the <a target=""_blank"" href=""https://vuematerial.io"">vue-material</a> project.</p><p>But since the cores of jinge framework and the vue framework are almost completely different, I need to rewrite almost all of the code except the scss style for the entire project. So I didn't fork the project directly on github, but instead created a new project. So more accurately, jinge-material is ported from the vue-material. </p><p>In the process of porting from the Vue Material project, Jinge Material also referenced modern component libraries such as <a href=""https://ant.design"" target=""_blank"">Ant Design</a> and <a href=""https://element.eleme.cn/"" target=""_blank"">Element</a> to refactor the project's directory structure and the design of individual components.</p>"
 site/app/pages/about.html,关于,About
 site/app/pages/advance/i18n.html,国际化,I18N
 site/app/pages/advance/i18n.html,jinge 框架还处于实验性的 alpha 阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。,The jinge framework is still experimental and there is almost no documentation. The documentation for the Jinge Material component library here is also not guaranteed to be valid.
@@ -596,12 +531,153 @@ site/app/pages/components/input/index.html,前缀和后缀,Prefixes & suffixes
 site/app/pages/components/input/index.html,前缀和后缀可用于澄清单位或预先添加输入。前缀在文本字段中左对齐，而后缀右对齐。文本框可以同时具有前缀和后缀。,Prefixes and suffixes can be used to clarify units or to add input in advance. Prefixes are left justified in the text field whereas suffixes are right justified. Text fields can have both prefixes and suffixes.
 site/app/pages/components/input/index.html,任何原生 <code>input</code> 和 <code>textarea</code> 的属性，都可以被应用到 <code>md-input</code> 和 <code>md-textarea</code> 组件上。,Any <code>input</code> or <code>textarea</code> attributes can be used on <code>md-input</code>/<code>md-textarea</code> respectively.
 site/app/pages/components/input/index.html,文本框,Input & Textarea
+site/app/pages/components/list/api.js,名称,Name
+site/app/pages/components/list/api.js,描述,Description
+site/app/pages/components/list/api.js,默认值,Default
+site/app/pages/components/list/api.js,如果设置为 true，则一个列表最多只能有一个列表项展开。当展开另一个列表项时，原先展开的列表项将被折叠,"If set true, one expandable list item could be expanded at most at a time. The expanded list item will be collapsed when another is expanded"
+site/app/pages/components/list/api.js,使用紧凑型布局,Enables the dense layout
+site/app/pages/components/list/api.js,双行列表可以更好地显示有关单个项目的其他信息,The double line lists are good to show additional information about single items
+site/app/pages/components/list/api.js,三行列表适合显示项目的全部内容的预览,The three line lists are great for showing a preview of the full content of the item
+site/app/pages/components/list/api.js,启用可展开面板,Enables the expansion panel
+site/app/pages/components/list/api.js,控制面板的展开和关闭,The prop to show/hide the expansion panel.
+site/app/pages/components/list/index.html,列表用于将多个项目垂直连续展示，适合多个相似数据项目的展示。,Lists present multiple line items vertically as a single continuous element and are best suited for similar data types.
+site/app/pages/components/list/index.html,列表项可以具有一，二或三行内容，其中可以包含不同的信息。列表在移动和桌面 APP 上都可以适用。,"They can have one, two or three lines of content, with a lot of different contents. Even that the examples on this page may look like that lists can only be used in mobile viewport, you can and should use them in desktop too."
+site/app/pages/components/list/index.html,列表项可以具有交互事件，例如单击和鼠标按下事件。同时还可以和 jinge-ui-router 无缝集成。,"List items can have interaction events, like click and mousedown events. They also integrate nicely with jinge-ui-router."
+site/app/pages/components/list/index.html,列表,List
+site/app/pages/components/list/index.html,单行列表对于导航元素（例如抽屉）确实非常有用。可以向其传递图标，文本和操作。它们的布局也很密集，可以在屏幕上容纳更多项目：,"Single line lists are really great for navigational elements, such as drawers. You can pass a icons, text and actions to them. They have also a dense layout, to accommodate more items on the screen:"
+site/app/pages/components/list/index.html,双行列表可以更好地显示了有关单个项目的其他信息：,The double line lists are good to show additional information about single items:
+site/app/pages/components/list/index.html,三行列表非常适合显示项目的全部内容的预览。比如，适用于电子邮件列表和其他类似信息：,The three line lists are great for showing a preview of the full content of the item. It's good for email lists and other information like that:
+site/app/pages/components/list/index.html,交互响应,List Actions
+site/app/pages/components/list/index.html,列表项将根据给定的交互类型，渲染成不同的浏览器 html 标签。,List items will render different tags based on the interaction types given.
+site/app/pages/components/list/index.html,如果传递了下面列出的事件之一，则该列表项将被渲染成 <code>&lt;button&gt;</code>：,"If you pass one of those event, the item will automatically render a <code>&lt;button&gt;</code>:"
+site/app/pages/components/list/index.html,如果指定了 <code>href</code> 或 <code>to</code> 属性，则该列表项将被渲染成 <code>&lt;a&gt;</code>：,"If you pass a <code>href</code> attribute, the item will automatically render an <code>&lt;a&gt;</code> tag."
+site/app/pages/components/list/index.html,所有 <code>ui-sref</code> 组件的可用属性，都可以被使用到列表项上。,All attributes of <code>ui-sref</code> can be simply used here. This will render an <code>&lt;a&gt;</code> tag:
+site/app/pages/components/list/index.html,列表接受控件作为主要切换动作。对改善表单布局非常有用：,Lists accept controls as main toggle actions. Really useful to improve form layouts:
+site/app/pages/components/list/index.html,列表可以具有可展开面板以显示更多信息：,Lists accept controls as main toggle actions. Really useful to improve form layouts:
+site/app/pages/components/menu/api.js,名称,Name
+site/app/pages/components/menu/api.js,描述,Description
+site/app/pages/components/menu/api.js,默认值,Default
+site/app/pages/components/menu/api.js,控制菜单的打开和关闭,Used to show/hide a menu.
+site/app/pages/components/menu/api.js,如果此选项为 true，则在菜单外部发生任何单击事件后，菜单将关闭。,"When this options is true, the menu will be closed after any click event."
+site/app/pages/components/menu/api.js,如果此选项为 true，则单击 <code>md-menu-item</code>后，菜单将关闭。仅当菜单具有以下事件之一时，此功能才有效：,"When this options is true, the menu will close after a click on a <code>md-menu-item</code>. This will only work if the menu have one of the events below: "
+site/app/pages/components/menu/api.js,设置菜单的位置。支持所有 popper.js 的参数。,Set the placement of a menu. Support all options of popper.js.
+site/app/pages/components/menu/api.js,设置自定义偏移量。支持数字，或 popper.js 的参数。默认情况下，将相对于触发器计算偏移量。,Set custom offset. Support Number or option of popper.js. By default will use auto calculated offset.
+site/app/pages/components/menu/api.js,设置菜单的大小。请参见下面每种尺寸的详细说明。,Sets the size of a menu. See below the detailed description of each size.
+site/app/pages/components/menu/api.js,设置小尺寸菜单（112px）,Sets a menu with a small size (112px)
+site/app/pages/components/menu/api.js,设置中等大小（168px）的菜单,Sets a menu with a medium size (168px)
+site/app/pages/components/menu/api.js,设置大尺寸菜单（224px）,Sets a menu with a big size (224px)
+site/app/pages/components/menu/api.js,设置一个巨大的菜单（280px）,Sets a menu with a huge size (280px)
+site/app/pages/components/menu/api.js,菜单大小自动适应内容,Sets a menu with a auto size
+site/app/pages/components/menu/api.js,参数,Parameters
+site/app/pages/components/menu/api.js,菜单打开时触发,Triggered when menu opened.
+site/app/pages/components/menu/api.js,菜单关闭时触发,Triggered when menu closed.
+site/app/pages/components/menu/index.html,菜单用于弹出一组按钮或其他控件以进行交互。列表通常展示为一个选项列表，每行一个选项，但也可以显示更丰富的内容。,"Menus appear upon interaction with a button, action, or other control. They usually display a list of choices, with one choice per line, but can also show a rich content."
+site/app/pages/components/menu/index.html,菜单的底层靠 <code>md-popover</code> 组件以及 <code>popper.js</code> 库驱动。,Menu component is driven by <code>md-popover</code> component and <code>popper.js</code> library.
+site/app/pages/components/menu/index.html,弹出位置,Placement
+site/app/pages/components/menu/index.html,默认的弹位置是 <code>bottom-start</code>，支持所有 <code>popper.js</code> 的位置（placement）参数。,Default placement is bottom-start. Support all placements of popper.js
+site/app/pages/components/menu/index.html,位移,Offset
+site/app/pages/components/menu/index.html,"默认情况下，会自动计算菜单的弹出位移。可以通过设置 <code>offset=""0""</code> 来禁用位移，或指定自定义的位移值。","Menu will have auto calculated offset by default. Set <code>offset=""0""</code> to disable offset, or any custom offset value."
+site/app/pages/components/menu/index.html,大小,Sizes
+site/app/pages/components/menu/index.html,<code>md-menu</code> 可以指定 4 种大小之一，或指定为自动适应内容。,<code>md-menu</code> has 4 different sizes and an auto mode:
+site/app/pages/components/menu/index.html,菜单最大宽度为 280px，如果需要更大的宽度，请使用 css 设置。,The max-width of a menu is 280px.
+site/app/pages/components/menu/index.html,自动关闭,Auto close
+site/app/pages/components/menu/index.html,菜单可以指定为在单击或选择后自动关闭。,<code>md-menu</code> can be auto closed on click or select:
+site/app/pages/components/menu/index.html,丰富的信息和对齐,Rich Content and Icon Alignment
+site/app/pages/components/menu/index.html,可以动态切换菜单，还可以在 <code> md-menu-content</code> 中显示任意内容，例如此卡片示例：,"Sometimes you may need to toggle your menu dynamically. You can also show arbitrary content inside a <code>md-menu-content</code>, like this card example:"
+site/app/pages/components/menu/index.html,菜单,Menu
+site/app/pages/components/pagination/api.js,名称,Name
+site/app/pages/components/pagination/api.js,描述,Description
+site/app/pages/components/pagination/api.js,默认值,Default
+site/app/pages/components/pagination/api.js,数据总量。,Set total data count. Used to calculate total page count.
+site/app/pages/components/pagination/api.js,每页的数据量。,Set data count of each page. Used to calculate total page count.
+site/app/pages/components/pagination/api.js,是否启用每页数量选择器。指定为具体的数组，则使用自定义的选项；指定为 true 使用默认的选项。,"Enable each page size select, use default options or specified options."
+site/app/pages/components/pagination/api.js,设置当前页号。页码从 1 开始计数。,Set current page index. Must be greater or equal than 1.
+site/app/pages/components/pagination/api.js,设置最大页码导航按钮数量。,Set max pagination navigation item count.
+site/app/pages/components/pagination/api.js,启用页码快速跳转功能,Enable quick page index jumper.
+site/app/pages/components/pagination/api.js,展示数据总量的提示信息。,Show total data size tip.
+site/app/pages/components/pagination/api.js,禁用整个分页组件。,Disable whole pagination.
+site/app/pages/components/pagination/api.js,指定正在加载的页码。如果该属性值大于 0，则会禁用整个分页组件，并在正在加载的页码按钮上展示 md-pinner。,Disable whole pagination and show loading spinner when loadingPage is greater than 0.
+site/app/pages/components/pagination/api.js,当计算出来的总页码数量小于等于 1 时，隐藏分页组件。,Hide whole pagination when total page is less or equal than 1.
+site/app/pages/components/pagination/api.js,参数,Parameters
+site/app/pages/components/pagination/api.js,当分页参数（包括当前页码和每页数据量）发生变化时触发。,Triggered when pagination is changed.
+site/app/pages/components/pagination/examples/disabled.html,禁用整个分页组件：,Disable whole Pagination:
+site/app/pages/components/pagination/examples/disabled.html,提示正在加载某页：,Prompt loading a page:
+site/app/pages/components/pagination/examples/full.html,使用默认的每页个数选择器列表：,Use the default list of count per page selectors:
+site/app/pages/components/pagination/examples/full.html,使用自定义的每页个数选择器列表：,Use a custom list of count per page selectors:
+site/app/pages/components/pagination/index.html,采用分页的形式分隔长列表，每次只加载一个页面。,"Use pagination to separate long lists, loading only one page at a time."
+site/app/pages/components/pagination/index.html,基础分页,Basic Paginations
+site/app/pages/components/pagination/index.html,基础分页只包括页码按钮。,Basic pagination include only navigation buttons.
+site/app/pages/components/pagination/index.html,完整分页,Full Paginations
+site/app/pages/components/pagination/index.html,完整分页包括页码按钮、每页个数选择、快速跳转页码以及展示数据总条数功能。每个功能都可以通过参数独立控制是否使用。,"Full pagination includes navigation buttons, number of per page selection, quick page index jumper, and display the total number of data. Each function can be independently controlled by attributes."
+site/app/pages/components/pagination/index.html,禁用分页,Disable Pagination
+site/app/pages/components/pagination/index.html,有两种情况需要禁用(Disabled)分页，某些需求下需要禁用整个分页，或当正在加载某一页的数据时提示用该页正在加载并且禁用分页以避免重复提交。后者是业务中最常见的情况。为此，提供了 <code>disabled</code> 和 <code>loadingPage</code> 两个参数。请参看<code>表格（Table）</code>组件的示例中，有一个完整的分页组件和表格展示搭配的例子。,"There are two cases where you need to disable pagination. One case is in some situation you need to disable the entire paging. Another case is when loading data for a page, you are prompted to use the page being loaded and disable paging to avoid repeated submissions. The latter is the most common situation in business. To do this, two attributes are provided: <code>disabled</code> and <code>loadingPage</code>. Please see the <code>Table</code> component for an example. There is a complete example of paging components and tables."
+site/app/pages/components/pagination/index.html,分页,Pagination
+site/app/pages/components/popconfirm/api.js,名称,Name
+site/app/pages/components/popconfirm/api.js,描述,Description
+site/app/pages/components/popconfirm/api.js,默认值,Default
+site/app/pages/components/popconfirm/api.js,文字提示的内容,Content of popconfirm.
+site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。,Whether to hide the Popconfirm after clicking the confirm button.
+site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态,Whether to enter the loading state being confirmed.
+site/app/pages/components/popconfirm/api.js,同 Popover 组件,Same as <code>md-popover</code>.
+site/app/pages/components/popconfirm/api.js,参数,Parameters
+site/app/pages/components/popconfirm/api.js,用户点击确认按钮,Triggered when Ok button clicked.
+site/app/pages/components/popconfirm/api.js,用户点击取消按钮,Triggered when Cancel button clicked.
+site/app/pages/components/popconfirm/examples/simple.html,简单的 Popconfirm：,Simple Popconfirm:
+site/app/pages/components/popconfirm/examples/simple.html,删除,Delete
+site/app/pages/components/popconfirm/examples/simple.html,您确认要删除 ${some.name} 吗？,Are you sure to delete ${some.name}?
+site/app/pages/components/popconfirm/examples/simple.html,配合服务器端 API 接口：,With server-side API interface:
+site/app/pages/components/popconfirm/examples/simple.js,未命名,Untitled
+site/app/pages/components/popconfirm/examples/simple.js,删除成功！,Delete successful!
+site/app/pages/components/popconfirm/index.html,目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。,"When the operation of the target element requires further confirmation by the user, a floating layer prompt pops up near the target element and asks the user."
+site/app/pages/components/popconfirm/index.html,和 DialogConfirm 弹出的全屏居中模态对话框相比，交互形式更轻量。,"Compared with the full-screen centered modal dialog box popped up by DialogConfirm, the interactive form of Popconfirm is more lightweight."
+site/app/pages/components/popconfirm/index.html,气泡确认框,Popconfirm
+site/app/pages/components/popconfirm/index.html,Popover 组件的所有 API 也可用于 Popconfirm 组件。但部分属性的默认值不同。,All APIs of the Popover component are also available for the Popconfirm component. But some properties have different default values.
+site/app/pages/components/popover/api.js,名称,Name
+site/app/pages/components/popover/api.js,描述,Description
+site/app/pages/components/popover/api.js,默认值,Default
+site/app/pages/components/popover/api.js,控制气泡卡片是否展示。外部父组件可通过此属性手动控制。,Controls whether Popover are displayed.
+site/app/pages/components/popover/api.js,"气泡卡片的触发方式，包括 click, hover 和 none。如果指定为 none，代表气泡卡片不自动绑定触发元素，完全靠 active 属性控制。","The trigger method of the Popover, including <code>click</code>, <code>hover</code> and <code>none</code>. If it is specified as <code>none</code>, it means that the Popover will not automatically bound to the trigger element, and is completely controlled by the active property."
+site/app/pages/components/popover/api.js,卡片在延迟一定的时间后显示，单位为毫秒。,"The Popover displayed after a certain delay, in milliseconds."
+site/app/pages/components/popover/api.js,卡片显示时的相对位置，参看 Popper.js 的 placement 概念。,Placement of Popover. See docs of popper.js.
+site/app/pages/components/popover/api.js,卡片显示时的偏移量，参看 Popper.js 的 offset 概念。,Offset of Popover. See docs of popper.js.
+site/app/pages/components/popover/api.js,附加在卡片的 DOM 上的 html class。,HTML class add to Popover conent element.
+site/app/pages/components/popover/api.js,卡片显示和隐藏时的 css 动画。,CSS animation when Popover are shown and hidden.
+site/app/pages/components/popover/api.js,点击卡片之外的其它区域时，是否隐藏卡片。,Whether to hide the Popover when outside body is clicked.
+site/app/pages/components/popover/api.js,Popper.js 的更多自定义高级配置。,More custom advanced configuration for Popper.js.
+site/app/pages/components/popover/api.js,用于控制气泡里面顶部的标题样式。,Specify the title class.
+site/app/pages/components/popover/api.js,控制气泡里面中间的内容样式。,Specify the content class.
+site/app/pages/components/popover/api.js,控制气泡里面底部的按钮区域样式。,Specify the bottom actions class
+site/app/pages/components/popover/api.js,参数,Parameters
+site/app/pages/components/popover/api.js,气泡显示或隐藏时的事件,Triggered when Popover show or hide.
+site/app/pages/components/popover/examples/simple.html,简单地使用内置 Trigger 触发气泡卡片展示和隐藏：,Simply trigger Popover show and hide:
+site/app/pages/components/popover/examples/simple.html,通过父组件里的参数控制气泡的显示和隐藏：,Show and hide the Popover through the attribute passed from the parent component:
+site/app/pages/components/popover/index.html,当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。点击/鼠标移入元素，弹出气泡式的卡片浮层。,A simple popup menu to provide extra information or operations.The floating card popped by clicking or hovering.
+site/app/pages/components/popover/index.html,和 <code>Tooltip</code> 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。,"Comparing with <code>Tooltip</code>, besides information Popover card can also provide action elements like links and buttons."
+site/app/pages/components/popover/index.html,气泡卡片,Popover
+site/app/pages/components/progress/api.js,名称,Name
+site/app/pages/components/progress/api.js,描述,Description
+site/app/pages/components/progress/api.js,默认值,Default
+site/app/pages/components/progress/api.js,设置进度条的模式。请参见下面每种模式的详细说明。,Set the mode the progress. See below the detailed description of each mode.
+site/app/pages/components/progress/api.js,默认模式，与 <code>md-value</code> 属性一起使用。指定 0％ 到 100％ 之间的某个进度。,The default mode. Works along with <code>md-value</code> prop. Apply a 0% to 100% loading bar.
+site/app/pages/components/progress/api.js,创建一个不指定具体进度，持续加载状态的进度条,Create a indeterminate loading bar
+site/app/pages/components/progress/api.js,创建用于提示正在查询的进度条。在检索大量内容时很有用。,Create a loading bar for queries. Useful when retrieving a lot of contents.
+site/app/pages/components/progress/api.js,创建带有缓冲区的进度条，常用于指示视频加载进度。,Create a loading bar with a buffer. Commonly used in videos.
+site/app/pages/components/progress/api.js,当前进度的值，支持 0 到 100 的数字。,The current progress amount. From 0 to 100.
+site/app/pages/components/progress/api.js,当前缓冲量的值，支持 0 到 100 的数字。,The current buffer amount. From 0 to 100.
+site/app/pages/components/progress/index.html,进度条用于应用程序加载内容的视觉提示。,Progress indicators are visual indications of an app loading content.
+site/app/pages/components/progress/index.html,针对不同应用程序可能的需要，进度条提供提供了 4 种类型：确定，不确定，查询或缓冲区。,"Progress bars have 4 types for each operation that your application may need: Determinate, Indeterminate, Query or Buffer."
+site/app/pages/components/progress/index.html,进度条,Progress Bar
+site/app/pages/components/progress/index.html,确定进度条用于指示已完成的百分比。,When indicators are determinate they indicate how long an operation will take when the percentage complete is detectable.
+site/app/pages/components/progress/index.html,当无法确定当前已完成的进度，只是提示用户等待正在进行的操作，可以使用不确定进度条。,When indicators are indeterminate they request that the user wait while something finishes when it’s not necessary to indicate how long it will take.
+site/app/pages/components/progress/index.html,处理流媒体视频等媒体内容时，我们可以使用进度条在视频上显示缓冲进度指示器。,When dealing with media content like streaming videos we can use progress bars to show the buffering progress indicator on a video.
+site/app/pages/components/progress/index.html,当搜索或过滤大量数据时，可以使用查询进度条，以告诉用户正在检索某些内容。,"When searching or filtering a large amount of data, we can show a query progress bar. This will tell the user that some content is being retrieved."
 site/app/pages/components/radio/api.js,名称,Name
 site/app/pages/components/radio/api.js,描述,Description
 site/app/pages/components/radio/api.js,默认值,Default
 site/app/pages/components/radio/api.js,点击选中时通过 change 事件向外传递的值,Value emited when radio is checked.
 site/app/pages/components/radio/api.js,是否为选中状态,Whether the radio is checked.
 site/app/pages/components/radio/api.js,唯一标识,The radio unique id.
+site/app/pages/components/radio/api.js,用于标识分组的 name，会传递给原生 input，实现多个 radio 关联,The name used to identify the group will be passed to the native input to implement multiple radio associations.
 site/app/pages/components/radio/api.js,参数,Parameters
 site/app/pages/components/radio/api.js,选中的值变化时触发,Triggered when selected value changed.
 site/app/pages/components/radio/examples/simple-radios.html,描述,Description
@@ -642,6 +718,79 @@ site/app/pages/components/select/index.html,如果向 <code>md-select</code> 传
 site/app/pages/components/select/index.html,可以使用紧凑型布局，以便在屏幕上容纳更多项目：,There is also a dense layout to accommodate more items on the screen:
 site/app/pages/components/select/index.html,可以对选择项进行分组，以便于区分不同的数据集：,Selects can have groups to make easy to distinguish different data sets:
 site/app/pages/components/select/index.html,可以禁用整个下拉选择组件，也可以禁用单个选择项，或禁用某个分组。通过指定 <code>disabled</code> 属性来实现：,"It is really easy to disable a select, option and even an optgroup. This will prevent them from being selected. Just pass a <code>disabled</code> prop to the desired component:"
+site/app/pages/components/snackbar/api.js,名称,Name
+site/app/pages/components/snackbar/api.js,描述,Description
+site/app/pages/components/snackbar/api.js,默认值,Default
+site/app/pages/components/snackbar/api.js,控制消息提示的展示和关闭,Option used to trigger the snackbar visibility.
+site/app/pages/components/snackbar/api.js,设置自动关闭消息提示之前的持续时间（以毫秒为单位）。设置为 0 则不自动关闭，需要手动处理。,Sets the duration in milliseconds before close the snackbar.
+site/app/pages/components/snackbar/api.js,设置消息提示在屏幕底部的位置,Sets the snackbar position on the bottom of the screen.
+site/app/pages/components/snackbar/api.js,设置消息提示位于中心位置,Make the snackbar centered.
+site/app/pages/components/snackbar/api.js,设置消息提示位于左侧位置,Make the snackbar left aligned.
+site/app/pages/components/snackbar/api.js,参数,Parameters
+site/app/pages/components/snackbar/api.js,消息提示打开时触发,Triggered when a snackbar opens.
+site/app/pages/components/snackbar/api.js,消息提示关闭时触发,Triggered when a snackbar closes.
+site/app/pages/components/snackbar/examples/regular.html,打开消息提示,Open snackbar
+site/app/pages/components/snackbar/examples/regular.html,连接超时。巴拉巴拉的错误提示信息...,Connection timeout. Some error message...
+site/app/pages/components/snackbar/examples/regular.html,确认,Ok
+site/app/pages/components/snackbar/index.html,消息提示组件通过屏幕底部的消息提供有关操作的简短反馈。,Snackbars provide brief feedback about an operation through a message at the bottom of the screen.
+site/app/pages/components/snackbar/index.html,它们可以在屏幕上具有自定义的持续时间，也可以是持续的。可以居中或左对齐。,They can have a custom duration on the screen or be persistent. It can be centered or left aligned.
+site/app/pages/components/snackbar/index.html,在移动设备上，消息提示将占满整个宽度空间。,On mobile devices the snackbar will fit the whole width space.
+site/app/pages/components/snackbar/index.html,持续时间和位置,Duration and position
+site/app/pages/components/snackbar/index.html,在 js 代码里调用,Static method
+site/app/pages/components/snackbar/index.html,除了直接在 html 模板里使用 <code>md-snackbar</code> 组件外，也可以在 js 代码里直接通过调用 <code>Snackbar.show</code> 来展示消息。,"In addition to using the <code>md-snackbar</code> component directly in the html template, you can also display the message by calling <code>Snackbar.show</code> directly in the js code."
+site/app/pages/components/snackbar/index.html,消息提示,Snackbar
+site/app/pages/components/spinner/api.js,名称,Name
+site/app/pages/components/spinner/api.js,描述,Description
+site/app/pages/components/spinner/api.js,默认值,Default
+site/app/pages/components/spinner/api.js,指示进度的值。当不指定该参数时，spinner 表现为旋转加载状态；当指定该参数时，spinner 表现为进度条。,"A value indicating progress. When this parameter is not specified, the spinner appears as a spin loading state; when this parameter is specified, the spinner appears as a progress bar."
+site/app/pages/components/spinner/api.js,"图标大小，可以指定为数字，也可以指定为 css 字符串值，还可以指定为 ""small""/""normal""/""large"" 三者之一（依次对应 36px, 48px, 64px）","Icon size can be specified as a number, as a css string value, or as one of the ""small""/""normal""/""large""(corresponds to 36px, 48px, 64px)."
+site/app/pages/components/spinner/api.js,指定使用 primary 颜色。,Use primary color.
+site/app/pages/components/spinner/api.js,指定使用 secondary 颜色。,Use secondary color.
+site/app/pages/components/spinner/api.js,当需要将 Spinner 和文本混合排版时，如果父元素没有使用 flex 布局，则需要使用 md-ajust-baseline 来调整 Baseline。,"When you need to typeset Spinner and text, if the parent element does not use flex layout, you need to use md-ajust-baseline to adjust the baseline."
+site/app/pages/components/spinner/examples/button.html,放在文字前面的 Spinner,Spinner before text
+site/app/pages/components/spinner/examples/button.html,提交,Submit
+site/app/pages/components/spinner/examples/button.html,搜索,Search
+site/app/pages/components/spinner/examples/loading.html,"自动适配<span style=""font-size: 2em;"">文字大小<md-spinner class=""md-adjust-baseline""/></span>和<span style=""color: #2196f3;"">颜色<md-spinner class=""md-adjust-baseline""/></span>的 Spinner","Spinner that automatically adapts <span style=""font-size: 2em;"">text size<md-spinner class=""md-adjust-baseline""/></span> and <span style=""color: #2196f3;"">color<md-spinner class=""md-adjust-baseline""/></span>"
+site/app/pages/components/spinner/index.html,该组件常用于指示正在加载、正在提交等状态，也可用于具体指示加载的进度。为了简化 API，通过是否指定 <code>value</code> 属性来决定 Spinner 属于哪个类型。,"This component is often used to indicate the state of loading, submitting, etc., and can also be used to specifically indicate the progress of loading. To simplify the API, decide whether a Spinner belongs to a type by specifying a <code>value</code> attribute."
+site/app/pages/components/spinner/index.html,指定 <code>value</code> 属性时，属于指示具体加载进度的 Spinner，<code>value</code> 属性为 0-100 的数字。,"When the <code>value</code> attribute is specified, it is a spinner that indicates the specific loading progress, and the <code>value</code> attribute is a number from 0-100."
+site/app/pages/components/spinner/index.html,"不指定 <code>value</code> 属性时，属于指示正在加载状态的 Spinner,Spinner 表现为一个旋转的加载动画。","When the <code>value</code> attribute is not specified, Spinner indicating the loading state, and it appears as a rotating loading animation."
+site/app/pages/components/spinner/index.html,指示正在加载状态的 Spinner,Spinner indicating the loading state
+site/app/pages/components/spinner/index.html,指示具体的加载进度的 Spinner,Spinner indicating specific load progress
+site/app/pages/components/spinner/index.html,在按钮中使用 Spinner,Use Spinner in Button
+site/app/pages/components/spinner/index.html,默认情况下，Spinner 的大小为 <code>1em</code>（即字号大小），颜色为 <code>currentColor</code>（即文字颜色）。在实际使用时，可以通过调整父元素的字号和颜色来改变 Spinner 的大小和颜色，也可以通过以下接口来调整：,"By default, the size of Spinner is <code>1em</code>(the font size) and the color is <code>currentColor</code> (the text color). In actual use, you can change the size and color of the spinner by adjusting the font size and color of the parent element, or you can adjust it through the following classes:"
+site/app/pages/components/spinner/index.html,加载指示,Spinner
+site/app/pages/components/steppers/api.js,名称,Name
+site/app/pages/components/steppers/api.js,描述,Description
+site/app/pages/components/steppers/api.js,默认值,Default
+site/app/pages/components/steppers/api.js,指定当前激活的步骤，可以是数字索引，或某个步骤的 id。,"Specifies the currently active step, which can be a numeric index or the id of a step."
+site/app/pages/components/steppers/api.js,使用替代布局,Change the steppers into a alternative layout
+site/app/pages/components/steppers/api.js,使用垂直布局，通常用于移动平台。,Change the steppers into a vertical orientation. For mobile.
+site/app/pages/components/steppers/api.js,使用线性工作流模式。,Set steppers to work in a linear flow.
+site/app/pages/components/steppers/api.js,自动计算步骤的高度，并在它们之间使用高度过渡。,Calculate the stepper height automatically and add an awesome height transition between them.
+site/app/pages/components/steppers/api.js,参数,Parameters
+site/app/pages/components/steppers/api.js,当前激活步骤发生变化时触发,Triggered when the active stepper changes
+site/app/pages/components/steppers/api.js,唯一标识，可用于和 activeStep 属性配合指定当前激活步骤,The step id. Used when changing the active step dynamically
+site/app/pages/components/steppers/api.js,步骤的标签文本,The step label
+site/app/pages/components/steppers/api.js,步骤的描述文本。如果某个步骤是可选的，请使用此属性说明。,"The step description. When a step is optional, use this prop to tell the user that."
+site/app/pages/components/steppers/api.js,错误消息。设置此属性后，步骤将自动变成错误状态。要清除错误，请将此属性设置为 null。,"The error message. When set, the stepper will automatically raise an error. To clear the error, set this variable as null."
+site/app/pages/components/steppers/api.js,将此属性设置为 true 可提示特定步骤已完成。,Set this prop to true to tell that a particular step is finished.
+site/app/pages/components/steppers/api.js,使步骤可编辑或不可编辑。,Make a step editable or non editable.
+site/app/pages/components/steppers/examples/horizontal.html,第一步,First Step
+site/app/pages/components/steppers/examples/horizontal.html,第二步,Second Step
+site/app/pages/components/steppers/examples/horizontal.html,第三步,Third Step
+site/app/pages/components/steppers/index.html,步骤条通过一串顺序编号的步骤显示进度。它们也可以用于导航，并且有两种主要类型：水平或垂直。水平类型可以具有其他布局。,Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation and have two main types: Horizontal or Vertical. The horizontal type can have an alternative layout.
+site/app/pages/components/steppers/index.html,默认情况下，各个步骤都是可编辑的，并且是可选的。,"Individual steps are editable and optional by default, but you can change that."
+site/app/pages/components/steppers/index.html,水平步骤条,Horizontal Steppers
+site/app/pages/components/steppers/index.html,当一个步骤的内容取决于较早的步骤时，水平步骤条是理想的选择。应该避免在水平步骤条中使用较长的步骤名。,Horizontal steppers are ideal when the contents of one step depend on an earlier step. You should avoid using long step names in horizontal steppers.
+site/app/pages/components/steppers/index.html,这是步骤条的默认类型。不建议将它用于移动设备：,This is the default type of steppers. They are not recommended for mobile:
+site/app/pages/components/steppers/index.html,他们还可以使用其他布局来更加强调步骤标题：,They can also have a alternative layout to give greater emphasis to the steps titles:
+site/app/pages/components/steppers/index.html,垂直步骤条,Vertical Steppers
+site/app/pages/components/steppers/index.html,垂直步骤条非常适合用于移动设备或插入对话框及卡片等应用程序的小区域。,"Vertical steppers are great deal for mobile devices or to be inserted on small areas of your application, like a dialog or a card."
+site/app/pages/components/steppers/index.html,线性工作流,Linear Steppers
+site/app/pages/components/steppers/index.html,默认情况下，步骤是可选的，这意味着您可以前进到最后一步，而无需先完成前面的其他步骤。但是有时我们会通过线性流程引导用户，所有步骤都很重要或连接在一起。线性步骤条要求用户完成前一个步骤才能继续进行下一个步骤：,y default steps are optional and this means that you can advance to the last step without pass through the other ones. But sometimes we're guiding an user through a linear flow and all steps matter or are connected together. Linear steppers require users to complete one step in order to move on to the next:
+site/app/pages/components/steppers/index.html,不可编辑,Non Editable Steps
+site/app/pages/components/steppers/index.html,默认情况下，步骤也是可编辑的。可以通过手动设置每个不可编辑的步骤来禁用此功能。通常适用于，当用户以后无法编辑某个步骤或步骤编辑对完成表单构成干扰时：,By default steps are also editable. But you can disable this by manually setting on each step that could be non-editable. This makes sense when users cannot edit a step later or when step editing poses a distraction risk to form completion:
+site/app/pages/components/steppers/index.html,步骤条,Steps
 site/app/pages/components/subheader/index.html,子标题是用于描述列表或网格列表各部分的列表图块。,Subheaders are list tiles that delineate sections of a list or grid list.
 site/app/pages/components/subheader/index.html,子标题可以在列表，网格甚至选择中使用，并且通常与过滤或排序标准有关。它们非常适合导航面板和网格列表。,"The subheader can be used in lists, grid and even on selects and are typically related to filtering or sorting criteria. They fit well in navigation panels and grid lists."
 site/app/pages/components/subheader/index.html,子标题,Subheader
@@ -671,6 +820,110 @@ site/app/pages/components/switch/index.html,切换按钮,Switch
 site/app/pages/components/switch/index.html,单一模式的切换按钮，这种模式是最常见的使用模式。,"Single mode switch, this mode is the most common usage mode."
 site/app/pages/components/switch/index.html,数组模式的切换按钮，这种模式很少使用。典型的使用场景就是配置由个开关组成的开关分组。,"Array mode switch, this mode is rarely used. A typical use scenario is to configure a switch group consisting of switches."
 site/app/pages/components/switch/index.html,和 <code>md-checkbox</code> 完全一样，请参看 <code>md-checkbox</code> 的 API 文档。,"It is exactly the same as <code>md-checkbox</code>, please refer to the API documentation of <code>md-checkbox</code>."
+site/app/pages/components/table/api.js,名称,Name
+site/app/pages/components/table/api.js,描述,Description
+site/app/pages/components/table/api.js,默认值,Default
+site/app/pages/components/table/api.js,指定表格的数据。必须是数组，数组每个元素是一行数据。,"Specify the data for the table. Must be an array, and each element of the array is a row of data."
+site/app/pages/components/table/api.js,表格是否开启可选择模式。,Specify the Table is selectable.
+site/app/pages/components/table/api.js,当表格处于可选择模式时，指定表格的已选择行。,"When the table is selectable, specifies the selected rows of the table."
+site/app/pages/components/table/api.js,传递给行循环使用的 <code>&lt;for&gt;</code> 组件的 key。,The 'key' attribute passed to the <code>&lt;for&gt;</code> component used by the rows loop.
+site/app/pages/components/table/api.js,传递给列循环使用的 <code>&lt;for&gt;</code> 组件的 key。,The 'key' attribute passed to the <code>&lt;for&gt;</code> component used by the columns loop.
+site/app/pages/components/table/api.js,参数,Parameters
+site/app/pages/components/table/api.js,表格的选中行发生变化时触发。只在表格开启选择模式时有效。,Fires when the selected row of the table changes. Only valid when the table is selectable.
+site/app/pages/components/table/api.js,表头的文本。可以不指定该属性，然后用 slot 来渲染自定义表头。,"Header text. You can not specify this property, and then use slot to render the custom header."
+site/app/pages/components/table/api.js,数据的属性。用于从行数据中获取属性值并展示到单元格里。可以不指定该属性，然后用 slot 来渲染自定义单元格。,"The property of the row data. Used to get property value and display it. Instead of specifying this property, you can use slot to render custom cells."
+site/app/pages/components/table/api.js,指定当前列是否是数值类型。数值类型的列会右对齐。,Specifies whether the current column is a numeric type. Numeric columns are right-aligned.
+site/app/pages/components/table/index.html,表格组件用于显示原始数据集，通常被用在桌面（而不是移动平台）产品中。表格组件支持许多属性来更改和影响布局。,Data tables display sets of raw data. They usually appear in desktop enterprise products. There are a lot of options that you can tweak to change and impact the table layout.
+site/app/pages/components/table/index.html,"虽然 Jinge Material 项目<ui-sref text=""移植自 Vue Material"" to=""about""/>，但表格组件的接口和使用的设计，参考的是 <a href=""https://element.eleme.cn/"" target=""_blank"">Element</a> 组件库。","Although the Jinge Material project is <ui-sref text=""ported from Vue Material"" to=""about""/>, the interface of the table component and the design used are based on the <a href=""https://element.eleme.cn/"" target=""_blank"">Element</a> library."
+site/app/pages/components/table/index.html,基础表格,Basic Table
+site/app/pages/components/table/index.html,表格由 <code>md-table</code> 和 <code>md-table-column</code> 两个组件构成。前者用于创建表格，后者用于在表格内定义每一列。,"The table consists of two components: <code>md-table</code> and <code>md-table-column</code>. The former is used to create the table, and the latter is used to define each column within the table."
+site/app/pages/components/table/index.html,在卡片中的带工具栏的表格,Table with toolbar in card
+site/app/pages/components/table/index.html,表格可以和其它组件搭配使用，比如添加工具栏并放置在卡片中：,"Table can be used with other components, such as adding toolbars and placing it in card:"
+site/app/pages/components/table/index.html,可选模式,Selectable Table
+site/app/pages/components/table/index.html,表格可开启可选择模式，该模式下可以通过 Checkbox 来选择行数据。,"Table can be selectable, in which rows can be selected through checkbox."
+site/app/pages/components/table/index.html,自定义模版,Custom Template
+site/app/pages/components/table/index.html,可以通过为 <code>md-table-column</code> 指定 slot 来使用自定义模版。其中，传送默认的 slot，可指定表格内容(td)模版；传递 head slot，可指定表头(th)的模版。,You can use a custom template by specifying a slot for <code>md-table-column</code>. The default slot can specify the template of the table content (td); the head slot can specify the template of the header (th).
+site/app/pages/components/table/index.html,表头 slot 用于渲染每一个表头，可使用的数据包括 column 和 columnIndex。表格内容 slot 用于渲染每一行的每一个单元格，可使用的数据包括：,The header slot is used to render each header. The available data includes column and columnIndex. The table content slot is used to render each cell of each row. The available data includes:
+site/app/pages/components/table/index.html,: 单元格对应的行数据。,: Row data corresponding to the cell.
+site/app/pages/components/table/index.html,: 单元格对应的行的索引。,: Row Index corresponding to the cell.
+site/app/pages/components/table/index.html,: 单元格对应的行是否被选中。只在表格开启可选模式下有用。,:Whether the row corresponding to the cell is selected. Only valid when the table is selectable.
+site/app/pages/components/table/index.html,: 单元格对应的列。,Column corresponding to the cell.
+site/app/pages/components/table/index.html,: 单元格对应的列的索引。,Column index corresponding to the cell
+site/app/pages/components/table/index.html,行的自定义样式,Custom row style
+site/app/pages/components/table/index.html,如果表格的某一行需要有特别的样式，可以通过 <code>rowClass</code> 属性为该行指定额外的样式类。这个属性必须指定为函数，函数接收行数据，返回样式类。,"If a particular row of a table needs to have a special style, you can specify an additional style class for that row via the <code>rowClass</code> attribute. This attribute must be specified as a function, which receives the row data and returns a style class."
+site/app/pages/components/table/index.html,分页,Pagination
+site/app/pages/components/table/index.html,表格的分页需要使用分页组件来配合实现：,The pagination of a table needs to be implemented with <code>md-pagination</code>:
+site/app/pages/components/table/index.html,TODO: 实现包括固定表头，排序等更多丰富的功能。,"Implement more functions includes fixed-header, sorting and more."
+site/app/pages/components/table/index.html,表格,Table
+site/app/pages/components/tabs/api.js,名称,Name
+site/app/pages/components/tabs/api.js,描述,Description
+site/app/pages/components/tabs/api.js,默认值,Default
+site/app/pages/components/tabs/api.js,设置当前激活状态的标签页。可以指定为数字索引，也可以指定为 <code>md-tab</code> 组件的 id 属性值。,"Set the current selected tab. Works by providing the index of tab, or the id of the desired <code>md-tab</code>."
+site/app/pages/components/tabs/api.js,设置标签页的对齐方式。请参见下面每种布局的详细说明。,Sets the tab navigation alignment. See below the detailed description of each layout.
+site/app/pages/components/tabs/api.js,使用左对齐,Align the tabs navigation buttons to left
+site/app/pages/components/tabs/api.js,使用居中对齐,Align the tabs navigation buttons on center
+site/app/pages/components/tabs/api.js,使用右对齐,Align the tabs navigation buttons on right
+site/app/pages/components/tabs/api.js,标签页撑满屏幕可用空间,Make the navigation buttons to fill all the available space.
+site/app/pages/components/tabs/api.js,指定工具栏高度使用动态过渡。请谨慎使用使用此选项，以免降低页面性能。,Apply a dynamic transition to the table height. Be careful with this option to not hurt the performance of your page.
+site/app/pages/components/tabs/api.js,为标签页指定阴影(Elevation)，默认无阴影。,Add an elevation to tab navigation element.
+site/app/pages/components/tabs/api.js,参数,Parameters
+site/app/pages/components/tabs/api.js,当激活的标签页变化时触发。,Triggered when the active tab changes
+site/app/pages/components/tabs/api.js,唯一标识，可用于配合 active 属性指定激活的标签页。,The tab id. Used when changing the active tab dynamically
+site/app/pages/components/tabs/api.js,为标签页添加 html 超链接。,The tab href link. Useful when you want to change the current URL based on the tab.
+site/app/pages/components/tabs/api.js,标签页的文本,The tab label
+site/app/pages/components/tabs/api.js,禁用某个标签页,Disable/enable a tab
+site/app/pages/components/tabs/api.js,为标签页添加 jinge-ui-router 的路由功能，指定目标路由状态。,Set ui-sref target state.
+site/app/pages/components/tabs/api.js,附加给标签页的额外数据。可用于传递给标签页内容的渲染 Slot。,"The data to be passed to the respective tab button, when using custom template."
+site/app/pages/components/tabs/index.html,标签页也叫选项卡。使用标签页可以轻松浏览，在不同视图之间切换以及启用高级别的内容组织，例如不同的数据集或应用程序的功能方面。,"Tabs make it easy to explore, switch between different views and enable content organization at a high level, such as different data sets or functional aspects of an app."
+site/app/pages/components/tabs/index.html,导航标签页,Navigational tabs
+site/app/pages/components/tabs/index.html,可以使用标签页作为应用程序的主导航。标签页默认情况下可以和 jinge-ui-router 无缝集成，可以像按钮或 ui-sref 组件一样使用 <code>to</code>、<code>params</code> 等属性。,"Sometimes you may need a tab to be the main navigational element of your application and you can do this.By default, tabs can be seamlessly integrated with jinge-ui-router. You can use attributes like <code>to</code>, <code>params</code> like buttons or ui-sref components."
+site/app/pages/components/tabs/index.html,标签页内容,Tab with inner content
+site/app/pages/components/tabs/index.html,在前面的示例中，选项卡的工作原理与导航按钮相同，但没有内容。可以指定自定义内容。可以将任意内容传递到选项卡。可以与路由器同步：,"In the previous example, the tabs worked just like navigation buttons, without content. With that you would need to render the content by yourself. Although this is not a hard thing, because you can use Vue Router, you can pass arbitrary content to your tabs. And it can also work syncing with router:"
+site/app/pages/components/tabs/index.html,对齐方式,Alignments
+site/app/pages/components/tabs/index.html,选项卡具有四种类型的导航按钮对齐方式：左，中，右和固定。 您可以将它们与任何选项卡一起使用：,"Tabs have four types of alignments for the navigation buttons: Left, Center, Right and Fixed. You can use them with any tabs:"
+site/app/pages/components/tabs/index.html,图标,Icons
+site/app/pages/components/tabs/index.html,可以在标签页中使用图标，以使得用户更容易理解标签的内容：,"Tabs accept icons, to make it easier for your user to assimilate the contents of a tab:"
+site/app/pages/components/tabs/index.html,自定义模版,Custom Template
+site/app/pages/components/tabs/index.html,通过 slot 可以指定标签页里面的内容的自定义模板。下面是一个提示未读信息的简单示例：,"You can use a custom template for the navigation buttons. This will be applied to all navigation buttons and allows you to make updates on your tab, like this great example of unread/new content: Simple, uh?"
+site/app/pages/components/tabs/index.html,标签页,Tabs
+site/app/pages/components/toolbar/api.js,名称,Name
+site/app/pages/components/toolbar/api.js,描述,Description
+site/app/pages/components/toolbar/api.js,默认值,Default
+site/app/pages/components/toolbar/api.js,设置工具栏的阴影（Elevation）,Sets the toolbar shadow elevation
+site/app/pages/components/toolbar/api.js,使用透明工具栏,Makes the Toolbar background transparent
+site/app/pages/components/toolbar/api.js,使用紧凑型布局,Creates a small sized toolbar
+site/app/pages/components/toolbar/api.js,使用中等大小的工具栏,Creates a medium sized toolbar
+site/app/pages/components/toolbar/api.js,使用大型工具栏,Creates a large sized toolbar
+site/app/pages/components/toolbar/api.js,创建工具栏行，通常在大型工具栏上使用,"Creates a toolbar row, commonly used on large toolbars"
+site/app/pages/components/toolbar/api.js,向任何工具栏行添加左偏移量，仅适用于 md-toolbar-row。,Adds an left offset to any toolbar row. Only works in md-toolbar-row
+site/app/pages/components/toolbar/api.js,在工具栏或工具栏行的左侧创建一个区域，该区域通常用于放置应用程序菜单按钮和标题。,Creates a section on the left of a toolbar or toolbar row. Commonly used to hold the application menu button and the title
+site/app/pages/components/toolbar/api.js,在工具栏或工具栏行的右侧创建一个区域，该区域通常用于放置工具栏的主要动作，例如更多操作的按钮。,"Creates a section on the right of a toolbar or toolbar row. Commonly used to hold the main action of a toolbar, such as overflow buttons"
+site/app/pages/components/toolbar/api.js,创建工具栏的标题。,Will create the toolbar title. Works inside or outside a toolbar row
+site/app/pages/components/toolbar/index.html,工具栏操作显示在受其操作影响的视图前面。工具栏会显示在受其影响的内容前面一个层阶。工具栏可以控制宽度来容纳其中的内容。,Toolbar actions appear above the view affected by their actions. They may constrain their width to accommodate material passing over them.
+site/app/pages/components/toolbar/index.html,常规工具栏,Regular Toolbars
+site/app/pages/components/toolbar/index.html,工具栏会根据屏幕宽度调整高度尺寸，以最适合小型设备上的可见区域。 尝试调整您的浏览器大小以查看区别：,Toolbars adjusts its height dimensions based on the screen width to best fit the visible area on small devices. Try to resize your browser to see the difference:
+site/app/pages/components/toolbar/index.html,不同大小的工具栏,Different Sizes
+site/app/pages/components/toolbar/index.html,内容和响应,Content and Actions
+site/app/pages/components/toolbar/index.html,由于工具栏主要用于执行影响整个应用程序的操作，因此您可以在其中创建行或节。,"s the Toolbars are mostly used to hold actions that affects the entire application, you can create rows or sections inside of it."
+site/app/pages/components/toolbar/index.html,尽管这些行适用于每个工具栏，但它们的创建是为了分隔大型工具栏的内容。该元素由 <code>md-toolbar-row</code> 类表示。行还可以具有 <code>md-toolbar-offset</code> 在其左侧添加一些空格。这通常在大型工具栏的第二行中使用。,"Although those rows works on every toolbar, they were created to separate contents for large toolbars. This element is represented by the <code>md-toolbar-row</code> class. A row can also have a <code>md-toolbar-offset</code> to add a little space on the left of it. This is commonly used inside the second row of an large toolbar."
+site/app/pages/components/toolbar/index.html,这些部分用于水平拆分工具栏的内容（或内部的行）。可以使用两种类型的部分来应用它们：<code>md-toolbar-section-start</code> 将左对齐，而 <code>md-toolbar-section-end</code> 右对齐。,The sections are used to split the content of the toolbar horizontally (or the row inside). You can apply them using two types of section: <code>md-toolbar-section-start</code> will be left-aligned and <code>md-toolbar-section-end</code> right-aligned.
+site/app/pages/components/toolbar/index.html,以下的类用于构造工具栏中的各种元素。,The following classes creates parts of a toolbar:
+site/app/pages/components/toolbar/index.html,工具栏,Toolbar
+site/app/pages/components/tooltip/api.js,名称,Name
+site/app/pages/components/tooltip/api.js,描述,Description
+site/app/pages/components/tooltip/api.js,默认值,Default
+site/app/pages/components/tooltip/api.js,工具提示的内容,Content of tooltip
+site/app/pages/components/tooltip/api.js,参看 Popover 组件,See md-popover component.
+site/app/pages/components/tooltip/examples/simple.html,简单的 Tooltip：,Simple Tooltip:
+site/app/pages/components/tooltip/examples/simple.html,你好，世界！,"Hello, World!"
+site/app/pages/components/tooltip/examples/simple.html,改变 placement 和 delay：,Different placement and delay:
+site/app/pages/components/tooltip/examples/simple.html,通过父组件里的参数控制显示和隐藏：,Used to trigger the visibility of a tooltip.
+site/app/pages/components/tooltip/examples/simple.html,展示自定义的内容：,Show custom html content:
+site/app/pages/components/tooltip/examples/simple.html,编辑,Edit
+site/app/pages/components/tooltip/examples/simple.html,"你好，红色的<span style=""color: red;"">世界</span>！","Hello, red <span style=""color: red;"">World</span>!"
+site/app/pages/components/tooltip/index.html,工具提示用于在鼠标悬停时会展示提示信息，提示信息可能包含有关其功能的简短说明，也可以是更丰富的 HTML 信息。,"Tooltips identify an element when they are activated. They may contain brief helper text about its function. For example, they may contain text information about actionable icons."
+site/app/pages/components/tooltip/index.html,工具提示,Tooltip
+site/app/pages/components/tooltip/index.html,Popover 组件的所有 API 也可用于 Tooltip 组件。但部分属性的默认值不同。,All apis of the Popover component are also available for the Tooltip component. But some properties have different default values.
 site/app/pages/getting-started.html,Jinge Material 是构建在 jinge 框架上的 Material Design 组件库，此处假设你已经知道如何搭建基本的 jinge 框架的项目，比如如何在 webpack 中配置和使用 jinge-loader。,"Jinge Material is a Material Design component library built on the jinge framework. It is assumed here that you already know how to build a basic jinge framework project, such as how to configure and use jinge-loader in webpack."
 site/app/pages/getting-started.html,jinge 框架还处于实验性的阶段，也还几乎没有文档。此处的 Jinge Material 组件库的文档也不保证有效。因此，体验 jinge 框架和 Jinge Material 组件库的最佳方式是直接克隆 Jinge Material 的源码仓库。这个仓库包含了所有组件的源码，以及一个涵盖所有组件的使用示例的完整应用（也就是你现在看到的这个网站）。,"The jinge framework is still experimental, and there is almost no documentation. The documentation for the Jinge Material component library here is also not guaranteed to be valid. Therefore, the best way to experience the jinge framework and Jinge Material component library is to clone Jinge Material's source code repository directly. This repository contains the source code for all components, as well as a complete application that covers all component usage examples (that is, the website you see now)."
 site/app/pages/getting-started.html,安装,Install

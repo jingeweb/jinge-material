@@ -7,32 +7,34 @@
     NoteBlock
   } from '../../../components';
 -->
-<PageContainer centered _t:title="分页 Pagination">
+<PageContainer centered _t:title="分页">
   <div class="page-container-section">
-      采用分页的形式分隔长列表，每次只加载一个页面。
+    <p><_t>采用分页的形式分隔长列表，每次只加载一个页面。</_t></p> 
   </div>
   <div class="page-container-section">
-    <h2>基础分页</h2>
-    <p>基础分页只包括页码按钮。</p>
-    <CodeExample _t:title="基础分页" e:example="_examples.basic" />
+    <h2><_t>基础分页</_t></h2>
+    <p><_t>基础分页只包括页码按钮。</_t></p>
+    <CodeExample title="Basic" e:example="_examples.basic" />
   </div>
   <div class="page-container-section">
-    <h2>完整分页</h2>
-    <p>完整分页包括页码按钮、每页个数选择、快速跳转页码以及展示数据总条数功能。每个功能都可以通过参数独立控制是否使用。</p>
-    <CodeExample _t:title="完整分页" e:example="_examples.full" />
+    <h2><_t>完整分页</_t></h2>
+    <p><_t>
+      完整分页包括页码按钮、每页个数选择、快速跳转页码以及展示数据总条数功能。每个功能都可以通过参数独立控制是否使用。
+    </_t></p>
+    <CodeExample title="Full" e:example="_examples.full" />
   </div>
   <div class="page-container-section">
-    <h2>禁用分页</h2>
-    <p>
+    <h2><_t>禁用分页</_t></h2>
+    <p><_t>
       有两种情况需要禁用(Disabled)分页，某些需求下需要禁用整个分页，或当正在加载某一页的数据时提示用该页正在加载并且禁用分页以避免重复提交。
       后者是业务中最常见的情况。为此，提供了 <code>disabled</code> 和 <code>loadingPage</code> 两个参数。请参看<code>表格（Table）</code>组件
       的示例中，有一个完整的分页组件和表格展示搭配的例子。
-    </p>
-    <CodeExample _t:title="禁用分页" e:example="_examples.disabled" />
+    </_t></p>
+    <CodeExample title="Disabled" e:example="_examples.disabled" />
 
     <ApiItem title="API - md-paginaition">
-      <ApiTable e:headings="_api.props.headings" e:props="_api.props.props" slot-pass:props />
-      <ApiTable e:headings="_api.events.headings" e:props="_api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
+      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>
