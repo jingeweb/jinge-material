@@ -616,6 +616,7 @@ site/app/pages/components/popconfirm/api.js,名称
 site/app/pages/components/popconfirm/api.js,描述
 site/app/pages/components/popconfirm/api.js,默认值
 site/app/pages/components/popconfirm/api.js,文字提示的内容
+site/app/pages/components/popconfirm/api.js,如果指定该属性，会显示错误提示。
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态
 site/app/pages/components/popconfirm/api.js,同 Popover 组件

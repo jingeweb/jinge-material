@@ -13,6 +13,11 @@ export default () => VM({
         defaults: 'an empty string'
       },
       {
+        name: 'errorTip',
+        description: _t('如果指定该属性，会显示错误提示。'),
+        defaults: 'null'
+      },
+      {
         name: 'hideWhenConfirmClick',
         description: _t('点击确认按钮后是否隐藏气泡。'),
         defaults: 'true'

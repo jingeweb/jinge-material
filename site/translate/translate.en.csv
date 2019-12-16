@@ -616,6 +616,7 @@ site/app/pages/components/popconfirm/api.js,名称,Name
 site/app/pages/components/popconfirm/api.js,描述,Description
 site/app/pages/components/popconfirm/api.js,默认值,Default
 site/app/pages/components/popconfirm/api.js,文字提示的内容,Content of popconfirm.
+site/app/pages/components/popconfirm/api.js,如果指定该属性，会显示错误提示。,"If this attribute is specified, an error message is displayed."
 site/app/pages/components/popconfirm/api.js,点击确认按钮后是否隐藏气泡。,Whether to hide the Popconfirm after clicking the confirm button.
 site/app/pages/components/popconfirm/api.js,是否进入正在确认的加载状态,Whether to enter the loading state being confirmed.
 site/app/pages/components/popconfirm/api.js,同 Popover 组件,Same as <code>md-popover</code>.
