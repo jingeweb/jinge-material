@@ -1,0 +1,9 @@
+.md-popover.md-popconfirm {
+  > .content {
+    .error {
+      font-size: 12px;
+      margin: 6px 0;
+      color: var(--md-error);
+    }
+  }
+}

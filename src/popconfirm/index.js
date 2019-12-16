@@ -1,3 +1,5 @@
+import './index.scss';
+
 import {
   Component,
   NOTIFY
@@ -16,10 +18,11 @@ export class Popconfirm extends Component {
   constructor(attrs) {
     super(attrs);
     this.title = attrs.title || '';
-    this.className = attrs.class;
+    this.error = attrs.errorTip;
+    this.className = 'md-popconfirm' + (attrs.class ? ' ' + attrs.class : '');
     this.placement = attrs.placement || 'top-end';
     this.active = attrs.active;
-    this.trigger = attrs.trigger;
+    this.trigger = attrs.trigger || 'click';
     this.delay = attrs.delay;
     this.offset = attrs.offset || 16;
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
@@ -39,6 +42,7 @@ export class Popconfirm extends Component {
   }
 
   onUpdateActive(isActive) {
+    this.active = isActive;
     this[NOTIFY]('update.active', isActive);
   }
 

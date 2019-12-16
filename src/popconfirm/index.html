@@ -16,7 +16,10 @@
   <_slot slot-pass:content>
     <_slot slot-use:content>
     <div class="md-popover-content">
-      ${title}
+      <div class="title">${title}</div>
+      <if e:expect="error">
+      <div class="error">${error}</div>
+      </if>
     </div>
     </_slot>
     <_slot slot-use:ctrl>
@@ -35,7 +38,7 @@
         <if e:expect="confirmSpinner">
           <md-spinner/>
         </if>
-        <span>${confirmText || locale.OK}</span>
+        <span>${confirmText || locale.Ok}</span>
       </md-button>
     </div>
     </_slot>
