@@ -63,9 +63,13 @@
     return locale;
   }
   function getTheme() {
-    let theme = localStorage.getItem(THEME_KEY_NAME) || SUPPORT_THEMES[0];
-    if (SUPPORT_THEMES.indexOf(theme) < 0) {
-      theme = SUPPORT_THEMES[0];
+    let theme = localStorage.getItem(THEME_KEY_NAME);
+    if (!theme || SUPPORT_THEMES.indexOf(theme) < 0) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = SUPPORT_THEMES[1];
+      } else {
+        theme = SUPPORT_THEMES[0];
+      }
     }
     localStorage.setItem(THEME_KEY_NAME, theme);
     env.theme = theme;

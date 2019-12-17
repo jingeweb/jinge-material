@@ -8,6 +8,18 @@ function getGitHash() {
   return m[1].substring(0, 10);
 }
 
+class RemoveThemeJSPlugin {
+  apply(compiler) {
+    compiler.hooks.emit.tap('REMOVE_THEME_JS_PLUGIN', function(compilation) {
+      Object.keys(compilation.assets).forEach(file => {
+        if (file.endsWith('.css.js')) {
+          delete compilation.assets[file];
+        }
+      });
+    });
+  }
+}
+
 module.exports = function getWebpackBuildThemeConfig(themesDir, isProdMode, noCompress) {
   const gitHash = isProdMode ? getGitHash() : '';
 
@@ -51,6 +63,7 @@ module.exports = function getWebpackBuildThemeConfig(themesDir, isProdMode, noCo
       }]
     },
     plugins: [
+      new RemoveThemeJSPlugin(),
       new MiniCssExtractPlugin({
         filename: `theme.[name].${isProdMode ? `${gitHash}.min.` : ''}css`
       })

@@ -1,5 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const htmlMinify = require('html-minifier').minify;
 const {
   jingeLoader,
   JingeWebpackPlugin
@@ -57,10 +59,14 @@ module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
     from: __r('index.html'),
     to: path.resolve(__dirname, '../docs'),
     transform: content => {
-      return content.toString().replace(
+      return htmlMinify(content.toString().replace(
         'src="loader.js"',
         `src="loader.${gitHash}.min.js"`
-      );
+      ), {
+        collapseWhitespace: true,
+        minifyCSS: true,
+        removeAttributeQuotes: true
+      });
     }
   }, {
     from: __r('loader.js'),
@@ -71,6 +77,16 @@ module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
   }]));
   return {
     mode: !isProdMode || noCompress ? 'development' : 'production',
+    optimization: {
+      minimizer: [new TerserPlugin({
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        },
+        extractComments: false
+      })]
+    },
     target: 'web',
     entry: __r('app/entry/index.js'),
     output: {
