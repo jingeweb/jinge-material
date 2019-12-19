@@ -3,6 +3,12 @@ import {
   isUndefined
 } from 'jinge';
 
+export function getBaseHref() {
+  const $bs = document.getElementsByTagName('base');
+  const href = $bs.length > 0 ? $bs[0].getAttribute('href') : '';
+  return href || '/';
+}
+
 export function raf(callback) {
   return window.requestAnimationFrame(callback);
 }

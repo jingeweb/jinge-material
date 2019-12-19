@@ -11,8 +11,14 @@ import {
   DOM_PASS_LISTENERS
 } from 'jinge';
 
+import {
+  getBaseHref
+} from '../_util';
+
 const svgCacheStore = new Map();
 const NUM_REGEXP = /^\d+$/;
+const BASE_HREF = getBaseHref();
+
 function _size(v) {
   if (isNumber(v) || (isString(v) && NUM_REGEXP.test(v))) {
     return v + 'px';
@@ -66,7 +72,7 @@ export class Icon extends Component {
   _loadSvg() {
     if (!this.src) return;
     if (!svgCacheStore.has(this.src)) {
-      window.fetch(this.src).then(res => res.text()).then(html => {
+      window.fetch(this.src.startsWith('/') ? `${BASE_HREF}${this.src.substring(1)}` : this.src).then(res => res.text()).then(html => {
         this.cache && svgCacheStore.set(this.src, html);
         this._renderSvg(html);
         this[NOTIFY]('loaded');
