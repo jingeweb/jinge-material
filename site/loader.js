@@ -12,12 +12,19 @@
   }
   Object.assign(env, {
     production: !!buildHash,
+    baseHref: getBaseHref(),
     localeKey: LOCALE_KEY_NAME,
     localeTpl: `locale.[locale]${buildHash ? `.${buildHash[1]}.min` : ''}.js`,
     themeKey: THEME_KEY_NAME,
     themeId: THEME_LINK_ID,
     themeTpl: `theme.[theme]${buildHash ? `.${buildHash[1]}.min` : ''}.css`
   });
+
+  function getBaseHref() {
+    const $bs = document.getElementsByTagName('base');
+    const href = $bs.length > 0 ? $bs[0].getAttribute('href') : '';
+    return href || '/';
+  }
 
   /** loader utils **/
   function loadStyle(href, id) {
@@ -43,8 +50,8 @@
   }
   function getLocale() {
     const pn = location.pathname;
-    const pi = pn.indexOf('/', 1);
-    let locale = pi > 0 ? pn.substring(1, pi) : null;
+    const pi = pn.indexOf('/', env.baseHref.length);
+    let locale = pi > 0 ? pn.substring(env.baseHref.length, pi) : null;
     if (locale === 'zh_cn' || locale === 'en') {
       localStorage.setItem(LOCALE_KEY_NAME, locale);
       env.locale = locale;
@@ -57,7 +64,7 @@
     } else if (locale !== 'en') {
       locale = 'en';
     }
-    history.replaceState(null, null, `/${locale}/`);
+    history.replaceState(null, null, `${env.baseHref}${locale}/`);
     localStorage.setItem(LOCALE_KEY_NAME, locale);
     env.locale = locale;
     return locale;
@@ -77,6 +84,11 @@
   }
 
   /** run application **/
+  if (location.search.startsWith('?__git_pages_redirect=')) {
+    const redirectPath = decodeURIComponent(location.search.substring(22));
+    history.replaceState(null, null, redirectPath);
+  }
+
   const locale = getLocale();
   Promise.all([
     locale === 'en' ? loadStyle('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,500,700') : Promise.resolve(),

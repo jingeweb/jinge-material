@@ -38,7 +38,7 @@ function getGitHash() {
   return m[1].substring(0, 10);
 }
 
-module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
+module.exports = function getWebpackBuildMainConfig(baseHref, isProdMode, noCompress) {
   const gitHash = isProdMode ? getGitHash() : '';
   const plugins = [new JingeWebpackPlugin({
     compress: isProdMode && !noCompress,
@@ -59,10 +59,17 @@ module.exports = function getWebpackBuildMainConfig(isProdMode, noCompress) {
     from: __r('index.html'),
     to: path.resolve(__dirname, '../docs'),
     transform: content => {
-      return htmlMinify(content.toString().replace(
+      const output = content.toString().replace(
         'src="loader.js"',
         `src="loader.${gitHash}.min.js"`
-      ), {
+      ).replace(
+        '<base href="/"/>',
+        `<base href="${baseHref || '/'}"/>`
+      );
+      if (!isProdMode || noCompress) {
+        return output;
+      }
+      return htmlMinify(output, {
         collapseWhitespace: true,
         minifyCSS: true,
         removeAttributeQuotes: true

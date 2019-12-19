@@ -54,12 +54,14 @@ export function setCurrentLocale(locale) {
    * 顺序不能颠倒，因为在 i18n 的 locale-change 事件发出后，
    * ui-sref 会更新链接，更新链接会依赖 router 的 baseHref。
    */
-  router.baseHref = `/${locale}/`;
+  const oldBaseHrefRegExp = new RegExp('^' + `${env.baseHref}${i18n.locale}/`);
+  const newBaseHref = `${env.baseHref}${locale}/`;
+  router.baseHref = newBaseHref;
   i18n.switch(
     locale,
     env.localeTpl.replace('[locale]', locale)
   );
-  history.replaceState(null, null, location.pathname.replace(/^\/\w+/, `/${locale}`));
+  history.pushState(null, null, location.pathname.replace(oldBaseHrefRegExp, newBaseHref));
   localStorage.setItem(env.localeKey, locale);
   env.locale = locale;
 }
