@@ -12,4 +12,4 @@ TODO: translate english readme.
 
 ## Usage
 
-See: [https://material.jinge.design](https://material.jinge.design)
+See: [https://yuhangge.github.io/jinge-material/](https://yuhangge.github.io/jinge-material)
