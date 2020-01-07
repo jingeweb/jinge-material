@@ -5,16 +5,34 @@ import {
 export class IconBaselineAirplay extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="a" d="M0 0h24v24H0V0z"/></defs><defs><path id="c" d="M0 0h24v24H0V0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><clipPath id="d" clip-path="url(#b)"><use xlink:href="#c" overflow="visible"/></clipPath><path d="M6 22h12l-6-6zM21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3V5h18v12h-4v2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" clip-path="url(#d)"/></svg>`;
+<svg width="24px" height="24px" viewBox="0 0 24 24">
+<g>
+	<polygon points="6,22 18,22 12,16 	"/>
+	<path d="M21,3H3C1.9,3,1,3.9,1,5v12c0,1.1,0.9,2,2,2h4v-2H3V5h18v12h-4v2h4c1.1,0,2-0.9,2-2V5C23,3.9,22.1,3,21,3z"/>
+</g>
+</svg>
+`;
   }
 }
 
-const __svg_IconOutlineAirplay = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm6 22h12l-6-6zM21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v-2H3V5h18v12h-4v2h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>`;
-
-export class IconOutlineAirplay extends Icon {
+export class IconOutlinedAirplay extends Icon {
   get svg() {
-    return __svg_IconOutlineAirplay;
+    return `
+<svg height="24px" viewBox="0 0 24 24">
+<g id="Bounding_Boxes">
+	<rect fill="none" width="24" height="24"/>
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Outline">
+	<g id="ui_x5F_spec_x5F_header">
+	</g>
+	<g>
+		<polygon points="6,22 18,22 12,16 		"/>
+		<path d="M21,3H3C1.9,3,1,3.9,1,5v12c0,1.1,0.9,2,2,2h4v-2H3V5h18v12h-4v2h4c1.1,0,2-0.9,2-2V5C23,3.9,22.1,3,21,3z"/>
+	</g>
+</g>
+</svg>
+`;
   }
 }
 
@@ -28,12 +46,36 @@ export class IconRoundAirplay extends Icon {
 export class IconSharpAirplay extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm6 22h12l-6-6-6 6zM23 3H1v16h6v-2H3V5h18v12h-4v2h6V3z"/></svg>`;
+<svg height="24px" viewBox="0 0 24 24">
+<g id="Bounding_Boxes">
+	<rect fill="none" width="24" height="24"/>
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Sharp">
+	<path d="M6,22h12l-6-6L6,22z M23,3H1v16h6v-2H3V5h18v12h-4v2h6V3z"/>
+</g>
+</svg>
+`;
   }
 }
 
 export class IconTwotoneAirplay extends Icon {
   get svg() {
-    return __svg_IconOutlineAirplay;
+    return `
+<svg height="24px" viewBox="0 0 24 24">
+<g id="Bounding_Boxes">
+	<rect fill="none" width="24" height="24"/>
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Duotone">
+	<g id="ui_x5F_spec_x5F_header_copy">
+	</g>
+	<g>
+		<polygon points="6,22 18,22 12,16 		"/>
+		<path d="M21,3H3C1.9,3,1,3.9,1,5v12c0,1.1,0.9,2,2,2h4v-2H3V5h18v12h-4v2h4c1.1,0,2-0.9,2-2V5C23,3.9,22.1,3,21,3z"/>
+	</g>
+</g>
+</svg>
+`;
   }
 }

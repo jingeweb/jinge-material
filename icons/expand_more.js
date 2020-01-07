@@ -9,12 +9,12 @@ export class IconBaselineExpandMore extends Icon {
   }
 }
 
-const __svg_IconOutlineExpandMore = `
+const __svg_IconOutlinedExpandMore = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"/></svg>`;
 
-export class IconOutlineExpandMore extends Icon {
+export class IconOutlinedExpandMore extends Icon {
   get svg() {
-    return __svg_IconOutlineExpandMore;
+    return __svg_IconOutlinedExpandMore;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundExpandMore extends Icon {
 
 export class IconSharpExpandMore extends Icon {
   get svg() {
-    return __svg_IconOutlineExpandMore;
+    return __svg_IconOutlinedExpandMore;
   }
 }
 
 export class IconTwotoneExpandMore extends Icon {
   get svg() {
-    return __svg_IconOutlineExpandMore;
+    return __svg_IconOutlinedExpandMore;
   }
 }

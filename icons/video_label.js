@@ -3,7 +3,7 @@ import {
 } from '../src/icon';
 
 const __svg_IconBaselineVideoLabel = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11z"/></svg>`;
 
 export class IconBaselineVideoLabel extends Icon {
   get svg() {
@@ -11,7 +11,7 @@ export class IconBaselineVideoLabel extends Icon {
   }
 }
 
-export class IconOutlineVideoLabel extends Icon {
+export class IconOutlinedVideoLabel extends Icon {
   get svg() {
     return __svg_IconBaselineVideoLabel;
   }
@@ -27,13 +27,13 @@ export class IconRoundVideoLabel extends Icon {
 export class IconSharpVideoLabel extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23 3H1v18h22V3zm-2 13H3V5h18v11z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M23 3H1v18h22V3zm-2 13H3V5h18v11z"/></svg>`;
   }
 }
 
 export class IconTwotoneVideoLabel extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M3 5h18v11H3z"/><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path opacity=".3" d="M3 5h18v11H3z"/><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H3V5h18v11z"/></svg>`;
   }
 }

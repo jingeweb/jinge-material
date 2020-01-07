@@ -5,16 +5,16 @@ import {
 export class IconBaselineArrowForwardIos extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"/><path fill="none" d="M0 0h24v24H0z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineArrowForwardIos = `
+const __svg_IconOutlinedArrowForwardIos = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M24 24H0V0h24v24z"/><path d="M6.49 20.13l1.77 1.77 9.9-9.9-9.9-9.9-1.77 1.77L14.62 12l-8.13 8.13z"/></svg>`;
 
-export class IconOutlineArrowForwardIos extends Icon {
+export class IconOutlinedArrowForwardIos extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowForwardIos;
+    return __svg_IconOutlinedArrowForwardIos;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundArrowForwardIos extends Icon {
 
 export class IconSharpArrowForwardIos extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowForwardIos;
+    return __svg_IconOutlinedArrowForwardIos;
   }
 }
 
 export class IconTwotoneArrowForwardIos extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowForwardIos;
+    return __svg_IconOutlinedArrowForwardIos;
   }
 }

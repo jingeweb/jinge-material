@@ -9,10 +9,10 @@ export class IconBaselineGames extends Icon {
   }
 }
 
-export class IconOutlineGames extends Icon {
+export class IconOutlinedGames extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 4v2.67l-1 1-1-1V4h2m7 7v2h-2.67l-1-1 1-1H20M6.67 11l1 1-1 1H4v-2h2.67M12 16.33l1 1V20h-2v-2.67l1-1M15 2H9v5.5l3 3 3-3V2zm7 7h-5.5l-3 3 3 3H22V9zM7.5 9H2v6h5.5l3-3-3-3zm4.5 4.5l-3 3V22h6v-5.5l-3-3z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M13 4v2.67l-1 1-1-1V4h2m7 7v2h-2.67l-1-1 1-1H20M6.67 11l1 1-1 1H4v-2h2.67M12 16.33l1 1V20h-2v-2.67l1-1M15 2H9v5.5l3 3 3-3V2zm7 7h-5.5l-3 3 3 3H22V9zM7.5 9H2v6h5.5l3-3-3-3zm4.5 4.5l-3 3V22h6v-5.5l-3-3z"/></svg>`;
   }
 }
 
@@ -26,13 +26,13 @@ export class IconRoundGames extends Icon {
 export class IconSharpGames extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 7.5V2H9v5.5l3 3 3-3zM7.5 9H2v6h5.5l3-3-3-3zM9 16.5V22h6v-5.5l-3-3-3 3zM16.5 9l-3 3 3 3H22V9h-5.5z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15 7.5V2H9v5.5l3 3 3-3zM7.5 9H2v6h5.5l3-3-3-3zM9 16.5V22h6v-5.5l-3-3-3 3zM16.5 9l-3 3 3 3H22V9h-5.5z"/></svg>`;
   }
 }
 
 export class IconTwotoneGames extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M11 17.33V20h2v-2.67l-1-1zm2-10.66V4h-2v2.67l1 1zM16.33 12l1 1H20v-2h-2.67zM4 11v2h2.67l1-1-1-1z"/><path d="M2 9v6h5.5l3-3-3-3H2zm4.67 4H4v-2h2.67l1 1-1 1zM22 9h-5.5l-3 3 3 3H22V9zm-2 4h-2.67l-1-1 1-1H20v2zm-5 3.5l-3-3-3 3V22h6v-5.5zM13 20h-2v-2.67l1-1 1 1V20zM9 7.5l3 3 3-3V2H9v5.5zM11 4h2v2.67l-1 1-1-1V4z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path opacity=".3" d="M11 17.33V20h2v-2.67l-1-1zm2-10.66V4h-2v2.67l1 1zM16.33 12l1 1H20v-2h-2.67zM4 11v2h2.67l1-1-1-1z"/><path d="M2 9v6h5.5l3-3-3-3H2zm4.67 4H4v-2h2.67l1 1-1 1zM22 9h-5.5l-3 3 3 3H22V9zm-2 4h-2.67l-1-1 1-1H20v2zm-5 3.5l-3-3-3 3V22h6v-5.5zM13 20h-2v-2.67l1-1 1 1V20zM9 7.5l3 3 3-3V2H9v5.5zM11 4h2v2.67l-1 1-1-1V4z"/></svg>`;
   }
 }

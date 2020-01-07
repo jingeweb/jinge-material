@@ -9,12 +9,21 @@ export class IconBaselineReplay extends Icon {
   }
 }
 
-const __svg_IconOutlineReplay = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>`;
-
-export class IconOutlineReplay extends Icon {
+export class IconOutlinedReplay extends Icon {
   get svg() {
-    return __svg_IconOutlineReplay;
+    return `
+<svg height="24px" viewBox="0 0 24 24">
+<g id="Bounding_Boxes">
+	<rect fill="none" width="24" height="24"/>
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Outline">
+	<g id="ui_x5F_spec_x5F_header">
+	</g>
+	<path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"/>
+</g>
+</svg>
+`;
   }
 }
 
@@ -27,13 +36,34 @@ export class IconRoundReplay extends Icon {
 
 export class IconSharpReplay extends Icon {
   get svg() {
-    return __svg_IconOutlineReplay;
+    return `
+<svg height="24px" viewBox="0 0 24 24">
+<g id="Bounding_Boxes">
+	<rect fill="none" width="24" height="24"/>
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Sharp">
+	<path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"/>
+</g>
+</svg>
+`;
   }
 }
 
 export class IconTwotoneReplay extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8V1L7 6z"/></svg>`;
+<svg height="24px" viewBox="0 0 24 24">
+<g id="Bounding_Boxes">
+	<rect fill="none" width="24" height="24"/>
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Duotone">
+	<g id="ui_x5F_spec_x5F_header_copy">
+	</g>
+	<path d="M7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8c0-4.42-3.58-8-8-8V1L7,6z"/>
+</g>
+</svg>
+`;
   }
 }

@@ -9,12 +9,12 @@ export class IconBaselineError extends Icon {
   }
 }
 
-const __svg_IconOutlineError = `
+const __svg_IconOutlinedError = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`;
 
-export class IconOutlineError extends Icon {
+export class IconOutlinedError extends Icon {
   get svg() {
-    return __svg_IconOutlineError;
+    return __svg_IconOutlinedError;
   }
 }
 
@@ -27,7 +27,7 @@ export class IconRoundError extends Icon {
 
 export class IconSharpError extends Icon {
   get svg() {
-    return __svg_IconOutlineError;
+    return __svg_IconOutlinedError;
   }
 }
 

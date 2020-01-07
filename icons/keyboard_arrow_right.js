@@ -5,16 +5,16 @@ import {
 export class IconBaselineKeyboardArrowRight extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineKeyboardArrowRight = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
+const __svg_IconOutlinedKeyboardArrowRight = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
 
-export class IconOutlineKeyboardArrowRight extends Icon {
+export class IconOutlinedKeyboardArrowRight extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowRight;
+    return __svg_IconOutlinedKeyboardArrowRight;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundKeyboardArrowRight extends Icon {
 
 export class IconSharpKeyboardArrowRight extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowRight;
+    return __svg_IconOutlinedKeyboardArrowRight;
   }
 }
 
 export class IconTwotoneKeyboardArrowRight extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowRight;
+    return __svg_IconOutlinedKeyboardArrowRight;
   }
 }

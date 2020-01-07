@@ -3,7 +3,7 @@ import {
 } from '../src/icon';
 
 const __svg_IconBaselinePlaylistPlay = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 0v6l5-3z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 0v6l5-3z"/></svg>`;
 
 export class IconBaselinePlaylistPlay extends Icon {
   get svg() {
@@ -11,7 +11,7 @@ export class IconBaselinePlaylistPlay extends Icon {
   }
 }
 
-export class IconOutlinePlaylistPlay extends Icon {
+export class IconOutlinedPlaylistPlay extends Icon {
   get svg() {
     return __svg_IconBaselinePlaylistPlay;
   }
@@ -33,6 +33,6 @@ export class IconSharpPlaylistPlay extends Icon {
 export class IconTwotonePlaylistPlay extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 6l5-3-5-3z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 6l5-3-5-3z"/></svg>`;
   }
 }

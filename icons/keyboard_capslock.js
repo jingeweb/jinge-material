@@ -9,12 +9,12 @@ export class IconBaselineKeyboardCapslock extends Icon {
   }
 }
 
-const __svg_IconOutlineKeyboardCapslock = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 8.41L16.59 13 18 11.59l-6-6-6 6L7.41 13 12 8.41zM6 18h12v-2H6v2z"/></svg>`;
+const __svg_IconOutlinedKeyboardCapslock = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 8.41L16.59 13 18 11.59l-6-6-6 6L7.41 13 12 8.41zM6 18h12v-2H6v2z"/></svg>`;
 
-export class IconOutlineKeyboardCapslock extends Icon {
+export class IconOutlinedKeyboardCapslock extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardCapslock;
+    return __svg_IconOutlinedKeyboardCapslock;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundKeyboardCapslock extends Icon {
 
 export class IconSharpKeyboardCapslock extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardCapslock;
+    return __svg_IconOutlinedKeyboardCapslock;
   }
 }
 
 export class IconTwotoneKeyboardCapslock extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardCapslock;
+    return __svg_IconOutlinedKeyboardCapslock;
   }
 }

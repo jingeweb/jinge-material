@@ -5,16 +5,16 @@ import {
 export class IconBaselineFirstPage extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"/><path fill="none" d="M24 24H0V0h24v24z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineFirstPage = `
+const __svg_IconOutlinedFirstPage = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M24 0v24H0V0h24z"/><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6 1.41-1.41zM6 6h2v12H6V6z"/></svg>`;
 
-export class IconOutlineFirstPage extends Icon {
+export class IconOutlinedFirstPage extends Icon {
   get svg() {
-    return __svg_IconOutlineFirstPage;
+    return __svg_IconOutlinedFirstPage;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundFirstPage extends Icon {
 
 export class IconSharpFirstPage extends Icon {
   get svg() {
-    return __svg_IconOutlineFirstPage;
+    return __svg_IconOutlinedFirstPage;
   }
 }
 
 export class IconTwotoneFirstPage extends Icon {
   get svg() {
-    return __svg_IconOutlineFirstPage;
+    return __svg_IconOutlinedFirstPage;
   }
 }

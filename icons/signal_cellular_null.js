@@ -9,30 +9,30 @@ export class IconBaselineSignalCellularNull extends Icon {
   }
 }
 
-const __svg_IconOutlineSignalCellularNull = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 6.83V20H6.83L20 6.83M22 2L2 22h20V2z"/></svg>`;
+const __svg_IconOutlinedSignalCellularNull = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M20 6.83V20H6.83L20 6.83M22 2L2 22h20V2z"/></svg>`;
 
-export class IconOutlineSignalCellularNull extends Icon {
+export class IconOutlinedSignalCellularNull extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularNull;
+    return __svg_IconOutlinedSignalCellularNull;
   }
 }
 
 export class IconRoundSignalCellularNull extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 6.83V19c0 .55-.45 1-1 1H6.83L20 6.83m.29-3.12L3.71 20.29c-.63.63-.19 1.71.7 1.71H20c1.1 0 2-.9 2-2V4.41c0-.89-1.08-1.33-1.71-.7z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M20 6.83V19c0 .55-.45 1-1 1H6.83L20 6.83m.29-3.12L3.71 20.29c-.63.63-.19 1.71.7 1.71H20c1.1 0 2-.9 2-2V4.41c0-.89-1.08-1.33-1.71-.7z"/></svg>`;
   }
 }
 
 export class IconSharpSignalCellularNull extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularNull;
+    return __svg_IconOutlinedSignalCellularNull;
   }
 }
 
 export class IconTwotoneSignalCellularNull extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularNull;
+    return __svg_IconOutlinedSignalCellularNull;
   }
 }

@@ -9,12 +9,12 @@ export class IconBaselineKeyboardArrowUp extends Icon {
   }
 }
 
-const __svg_IconOutlineKeyboardArrowUp = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>`;
+const __svg_IconOutlinedKeyboardArrowUp = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z"/></svg>`;
 
-export class IconOutlineKeyboardArrowUp extends Icon {
+export class IconOutlinedKeyboardArrowUp extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowUp;
+    return __svg_IconOutlinedKeyboardArrowUp;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundKeyboardArrowUp extends Icon {
 
 export class IconSharpKeyboardArrowUp extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowUp;
+    return __svg_IconOutlinedKeyboardArrowUp;
   }
 }
 
 export class IconTwotoneKeyboardArrowUp extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowUp;
+    return __svg_IconOutlinedKeyboardArrowUp;
   }
 }

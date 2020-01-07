@@ -9,10 +9,10 @@ export class IconBaselineStop extends Icon {
   }
 }
 
-export class IconOutlineStop extends Icon {
+export class IconOutlinedStop extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 8v8H8V8h8m2-2H6v12h12V6z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M16 8v8H8V8h8m2-2H6v12h12V6z"/></svg>`;
   }
 }
 
@@ -26,13 +26,13 @@ export class IconRoundStop extends Icon {
 export class IconSharpStop extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h12v12H6V6z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M6 6h12v12H6V6z"/></svg>`;
   }
 }
 
 export class IconTwotoneStop extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M8 8h8v8H8z"/><path d="M6 18h12V6H6v12zM8 8h8v8H8V8z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path opacity=".3" d="M8 8h8v8H8z"/><path d="M6 18h12V6H6v12zM8 8h8v8H8V8z"/></svg>`;
   }
 }

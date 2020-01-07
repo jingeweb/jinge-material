@@ -3,7 +3,7 @@ import {
 } from '../src/icon';
 
 const __svg_IconBaselinePowerInput = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 9v2h19V9H2zm0 6h5v-2H2v2zm7 0h5v-2H9v2zm7 0h5v-2h-5v2z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M2 9v2h19V9H2zm0 6h5v-2H2v2zm7 0h5v-2H9v2zm7 0h5v-2h-5v2z"/></svg>`;
 
 export class IconBaselinePowerInput extends Icon {
   get svg() {
@@ -11,7 +11,7 @@ export class IconBaselinePowerInput extends Icon {
   }
 }
 
-export class IconOutlinePowerInput extends Icon {
+export class IconOutlinedPowerInput extends Icon {
   get svg() {
     return __svg_IconBaselinePowerInput;
   }
