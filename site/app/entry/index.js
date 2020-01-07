@@ -6,54 +6,23 @@ import '../../../style';
 import './style';
 
 import {
-  Component,
-  bootstrap,
-  ON,
-  i18n,
-  SET_CONTEXT
+  i18n, bootstrap, chunk
 } from 'jinge';
 import {
-  UIROUTER_CONTEXT
-} from 'jinge-ui-router';
-
-import _tpl from './index.html';
-import _sty from './index.scss';
-
+  getEnv
+} from '../service/env';
 import {
-  router,
-  pageState,
-  IS_SPLASH_CHANGED,
-  setCurrentLocale,
-  TITLE_CHANGED
-} from '../service';
+  router
+} from '../service/router';
+import {
+  setCurrentLocale
+} from '../service/locale';
 
-class App extends Component {
-  static get template() {
-    return _tpl;
-  }
+import App from './app';
+import Routes from './routes';
 
-  static get style() {
-    return _sty;
-  }
-
-  constructor(attrs) {
-    super(attrs);
-
-    // this code is important!
-    // register ui router in root component
-    this[SET_CONTEXT](UIROUTER_CONTEXT, router);
-
-    this.isSplash = pageState.isSplash;
-    this.appTitle = pageState.title;
-    this.menuShown = false;
-    pageState[ON](IS_SPLASH_CHANGED, isSplash => {
-      this.isSplash = isSplash;
-    });
-    pageState[ON](TITLE_CHANGED, title => {
-      this.appTitle = title;
-    });
-  }
-}
+chunk.meta = getEnv('meta');
+Routes.forEach(r => router.register(r));
 
 setCurrentLocale(i18n.locale);
 bootstrap(App, document.getElementById('root-app'));

@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselinePauseCircleOutline = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"/></svg>`;
+
 export class IconBaselinePauseCircleOutline extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"/></svg>`;
+    return __svg_IconBaselinePauseCircleOutline;
   }
 }
 
-const __svg_IconOutlinePauseCircleOutline = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 16h2V8H9v8zm3-14C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-4h2V8h-2v8z"/></svg>`;
-
-export class IconOutlinePauseCircleOutline extends Icon {
+export class IconOutlinedPauseCircleOutline extends Icon {
   get svg() {
-    return __svg_IconOutlinePauseCircleOutline;
+    return __svg_IconBaselinePauseCircleOutline;
   }
 }
 
@@ -27,7 +26,7 @@ export class IconRoundPauseCircleOutline extends Icon {
 
 export class IconSharpPauseCircleOutline extends Icon {
   get svg() {
-    return __svg_IconOutlinePauseCircleOutline;
+    return __svg_IconBaselinePauseCircleOutline;
   }
 }
 

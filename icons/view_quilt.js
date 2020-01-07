@@ -2,14 +2,16 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineViewQuilt = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18h5v-6h-5v6zm-6 0h5V5H4v13zm12 0h5v-6h-5v6zM10 5v6h11V5H10z"/></svg>`;
+
 export class IconBaselineViewQuilt extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18h5v-6h-5v6zm-6 0h5V5H4v13zm12 0h5v-6h-5v6zM10 5v6h11V5H10z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineViewQuilt;
   }
 }
 
-export class IconOutlineViewQuilt extends Icon {
+export class IconOutlinedViewQuilt extends Icon {
   get svg() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 5v13h17V5H4zm2 11V7h3v9H6zm5 0v-3.5h3V16h-3zm8 0h-3v-3.5h3V16zm-8-5.5V7h8v3.5h-8z"/></svg>`;
@@ -25,8 +27,7 @@ export class IconRoundViewQuilt extends Icon {
 
 export class IconSharpViewQuilt extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18h5v-6h-5v6zm-6 0h5V5H4v13zm12 0h5v-6h-5v6zM10 5v6h11V5H10z"/></svg>`;
+    return __svg_IconBaselineViewQuilt;
   }
 }
 

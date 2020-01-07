@@ -1,13 +1,16 @@
+<!--
+  import { Portal } from '../portal';
+-->
 <_slot slot-use:default>missing!!</_slot>
 <if
   e:expect="isShown"
   on:branch-switched="_onIfSwitched"
 >
-<md-portal>
+<Portal>
 <div e:class="className" ref:pop>
   <div class="content">
     <_slot slot-use:content>missing!!</_slot>
   </div>
 </div>
-</md-portal>
+</Portal>
 </if>

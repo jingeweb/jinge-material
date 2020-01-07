@@ -1,7 +1,5 @@
 import {
-  VM,
-  _t,
-  I18N_WATCH,
+  vm, _t,
   Component
 } from 'jinge';
 
@@ -96,28 +94,28 @@ function generateMenus() {
       state: 'components.forms',
       children: [{
         name: _t('自动补全|Autocomplete'),
-        state: 'components.autocomplete'
+        state: 'components.forms.autocomplete'
       }, {
         name: _t('多选框|Checkbox'),
-        state: 'components.checkbox'
+        state: 'components.forms.checkbox'
       }, {
         name: _t('纸片|Chips'),
-        state: 'components.chips'
+        state: 'components.forms.chips'
       }, {
         name: _t('文件选择|File'),
-        state: 'components.file'
+        state: 'components.forms.file'
       }, {
         name: _t('文本框|Input & Textarea'),
-        state: 'components.input'
+        state: 'components.forms.input'
       }, {
         name: _t('单选项|Radio'),
-        state: 'components.radio'
+        state: 'components.forms.radio'
       }, {
         name: _t('下拉选择|Select'),
-        state: 'components.select'
+        state: 'components.forms.select'
       }, {
         name: _t('切换|Switch'),
-        state: 'components.switch'
+        state: 'components.forms.switch'
       }]
     }, {
       name: _t('文本高亮|Highlight'),
@@ -195,8 +193,8 @@ export class NavContent extends Component {
   constructor(attrs) {
     super(attrs);
 
-    this[I18N_WATCH](() => {
-      this.menus = VM(generateMenus());
+    this.__i18nWatch(() => {
+      this.menus = vm(generateMenus());
     }, true);
   }
 }

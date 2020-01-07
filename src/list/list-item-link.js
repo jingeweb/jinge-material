@@ -7,11 +7,12 @@ export class ListItemLink extends Component {
     return `
 <!-- import { ListItemContent } from './list-item-content' -->
 <a
-  class="md-list-item-link\${className ? ' ' + className : ''}"
+  class="md-state-container md-content-on-surface md-list-item-link\${className ? ' ' + className : ''}"
   e:disabled="disabled"
   e:href="href"
   e:target="target"
 >
+  <i class="md-state-overlay"/>
   <ListItemContent e:disabled="disabled || !ripple">
     <_slot />
   </ListItemContent>

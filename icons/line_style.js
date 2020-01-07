@@ -5,16 +5,16 @@ import {
 export class IconBaselineLineStyle extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="a" d="M0 0h24v24H0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" d="M3 16h5v-2H3v2zm6.5 0h5v-2h-5v2zm6.5 0h5v-2h-5v2zM3 20h2v-2H3v2zm4 0h2v-2H7v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zM3 12h8v-2H3v2zm10 0h8v-2h-8v2zM3 4v4h18V4H3z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,16h5v-2H3V16z M9.5,16h5v-2h-5V16z M16,16h5v-2h-5V16z M3,20h2v-2H3V20z M7,20h2v-2H7V20z M11,20h2v-2h-2V20z M15,20 h2v-2h-2V20z M19,20h2v-2h-2V20z M3,12h8v-2H3V12z M13,12h8v-2h-8V12z M3,4v4h18V4H3z"/></g></g></g></svg>`;
   }
 }
 
-const __svg_IconOutlineLineStyle = `
+const __svg_IconOutlinedLineStyle = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 16h5v-2H3v2zm6.5 0h5v-2h-5v2zm6.5 0h5v-2h-5v2zM3 20h2v-2H3v2zm4 0h2v-2H7v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2zM3 12h8v-2H3v2zm10 0h8v-2h-8v2zM3 4v4h18V4H3z"/></svg>`;
 
-export class IconOutlineLineStyle extends Icon {
+export class IconOutlinedLineStyle extends Icon {
   get svg() {
-    return __svg_IconOutlineLineStyle;
+    return __svg_IconOutlinedLineStyle;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundLineStyle extends Icon {
 
 export class IconSharpLineStyle extends Icon {
   get svg() {
-    return __svg_IconOutlineLineStyle;
+    return __svg_IconOutlinedLineStyle;
   }
 }
 
 export class IconTwotoneLineStyle extends Icon {
   get svg() {
-    return __svg_IconOutlineLineStyle;
+    return __svg_IconOutlinedLineStyle;
   }
 }

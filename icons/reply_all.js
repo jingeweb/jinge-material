@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineReplyAll = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 8V5l-7 7 7 7v-3l-4-4 4-4zm6 1V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/></svg>`;
+
 export class IconBaselineReplyAll extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 8V5l-7 7 7 7v-3l-4-4 4-4zm6 1V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineReplyAll;
   }
 }
 
-const __svg_IconOutlineReplyAll = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 8V5l-7 7 7 7v-3l-4-4 4-4zm6 1V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z"/></svg>`;
-
-export class IconOutlineReplyAll extends Icon {
+export class IconOutlinedReplyAll extends Icon {
   get svg() {
-    return __svg_IconOutlineReplyAll;
+    return __svg_IconBaselineReplyAll;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundReplyAll extends Icon {
 
 export class IconSharpReplyAll extends Icon {
   get svg() {
-    return __svg_IconOutlineReplyAll;
+    return __svg_IconBaselineReplyAll;
   }
 }
 
 export class IconTwotoneReplyAll extends Icon {
   get svg() {
-    return __svg_IconOutlineReplyAll;
+    return __svg_IconBaselineReplyAll;
   }
 }

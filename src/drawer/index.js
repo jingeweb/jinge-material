@@ -1,10 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  NOTIFY,
-  AFTER_RENDER,
-  GET_FIRST_DOM
+  Component
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -24,8 +21,8 @@ export class Drawer extends Component {
 
   close() {
     this.active = false;
-    this[NOTIFY]('update.active', false);
-    this[NOTIFY]('closed');
+    this.__notify('update.active', false);
+    this.__notify('closed');
   }
 }
 
@@ -52,12 +49,12 @@ export class DrawerContainer extends Component {
   }
 
   onUpdateActive(isActive) {
-    this[NOTIFY]('update.active', isActive);
+    this.__notify('update.active', isActive);
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     if (!this._pushMode) return;
-    const el = this[GET_FIRST_DOM]().children[0]; // .md-drawer
+    const el = this.__firstDOM.children[0]; // .md-drawer
     this.mainMargin = el.offsetWidth;
   }
 }

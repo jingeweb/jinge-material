@@ -9,10 +9,12 @@ export class IconBaselineTitle extends Icon {
   }
 }
 
-export class IconOutlineTitle extends Icon {
-  get svg() {
-    return `
+const __svg_IconOutlinedTitle = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4H5z"/></svg>`;
+
+export class IconOutlinedTitle extends Icon {
+  get svg() {
+    return __svg_IconOutlinedTitle;
   }
 }
 
@@ -25,8 +27,7 @@ export class IconRoundTitle extends Icon {
 
 export class IconSharpTitle extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4H5z"/></svg>`;
+    return __svg_IconOutlinedTitle;
   }
 }
 

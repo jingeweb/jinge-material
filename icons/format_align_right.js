@@ -2,17 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineFormatAlignRight = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zm6-4h12v-2H9v2zm-6-4h18v-2H3v2zm6-4h12V7H9v2zM3 3v2h18V3H3z"/></svg>`;
+
 export class IconBaselineFormatAlignRight extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zm6-4h12v-2H9v2zm-6-4h18v-2H3v2zm6-4h12V7H9v2zM3 3v2h18V3H3z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineFormatAlignRight;
   }
 }
 
-export class IconOutlineFormatAlignRight extends Icon {
+export class IconOutlinedFormatAlignRight extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zm6-4h12v-2H9v2zm-6-4h18v-2H3v2zm6-4h12V7H9v2zM3 3v2h18V3H3z"/></svg>`;
+    return __svg_IconBaselineFormatAlignRight;
   }
 }
 
@@ -25,8 +26,7 @@ export class IconRoundFormatAlignRight extends Icon {
 
 export class IconSharpFormatAlignRight extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 21h18v-2H3v2zm6-4h12v-2H9v2zm-6-4h18v-2H3v2zm6-4h12V7H9v2zM3 3v2h18V3H3z"/></svg>`;
+    return __svg_IconBaselineFormatAlignRight;
   }
 }
 

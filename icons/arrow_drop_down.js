@@ -5,16 +5,16 @@ import {
 export class IconBaselineArrowDropDown extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineArrowDropDown = `
+const __svg_IconOutlinedArrowDropDown = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>`;
 
-export class IconOutlineArrowDropDown extends Icon {
+export class IconOutlinedArrowDropDown extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowDropDown;
+    return __svg_IconOutlinedArrowDropDown;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundArrowDropDown extends Icon {
 
 export class IconSharpArrowDropDown extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowDropDown;
+    return __svg_IconOutlinedArrowDropDown;
   }
 }
 
 export class IconTwotoneArrowDropDown extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowDropDown;
+    return __svg_IconOutlinedArrowDropDown;
   }
 }

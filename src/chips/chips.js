@@ -1,11 +1,8 @@
 import {
   uid,
   Component,
-  NOTIFY,
   isArray,
-  setImmediate,
-  GET_REF,
-  UPDATE_IF_NEED
+  setImmediate
 } from 'jinge';
 
 import _tpl from './chips.html';
@@ -72,8 +69,8 @@ export class Chips extends Component {
     }
 
     this.value.push(inputValue);
-    this[NOTIFY]('change', this.value);
-    this[NOTIFY]('insert', inputValue);
+    this.__notify('change', this.value);
+    this.__notify('insert', inputValue);
     this.inputValue = '';
   }
 
@@ -82,18 +79,18 @@ export class Chips extends Component {
     const index = this.value.indexOf(chip);
 
     this.value.splice(index, 1);
-    this[NOTIFY]('change', this.value);
-    this[NOTIFY]('delete', chip, index);
+    this.__notify('change', this.value);
+    this.__notify('delete', chip, index);
     setImmediate(() => this.focus());
   }
 
   focus() {
-    const ipt = this[GET_REF]('input');
+    const ipt = this.__getRef('input');
     ipt && ipt.focus();
   }
 
   onInputRender(ipt) {
-    this[UPDATE_IF_NEED](this.focus);
+    this.__updateIfNeed(this.focus);
   }
 
   onInputDestroy(ipt) {
@@ -124,6 +121,6 @@ export class Chips extends Component {
   }
 
   onChipClicked(chip, evt) {
-    this[NOTIFY]('chip-clicked', chip, evt);
+    this.__notify('chip-clicked', chip, evt);
   }
 }

@@ -5,11 +5,11 @@ import {
 export class IconBaselineSkipPrevious extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>`;
   }
 }
 
-export class IconOutlineSkipPrevious extends Icon {
+export class IconOutlinedSkipPrevious extends Icon {
   get svg() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6l-8.5 6zm6.5 2.14L12.97 12 16 9.86v4.28z"/></svg>`;
@@ -33,6 +33,6 @@ export class IconSharpSkipPrevious extends Icon {
 export class IconTwotoneSkipPrevious extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M16 14.14V9.86L12.97 12z"/><path d="M6 6h2v12H6zm12 12V6l-8.5 6 8.5 6zm-2-3.86L12.97 12 16 9.86v4.28z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 14.14V9.86L12.97 12z" opacity=".3"/><path d="M6 6h2v12H6zm12 12V6l-8.5 6 8.5 6zm-2-3.86L12.97 12 16 9.86v4.28z"/></svg>`;
   }
 }

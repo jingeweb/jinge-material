@@ -1,8 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  UPDATE_IF_NEED
+  Component
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -31,7 +30,7 @@ export class Progress extends Component {
   set mode(v) {
     if (this._mode === v) return;
     this._mode = v;
-    this[UPDATE_IF_NEED](this.updateStyles);
+    this.__updateIfNeed(this.updateStyles);
   }
 
   get value() {
@@ -41,7 +40,7 @@ export class Progress extends Component {
   set value(v) {
     if (this._value === v) return;
     this._value = v;
-    this[UPDATE_IF_NEED](this.updateStyles);
+    this.__updateIfNeed(this.updateStyles);
   }
 
   get buffer() {
@@ -51,7 +50,7 @@ export class Progress extends Component {
   set buffer(v) {
     if (this._buffer === v) return;
     this._buffer = v;
-    this[UPDATE_IF_NEED](this.updateStyles);
+    this.__updateIfNeed(this.updateStyles);
   }
 
   updateStyles() {

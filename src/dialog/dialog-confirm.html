@@ -1,4 +1,12 @@
-<md-dialog
+<!--
+  import { Button } from '../button';
+  import { Spinner } from '../spinner';
+  import { Dialog } from './dialog';
+  import { DialogTitle } from './dialog-title';
+  import { DialogActions } from './dialog-actions';
+  import { DialogContent } from './dialog-content';
+-->
+<Dialog
   on:update.active="passActive"
   e:__portalDisabled="__portalDisabled"
   e:fullscreen="false"
@@ -6,27 +14,27 @@
   e:closeOnOutsideClick="false"
 >
   <if e:expect="title">
-  <md-dialog-title>${ title }</md-dialog-title>
+  <DialogTitle>${ title }</DialogTitle>
   </if>
   <if e:expect="content">
-  <md-dialog-content><bind-html e:content="content"/></md-dialog-content>
+  <DialogContent><bind-html e:content="content"/></DialogContent>
   </if>
-  <md-dialog-actions>
-    <md-button
+  <DialogActions>
+    <Button
      e:disabled="confirmSpinner"     
      on:click="onCancel"
     >
       <span>${ cancelText || locale.Cancel }</span>
-    </md-button>
-    <md-button
+    </Button>
+    <Button
       class="md-primary"
       e:disabled="confirmSpinner"
       on:click="onConfirm"
     >
       <if e:expect="confirmSpinner">
-        <md-spinner/>
+        <Spinner/>
       </if>
       <span>${ confirmText || locale.Ok }</span>
-    </md-button>
-  </md-dialog-actions>
-</md-dialog>
+    </Button>
+  </DialogActions>
+</Dialog>

@@ -1,13 +1,14 @@
 <!--
   import { TableRow } from './row';
   import { Column } from './column';
+  import { Checkbox } from '../checkbox';
 -->
 <table class="md-table">
   <thead>
     <tr>
       <if e:expect="selectable">
       <th>
-        <md-checkbox
+        <Checkbox
           e:value="selectionCount > 0 && selectionCount === selectionMask.length"
           on:change="toggleAllSelect"
         />

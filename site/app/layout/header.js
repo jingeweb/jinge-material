@@ -1,10 +1,6 @@
 import {
-  Component,
-  NOTIFY,
-  i18n,
-  _t,
-  I18N_WATCH,
-  VM
+  Component, vm,
+  i18n, _t
 } from 'jinge';
 import {
   setCurrentLocale,
@@ -38,8 +34,8 @@ export class Header extends Component {
     this.isSplash = attrs.isSplash;
     this.title = attrs.title;
     this._locales = locales;
-    this[I18N_WATCH](() => {
-      this.themes = VM([{
+    this.__i18nWatch(() => {
+      this.themes = vm([{
         theme: 'default',
         name: _t('默认蓝')
       }, {
@@ -57,7 +53,7 @@ export class Header extends Component {
   }
 
   toggleMenu() {
-    this[NOTIFY]('toggle-menu');
+    this.__notify('toggle-menu');
   }
 
   changeLocale(loc) {

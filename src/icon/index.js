@@ -2,13 +2,9 @@ import './index.scss';
 
 import {
   Component,
-  AFTER_RENDER,
-  ROOT_NODES,
-  UPDATE_IF_NEED,
-  NOTIFY,
   isNumber,
   isString,
-  DOM_PASS_LISTENERS
+  __
 } from 'jinge';
 
 import {
@@ -61,7 +57,7 @@ export class Icon extends Component {
   set src(v) {
     if (this.__src === v) return;
     this.__src = v;
-    this[UPDATE_IF_NEED](this._loadSvg);
+    this.__updateIfNeed(this._loadSvg);
   }
 
   get svg() {
@@ -75,11 +71,11 @@ export class Icon extends Component {
       window.fetch(this.src.startsWith('/') ? `${BASE_HREF}${this.src.substring(1)}` : this.src).then(res => res.text()).then(html => {
         this.cache && svgCacheStore.set(this.src, html);
         this._renderSvg(html);
-        this[NOTIFY]('loaded');
+        this.__notify('loaded');
       }).catch(err => {
         console.error('<md-icon/>: load svg failed:', this.src);
         console.error(err);
-        this[NOTIFY]('loaded', err);
+        this.__notify('loaded', err);
       });
     } else {
       this._renderSvg(svgCacheStore.get(this.src));
@@ -87,15 +83,15 @@ export class Icon extends Component {
   }
 
   _renderSvg(svg) {
-    this[ROOT_NODES][0].innerHTML = svg;
+    this[__].rootNodes[0].innerHTML = svg;
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     if (this.svg) {
       this._renderSvg(this.svg);
     } else if (this.src) {
       this._loadSvg();
     }
-    this[DOM_PASS_LISTENERS]();
+    this.__domPassListeners();
   }
 }

@@ -1,5 +1,5 @@
 import {
-  VM,
+  vm,
   _t
 } from 'jinge';
 
@@ -11,7 +11,7 @@ function getEventNames() {
   return interactionEvents.map(event => `<li>${event}</li>`).join('');
 }
 
-export default () => VM({
+export default () => vm({
   props: {
     headings: [_t('名称'), _t('描述'), _t('默认值')],
     props: [

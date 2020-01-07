@@ -1,7 +1,5 @@
 import {
-  Component,
-  GET_CONTEXT,
-  BEFORE_DESTROY
+  Component
 } from 'jinge';
 import {
   STEPPERS_PROVIDER
@@ -16,7 +14,7 @@ export class StepHeader extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.Steppers = this[GET_CONTEXT](STEPPERS_PROVIDER);
+    this.Steppers = this.__getContext(STEPPERS_PROVIDER);
     this.step = null;
     this.index = attrs.index;
   }
@@ -35,7 +33,7 @@ export class StepHeader extends Component {
     this.Steppers._active(this.index);
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this.Steppers = null;
   }
 }

@@ -1,7 +1,6 @@
 import {
   Component,
-  VM,
-  I18N_WATCH,
+  vm,
   _t
 } from 'jinge';
 
@@ -22,8 +21,8 @@ table td { padding-right: 10px; }
   constructor(attrs) {
     super(attrs);
     this.v = null;
-    this[I18N_WATCH](() => {
-      const persons = VM([{
+    this.__i18nWatch(() => {
+      const persons = vm([{
         name: _t('小葛')
       }, {
         name: _t('小明')
@@ -38,7 +37,7 @@ table td { padding-right: 10px; }
         });
       }
     }, true);
-    this.cities = VM(['Chengdu', 'Beijing', 'Shanghai']);
+    this.cities = vm(['Chengdu', 'Beijing', 'Shanghai']);
     this.selectedCity = this.cities[0];
     this.selectedPerson = null;
   }

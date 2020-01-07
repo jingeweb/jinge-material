@@ -5,16 +5,16 @@ import {
 export class IconBaselineClose extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineClose = `
+const __svg_IconOutlinedClose = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>`;
 
-export class IconOutlineClose extends Icon {
+export class IconOutlinedClose extends Icon {
   get svg() {
-    return __svg_IconOutlineClose;
+    return __svg_IconOutlinedClose;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundClose extends Icon {
 
 export class IconSharpClose extends Icon {
   get svg() {
-    return __svg_IconOutlineClose;
+    return __svg_IconOutlinedClose;
   }
 }
 
 export class IconTwotoneClose extends Icon {
   get svg() {
-    return __svg_IconOutlineClose;
+    return __svg_IconOutlinedClose;
   }
 }

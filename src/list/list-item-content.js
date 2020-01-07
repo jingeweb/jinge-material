@@ -5,9 +5,10 @@ import {
 export class ListItemContent extends Component {
   static get template() {
     return `
-<md-ripple class="md-list-item-content" e:disabled="disabled">
+<!-- import { Ripple } from '../ripple'; -->
+<Ripple class="md-list-item-content" e:disabled="disabled">
   <_slot />
-</md-ripple>
+</Ripple>
 `;
   }
 

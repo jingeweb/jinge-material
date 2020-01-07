@@ -2,10 +2,8 @@ import './index.scss';
 
 import {
   Component,
-  NOTIFY,
-  wrapAttrs,
+  attrs as wrapAttrs,
   isString,
-  RENDER_TO_DOM,
   setImmediate
 } from 'jinge';
 import {
@@ -27,11 +25,11 @@ export class Snackbar extends Component {
         message: options
       };
     }
-    const el = new Snackbar(wrapAttrs(Object.assign({
+    const el = Snackbar.create(wrapAttrs(Object.assign({
       __portalDisabled: true,
       active: false
     }, options || {})));
-    el[RENDER_TO_DOM](document.body, false);
+    el.__renderToDOM(document.body, false);
     setImmediate(() => {
       el.active = true;
     });
@@ -44,6 +42,7 @@ export class Snackbar extends Component {
     this.duration = Number(attrs.duration || 4000);
     this.message = attrs.message || '';
     this.isShown = false;
+    this.__portalDisabled = attrs.__portalDisabled;
   }
 
   get active() {
@@ -72,13 +71,13 @@ export class Snackbar extends Component {
 
   _onOpen() {
     this.isShown = true;
-    this[NOTIFY]('update.active', true);
-    this[NOTIFY]('opened');
+    this.__notify('update.active', true);
+    this.__notify('opened');
   }
 
   _onClose() {
     this.isShown = false;
-    this[NOTIFY]('update.active', false);
-    this[NOTIFY]('closed');
+    this.__notify('update.active', false);
+    this.__notify('closed');
   }
 }

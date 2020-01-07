@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './async.html';
@@ -77,9 +77,9 @@ export default class ExampleACAsync extends Component {
 
   _getCountries() {
     console.log('will get countries');
-    this.getCountriesPromise = VM(mockFetchCountries(this.value).then(result => {
+    this.getCountriesPromise = vm(mockFetchCountries(this.value).then(result => {
       console.log('got countries', result);
-      return VM(result);
+      return vm(result);
     }, () => {
       console.error('failed to get countries due to network error');
     }));

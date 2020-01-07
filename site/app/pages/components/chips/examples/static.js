@@ -1,5 +1,5 @@
 import {
-  Component, VM
+  Component, vm
 } from 'jinge';
 
 import _tpl from './static.html';
@@ -11,7 +11,7 @@ export default class ExampleClipsStatic extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.cities = VM([
+    this.cities = vm([
       'Chengdu', 'Shanghai', 'New York', 'Tokyo'
     ]);
   }

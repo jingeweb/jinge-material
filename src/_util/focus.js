@@ -1,9 +1,7 @@
 import {
   arrayPushIfNotExist,
-  defineProperty,
   arrayRemove,
-  addEvent,
-  GET_FIRST_DOM
+  addEvent
 } from 'jinge';
 
 let inited = false;
@@ -16,7 +14,7 @@ const components = [];
 function setKeyboardInteraction(event) {
   currentElement = event.target;
   components.forEach(c => {
-    const el = c[GET_FIRST_DOM]();
+    const el = c.__firstDOM;
     const isFocus = el === currentElement;
     if (c.hasFocus !== isFocus) {
       c.hasFocus = isFocus;
@@ -60,7 +58,7 @@ function createMouseAndTouchEvents() {
 
 function checkPassiveEventSupport() {
   try {
-    const opts = defineProperty({}, 'passive', {
+    const opts = Object.defineProperty({}, 'passive', {
       get() {
         supportsPassiveEvent = {
           passive: true

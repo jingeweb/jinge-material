@@ -1,6 +1,5 @@
 import {
-  Component,
-  I18N_WATCH
+  Component
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -12,6 +11,8 @@ import Full from './examples/full';
 import sourceFull from './examples/full?example';
 import Disabled from './examples/disabled';
 import sourceDisabled from './examples/disabled?example';
+import Light from './examples/light';
+import sourceLight from './examples/light?example';
 
 export class PagePagination extends Component {
   static get template() {
@@ -20,7 +21,7 @@ export class PagePagination extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this[I18N_WATCH](() => {
+    this.__i18nWatch(() => {
       this.api = apis();
     }, true);
     this._examples = {
@@ -35,6 +36,10 @@ export class PagePagination extends Component {
       disabled: {
         component: Disabled,
         source: sourceDisabled
+      },
+      light: {
+        component: Light,
+        source: sourceLight
       }
     };
   }

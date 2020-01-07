@@ -1,10 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  AFTER_RENDER,
-  GET_FIRST_DOM,
-  hasClass
+  Component
 } from 'jinge';
 
 export class Subheader extends Component {
@@ -22,8 +19,8 @@ export class Subheader extends Component {
     this.tag = '';
   }
 
-  [AFTER_RENDER]() {
-    const el = this[GET_FIRST_DOM]();
-    this.tag = hasClass(el.parentNode, 'md-list') ? 'li' : 'div';
+  __afterRender() {
+    const el = this.__firstDOM;
+    this.tag = el.parentElement.classList.contains('md-list') ? 'li' : 'div';
   }
 }

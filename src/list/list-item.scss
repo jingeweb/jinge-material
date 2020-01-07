@@ -41,19 +41,30 @@
     }
   }
 
-  &.md-button-clean:hover {
-    opacity: 1;
-    text-decoration: none;
+  &.md-button-clean {
+    padding: 0;
+    background-color: transparent;
+
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
   }
 }
 
 button.md-list-item-button {
-  background-color: transparent;
   border: 0;
   color: var(--md-on-surface);
 }
 
+a.md-list-item-link {
+  position: relative;
+  display: block;
+}
+
 a.md-list-item-container {
+  position: relative;
+  display: block;
   color: var(--md-on-surface);
 }
 

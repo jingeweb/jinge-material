@@ -1,10 +1,6 @@
 import {
   Component,
-  GET_CONTEXT,
-  BEFORE_DESTROY,
-  RENDER,
-  isNumber,
-  createComment
+  isNumber
 } from 'jinge';
 import {
   TABLE_PROVIDER
@@ -16,10 +12,6 @@ function _w(v) {
 }
 
 export class TableColumn extends Component {
-  [RENDER]() {
-    return [createComment('')];
-  }
-
   constructor(attrs) {
     super(attrs);
     this.style = attrs.width ? `width: ${_w(attrs.width)}` : null;
@@ -27,11 +19,15 @@ export class TableColumn extends Component {
     this.label = attrs.label;
     this.prop = attrs.prop;
 
-    this._Table = this[GET_CONTEXT](TABLE_PROVIDER);
+    this._Table = this.__getContext(TABLE_PROVIDER);
     this._Table._addC(this);
   }
 
-  [BEFORE_DESTROY]() {
+  __render() {
+    return [document.createComment('')];
+  }
+
+  __beforeDestroy() {
     this._Table._delC(this);
     this._Table = null;
   }

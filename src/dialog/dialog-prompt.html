@@ -1,4 +1,14 @@
-<md-dialog
+<!--
+  import { Button } from '../button';
+  import { Field } from '../field';
+  import { Input } from '../input';
+  import { Spinner } from '../spinner';
+  import { Dialog } from './dialog';
+  import { DialogTitle } from './dialog-title';
+  import { DialogActions } from './dialog-actions';
+  import { DialogContent } from './dialog-content';
+-->
+<Dialog
   on:update.active="passActive"
   e:__portalDisabled="__portalDisabled"
   e:fullscreen="false"
@@ -6,11 +16,11 @@
   e:closeOnOutsideClick="false"
 >
   <if e:expect="title">
-  <md-dialog-title>${ title }</md-dialog-title>
+  <DialogTitle>${ title }</DialogTitle>
   </if>
-  <md-dialog-content class="md-dialog-prompt-content">
-    <md-field e:class="errorTip || requiredTip ? 'md-invalid' : ''">
-      <md-input
+  <DialogContent class="md-dialog-prompt-content">
+    <Field e:class="errorTip || requiredTip ? 'md-invalid' : ''">
+      <Input
         e:value="inputValue"
         e:disabled="confirmSpinner"
         e:id="inputId"
@@ -22,24 +32,24 @@
         on:keydown="onInputKeydown"
       />
       <span class="md-error">${ requiredTip || errorTip || ''}</span>
-    </md-field>
-  </md-dialog-content>
-  <md-dialog-actions>
-    <md-button
+    </Field>
+  </DialogContent>
+  <DialogActions>
+    <Button
      e:disabled="confirmSpinner"     
      on:click="onCancel"
     >
       <span>${ cancelText || locale.Cancel }</span>
-    </md-button>
-    <md-button
+    </Button>
+    <Button
       class="md-primary"
       e:disabled="confirmSpinner || (inputRequired && !inputValue)"
       on:click="onConfirm"
     >
       <if e:expect="confirmSpinner">
-        <md-spinner/>
+        <Spinner/>
       </if>
       <span>${ confirmText || locale.Ok }</span>
-    </md-button>
-  </md-dialog-actions>
-</md-dialog>
+    </Button>
+  </DialogActions>
+</Dialog>

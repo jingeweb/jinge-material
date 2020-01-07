@@ -83,7 +83,7 @@ $pof: (
 
 @each $p in (left, right, top, bottom) {
   @each $s in ('', '-start', '-end') {
-    [x-placement='#{$p}#{$s}'] {
+    [data-popper-placement='#{$p}#{$s}'] {
       > .md-popover-enter,
       > .md-popover-leave {
         transform-origin: map-get($pto, #{$p}#{$s});
@@ -97,7 +97,7 @@ $pof: (
   }
 }
 
-[x-placement] > .md-popover-enter.md-popover-enter-active {
+[data-popper-placement] > .md-popover-enter.md-popover-enter-active {
   opacity: 1;
   transform: none;
 }

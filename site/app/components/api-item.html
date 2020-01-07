@@ -1,4 +1,3 @@
-<!-- import { DynamicComponent } from './dynamic-component.js' -->
 <div class="api-item">
   <h3>${_title}</h3>
 
@@ -16,7 +15,7 @@
   <for e:loop="_slots" vm:each="_slot">
   <if e:expect="currentSlot === _slot.name">
   <div class="api-item-content">
-    <DynamicComponent e:render="_slot.render"/>
+    <dynamic e:render="{_renderFn: _slot.render}"/>
   </div>
   </if>
   </for>

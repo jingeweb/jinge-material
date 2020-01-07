@@ -1,11 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  GET_REF,
-  UPDATE_IF_NEED,
-  AFTER_RENDER,
-  isString
+  Component, isString
 } from 'jinge';
 
 function csize(v, addPre) {
@@ -63,18 +59,18 @@ export class Spinner extends Component {
     v = Number(v);
     if (this._value === v) return;
     this._value = v;
-    this[UPDATE_IF_NEED](this.attachCircleStyle);
+    this.__updateIfNeed(this.attachCircleStyle);
   }
 
   attachCircleStyle() {
-    const circle = this[GET_REF]('circle');
+    const circle = this.__getRef('circle');
     let v = this.value;
     if (v > 100) v = 100;
     else if (v < 0) v = 0;
     circle.style.strokeDashoffset = 2 * Math.PI * 22 * (100 - v) / 100 + 'px';
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     if (this._determinate) {
       this.attachCircleStyle();
     }

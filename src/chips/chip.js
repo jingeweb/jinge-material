@@ -1,9 +1,5 @@
 import {
-  Component,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  NOTIFY,
-  DOM_PASS_LISTENERS
+  Component
 } from 'jinge';
 import {
   registerFocus,
@@ -31,16 +27,16 @@ export class Chip extends Component {
     this.duplicated = attrs.duplicated;
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     registerFocus(this);
-    this[DOM_PASS_LISTENERS]();
+    this.__domPassListeners();
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     deregisterFocus(this);
   }
 
   onDelClick(evt) {
-    this[NOTIFY]('delete', evt);
+    this.__notify('delete', evt);
   }
 }

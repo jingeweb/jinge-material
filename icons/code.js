@@ -11,7 +11,7 @@ export class IconBaselineCode extends Icon {
   }
 }
 
-export class IconOutlineCode extends Icon {
+export class IconOutlinedCode extends Icon {
   get svg() {
     return __svg_IconBaselineCode;
   }

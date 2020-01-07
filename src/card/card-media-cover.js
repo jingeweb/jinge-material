@@ -2,8 +2,6 @@ import './card-media-cover.scss';
 
 import {
   Component,
-  AFTER_RENDER,
-  GET_FIRST_DOM,
   createElement
 } from 'jinge';
 
@@ -69,8 +67,8 @@ export class CardMediaCover extends Component {
     area.style.background = `rgba(0, 0, 0, ${darkness})`;
   }
 
-  [AFTER_RENDER]() {
-    const $el = this[GET_FIRST_DOM]();
+  __afterRender() {
+    const $el = this.__firstDOM;
     const applyBackground = (darkness = 0.6) => {
       if (this.textScrim) {
         this.applyScrimColor(darkness);

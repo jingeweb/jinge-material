@@ -1,12 +1,7 @@
 import './bar.scss';
 
 import {
-  Component,
-  Symbol,
-  SET_CONTEXT,
-  VM,
-  AFTER_RENDER,
-  isNumber
+  Component, vm, isNumber
 } from 'jinge';
 import {
   EnumAttrValidator
@@ -22,12 +17,13 @@ const typeValidator = new EnumAttrValidator(
 export class BottomBar extends Component {
   static get template() {
     return `
+<!-- import { Ripple } from '../ripple'; -->
 <div class="md-bottom-bar md-type-\${type}\${className ? ' ' + className : ''}">
-  <md-ripple
+  <Ripple
     e:disabled="type === 'fixed'"
     e:active="Bar.mouseEvent">
     <_slot />
-  </md-ripple>
+  </Ripple>
 </div>`;
   }
 
@@ -37,7 +33,7 @@ export class BottomBar extends Component {
     this.className = attrs.class;
     this.type = attrs.type || 'fixed';
     this.activeItem = attrs.activeItem;
-    this.Bar = VM({
+    this.Bar = vm({
       mouseEvent: null,
       type: this.type,
       _count: 0,
@@ -45,7 +41,7 @@ export class BottomBar extends Component {
       _active: this._active.bind(this),
       _register: this._register.bind(this)
     });
-    this[SET_CONTEXT](BOTTOM_BAR_PROVIDER, this.Bar);
+    this.__setContext(BOTTOM_BAR_PROVIDER, this.Bar);
   }
 
   get type() {
@@ -75,7 +71,7 @@ export class BottomBar extends Component {
     this.Bar && this._active(this._activeIt);
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     const its = this.Bar._items;
     if (its.length > 0 && its.length !== this.Bar._count) {
       throw new Error('<md-bottom-bar> can only support neither ui-sref mode or non-ui-sref mode.');

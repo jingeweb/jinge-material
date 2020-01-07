@@ -1,25 +1,9 @@
 import {
-  Component,
-  RENDER,
-  Symbol,
-  ROOT_NODES,
-  HANDLE_AFTER_RENDER,
-  HANDLE_BEFORE_DESTROY,
-  DESTROY,
-  GET_FIRST_DOM,
-  GET_TRANSITION_DOM,
-  appendChild,
-  createComment
+  Component, createFragment, __
 } from 'jinge';
 import {
   EnumAttrValidator
 } from '../_util';
-
-const DISABLED = Symbol('disabled');
-const REMOVED = Symbol('removed');
-const SAVED_ROOT_NODE = Symbol('saved');
-const TARGET = Symbol('target');
-const ELS_TO_APPEND = Symbol('elements_to_append');
 
 const targetValidator = new EnumAttrValidator(
   '<md-portal>', '__target', [
@@ -35,55 +19,56 @@ export class Portal extends Component {
   constructor(attrs) {
     targetValidator.assert(attrs);
     super(attrs);
-    this[DISABLED] = attrs.__disabled;
-    this[TARGET] = attrs.__target || 'body';
-    this[REMOVED] = false;
-    this[SAVED_ROOT_NODE] = null;
-    this[ELS_TO_APPEND] = null;
+    this._disabled = attrs.__disabled;
+    this._target = attrs.__target || 'body';
+    this._removed = false;
+    this._savedRootNode = null;
+    this._elsToAppend = null;
   }
 
-  [GET_TRANSITION_DOM]() {
-    if (this[DISABLED]) {
-      return super[GET_TRANSITION_DOM]();
+  get __transitionDOM() {
+    if (this._disabled) {
+      return super.__transitionDOM;
     } else {
-      return this[SAVED_ROOT_NODE][GET_FIRST_DOM]();
+      return this._savedRootNode.__firstDOM;
     }
   }
 
-  [RENDER]() {
-    const els = super[RENDER]();
-    if (this[DISABLED]) {
+  __render() {
+    const els = super.__render();
+    if (this._disabled) {
       return els;
     }
-    if (this[TARGET] === 'body') {
-      appendChild(document.body, els);
+    if (this._target === 'body') {
+      document.body.appendChild(els.length > 1 ? createFragment(els) : els[0]);
     } else {
-      this[ELS_TO_APPEND] = els;
+      this._elsToAppend = els;
     }
-    this[SAVED_ROOT_NODE] = this[ROOT_NODES][0];
-    this[ROOT_NODES] = [createComment('ported')];
-    return this[ROOT_NODES];
+    this._savedRootNode = this[__].rootNodes[0];
+    this[__].rootNodes = [document.createComment('ported')];
+    return this[__].rootNodes;
   }
 
-  [HANDLE_AFTER_RENDER]() {
-    if (!this[DISABLED]) {
-      if (this[TARGET] === 'parent') {
-        let pa = this[GET_FIRST_DOM]().parentNode;
+  __handleAfterRender() {
+    if (!this._disabled) {
+      if (this._target === 'parent') {
+        let pa = this.__firstDOM.parentNode;
         if (pa !== document.body) {
           pa = pa.parentNode;
         }
-        appendChild(pa, this[ELS_TO_APPEND]);
-        this[ELS_TO_APPEND] = null;
+        const els = this._elsToAppend;
+        pa.appendChild(els.length > 1 ? createFragment(els) : els[0]);
+        this._elsToAppend = null;
       }
-      this[SAVED_ROOT_NODE][HANDLE_AFTER_RENDER]();
+      this._savedRootNode.__handleAfterRender();
     }
-    super[HANDLE_AFTER_RENDER]();
+    super.__handleAfterRender();
   }
 
-  [HANDLE_BEFORE_DESTROY]() {
-    if (!this[DISABLED]) {
-      this[SAVED_ROOT_NODE][DESTROY](true);
+  __handleBeforeDestroy(removeDOM = false) {
+    if (!this._disabled) {
+      this._savedRootNode.__destroy(true);
     }
-    super[HANDLE_BEFORE_DESTROY]();
+    super.__handleBeforeDestroy(removeDOM);
   }
 }

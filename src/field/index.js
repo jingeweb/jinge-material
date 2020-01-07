@@ -2,17 +2,13 @@ import './index.scss';
 
 import {
   Component,
-  Symbol,
-  NOTIFY,
-  vmWatch,
-  SET_CONTEXT,
-  UPDATE_IF_NEED,
+  watch,
   isUndefined
 } from 'jinge';
 
 import _tpl from './index.html';
 
-export const FIELD_PROVIDER = Symbol('FIELD_PROVIDER');
+export const FIELD_PROVIDER = Symbol('field_provider');
 const CLASS_PROPS = [
   'inline', 'clearable', 'highlight', 'focused', 'disabled',
   'required', 'hasValue', 'hasPlaceholder', 'hasPassword',
@@ -47,15 +43,15 @@ export class Field extends Component {
     });
 
     this.fieldClass = null;
-    vmWatch(this, '*', (props) => {
+    watch(this, '*', (props) => {
       if (props.length !== 1 || CLASS_PROPS.indexOf(props[0]) < 0) {
         return;
       }
-      this[UPDATE_IF_NEED](this._updateFieldClass);
+      this.__updateIfNeed(this._updateFieldClass);
     });
 
     // pass parent to children
-    this[SET_CONTEXT](FIELD_PROVIDER, this);
+    this.__setContext(FIELD_PROVIDER, this);
   }
 
   _updateFieldClass() {
@@ -89,10 +85,10 @@ export class Field extends Component {
 
   _togglePassword() {
     this.togglePassword = !this.togglePassword;
-    this[NOTIFY]('password-toggled', this.togglePassword);
+    this.__notify('password-toggled', this.togglePassword);
   }
 
   clearInput() {
-    this[NOTIFY]('clear');
+    this.__notify('clear');
   }
 }

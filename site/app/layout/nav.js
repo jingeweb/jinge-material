@@ -1,8 +1,5 @@
 import {
-  Component,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  NOTIFY
+  Component
 } from 'jinge';
 import {
   router
@@ -10,6 +7,11 @@ import {
 
 import _tpl from './nav.html';
 import _sty from './nav.scss';
+
+function _r(routeInfo) {
+  routeInfo = routeInfo._routePath;
+  return routeInfo.length > 0 ? routeInfo[routeInfo.length - 1].route : null;
+}
 
 export class Nav extends Component {
   static get template() {
@@ -29,17 +31,19 @@ export class Nav extends Component {
 
   hideMenu() {
     this.menuShown = false;
-    this[NOTIFY]('hide-menu');
+    this.__notify('hide-menu');
   }
 
-  [AFTER_RENDER]() {
-    this._obd = router.transitionService.onBefore({}, () => {
-      document.documentElement.scrollTop = 0;
+  __afterRender() {
+    this._obd = router.afterEach((from, to) => {
+      if (_r(from) !== _r(to)) {
+        document.documentElement.scrollTop = 0;
+      }
       this.hideMenu();
     });
   }
 
-  [BEFORE_DESTROY]() {
-    this._obd.dispose();
+  __beforeDestroy() {
+    this._obd();
   }
 }

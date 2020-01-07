@@ -1,14 +1,5 @@
 import {
-  Component,
-  SET_CONTEXT,
-  NOTIFY,
-  AFTER_RENDER,
-  isNumber,
-  UPDATE_IF_NEED,
-  GET_FIRST_DOM,
-  VM,
-  VM_NOTIFY,
-  VM_ATTRS
+  Component, vm, $$, isNumber
 } from 'jinge';
 
 import _tpl from './steppers.html';
@@ -22,8 +13,8 @@ export class Steppers extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.items = VM([]);
-    this._Steppers = VM({
+    this.items = vm([]);
+    this._Steppers = vm({
       vertical: false,
       linear: false,
       _get: this._get.bind(this),
@@ -40,7 +31,7 @@ export class Steppers extends Component {
     this.activeStep = attrs.activeStep || 0;
     this.linear = attrs.linear;
 
-    this[SET_CONTEXT](STEPPERS_PROVIDER, this._Steppers);
+    this.__setContext(STEPPERS_PROVIDER, this._Steppers);
   }
 
   get vertical() {
@@ -70,7 +61,7 @@ export class Steppers extends Component {
   set activeStep(v) {
     if (this._activeStep === v) return;
     this._activeStep = v;
-    this[UPDATE_IF_NEED](this._update);
+    this.__updateIfNeed(this._update);
   }
 
   _update(notify = true) {
@@ -80,9 +71,11 @@ export class Steppers extends Component {
     this._setActive(this._activeStep, notify);
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this._update(false);
-    this.items.length > 0 && this.items[VM_ATTRS][VM_NOTIFY]('length', true);
+    if (this.items.length > 0) {
+      this.items[$$].__notify('length', true);
+    }
   }
 
   _add(step) {
@@ -126,9 +119,9 @@ export class Steppers extends Component {
     }
     if (!this.vertical) {
       this.contentTransform = `transform: translate3D(${-this._activeStep * 100}%, 0, 0)`;
-      const stepperElement = this[GET_FIRST_DOM]().querySelector(`.md-stepper:nth-child(${this._activeStep + 1})`);
+      const stepperElement = this.__firstDOM.querySelector(`.md-stepper:nth-child(${this._activeStep + 1})`);
       this.contentStyle = `height: ${stepperElement.offsetHeight}px`;
     }
-    notify && this[NOTIFY]('changed', index, this.items[index]);
+    notify && this.__notify('changed', index, this.items[index]);
   }
 }

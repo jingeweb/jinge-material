@@ -1,23 +1,19 @@
 <p><_t>使用默认的每页个数选择器列表：</_t></p>
-<div style="display: flex; justify-content: flex-end;">
-  <md-pagination
-    on:change="onPaginationChanged"
-    e:totalSize="totalSize"
-    e:currentPage="10"
-    pageSizeOptions
-    useJumper
-    showTotal
-  />
-</div>
+<md-pagination
+  on:change="onPaginationChanged"
+  e:totalSize="totalSize"
+  e:currentPage="10"
+  pageSizeOptions
+  useJumper
+  showTotal
+/>
 <p><_t>使用自定义的每页个数选择器列表：</_t></p>
-<div style="display: flex; justify-content: flex-end;">
-  <md-pagination
-    on:change="onPaginationChanged"
-    e:totalSize="totalSize"
-    e:pageSize="100"
-    e:currentPage="currentPage"
-    e:pageSizeOptions="sizeOptions"
-    useJumper
-    showTotal
-  />
-</div>
+<md-pagination
+  on:change="onPaginationChanged"
+  e:totalSize="totalSize"
+  e:pageSize="100"
+  e:currentPage="currentPage"
+  e:pageSizeOptions="sizeOptions"
+  useJumper
+  showTotal
+/>

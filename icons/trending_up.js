@@ -5,16 +5,16 @@ import {
 export class IconBaselineTrendingUp extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineTrendingUp = `
+const __svg_IconOutlinedTrendingUp = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>`;
 
-export class IconOutlineTrendingUp extends Icon {
+export class IconOutlinedTrendingUp extends Icon {
   get svg() {
-    return __svg_IconOutlineTrendingUp;
+    return __svg_IconOutlinedTrendingUp;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundTrendingUp extends Icon {
 
 export class IconSharpTrendingUp extends Icon {
   get svg() {
-    return __svg_IconOutlineTrendingUp;
+    return __svg_IconOutlinedTrendingUp;
   }
 }
 
 export class IconTwotoneTrendingUp extends Icon {
   get svg() {
-    return __svg_IconOutlineTrendingUp;
+    return __svg_IconOutlinedTrendingUp;
   }
 }

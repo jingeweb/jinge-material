@@ -1,13 +1,19 @@
 import {
-  Messenger,
-  NOTIFY,
-  Symbol
+  Messenger
 } from 'jinge';
+import {
+  getEnv
+} from './env';
+
+const baseHref = getEnv('meta').public;
 
 export const TITLE_CHANGED = Symbol('title-changed');
 export const IS_SPLASH_CHANGED = Symbol('is-splash-changed');
 
 function isHome(pathname) {
+  if (baseHref !== '/' && pathname.startsWith(baseHref)) {
+    pathname = pathname.substring(baseHref.length - 1);
+  }
   return pathname === '/' || pathname === '/zh_cn/' || pathname === '/en/';
 }
 
@@ -26,7 +32,7 @@ class PageStateManager extends Messenger {
     if (this._title === v) return;
     this._title = v ? (v + ' - Jinge Material') : 'Jinge Material';
     document.title = this._title;
-    this[NOTIFY](TITLE_CHANGED, v);
+    this.__notify('title-change', v);
   }
 
   get isSplash() {
@@ -36,7 +42,7 @@ class PageStateManager extends Messenger {
   set isSplash(v) {
     if (this._splash === !!v) return;
     this._splash = !!v;
-    this[NOTIFY](IS_SPLASH_CHANGED, this._splash);
+    this.__notify('is-splash-change', this._splash);
   }
 }
 

@@ -1,7 +1,5 @@
 import {
-  Component,
-  VM,
-  AFTER_RENDER
+  Component, vm
 } from 'jinge';
 
 import _tpl from './pagination.html';
@@ -31,7 +29,7 @@ export default class ExampleTablePagination extends Component {
   constructor(attrs) {
     super(attrs);
 
-    this.pagination = VM({
+    this.pagination = vm({
       totalSize: 0,
       loadingPage: 1,
       currentPage: 1,
@@ -41,14 +39,14 @@ export default class ExampleTablePagination extends Component {
     this.data = null;
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this.fetchUsers();
   }
 
   fetchUsers() {
     const pa = this.pagination;
     getUsersMockApi(pa.loadingPage, pa.pageSize).then(result => {
-      this.data = VM(result.list);
+      this.data = vm(result.list);
       pa.totalSize = result.total;
       pa.currentPage = pa.loadingPage;
       pa.loadingPage = null;

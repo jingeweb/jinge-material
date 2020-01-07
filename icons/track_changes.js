@@ -11,7 +11,7 @@ export class IconBaselineTrackChanges extends Icon {
   }
 }
 
-export class IconOutlineTrackChanges extends Icon {
+export class IconOutlinedTrackChanges extends Icon {
   get svg() {
     return __svg_IconBaselineTrackChanges;
   }

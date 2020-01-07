@@ -1,11 +1,7 @@
 import './datepicker-dialog.scss';
 
 import {
-  Component,
-  VM,
-  BEFORE_DESTROY,
-  NOTIFY,
-  UPDATE_IF_NEED,
+  Component, vm,
   isFunction
 } from 'jinge';
 import {
@@ -21,7 +17,7 @@ import _tpl from './datepicker-dialog.html';
 
 function createDay(date) {
   date = date || new Date();
-  return VM({
+  return vm({
     empty: false,
     disabled: false,
     selected: true,
@@ -72,7 +68,7 @@ export class DatepickerDialog extends Component {
     this._updateDayPickerHeader();
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     unwatchLocale(this._localeChangedHandler);
   }
 
@@ -88,7 +84,7 @@ export class DatepickerDialog extends Component {
       this.currentDay.selected = true;
       this.selectedDay = createDay(v);
     }
-    this[UPDATE_IF_NEED](this._updateRenderDays);
+    this.__updateIfNeed(this._updateRenderDays);
   }
 
   switchMonth(index) {
@@ -128,11 +124,11 @@ export class DatepickerDialog extends Component {
   }
 
   onCancel() {
-    this[NOTIFY]('cancel');
+    this.__notify('cancel');
   }
 
   onConfirm() {
-    this[NOTIFY]('confirm', this._date);
+    this.__notify('confirm', this._date);
   }
 
   _updateWeekdays() {
@@ -171,7 +167,7 @@ export class DatepickerDialog extends Component {
     const totalDays = emptyDays + getDaysInMonth(y, m);
 
     const sd = this.selectedDay;
-    this.renderDays = VM(new Array(totalDays).fill(0).map((n, i) => {
+    this.renderDays = vm(new Array(totalDays).fill(0).map((n, i) => {
       const di = i - emptyDays + 1;
       const wi = (di + firstDayOfMonth - 1) % 7;
       return i < emptyDays ? {
@@ -197,7 +193,7 @@ export class DatepickerDialog extends Component {
     });
     this.selectedDay = day;
     this._date = new Date(day.y, day.m, day.d);
-    this[NOTIFY]('change', this._date);
+    this.__notify('change', this._date);
     if (this.immediately) {
       this.onCancel();
     }

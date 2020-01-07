@@ -1,15 +1,12 @@
 import './ripple.scss';
 
 import {
-  Component,
-  VM,
-  NOTIFY,
-  ROOT_NODES,
-  isBoolean,
-  obj2style,
-  uid,
-  isObject
+  Component, __, vm,
+  isBoolean, uid, isObject
 } from 'jinge';
+import {
+  obj2style
+} from '../_util';
 
 import _tpl from './ripple.html';
 
@@ -24,7 +21,7 @@ export class Ripple extends Component {
     this.disabled = attrs.disabled;
     this.centered = attrs.centered;
     this.className = attrs.class;
-    this.ripples = VM([]);
+    this.ripples = vm([]);
     this._eventTrigger = attrs.eventTrigger !== false;
     this._touchTimeout = null;
     this._eventType = null;
@@ -54,7 +51,7 @@ export class Ripple extends Component {
       this.startRipple(v);
     }
 
-    this[NOTIFY]('update.active', false);
+    this.__notify('update.active', false);
   }
 
   touchMoveCheck() {
@@ -83,7 +80,7 @@ export class Ripple extends Component {
       }
 
       this._eventType = $event.type;
-      this.ripples.push(VM({
+      this.ripples.push(vm({
         waveStyles: this.applyStyles(position, size),
         uuid: uid()
       }));
@@ -111,7 +108,7 @@ export class Ripple extends Component {
   getSize() {
     const {
       offsetWidth, offsetHeight
-    } = this[ROOT_NODES][0];
+    } = this[__].rootNodes[0];
 
     return Math.round(Math.max(offsetWidth, offsetHeight));
   }
@@ -126,7 +123,7 @@ export class Ripple extends Component {
   }
 
   getHitPosition($event, elementSize) {
-    const rect = this[ROOT_NODES][0].getBoundingClientRect();
+    const rect = this[__].rootNodes[0].getBoundingClientRect();
     let top = $event.pageY;
     let left = $event.pageX;
 

@@ -1,15 +1,9 @@
 import {
   Component,
-  GET_CONTEXT,
-  GET_REF,
-  BEFORE_DESTROY,
-  RENDER,
-  STR_DEFAULT,
   isFunction,
-  ARG_COMPONENTS,
-  ROOT_NODES,
   createElement,
-  appendChild
+  __,
+  createFragment
 } from 'jinge';
 import {
   SELECT_PROVIDER,
@@ -25,13 +19,17 @@ import {
 export class Option extends Component {
   static get template() {
     return `
-<md-menu-item
+<!--
+  import { MenuItem } from '../menu';
+  import { Checkbox } from '../checkbox';
+-->
+<MenuItem
   e:class="isSelected ? 'md-selected' : null"
   e:disabled="disabled || (Group && Group.disabled)"
   on:mousedown="onClick"
 >
   <if e:expect="Select.multiple">
-  <md-checkbox
+  <Checkbox
     on:mousedown="stop"
     e:value="isSelected"
     on:change="onCheck"
@@ -43,21 +41,22 @@ export class Option extends Component {
   <span class="md-list-item-text" ref:text>
     <_slot>\${value}</_slot>
   </span>
-</md-menu-item>`;
+</MenuItem>`;
   }
 
-  [RENDER]() {
+  __render() {
     if (!this._isHelper) {
-      return super[RENDER]();
+      return super.__render();
     }
     const el = createElement('span');
-    const ac = this[ARG_COMPONENTS];
-    if (ac && isFunction(ac[STR_DEFAULT])) {
+    const ac = this[__].slots;
+    if (ac && isFunction(ac.default)) {
       this._hasSlot = true;
-      appendChild(el, ac[STR_DEFAULT](this));
+      const els = ac.default(this);
+      el.appendChild(els.length > 1 ? createFragment(els) : els[0]);
     }
-    this[ROOT_NODES].push(el);
-    return this[ROOT_NODES];
+    this[__].rootNodes.push(el);
+    return this[__].rootNodes;
   }
 
   constructor(attrs) {
@@ -66,18 +65,18 @@ export class Option extends Component {
     this.disabled = attrs.disabled;
     this.isSelected = false;
 
-    this._isHelper = this[GET_CONTEXT](HELPER_MODE);
+    this._isHelper = this.__getContext(HELPER_MODE);
     this._hasSlot = false;
 
-    this._Field = this[GET_CONTEXT](FIELD_PROVIDER);
-    this.Select = this[GET_CONTEXT](SELECT_PROVIDER);
-    this.Group = this[GET_CONTEXT](OPTGROUP_PROVIDER);
+    this._Field = this.__getContext(FIELD_PROVIDER);
+    this.Select = this.__getContext(SELECT_PROVIDER);
+    this.Group = this.__getContext(OPTGROUP_PROVIDER);
     this.Select._add(this, this._isHelper);
     // don't forget to call parent's _updateFieldClass
     this._Field._updateFieldClass();
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this.Select._remove(this, this._isHelper);
     this.Select = null;
     this._Field = null;
@@ -109,9 +108,9 @@ export class Option extends Component {
 
   getText() {
     if (this._isHelper) {
-      return this._hasSlot ? this[ROOT_NODES][0].textContent : this.value;
+      return this._hasSlot ? this[__].rootNodes[0].textContent : this.value;
     } else {
-      return this[GET_REF]('text').textContent;
+      return this.__getRef('text').textContent;
     }
   }
 }

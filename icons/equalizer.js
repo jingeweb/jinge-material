@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineEqualizer = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"/></svg>`;
+
 export class IconBaselineEqualizer extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"/></svg>`;
+    return __svg_IconBaselineEqualizer;
   }
 }
 
-const __svg_IconOutlineEqualizer = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 9v11h4V9h-4z"/></svg>`;
-
-export class IconOutlineEqualizer extends Icon {
+export class IconOutlinedEqualizer extends Icon {
   get svg() {
-    return __svg_IconOutlineEqualizer;
+    return __svg_IconBaselineEqualizer;
   }
 }
 
@@ -27,7 +26,7 @@ export class IconRoundEqualizer extends Icon {
 
 export class IconSharpEqualizer extends Icon {
   get svg() {
-    return __svg_IconOutlineEqualizer;
+    return __svg_IconBaselineEqualizer;
   }
 }
 

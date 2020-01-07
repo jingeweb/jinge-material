@@ -3,28 +3,14 @@
   const THEME_KEY_NAME = 'jinge-material-site.theme';
   const THEME_LINK_ID = 'jinge-material-site-theme-link';
   const SUPPORT_THEMES = ['default', 'default-dark', 'purple', 'purple-dark'];
-  const loaderSrc = document.body.querySelector('script').src;
-  const buildHash = loaderSrc.match(/([^.]+)\.min.js$/);
 
-  let env = window.__AppEnv;
-  if (!env) {
-    env = window.__AppEnv = {};
-  }
-  Object.assign(env, {
-    production: !!buildHash,
-    baseHref: getBaseHref(),
+  const env = window.__env__ = {
+    /* 请勿修改下面这行代码。该代码用于工程化脚本替换为实际的环境变量。 */
+    /* AUTO_GENERATED_ENVIROMENTS */
     localeKey: LOCALE_KEY_NAME,
-    localeTpl: `locale.[locale]${buildHash ? `.${buildHash[1]}.min` : ''}.js`,
     themeKey: THEME_KEY_NAME,
-    themeId: THEME_LINK_ID,
-    themeTpl: `theme.[theme]${buildHash ? `.${buildHash[1]}.min` : ''}.css`
-  });
-
-  function getBaseHref() {
-    const $bs = document.getElementsByTagName('base');
-    const href = $bs.length > 0 ? $bs[0].getAttribute('href') : '';
-    return href || '/';
-  }
+    themeId: THEME_LINK_ID
+  };
 
   /** loader utils **/
   function loadStyle(href, id) {
@@ -33,6 +19,9 @@
       $s.rel = 'stylesheet';
       $s.onload = resolve;
       $s.onerror = reject;
+      if (!href.startsWith('https://')) {
+        href = env.meta.public + href;
+      }
       $s.href = href;
       id && ($s.id = id);
       document.head.appendChild($s);
@@ -41,7 +30,7 @@
   function loadScript(src) {
     return new Promise(resolve => {
       const $s = document.createElement('script');
-      $s.src = src;
+      $s.src = env.meta.public + src;
       $s.async = false; // force execute sequence
       $s.onload = resolve;
       // $s.onerror = reject; // won't work any more.
@@ -50,8 +39,8 @@
   }
   function getLocale() {
     const pn = location.pathname;
-    const pi = pn.indexOf('/', env.baseHref.length);
-    let locale = pi > 0 ? pn.substring(env.baseHref.length, pi) : null;
+    const pi = pn.indexOf('/', env.meta.public.length);
+    let locale = pi > 0 ? pn.substring(env.meta.public.length, pi) : null;
     if (locale === 'zh_cn' || locale === 'en') {
       localStorage.setItem(LOCALE_KEY_NAME, locale);
       env.locale = locale;
@@ -64,7 +53,7 @@
     } else if (locale !== 'en') {
       locale = 'en';
     }
-    history.replaceState(null, null, `${env.baseHref}${locale}/`);
+    history.replaceState(null, null, `${env.meta.public}${locale}/`);
     localStorage.setItem(LOCALE_KEY_NAME, locale);
     env.locale = locale;
     return locale;
@@ -92,10 +81,11 @@
   const locale = getLocale();
   Promise.all([
     locale === 'en' ? loadStyle('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,500,700') : Promise.resolve(),
-    loadStyle(`jinge-material-site${buildHash ? `.${buildHash[1]}.min` : ''}.css`),
-    loadStyle(`theme.${getTheme()}${buildHash ? `.${buildHash[1]}.min` : ''}.css`, THEME_LINK_ID),
-    loadScript(`locale.${locale}${buildHash ? `.${buildHash[1]}.min` : ''}.js`),
-    loadScript(`jinge-material-site${buildHash ? `.${buildHash[1]}.min` : ''}.js`)
+    loadStyle(env.meta.theme[getTheme()], THEME_LINK_ID),
+    loadStyle(env.meta.style.entry),
+    // 多语言字典包必须在 main 之前加载
+    loadScript(env.meta.locale[locale].entry),
+    loadScript(env.meta.script.entry)
   ]).then(() => {
     if (!window.JINGE_I18N_DATA) {
       alert('load failed due to i18n data not loaded.\nplease check console.');

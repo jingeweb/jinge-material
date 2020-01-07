@@ -1,7 +1,10 @@
+<!--
+  import { Checkbox } from '../checkbox';
+-->
 <tr e:class="className">
   <if e:expect="selectable">
   <td>
-    <md-checkbox
+    <Checkbox
       e:value="selected"
       on:change="toggleSelect()"
     />

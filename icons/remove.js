@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineRemove = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>`;
+
 export class IconBaselineRemove extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineRemove;
   }
 }
 
-const __svg_IconOutlineRemove = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>`;
-
-export class IconOutlineRemove extends Icon {
+export class IconOutlinedRemove extends Icon {
   get svg() {
-    return __svg_IconOutlineRemove;
+    return __svg_IconBaselineRemove;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundRemove extends Icon {
 
 export class IconSharpRemove extends Icon {
   get svg() {
-    return __svg_IconOutlineRemove;
+    return __svg_IconBaselineRemove;
   }
 }
 
 export class IconTwotoneRemove extends Icon {
   get svg() {
-    return __svg_IconOutlineRemove;
+    return __svg_IconBaselineRemove;
   }
 }

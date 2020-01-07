@@ -1,8 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  NOTIFY
+  Component
 } from 'jinge';
 
 export class Overlay extends Component {
@@ -28,6 +27,6 @@ export class Overlay extends Component {
   }
 
   onClick(evt) {
-    this[NOTIFY]('click', evt);
+    this.__notify('click', evt);
   }
 }

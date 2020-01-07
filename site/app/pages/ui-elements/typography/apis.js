@@ -1,9 +1,9 @@
 import {
   _t,
-  VM
+  vm
 } from 'jinge';
 
-export default () => VM({
+export default () => vm({
   classes: {
     headings: [_t('名称'), _t('描述')],
     props: [

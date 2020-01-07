@@ -1,19 +1,26 @@
 const path = require('path');
 const fs = require('fs');
+const CleanCSS = require('clean-css');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-function getGitHash() {
-  const output = require('child_process').execSync('git log -n 1');
-  const m = output.toString().match(/commit\s+([a-f0-9]+)/);
-  return m[1].substring(0, 10);
-}
-
 class RemoveThemeJSPlugin {
+  constructor(options) {
+    this.compress = options.compress;
+  }
+
   apply(compiler) {
+    const needCompress = this.compress;
     compiler.hooks.emit.tap('REMOVE_THEME_JS_PLUGIN', function(compilation) {
-      Object.keys(compilation.assets).forEach(file => {
+      const assets = compilation.assets;
+      Object.keys(assets).forEach(file => {
         if (file.endsWith('.css.js')) {
-          delete compilation.assets[file];
+          delete assets[file];
+        } else if (needCompress && file.endsWith('.css')) {
+          const _src = (new CleanCSS().minify(assets[file].source())).styles;
+          assets[file] = {
+            source: () => _src,
+            size: () => _src.length
+          };
         }
       });
     });
@@ -21,8 +28,6 @@ class RemoveThemeJSPlugin {
 }
 
 module.exports = function getWebpackBuildThemeConfig(themesDir, isProdMode, noCompress) {
-  const gitHash = isProdMode ? getGitHash() : '';
-
   const themesEntry = Object.fromEntries(fs.readdirSync(themesDir).filter(f => {
     return f.endsWith('.scss');
   }).map(file => {
@@ -33,15 +38,15 @@ module.exports = function getWebpackBuildThemeConfig(themesDir, isProdMode, noCo
   }));
 
   return {
-    mode: !isProdMode || noCompress ? 'development' : 'production',
+    mode: 'development',
     entry: themesEntry,
     devtool: false,
     resolve: {
       extensions: ['.scss', '.js']
     },
     output: {
-      filename: 'theme.[name].css.js',
-      path: path.resolve(__dirname, '../docs')
+      filename: '[name].css.js',
+      path: path.resolve(__dirname, '../docs/themes')
     },
     module: {
       rules: [{
@@ -63,9 +68,11 @@ module.exports = function getWebpackBuildThemeConfig(themesDir, isProdMode, noCo
       }]
     },
     plugins: [
-      new RemoveThemeJSPlugin(),
+      new RemoveThemeJSPlugin({
+        compress: isProdMode && !noCompress
+      }),
       new MiniCssExtractPlugin({
-        filename: `theme.[name].${isProdMode ? `${gitHash}.min.` : ''}css`
+        filename: `[name].${isProdMode ? '[contenthash].min.' : ''}css`
       })
     ]
   };

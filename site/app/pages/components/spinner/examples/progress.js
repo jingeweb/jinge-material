@@ -1,6 +1,5 @@
 import {
-  Component,
-  BEFORE_DESTROY
+  Component
 } from 'jinge';
 
 import _tpl from './progress.html';
@@ -32,7 +31,7 @@ p /deep/ > .md-spinner + .md-spinner {
     }, 2000);
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     clearInterval(this._int);
   }
 }

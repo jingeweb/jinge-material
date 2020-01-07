@@ -2,13 +2,7 @@
 import './card-header.scss';
 
 import {
-  Component,
-  AFTER_RENDER,
-  GET_FIRST_DOM,
-  BEFORE_DESTROY,
-  hasClass,
-  addClass,
-  removeClass
+  Component
 } from 'jinge';
 
 export class CardHeaderText extends Component {
@@ -19,15 +13,15 @@ export class CardHeaderText extends Component {
 </div>`;
   }
 
-  [AFTER_RENDER]() {
-    const $pa = this[GET_FIRST_DOM]().parentElement;
-    if ($pa && hasClass($pa, 'md-card-header')) {
-      addClass($pa, 'md-card-header-flex');
+  __afterRender() {
+    const $pa = this.__firstDOM.parentElement;
+    if ($pa && $pa.classList.contains('md-card-header')) {
+      $pa.classList.add('md-card-header-flex');
     }
   }
 
-  [BEFORE_DESTROY]() {
-    const $pa = this[GET_FIRST_DOM]().parentElement;
-    if ($pa) removeClass($pa, 'md-card-header-flex');
+  __beforeDestroy() {
+    const $pa = this.__firstDOM.parentElement;
+    if ($pa) $pa.classList.remove('md-card-header-flex');
   }
 }

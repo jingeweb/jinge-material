@@ -1,8 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  NOTIFY
+  Component
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -27,6 +26,6 @@ export class Tooltip extends Component {
   }
 
   onUpdateActive(isActive) {
-    this[NOTIFY]('update.active', isActive);
+    this.__notify('update.active', isActive);
   }
 }

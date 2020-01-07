@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineMenu = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>`;
+
 export class IconBaselineMenu extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>`;
+    return __svg_IconBaselineMenu;
   }
 }
 
-const __svg_IconOutlineMenu = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>`;
-
-export class IconOutlineMenu extends Icon {
+export class IconOutlinedMenu extends Icon {
   get svg() {
-    return __svg_IconOutlineMenu;
+    return __svg_IconBaselineMenu;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundMenu extends Icon {
 
 export class IconSharpMenu extends Icon {
   get svg() {
-    return __svg_IconOutlineMenu;
+    return __svg_IconBaselineMenu;
   }
 }
 
 export class IconTwotoneMenu extends Icon {
   get svg() {
-    return __svg_IconOutlineMenu;
+    return __svg_IconBaselineMenu;
   }
 }

@@ -1,3 +1,7 @@
+<!--
+  import { Button } from '../button';
+  import { Content } from '../content';
+-->
 <div class="md-datepicker-dialog" on:mousedown="$event.preventDefault()">
   <div class="md-datepicker-header">
     <span
@@ -19,13 +23,13 @@
   <div class="md-datepicker-body">
     <if e:expect="currentView === 'day'">
     <div class="md-datepicker-body-header">
-      <md-button class="md-dense md-icon-button" on:click="previousMonth">
+      <Button class="md-dense md-icon-button" on:click="previousMonth">
         <md-icon-keyboard_arrow_left/>
-      </md-button>
+      </Button>
 
-      <md-button class="md-dense md-icon-button" on:click="nextMonth">
+      <Button class="md-dense md-icon-button" on:click="nextMonth">
         <md-icon-keyboard_arrow_right/>
-      </md-button>
+      </Button>
     </div>
     </if>
     
@@ -37,12 +41,12 @@
       <!-- begin day picker -->
       <if e:expect="currentView === 'day'">
       <div class="md-datepicker-panel md-datepicker-month">
-        <md-button
+        <Button
           class="md-dense md-datepicker-month-trigger"
           on:click="currentView = 'month'"
         >
           ${ dayPickerHeader }
-        </md-button>
+        </Button>
 
         <div class="md-datepicker-week">
           <for e:loop="weekdays" vm:each="day">
@@ -71,7 +75,7 @@
       <!-- begin month picker -->
       <if e:expect="currentView === 'month'">
       <div class="md-datepicker-panel md-datepicker-month-selector">
-        <md-button class="md-datepicker-year-trigger" on:click="currentView = 'year'">${ currentDay.y }</md-button>
+        <Button class="md-datepicker-year-trigger" on:click="currentView = 'year'">${ currentDay.y }</Button>
         <for e:loop="locale.months" vm:each="month" vm:index="index">
         <span
           class="md-datepicker-month-button${currentDay.m === index ? ' md-datepicker-selected' : ''}"
@@ -86,7 +90,7 @@
 
       <!-- begin year picker -->
       <if e:expect="currentView === 'year'">
-      <md-content class="md-datepicker-panel md-datepicker-year-selector">
+      <Content class="md-datepicker-panel md-datepicker-year-selector">
         <for e:loop="_years" key="each" vm:each="year">
         <span
           class="md-datepicker-year-button${currentDay.y === year ? ' md-datepicker-selected' : ''}"
@@ -95,19 +99,19 @@
           ${ year }
         </span>
         </for>
-      </md-content>
+      </Content>
       </if>
       <!-- end year picker -->
     </div>
 
     <md-dialog-actions class="md-datepicker-body-footer">
-      <md-button class="md-primary" on:click="onCancel">
+      <Button class="md-primary" on:click="onCancel">
         ${locale.Cancel}
-      </md-button>
+      </Button>
       <if e:expect="!immediately">
-      <md-button class="md-primary" on:click="onConfirm">
+      <Button class="md-primary" on:click="onConfirm">
         ${locale.Ok}
-      </md-button>
+      </Button>
       </if>
     </md-dialog-actions>
   </div>

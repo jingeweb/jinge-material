@@ -46,21 +46,20 @@ export function setCurrentLocale(locale) {
    * 切换组件库语言资源
    */
   setLocale(locales[locale]);
+  /**
+   * 设置 router 的 baseHref
+   */
+  const newBaseHref = `${env.meta.public}${locale}/`;
+  router.baseHref = newBaseHref;
+
   if (locale === i18n.locale) {
     return;
   }
   /**
-   * 在调用 i18n.switch 之前，先更新 router.baseHref.
-   * 顺序不能颠倒，因为在 i18n 的 locale-change 事件发出后，
-   * ui-sref 会更新链接，更新链接会依赖 router 的 baseHref。
+   * 切换语言
    */
-  const oldBaseHrefRegExp = new RegExp('^' + `${env.baseHref}${i18n.locale}/`);
-  const newBaseHref = `${env.baseHref}${locale}/`;
-  router.baseHref = newBaseHref;
-  i18n.switch(
-    locale,
-    env.localeTpl.replace('[locale]', locale)
-  );
+  const oldBaseHrefRegExp = new RegExp('^' + `${env.meta.public}${i18n.locale}/`);
+  i18n.switch(locale);
   history.pushState(null, null, location.pathname.replace(oldBaseHrefRegExp, newBaseHref));
   localStorage.setItem(env.localeKey, locale);
   env.locale = locale;

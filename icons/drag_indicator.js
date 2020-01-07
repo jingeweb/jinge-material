@@ -11,7 +11,7 @@ export class IconBaselineDragIndicator extends Icon {
   }
 }
 
-export class IconOutlineDragIndicator extends Icon {
+export class IconOutlinedDragIndicator extends Icon {
   get svg() {
     return __svg_IconBaselineDragIndicator;
   }

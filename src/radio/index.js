@@ -1,17 +1,13 @@
 import './index.scss';
 
 import {
-  Component,
-  NOTIFY,
-  UPDATE_IF_NEED,
-  UPDATE,
-  ARG_COMPONENTS,
-  STR_DEFAULT,
-  uid,
-  isArray,
-  obj2class,
+  Component, __,
+  uid, isArray,
   isUndefined
 } from 'jinge';
+import {
+  obj2class
+} from '../_util';
 
 import _tpl from './index.html';
 
@@ -25,7 +21,7 @@ export class Radio extends Component {
       throw new Error('<md-radio>: attribute "trueValue" is required when "value" is array(which means array-mode checkbox)');
     }
     super(attrs);
-    this._renderLabel = this[ARG_COMPONENTS] && this[ARG_COMPONENTS][STR_DEFAULT];
+    this._renderLabel = this[__].slots && this[__].slots.default;
     this.classes = '';
     this.rippleActive = false;
 
@@ -37,7 +33,7 @@ export class Radio extends Component {
     this.required = !!attrs.required;
     this.value = attrs.value;
     // update classes
-    this[UPDATE]();
+    this.__update();
   }
 
   get disabled() {
@@ -47,7 +43,7 @@ export class Radio extends Component {
   set disabled(v) {
     if (this._disabled === v) return;
     this._disabled = v;
-    this[UPDATE_IF_NEED]();
+    this.__updateIfNeed();
   }
 
   get required() {
@@ -57,7 +53,7 @@ export class Radio extends Component {
   set required(v) {
     if (this._required === v) return;
     this._required = v;
-    this[UPDATE_IF_NEED]();
+    this.__updateIfNeed();
   }
 
   get checked() {
@@ -66,7 +62,7 @@ export class Radio extends Component {
 
   set checked(v) {
     this._checked = isUndefined(v) ? false : !!v;
-    this[UPDATE_IF_NEED]();
+    this.__updateIfNeed();
   }
 
   get class() {
@@ -76,18 +72,18 @@ export class Radio extends Component {
   set class(v) {
     if (this._class === v) return;
     this._class = v;
-    this[UPDATE_IF_NEED](this._updateClasses);
+    this.__updateIfNeed(this._updateClasses);
   }
 
   toggleCheck() {
     if (this.disabled || this._checked) return;
     this._checked = true;
     this.rippleActive = true;
-    this[UPDATE_IF_NEED]();
-    this[NOTIFY]('change', this.value);
+    this.__updateIfNeed();
+    this.__notify('change', this.value);
   }
 
-  [UPDATE]() {
+  __update() {
     this.classes = obj2class({
       'md-disabled': this.disabled,
       'md-required': this.required,

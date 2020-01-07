@@ -1,9 +1,7 @@
-import * as _util from './_util';
-
-export * from './_icons';
 export * from './_config';
-export const util = _util;
-
+export * from './_icons';
+export * from './_util';
+// export * from './animation';
 export * from './autocomplete';
 export * from './avatar';
 export * from './badge';
@@ -45,4 +43,4 @@ export * from './tabs';
 export * from './textarea';
 export * from './toolbar';
 export * from './tooltip';
-export * from './uisref';
+// export * from './uisref';

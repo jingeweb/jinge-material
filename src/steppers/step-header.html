@@ -1,4 +1,7 @@
-<md-button
+<!--
+  import { Button } from '../button';
+-->
+<Button
   class="md-stepper-header${step.done ? ' md-done' : ''}${step.error ? ' md-error' : ''}${step.isActive ? ' md-active' : ''}"
   e:disabled="(step.done && !step.editable) || (Steppers.linear && !step.isPreviousDone)"
   on:click="active"
@@ -27,4 +30,4 @@
     <span class="md-stepper-description">${ step.description }</span>
     </if>
   </div>
-</md-button>
+</Button>

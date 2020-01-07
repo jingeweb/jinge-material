@@ -1,11 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  AFTER_RENDER,
-  UPDATE_IF_NEED,
-  UPDATE,
-  GET_FIRST_DOM
+  Component
 } from 'jinge';
 import {
   fuzzyHighlight,
@@ -60,7 +56,7 @@ export class HighlightText extends Component {
   set term(v) {
     if (this._term === v) return;
     this._term = v;
-    this[UPDATE_IF_NEED]();
+    this.__updateIfNeed();
   }
 
   get text() {
@@ -70,15 +66,15 @@ export class HighlightText extends Component {
   set text(v) {
     if (this._text === v) return;
     this._text = v;
-    this[UPDATE_IF_NEED]();
+    this.__updateIfNeed();
   }
 
-  [AFTER_RENDER]() {
-    this[UPDATE]();
+  __afterRender() {
+    this.__update();
   }
 
-  [UPDATE]() {
-    const el = this[GET_FIRST_DOM]();
+  __update() {
+    const el = this.__firstDOM;
     el.innerHTML = generateHighlight(this.text, this.term, this.searchMethod, this.ignoreCase);
   }
 }

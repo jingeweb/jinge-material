@@ -1,14 +1,10 @@
 import {
   Component,
-  NOTIFY,
-  wrapAttrs,
-  ON,
+  attrs as wrapAttrs,
   setImmediate,
   isFunction,
   isObject,
-  isString,
-  DESTROY,
-  RENDER_TO_DOM
+  isString
 } from 'jinge';
 import {
   getAndWatchLocale
@@ -59,15 +55,15 @@ export class DialogConfirm extends Component {
   }
 
   passActive(active) {
-    this[NOTIFY]('update.active', active);
+    this.__notify('update.active', active);
   }
 
   onCancel() {
-    this[NOTIFY]('cancel');
+    this.__notify('cancel');
   }
 
   onConfirm() {
-    this[NOTIFY]('confirm');
+    this.__notify('confirm');
   }
 }
 
@@ -95,26 +91,26 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
     attrs.inputMaxlength = opts.inputMaxlength;
     attrs.defaultValue = opts.defaultValue;
   }
-  const el = new Clazz(wrapAttrs(attrs));
+  const el = Clazz.create(wrapAttrs(attrs));
   setImmediate(() => {
     el.active = true;
   });
-  el[ON]('update.active', (active, action) => {
+  el.__on('update.active', (active, action) => {
     if (active) return;
     if (isFunction(cancelCallback) && cancelCallback() === false) {
       return;
     }
-    el[DESTROY]();
+    el.__destroy();
   });
-  el[ON]('cancel', () => {
+  el.__on('cancel', () => {
     if (isFunction(cancelCallback) && cancelCallback() === false) {
       return;
     }
-    el[DESTROY]();
+    el.__destroy();
   });
-  el[ON]('confirm', () => {
+  el.__on('confirm', () => {
     if (!isFunction(confirmCallback)) {
-      return el[DESTROY]();
+      return el.__destroy();
     }
     const result = confirmCallback(isConfirm ? null : el.inputValue);
     if (result === false || isString(result)) {
@@ -131,7 +127,7 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
           }
           el.confirmSpinner = false;
         } else {
-          el[DESTROY]();
+          el.__destroy();
         }
       }, err => {
         el.confirmSpinner = false;
@@ -141,8 +137,8 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
       });
       return;
     }
-    el[DESTROY]();
+    el.__destroy();
   });
-  el[RENDER_TO_DOM](document.body, false);
+  el.__renderToDOM(document.body, false);
   return el;
 }

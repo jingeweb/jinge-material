@@ -1,0 +1,125 @@
+<!--
+  import { Button } from '../button';
+  import { Field } from '../field';
+  import { Input } from '../input';
+  import { Spinner } from '../spinner';
+  import { Select, Option } from '../select';
+-->
+<div class="md-pagination${hideSinglePage && totalPage <= 1 ? ' jg-hide' : ''}${className ? ' ' + className : ''}">
+  <if e:expect="showTotal">
+  <span>${totalInfo}</span>
+  </if>
+  <if e:expect="pageSizeOptions">
+  <span>
+    ${locale.sizePerPage}
+  </span>
+
+  <Field class="options">
+    <Select
+      e:disabled="disabled || loadingPage > 0"
+      e:value="pageSize"
+      dense
+      class="md-pagination-select"
+      on:change="onPageSizeChange"
+    >
+      <for e:loop="pageSizeOptions" vm:each="amount" key="each">
+      <Option e:value="amount"/>
+      </for>
+    </Select>
+  </Field>
+  </if>
+
+  <Button
+    class="md-icon-button"
+    on:click="prev()"
+    e:disabled="disabled || loadingPage > 0 || currentPage <= 1"
+  >
+    <md-icon-keyboard_arrow_left/>
+  </Button>
+
+  <if e:expect="totalPage > 0">
+  <Button
+    class="md-icon-button num${currentPage === 1 ? ' md-primary' : ''}"
+    on:click="first()"
+    e:disabled="disabled || loadingPage > 0"
+  >
+    <if e:expect="loadingPage === 1">
+    <Spinner slot-pass:default/>
+    <_slot slot-pass:else>1</_slot>
+    </if>
+  </Button>
+  </if>
+
+  <if e:expect="items[0] > 2">
+  <Button
+    class="md-icon-button pp"
+    on:click="prevP"
+    e:disabled="disabled || loadingPage > 0"
+  >
+    <md-icon-more_horiz class="dot"/>
+    <span class="arrow">&laquo;</span>
+  </Button>
+  </if>
+  <for e:loop="items" vm:each="page">
+  <Button
+    class="md-icon-button num${currentPage === page ? ' md-primary' : ''}"
+    on:click="jump(page)"
+    e:disabled="disabled || loadingPage > 0"
+  >
+    <if e:expect="loadingPage === page">
+    <Spinner slot-pass:default/>
+    <_slot slot-pass:else>${page}</_slot>
+    </if>
+  </Button>
+  </for>
+
+  <if e:expect="items[items.length - 1] < totalPage - 1">
+  <Button
+    class="md-icon-button pp"
+    on:click="nextP"
+    e:disabled="disabled || loadingPage > 0"
+  >
+    <md-icon-more_horiz class="dot"/>
+    <span class="arrow">&raquo;</span>
+  </Button>
+  </if>
+
+  <if e:expect="totalPage > 1">
+  <Button
+    class="md-icon-button num${currentPage === totalPage ? ' md-primary' : ''}"
+    on:click="last()"
+    e:disabled="disabled || loadingPage > 0"
+  >
+    <if e:expect="loadingPage === totalPage">
+    <Spinner slot-pass:default/>
+    <_slot slot-pass:else>${totalPage}</_slot>
+    </if>
+  </Button>
+  </if>
+
+  <Button
+    class="md-icon-button"
+    e:disabled="disabled || loadingPage > 0 || currentPage >= totalPage"
+    on:click="next()"
+  >
+    <md-icon-keyboard_arrow_right/>
+  </Button>
+  
+  <if e:expect="useJumper">
+  <span style="margin-left: 12px;">
+    ${locale.jumpToPage}
+  </span>
+  <Field>
+    <Input
+      type="number"
+      min="1"
+      e:max="totalPage"
+      e:value="currentPage"
+      e:disabled="disabled || loadingPage > 0"
+      on:keydown="onJumperKeydown"
+      on:change="jumperPage = args[0]"
+      on:blur="onJumperBlur"
+    />
+  </Field>
+  </if>
+</div>

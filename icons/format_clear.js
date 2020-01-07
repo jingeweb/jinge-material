@@ -5,16 +5,16 @@ import {
 export class IconBaselineFormatClear extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.27 5L2 6.27l6.97 6.97L6.5 19h3l1.57-3.66L16.73 21 18 19.73 3.55 5.27 3.27 5zM6 5v.18L8.82 8h2.4l-.72 1.68 2.1 2.1L14.21 8H20V5H6z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3.27 5L2 6.27l6.97 6.97L6.5 19h3l1.57-3.66L16.73 21 18 19.73 3.55 5.27 3.27 5zM6 5v.18L8.82 8h2.4l-.72 1.68 2.1 2.1L14.21 8H20V5H6z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineFormatClear = `
+const __svg_IconOutlinedFormatClear = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 8V5H6.39l3 3h1.83l-.55 1.28 2.09 2.1L14.21 8zM3.41 4.86L2 6.27l6.97 6.97L6.5 19h3l1.57-3.66L16.73 21l1.41-1.41z"/></svg>`;
 
-export class IconOutlineFormatClear extends Icon {
+export class IconOutlinedFormatClear extends Icon {
   get svg() {
-    return __svg_IconOutlineFormatClear;
+    return __svg_IconOutlinedFormatClear;
   }
 }
 
@@ -27,13 +27,12 @@ export class IconRoundFormatClear extends Icon {
 
 export class IconSharpFormatClear extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 8V5H6.39l3 3h1.83l-.55 1.28 2.09 2.1L14.21 8zM3.41 4.86L2 6.27l6.97 6.97L6.5 19h3l1.57-3.66L16.73 21l1.41-1.41z"/></svg>`;
+    return __svg_IconOutlinedFormatClear;
   }
 }
 
 export class IconTwotoneFormatClear extends Icon {
   get svg() {
-    return __svg_IconOutlineFormatClear;
+    return __svg_IconOutlinedFormatClear;
   }
 }

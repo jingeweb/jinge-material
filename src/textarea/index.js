@@ -1,9 +1,5 @@
 import {
-  uid,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  DOM_PASS_LISTENERS,
-  GET_FIRST_DOM
+  uid
 } from 'jinge';
 import {
   BaseField
@@ -29,17 +25,17 @@ export class Textarea extends BaseField {
     this.Field._updateFieldClass();
   }
 
-  [AFTER_RENDER]() {
-    this[DOM_PASS_LISTENERS](['input', 'change']);
-    super[AFTER_RENDER]();
+  __afterRender() {
+    this.__domPassListeners(['input', 'change']);
+    super.__afterRender();
     if (this.autogrow) {
-      this._calcStyles(this[GET_FIRST_DOM]());
+      this._calcStyles(this.__firstDOM);
     }
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this.Field.hasTextarea = false;
-    super[BEFORE_DESTROY]();
+    super.__beforeDestroy();
   }
 
   _calcStyles(el) {
@@ -60,7 +56,7 @@ export class Textarea extends BaseField {
   onInput(evt) {
     this.value = evt.target.value;
     if (this.autogrow) {
-      this._calcStyles(this[GET_FIRST_DOM]());
+      this._calcStyles(this.__firstDOM);
     }
   }
 }

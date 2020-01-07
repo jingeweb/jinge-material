@@ -1,6 +1,5 @@
 import {
-  Component,
-  AFTER_RENDER
+  Component
 } from 'jinge';
 import {
   pageState
@@ -36,7 +35,7 @@ export class PageContainer extends Component {
     pageState.title = v;
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     pageState.isSplash = false;
   }
 }

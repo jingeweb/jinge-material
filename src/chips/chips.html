@@ -1,5 +1,9 @@
-<!-- import { Chip } from './chip'; -->
-<md-field class="md-chips${className ? ' ' + className : ''}${value && value.length ? ' md-has-value' : ''}" e:style="style">
+<!--
+  import { Field } from '../field';
+  import { Input } from '../input';
+  import { Chip } from './chip';
+-->
+<Field class="md-chips${className ? ' ' + className : ''}${value && value.length ? ' md-has-value' : ''}" e:style="style">
   <_slot slot-use:default/>
   <for e:loop="value" vm:each="chip">
   <Chip
@@ -15,7 +19,7 @@
   </for>
   
   <if e:expect="!static && (!limit || value.length < limit)">
-  <md-input
+  <Input
     ref:input
     e:value="inputValue"
     on:change="handleInput"
@@ -26,6 +30,6 @@
     on:keydown="onKeyDown"
     on:jinge.before-destroy="onInputDestroy"
     on:jinge.after-render="onInputRender"
-  ></md-input>
+  ></Input>
   </if>
-</md-field>
+</Field>

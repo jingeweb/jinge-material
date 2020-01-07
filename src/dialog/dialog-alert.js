@@ -1,13 +1,9 @@
 import {
   Component,
-  NOTIFY,
-  wrapAttrs,
+  attrs,
   setImmediate,
-  ON,
   isFunction,
-  isString,
-  RENDER_TO_DOM,
-  DESTROY
+  isString
 } from 'jinge';
 import {
   getAndWatchLocale
@@ -26,18 +22,18 @@ export class DialogAlert extends Component {
         title: opts
       };
     }
-    const el = new DialogAlert(wrapAttrs(Object.assign({
+    const el = DialogAlert.create(attrs(Object.assign({
       __portalDisabled: true,
       active: false
     }, opts)));
-    el[ON]('update.active', active => {
+    el.__on('update.active', active => {
       if (active) return;
       if (isFunction(closeCallback) && closeCallback() === false) {
         return;
       }
-      el[DESTROY]();
+      el.__destroy();
     });
-    el[RENDER_TO_DOM](document.body, false);
+    el.__renderToDOM(document.body, false);
     setImmediate(() => {
       el.active = true;
     });
@@ -59,10 +55,10 @@ export class DialogAlert extends Component {
   }
 
   onClick() {
-    this[NOTIFY]('update.active', false, 'confirm');
+    this.__notify('update.active', false, 'confirm');
   }
 
   passActive(active, action) {
-    this[NOTIFY]('update.active', active, action);
+    this.__notify('update.active', active, action);
   }
 }

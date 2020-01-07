@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineCropSquare = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z"/></svg>`;
+
 export class IconBaselineCropSquare extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z"/></svg>`;
+    return __svg_IconBaselineCropSquare;
   }
 }
 
-const __svg_IconOutlineCropSquare = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z"/></svg>`;
-
-export class IconOutlineCropSquare extends Icon {
+export class IconOutlinedCropSquare extends Icon {
   get svg() {
-    return __svg_IconOutlineCropSquare;
+    return __svg_IconBaselineCropSquare;
   }
 }
 
@@ -34,6 +33,6 @@ export class IconSharpCropSquare extends Icon {
 
 export class IconTwotoneCropSquare extends Icon {
   get svg() {
-    return __svg_IconOutlineCropSquare;
+    return __svg_IconBaselineCropSquare;
   }
 }

@@ -1,11 +1,11 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './selection.html';
 
-const data = VM([{
+const data = vm([{
   name: 'jinge',
   version: 1,
   author: 'YuhangGe'

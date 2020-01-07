@@ -1,6 +1,5 @@
 import {
-  Component,
-  I18N_WATCH
+  Component
 } from 'jinge';
 
 import _tpl from './index.html';
@@ -20,7 +19,7 @@ export class PageEmptyState extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this[I18N_WATCH](() => {
+    this.__i18nWatch(() => {
       this.api = apis();
     }, true);
     this._examples = {

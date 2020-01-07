@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineDetails = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 4l9 16 9-16H3zm3.38 2h11.25L12 16 6.38 6z"/></svg>`;
+
 export class IconBaselineDetails extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 4l9 16 9-16H3zm3.38 2h11.25L12 16 6.38 6z"/></svg>`;
+    return __svg_IconBaselineDetails;
   }
 }
 
-const __svg_IconOutlineDetails = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 4l9 16 9-16H3zm3.38 2h11.25L12 16 6.38 6z"/></svg>`;
-
-export class IconOutlineDetails extends Icon {
+export class IconOutlinedDetails extends Icon {
   get svg() {
-    return __svg_IconOutlineDetails;
+    return __svg_IconBaselineDetails;
   }
 }
 
@@ -27,13 +26,13 @@ export class IconRoundDetails extends Icon {
 
 export class IconSharpDetails extends Icon {
   get svg() {
-    return __svg_IconOutlineDetails;
+    return __svg_IconBaselineDetails;
   }
 }
 
 export class IconTwotoneDetails extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M6.38 6L12 16l5.63-10z"/><path d="M3 4l9 16 9-16H3zm3.38 2h11.25L12 16 6.38 6z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6.38 6L12 16l5.63-10z" opacity=".3"/><path d="M3 4l9 16 9-16H3zm3.38 2h11.25L12 16 6.38 6z"/></svg>`;
   }
 }

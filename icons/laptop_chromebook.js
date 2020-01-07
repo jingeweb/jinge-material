@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineLaptopChromebook = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 18V3H2v15H0v2h24v-2h-2zm-8 0h-4v-1h4v1zm6-3H4V5h16v10z"/></svg>`;
+
 export class IconBaselineLaptopChromebook extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M22 18V3H2v15H0v2h24v-2h-2zm-8 0h-4v-1h4v1zm6-3H4V5h16v10z"/></svg>`;
+    return __svg_IconBaselineLaptopChromebook;
   }
 }
 
-const __svg_IconOutlineLaptopChromebook = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 18V3H2v15H0v2h24v-2h-2zm-8 0h-4v-1h4v1zm6-3H4V5h16v10z"/></svg>`;
-
-export class IconOutlineLaptopChromebook extends Icon {
+export class IconOutlinedLaptopChromebook extends Icon {
   get svg() {
-    return __svg_IconOutlineLaptopChromebook;
+    return __svg_IconBaselineLaptopChromebook;
   }
 }
 
@@ -27,13 +26,13 @@ export class IconRoundLaptopChromebook extends Icon {
 
 export class IconSharpLaptopChromebook extends Icon {
   get svg() {
-    return __svg_IconOutlineLaptopChromebook;
+    return __svg_IconBaselineLaptopChromebook;
   }
 }
 
 export class IconTwotoneLaptopChromebook extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M4 5h16v10H4z"/><path d="M22 18V3H2v15H0v2h24v-2h-2zm-8 0h-4v-1h4v1zm6-3H4V5h16v10z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 5h16v10H4z" opacity=".3"/><path d="M22 18V3H2v15H0v2h24v-2h-2zm-8 0h-4v-1h4v1zm6-3H4V5h16v10z"/></svg>`;
   }
 }

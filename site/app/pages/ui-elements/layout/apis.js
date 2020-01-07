@@ -1,9 +1,8 @@
 import {
-  _t,
-  VM
+  _t, vm
 } from 'jinge';
 
-export default () => VM({
+export default () => vm({
   breakpoints: {
     headings: [_t('名称'), _t('描述'), _t('宽度')],
     props: [

@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './multiple.html';
@@ -19,7 +19,7 @@ export default class ExampleSelectMultiple extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.selectedMovies = VM([]);
+    this.selectedMovies = vm([]);
     this.selectedMoviesDisplay = '';
   }
 

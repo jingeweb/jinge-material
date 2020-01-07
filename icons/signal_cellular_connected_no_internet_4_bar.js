@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineSignalCellularConnectedNoInternet4Bar = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 18h2v-8h-2v8zm0 4h2v-2h-2v2zM2 22h16V8h4V2L2 22z"/></svg>`;
+
 export class IconBaselineSignalCellularConnectedNoInternet4Bar extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 18h2v-8h-2v8zm0 4h2v-2h-2v2zM2 22h16V8h4V2L2 22z"/></svg>`;
+    return __svg_IconBaselineSignalCellularConnectedNoInternet4Bar;
   }
 }
 
-const __svg_IconOutlineSignalCellularConnectedNoInternet4Bar = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 18h2v-8h-2v8zm0 4h2v-2h-2v2zM2 22h16V8h4V2L2 22z"/></svg>`;
-
-export class IconOutlineSignalCellularConnectedNoInternet4Bar extends Icon {
+export class IconOutlinedSignalCellularConnectedNoInternet4Bar extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularConnectedNoInternet4Bar;
+    return __svg_IconBaselineSignalCellularConnectedNoInternet4Bar;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundSignalCellularConnectedNoInternet4Bar extends Icon {
 
 export class IconSharpSignalCellularConnectedNoInternet4Bar extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularConnectedNoInternet4Bar;
+    return __svg_IconBaselineSignalCellularConnectedNoInternet4Bar;
   }
 }
 
 export class IconTwotoneSignalCellularConnectedNoInternet4Bar extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularConnectedNoInternet4Bar;
+    return __svg_IconBaselineSignalCellularConnectedNoInternet4Bar;
   }
 }

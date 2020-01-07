@@ -9,12 +9,12 @@ export class IconBaselineMaximize extends Icon {
   }
 }
 
-const __svg_IconOutlineMaximize = `
+const __svg_IconOutlinedMaximize = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 3h18v2H3V3z"/></svg>`;
 
-export class IconOutlineMaximize extends Icon {
+export class IconOutlinedMaximize extends Icon {
   get svg() {
-    return __svg_IconOutlineMaximize;
+    return __svg_IconOutlinedMaximize;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundMaximize extends Icon {
 
 export class IconSharpMaximize extends Icon {
   get svg() {
-    return __svg_IconOutlineMaximize;
+    return __svg_IconOutlinedMaximize;
   }
 }
 
 export class IconTwotoneMaximize extends Icon {
   get svg() {
-    return __svg_IconOutlineMaximize;
+    return __svg_IconOutlinedMaximize;
   }
 }

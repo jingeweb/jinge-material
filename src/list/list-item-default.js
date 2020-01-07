@@ -1,6 +1,5 @@
 import {
-  Component,
-  GET_FIRST_DOM
+  Component
 } from 'jinge';
 
 export class ListItemDefault extends Component {
@@ -24,7 +23,7 @@ export class ListItemDefault extends Component {
   }
 
   toggleControl(evt) {
-    const $el = this[GET_FIRST_DOM]();
+    const $el = this.__firstDOM;
     const control = $el.querySelector('.md-checkbox-container, .md-switch-container, .md-radio-container');
     if (control && !control.contains(evt.target)) {
       control.click();

@@ -1,7 +1,3 @@
-import {
-  instanceOf
-} from 'jinge';
-
 function pad(n) {
   return n >= 10 ? n.toString() : ('0' + n);
 }
@@ -21,7 +17,7 @@ export function getDaysInMonth(year, monthIndex) {
 }
 
 export function isValid(date) {
-  return instanceOf(date, Date) && !Number.isNaN(date.getTime());
+  return date instanceof Date && !Number.isNaN(date.getTime());
 }
 
 /**

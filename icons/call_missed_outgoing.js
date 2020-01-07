@@ -5,16 +5,16 @@ import {
 export class IconBaselineCallMissedOutgoing extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="a" d="M24 24H0V0h24v24z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" d="M3 8.41l9 9 7-7V15h2V7h-8v2h4.59L12 14.59 4.41 7 3 8.41z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24" x="0"/></g><g><g><g><path d="M3,8.41l9,9l7-7V15h2V7h-8v2h4.59L12,14.59L4.41,7L3,8.41z"/></g></g></g></svg>`;
   }
 }
 
-const __svg_IconOutlineCallMissedOutgoing = `
+const __svg_IconOutlinedCallMissedOutgoing = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 8.41l9 9 7-7V15h2V7h-8v2h4.59L12 14.59 4.41 7 3 8.41z"/></svg>`;
 
-export class IconOutlineCallMissedOutgoing extends Icon {
+export class IconOutlinedCallMissedOutgoing extends Icon {
   get svg() {
-    return __svg_IconOutlineCallMissedOutgoing;
+    return __svg_IconOutlinedCallMissedOutgoing;
   }
 }
 
@@ -27,7 +27,7 @@ export class IconRoundCallMissedOutgoing extends Icon {
 
 export class IconSharpCallMissedOutgoing extends Icon {
   get svg() {
-    return __svg_IconOutlineCallMissedOutgoing;
+    return __svg_IconOutlinedCallMissedOutgoing;
   }
 }
 

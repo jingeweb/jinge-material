@@ -1,4 +1,5 @@
-<md-portal e:__disabled="__portalDisabled">
+<!-- import { Portal } from '../portal'; -->
+<Portal e:__disabled="__portalDisabled">
 <if e:expect="isShown" transition="md-snackbar">
   <div class="md-snackbar md-position-${position}${className ? ' ' + className : ''}">
     <div class="md-snackbar-content">
@@ -8,4 +9,4 @@
     </div>
   </div>
 </if>
-</md-portal>
+</Portal>

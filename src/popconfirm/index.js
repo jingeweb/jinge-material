@@ -1,8 +1,7 @@
 import './index.scss';
 
 import {
-  Component,
-  NOTIFY
+  Component
 } from 'jinge';
 import {
   getAndWatchLocale
@@ -43,20 +42,20 @@ export class Popconfirm extends Component {
 
   onUpdateActive(isActive) {
     this.active = isActive;
-    this[NOTIFY]('update.active', isActive);
+    this.__notify('update.active', isActive);
   }
 
   onConfirm() {
-    this[NOTIFY]('confirm');
+    this.__notify('confirm');
     if (this.hideWhenConfirmClick) {
       this.active = false;
-      this[NOTIFY]('update.active', false, 'confirm');
+      this.__notify('update.active', false, 'confirm');
     }
   }
 
   onCancel() {
     this.active = false;
-    this[NOTIFY]('cancel');
-    this[NOTIFY]('update.active', false, 'cancel');
+    this.__notify('cancel');
+    this.__notify('update.active', false, 'cancel');
   }
 }

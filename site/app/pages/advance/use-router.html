@@ -11,16 +11,16 @@
 <PageContainer centered _t:title="路由整合">
   <section class="page-container-section">
     <h2 class="md-headline"><_t>路由整合</_t></h2>
-    <p><_t>jinge 框架没有实现内置的路由功能，取而代之的是基于 @uirouter/core 的 jinge-ui-router 库。在 Jinge Material 组件库中，个别组件可以直接集成 jinge-ui-router 的路由功能。</_t></p>
+    <p><_t>Jinge Material 组件库中，个别组件可以直接集成 <a target="_blank" href="https://github.com/jinge-design/jinge-router">jinge-router</a> 的路由功能。</_t></p>
     <p><_t>
       这些组件目前包括：<UISref to="components.button" text="md-button"/>、
       <UISref to="components.list" text="md-list-item"/>、
       <UISref to="components.bottom-bar" text="md-bottom-bar"/> 和 <UISref to="components.list" text="md-tab"/>。
-      在这些组件上，可以直接使用 <code>ui-sref</code> 组件的 to、params、target 和 active 属性。详见这些组件的示例。
+      在这些组件上，可以直接使用 <code>router-link</code> 组件的 to、target 和 active 属性。详见这些组件的示例。
     </_t></p>
     <p><_t>
-      需要说明的是，Jinge Material 组件库并不直接依赖 jinge-ui-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 GET_CONTEXT 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装
-      jinge-ui-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中启用 jinge-ui-router，则会报错。
+      需要说明的是，Jinge Material 组件库并不直接依赖 jinge-router，而是利用 jinge 框架的 Context 功能，在需要的时候通过 <code>__getContext('router')</code> 来获取上下文中的路由器。也就是说，如果不需要使用上述组件的路由功能，则不需要安装
+      jinge-router 库。但如果使用了路由功能（为上述组件指定了 to 属性），但没有在整个项目中依赖 jinge-router，则会报错。
     </_t></p>
   </section>
 </PageContainer>

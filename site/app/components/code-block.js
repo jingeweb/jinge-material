@@ -1,15 +1,11 @@
-import highlight from 'highlight.js/lib/highlight.js';
+import highlight from 'highlight.js/lib/core';
 import highlightSCSS from 'highlight.js/lib/languages/scss';
 import highlightXML from 'highlight.js/lib/languages/xml';
 import highlightBash from 'highlight.js/lib/languages/bash';
 import highlightJavascript from 'highlight.js/lib/languages/javascript';
 import Clipboard from 'clipboard';
 import {
-  Component,
-  AFTER_RENDER,
-  GET_REF,
-  GET_FIRST_DOM,
-  _t
+  Component, _t
 } from 'jinge';
 import {
   getIndentedSource
@@ -45,8 +41,8 @@ export class CodeBlock extends Component {
     this._$ce = null;
   }
 
-  [AFTER_RENDER]() {
-    this._$ce = this[GET_REF]('code'); // get code dom element
+  __afterRender() {
+    this._$ce = this.__getRef('code'); // get code dom element
     this.reindentSource();
     this.enableCopy();
 
@@ -58,10 +54,10 @@ export class CodeBlock extends Component {
   }
 
   enableCopy() {
-    const $cb = this[GET_REF]('copy'); // get copy button
+    const $cb = this.__getRef('copy'); // get copy button
     if (!$cb) return;
 
-    const clipboard = new Clipboard($cb[GET_FIRST_DOM](), {
+    const clipboard = new Clipboard($cb.__firstDOM, {
       target: () => this._$ce
     });
     clipboard.on('success', event => {

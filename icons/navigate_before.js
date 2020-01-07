@@ -5,16 +5,16 @@ import {
 export class IconBaselineNavigateBefore extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineNavigateBefore = `
+const __svg_IconOutlinedNavigateBefore = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"/></svg>`;
 
-export class IconOutlineNavigateBefore extends Icon {
+export class IconOutlinedNavigateBefore extends Icon {
   get svg() {
-    return __svg_IconOutlineNavigateBefore;
+    return __svg_IconOutlinedNavigateBefore;
   }
 }
 
@@ -27,7 +27,7 @@ export class IconRoundNavigateBefore extends Icon {
 
 export class IconSharpNavigateBefore extends Icon {
   get svg() {
-    return __svg_IconOutlineNavigateBefore;
+    return __svg_IconOutlinedNavigateBefore;
   }
 }
 

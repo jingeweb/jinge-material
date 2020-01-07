@@ -5,16 +5,16 @@ import {
 export class IconBaselineChevronLeft extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineChevronLeft = `
+const __svg_IconOutlinedChevronLeft = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/></svg>`;
 
-export class IconOutlineChevronLeft extends Icon {
+export class IconOutlinedChevronLeft extends Icon {
   get svg() {
-    return __svg_IconOutlineChevronLeft;
+    return __svg_IconOutlinedChevronLeft;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundChevronLeft extends Icon {
 
 export class IconSharpChevronLeft extends Icon {
   get svg() {
-    return __svg_IconOutlineChevronLeft;
+    return __svg_IconOutlinedChevronLeft;
   }
 }
 
 export class IconTwotoneChevronLeft extends Icon {
   get svg() {
-    return __svg_IconOutlineChevronLeft;
+    return __svg_IconOutlinedChevronLeft;
   }
 }

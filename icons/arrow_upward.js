@@ -11,7 +11,7 @@ export class IconBaselineArrowUpward extends Icon {
   }
 }
 
-export class IconOutlineArrowUpward extends Icon {
+export class IconOutlinedArrowUpward extends Icon {
   get svg() {
     return __svg_IconBaselineArrowUpward;
   }

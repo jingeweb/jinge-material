@@ -1,9 +1,6 @@
 import {
   Component,
-  GET_CONTEXT,
-  uid,
-  BEFORE_DESTROY,
-  NOTIFY
+  uid
 } from 'jinge';
 import {
   STEPPERS_PROVIDER
@@ -27,7 +24,7 @@ export class Step extends Component {
     this.index = 0;
     this.isActive = false;
     this.isPreviousDone = false;
-    this.Steppers = this[GET_CONTEXT](STEPPERS_PROVIDER);
+    this.Steppers = this.__getContext(STEPPERS_PROVIDER);
     this.Steppers._add(this);
   }
 
@@ -38,7 +35,7 @@ export class Step extends Component {
   set done(v) {
     if (this._done === v) return;
     this._done = v;
-    this[NOTIFY]('update.done', v);
+    this.__notify('update.done', v);
   }
 
   get error() {
@@ -48,10 +45,10 @@ export class Step extends Component {
   set error(v) {
     if (this._error === v) return;
     this._error = v;
-    this[NOTIFY]('update.error', v);
+    this.__notify('update.error', v);
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this.Steppers._remove(this);
     this.Steppers = null;
   }

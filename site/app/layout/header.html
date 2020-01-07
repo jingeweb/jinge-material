@@ -1,8 +1,8 @@
 <md-toolbar class="main-header${isSplash ? ' splash' : ''}" e:elevation="isSplash ? 0 : 2">
   <div class="md-toolbar-row">
-    <ui-sref to="home">
-      <a><md-icon class="logo jinge-material-site-logo" src="/assets/logo_nc.svg"/></a>
-    </ui-sref>
+    <router-link to="home">
+      <a><md-icon class="logo jinge-material-site-logo" src="assets/logo_nc.svg"/></a>
+    </router-link>
     <md-button class="md-icon-button menu" on:click="toggleMenu">
       <md-icon-menu/>
     </md-button>
@@ -37,7 +37,7 @@
       </_slot>
     </md-menu>
     <md-button class="md-icon-button" href="https://github.com/YuhangGe/jinge-material" target="_blank">
-      <md-icon src="/assets/icon/github.svg" class="icon-github" />
+      <md-icon src="assets/icon/github.svg" class="icon-github" />
     </md-button>
   </div>
 </md-toolbar>

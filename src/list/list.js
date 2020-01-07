@@ -2,8 +2,6 @@ import './list.scss';
 
 import {
   Component,
-  Symbol,
-  SET_CONTEXT,
   arrayPushIfNotExist,
   arrayRemove
 } from 'jinge';
@@ -28,7 +26,7 @@ export class List extends Component {
       pushExpandable: this.pushExpandable.bind(this),
       removeExpandable: this.removeExpandable.bind(this)
     };
-    this[SET_CONTEXT](LIST_PROVIDER, this._List, true);
+    this.__setContext(LIST_PROVIDER, this._List, true);
   }
 
   expandATab(expandedListItem) {

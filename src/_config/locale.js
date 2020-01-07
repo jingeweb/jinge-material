@@ -1,17 +1,13 @@
 
 import {
-  VM
+  vm, arrayPushIfNotExist, arrayRemove
 } from 'jinge';
-import {
-  arrayPushIfNotExist,
-  arrayRemove
-} from 'jinge/util';
 
 let watcher;
 let currentLocale;
 
 export function setLocale(v) {
-  currentLocale = VM(v);
+  currentLocale = vm(v);
   watcher && watcher.forEach(listener => {
     listener(currentLocale);
   });
@@ -32,8 +28,8 @@ export function watchLocale(listener, immediate = false) {
   }
 }
 
-export function getAndWatchLocale(listener) {
-  watchLocale(listener);
+export function getAndWatchLocale(listener, immediate = false) {
+  watchLocale(listener, immediate);
   return getLocale();
 }
 

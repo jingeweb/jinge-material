@@ -11,7 +11,7 @@ export class IconBaselinePowerInput extends Icon {
   }
 }
 
-export class IconOutlinePowerInput extends Icon {
+export class IconOutlinedPowerInput extends Icon {
   get svg() {
     return __svg_IconBaselinePowerInput;
   }

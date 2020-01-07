@@ -1,0 +1,57 @@
+@import 'src/animation/variables.scss';
+@import 'style/layout/mixins';
+
+.container {
+  min-height: 100%;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  transition: $md-transition-default;
+  transition-property: padding-top;
+
+  @include md-layout-small {
+    padding-top: 48px;
+  }
+
+  @include md-layout-xsmall {
+    padding-top: 56px;
+  }
+
+  &.splash {
+    background: #303030;
+    color: #fff;
+  }
+
+  &.splash /deep/ {
+    .main-header .md-toolbar-row,
+    .main-footer-container {
+      max-width: 1312px;
+      margin: 0 auto;
+    }
+
+    .md-title > .app-title {
+      display: none;
+    }
+
+    .main-footer {
+      max-width: 100%;
+      margin-top: 0;
+      background: var(--md-surface);
+
+      a {
+        color: var(--md-on-surface);
+      }
+    }
+  }
+}
+
+.container-wrapper {
+  &:not(.splash) {
+    flex: 1;
+    padding-left: 230px !important;
+
+    @include md-layout-xsmall {
+      padding-left: 0 !important;
+    }
+  }
+}

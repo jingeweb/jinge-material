@@ -1,211 +1,224 @@
-/**
- * 为了解耦 jinge-material 库和 jinge-ui-router 库之间的直接依赖，
- * 在 jinge-material 中重新实现一份 ui-sref 组件。
- *
- * 这个 ui-sref 组件用于 md-button 等组件的内部默认 route 功能。
- *
- * 这个 ui-sref 组件不暴露给用户使用。用户在业务层，
- * 如果需要用到 route 功能，应该主动依赖 jinge-ui-router 库
- * 并使用该库里面的 <ui-sref> 组件。
- *
- * 需要密切关注 jinge-ui-router 库的版本变化，并相应地更新此处代码。
- *
- * jinge-ui-router 最后参考版本： v1.0.3
- */
-
-import {
-  Component,
-  Symbol,
-  GET_CONTEXT,
-  UPDATE_IF_NEED,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  isObject,
-  GET_FIRST_DOM,
-  STR_DEFAULT,
-  DOM_ON,
-  ARG_COMPONENTS,
-  setAttribute,
-  addClass,
-  removeClass,
-  I18N_WATCH
-} from 'jinge';
+/* eslint-disable */
 
 /**
- * 此处的 context 名称必须和 jinge-ui-router 库保持一致。
+ * 为了解耦 jinge-material 库和 jinge-router 库之间的直接依赖，
+ * 在 jinge-material 中重新实现一份 <router-link/> 组件并命名为 UISref。
+ *
+ * 这个 UISref 组件用于 md-button 等组件的内部默认 route 功能。
+ *
+ * 这个 UISref 组件不暴露给用户使用。用户应该使用 jinge-router 库提供的 <router-link/> 组件。
+ *
+ * 需要密切关注 jinge-router 库的版本变化，并相应地更新此处代码。
+ *
+ * jinge-router 最后参考版本： v2.0.0
  */
-export const UIROUTER_CONTEXT = '#ui-router_context';
-export const UIROUTER_CONTEXT_PARENT = '#ui-router_parent';
 
-const ROUTER = Symbol('router');
-const EL = Symbol('el');
-const TAG = Symbol('tag');
-const UPDATE_HREF = Symbol('update_href');
-const UPDATE_ACTIVE = Symbol('update_active');
-const UPDATE_TARGET = Symbol('update_target');
-const ON_CLICK = Symbol('on_click');
-const DEREGISTER = Symbol('deregister');
+import { Component, setAttribute, removeEvent, addEvent, __, isObject, watch, unwatch } from 'jinge';
 
-const SUPPORTED_TARGETS = ['_blank', '_self'];
-
+/**
+ * @param strict 如果 strict 为 false，则返回 src 是否被 dst 包含；否则返回 src 是否和 dst 完全相同。strict 默认为 true。
+ */
+export function isParamsOrQuerySameOrInclude(src, dst, strict = true) {
+  if (!src)
+      return !dst;
+  if (!dst)
+      return !src;
+  let kc = 0;
+  for (const k in src) {
+      const sv = src[k];
+      const dv = dst[k];
+      if (strict) {
+          if (sv !== dv)
+              return false;
+      }
+      else {
+          if (isUndefined(dv) || dv === null) {
+              if (!isUndefined(sv) && sv !== null) {
+                  return false;
+              }
+          }
+          else if (sv !== dv) {
+              return false;
+          }
+      }
+      kc++;
+  }
+  if (strict && kc !== Object.keys(dst).length) {
+      return false;
+  }
+  return true;
+}
 export class UISref extends Component {
+  constructor(attrs) {
+      var _a;
+      super(attrs);
+      this.to = attrs.to;
+      this.text = attrs.text || '';
+      this.target = attrs.target || '_self';
+      this.replace = !!attrs.replace;
+      this.className = attrs.class;
+      this.style = attrs.style;
+      this.active = attrs.active;
+      this._router = this.__getContext('router');
+      if (!this._router) {
+          throw new Error('Context named "router" not found.');
+      }
+      this._tag = ((_a = attrs[__].slots) === null || _a === void 0 ? void 0 : _a.default) ? 0 : -1;
+      this._el = null;
+      this._qw = false; // query is watched
+      this._clh = this._onClick.bind(this); // click handler
+      this._rch = this._onRc.bind(this);
+      this._rcd = null; // router onChange deregister
+  }
   static get template() {
-    return `
+      return `
 <a
- slot-use:default
- e:class="!className && !(isActive && active) ? _udef : (className || '') + (isActive && active ? (className ? ' ' : '') + active : '')"
- e:style="style"
+slot-use:default
+e:class="!className && !(isActive && active) ? _udef : (className || '') + (isActive && active ? (className ? ' ' : '') + active : '')"
+e:style="style"
 >
 \${text}
 </a>`;
   }
-
-  constructor(attrs) {
-    if (attrs.params && !isObject(attrs.params)) {
-      throw new Error('<ui-sref> attribute "params" require object.');
-    }
-    if (attrs.target && SUPPORTED_TARGETS.indexOf(attrs.target) < 0) {
-      throw new Error(`<ui-sref> attribute "target" only accept one of ${JSON.stringify(SUPPORTED_TARGETS)}`);
-    }
-    super(attrs);
-    const router = this[GET_CONTEXT](UIROUTER_CONTEXT);
-    if (!router) {
-      throw new Error('<ui-sref> must under parent which has context named Router.CONTEXT_NAME');
-    }
-    this[ROUTER] = router;
-
-    this[EL] = null;
-    this[DEREGISTER] = null;
-    this[TAG] = attrs[ARG_COMPONENTS] && attrs[ARG_COMPONENTS][STR_DEFAULT] ? 0 : -1;
-    this.isActive = false;
-    this.to = attrs.to;
-    this.params = attrs.params;
-    this.active = attrs.active;
-    this.location = ('location' in attrs) ? attrs.location : true;
-    this.reload = !!attrs.reload;
-    this.text = attrs.text || '';
-    this.target = attrs.target || '_self';
-    this.className = attrs.class;
-    this.style = attrs.style;
-
-    /**
-     * 切换语言后，不少场景下都需要更新链接，比如 baseHref 或 url 参数需要相应地改变，等等。
-     * 考虑到一个页面同时渲染的链接不会太多（就算 1000 个更新也很快），就统一在i18n 的 locale 变化时更新链接。
-     */
-    this[I18N_WATCH](this[UPDATE_HREF]);
+  /**
+   * @internal
+   *
+   * handle router changed event/guard
+   */
+  _onRc() {
+      this._upA();
   }
-
   get target() {
-    return this._target;
+      return this._target;
   }
-
   set target(v) {
-    if (this._target === v) return;
-    this._target = v;
-    this[UPDATE_IF_NEED](this[UPDATE_TARGET]);
+      if (this._target === v)
+          return;
+      this._target = v;
+      this._upT();
   }
-
-  get to() {
-    return this._to;
-  }
-
-  set to(v) {
-    if (this._to === v) return;
-    this._to = v;
-    this[UPDATE_IF_NEED](this[UPDATE_HREF]);
-  }
-
-  get params() {
-    return this._params;
-  }
-
-  set params(v) {
-    this._params = v;
-    this[UPDATE_IF_NEED](this[UPDATE_HREF]);
-  }
-
   get active() {
-    return this._active;
+      return this._active;
   }
-
   set active(v) {
-    if (this._active === v) return;
-    if (this[TAG] >= 0 && this._active && this[EL]) {
-      removeClass(this[EL], this._active); // remove previous active class
-    }
-    this._active = v;
-    this[UPDATE_IF_NEED](this[UPDATE_ACTIVE]);
+      if (this._active === v)
+          return;
+      if (this._tag >= 0 && this._active && this._el) {
+          this._el.classList.remove(this._active); // remove previous active class
+      }
+      this._active = v;
+      this.__updateIfNeed(this._upA);
   }
-
-  [ON_CLICK](e) {
-    if (e.defaultPrevented || e.metaKey || e.ctrlKey) {
-      return;
-    }
-    if (this[TAG] <= 0) {
-      e.preventDefault(); // prevent default <a> jump
-    }
-    const router = this[ROUTER];
-    const parent = this[GET_CONTEXT](UIROUTER_CONTEXT_PARENT);
-    const parentContext = (parent && parent.context) || router.stateRegistry.root();
-    if (this._target === '_blank') {
-      const href = router.href(this._to, this._params, {
-        relative: parentContext,
-        inherit: true
+  get to() {
+      return this._to;
+  }
+  set to(v) {
+      if (this._to === v)
+          return;
+      this._to = v;
+      this.__updateIfNeed(this._upHa);
+  }
+  /**
+   * @internal
+   */
+  _onClick(e) {
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey) {
+          return;
+      }
+      if (this._tag <= 0) {
+          e.preventDefault(); // prevent default <a> jump
+      }
+      this._router.go(this._to, {
+          target: this.target,
+          replace: this.replace
       });
-      window.open(href);
-    } else {
-      router.go(this._to, this._params, {
-        relative: parentContext,
-        inherit: true,
-        location: this.location,
-        reload: this.reload
+  }
+  __afterRender() {
+      const el = this.__firstDOM;
+      if (this._tag >= 0) {
+          this._tag = el.tagName === 'A' ? 0 : 1;
+      }
+      this._el = el;
+      this._upT();
+      this._upHa();
+      this._rcd = this._router.afterEach(() => {
+          this._onRc();
       });
-    }
+      addEvent(el, 'click', this._clh);
   }
-
-  [AFTER_RENDER]() {
-    const el = this[GET_FIRST_DOM]();
-    if (this[TAG] >= 0) {
-      this[TAG] = el.tagName === 'A' ? 0 : 1;
-    }
-    this[EL] = el;
-    this[DEREGISTER] = this[ROUTER].transitionService.onSuccess({}, () => this[UPDATE_ACTIVE]());
-    this[UPDATE_TARGET]();
-    this[UPDATE_HREF]();
-    this[UPDATE_ACTIVE]();
-    this[DOM_ON](el, 'click', this[ON_CLICK]);
+  __beforeDestroy() {
+      removeEvent(this._el, 'click', this._clh);
+      this._rcd();
+      if (this._qw) {
+          unwatch(this._router.__info, 'query.*', this._rch);
+      }
   }
-
-  [BEFORE_DESTROY]() {
-    this[DEREGISTER]();
+  /**
+   * @internal
+   *
+   * update target attribute of link
+   */
+  _upT() {
+      if (this._tag <= 0) {
+          setAttribute(this._el, 'target', this.target);
+      }
   }
-
-  [UPDATE_TARGET]() {
-    if (this[TAG] <= 0) {
-      setAttribute(this[EL], 'target', this._target);
-    }
+  /**
+   * @internal
+   *
+   * update href and active class
+   */
+  _upHa() {
+      this._upH();
+      this._upA();
   }
-
-  [UPDATE_HREF]() {
-    const router = this[ROUTER];
-    this.isActive = router.includes(this._to, this._params);
-    if (this[TAG] <= 0) {
-      const parent = this[GET_CONTEXT](UIROUTER_CONTEXT_PARENT);
-      const parentContext = (parent && parent.context) || router.stateRegistry.root();
-      setAttribute(this[EL], 'href', router.href(this._to, this._params, {
-        relative: parentContext,
-        inherit: true
-      }));
-    }
+  /**
+   * @internal
+   *
+   * update href attribute of link
+   */
+  _upH() {
+      if (this._tag <= 0) {
+          let href;
+          if (!this._to || !(href = this._router.href(this._to))) {
+              this._el.removeAttribute('href');
+          }
+          else {
+              setAttribute(this._el, 'href', href);
+          }
+      }
   }
-
-  [UPDATE_ACTIVE]() {
-    this.isActive = this[ROUTER].includes(this._to, this._params);
-    if (!this._active || this[TAG] < 0) return;
-    if (this.isActive) {
-      addClass(this[EL], this._active);
-    } else {
-      removeClass(this[EL], this._active);
-    }
+  /**
+   * @internal
+   *
+   * update active class of link
+   */
+  _upA() {
+      var _a;
+      let isActive = this._to && this._router.includes(this._to);
+      if (isActive && isObject(this._to) && this._to.query) {
+          if (!this._qw) {
+              watch(this._router.__info, 'query.*', this._rch);
+              this._qw = true;
+          }
+          isActive = isParamsOrQuerySameOrInclude(this._to.query, (_a = this._router.__info) === null || _a === void 0 ? void 0 : _a.query);
+      }
+      else if (this._qw) {
+          this._qw = false;
+          unwatch(this._router.__info, 'query.*', this._rch);
+      }
+      if (this.isActive === isActive) {
+          return;
+      }
+      this.isActive = isActive;
+      if (!this._active || this._tag < 0) {
+          return;
+      }
+      if (this.isActive) {
+          this._el.classList.add(this._active);
+      }
+      else {
+          this._el.classList.remove(this._active);
+      }
   }
 }

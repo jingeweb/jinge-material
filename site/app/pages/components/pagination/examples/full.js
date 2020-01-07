@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './full.html';
@@ -16,7 +16,7 @@ export default class ExamplePaginationFull extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.sizeOptions = VM([10, 50, 100, 200]);
+    this.sizeOptions = vm([10, 50, 100, 200]);
     this.totalSize = (Math.random() * 1000 | 0) + 1000;
   }
 }

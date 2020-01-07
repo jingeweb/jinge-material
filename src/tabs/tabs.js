@@ -1,24 +1,14 @@
+/**
+ * @typedef {import('jinge-router').Router} Router
+ */
+
 import {
   Component,
-  VM,
-  Symbol,
+  vm, $$,
   isNumber,
   setImmediate,
-  SET_CONTEXT,
-  GET_FIRST_DOM,
-  UPDATE_IF_NEED,
-  AFTER_RENDER,
-  NOTIFY,
-  GET_REF,
-  GET_CONTEXT,
-  BEFORE_DESTROY,
-  DOM_ON,
-  VM_ATTRS,
-  VM_NOTIFY
+  clearImmediate
 } from 'jinge';
-import {
-  UIROUTER_CONTEXT
-} from '../uisref';
 import {
   MutationObserveDOM,
   EnumAttrValidator,
@@ -53,13 +43,21 @@ export class Tabs extends Component {
     this.noTransition = true;
     this._syncRoute = 0;
     this._activeEl = null;
-    this._resizeOb = null;
+    /**
+     * resize observer deregister
+     */
+    this._rod = null;
+    /**
+     * route before each guard deregister
+     */
+    this._bed = null;
+    this._syncImm = 0;
     this.hasContent = true;
     this.contentStyles = null;
     this.containerStyles = null;
 
-    this.items = VM([]);
-    this[SET_CONTEXT](TABS_PROVIDER, this); // pass parent to children
+    this.items = vm([]);
+    this.__setContext(TABS_PROVIDER, this); // pass parent to children
   }
 
   get activeTab() {
@@ -69,26 +67,29 @@ export class Tabs extends Component {
   set activeTab(v) {
     if (this._activeTab === v) return;
     this._activeTab = v;
-    this[UPDATE_IF_NEED](this._update);
+    this.__updateIfNeed();
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this.hasContent = this.items.some(it => it._hasContent);
-    this.items.length > 0 && this.items[VM_ATTRS][VM_NOTIFY]('length', true);
+    this.items.length > 0 && this.items[$$].__notify('length', true);
 
     if (this._syncRoute === 0) {
       this._update(false);
     } else {
-      const router = this[GET_CONTEXT](UIROUTER_CONTEXT);
+      /**
+       * @type {Router}
+       */
+      const router = this.__getContext('router');
       if (!router) {
-        throw new Error('syncRoute attribute is true, but ui-router not found.');
+        throw new Error('syncRoute attribute is true, but jinge-router not found.');
       }
-      this._tsderegister = router.transitionService.onSuccess({}, () => {
-        setImmediate(() => {
+      this._bed = router.afterEach(() => {
+        this._syncImm = setImmediate(() => {
           this._sync();
         });
       });
-      setImmediate(() => {
+      this._syncImm = setImmediate(() => {
         this._sync();
       });
     }
@@ -98,17 +99,20 @@ export class Tabs extends Component {
     }, 100);
   }
 
-  [BEFORE_DESTROY]() {
-    if (this._syncRoute > 0) {
-      this._tsderegister();
+  __beforeDestroy() {
+    if (this._syncImm > 0) {
+      clearImmediate(this._syncImm);
     }
-    if (this._resizeOb) {
-      this._resizeOb.disconnect();
+    if (this._syncRoute > 0) {
+      this._bed();
+    }
+    if (this._rod) {
+      this._rod();
     }
   }
 
   _setupObservers() {
-    this._resizeOb = MutationObserveDOM(this[GET_FIRST_DOM]().querySelector('.md-tabs-content'), {
+    this._rod = MutationObserveDOM(this.__firstDOM.querySelector('.md-tabs-content'), {
       childList: true,
       characterData: true,
       subtree: true
@@ -116,11 +120,12 @@ export class Tabs extends Component {
       this._reCalc();
     });
 
-    this[DOM_ON](window, 'resize', this._reCalc);
+    this.__domAddListener(window, 'resize', this._reCalc);
   }
 
   _sync(activeIndex) {
-    const $nav = this[GET_REF]('nav');
+    this._syncImm = 0;
+    const $nav = this.__getRef('nav');
     const isN = isNumber(activeIndex);
     const el = $nav.querySelector(`.md-tab-nav-button${isN ? `:nth-child(${activeIndex + 1})` : '.md-active'}`);
     if (this._activeEl === el) {
@@ -137,7 +142,7 @@ export class Tabs extends Component {
     if (!isNumber(this._activeTab)) {
       this._activeTab = this.items.findIndex(it => it.id === this._activeStep);
     }
-    this._activeEl = this[GET_REF]('nav').querySelector('.md-tab-nav-button.md-active');
+    this._activeEl = this.__getRef('nav').querySelector('.md-tab-nav-button.md-active');
     this._setActive(this._activeTab, notify);
   }
 
@@ -172,8 +177,8 @@ export class Tabs extends Component {
       const tab = this.items[i];
       tab.isActive = i === index;
     }
-    setImmediate(() => this._sync(this._activeTab));
-    notify && this[NOTIFY]('changed', index, this.items[index]);
+    this._syncImm = setImmediate(() => this._sync(this._activeTab));
+    notify && this.__notify('changed', index, this.items[index]);
   }
 
   _reCalc() {
@@ -182,7 +187,7 @@ export class Tabs extends Component {
   }
 
   _calcIndicator() {
-    const $indicator = this[GET_REF]('indicator');
+    const $indicator = this.__getRef('indicator');
     if (!this._activeEl || !$indicator) {
       console.log(this._activeEl, $indicator);
       this.indicatorStyles = 'left: 100%; right: 100%';
@@ -205,7 +210,7 @@ export class Tabs extends Component {
       this.contentStyles = 'height: 0';
       return;
     }
-    const tabElement = this[GET_FIRST_DOM]().querySelector(`.md-tab:nth-child(${this._activeTab + 1})`);
+    const tabElement = this.__firstDOM.querySelector(`.md-tab:nth-child(${this._activeTab + 1})`);
     this.contentStyles = `height: ${tabElement ? `${tabElement.offsetHeight}px` : 0}`;
     this.containerStyles = `transform: translate3D(${-this._activeTab * 100}%, 0, 0)`;
   }

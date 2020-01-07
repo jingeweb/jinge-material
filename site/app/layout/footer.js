@@ -16,6 +16,7 @@ export class Footer extends Component {
 
   constructor(attrs) {
     super(attrs);
+    this.hide = attrs.hide;
     this.isSplash = attrs.isSplash;
   }
 }

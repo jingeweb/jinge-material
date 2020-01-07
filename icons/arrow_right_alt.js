@@ -9,12 +9,12 @@ export class IconBaselineArrowRightAlt extends Icon {
   }
 }
 
-const __svg_IconOutlineArrowRightAlt = `
+const __svg_IconOutlinedArrowRightAlt = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"/></svg>`;
 
-export class IconOutlineArrowRightAlt extends Icon {
+export class IconOutlinedArrowRightAlt extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowRightAlt;
+    return __svg_IconOutlinedArrowRightAlt;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundArrowRightAlt extends Icon {
 
 export class IconSharpArrowRightAlt extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowRightAlt;
+    return __svg_IconOutlinedArrowRightAlt;
   }
 }
 
 export class IconTwotoneArrowRightAlt extends Icon {
   get svg() {
-    return __svg_IconOutlineArrowRightAlt;
+    return __svg_IconOutlinedArrowRightAlt;
   }
 }

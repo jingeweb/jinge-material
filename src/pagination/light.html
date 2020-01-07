@@ -1,0 +1,51 @@
+<!--
+  import { Button } from '../button';
+  import { Spinner } from '../spinner';
+  import { Field } from '../field';
+  import { Select, Option } from '../select';
+-->
+<div class="md-pagination${hideSinglePage && cursors && cursors.length === 1 && !cursors[0] ? ' jg-hide' : ''}${className ? ' ' + className : ''}">
+  <if e:expect="loading">
+    <Spinner/>
+  </if>
+  <if e:expect="pageSizeOptions">
+  <span style="margin-left: 16px;">
+    ${locale.sizePerPage}
+  </span>
+
+  <Field class="options">
+    <Select
+      e:disabled="disabled"
+      e:value="pageSize"
+      dense
+      on:change="onPageSizeChange"
+    >
+      <for e:loop="pageSizeOptions" vm:each="amount" key="each">
+      <Option e:value="amount"/>
+      </for>
+    </Select>
+  </Field>
+  </if>
+  <Button
+    class="md-icon-button"
+    on:click="first()"
+    e:disabled="disabled || !cursors || cursors.length <= 1"
+  >
+    <md-icon-first_page/>
+  </Button>
+  <Button
+    class="md-icon-button"
+    on:click="prev()"
+    e:disabled="disabled || !cursors || cursors.length <= 1"
+  >
+    <md-icon-keyboard_arrow_left/>
+  </Button>
+
+  <Button
+    class="md-icon-button"
+    e:disabled="disabled || !cursors || cursors.length === 0 || !cursors[cursors.length - 1]"
+    on:click="next()"
+  >
+    <md-icon-keyboard_arrow_right/>
+  </Button>
+</div>

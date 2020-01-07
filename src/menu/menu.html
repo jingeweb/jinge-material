@@ -1,4 +1,8 @@
-<md-popover
+<!--
+  import { Popover } from '../popover';
+  import { List } from '../list';
+-->
+<Popover
  class="md-menu${className ? ' ' + className : ''}"
  e:trigger="trigger"
  e:active="active"
@@ -19,10 +23,10 @@
       class="md-menu-content${size ? ' ' + size : ''}"
     >
       <div class="md-menu-content-container">
-        <md-list class="${dense ? ' md-dense' : ''}${listClass ? ' ' + listClass : ''}">
+        <List class="${dense ? ' md-dense' : ''}${listClass ? ' ' + listClass : ''}">
           <_slot slot-use:content />
-        </md-list>
+        </List>
       </div>
     </div>
   </_slot>
-</md-popover>
+</Popover>

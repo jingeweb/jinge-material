@@ -1,6 +1,5 @@
 import {
-  Component,
-  NOTIFY
+  Component
 } from 'jinge';
 import {
   getAndWatchLocale
@@ -62,22 +61,22 @@ export class DialogPrompt extends Component {
   }
 
   passActive(active, action) {
-    this[NOTIFY]('update.active', active, action);
+    this.__notify('update.active', active, action);
   }
 
   onCancel() {
-    this[NOTIFY]('cancel');
+    this.__notify('cancel');
   }
 
   onConfirm() {
-    this[NOTIFY]('confirm', this.inputValue);
+    this.__notify('confirm', this.inputValue);
   }
 
   onInputChange(value) {
     this.inputValue = value;
     this.requiredTip = this.inputRequired && !value ? '输入不能为空！' : null;
     this.errorTip = null;
-    this[NOTIFY]('change', this.inputValue);
+    this.__notify('change', this.inputValue);
   }
 
   onInputKeydown($evt) {

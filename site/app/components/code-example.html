@@ -1,6 +1,5 @@
 <!--
   import { CodeBlock } from './code-block';
-  import { DynamicComponent } from './dynamic-component';
 -->
 <div class="code-example">
   <md-toolbar class="md-dense md-primary" elevation="0">
@@ -33,7 +32,7 @@
   <switch e:test="tab">
     <md-content slot-pass:demo class="demo">
       <div class="demo-content">
-        <DynamicComponent e:component="_example.component"/>
+        <dynamic e:render="{_component: _example.component}"/>
       </div>
     </md-content>
     

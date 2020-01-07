@@ -11,7 +11,7 @@ export class IconBaselineSubdirectoryArrowLeft extends Icon {
   }
 }
 
-export class IconOutlineSubdirectoryArrowLeft extends Icon {
+export class IconOutlinedSubdirectoryArrowLeft extends Icon {
   get svg() {
     return __svg_IconBaselineSubdirectoryArrowLeft;
   }

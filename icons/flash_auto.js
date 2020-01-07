@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineFlashAuto = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2v12h3v9l7-12H9l4-9H3zm16 0h-2l-3.2 9h1.9l.7-2h3.2l.7 2h1.9L19 2zm-2.15 5.65L18 4l1.15 3.65h-2.3z"/></svg>`;
+
 export class IconBaselineFlashAuto extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 2v12h3v9l7-12H9l4-9H3zm16 0h-2l-3.2 9h1.9l.7-2h3.2l.7 2h1.9L19 2zm-2.15 5.65L18 4l1.15 3.65h-2.3z"/></svg>`;
+    return __svg_IconBaselineFlashAuto;
   }
 }
 
-const __svg_IconOutlineFlashAuto = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 2v12h3v9l7-12H9l4-9H3zm16 0h-2l-3.2 9h1.9l.7-2h3.2l.7 2h1.9L19 2zm-2.15 5.65L18 4l1.15 3.65h-2.3z"/></svg>`;
-
-export class IconOutlineFlashAuto extends Icon {
+export class IconOutlinedFlashAuto extends Icon {
   get svg() {
-    return __svg_IconOutlineFlashAuto;
+    return __svg_IconBaselineFlashAuto;
   }
 }
 
@@ -27,7 +26,7 @@ export class IconRoundFlashAuto extends Icon {
 
 export class IconSharpFlashAuto extends Icon {
   get svg() {
-    return __svg_IconOutlineFlashAuto;
+    return __svg_IconBaselineFlashAuto;
   }
 }
 

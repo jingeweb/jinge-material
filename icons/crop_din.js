@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineCropDin = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>`;
+
 export class IconBaselineCropDin extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>`;
+    return __svg_IconBaselineCropDin;
   }
 }
 
-const __svg_IconOutlineCropDin = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>`;
-
-export class IconOutlineCropDin extends Icon {
+export class IconOutlinedCropDin extends Icon {
   get svg() {
-    return __svg_IconOutlineCropDin;
+    return __svg_IconBaselineCropDin;
   }
 }
 
@@ -34,6 +33,6 @@ export class IconSharpCropDin extends Icon {
 
 export class IconTwotoneCropDin extends Icon {
   get svg() {
-    return __svg_IconOutlineCropDin;
+    return __svg_IconBaselineCropDin;
   }
 }

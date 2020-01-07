@@ -1,9 +1,9 @@
 import {
-  VM,
+  vm,
   _t
 } from 'jinge';
 
-export default () => VM({
+export default () => vm({
   tabs: {
     props: {
       headings: [_t('名称'), _t('描述'), _t('默认值')],
@@ -103,7 +103,7 @@ export default () => VM({
       {
         name: 'to',
         type: 'String',
-        description: _t('为标签页添加 jinge-ui-router 的路由功能，指定目标路由状态。'),
+        description: _t('为标签页添加 jinge-router 的路由功能，指定目标路由状态。'),
         defaults: 'null'
       },
       {

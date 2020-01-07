@@ -1,12 +1,7 @@
 import './button.scss';
 
 import {
-  Component,
-  VM,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  NOTIFY,
-  DOM_PASS_LISTENERS
+  Component, vm
 } from 'jinge';
 import {
   registerFocus,
@@ -32,7 +27,6 @@ export class Button extends Component {
     this.to = attrs.to || '';
     this.target = attrs.target || '_self';
     this.href = attrs.href || '';
-    this.params = attrs.params;
     this.active = attrs.active;
 
     this.type = attrs.type || 'button';
@@ -53,31 +47,31 @@ export class Button extends Component {
     this._ts = -1;
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     registerFocus(this);
-    this[DOM_PASS_LISTENERS](IGNORED_EVENTS);
+    this.__domPassListeners(IGNORED_EVENTS);
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     deregisterFocus(this);
   }
 
   touchstart(event) {
     if (this.ripple && !this.disabled) {
       this._ts = event.timeStamp;
-      this.rippleActive = VM({
+      this.rippleActive = vm({
         _event: event
       });
     }
-    this[NOTIFY]('touchstart', event);
+    this.__notify('touchstart', event);
   }
 
   mousedown(event) {
     if (this.ripple && !this.disabled && this._ts !== event.timeStamp) {
-      this.rippleActive = VM({
+      this.rippleActive = vm({
         _event: event
       });
     }
-    this[NOTIFY]('mousedown', event);
+    this.__notify('mousedown', event);
   }
 }

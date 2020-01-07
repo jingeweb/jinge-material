@@ -1,12 +1,7 @@
 import './list-item.scss';
 
 import {
-  Component,
-  AFTER_RENDER,
-  DOM_PASS_LISTENERS,
-  NOTIFY,
-  LISTENERS,
-  GET_FIRST_DOM
+  Component, __
 } from 'jinge';
 import {
   interactionEvents
@@ -15,7 +10,7 @@ import {
 import _tpl from './list-item.html';
 
 function hasInteractionEvents(attrs) {
-  const listeners = attrs[LISTENERS];
+  const listeners = attrs[__].listeners;
   if (!listeners) return false;
   for (const eventName in listeners) {
     if (interactionEvents.includes(eventName)) {
@@ -52,24 +47,20 @@ export class ListItem extends Component {
     this.href = attrs.href;
     this.to = attrs.to;
     this.target = attrs.target || '_self';
-    this.params = attrs.params;
     this.active = attrs.active;
     this.expanded = attrs.expanded;
   }
 
   notifyExpanded(v) {
-    this[NOTIFY]('update.expanded', v);
+    this.__notify('update.expanded', v);
   }
 
-  [AFTER_RENDER]() {
-    if (!this[LISTENERS]) {
-      return;
-    }
-    let el = this[GET_FIRST_DOM]();
+  __afterRender() {
+    let el = this.__firstDOM;
     const tag = this._tag;
     if (tag === 'button' || tag === 'sref' || tag === 'link') {
       el = el.children[0];
     }
-    this[DOM_PASS_LISTENERS](el);
+    this.__domPassListeners(el);
   }
 }

@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './editable.html';
@@ -12,7 +12,7 @@ export default class ExampleClipsEditable extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.fruits = VM(['Orange', 'Apple']);
+    this.fruits = vm(['Orange', 'Apple']);
   }
 
   log(...args) {

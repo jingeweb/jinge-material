@@ -9,12 +9,12 @@ export class IconBaselineAddToHomeScreen extends Icon {
   }
 }
 
-const __svg_IconOutlineAddToHomeScreen = `
+const __svg_IconOutlinedAddToHomeScreen = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 1.01L8 1c-1.1 0-2 .9-2 2v3h2V5h10v14H8v-1H6v3c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM10 15h2V8H5v2h3.59L3 15.59 4.41 17 10 11.41V15z"/></svg>`;
 
-export class IconOutlineAddToHomeScreen extends Icon {
+export class IconOutlinedAddToHomeScreen extends Icon {
   get svg() {
-    return __svg_IconOutlineAddToHomeScreen;
+    return __svg_IconOutlinedAddToHomeScreen;
   }
 }
 
@@ -34,6 +34,6 @@ export class IconSharpAddToHomeScreen extends Icon {
 
 export class IconTwotoneAddToHomeScreen extends Icon {
   get svg() {
-    return __svg_IconOutlineAddToHomeScreen;
+    return __svg_IconOutlinedAddToHomeScreen;
   }
 }

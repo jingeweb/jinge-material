@@ -5,16 +5,16 @@ import {
 export class IconBaselineDehaze extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineDehaze = `
+const __svg_IconOutlinedDehaze = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 16v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20V6H2z"/></svg>`;
 
-export class IconOutlineDehaze extends Icon {
+export class IconOutlinedDehaze extends Icon {
   get svg() {
-    return __svg_IconOutlineDehaze;
+    return __svg_IconOutlinedDehaze;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundDehaze extends Icon {
 
 export class IconSharpDehaze extends Icon {
   get svg() {
-    return __svg_IconOutlineDehaze;
+    return __svg_IconOutlinedDehaze;
   }
 }
 
 export class IconTwotoneDehaze extends Icon {
   get svg() {
-    return __svg_IconOutlineDehaze;
+    return __svg_IconOutlinedDehaze;
   }
 }

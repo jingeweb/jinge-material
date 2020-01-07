@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineFilterList = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>`;
+
 export class IconBaselineFilterList extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineFilterList;
   }
 }
 
-const __svg_IconOutlineFilterList = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>`;
-
-export class IconOutlineFilterList extends Icon {
+export class IconOutlinedFilterList extends Icon {
   get svg() {
-    return __svg_IconOutlineFilterList;
+    return __svg_IconBaselineFilterList;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundFilterList extends Icon {
 
 export class IconSharpFilterList extends Icon {
   get svg() {
-    return __svg_IconOutlineFilterList;
+    return __svg_IconBaselineFilterList;
   }
 }
 
 export class IconTwotoneFilterList extends Icon {
   get svg() {
-    return __svg_IconOutlineFilterList;
+    return __svg_IconBaselineFilterList;
   }
 }

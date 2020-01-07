@@ -5,16 +5,16 @@ import {
 export class IconBaselineDonutLarge extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="a" d="M0 0h24v24H0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M11,5.08V2C6,2.5,2,6.81,2,12s4,9.5,9,10v-3.08c-3-0.48-6-3.4-6-6.92S8,5.56,11,5.08z M18.97,11H22c-0.47-5-4-8.53-9-9 v3.08C16,5.51,18.54,8,18.97,11z M13,18.92V22c5-0.47,8.53-4,9-9h-3.03C18.54,16,16,18.49,13,18.92z"/></g></g></g></svg>`;
   }
 }
 
-const __svg_IconOutlineDonutLarge = `
+const __svg_IconOutlinedDonutLarge = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 5.08c3.06.44 5.48 2.86 5.92 5.92h3.03c-.47-4.72-4.23-8.48-8.95-8.95v3.03zM18.92 13c-.44 3.06-2.86 5.48-5.92 5.92v3.03c4.72-.47 8.48-4.23 8.95-8.95h-3.03zM11 18.92c-3.39-.49-6-3.4-6-6.92s2.61-6.43 6-6.92V2.05c-5.05.5-9 4.76-9 9.95 0 5.19 3.95 9.45 9 9.95v-3.03z"/></svg>`;
 
-export class IconOutlineDonutLarge extends Icon {
+export class IconOutlinedDonutLarge extends Icon {
   get svg() {
-    return __svg_IconOutlineDonutLarge;
+    return __svg_IconOutlinedDonutLarge;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundDonutLarge extends Icon {
 
 export class IconSharpDonutLarge extends Icon {
   get svg() {
-    return __svg_IconOutlineDonutLarge;
+    return __svg_IconOutlinedDonutLarge;
   }
 }
 
 export class IconTwotoneDonutLarge extends Icon {
   get svg() {
-    return __svg_IconOutlineDonutLarge;
+    return __svg_IconOutlinedDonutLarge;
   }
 }

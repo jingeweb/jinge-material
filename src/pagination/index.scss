@@ -1,7 +1,13 @@
-.md-table-pagination {
+.md-pagination {
   height: 56px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+
+  > .md-spinner {
+    opacity: 0.38;
+    font-size: 14px;
+  }
 
   &,
   > .md-field.md-has-value .md-input,

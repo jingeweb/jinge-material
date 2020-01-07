@@ -5,6 +5,7 @@
   ],
   "rules": {
     "no-descending-specificity": null,
-    "string-quotes": "single"
+    "string-quotes": "single",
+    "value-keyword-case": null
   }
 }

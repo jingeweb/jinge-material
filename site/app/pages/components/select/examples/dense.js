@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './dense.html';
@@ -14,9 +14,9 @@ export default class ExampleSelectDense extends Component {
     super(attrs);
     this.selectedMovie = null;
     this.selectedCountry = 'China';
-    this.allCountries = VM(['China', 'United States', 'Japan', 'Australia']);
+    this.allCountries = vm(['China', 'United States', 'Japan', 'Australia']);
     this.selectedFont = null;
-    this.allFonts = VM([{
+    this.allFonts = vm([{
       id: 'arial',
       name: 'Arial'
     }, {

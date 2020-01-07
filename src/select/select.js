@@ -1,21 +1,13 @@
 import './select.scss';
 
 import {
-  Symbol,
-  SET_CONTEXT,
-  NOTIFY,
-  UPDATE_IF_NEED,
-  AFTER_RENDER,
-  ARG_COMPONENTS,
+  __,
   Component,
-  wrapAttrs,
-  CONTEXT,
+  attrs as wrapAttrs,
   arrayPushIfNotExist,
   arrayRemove,
   isArray,
   isUndefined,
-  DESTROY,
-  RENDER_TO_DOM,
   createElementWithoutAttrs
 } from 'jinge';
 import {
@@ -50,7 +42,7 @@ export class Select extends BaseField {
     };
 
     this.value = attrs.value;
-    this[SET_CONTEXT](SELECT_PROVIDER, this);
+    this.__setContext(SELECT_PROVIDER, this);
 
     this.showSelect = false;
   }
@@ -73,27 +65,29 @@ export class Select extends BaseField {
   set value(v) {
     if (this._value === v) return;
     this._value = v;
-    this[UPDATE_IF_NEED](this._updateSelect);
+    this.__updateIfNeed(this._updateSelect);
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this._updateSelect();
   }
 
   _renderHelperOptions() {
     const $container = createElementWithoutAttrs('div');
     const el = new Component(wrapAttrs({
-      [CONTEXT]: this[CONTEXT],
-      [ARG_COMPONENTS]: this[ARG_COMPONENTS]
+      [__]: {
+        context: this[__].context,
+        slots: this[__].slots
+      }
     }));
-    el[SET_CONTEXT](HELPER_MODE, true);
-    el[RENDER_TO_DOM]($container, false);
+    el.__setContext(HELPER_MODE, true);
+    el.__renderToDOM($container, false);
     this._helper.$dom = $container;
     this._helper.el = el;
   }
 
   _destroyHelperOptions() {
-    this._helper.el[DESTROY](true);
+    this._helper.el.__destroy(true);
     this._helper.el = null;
     this._helper.$dom = null;
   }
@@ -158,7 +152,7 @@ export class Select extends BaseField {
     } else {
       arrayRemove(this._value, option.value);
     }
-    this[NOTIFY]('change', this._value);
+    this.__notify('change', this._value);
   }
 
   /**
@@ -173,7 +167,7 @@ export class Select extends BaseField {
     }
     this._value = option.value;
     this.label = option.getText();
-    this[NOTIFY]('change', this.value);
+    this.__notify('change', this.value);
     this.closeSelect();
   }
 

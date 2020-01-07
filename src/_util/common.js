@@ -40,3 +40,14 @@ export function debounce(fn, time) {
     }, time);
   };
 }
+
+export function obj2class(obj, prepend) {
+  const classes = Object.keys(obj).filter(k => obj[k]).join(' ').trim();
+  return prepend ? `${prepend}${classes ? ' ' + classes : ''}` : classes;
+}
+
+export function obj2style(obj) {
+  return Object.keys(obj).map(k => {
+    return `${k}: ${obj[k]}`;
+  }).join(';').trim();
+}

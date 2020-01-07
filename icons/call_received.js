@@ -5,16 +5,16 @@ import {
 export class IconBaselineCallReceived extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 5.41L18.59 4 7 15.59V9H5v10h10v-2H8.41z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 5.41L18.59 4 7 15.59V9H5v10h10v-2H8.41z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineCallReceived = `
+const __svg_IconOutlinedCallReceived = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 5.41L18.59 4 7 15.59V9H5v10h10v-2H8.41L20 5.41z"/></svg>`;
 
-export class IconOutlineCallReceived extends Icon {
+export class IconOutlinedCallReceived extends Icon {
   get svg() {
-    return __svg_IconOutlineCallReceived;
+    return __svg_IconOutlinedCallReceived;
   }
 }
 
@@ -27,7 +27,7 @@ export class IconRoundCallReceived extends Icon {
 
 export class IconSharpCallReceived extends Icon {
   get svg() {
-    return __svg_IconOutlineCallReceived;
+    return __svg_IconOutlinedCallReceived;
   }
 }
 

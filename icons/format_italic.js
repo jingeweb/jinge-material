@@ -5,14 +5,16 @@ import {
 export class IconBaselineFormatItalic extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z"/></svg>`;
   }
 }
 
-export class IconOutlineFormatItalic extends Icon {
-  get svg() {
-    return `
+const __svg_IconOutlinedFormatItalic = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4h-8z"/></svg>`;
+
+export class IconOutlinedFormatItalic extends Icon {
+  get svg() {
+    return __svg_IconOutlinedFormatItalic;
   }
 }
 
@@ -25,8 +27,7 @@ export class IconRoundFormatItalic extends Icon {
 
 export class IconSharpFormatItalic extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4h-8z"/></svg>`;
+    return __svg_IconOutlinedFormatItalic;
   }
 }
 

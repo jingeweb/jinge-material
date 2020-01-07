@@ -5,16 +5,16 @@ import {
 export class IconBaselineCompareArrows extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="a" d="M0 0h24v24H0V0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24" x="0"/></g><g><g><g><path d="M9.01,14H2v2h7.01v3L13,15l-3.99-4V14z M14.99,13v-3H22V8h-7.01V5L11,9L14.99,13z"/></g></g></g></svg>`;
   }
 }
 
-const __svg_IconOutlineCompareArrows = `
+const __svg_IconOutlinedCompareArrows = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg>`;
 
-export class IconOutlineCompareArrows extends Icon {
+export class IconOutlinedCompareArrows extends Icon {
   get svg() {
-    return __svg_IconOutlineCompareArrows;
+    return __svg_IconOutlinedCompareArrows;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundCompareArrows extends Icon {
 
 export class IconSharpCompareArrows extends Icon {
   get svg() {
-    return __svg_IconOutlineCompareArrows;
+    return __svg_IconOutlinedCompareArrows;
   }
 }
 
 export class IconTwotoneCompareArrows extends Icon {
   get svg() {
-    return __svg_IconOutlineCompareArrows;
+    return __svg_IconOutlinedCompareArrows;
   }
 }

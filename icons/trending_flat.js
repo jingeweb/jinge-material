@@ -5,16 +5,16 @@ import {
 export class IconBaselineTrendingFlat extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 12l-4-4v3H3v2h15v3z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 12l-4-4v3H3v2h15v3z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineTrendingFlat = `
+const __svg_IconOutlinedTrendingFlat = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 12l-4-4v3H3v2h15v3l4-4z"/></svg>`;
 
-export class IconOutlineTrendingFlat extends Icon {
+export class IconOutlinedTrendingFlat extends Icon {
   get svg() {
-    return __svg_IconOutlineTrendingFlat;
+    return __svg_IconOutlinedTrendingFlat;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundTrendingFlat extends Icon {
 
 export class IconSharpTrendingFlat extends Icon {
   get svg() {
-    return __svg_IconOutlineTrendingFlat;
+    return __svg_IconOutlinedTrendingFlat;
   }
 }
 
 export class IconTwotoneTrendingFlat extends Icon {
   get svg() {
-    return __svg_IconOutlineTrendingFlat;
+    return __svg_IconOutlinedTrendingFlat;
   }
 }

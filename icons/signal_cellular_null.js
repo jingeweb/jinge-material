@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineSignalCellularNull = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 6.83V20H6.83L20 6.83M22 2L2 22h20V2z"/></svg>`;
+
 export class IconBaselineSignalCellularNull extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 6.83V20H6.83L20 6.83M22 2L2 22h20V2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineSignalCellularNull;
   }
 }
 
-const __svg_IconOutlineSignalCellularNull = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 6.83V20H6.83L20 6.83M22 2L2 22h20V2z"/></svg>`;
-
-export class IconOutlineSignalCellularNull extends Icon {
+export class IconOutlinedSignalCellularNull extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularNull;
+    return __svg_IconBaselineSignalCellularNull;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundSignalCellularNull extends Icon {
 
 export class IconSharpSignalCellularNull extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularNull;
+    return __svg_IconBaselineSignalCellularNull;
   }
 }
 
 export class IconTwotoneSignalCellularNull extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellularNull;
+    return __svg_IconBaselineSignalCellularNull;
   }
 }

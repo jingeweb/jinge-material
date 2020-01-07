@@ -1,0 +1,19 @@
+<!--
+  import {
+    Header,
+    Nav,
+    Footer
+  } from '../layout';
+-->
+<div class="container${isSplash ? ' splash' : ''}">
+  <Header e:title="appTitle" on:toggle-menu="menuShown = !menuShown;" e:isSplash="isSplash"/>
+
+  <div class="container-wrapper md-layout-row${isSplash ? ' splash' : ''}">
+    <Nav on:hide-menu="menuShown = false;" e:menuShown="menuShown" e:isSplash="isSplash"/>
+
+    <router-view doc="after">
+      <!-- <p>loading...</p> -->
+    </router-view>
+    <Footer e:hide="hideFooter"/>
+  </div>
+</div>

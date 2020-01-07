@@ -5,16 +5,16 @@ import {
 export class IconBaselineGavel extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><defs><path id="a" d="M0 0h24v24H0V0z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path d="M1 21h12v2H1zM5.245 8.07l2.83-2.827 14.14 14.142-2.828 2.828zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657z" clip-path="url(#b)"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24" x="0"/></g><g><g><rect height="20" transform="matrix(0.7075 -0.7067 0.7067 0.7075 -5.6854 13.7194)" width="4" x="11.73" y="3.73"/><rect height="8" transform="matrix(0.707 -0.7072 0.7072 0.707 0.3157 11.246)" width="4" x="11.73" y="1.24"/><rect height="8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -8.1722 7.7256)" width="4" x="3.24" y="9.73"/><rect height="2" width="12" x="1" y="21"/></g></g></svg>`;
   }
 }
 
-const __svg_IconOutlineGavel = `
+const __svg_IconOutlinedGavel = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M1 21h12v2H1v-2zM5.24 8.07l2.83-2.83 14.14 14.14-2.83 2.83L5.24 8.07zM12.32 1l5.66 5.66-2.83 2.83-5.66-5.66L12.32 1zM3.83 9.48l5.66 5.66-2.83 2.83L1 12.31l2.83-2.83z"/></svg>`;
 
-export class IconOutlineGavel extends Icon {
+export class IconOutlinedGavel extends Icon {
   get svg() {
-    return __svg_IconOutlineGavel;
+    return __svg_IconOutlinedGavel;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundGavel extends Icon {
 
 export class IconSharpGavel extends Icon {
   get svg() {
-    return __svg_IconOutlineGavel;
+    return __svg_IconOutlinedGavel;
   }
 }
 
 export class IconTwotoneGavel extends Icon {
   get svg() {
-    return __svg_IconOutlineGavel;
+    return __svg_IconOutlinedGavel;
   }
 }

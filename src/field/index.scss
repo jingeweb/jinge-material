@@ -57,6 +57,10 @@ $md-input-height: 32px;
     line-height: 20px;
   }
 
+  .md-icon + input + label {
+    left: 24px;
+  }
+
   .md-suffix {
     font-size: 16px;
     line-height: 32px;

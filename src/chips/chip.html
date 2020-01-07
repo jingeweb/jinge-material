@@ -1,3 +1,8 @@
+<!--
+  import { Ripple } from '../ripple';
+  import { Button } from '../button';
+-->
+
 <div
   class="md-chip md-state-container${className ? ' ' + className : ''}${hasFocus ? ' md-focused' : ''}${deletable ? ' md-deletable' : ''}${clickable ? ' md-clickable' : ''}${duplicated ? ' md-duplicated' : ''}"
   e:style="style"
@@ -6,19 +11,19 @@
 >
   <div class="md-state-overlay"></div>
   <if e:expect="clickable || !ripple">
-  <md-ripple slot-pass:default e:disabled="disabled">
+  <Ripple slot-pass:default e:disabled="disabled">
     <_slot />
-  </md-ripple>
+  </Ripple>
   <_slot slot-pass:else>
     <_slot />
   </_slot>
   </if>
   <if e:expect="deletable">
-    <md-button
+    <Button
       tabindex="-1"
       class="md-icon-button md-dense md-input-action md-clear"
       on:click="onDelClick">
       <md-icon-clear />
-    </md-button>
+    </Button>
   </if>
 </div>

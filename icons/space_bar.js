@@ -9,10 +9,12 @@ export class IconBaselineSpaceBar extends Icon {
   }
 }
 
-export class IconOutlineSpaceBar extends Icon {
-  get svg() {
-    return `
+const __svg_IconOutlinedSpaceBar = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 9v4H6V9H4v6h16V9h-2z"/></svg>`;
+
+export class IconOutlinedSpaceBar extends Icon {
+  get svg() {
+    return __svg_IconOutlinedSpaceBar;
   }
 }
 
@@ -25,8 +27,7 @@ export class IconRoundSpaceBar extends Icon {
 
 export class IconSharpSpaceBar extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 9v4H6V9H4v6h16V9h-2z"/></svg>`;
+    return __svg_IconOutlinedSpaceBar;
   }
 }
 

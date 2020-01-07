@@ -11,7 +11,7 @@ export class IconBaselineZoomOut extends Icon {
   }
 }
 
-export class IconOutlineZoomOut extends Icon {
+export class IconOutlinedZoomOut extends Icon {
   get svg() {
     return __svg_IconBaselineZoomOut;
   }

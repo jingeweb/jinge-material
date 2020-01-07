@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineKeyboardArrowRight = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
+
 export class IconBaselineKeyboardArrowRight extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
+    return __svg_IconBaselineKeyboardArrowRight;
   }
 }
 
-const __svg_IconOutlineKeyboardArrowRight = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>`;
-
-export class IconOutlineKeyboardArrowRight extends Icon {
+export class IconOutlinedKeyboardArrowRight extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowRight;
+    return __svg_IconBaselineKeyboardArrowRight;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundKeyboardArrowRight extends Icon {
 
 export class IconSharpKeyboardArrowRight extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowRight;
+    return __svg_IconBaselineKeyboardArrowRight;
   }
 }
 
 export class IconTwotoneKeyboardArrowRight extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardArrowRight;
+    return __svg_IconBaselineKeyboardArrowRight;
   }
 }

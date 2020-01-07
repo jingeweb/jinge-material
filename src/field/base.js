@@ -1,13 +1,6 @@
 import {
   Component,
-  GET_CONTEXT,
-  ON,
-  BEFORE_DESTROY,
-  OFF,
-  AFTER_RENDER,
-  GET_FIRST_DOM,
-  isUndefined,
-  NOTIFY
+  isUndefined
 } from 'jinge';
 import {
   FIELD_PROVIDER
@@ -17,11 +10,11 @@ export class BaseField extends Component {
   constructor(attrs, componentTag) {
     super(attrs);
 
-    this.Field = this[GET_CONTEXT](FIELD_PROVIDER);
+    this.Field = this.__getContext(FIELD_PROVIDER);
     if (!this.Field) throw new Error(`<${componentTag}> must be put under <md-field>`);
 
     this._clearHandler = this.clearField.bind(this);
-    this.Field[ON]('clear', this._clearHandler);
+    this.Field.__on('clear', this._clearHandler);
 
     this.value = attrs.value;
     this.placeholder = attrs.placeholder;
@@ -33,12 +26,12 @@ export class BaseField extends Component {
     this.counter = attrs.counter;
   }
 
-  [AFTER_RENDER]() {
-    this._setLabelFor(this[GET_FIRST_DOM]());
+  __afterRender() {
+    this._setLabelFor(this.__firstDOM);
   }
 
-  [BEFORE_DESTROY]() {
-    this.Field[OFF]('clear', this._clearHandler);
+  __beforeDestroy() {
+    this.Field.__off('clear', this._clearHandler);
     this.Field = null;
   }
 
@@ -115,14 +108,14 @@ export class BaseField extends Component {
   }
 
   clearField() {
-    this[GET_FIRST_DOM]().value = '';
+    this.__firstDOM.value = '';
     this._doClear();
   }
 
   _doClear() {
     if (this.value !== null) {
       this.value = null;
-      this[NOTIFY]('change', null);
+      this.__notify('change', null);
     }
   }
 

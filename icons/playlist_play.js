@@ -11,7 +11,7 @@ export class IconBaselinePlaylistPlay extends Icon {
   }
 }
 
-export class IconOutlinePlaylistPlay extends Icon {
+export class IconOutlinedPlaylistPlay extends Icon {
   get svg() {
     return __svg_IconBaselinePlaylistPlay;
   }

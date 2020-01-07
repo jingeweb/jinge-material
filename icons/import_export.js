@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineImportExport = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>`;
+
 export class IconBaselineImportExport extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineImportExport;
   }
 }
 
-const __svg_IconOutlineImportExport = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"/></svg>`;
-
-export class IconOutlineImportExport extends Icon {
+export class IconOutlinedImportExport extends Icon {
   get svg() {
-    return __svg_IconOutlineImportExport;
+    return __svg_IconBaselineImportExport;
   }
 }
 
@@ -27,7 +26,7 @@ export class IconRoundImportExport extends Icon {
 
 export class IconSharpImportExport extends Icon {
   get svg() {
-    return __svg_IconOutlineImportExport;
+    return __svg_IconBaselineImportExport;
   }
 }
 

@@ -2,14 +2,16 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineViewStream = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 18h17v-6H4v6zM4 5v6h17V5H4z"/></svg>`;
+
 export class IconBaselineViewStream extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 18h17v-6H4v6zM4 5v6h17V5H4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselineViewStream;
   }
 }
 
-export class IconOutlineViewStream extends Icon {
+export class IconOutlinedViewStream extends Icon {
   get svg() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6v12h17V6H4zm15 10H6v-3h13v3zM6 11V8h13v3H6z"/></svg>`;
@@ -25,8 +27,7 @@ export class IconRoundViewStream extends Icon {
 
 export class IconSharpViewStream extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 18h17v-6H4v6zM4 5v6h17V5H4z"/></svg>`;
+    return __svg_IconBaselineViewStream;
   }
 }
 

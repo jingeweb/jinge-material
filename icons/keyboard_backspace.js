@@ -5,16 +5,16 @@ import {
 export class IconBaselineKeyboardBackspace extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineKeyboardBackspace = `
+const __svg_IconOutlinedKeyboardBackspace = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21v-2z"/></svg>`;
 
-export class IconOutlineKeyboardBackspace extends Icon {
+export class IconOutlinedKeyboardBackspace extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardBackspace;
+    return __svg_IconOutlinedKeyboardBackspace;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundKeyboardBackspace extends Icon {
 
 export class IconSharpKeyboardBackspace extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardBackspace;
+    return __svg_IconOutlinedKeyboardBackspace;
   }
 }
 
 export class IconTwotoneKeyboardBackspace extends Icon {
   get svg() {
-    return __svg_IconOutlineKeyboardBackspace;
+    return __svg_IconOutlinedKeyboardBackspace;
   }
 }

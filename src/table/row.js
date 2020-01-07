@@ -1,8 +1,6 @@
 import {
   Component,
-  NOTIFY,
-  UPDATE_IF_NEED,
-  vmWatch
+  watch
 } from 'jinge';
 
 import _tpl from './row.html';
@@ -24,9 +22,9 @@ export class TableRow extends Component {
     this.rowClassFn = attrs.rowClass;
     this.selected = attrs.selected;
 
-    vmWatch(attrs, 'data.**', props => {
+    watch(attrs, 'data.**', props => {
       if (this.rowClassFn) {
-        this[UPDATE_IF_NEED](this._updateClass);
+        this.__updateIfNeed(this._updateClass);
       }
     });
     this._updateClass();
@@ -39,12 +37,12 @@ export class TableRow extends Component {
   set rowClassFn(v) {
     if (this._rcFn === v) return;
     this._rcFn = v;
-    this[UPDATE_IF_NEED](this._updateClass);
+    this.__updateIfNeed(this._updateClass);
   }
 
   toggleSelect() {
     this.selected = !this.selected;
-    this[NOTIFY]('select', this);
+    this.__notify('select', this);
   }
 
   _updateClass() {

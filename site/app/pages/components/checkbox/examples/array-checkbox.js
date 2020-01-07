@@ -1,7 +1,6 @@
 import {
   Component,
-  VM,
-  I18N_WATCH,
+  vm,
   _t
 } from 'jinge';
 
@@ -14,8 +13,8 @@ export default class ExampleArrayCheckbox extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this[I18N_WATCH](() => {
-      const persons = VM([{
+    this.__i18nWatch(() => {
+      const persons = vm([{
         name: _t('小葛')
       }, {
         name: _t('小明')
@@ -31,9 +30,9 @@ export default class ExampleArrayCheckbox extends Component {
         this.selectedPersonsDisplay = JSON.stringify(this.selectedPersons);
       }
     }, true);
-    this.cities = VM(['Chengdu', 'Beijing', 'Shanghai']);
-    this.selectedPersons = VM([]);
-    this.selectedCities = VM(['Beijing']);
+    this.cities = vm(['Chengdu', 'Beijing', 'Shanghai']);
+    this.selectedPersons = vm([]);
+    this.selectedCities = vm(['Beijing']);
     this.selectedCitiesDisplay = JSON.stringify(this.selectedCities);
     this.selectedPersonsDisplay = JSON.stringify(this.selectedPersons);
   }

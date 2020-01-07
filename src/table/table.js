@@ -1,21 +1,11 @@
 import {
   Component,
-  Symbol,
-  VM,
-  SET_CONTEXT,
-  CONTEXT,
-  NOTIFY,
-  RENDER,
-  wrapAttrs,
-  ARG_COMPONENTS,
-  BEFORE_DESTROY,
+  vm, __,
+  attrs as wrapAttrs,
   arrayRemove,
   arrayPushIfNotExist,
   isArray,
-  createElementWithoutAttrs,
-  RENDER_TO_DOM,
-  DESTROY,
-  UPDATE_IF_NEED
+  createElementWithoutAttrs
 } from 'jinge';
 import {
   FunctionAttrValidator
@@ -37,7 +27,7 @@ export class Table extends Component {
     rowClassValidator.assert(attrs);
     super(attrs);
 
-    this.selectionMask = VM([]);
+    this.selectionMask = vm([]);
     this.selectionCount = 0;
     this._helper = {
       $dom: null,
@@ -51,15 +41,15 @@ export class Table extends Component {
     this._rowLoopKey = attrs.rowLoopKey || 'index';
     this._columnLoopKey = attrs.columnLoopKey || 'index';
 
-    this.columns = VM([]);
+    this.columns = vm([]);
 
-    this[SET_CONTEXT](TABLE_PROVIDER, this, true);
+    this.__setContext(TABLE_PROVIDER, this, true);
     this._updateSelectionMask();
   }
 
-  [RENDER]() {
+  __render() {
     this._renderHelperColumns();
-    return super[RENDER]();
+    return super.__render();
   }
 
   get data() {
@@ -73,7 +63,7 @@ export class Table extends Component {
       throw new Error('<md-table>: data attribute must be Array.');
     }
     if (this.selection && this.selection.length > 0) {
-      this[UPDATE_IF_NEED](this._updateSelectionMask);
+      this.__updateIfNeed(this._updateSelectionMask);
     }
   }
 
@@ -85,7 +75,7 @@ export class Table extends Component {
     if (this._selection === v) return;
     this._selection = v;
     if (this.data && this.data.length > 0) {
-      this[UPDATE_IF_NEED](this._updateSelectionMask);
+      this.__updateIfNeed(this._updateSelectionMask);
     }
   }
 
@@ -112,16 +102,18 @@ export class Table extends Component {
   _renderHelperColumns() {
     const $container = createElementWithoutAttrs('div');
     const el = new Component(wrapAttrs({
-      [CONTEXT]: this[CONTEXT],
-      [ARG_COMPONENTS]: this[ARG_COMPONENTS]
+      [__]: {
+        context: this[__].context,
+        slots: this[__].slots
+      }
     }));
-    el[RENDER_TO_DOM]($container, false);
+    el.__renderToDOM($container, false);
     this._helper.$dom = $container;
     this._helper.el = el;
   }
 
-  [BEFORE_DESTROY]() {
-    this._helper.el[DESTROY](true);
+  __beforeDestroy() {
+    this._helper.el.__destroy(true);
     this._helper.$dom = null;
   }
 
@@ -147,11 +139,11 @@ export class Table extends Component {
   }
 
   _updateSelection() {
-    this._selection = this.selectionCount === 0 ? VM([]) : (
+    this._selection = this.selectionCount === 0 ? vm([]) : (
       this.selectionCount === this.selectionMask.length ? this.data.slice() : this.data.filter((d, i) => {
         return this.selectionMask[i];
       })
     );
-    this[NOTIFY]('select', this._selection);
+    this.__notify('select', this._selection);
   }
 }

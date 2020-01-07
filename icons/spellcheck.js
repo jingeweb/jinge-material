@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineSpellcheck = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.45 16h2.09L9.43 3H7.57L2.46 16h2.09l1.12-3h5.64l1.14 3zm-6.02-5L8.5 5.48 10.57 11H6.43zm15.16.59l-8.09 8.09L9.83 16l-1.41 1.41 5.09 5.09L23 13l-1.41-1.41z"/></svg>`;
+
 export class IconBaselineSpellcheck extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12.45 16h2.09L9.43 3H7.57L2.46 16h2.09l1.12-3h5.64l1.14 3zm-6.02-5L8.5 5.48 10.57 11H6.43zm15.16.59l-8.09 8.09L9.83 16l-1.41 1.41 5.09 5.09L23 13l-1.41-1.41z"/></svg>`;
+    return __svg_IconBaselineSpellcheck;
   }
 }
 
-const __svg_IconOutlineSpellcheck = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.45 16h2.09L9.43 3H7.57L2.46 16h2.09l1.12-3h5.64l1.14 3zm-6.02-5L8.5 5.48 10.57 11H6.43zm15.16.59l-8.09 8.09L9.83 16l-1.41 1.41 5.09 5.09L23 13l-1.41-1.41z"/></svg>`;
-
-export class IconOutlineSpellcheck extends Icon {
+export class IconOutlinedSpellcheck extends Icon {
   get svg() {
-    return __svg_IconOutlineSpellcheck;
+    return __svg_IconBaselineSpellcheck;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundSpellcheck extends Icon {
 
 export class IconSharpSpellcheck extends Icon {
   get svg() {
-    return __svg_IconOutlineSpellcheck;
+    return __svg_IconBaselineSpellcheck;
   }
 }
 
 export class IconTwotoneSpellcheck extends Icon {
   get svg() {
-    return __svg_IconOutlineSpellcheck;
+    return __svg_IconBaselineSpellcheck;
   }
 }

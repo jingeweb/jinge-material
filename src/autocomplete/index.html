@@ -1,6 +1,12 @@
-<md-field class="md-autocomplete${layout === 'box' ? ' md-autocomplete-box' : ''}" clearable e:inline="layout === 'box'">
-  <md-menu placement="bottom" trigger="none" e:dense="dense" e:alignTrigger="layout === 'box' ? '0,8' : true" fullWidth e:active="showMenu && (hasFilteredItems || _hasScopedEmptySlot)" on:update.active="showMenu = args[0]">
-    <md-input
+<!--
+  import { Field } from '../field';
+  import { Menu, MenuItem } from '../menu';
+  import { Input } from '../input';
+  import { Spinner } from '../spinner';
+-->
+<Field class="md-autocomplete${layout === 'box' ? ' md-autocomplete-box' : ''}" clearable e:inline="layout === 'box'">
+  <Menu placement="bottom" trigger="none" e:dense="dense" e:alignTrigger="layout === 'box' ? '0,8' : true" fullWidth e:active="showMenu && (hasFilteredItems || _hasScopedEmptySlot)" on:update.active="showMenu = args[0]">
+    <Input
       slot-pass:default
       e:value="value"
       e:id="id"
@@ -15,28 +21,28 @@
     <_slot slot-pass:content>
     <if e:expect="promisePendingKey !== null">
     <div class="md-autocomplete-loading">
-      <md-spinner diameter="40" stroke="4" mode="indeterminate" />
+      <Spinner diameter="40" stroke="4" mode="indeterminate" />
     </div>
     </if>
     <if e:expect="hasFilteredItems">
     <div class="md-autocomplete-items">
       <for e:loop="filteredOptions" vm:each="item">
-      <md-menu-item on:click="selectItem(item, args[0])">
+      <MenuItem on:click="selectItem(item, args[0])">
         <_slot slot-use:option vm-pass:option="item" vm-pass:term="value">
           ${searchProp ? item[searchProp] : item}
         </_slot>
-      </md-menu-item>
+      </MenuItem>
       </for>
     </div>
     </if>
     <if e:expect="!hasFilteredItems && _hasScopedEmptySlot">
-    <md-menu-item>
+    <MenuItem>
       <div class="md-autocomplete-empty">
         <_slot slot-use:empty vm-pass:term="value" />
       </div>
-    </md-menu-item>
+    </MenuItem>
     </if>
     </_slot>
-  </md-menu>
+  </Menu>
   <_slot />
-</md-field>
+</Field>

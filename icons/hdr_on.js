@@ -11,7 +11,7 @@ export class IconBaselineHdrOn extends Icon {
   }
 }
 
-export class IconOutlineHdrOn extends Icon {
+export class IconOutlinedHdrOn extends Icon {
   get svg() {
     return __svg_IconBaselineHdrOn;
   }

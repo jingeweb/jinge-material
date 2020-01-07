@@ -1,4 +1,9 @@
-<md-popover
+<!--
+  import { Popover } from '../popover';
+  import { Button } from '../button';
+  import { Spinner } from '../spinner';
+-->
+<Popover
  e:trigger="trigger"
  e:active="active"
  e:transition="transition"
@@ -24,23 +29,23 @@
     </_slot>
     <_slot slot-use:ctrl>
     <div class="md-popover-ctrl">
-      <md-button
+      <Button
         e:disabled="confirmSpinner"     
         on:click="onCancel"
       >
         <span>${cancelText || locale.Cancel}</span>
-      </md-button>
-      <md-button
+      </Button>
+      <Button
         class="md-primary"
         e:disabled="confirmSpinner"
         on:click="onConfirm"
       >
         <if e:expect="confirmSpinner">
-          <md-spinner/>
+          <Spinner/>
         </if>
         <span>${confirmText || locale.Ok}</span>
-      </md-button>
+      </Button>
     </div>
     </_slot>
   </_slot>
-</md-popover>
+</Popover>

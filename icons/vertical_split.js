@@ -11,7 +11,7 @@ export class IconBaselineVerticalSplit extends Icon {
   }
 }
 
-export class IconOutlineVerticalSplit extends Icon {
+export class IconOutlinedVerticalSplit extends Icon {
   get svg() {
     return `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 13h8v2H3zm0 4h8v2H3zm0-8h8v2H3zm0-4h8v2H3zm16 2v10h-4V7h4m2-2h-8v14h8V5z"/></svg>`;
@@ -34,6 +34,6 @@ export class IconSharpVerticalSplit extends Icon {
 export class IconTwotoneVerticalSplit extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M15 7h4v10h-4z"/><path d="M3 13h8v2H3zm0 4h8v2H3zm0-8h8v2H3zm0-4h8v2H3zm10 0v14h8V5h-8zm6 12h-4V7h4v10z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15 7h4v10h-4z" opacity=".3"/><path d="M3 13h8v2H3zm0 4h8v2H3zm0-8h8v2H3zm0-4h8v2H3zm10 0v14h8V5h-8zm6 12h-4V7h4v10z"/></svg>`;
   }
 }

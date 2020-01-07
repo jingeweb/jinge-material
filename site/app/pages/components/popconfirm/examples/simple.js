@@ -1,8 +1,7 @@
 import {
   Component,
-  VM,
-  _t,
-  I18N_WATCH
+  vm,
+  _t
 } from 'jinge';
 
 import {
@@ -30,8 +29,8 @@ export default class ExampleSimplePopover extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this[I18N_WATCH](() => {
-      this.some = VM({
+    this.__i18nWatch(() => {
+      this.some = vm({
         name: _t('未命名')
       });
     }, true);

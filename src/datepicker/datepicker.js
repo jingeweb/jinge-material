@@ -3,12 +3,7 @@ import './datepicker.scss';
 import {
   Component,
   isNumber,
-  isString,
-  instanceOf,
-  NOTIFY,
-  GET_REF,
-  GET_FIRST_DOM,
-  BEFORE_DESTROY
+  isString
 } from 'jinge';
 import {
   isEqual as isDateEqual,
@@ -60,7 +55,7 @@ export class Datepicker extends Component {
     this.locale = locale;
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this.locale = null; // unlink global view model
     unwatchLocale(this._localeChangedHandler);
   }
@@ -95,7 +90,7 @@ export class Datepicker extends Component {
       } else {
         v = parseDate(v, this.dateFormat);
       }
-    } else if (!(isNumber(v) || instanceOf(v, Date))) {
+    } else if (!(isNumber(v) || v instanceof Date)) {
       console.warn(NOT_VALID);
       return null;
     } else {
@@ -127,11 +122,11 @@ export class Datepicker extends Component {
     if (!v) return;
     if (isDateEqual(this._value, v)) return;
     this.value = v;
-    this[NOTIFY]('change', this.value);
+    this.__notify('change', this.value);
   }
 
   onClear() {
-    this[NOTIFY]('confirm', null);
+    this.__notify('confirm', null);
   }
 
   onFocus() {
@@ -145,7 +140,7 @@ export class Datepicker extends Component {
   }
 
   toggleDialog() {
-    const el = this[GET_REF]('input');
+    const el = this.__getRef('input');
     if (this.overrideNative) {
       this.showDialog = !this.showDialog;
       if (this.showDialog) {
@@ -153,14 +148,14 @@ export class Datepicker extends Component {
       } else {
         el.blur();
       }
-      this[NOTIFY](this.showDialog ? 'opened' : 'closed');
+      this.__notify(this.showDialog ? 'opened' : 'closed');
     } else {
-      el[GET_FIRST_DOM]().click();
+      el.__firstDOM.click();
     }
   }
 
   onConfirm(selectedDate) {
-    this[NOTIFY]('confirm', selectedDate);
+    this.__notify('confirm', selectedDate);
     this.onCancel();
   }
 
@@ -174,6 +169,6 @@ export class Datepicker extends Component {
   }
 
   onChange(selectedDate) {
-    this[NOTIFY]('change', selectedDate);
+    this.__notify('change', selectedDate);
   }
 }

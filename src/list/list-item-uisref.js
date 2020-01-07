@@ -13,12 +13,12 @@ export class ListItemUISref extends Component {
   e:to="to"
   e:target="target"
   e:active="active"
-  e:params="params"
 >
   <a
-    class="md-list-item-router\${className ? ' ' + className : ''}"
+    class="md-state-container md-content-on-surface md-list-item-router\${className ? ' ' + className : ''}"
     e:disabled="disabled"
   >
+    <i class="md-state-overlay"/>
     <ListItemContent e:disabled="disabled || !ripple">
       <_slot />
     </ListItemContent>
@@ -33,8 +33,7 @@ export class ListItemUISref extends Component {
     this.disabled = attrs.disabled;
     this.className = attrs.class;
     this.to = attrs.to;
-    this.params = attrs.params;
-    this.active = attrs.active || 'ui-router-active';
+    this.active = attrs.active || 'router-active';
     this.target = attrs.target;
   }
 }

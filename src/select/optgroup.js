@@ -1,17 +1,16 @@
 import './optgroup.scss';
 
 import {
-  Component,
-  Symbol,
-  SET_CONTEXT
+  Component
 } from 'jinge';
 
 export const OPTGROUP_PROVIDER = Symbol('optgroup_provider');
 export class Optgroup extends Component {
   static get template() {
     return `
+<!-- import { Subheader } from '../subheader'; -->
 <div class="md-optgroup" on:mousedown="stop">
-  <md-subheader>\${ label }</md-subheader>
+  <Subheader>\${ label }</Subheader>
   <_slot />
 </div>`;
   }
@@ -20,7 +19,7 @@ export class Optgroup extends Component {
     super(attrs);
     this.label = attrs.label;
     this.disabled = attrs.disabled;
-    this[SET_CONTEXT](OPTGROUP_PROVIDER, this);
+    this.__setContext(OPTGROUP_PROVIDER, this);
   }
 
   stop(evt) {

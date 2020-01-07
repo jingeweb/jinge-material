@@ -11,7 +11,7 @@ export class IconBaselineYoutubeSearchedFor extends Icon {
   }
 }
 
-export class IconOutlineYoutubeSearchedFor extends Icon {
+export class IconOutlinedYoutubeSearchedFor extends Icon {
   get svg() {
     return __svg_IconBaselineYoutubeSearchedFor;
   }

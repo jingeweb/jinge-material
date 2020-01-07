@@ -1,12 +1,5 @@
 import {
-  uid,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  ON,
-  OFF,
-  NOTIFY,
-  GET_FIRST_DOM,
-  DOM_PASS_LISTENERS
+  uid
 } from 'jinge';
 import {
   BaseField
@@ -29,18 +22,18 @@ export class Input extends BaseField {
 
     this._pwdTHandler = this.onPwdToggle.bind(this);
     // don't forget to call parent's _updateFieldClass
-    this.Field[ON]('password-toggled', this._pwdTHandler);
+    this.Field.__on('password-toggled', this._pwdTHandler);
     this.Field._updateFieldClass();
   }
 
-  [AFTER_RENDER]() {
-    this[DOM_PASS_LISTENERS](['input', 'change']);
-    super[AFTER_RENDER]();
+  __afterRender() {
+    this.__domPassListeners(['input', 'change']);
+    super.__afterRender();
   }
 
-  [BEFORE_DESTROY]() {
-    this.Field[OFF]('password-toggled', this._pwdTHandler);
-    super[BEFORE_DESTROY]();
+  __beforeDestroy() {
+    this.Field.__off('password-toggled', this._pwdTHandler);
+    super.__beforeDestroy();
   }
 
   get type() {
@@ -57,12 +50,12 @@ export class Input extends BaseField {
   _doClear() {
     if (this.value) {
       this.value = '';
-      this[NOTIFY]('change', this._value);
+      this.__notify('change', this._value);
     }
   }
 
   onPwdToggle(pwdToggled) {
-    const el = this[GET_FIRST_DOM]();
+    const el = this.__firstDOM;
     el.type = pwdToggled ? 'text' : 'password';
   }
 
@@ -70,18 +63,18 @@ export class Input extends BaseField {
     const v = evt.target.value;
     if (this.value === v) return;
     this.value = v;
-    this[NOTIFY]('change', v);
+    this.__notify('change', v);
   }
 
   focus() {
-    this[GET_FIRST_DOM]().focus();
+    this.__firstDOM.focus();
   }
 
   select() {
-    this[GET_FIRST_DOM]().select();
+    this.__firstDOM.select();
   }
 
   blur() {
-    this[GET_FIRST_DOM]().blur();
+    this.__firstDOM.blur();
   }
 }

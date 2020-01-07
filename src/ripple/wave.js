@@ -1,9 +1,7 @@
 import './wave.scss';
 
 import {
-  Component,
-  AFTER_RENDER,
-  NOTIFY
+  Component
 } from 'jinge';
 
 import _tpl from './wave.html';
@@ -21,14 +19,14 @@ export class Wave extends Component {
     this.animating = false;
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this.animating = true;
   }
 
   onTransition(action) {
     if (action === 'after-enter') {
       this.animating = false;
-      this[NOTIFY]('end', this.uuid);
+      this.__notify('end', this.uuid);
     }
   }
 }

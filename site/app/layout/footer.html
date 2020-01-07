@@ -1,8 +1,8 @@
-<footer class="main-footer">
+<footer class="main-footer${hide ? ' jg-hide' : ''}">
   <div class="main-footer-container">
     <div class="main-footer-section">
-      <ui-sref to="about" _t:text="关于"/>
-      <ui-sref to="license" _t:text="许可证"/>
+      <router-link to="about" _t:text="关于"/>
+      <router-link to="license" _t:text="许可证"/>
     </div>
 
     <div class="main-footer-section">

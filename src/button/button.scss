@@ -167,6 +167,10 @@ $md-button-fab-size-mini: $md-button-icon-size;
   .md-ripple-enter-active {
     transition-duration: 1.2s;
   }
+
+  &[disabled] {
+    opacity: 0.38;
+  }
 }
 
 .md-button.md-fab {

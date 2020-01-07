@@ -2,13 +2,7 @@ import './list-item-expand.scss';
 
 import {
   Component,
-  NOTIFY,
-  setImmediate,
-  AFTER_RENDER,
-  BEFORE_DESTROY,
-  GET_CONTEXT,
-  GET_REF,
-  DOM_ON
+  setImmediate
 } from 'jinge';
 import {
   LIST_PROVIDER
@@ -50,7 +44,7 @@ export class ListItemExpand extends Component {
     this.className = attrs.class;
 
     this.expanded = attrs.expanded;
-    this._List = this[GET_CONTEXT](LIST_PROVIDER);
+    this._List = this.__getContext(LIST_PROVIDER);
     this._List.pushExpandable(this);
   }
 
@@ -72,24 +66,24 @@ export class ListItemExpand extends Component {
   set showContent(v) {
     if (this._showCnt === v) return;
     this._showCnt = v;
-    this[NOTIFY]('update.expanded', v);
+    this.__notify('update.expanded', v);
     setImmediate(() => {
-      this[NOTIFY](v ? 'expanded' : 'collapsed');
+      this.__notify(v ? 'expanded' : 'collapsed');
     });
     if (v && this._List) {
       this._List.expandATab(this);
     }
   }
 
-  [AFTER_RENDER]() {
-    const el = this[GET_REF]('item').children[0];
-    this[DOM_ON](el, 'click', this._onClick);
+  __afterRender() {
+    const el = this.__getRef('item').children[0];
+    this.__domAddListener(el, 'click', this._onClick);
     if (this.expanded) {
       this.open();
     }
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this._List.removeExpandable(this);
     this._List = null;
   }

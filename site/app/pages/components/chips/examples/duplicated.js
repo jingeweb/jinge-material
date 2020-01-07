@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './duplicated.html';
@@ -17,7 +17,7 @@ export default class ExampleClipsDuplicated extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.chips = VM([
+    this.chips = vm([
       'Pop',
       'Rock',
       'Jazz',

@@ -7,7 +7,7 @@
     </tr>
     <for e:loop="props" vm:each="prop">
     <tr>
-      <td class="prop ${prop.offset ? 'offset' : ''}">
+      <td class="prop${prop.offset ? ' offset' : ''}">
         <span class="prop-name"><bind-html e:content="prop.name"/></span>
         <if e:expect="prop.type">
         <small class="prop-type">${ prop.type }</small>        

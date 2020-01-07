@@ -2,12 +2,7 @@
 import './card-expand.scss';
 
 import {
-  Component,
-  GET_CONTEXT,
-  AFTER_RENDER,
-  GET_FIRST_DOM,
-  DOM_ON,
-  addClass
+  Component
 } from 'jinge';
 import {
   CARD_PROVIDER
@@ -23,13 +18,13 @@ export class CardExpandTrigger extends Component {
     super(attrs);
     this.marginTop = 0;
     this.transitionEnabled = true;
-    this.card = this[GET_CONTEXT](CARD_PROVIDER);
+    this.card = this.__getContext(CARD_PROVIDER);
   }
 
-  [AFTER_RENDER]() {
-    const $el = this[GET_FIRST_DOM]();
-    addClass($el, 'md-card-expand-trigger');
-    this[DOM_ON]($el, 'click', this._onClick);
+  __afterRender() {
+    const $el = this.__firstDOM;
+    $el.classList.add('md-card-expand-trigger');
+    this.__domAddListener($el, 'click', this._onClick);
   }
 
   _onClick() {

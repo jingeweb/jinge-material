@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineHourglassFull = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>`;
+
 export class IconBaselineHourglassFull extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>`;
+    return __svg_IconBaselineHourglassFull;
   }
 }
 
-const __svg_IconOutlineHourglassFull = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>`;
-
-export class IconOutlineHourglassFull extends Icon {
+export class IconOutlinedHourglassFull extends Icon {
   get svg() {
-    return __svg_IconOutlineHourglassFull;
+    return __svg_IconBaselineHourglassFull;
   }
 }
 
@@ -27,13 +26,13 @@ export class IconRoundHourglassFull extends Icon {
 
 export class IconSharpHourglassFull extends Icon {
   get svg() {
-    return __svg_IconOutlineHourglassFull;
+    return __svg_IconBaselineHourglassFull;
   }
 }
 
 export class IconTwotoneHourglassFull extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".3" d="M8 7.5l4 4 4-4V4H8zm0 9V20h8v-3.5l-4-4z"/><path d="M18 2H6v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2zm-2 14.5V20H8v-3.5l4-4 4 4zm0-9l-4 4-4-4V4h8v3.5z"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8 7.5l4 4 4-4V4H8zm0 9V20h8v-3.5l-4-4z" opacity=".3"/><path d="M18 2H6v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2zm-2 14.5V20H8v-3.5l4-4 4 4zm0-9l-4 4-4-4V4h8v3.5z"/></svg>`;
   }
 }

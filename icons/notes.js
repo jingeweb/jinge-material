@@ -9,12 +9,12 @@ export class IconBaselineNotes extends Icon {
   }
 }
 
-const __svg_IconOutlineNotes = `
+const __svg_IconOutlinedNotes = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z"/></svg>`;
 
-export class IconOutlineNotes extends Icon {
+export class IconOutlinedNotes extends Icon {
   get svg() {
-    return __svg_IconOutlineNotes;
+    return __svg_IconOutlinedNotes;
   }
 }
 
@@ -27,13 +27,12 @@ export class IconRoundNotes extends Icon {
 
 export class IconSharpNotes extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11.01L3 11v2h18zM3 16h12v2H3zM21 6H3v2.01L21 8z"/></svg>`;
+    return __svg_IconOutlinedNotes;
   }
 }
 
 export class IconTwotoneNotes extends Icon {
   get svg() {
-    return __svg_IconOutlineNotes;
+    return __svg_IconOutlinedNotes;
   }
 }

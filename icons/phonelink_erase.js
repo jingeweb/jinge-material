@@ -11,7 +11,7 @@ export class IconBaselinePhonelinkErase extends Icon {
   }
 }
 
-export class IconOutlinePhonelinkErase extends Icon {
+export class IconOutlinedPhonelinkErase extends Icon {
   get svg() {
     return __svg_IconBaselinePhonelinkErase;
   }

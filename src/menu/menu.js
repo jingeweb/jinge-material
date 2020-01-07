@@ -2,16 +2,8 @@ import './menu.scss';
 
 import {
   Component,
-  Symbol,
   isUndefined,
-  isString,
-  SET_CONTEXT,
-  NOTIFY,
-  UPDATE_IF_NEED,
-  AFTER_RENDER,
-  GET_FIRST_DOM,
-  startsWith,
-  endsWith
+  isString
 } from 'jinge';
 import {
   EnumAttrValidator,
@@ -66,7 +58,7 @@ export class Menu extends Component {
     this._Menu = {
       close: this.close.bind(this)
     };
-    this[SET_CONTEXT](MENU_PROVIDER, this._Menu, true);
+    this.__setContext(MENU_PROVIDER, this._Menu, true);
   }
 
   get placement() {
@@ -76,7 +68,7 @@ export class Menu extends Component {
   set placement(v) {
     if (this._placement === v) return;
     this._placement = v;
-    this[UPDATE_IF_NEED](this.updateOffset);
+    this.__updateIfNeed(this.updateOffset);
   }
 
   get offset() {
@@ -86,23 +78,23 @@ export class Menu extends Component {
   set offset(v) {
     if (this._offset === v) return;
     this._offset = v;
-    this[UPDATE_IF_NEED](this.updateOffset);
+    this.__updateIfNeed(this.updateOffset);
   }
 
   onUpdateActive(isActive) {
     this.active = isActive;
-    this[NOTIFY]('update.active', isActive);
-    this[NOTIFY](isActive ? 'opened' : 'closed');
+    this.__notify('update.active', isActive);
+    this.__notify(isActive ? 'opened' : 'closed');
   }
 
   close() {
     if (!this.active || !this.closeOnSelect) return;
     this.active = !this.active;
-    this[NOTIFY]('update.active', this.active, 'close');
-    this[NOTIFY]('closed');
+    this.__notify('update.active', this.active, 'close');
+    this.__notify('closed');
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this.updateOffset();
     this.updateWidth();
   }
@@ -114,7 +106,7 @@ export class Menu extends Component {
       }
       return;
     }
-    const el = this[GET_FIRST_DOM]();
+    const el = this.__firstDOM;
     const pl = this.placement;
     let offsetX = 0;
     let offsetY = 0;
@@ -122,18 +114,18 @@ export class Menu extends Component {
       this.popperOffset = isString(this.alignTrigger) ? this.alignTrigger : '0, 0';
       return;
     }
-    if (startsWith(pl, 'bottom') || startsWith(pl, 'top')) {
+    if (pl.startsWith('bottom') || pl.startsWith('top')) {
       offsetY = -(el.offsetHeight + 11);
-      if (endsWith(pl, '-start')) {
+      if (pl.endsWith('-start')) {
         offsetX = -8;
-      } else if (endsWith(pl, '-end')) {
+      } else if (pl.endsWith('-end')) {
         offsetX = 8;
       }
     } else {
       offsetY = -(el.offsetWidth + 8);
-      if (endsWith(pl, '-start')) {
+      if (pl.endsWith('-start')) {
         offsetX = -11;
-      } else if (endsWith(pl, '-end')) {
+      } else if (pl.endsWith('-end')) {
         offsetX = 11;
       }
     }
@@ -144,7 +136,7 @@ export class Menu extends Component {
     if (!this.fullWidth) {
       return;
     }
-    const el = this[GET_FIRST_DOM]();
+    const el = this.__firstDOM;
     if (!el) return;
     const w = el.offsetWidth;
     this.contentStyles = `width: ${w}px; max-width: ${w}px;`;

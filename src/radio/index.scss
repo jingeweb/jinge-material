@@ -84,6 +84,9 @@ $md-radio-touch-size: 48px;
 }
 
 .md-radio.md-disabled {
+  cursor: default;
+  opacity: 0.38;
+
   .md-radio-container {
     border-color: var(--md-disabled);
   }

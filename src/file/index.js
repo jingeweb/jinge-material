@@ -1,11 +1,7 @@
 import './index.scss';
 
 import {
-  uid,
-  AFTER_RENDER,
-  NOTIFY,
-  GET_REF,
-  DOM_PASS_LISTENERS
+  uid
 } from 'jinge';
 import {
   BaseField
@@ -28,9 +24,9 @@ export class File extends BaseField {
     this.Field._updateFieldClass();
   }
 
-  [AFTER_RENDER]() {
-    this[DOM_PASS_LISTENERS](['change']);
-    super[AFTER_RENDER]();
+  __afterRender() {
+    this.__domPassListeners(['change']);
+    super.__afterRender();
   }
 
   getMultipleName(files) {
@@ -54,7 +50,7 @@ export class File extends BaseField {
 
   openPicker() {
     this.onFocus();
-    this[GET_REF]('file').click();
+    this.__getRef('file').click();
   }
 
   onChange($event) {
@@ -68,6 +64,6 @@ export class File extends BaseField {
     const files = target.files || dataTransfer.files;
 
     this.value = this.getFileName(files, target);
-    this[NOTIFY]('change', this.value, files || target.value);
+    this.__notify('change', this.value, files || target.value);
   }
 }

@@ -2,19 +2,15 @@ import './index.scss';
 
 import {
   Component,
-  NOTIFY,
-  UPDATE_IF_NEED,
-  ARG_COMPONENTS,
-  AFTER_RENDER,
-  DOM_PASS_LISTENERS,
-  STR_DEFAULT,
-  uid,
+  __, uid,
   isArray,
   arrayPushIfNotExist,
   arrayRemove,
-  obj2class,
   isUndefined
 } from 'jinge';
+import {
+  obj2class
+} from '../_util';
 
 import _tpl from './index.html';
 
@@ -28,7 +24,7 @@ export class Checkbox extends Component {
       throw new Error(`<md-${name}>: attribute "trueValue" is required when "value" is array(which means array-mode ${name})`);
     }
     super(attrs);
-    this._renderLabel = this[ARG_COMPONENTS] && this[ARG_COMPONENTS][STR_DEFAULT];
+    this._renderLabel = this[__].slots && this[__].slots.default;
     this._isArrayMode = isArray(attrs.value);
     this.checked = null;
     this.classes = '';
@@ -53,7 +49,7 @@ export class Checkbox extends Component {
   set disabled(v) {
     if (this._disabled === v) return;
     this._disabled = v;
-    this[UPDATE_IF_NEED](this._updateClasses);
+    this.__updateIfNeed(this._updateClasses);
   }
 
   get required() {
@@ -63,7 +59,7 @@ export class Checkbox extends Component {
   set required(v) {
     if (this._required === v) return;
     this._required = v;
-    this[UPDATE_IF_NEED](this._updateClasses);
+    this.__updateIfNeed(this._updateClasses);
   }
 
   get class() {
@@ -73,7 +69,7 @@ export class Checkbox extends Component {
   set class(v) {
     if (this._class === v) return;
     this._class = v;
-    this[UPDATE_IF_NEED](this._updateClasses);
+    this.__updateIfNeed(this._updateClasses);
   }
 
   get value() {
@@ -86,7 +82,7 @@ export class Checkbox extends Component {
       throw new Error('<md-checkbox/>: attribute "value" can\'t change array mode.');
     }
     this._value = v;
-    this[UPDATE_IF_NEED](this._calcChecked);
+    this.__updateIfNeed(this._calcChecked);
   }
 
   get trueValue() {
@@ -95,7 +91,7 @@ export class Checkbox extends Component {
 
   set trueValue(v) {
     this._trueValue = isUndefined(v) ? true : v;
-    this[UPDATE_IF_NEED](this._calcChecked);
+    this.__updateIfNeed(this._calcChecked);
   }
 
   get falseValue() {
@@ -104,11 +100,11 @@ export class Checkbox extends Component {
 
   set falseValue(v) {
     this._falseValue = isUndefined(v) ? false : v;
-    this[UPDATE_IF_NEED](this._calcChecked);
+    this.__updateIfNeed(this._calcChecked);
   }
 
-  [AFTER_RENDER]() {
-    this[DOM_PASS_LISTENERS]();
+  __afterRender() {
+    this.__domPassListeners();
   }
 
   toggleCheck() {
@@ -130,7 +126,7 @@ export class Checkbox extends Component {
       this._value = this.checked ? this.trueValue : this.falseValue;
     }
     this.rippleActive = true;
-    this[NOTIFY]('change', this._value);
+    this.__notify('change', this._value);
   }
 
   _updateClasses() {

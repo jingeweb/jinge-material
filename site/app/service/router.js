@@ -1,17 +1,16 @@
+// import {
+//   i18n
+// } from 'jinge';
 import {
-  i18n
-} from 'jinge';
-import {
-  Html5Router
-} from 'jinge-ui-router';
+  Router
+} from 'jinge-router';
 
-import Routes from '../routes';
-import {
-  getEnv
-} from './env';
+// import Routes from '../routes';
+// import {
+//   getEnv
+// } from './env';
 
-export const router = new Html5Router();
-router.register(...Routes);
-router.otherwise('home');
-router.baseHref = `${getEnv('baseHref')}${i18n.locale}/`;
-router.start();
+export const router = new Router({
+  mode: 'html5'
+});
+// Routes.forEach(routeDefine => router.register(routeDefine));

@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineReorder = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/></svg>`;
+
 export class IconBaselineReorder extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/></svg>`;
+    return __svg_IconBaselineReorder;
   }
 }
 
-const __svg_IconOutlineReorder = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"/></svg>`;
-
-export class IconOutlineReorder extends Icon {
+export class IconOutlinedReorder extends Icon {
   get svg() {
-    return __svg_IconOutlineReorder;
+    return __svg_IconBaselineReorder;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundReorder extends Icon {
 
 export class IconSharpReorder extends Icon {
   get svg() {
-    return __svg_IconOutlineReorder;
+    return __svg_IconBaselineReorder;
   }
 }
 
 export class IconTwotoneReorder extends Icon {
   get svg() {
-    return __svg_IconOutlineReorder;
+    return __svg_IconBaselineReorder;
   }
 }

@@ -5,16 +5,16 @@ import {
 export class IconBaselineSignalCellular4Bar extends Icon {
   get svg() {
     return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 22h20V2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 22h20V2z"/></svg>`;
   }
 }
 
-const __svg_IconOutlineSignalCellular4Bar = `
+const __svg_IconOutlinedSignalCellular4Bar = `
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2 22h20V2L2 22z"/></svg>`;
 
-export class IconOutlineSignalCellular4Bar extends Icon {
+export class IconOutlinedSignalCellular4Bar extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellular4Bar;
+    return __svg_IconOutlinedSignalCellular4Bar;
   }
 }
 
@@ -27,12 +27,12 @@ export class IconRoundSignalCellular4Bar extends Icon {
 
 export class IconSharpSignalCellular4Bar extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellular4Bar;
+    return __svg_IconOutlinedSignalCellular4Bar;
   }
 }
 
 export class IconTwotoneSignalCellular4Bar extends Icon {
   get svg() {
-    return __svg_IconOutlineSignalCellular4Bar;
+    return __svg_IconOutlinedSignalCellular4Bar;
   }
 }

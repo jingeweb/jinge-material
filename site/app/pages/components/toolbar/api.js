@@ -1,9 +1,9 @@
 import {
-  VM,
+  vm,
   _t
 } from 'jinge';
 
-export default () => VM({
+export default () => vm({
   regular: {
     props: {
       headings: [_t('名称'), _t('描述'), _t('默认值')],

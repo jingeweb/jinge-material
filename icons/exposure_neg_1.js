@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineExposureNeg1 = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"/></svg>`;
+
 export class IconBaselineExposureNeg1 extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0zm0 0h24v24H0z" fill="none"/><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"/></svg>`;
+    return __svg_IconBaselineExposureNeg1;
   }
 }
 
-const __svg_IconOutlineExposureNeg1 = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z"/></svg>`;
-
-export class IconOutlineExposureNeg1 extends Icon {
+export class IconOutlinedExposureNeg1 extends Icon {
   get svg() {
-    return __svg_IconOutlineExposureNeg1;
+    return __svg_IconBaselineExposureNeg1;
   }
 }
 
@@ -27,7 +26,7 @@ export class IconRoundExposureNeg1 extends Icon {
 
 export class IconSharpExposureNeg1 extends Icon {
   get svg() {
-    return __svg_IconOutlineExposureNeg1;
+    return __svg_IconBaselineExposureNeg1;
   }
 }
 

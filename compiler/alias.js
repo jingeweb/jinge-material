@@ -1,8 +1,14 @@
 const iconsAlias = require('./_auto_generated_icons_alias');
 
-module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
+module.exports = function createDefaultIconThemeAlias(theme = 'baseline', useDist = false) {
+  if (typeof theme === 'boolean') {
+    useDist = theme;
+    theme = 'baseline';
+  }
   const prefix = `Icon${theme.toLowerCase().replace(/./, m => m.toUpperCase())}`;
   const themeIconAlias = {};
+  const baseDir = require('path').resolve(__dirname, useDist ? '../dist/icons' : '../icons');
+
   Object.keys(iconsAlias).forEach(libPath => {
     const libAlias = Object.assign({}, iconsAlias[libPath]);
     Object.keys(libAlias).forEach(component => {
@@ -13,7 +19,7 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
         alias
       ];
     });
-    themeIconAlias[libPath] = libAlias;
+    themeIconAlias[libPath.replace('jinge-material/icons', baseDir)] = libAlias;
   });
   return Object.assign({
     'jinge-material/src/avatar': {
@@ -167,7 +173,8 @@ module.exports = function createDefaultIconThemeAlias(theme = 'baseline') {
       DatepickerDialog: 'md-datepicker-dialog'
     },
     'jinge-material/src/pagination': {
-      Pagination: 'md-pagination'
+      Pagination: 'md-pagination',
+      LightPagination: 'md-light-pagination'
     },
     'jinge-material/src/table': {
       Table: 'md-table',

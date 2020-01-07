@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './controls.html';
@@ -27,10 +27,10 @@ export default class ExampleListControls extends Component {
   constructor(attrs) {
     super(attrs);
     this.ringtone = 'peace';
-    this.settings = VM({
+    this.settings = vm({
       wifi: true,
       bluetooth: false
     });
-    this.notification = VM(['sound', 'vibrate']);
+    this.notification = vm(['sound', 'vibrate']);
   }
 }

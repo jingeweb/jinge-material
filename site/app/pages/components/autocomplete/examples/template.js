@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './template.html';
@@ -19,7 +19,7 @@ export default class ExampleACTemplate extends Component {
     super(attrs);
     this.value = null;
     this.selected = null;
-    this.colors = VM([{
+    this.colors = vm([{
       name: 'Aqua', color: '#00ffff'
     }, {
       name: 'Aquamarine', color: '#7fffd4'

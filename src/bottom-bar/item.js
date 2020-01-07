@@ -1,13 +1,7 @@
 import './bar.scss';
 
 import {
-  Component,
-  uid,
-  GET_CONTEXT,
-  VM,
-  AFTER_RENDER,
-  NOTIFY,
-  DOM_PASS_LISTENERS
+  Component, uid, vm
 } from 'jinge';
 import {
   BOTTOM_BAR_PROVIDER
@@ -16,18 +10,18 @@ import {
 export class BottomBarItem extends Component {
   static get template() {
     return `
-<md-button
+<!-- import { Button } from '../button'; -->
+<Button
   class="md-bottom-bar-item\${isActive ? ' md-active' : ''}"
   e:disabled="disabled"
   e:to="to"
   e:ripple="Bar.type === 'fixed'"
   e:active="active"
   e:target="target"
-  e:params="params"
   on:click="onClick"
 >
   <_slot/>
-</md-button>`;
+</Button>`;
   }
 
   constructor(attrs) {
@@ -37,25 +31,24 @@ export class BottomBarItem extends Component {
     this.active = 'md-active' + (attrs.active ? ' ' + attrs.active : '');
     this.to = attrs.to;
     this.target = attrs.target;
-    this.params = attrs.params;
     this.isActive = false;
-    this.Bar = this[GET_CONTEXT](BOTTOM_BAR_PROVIDER);
+    this.Bar = this.__getContext(BOTTOM_BAR_PROVIDER);
   }
 
   onClick(evt) {
     if (this.Bar.type === 'shift') {
-      this.Bar.mouseEvent = VM({
+      this.Bar.mouseEvent = vm({
         _event: evt
       });
     }
     if (!this.to) {
       this.Bar._active(this.id);
     }
-    this[NOTIFY]('click', evt);
+    this.__notify('click', evt);
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     this.Bar._register(this);
-    this[DOM_PASS_LISTENERS](['click']);
+    this.__domPassListeners(['click']);
   }
 }

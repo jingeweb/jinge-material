@@ -1,10 +1,7 @@
 import './card.scss';
 
 import {
-  Component,
-  SET_CONTEXT,
-  VM,
-  Symbol
+  Component, vm
 } from 'jinge';
 
 export const CARD_PROVIDER = Symbol('card_provider');
@@ -20,9 +17,9 @@ export class Card extends Component {
     super(attrs);
     this.withHover = attrs.withHover;
     this.className = attrs.class ? ' ' + attrs.class : '';
-    this.card = VM({
+    this.card = vm({
       expand: false
     });
-    this[SET_CONTEXT](CARD_PROVIDER, this.card);
+    this.__setContext(CARD_PROVIDER, this.card);
   }
 }

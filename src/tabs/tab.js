@@ -1,10 +1,7 @@
 import {
   Component,
   uid,
-  GET_CONTEXT,
-  BEFORE_DESTROY,
-  ARG_COMPONENTS,
-  STR_DEFAULT
+  __
 } from 'jinge';
 import {
   TABS_PROVIDER
@@ -24,16 +21,15 @@ export class Tab extends Component {
     this.data = attrs.data;
     this.label = attrs.label;
     this.to = attrs.to;
-    this.params = attrs.params;
     this.href = attrs.href;
     this.className = attrs.class;
     this.isActive = false;
-    this._hasContent = !!(attrs[ARG_COMPONENTS] && attrs[ARG_COMPONENTS][STR_DEFAULT]);
-    this._Tabs = this[GET_CONTEXT](TABS_PROVIDER);
+    this._hasContent = !!(attrs[__].slots && attrs[__].slots.default);
+    this._Tabs = this.__getContext(TABS_PROVIDER);
     this._Tabs._add(this);
   }
 
-  [BEFORE_DESTROY]() {
+  __beforeDestroy() {
     this._Tabs._remove(this);
     this._Tabs = null;
   }

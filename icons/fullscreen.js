@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselineFullscreen = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>`;
+
 export class IconBaselineFullscreen extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>`;
+    return __svg_IconBaselineFullscreen;
   }
 }
 
-const __svg_IconOutlineFullscreen = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>`;
-
-export class IconOutlineFullscreen extends Icon {
+export class IconOutlinedFullscreen extends Icon {
   get svg() {
-    return __svg_IconOutlineFullscreen;
+    return __svg_IconBaselineFullscreen;
   }
 }
 
@@ -27,12 +26,12 @@ export class IconRoundFullscreen extends Icon {
 
 export class IconSharpFullscreen extends Icon {
   get svg() {
-    return __svg_IconOutlineFullscreen;
+    return __svg_IconBaselineFullscreen;
   }
 }
 
 export class IconTwotoneFullscreen extends Icon {
   get svg() {
-    return __svg_IconOutlineFullscreen;
+    return __svg_IconBaselineFullscreen;
   }
 }

@@ -1,6 +1,6 @@
 import {
   Component,
-  VM
+  vm
 } from 'jinge';
 
 import _tpl from './trigger.html';
@@ -14,7 +14,7 @@ export default class ExampleACTrigger extends Component {
     super(attrs);
     this.selectedCountry = null;
     this.selectedEmployee = null;
-    this.countries = VM([
+    this.countries = vm([
       'Algeria',
       'Argentina',
       'Brazil',
@@ -24,7 +24,7 @@ export default class ExampleACTrigger extends Component {
       'United Kingdom',
       'United States'
     ]);
-    this.employees = VM([
+    this.employees = vm([
       'Jim Halpert',
       'Dwight Schrute',
       'Michael Scott',

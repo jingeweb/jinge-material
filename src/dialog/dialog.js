@@ -1,8 +1,7 @@
 import './dialog.scss';
 
 import {
-  Component,
-  NOTIFY
+  Component
 } from 'jinge';
 
 import _tpl from './dialog.html';
@@ -30,7 +29,7 @@ export class Dialog extends Component {
   }
 
   close(action) {
-    this[NOTIFY]('update.active', false, action);
+    this.__notify('update.active', false, action);
   }
 
   get active() {
@@ -40,13 +39,13 @@ export class Dialog extends Component {
   set active(v) {
     if (this._active === v) return;
     this._active = v;
-    this[NOTIFY](v ? 'open' : 'close');
+    this.__notify(v ? 'open' : 'close');
   }
 
   onClick() {
     if (this.closeOnOutsideClick) {
       this.close('overlay');
     }
-    this[NOTIFY]('click-overlay');
+    this.__notify('click-overlay');
   }
 }

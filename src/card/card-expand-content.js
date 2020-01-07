@@ -3,13 +3,8 @@ import './card-expand-content.scss';
 
 import {
   Component,
-  GET_CONTEXT,
-  AFTER_RENDER,
   setImmediate,
-  GET_FIRST_DOM,
-  BEFORE_DESTROY,
-  vmWatch,
-  vmUnwatch
+  watch, unwatch
 } from 'jinge';
 
 import {
@@ -34,14 +29,14 @@ export class CardExpandContent extends Component {
     super(attrs);
     this.marginTop = 0;
     this.transitionEnabled = true;
-    this.card = this[GET_CONTEXT](CARD_PROVIDER);
-    this._resizeObserver = null;
+    this.card = this.__getContext(CARD_PROVIDER);
+    this._rod = null; // resize observer deregister
     this._eh = this._onExpand.bind(this);
   }
 
   _onExpand() {
     this.calculateMarginTop(
-      this[GET_FIRST_DOM]()
+      this.__firstDOM
     );
   }
 
@@ -70,21 +65,21 @@ export class CardExpandContent extends Component {
     });
   }
 
-  [AFTER_RENDER]() {
-    const $el = this[GET_FIRST_DOM]();
+  __afterRender() {
+    const $el = this.__firstDOM;
     this.calculateMarginTopImmediately($el);
-    this._resizeObserver = MutationObserveDOM($el, {
+    this._rod = MutationObserveDOM($el, {
       childList: true,
       characterData: true,
       subtree: true
     }, () => {
       this.calculateMarginTopImmediately($el);
     });
-    vmWatch(this.card, 'expand', this._eh);
+    watch(this.card, 'expand', this._eh);
   }
 
-  [BEFORE_DESTROY]() {
-    vmUnwatch(this.card, 'expand', this._eh);
-    this._resizeObserver && this._resizeObserver.disconnect();
+  __beforeDestroy() {
+    unwatch(this.card, 'expand', this._eh);
+    this._rod && this._rod();
   }
 }

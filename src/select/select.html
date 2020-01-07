@@ -1,4 +1,8 @@
-<md-menu
+<!--
+  import { Menu } from '../menu';
+  import { Input } from '../input';
+-->
+<Menu
   trigger="none"
   class="md-select${disabled ? ' md-disabled' : ''}"
   e:closeOnSelect="false"
@@ -8,7 +12,7 @@
   e:dense="dense"
 >
   <div class="md-field-container" slot-pass:default>
-    <md-input
+    <Input
       class="md-input md-select-value"
       e:value="label"
       ref:input
@@ -26,4 +30,4 @@
   <_slot slot-pass:content>
     <_slot/>
   </_slot>
-</md-menu>
+</Menu>

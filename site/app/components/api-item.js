@@ -1,6 +1,5 @@
 import {
-  Component,
-  ARG_COMPONENTS
+  Component, __
 } from 'jinge';
 
 import _tpl from './api-item.html';
@@ -24,7 +23,7 @@ export class ApiItem extends Component {
   constructor(attrs) {
     super(attrs);
     this._title = attrs.title;
-    const slots = Object.keys(this[ARG_COMPONENTS])
+    const slots = Object.keys(this[__].slots)
       .filter(slotName => slotName !== 'default')
       .map(slotName => ({
         name: slotName,
@@ -32,7 +31,7 @@ export class ApiItem extends Component {
           /(?:^|\s)\S/g,
           transformed => transformed.toUpperCase()
         ).replace(/-/g, ' '),
-        render: this[ARG_COMPONENTS][slotName]
+        render: this[__].slots[slotName]
       }));
     this._slots = slots;
     this.currentSlot = slots.length > 0 ? slots[0].name : null;

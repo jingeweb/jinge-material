@@ -1,10 +1,5 @@
 import {
-  Component,
-  GET_CONTEXT,
-  AFTER_RENDER,
-  NOTIFY,
-  DOM_PASS_LISTENERS,
-  GET_FIRST_DOM
+  Component
 } from 'jinge';
 import {
   MENU_PROVIDER
@@ -18,14 +13,14 @@ const IGNORED_EVENTS = [
 export class MenuItem extends Component {
   static get template() {
     return `
-<md-list-item
+<!-- import { ListItem } from '../list'; -->
+<ListItem
   class="md-menu-item\${highlighted ? ' md-highlight' : ''}\${className ? ' ' + className : ''}"
   e:style="style"
   e:href="href"
   e:to="to"
   e:target="target"
   e:ripple="ripple"
-  e:params="params"
   e:active="active"
   e:expand="expand"
   e:expanded="expanded"
@@ -34,7 +29,7 @@ export class MenuItem extends Component {
   on:click="handleClick"
 >
   <_slot />
-</md-list-item>`;
+</ListItem>`;
   }
 
   constructor(attrs) {
@@ -46,18 +41,17 @@ export class MenuItem extends Component {
     this.href = attrs.href;
     this.to = attrs.to;
     this.target = attrs.target;
-    this.params = attrs.params;
     this.active = attrs.active;
     this.expand = attrs.expand;
     this.expanded = attrs.expanded;
 
-    this._Menu = this[GET_CONTEXT](MENU_PROVIDER);
+    this._Menu = this.__getContext(MENU_PROVIDER);
     this._tch = this.triggerCloseMenu.bind(this);
   }
 
   handleClick(event) {
     !this.disabled && this._Menu.close();
-    this[NOTIFY]('click', event);
+    this.__notify('click', event);
   }
 
   triggerCloseMenu() {
@@ -66,12 +60,12 @@ export class MenuItem extends Component {
     }
   }
 
-  [AFTER_RENDER]() {
+  __afterRender() {
     /**
      * 在移动设备上，只有 <button> 可以响应 click 等全部事件。
      * 因此，将外部的事件监听全部绑定到 <li> 元素的子元素（<button>或<a>）上。
      */
-    const $el = this[GET_FIRST_DOM]().children[0];
-    this[DOM_PASS_LISTENERS](IGNORED_EVENTS, $el);
+    const $el = this.__firstDOM.children[0];
+    this.__domPassListeners(IGNORED_EVENTS, $el);
   }
 }

@@ -2,19 +2,18 @@ import {
   Icon
 } from '../src/icon';
 
+const __svg_IconBaselinePause = `
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
 export class IconBaselinePause extends Icon {
   get svg() {
-    return `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>`;
+    return __svg_IconBaselinePause;
   }
 }
 
-const __svg_IconOutlinePause = `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
-
-export class IconOutlinePause extends Icon {
+export class IconOutlinedPause extends Icon {
   get svg() {
-    return __svg_IconOutlinePause;
+    return __svg_IconBaselinePause;
   }
 }
 
@@ -27,7 +26,7 @@ export class IconRoundPause extends Icon {
 
 export class IconSharpPause extends Icon {
   get svg() {
-    return __svg_IconOutlinePause;
+    return __svg_IconBaselinePause;
   }
 }
 

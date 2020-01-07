@@ -1,0 +1,15 @@
+<p>
+  <for e:loop="list" vm:each="n">
+    <span>${n}</span>
+  </for>
+</p>
+<md-light-pagination
+  on:change="onPaginationChanged"
+  e:pageSizeOptions="true"
+  e:loading="loading"
+  e:cursors="cursors"
+  e:pageSize="pageSize"
+/>
+<p>
+  <md-button class="md-primary md-raised" on:click="reset">Reset</md-button>
+</p>

@@ -1,11 +1,7 @@
 import './index.scss';
 import {
-  Component,
-  ARG_COMPONENTS,
-  NOTIFY,
-  UPDATE_IF_NEED,
-  isPromise,
-  uid
+  Component, __,
+  isPromise, uid
 } from 'jinge';
 import {
   fuzzySearch,
@@ -37,7 +33,7 @@ export class Autocomplete extends Component {
     LayoutValidator.assert(attrs);
     super(attrs);
 
-    this._hasScopedEmptySlot = !!(attrs[ARG_COMPONENTS] && attrs[ARG_COMPONENTS].empty);
+    this._hasScopedEmptySlot = !!(attrs[__].slots.empty);
     this.isOptionsPromise = false;
     this.hasFilteredItems = false;
     this.promisePendingKey = null;
@@ -144,8 +140,8 @@ export class Autocomplete extends Component {
       return;
     }
     this.value = value;
-    this[NOTIFY]('change', value);
-    this[UPDATE_IF_NEED](this._updateFiltered);
+    this.__notify('change', value);
+    this.__updateIfNeed(this._updateFiltered);
     if (!this.openOnFocus) {
       this.showOptions();
     }
@@ -164,21 +160,21 @@ export class Autocomplete extends Component {
     }
 
     this.showMenu = true;
-    this[NOTIFY]('opened');
+    this.__notify('opened');
   }
 
   hideOptions() {
     this.showMenu = false;
-    this[NOTIFY]('closed');
+    this.__notify('closed');
   }
 
   selectItem(item, $event) {
     const content = $event.target.textContent.trim();
     if (this.value !== content) {
       this.value = content;
-      this[NOTIFY]('change', content);
+      this.__notify('change', content);
     }
-    this[NOTIFY]('selected', item);
+    this.__notify('selected', item);
     this.hideOptions();
   }
 }

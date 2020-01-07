@@ -11,7 +11,7 @@ export class IconBaselineChatBubbleOutline extends Icon {
   }
 }
 
-export class IconOutlineChatBubbleOutline extends Icon {
+export class IconOutlinedChatBubbleOutline extends Icon {
   get svg() {
     return __svg_IconBaselineChatBubbleOutline;
   }

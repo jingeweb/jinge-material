@@ -33,8 +33,22 @@
     <CodeExample title="Disabled" e:example="_examples.disabled" />
 
     <ApiItem title="API - md-paginaition">
-      <ApiTable e:headings="api.props.headings" e:props="api.props.props" slot-pass:props />
-      <ApiTable e:headings="api.events.headings" e:props="api.events.props" slot-pass:events />
+      <ApiTable e:headings="api.full.props.headings" e:props="api.full.props.props" slot-pass:props />
+      <ApiTable e:headings="api.full.events.headings" e:props="api.full.events.props" slot-pass:events />
+    </ApiItem>
+  </div>
+  <div class="page-container-section">
+    <h2><_t>只支持[第一页/上一页/下一页]的轻量分页</_t></h2>
+    <p><_t>
+      轻量分页组件用于不统计总页码，使用游标（cursor）来进行分页的情况。
+      多用于数据量很大需要高效分页的情形，这类情况下会牺牲一定的用户体验来换取性能，
+      比如无法直观看到总页码，也不能随意跳转到任意页码。
+    </_t></p>
+    <CodeExample title="Lightweight" e:example="_examples.light" />
+
+    <ApiItem title="API - md-light-paginaition">
+      <ApiTable e:headings="api.light.props.headings" e:props="api.light.props.props" slot-pass:props />
+      <ApiTable e:headings="api.light.events.headings" e:props="api.light.events.props" slot-pass:events />
     </ApiItem>
   </div>
 </PageContainer>

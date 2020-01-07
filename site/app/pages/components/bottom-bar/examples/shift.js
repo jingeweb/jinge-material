@@ -11,11 +11,15 @@ export default class ExampleBottomBarShift extends Component {
 
   static get style() {
     return `
+.out {
+  display: flex;
+  align-items: center;
+}
 .phone-viewport {
   width: 322px;
   margin-right: 6px;
   height: 200px;
-  display: inline-flex;
+  display: flex;
   align-items: flex-end;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.26);
