@@ -4,7 +4,6 @@ node_modules
 /.idea
 /site/dist
 **/.DS_Store
-/docs
 .jshintignore
 .jshintrc
 /dist
