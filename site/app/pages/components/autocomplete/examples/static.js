@@ -1,7 +1,4 @@
-import {
-  Component,
-  vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './static.html';
 
@@ -22,7 +19,7 @@ export default class ExampleACStatic extends Component {
       'Italy',
       'Japan',
       'United Kingdom',
-      'United States'
+      'United States',
     ]);
     this.employees = vm([
       'Jim Halpert',
@@ -38,7 +35,7 @@ export default class ExampleACStatic extends Component {
       'Toby Flenderson',
       'Stanley Hudson',
       'Meredith Palmer',
-      'Phyllis Lapin-Vance'
+      'Phyllis Lapin-Vance',
     ]);
   }
 

@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 
 import Router from './examples/router';
@@ -29,24 +27,24 @@ export class PageTabs extends Component {
     this._examples = {
       router: {
         component: Router,
-        source: sourceRouter
+        source: sourceRouter,
       },
       content: {
         component: Content,
-        source: sourceContent
+        source: sourceContent,
       },
       alignments: {
         component: Alignments,
-        source: sourceAlignments
+        source: sourceAlignments,
       },
       icons: {
         component: Icons,
-        source: sourceIcons
+        source: sourceIcons,
       },
       template: {
         component: Template,
-        source: sourceTemplate
-      }
+        source: sourceTemplate,
+      },
     };
   }
 }

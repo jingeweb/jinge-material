@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './paper-content.html';
 
@@ -11,7 +9,7 @@ export default class ExamplePaperContent extends Component {
 
   static get style() {
     return `
-div /deep/ > .md-content {
+div ::deep > .md-content {
   width: 200px;
   height: 200px;
   display: inline-flex;

@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -20,8 +18,8 @@ export class PageRadio extends Component {
     this._examples = {
       simpleRadio: {
         component: SimpleRadio,
-        source: sourceSimpleRadio
-      }
+        source: sourceSimpleRadio,
+      },
     };
   }
 }

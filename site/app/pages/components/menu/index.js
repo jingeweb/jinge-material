@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -28,24 +26,24 @@ export class PageMenu extends Component {
     this._examples = {
       placement: {
         component: Placement,
-        source: sourcePlacement
+        source: sourcePlacement,
       },
       size: {
         component: Size,
-        source: sourceSize
+        source: sourceSize,
       },
       close: {
         component: Close,
-        source: sourceClose
+        source: sourceClose,
       },
       offset: {
         component: Offset,
-        source: sourceOffset
+        source: sourceOffset,
       },
       multiple: {
         component: Multiple,
-        source: sourceMultiple
-      }
+        source: sourceMultiple,
+      },
     };
   }
 }

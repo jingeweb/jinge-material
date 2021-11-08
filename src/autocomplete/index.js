@@ -1,27 +1,11 @@
 import './index.scss';
-import {
-  Component, __,
-  isPromise, uid
-} from 'jinge';
-import {
-  fuzzySearch,
-  startsSearch,
-  includesSearch,
-  EnumAttrValidator
-} from '../_util';
+import { Component, __, isPromise, uid } from 'jinge';
+import { fuzzySearch, startsSearch, includesSearch, EnumAttrValidator } from '../_util';
 
 import _tpl from './index.html';
 
-const SearchMethodValidator = new EnumAttrValidator(
-  'md-autocomplete', 'searchMethod', [
-    'fuzzy', 'starts', 'includes'
-  ]
-);
-const LayoutValidator = new EnumAttrValidator(
-  'md-autocomplete', 'layout', [
-    'floating', 'box'
-  ]
-);
+const SearchMethodValidator = new EnumAttrValidator('md-autocomplete', 'searchMethod', ['fuzzy', 'starts', 'includes']);
+const LayoutValidator = new EnumAttrValidator('md-autocomplete', 'layout', ['floating', 'box']);
 
 export class Autocomplete extends Component {
   static get template() {
@@ -33,7 +17,7 @@ export class Autocomplete extends Component {
     LayoutValidator.assert(attrs);
     super(attrs);
 
-    this._hasScopedEmptySlot = !!(attrs[__].slots.empty);
+    this._hasScopedEmptySlot = !!attrs[__].slots.empty;
     this.isOptionsPromise = false;
     this.hasFilteredItems = false;
     this.promisePendingKey = null;
@@ -76,27 +60,30 @@ export class Autocomplete extends Component {
     if (this.isOptionsPromise) {
       const pendingKey = uid();
       this.promisePendingKey = pendingKey;
-      v.then(resultOptions => {
-        /**
-         * 如果上一次的 promise 还未返回，又有新的 promise 通过
-         * 这个 setter 函数赋值进来时，需要忽略之前的 promise 的
-         * 回调。通过闭包的技巧来实现该目标。
-         */
-        if (this.promisePendingKey !== pendingKey) {
-          // ignore previous promise
-          return;
-        }
-        this.promisePendingKey = null;
-        if (resultOptions) {
-          this.filteredOptions = resultOptions;
-          this._updateHasItems();
-        }
-      }, () => {
-        if (this.promisePendingKey !== pendingKey) {
-          return;
-        }
-        this.promisePendingKey = null;
-      });
+      v.then(
+        (resultOptions) => {
+          /**
+           * 如果上一次的 promise 还未返回，又有新的 promise 通过
+           * 这个 setter 函数赋值进来时，需要忽略之前的 promise 的
+           * 回调。通过闭包的技巧来实现该目标。
+           */
+          if (this.promisePendingKey !== pendingKey) {
+            // ignore previous promise
+            return;
+          }
+          this.promisePendingKey = null;
+          if (resultOptions) {
+            this.filteredOptions = resultOptions;
+            this._updateHasItems();
+          }
+        },
+        () => {
+          if (this.promisePendingKey !== pendingKey) {
+            return;
+          }
+          this.promisePendingKey = null;
+        },
+      );
     } else {
       this.promisePendingKey = null;
       this._updateFiltered();
@@ -125,13 +112,15 @@ export class Autocomplete extends Component {
 
   _updateFiltered() {
     if (this.isOptionsPromise) return;
-    this.filteredOptions = this._options ? this._options.filter(item => {
-      if (this.searchProp) {
-        return this.matchText(item[this.searchProp]);
-      } else {
-        return this.matchText(item);
-      }
-    }) : null;
+    this.filteredOptions = this._options
+      ? this._options.filter((item) => {
+          if (this.searchProp) {
+            return this.matchText(item[this.searchProp]);
+          } else {
+            return this.matchText(item);
+          }
+        })
+      : null;
     this._updateHasItems();
   }
 

@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -25,16 +23,16 @@ export class PageToolbar extends Component {
     this._examples = {
       regularToolbar: {
         component: RegularToolbar,
-        source: sourceRegularToolbar
+        source: sourceRegularToolbar,
       },
       toolbarSizes: {
         component: SizeToolbar,
-        source: sourceSizeToolbar
+        source: sourceSizeToolbar,
       },
       contentActions: {
         component: ContentToolbar,
-        source: sourceContentToolbar
-      }
+        source: sourceContentToolbar,
+      },
     };
   }
 }

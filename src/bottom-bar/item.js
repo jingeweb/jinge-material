@@ -1,11 +1,7 @@
 import './bar.scss';
 
-import {
-  Component, uid, vm
-} from 'jinge';
-import {
-  BOTTOM_BAR_PROVIDER
-} from './bar';
+import { Component, uid, vm } from 'jinge';
+import { BOTTOM_BAR_PROVIDER } from './bar';
 
 export class BottomBarItem extends Component {
   static get template() {
@@ -38,7 +34,7 @@ export class BottomBarItem extends Component {
   onClick(evt) {
     if (this.Bar.type === 'shift') {
       this.Bar.mouseEvent = vm({
-        _event: evt
+        _event: evt,
       });
     }
     if (!this.to) {

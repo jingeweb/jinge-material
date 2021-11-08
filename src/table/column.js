@@ -1,10 +1,5 @@
-import {
-  Component,
-  isNumber
-} from 'jinge';
-import {
-  TABLE_PROVIDER
-} from './table';
+import { Component, isNumber } from 'jinge';
+import { TABLE_PROVIDER } from './table';
 
 function _w(v) {
   if (!v) return null;

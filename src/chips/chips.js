@@ -1,9 +1,4 @@
-import {
-  uid,
-  Component,
-  isArray,
-  setImmediate
-} from 'jinge';
+import { uid, Component, isArray, setImmediate } from 'jinge';
 
 import _tpl from './chips.html';
 
@@ -35,6 +30,7 @@ export class Chips extends Component {
     if (!v) v = [];
     if (this._value === v) return;
     if (v && !isArray(v)) {
+      // eslint-disable-next-line no-console
       console.error('<md-clips>: typeof value attribute must be Array.');
       return;
     }
@@ -89,7 +85,7 @@ export class Chips extends Component {
     ipt && ipt.focus();
   }
 
-  onInputRender(ipt) {
+  onInputRender() {
     this.__updateIfNeed(this.focus);
   }
 

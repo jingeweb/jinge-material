@@ -1,8 +1,6 @@
 import './content.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class ButtonContent extends Component {
   static get template() {

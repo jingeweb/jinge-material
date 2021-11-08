@@ -1,8 +1,6 @@
 import './index.scss';
 
-import {
-  Component, isString
-} from 'jinge';
+import { Component, isString } from 'jinge';
 
 function csize(v, addPre) {
   if (v === 'normal') {
@@ -67,7 +65,7 @@ export class Spinner extends Component {
     let v = this.value;
     if (v > 100) v = 100;
     else if (v < 0) v = 0;
-    circle.style.strokeDashoffset = 2 * Math.PI * 22 * (100 - v) / 100 + 'px';
+    circle.style.strokeDashoffset = (2 * Math.PI * 22 * (100 - v)) / 100 + 'px';
   }
 
   __afterRender() {

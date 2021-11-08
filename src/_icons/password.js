@@ -1,6 +1,4 @@
-import {
-  Icon
-} from '../icon';
+import { Icon } from '../icon';
 
 export class IconPasswordOn extends Icon {
   get svg() {

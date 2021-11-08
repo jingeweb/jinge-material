@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -21,8 +19,8 @@ export class PageTooltip extends Component {
     this._examples = {
       simple: {
         component: SimpleTooltip,
-        source: sourceSimpleTooltip
-      }
+        source: sourceSimpleTooltip,
+      },
     };
   }
 }

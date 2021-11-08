@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -24,16 +22,16 @@ export class PageBadge extends Component {
     this._examples = {
       buttons: {
         component: Buttons,
-        source: sourceButtons
+        source: sourceButtons,
       },
       lists: {
         component: Lists,
-        source: sourceLists
+        source: sourceLists,
       },
       dense: {
         component: Dense,
-        source: sourceDense
-      }
+        source: sourceDense,
+      },
     };
   }
 }

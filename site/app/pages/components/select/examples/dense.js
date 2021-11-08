@@ -1,7 +1,4 @@
-import {
-  Component,
-  vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './dense.html';
 
@@ -16,16 +13,20 @@ export default class ExampleSelectDense extends Component {
     this.selectedCountry = 'China';
     this.allCountries = vm(['China', 'United States', 'Japan', 'Australia']);
     this.selectedFont = null;
-    this.allFonts = vm([{
-      id: 'arial',
-      name: 'Arial'
-    }, {
-      id: 'roboto',
-      name: 'Roboto'
-    }, {
-      id: 'consolas',
-      name: 'Consolas'
-    }]);
+    this.allFonts = vm([
+      {
+        id: 'arial',
+        name: 'Arial',
+      },
+      {
+        id: 'roboto',
+        name: 'Roboto',
+      },
+      {
+        id: 'consolas',
+        name: 'Consolas',
+      },
+    ]);
   }
 
   onFontChange(font) {

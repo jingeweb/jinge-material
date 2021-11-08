@@ -1,11 +1,7 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
+import { interactionEvents } from '../../../../../src/_util';
 import _tpl from './index.html';
 import apis from './api';
-import {
-  interactionEvents
-} from '../../../../../src/_util';
 
 import SingleLine from './examples/single-line';
 import sourceSingleLine from './examples/single-line?example';
@@ -34,28 +30,28 @@ export class PageList extends Component {
     this._examples = {
       singleLine: {
         component: SingleLine,
-        source: sourceSingleLine
+        source: sourceSingleLine,
       },
       doubleLine: {
         component: DoubleLine,
-        source: sourceDoubleLine
+        source: sourceDoubleLine,
       },
       tripleLine: {
         component: TripleLine,
-        source: sourceTripleLine
+        source: sourceTripleLine,
       },
       listTypes: {
         component: ListTypes,
-        source: sourceListTypes
+        source: sourceListTypes,
       },
       controls: {
         component: Controls,
-        source: sourceControls
+        source: sourceControls,
       },
       expansion: {
         component: Expansion,
-        source: sourceExpansion
-      }
+        source: sourceExpansion,
+      },
     };
   }
 }

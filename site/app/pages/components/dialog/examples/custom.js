@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './custom.html';
 
@@ -11,7 +9,7 @@ export default class ExampleDialogCustomMarkup extends Component {
 
   static get style() {
     return `
-div /deep/ > .md-dialog {
+div ::deep > .md-dialog {
   max-height: 768px;
 }`;
   }

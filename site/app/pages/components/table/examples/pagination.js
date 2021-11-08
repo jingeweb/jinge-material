@@ -1,12 +1,10 @@
-import {
-  Component, vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './pagination.html';
 
-const MOCK_TOTAL_SIZE = (Math.random() * 300 | 0) + 100;
+const MOCK_TOTAL_SIZE = ((Math.random() * 300) | 0) + 100;
 function getUsersMockApi(page, size) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       const start = (page - 1) * size;
       size = Math.min(MOCK_TOTAL_SIZE - start, size);
@@ -14,10 +12,10 @@ function getUsersMockApi(page, size) {
         total: MOCK_TOTAL_SIZE,
         list: new Array(size).fill(0).map((n, i) => ({
           name: 'jinge_' + (start + i + 1),
-          age: Math.random() * 20 | 0
-        }))
+          age: (Math.random() * 20) | 0,
+        })),
       });
-    }, 100 + (Math.random() * 1000 | 0));
+    }, 100 + ((Math.random() * 1000) | 0));
   });
 }
 
@@ -33,7 +31,7 @@ export default class ExampleTablePagination extends Component {
       totalSize: 0,
       loadingPage: 1,
       currentPage: 1,
-      pageSize: 5
+      pageSize: 5,
     });
 
     this.data = null;
@@ -45,7 +43,7 @@ export default class ExampleTablePagination extends Component {
 
   fetchUsers() {
     const pa = this.pagination;
-    getUsersMockApi(pa.loadingPage, pa.pageSize).then(result => {
+    getUsersMockApi(pa.loadingPage, pa.pageSize).then((result) => {
       this.data = vm(result.list);
       pa.totalSize = result.total;
       pa.currentPage = pa.loadingPage;

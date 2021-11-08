@@ -8,11 +8,9 @@ import {
   arrayRemove,
   isArray,
   isUndefined,
-  createElementWithoutAttrs
+  createElementWithoutAttrs,
 } from 'jinge';
-import {
-  BaseField
-} from '../field/base';
+import { BaseField } from '../field/base';
 
 import _tpl from './select.html';
 
@@ -38,7 +36,7 @@ export class Select extends BaseField {
     this._helper = {
       el: null,
       $dom: null,
-      items: []
+      items: [],
     };
 
     this.value = attrs.value;
@@ -74,12 +72,14 @@ export class Select extends BaseField {
 
   _renderHelperOptions() {
     const $container = createElementWithoutAttrs('div');
-    const el = new Component(wrapAttrs({
-      [__]: {
-        context: this[__].context,
-        slots: this[__].slots
-      }
-    }));
+    const el = new Component(
+      wrapAttrs({
+        [__]: {
+          context: this[__].context,
+          slots: this[__].slots,
+        },
+      }),
+    );
     el.__setContext(HELPER_MODE, true);
     el.__renderToDOM($container, false);
     this._helper.$dom = $container;
@@ -94,7 +94,7 @@ export class Select extends BaseField {
 
   _updateSelect() {
     if (isUndefined(this._value) || this._value === null) {
-      this._items.forEach(opt => {
+      this._items.forEach((opt) => {
         opt.isSelected = false;
       });
       this.label = '';
@@ -105,7 +105,7 @@ export class Select extends BaseField {
     }
     const items = this.showSelect ? this._items : this._helper.items;
     const label = [];
-    items.forEach(opt => {
+    items.forEach((opt) => {
       this._updateOptionSelected(opt);
       if (opt.isSelected) {
         label.push(opt.getText());
@@ -118,11 +118,9 @@ export class Select extends BaseField {
   }
 
   _updateOptionSelected(option) {
-    option.isSelected = this.multiple ? (
-      isArray(this.value) && this.value.indexOf(option.value) >= 0
-    ) : (
-      this.value === option.value
-    );
+    option.isSelected = this.multiple
+      ? isArray(this.value) && this.value.indexOf(option.value) >= 0
+      : this.value === option.value;
   }
 
   _add(option, isHelper) {
@@ -139,11 +137,14 @@ export class Select extends BaseField {
    */
   _toggleChecked(option, isChecked) {
     option.isSelected = isChecked;
-    this.label = this._items.filter(opt => {
-      return opt.isSelected;
-    }).map(opt => {
-      return opt.getText();
-    }).join(', ');
+    this.label = this._items
+      .filter((opt) => {
+        return opt.isSelected;
+      })
+      .map((opt) => {
+        return opt.getText();
+      })
+      .join(', ');
     if (!isArray(this._value)) {
       return;
     }
@@ -159,7 +160,7 @@ export class Select extends BaseField {
    * handle single select
    */
   _toggleSelected(option) {
-    this._items.forEach((opt, i) => {
+    this._items.forEach((opt) => {
       opt.isSelected = opt === option;
     });
     if (this._value === option.value) {

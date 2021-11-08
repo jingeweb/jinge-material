@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './gutter.html';
 import _sty from './gutter.scss';

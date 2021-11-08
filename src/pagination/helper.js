@@ -1,6 +1,4 @@
-import {
-  vm
-} from 'jinge';
+import { vm } from 'jinge';
 
 export function _n(v, dn) {
   const n = Number(v);

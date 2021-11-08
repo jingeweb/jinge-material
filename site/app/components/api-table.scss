@@ -1,4 +1,4 @@
-@import 'style/palette.scss';
+@import 'style/palette';
 
 .api-table {
   padding-bottom: 16px;
@@ -62,16 +62,16 @@ td.offset {
 }
 
 code {
-  color: md-get-palette-color(red, A200);
+  color: md-get-palette-color(red, a200);
 
-  /deep/ span {
-    color: md-get-palette-color(blue, A200);
+  ::deep span {
+    color: md-get-palette-color(blue, a200);
   }
 }
 
 .description,
 .prop-name {
-  /deep/ code {
-    color: md-get-palette-color(red, A200);
+  ::deep code {
+    color: md-get-palette-color(red, a200);
   }
 }

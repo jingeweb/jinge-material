@@ -1,9 +1,5 @@
-import {
-  Component
-} from 'jinge';
-import {
-  pageState
-} from '../service';
+import { Component } from 'jinge';
+import { pageState } from '../service';
 
 import _sty from './page-container.scss';
 

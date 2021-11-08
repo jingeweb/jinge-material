@@ -1,5 +1,6 @@
 @import '../animation/variables';
-@import '../../style/elevation/mixins.scss';
+@import '../../style/elevation/mixins';
+@import './theme';
 
 .md-chips.md-field {
   padding-top: 12px;
@@ -117,5 +118,3 @@ $md-chips-height: 32px;
     }
   }
 }
-
-@import './theme.scss';

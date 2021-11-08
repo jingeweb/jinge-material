@@ -1,13 +1,9 @@
-import {
-  Component
-} from 'jinge';
-import {
-  MENU_PROVIDER
-} from './menu';
+import { Component } from 'jinge';
+import { MENU_PROVIDER } from './menu';
 
 const IGNORED_EVENTS = [
   // 'touchstart', 'mousedown'
-  'click'
+  'click',
 ];
 
 export class MenuItem extends Component {

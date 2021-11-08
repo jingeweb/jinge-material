@@ -7,7 +7,7 @@ const fs = require('fs');
 
 function readFileIfExist(filePath) {
   // console.log('read', filePath);
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     fs.readFile(filePath, 'utf-8', (err, cnt) => {
       if (err) {
         resolve('');
@@ -35,15 +35,21 @@ module.exports = function exampleSourceLoader() {
   Promise.all([
     readFileIfExist(this.resourcePath),
     readFileIfExist(path.join(dirName, fileBaseName + '.scss')),
-    readFileIfExist(path.join(dirName, fileBaseName + '.html'))
-  ]).then(cnts => {
-    // console.log(cnts);
-    callback(null, `export default ${JSON.stringify({
-      js: cnts[0],
-      scss: cnts[1],
-      html: cnts[2]
-    })}`);
-  }, err => {
-    callback(err);
-  });
+    readFileIfExist(path.join(dirName, fileBaseName + '.html')),
+  ]).then(
+    (cnts) => {
+      // console.log(cnts);
+      callback(
+        null,
+        `export default ${JSON.stringify({
+          js: cnts[0],
+          scss: cnts[1],
+          html: cnts[2],
+        })}`,
+      );
+    },
+    (err) => {
+      callback(err);
+    },
+  );
 };

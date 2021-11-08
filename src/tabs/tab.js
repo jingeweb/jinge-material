@@ -1,11 +1,5 @@
-import {
-  Component,
-  uid,
-  __
-} from 'jinge';
-import {
-  TABS_PROVIDER
-} from './tabs';
+import { Component, uid, __ } from 'jinge';
+import { TABS_PROVIDER } from './tabs';
 
 import _tpl from './tab.html';
 

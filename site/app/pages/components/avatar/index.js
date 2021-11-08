@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -24,16 +22,16 @@ export class PageAvatar extends Component {
     this._examples = {
       regular: {
         component: Regular,
-        source: sourceRegular
+        source: sourceRegular,
       },
       placeholder: {
         component: Placeholder,
-        source: sourcePlaceholder
+        source: sourcePlaceholder,
       },
       sizes: {
         component: Sizes,
-        source: sourceSizes
-      }
+        source: sourceSizes,
+      },
     };
   }
 }

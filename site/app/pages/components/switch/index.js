@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 
 import SingleSwitch from './examples/single-switch';
@@ -18,12 +16,12 @@ export class PageSwitch extends Component {
     this._examples = {
       singleSwitch: {
         component: SingleSwitch,
-        source: sourceSingleSwitch
+        source: sourceSingleSwitch,
       },
       arraySwitch: {
         component: ArraySwitch,
-        source: sourceArraySwitch
-      }
+        source: sourceArraySwitch,
+      },
     };
   }
 }

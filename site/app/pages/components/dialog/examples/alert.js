@@ -1,10 +1,6 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
-import {
-  DialogAlert
-} from '../../../../../../src/dialog';
+import { DialogAlert } from '../../../../../../src/dialog';
 
 import _tpl from './alert.html';
 
@@ -20,11 +16,14 @@ export default class ExampleDialogAlert extends Component {
   }
 
   show() {
-    DialogAlert.show({
-      title: 'Hello',
-      content: 'This message is shown by calling DialogAlert.show()'
-    }, () => {
-      console.log('callback after close.');
-    });
+    DialogAlert.show(
+      {
+        title: 'Hello',
+        content: 'This message is shown by calling DialogAlert.show()',
+      },
+      () => {
+        console.log('callback after close.');
+      },
+    );
   }
 }

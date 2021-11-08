@@ -1,6 +1,4 @@
-import {
-  setImmediate
-} from 'jinge';
+import { setImmediate } from 'jinge';
 
 export class SnackbarQueueManager {
   constructor() {

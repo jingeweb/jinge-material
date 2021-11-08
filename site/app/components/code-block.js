@@ -4,15 +4,9 @@ import highlightXML from 'highlight.js/lib/languages/xml';
 import highlightBash from 'highlight.js/lib/languages/bash';
 import highlightJavascript from 'highlight.js/lib/languages/javascript';
 import Clipboard from 'clipboard';
-import {
-  Component, _t
-} from 'jinge';
-import {
-  getIndentedSource
-} from '../service';
-import {
-  Snackbar
-} from '../../../src/snackbar';
+import { Component, _t } from 'jinge';
+import { getIndentedSource } from '../service';
+import { Snackbar } from '../../../src/snackbar';
 
 import _tpl from './code-block.html';
 import _sty from './code-block.scss';
@@ -58,13 +52,13 @@ export class CodeBlock extends Component {
     if (!$cb) return;
 
     const clipboard = new Clipboard($cb.__firstDOM, {
-      target: () => this._$ce
+      target: () => this._$ce,
     });
-    clipboard.on('success', event => {
+    clipboard.on('success', (event) => {
       event.clearSelection();
       Snackbar.show({
         message: _t('代码已复制！'),
-        duration: 1500
+        duration: 1500,
       });
     });
   }

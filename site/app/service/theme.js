@@ -1,9 +1,5 @@
-import {
-  createElement
-} from 'jinge';
-import {
-  getEnv
-} from './env';
+import { createElement } from 'jinge';
+import { getEnv } from './env';
 
 const env = getEnv();
 
@@ -15,9 +11,9 @@ export function setCurrentTheme(theme) {
   const $link = createElement('link', {
     rel: 'stylesheet',
     href: env.meta.theme[theme],
-    id: env.themeId
+    id: env.themeId,
   });
-  $link.onload = function() {
+  $link.onload = function () {
     $oldLink && $head.removeChild($oldLink);
   };
   $head.appendChild($link);

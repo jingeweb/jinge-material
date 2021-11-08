@@ -1,9 +1,5 @@
-import {
-  Component
-} from 'jinge';
-import {
-  DialogAlert
-} from '../../../src/dialog';
+import { Component } from 'jinge';
+import { DialogAlert } from '../../../src/dialog';
 import _tpl from './debug.html';
 
 export class PageDebug extends Component {
@@ -21,12 +17,12 @@ export class PageDebug extends Component {
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.page-container /deep/ .md-drawer {
+.page-container ::deep .md-drawer {
   width: 230px;
   max-width: calc(100vw - 125px);
 }
 
-.page-container /deep/ .md-content {
+.page-container ::deep .md-content {
   padding: 16px;
 }`;
   }

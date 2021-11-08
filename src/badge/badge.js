@@ -1,8 +1,6 @@
 import './badge.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class Badge extends Component {
   static get template() {

@@ -1,15 +1,7 @@
-import {
-  Component, createFragment, __
-} from 'jinge';
-import {
-  EnumAttrValidator
-} from '../_util';
+import { Component, createFragment, __ } from 'jinge';
+import { EnumAttrValidator } from '../_util';
 
-const targetValidator = new EnumAttrValidator(
-  '<md-portal>', '__target', [
-    'parent', 'body'
-  ]
-);
+const targetValidator = new EnumAttrValidator('<md-portal>', '__target', ['parent', 'body']);
 
 export class Portal extends Component {
   static get template() {

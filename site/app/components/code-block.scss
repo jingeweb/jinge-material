@@ -1,5 +1,5 @@
-@import 'src/animation/variables.scss';
-@import 'style/palette.scss';
+@import 'src/animation/variables';
+@import 'style/palette';
 
 .code-block {
   max-width: 100%;
@@ -13,7 +13,7 @@
 
   &:hover {
     .md-button {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 
@@ -22,7 +22,7 @@
     top: 16px;
     right: 16px;
     transition: $md-transition-stand;
-    color: rgba(#fff, 0.38);
+    color: rgb(#fff 0.38);
     content: attr(data-lang);
     font-size: 11px;
     line-height: 1em;
@@ -56,7 +56,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  opacity: 0;
+  opacity: 0%;
 }
 
 .copy-message {

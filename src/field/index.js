@@ -1,18 +1,24 @@
 import './index.scss';
 
-import {
-  Component,
-  watch,
-  isUndefined
-} from 'jinge';
+import { Component, watch, isUndefined } from 'jinge';
 
 import _tpl from './index.html';
 
 export const FIELD_PROVIDER = Symbol('field_provider');
 const CLASS_PROPS = [
-  'inline', 'clearable', 'highlight', 'focused', 'disabled',
-  'required', 'hasValue', 'hasPlaceholder', 'hasPassword',
-  'hasFile', 'hasSelect', 'hasTextarea', 'autogrow'
+  'inline',
+  'clearable',
+  'highlight',
+  'focused',
+  'disabled',
+  'required',
+  'hasValue',
+  'hasPlaceholder',
+  'hasPassword',
+  'hasFile',
+  'hasSelect',
+  'hasTextarea',
+  'autogrow',
 ];
 export class Field extends Component {
   static get template() {
@@ -36,7 +42,7 @@ export class Field extends Component {
     this.valueLength = 0;
     this.togglePassword = false;
 
-    CLASS_PROPS.forEach(prop => {
+    CLASS_PROPS.forEach((prop) => {
       if (!(prop in this)) {
         this[prop] = false;
       }
@@ -55,9 +61,12 @@ export class Field extends Component {
   }
 
   _updateFieldClass() {
-    this.fieldClass = CLASS_PROPS.filter(k => this[k]).map(k => {
-      return `md-${k.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`)}`;
-    }).join(' ').trim();
+    this.fieldClass = CLASS_PROPS.filter((k) => this[k])
+      .map((k) => {
+        return `md-${k.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`)}`;
+      })
+      .join(' ')
+      .trim();
     // console.log('update fc', JSON.stringify(this.fieldClass));
   }
 

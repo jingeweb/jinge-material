@@ -1,4 +1,4 @@
-@import 'src/animation/variables.scss';
+@import 'src/animation/variables';
 @import 'style/layout/mixins';
 
 .container {
@@ -22,7 +22,7 @@
     color: #fff;
   }
 
-  &.splash /deep/ {
+  &.splash ::deep {
     .main-header .md-toolbar-row,
     .main-footer-container {
       max-width: 1312px;

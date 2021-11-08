@@ -1,9 +1,6 @@
-
 import './card-media-actions.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class CardMediaActions extends Component {
   static get template() {

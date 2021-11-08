@@ -1,4 +1,4 @@
-@import './mixins.scss';
+@import './mixins';
 
 .md-state-container {
   position: relative;
@@ -15,11 +15,11 @@
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
+    opacity: 0%;
     z-index: 1;
   }
 
-  @include md-state-actions();
+  @include md-state-actions;
 }
 
 .md-state-container.md-content-on-surface {

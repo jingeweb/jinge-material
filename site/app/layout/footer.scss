@@ -1,6 +1,6 @@
 @import 'src/animation/variables';
 @import 'style/layout/mixins';
-@import 'style/palette.scss';
+@import 'style/palette';
 
 .main-footer {
   height: 96px;
@@ -59,7 +59,7 @@ div.main-footer-container {
         top: 0;
         left: 50%;
         transform: translate(-50%, -8px);
-        background-color: #{ rgba(md-get-palette-color(grey, 400), 0.6) };
+        background-color: #{rgba(md-get-palette-color(grey, 400), 0.6)};
         content: ' ';
       }
     }

@@ -1,9 +1,5 @@
-import {
-  Messenger
-} from 'jinge';
-import {
-  getEnv
-} from './env';
+import { Messenger } from 'jinge';
+import { getEnv } from './env';
 
 const baseHref = getEnv('meta').public;
 
@@ -30,7 +26,7 @@ class PageStateManager extends Messenger {
 
   set title(v) {
     if (this._title === v) return;
-    this._title = v ? (v + ' - Jinge Material') : 'Jinge Material';
+    this._title = v ? v + ' - Jinge Material' : 'Jinge Material';
     document.title = this._title;
     this.__notify('title-change', v);
   }

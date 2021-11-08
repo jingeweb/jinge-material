@@ -1,8 +1,4 @@
-import {
-  arrayPushIfNotExist,
-  arrayRemove,
-  addEvent
-} from 'jinge';
+import { arrayPushIfNotExist, arrayRemove, addEvent } from 'jinge';
 
 let inited = false;
 let eventTarget = null;
@@ -13,7 +9,7 @@ const components = [];
 
 function setKeyboardInteraction(event) {
   currentElement = event.target;
-  components.forEach(c => {
+  components.forEach((c) => {
     const el = c.__firstDOM;
     const isFocus = el === currentElement;
     if (c.hasFocus !== isFocus) {
@@ -24,7 +20,7 @@ function setKeyboardInteraction(event) {
 
 function setMouseAndTouchInteraction() {
   currentElement = null;
-  components.forEach(c => {
+  components.forEach((c) => {
     if (c.hasFocus !== false) {
       c.hasFocus = false;
     }
@@ -47,12 +43,7 @@ function createMouseAndTouchEvents() {
   addEvent(eventTarget, 'mouseup', setMouseAndTouchInteraction);
 
   if ('ontouchend' in window) {
-    addEvent(
-      eventTarget,
-      'touchend',
-      setMouseAndTouchInteraction,
-      supportsPassiveEvent
-    );
+    addEvent(eventTarget, 'touchend', setMouseAndTouchInteraction, supportsPassiveEvent);
   }
 }
 
@@ -61,9 +52,10 @@ function checkPassiveEventSupport() {
     const opts = Object.defineProperty({}, 'passive', {
       get() {
         supportsPassiveEvent = {
-          passive: true
+          passive: true,
         };
-      }
+        return true;
+      },
     });
     addEvent(window, 'ghost', null, opts);
   } catch (e) {

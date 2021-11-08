@@ -1,8 +1,6 @@
 import './simple.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './simple.html';
 

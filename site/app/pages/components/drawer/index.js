@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -22,12 +20,12 @@ export class PageDrawer extends Component {
     this._examples = {
       over: {
         component: Over,
-        source: sourceOver
+        source: sourceOver,
       },
       push: {
         component: Push,
-        source: sourcePush
-      }
+        source: sourcePush,
+      },
     };
   }
 }

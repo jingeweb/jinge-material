@@ -1,19 +1,11 @@
 import './index.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
+import { EnumAttrValidator, ELEVATION_ENUMS } from '../_util';
 import _tpl from './index.html';
 
-import {
-  EnumAttrValidator,
-  ELEVATION_ENUMS
-} from '../_util';
-
-const elevationValidator = new EnumAttrValidator(
-  '<md-toolbar>', 'elevation', ELEVATION_ENUMS
-);
+const elevationValidator = new EnumAttrValidator('<md-toolbar>', 'elevation', ELEVATION_ENUMS);
 
 export class Toolbar extends Component {
   static get template() {

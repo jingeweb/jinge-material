@@ -1,14 +1,7 @@
 import './index.scss';
 
-import {
-  Component
-} from 'jinge';
-import {
-  fuzzyHighlight,
-  includesHighlight,
-  startsHighlight,
-  EnumAttrValidator
-} from '../_util';
+import { Component } from 'jinge';
+import { fuzzyHighlight, includesHighlight, startsHighlight, EnumAttrValidator } from '../_util';
 
 function generateHighlight(text, term, searchMethod, ignoreCase) {
   switch (searchMethod) {
@@ -23,11 +16,7 @@ function generateHighlight(text, term, searchMethod, ignoreCase) {
   }
 }
 
-const SearchMethodValidator = new EnumAttrValidator(
-  '<md-highlight>', 'searchMethod', [
-    'fuzzy', 'starts', 'includes'
-  ]
-);
+const SearchMethodValidator = new EnumAttrValidator('<md-highlight>', 'searchMethod', ['fuzzy', 'starts', 'includes']);
 
 export class HighlightText extends Component {
   static get template() {

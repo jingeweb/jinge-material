@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -31,28 +29,28 @@ export class PageInput extends Component {
     this._examples = {
       text: {
         component: Text,
-        source: sourceText
+        source: sourceText,
       },
       error: {
         component: InputError,
-        source: sourceInputError
+        source: sourceInputError,
       },
       counter: {
         component: Counter,
-        source: sourceCounter
+        source: sourceCounter,
       },
       icons: {
         component: Icons,
-        source: sourceIcons
+        source: sourceIcons,
       },
       action: {
         component: Action,
-        source: sourceAction
+        source: sourceAction,
       },
       fix: {
         component: Fix,
-        source: sourceFix
-      }
+        source: sourceFix,
+      },
     };
   }
 }

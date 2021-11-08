@@ -1,10 +1,5 @@
-import {
-  Component,
-  isUndefined
-} from 'jinge';
-import {
-  FIELD_PROVIDER
-} from './index';
+import { Component, isUndefined } from 'jinge';
+import { FIELD_PROVIDER } from './index';
 
 export class BaseField extends Component {
   constructor(attrs, componentTag) {

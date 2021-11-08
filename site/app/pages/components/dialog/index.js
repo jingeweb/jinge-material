@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -27,20 +25,20 @@ export class PageDialog extends Component {
     this._examples = {
       customMarkup: {
         component: CustomMarkup,
-        source: sourceCustomMarkup
+        source: sourceCustomMarkup,
       },
       dialogAlert: {
         component: Alert,
-        source: sourceAlert
+        source: sourceAlert,
       },
       dialogConfirm: {
         component: Confirm,
-        source: sourceConfirm
+        source: sourceConfirm,
       },
       dialogPrompt: {
         component: Prompt,
-        source: sourcePrompt
-      }
+        source: sourcePrompt,
+      },
     };
   }
 }

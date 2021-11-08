@@ -1,5 +1,5 @@
-@import 'style/palette.scss';
-@import 'src/animation/variables.scss';
+@import 'style/palette';
+@import 'src/animation/variables';
 
 .page-container.centered {
   max-width: 1100px;
@@ -13,18 +13,18 @@
 }
 
 .page-container-enter-active {
-  opacity: 0;
+  opacity: 0%;
   transform: translate3d(0, 150px, 0);
   transition-property: opacity, transform;
   will-change: opacity, transform;
 }
 
 .page-container-enter-to {
-  opacity: 1;
+  opacity: 100%;
   transform: translate3d(0, 0, 0);
 }
 
-.page-container /deep/ .page-container-section {
+.page-container ::deep .page-container-section {
   letter-spacing: 0.01em;
   line-height: 1.6em;
 
@@ -37,7 +37,7 @@
   .note-block code {
     padding: 0 4px;
     display: inline-block;
-    color: #{ md-get-palette-color(red, A200) };
+    color: #{md-get-palette-color(red, A200)};
     background: var(--md-outline);
     border-radius: 2px;
     line-height: 1.45em;

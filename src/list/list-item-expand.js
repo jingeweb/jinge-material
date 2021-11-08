@@ -1,12 +1,7 @@
 import './list-item-expand.scss';
 
-import {
-  Component,
-  setImmediate
-} from 'jinge';
-import {
-  LIST_PROVIDER
-} from './list';
+import { Component, setImmediate } from 'jinge';
+import { LIST_PROVIDER } from './list';
 
 export class ListItemExpand extends Component {
   static get template() {

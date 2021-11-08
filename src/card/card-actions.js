@@ -1,8 +1,6 @@
 import './card-actions.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class CardActions extends Component {
   static get template() {

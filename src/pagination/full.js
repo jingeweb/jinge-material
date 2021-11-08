@@ -1,14 +1,6 @@
-import {
-  Component,
-  vm,
-  compile
-} from 'jinge';
-import {
-  getAndWatchLocale
-} from '../_config';
-import {
-  _n, DEFAULT_PAGE_SIZE_OPTIONS
-} from './helper';
+import { Component, vm, compile } from 'jinge';
+import { getAndWatchLocale } from '../_config';
+import { _n, DEFAULT_PAGE_SIZE_OPTIONS } from './helper';
 
 import _tpl from './full.html';
 
@@ -49,7 +41,7 @@ export class Pagination extends Component {
 
   _updateTotalInfo() {
     this.totalInfo = compile(this.locale.totalCount)({
-      count: this.totalSize
+      count: this.totalSize,
     });
   }
 
@@ -140,10 +132,13 @@ export class Pagination extends Component {
   }
 
   jump(pageIndex) {
-    if (this.disabled || this.loadingPage > 0 ||
+    if (
+      this.disabled ||
+      this.loadingPage > 0 ||
       pageIndex === this.currentPage ||
       pageIndex < 1 ||
-      pageIndex > this.totalPage) {
+      pageIndex > this.totalPage
+    ) {
       return;
     }
     return this._changePage(pageIndex);
@@ -196,7 +191,7 @@ export class Pagination extends Component {
       cp = this._currentPage = tp > 1 ? tp : 1;
     }
 
-    const halfIc = ic / 2 | 0;
+    const halfIc = (ic / 2) | 0;
     const left = cp - 1;
     const right = tp - cp;
     let start = 0;

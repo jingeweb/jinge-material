@@ -1,8 +1,6 @@
 import './index.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class Subheader extends Component {
   static get template() {

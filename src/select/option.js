@@ -1,20 +1,7 @@
-import {
-  Component,
-  isFunction,
-  createElement,
-  __,
-  createFragment
-} from 'jinge';
-import {
-  SELECT_PROVIDER,
-  HELPER_MODE
-} from './select';
-import {
-  FIELD_PROVIDER
-} from '../field';
-import {
-  OPTGROUP_PROVIDER
-} from './optgroup';
+import { Component, isFunction, createElement, __, createFragment } from 'jinge';
+import { FIELD_PROVIDER } from '../field';
+import { SELECT_PROVIDER, HELPER_MODE } from './select';
+import { OPTGROUP_PROVIDER } from './optgroup';
 
 export class Option extends Component {
   static get template() {

@@ -1,19 +1,11 @@
 import './bar.scss';
 
-import {
-  Component, vm, isNumber
-} from 'jinge';
-import {
-  EnumAttrValidator
-} from '../_util';
+import { Component, vm, isNumber } from 'jinge';
+import { EnumAttrValidator } from '../_util';
 
 export const BOTTOM_BAR_PROVIDER = Symbol('bottom_bar_provider');
 
-const typeValidator = new EnumAttrValidator(
-  '<md-bottom-bar>', 'type', [
-    'fixed', 'shift'
-  ]
-);
+const typeValidator = new EnumAttrValidator('<md-bottom-bar>', 'type', ['fixed', 'shift']);
 export class BottomBar extends Component {
   static get template() {
     return `
@@ -39,7 +31,7 @@ export class BottomBar extends Component {
       _count: 0,
       _items: [],
       _active: this._active.bind(this),
-      _register: this._register.bind(this)
+      _register: this._register.bind(this),
     });
     this.__setContext(BOTTOM_BAR_PROVIDER, this.Bar);
   }
@@ -97,7 +89,7 @@ export class BottomBar extends Component {
         item.isActive = false;
         return;
       }
-      item.isActive = isIdx ? (idx === idOrIdx) : (item.id === idOrIdx);
+      item.isActive = isIdx ? idx === idOrIdx : item.id === idOrIdx;
       if (item.isActive) {
         found = true;
       }

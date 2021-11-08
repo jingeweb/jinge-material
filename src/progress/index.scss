@@ -1,6 +1,6 @@
-@import '../animation/variables.scss';
+@import '../animation/variables';
 
-@mixin md-progress-bar-indeterminate ($hue) {
+@mixin md-progress-bar-indeterminate($hue) {
   .md-progress-bar-buffer,
   .md-progress-bar-fill {
     &::after {
@@ -9,11 +9,11 @@
   }
 
   .md-progress-bar-buffer {
-    opacity: 0.38;
+    opacity: 38%;
   }
 }
 
-@mixin md-progress-bar-buffer ($hue) {
+@mixin md-progress-bar-buffer($hue) {
   .md-progress-bar-fill,
   .md-progress-bar-track {
     background-color: var(--md-#{$hue});
@@ -25,7 +25,7 @@
 
   .md-progress-bar-buffer,
   .md-progress-bar-track {
-    opacity: 0.38;
+    opacity: 38%;
   }
 }
 
@@ -35,9 +35,7 @@
   position: relative;
   transform: translateZ(0) scaleY(1);
   transform-origin: center center;
-  transition:
-    opacity 0.3s $md-transition-default-timing,
-    transform 0.4s $md-transition-default-timing;
+  transition: opacity 0.3s $md-transition-default-timing, transform 0.4s $md-transition-default-timing;
   will-change: opacity, transform;
 
   &.md-indeterminate,
@@ -56,9 +54,7 @@
       animation: md-progress-bar-indeterminate-track 2s infinite linear;
 
       &::after {
-        animation:
-          md-progress-bar-indeterminate-track-alternate 2s infinite
-          linear;
+        animation: md-progress-bar-indeterminate-track-alternate 2s infinite linear;
       }
     }
 
@@ -67,9 +63,7 @@
       animation: md-progress-bar-indeterminate-fill 2s infinite linear;
 
       &::after {
-        animation:
-          md-progress-bar-indeterminate-fill-alternate 2s infinite
-          linear;
+        animation: md-progress-bar-indeterminate-fill-alternate 2s infinite linear;
       }
     }
   }
@@ -77,7 +71,7 @@
   &.md-determinate,
   &.md-buffer {
     .md-progress-bar-track {
-      opacity: 0.38;
+      opacity: 38%;
     }
 
     .md-progress-bar-fill,
@@ -119,7 +113,7 @@
 
 .md-progress-bar-enter,
 .md-progress-bar-leave-active {
-  opacity: 0.5;
+  opacity: 50%;
   transform: translateZ(0) scaleY(0);
 }
 

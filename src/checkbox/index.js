@@ -1,16 +1,7 @@
 import './index.scss';
 
-import {
-  Component,
-  __, uid,
-  isArray,
-  arrayPushIfNotExist,
-  arrayRemove,
-  isUndefined
-} from 'jinge';
-import {
-  obj2class
-} from '../_util';
+import { Component, __, uid, isArray, arrayPushIfNotExist, arrayRemove, isUndefined } from 'jinge';
+import { obj2class } from '../_util';
 
 import _tpl from './index.html';
 
@@ -21,7 +12,9 @@ export class Checkbox extends Component {
 
   constructor(attrs, name = 'checkbox') {
     if (isArray(attrs.value) && !('trueValue' in attrs)) {
-      throw new Error(`<md-${name}>: attribute "trueValue" is required when "value" is array(which means array-mode ${name})`);
+      throw new Error(
+        `<md-${name}>: attribute "trueValue" is required when "value" is array(which means array-mode ${name})`,
+      );
     }
     super(attrs);
     this._renderLabel = this[__].slots && this[__].slots.default;
@@ -130,15 +123,18 @@ export class Checkbox extends Component {
   }
 
   _updateClasses() {
-    this.classes = obj2class({
-      'md-disabled': this.disabled,
-      'md-required': this.required,
-      'md-checked': this.checked
-    }, this.class);
+    this.classes = obj2class(
+      {
+        'md-disabled': this.disabled,
+        'md-required': this.required,
+        'md-checked': this.checked,
+      },
+      this.class,
+    );
   }
 
   _calcChecked() {
-    const nc = this._isArrayMode ? this.value.indexOf(this.trueValue) >= 0 : (this.value === this.trueValue);
+    const nc = this._isArrayMode ? this.value.indexOf(this.trueValue) >= 0 : this.value === this.trueValue;
     if (nc === this.checked) return;
     this.checked = nc;
     this._updateClasses();

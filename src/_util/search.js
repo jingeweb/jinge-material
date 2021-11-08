@@ -1,6 +1,4 @@
-import {
-  isFunction
-} from 'jinge';
+import { isFunction } from 'jinge';
 
 function defaultHighlightFn(str) {
   return `<span class="md-highlight-text-match">${str.replace(/</g, '&#x3C;')}</span>`;
@@ -114,7 +112,7 @@ export function includesSearch(text, term, ignoreCase = true) {
   if (!text && !term) {
     return true;
   }
-  if ((!text && term) || (text && !term) || (term.length > text.length)) {
+  if ((!text && term) || (text && !term) || term.length > text.length) {
     return false;
   }
   return ignoreCase ? text.toLowerCase().includes(term.toLowerCase()) : text.includes(term);
@@ -131,9 +129,8 @@ export function includesHighlight(text, term, ignoreCase = true, highlightFn = d
     highlightFn = ignoreCase;
     ignoreCase = true;
   }
-  return text.replace(
-    new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), ignoreCase ? 'i' : ''),
-    m => highlightFn(m)
+  return text.replace(new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), ignoreCase ? 'i' : ''), (m) =>
+    highlightFn(m),
   );
 }
 
@@ -141,7 +138,7 @@ export function startsSearch(text, term, ignoreCase = true) {
   if (!text && !term) {
     return true;
   }
-  if ((!text && term) || (text && !term) || (term.length > text.length)) {
+  if ((!text && term) || (text && !term) || term.length > text.length) {
     return false;
   }
   return ignoreCase ? text.toLowerCase().startsWith(term.toLowerCase()) : text.startsWith(term);

@@ -14,14 +14,14 @@
     }
 
     .md-list-expand {
-      opacity: 1;
+      opacity: 100%;
       transform: translate3d(0, 0, 0);
     }
   }
 
   .md-list-expand {
     height: 0;
-    opacity: 0;
+    opacity: 0%;
     overflow: hidden;
     transform: translate3d(0, -24px, 0);
     transition: 0.4s $md-transition-stand-timing;

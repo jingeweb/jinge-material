@@ -4,18 +4,16 @@ const Webpack = require('webpack');
 const getWebpackBuildMainConfig = require('./_webpack_site');
 const getWebpackBuildThemeConfig = require('./_webpack_theme');
 
-const {
-  __r, generateLoader
-} = require('./_util');
+const { __r, generateLoader } = require('./_util');
 
 const webpackConfigs = [
   getWebpackBuildThemeConfig(path.resolve(__dirname, '../site/app/themes')),
-  getWebpackBuildMainConfig()
+  getWebpackBuildMainConfig(),
 ];
 
-webpackConfigs.forEach(cfg => {
+webpackConfigs.forEach((cfg) => {
   cfg.cache = {
-    type: 'filesystem'
+    type: 'filesystem',
   };
 });
 
@@ -60,11 +58,13 @@ compiler.run((err, stats) => {
     return console.log(err);
   }
   generateLoader();
-  console.log(stats.toString({
-    colors: true,
-    hash: false,
-    modules: false,
-    chunks: false,
-    entrypoints: false
-  }));
+  console.log(
+    stats.toString({
+      colors: true,
+      hash: false,
+      modules: false,
+      chunks: false,
+      entrypoints: false,
+    }),
+  );
 });

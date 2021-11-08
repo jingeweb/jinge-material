@@ -6,11 +6,10 @@ export function getIndentedSource(source) {
     lines.shift();
   }
 
-  const indentation =
-    (matches = /^[\s\t]+/.exec(lines[0])) !== null ? matches[0] : null;
+  const indentation = (matches = /^[\s\t]+/.exec(lines[0])) !== null ? matches[0] : null;
 
   if (indentation) {
-    lines = lines.map(line => {
+    lines = lines.map((line) => {
       line = line.replace(indentation, '');
 
       return line.replace(/\t/g, '  ');

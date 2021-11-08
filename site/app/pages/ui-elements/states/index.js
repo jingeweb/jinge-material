@@ -1,11 +1,10 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './apis';
 
 import Basic from './examples/basic';
+// eslint-disable-next-line import/no-unresolved
 import sourceBasic from './examples/basic?example';
 
 export class PageStates extends Component {
@@ -22,8 +21,8 @@ export class PageStates extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
-      }
+        source: sourceBasic,
+      },
     };
   }
 }

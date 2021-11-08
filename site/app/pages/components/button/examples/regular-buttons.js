@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './regular-buttons.html';
 import _sty from './regular-buttons.scss';

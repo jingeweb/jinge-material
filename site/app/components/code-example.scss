@@ -1,5 +1,5 @@
-@import 'style/palette.scss';
-@import 'src/animation/variables.scss';
+@import 'style/palette';
+@import 'src/animation/variables';
 
 .code-example {
   margin: 36px 0;
@@ -44,11 +44,11 @@
 }
 
 .block-enter-active {
-  opacity: 0;
+  opacity: 0%;
   transition: opacity 0.4s $md-transition-default-timing;
   will-change: opacity;
 }
 
 .block-enter-to {
-  opacity: 1;
+  opacity: 100%;
 }

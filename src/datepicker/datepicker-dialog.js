@@ -1,17 +1,8 @@
 import './datepicker-dialog.scss';
 
-import {
-  Component, vm,
-  isFunction
-} from 'jinge';
-import {
-  isEqual as isDateEqual,
-  getDaysInMonth
-} from '../_util/date';
-import {
-  unwatchLocale,
-  watchLocale
-} from '../_config';
+import { Component, vm, isFunction } from 'jinge';
+import { isEqual as isDateEqual, getDaysInMonth } from '../_util/date';
+import { unwatchLocale, watchLocale } from '../_config';
 
 import _tpl from './datepicker-dialog.html';
 
@@ -24,7 +15,7 @@ function createDay(date) {
     y: date.getFullYear(),
     m: date.getMonth(),
     w: date.getDay(),
-    d: date.getDate()
+    d: date.getDate(),
   });
 }
 
@@ -134,30 +125,24 @@ export class DatepickerDialog extends Component {
   _updateWeekdays() {
     const lc = this.locale;
     const ws = lc.weekdaysMin;
-    this.weekdays = ws.slice(lc.firstDayOfWeek).concat(
-      ws.slice(0, lc.firstDayOfWeek)
-    );
+    this.weekdays = ws.slice(lc.firstDayOfWeek).concat(ws.slice(0, lc.firstDayOfWeek));
   }
 
   _updateDayPickerHeader() {
     const lc = this.locale;
-    const {
-      y, m
-    } = this.currentDay;
+    const { y, m } = this.currentDay;
     this.dayPickerHeader = lc.dayPickerHeader
       .replace(/YYYY/g, y)
       .replace(/MMMM/g, () => lc.months[m])
       .replace(/MMM/g, () => lc.monthsShort[m])
-      .replace(/MM/g, () => m >= 10 ? m : ('0' + m))
+      .replace(/MM/g, () => (m >= 10 ? m : '0' + m))
       .replace(/M/g, () => m);
   }
 
   _updateRenderDays() {
     const lc = this.locale;
     const cd = this.currentDay;
-    const {
-      y, m, d
-    } = cd;
+    const { y, m, d } = cd;
     const startDate = new Date(y, m, 1);
     const firstDayOfMonth = startDate.getDay();
     cd.w = (d + firstDayOfMonth - 1) % 7;
@@ -167,28 +152,32 @@ export class DatepickerDialog extends Component {
     const totalDays = emptyDays + getDaysInMonth(y, m);
 
     const sd = this.selectedDay;
-    this.renderDays = vm(new Array(totalDays).fill(0).map((n, i) => {
-      const di = i - emptyDays + 1;
-      const wi = (di + firstDayOfMonth - 1) % 7;
-      return i < emptyDays ? {
-        empty: true,
-        selected: false
-      } : {
-        empty: false,
-        selected: (!!sd) && sd.y === cd.y && sd.m === cd.m && sd.d === di,
-        disabled: (!!this.disabledDates) && this.disabledDates(y, m, di, wi),
-        y: y,
-        m: m,
-        w: wi,
-        d: di
-      };
-    }));
+    this.renderDays = vm(
+      new Array(totalDays).fill(0).map((n, i) => {
+        const di = i - emptyDays + 1;
+        const wi = (di + firstDayOfMonth - 1) % 7;
+        return i < emptyDays
+          ? {
+              empty: true,
+              selected: false,
+            }
+          : {
+              empty: false,
+              selected: !!sd && sd.y === cd.y && sd.m === cd.m && sd.d === di,
+              disabled: !!this.disabledDates && this.disabledDates(y, m, di, wi),
+              y: y,
+              m: m,
+              w: wi,
+              d: di,
+            };
+      }),
+    );
     this.contentStyle = `height: ${72 + Math.ceil(totalDays / 7) * 32}px;`;
   }
 
   selectDate(day) {
     if (day.disabled || day.selected) return;
-    this.renderDays.forEach(rd => {
+    this.renderDays.forEach((rd) => {
       rd.selected = rd === day;
     });
     this.selectedDay = day;

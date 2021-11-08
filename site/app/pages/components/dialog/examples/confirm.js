@@ -1,10 +1,6 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
-import {
-  DialogConfirm
-} from '../../../../../../src/dialog';
+import { DialogConfirm } from '../../../../../../src/dialog';
 
 import _tpl from './confirm.html';
 
@@ -29,15 +25,19 @@ export default class ExampleDialogConfirm extends Component {
   }
 
   show() {
-    DialogConfirm.show({
-      title: 'Confirm to delete?',
-      content: 'This message is shown by calling DialogConfirm.show()'
-    }, () => {
-      console.log('user click confirm.');
-      return mockDeleteApi();
-    }, () => {
-      console.log('user click cancel.');
-    });
+    DialogConfirm.show(
+      {
+        title: 'Confirm to delete?',
+        content: 'This message is shown by calling DialogConfirm.show()',
+      },
+      () => {
+        console.log('user click confirm.');
+        return mockDeleteApi();
+      },
+      () => {
+        console.log('user click cancel.');
+      },
+    );
   }
 
   onCancel() {

@@ -1,18 +1,11 @@
 import './button.scss';
 
-import {
-  Component, vm
-} from 'jinge';
-import {
-  registerFocus,
-  deregisterFocus
-} from '../_util';
+import { Component, vm } from 'jinge';
+import { registerFocus, deregisterFocus } from '../_util';
 
 import _tpl from './button.html';
 
-const IGNORED_EVENTS = [
-  'touchstart', 'mousedown'
-];
+const IGNORED_EVENTS = ['touchstart', 'mousedown'];
 
 export class Button extends Component {
   static get template() {
@@ -21,9 +14,7 @@ export class Button extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this._tag = attrs.to ? 'sref' : (
-      attrs.href ? 'a' : 'button'
-    );
+    this._tag = attrs.to ? 'sref' : attrs.href ? 'a' : 'button';
     this.to = attrs.to || '';
     this.target = attrs.target || '_self';
     this.href = attrs.href || '';
@@ -60,7 +51,7 @@ export class Button extends Component {
     if (this.ripple && !this.disabled) {
       this._ts = event.timeStamp;
       this.rippleActive = vm({
-        _event: event
+        _event: event,
       });
     }
     this.__notify('touchstart', event);
@@ -69,7 +60,7 @@ export class Button extends Component {
   mousedown(event) {
     if (this.ripple && !this.disabled && this._ts !== event.timeStamp) {
       this.rippleActive = vm({
-        _event: event
+        _event: event,
       });
     }
     this.__notify('mousedown', event);

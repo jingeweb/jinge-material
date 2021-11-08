@@ -1,4 +1,5 @@
 @import '../animation/variables';
+@import './theme';
 
 @mixin md-empty-state-base() {
   display: flex;
@@ -15,9 +16,7 @@
   padding: 36px;
   margin: 0 auto;
   position: relative;
-  transition:
-    opacity 0.15s $md-transition-enter-timing,
-    transform 0.3s $md-transition-enter-timing;
+  transition: opacity 0.15s $md-transition-enter-timing, transform 0.3s $md-transition-enter-timing;
   will-change: transform, opacity;
 
   &.md-rounded {
@@ -40,11 +39,11 @@
 }
 
 .md-empty-state-enter {
-  opacity: 0;
+  opacity: 0%;
   transform: scale(0.87);
 
   .md-empty-state-container {
-    opacity: 0;
+    opacity: 0%;
   }
 }
 
@@ -58,7 +57,7 @@
     width: 160px;
     height: 160px;
     margin: 0;
-    color: rgba(0, 0, 0, 0.24);
+    color: rgb(0 0 0 / 24%);
   }
 }
 
@@ -73,5 +72,3 @@
   font-size: 16px;
   line-height: 24px;
 }
-
-@import './theme.scss';

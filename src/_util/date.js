@@ -1,5 +1,5 @@
 function pad(n) {
-  return n >= 10 ? n.toString() : ('0' + n);
+  return n >= 10 ? n.toString() : '0' + n;
 }
 
 function lc(w) {
@@ -26,15 +26,13 @@ export function isValid(date) {
  * @param {String} format simple date format
  */
 export function parse(inputStr, format) {
-  const fm = format.match(/y+|m+|d+/ig);
+  const fm = format.match(/y+|m+|d+/gi);
   const im = inputStr.match(/\d+/g);
   if (!fm || !im || fm.length !== 3 || im.length !== 3) return null;
   const ds = [0, 0, 0]; // [year, month, day]
   fm.forEach((s, i) => {
     s = lc(s);
-    ds[
-      s === 89 ? 0 : (s === 77 ? 1 : 2)
-    ] = Number(im[i]);
+    ds[s === 89 ? 0 : s === 77 ? 1 : 2] = Number(im[i]);
   });
   if (ds[0] <= 0 || ds[1] <= 0 || ds[2] < 0) {
     return null;
@@ -48,13 +46,9 @@ export function parse(inputStr, format) {
  * @param {String} formatStr simple date format
  */
 export function format(date, formatStr) {
-  return formatStr.replace(/y+|m+|d+/ig, match => {
+  return formatStr.replace(/y+|m+|d+/gi, (match) => {
     const c = lc(match);
-    return pad(
-      c === 89 ? date.getFullYear() : (
-        c === 77 ? (date.getMonth() + 1) : date.getDate()
-      )
-    );
+    return pad(c === 89 ? date.getFullYear() : c === 77 ? date.getMonth() + 1 : date.getDate());
   });
 }
 
@@ -64,10 +58,8 @@ export function format(date, formatStr) {
  * @returns {String}
  */
 export function formatToReStr(formatStr) {
-  return formatStr.replace(/y+|m+|d+|\\/ig, match => {
+  return formatStr.replace(/y+|m+|d+|\\/gi, (match) => {
     const c = lc(match);
-    return (
-      c === 92 ? '\\\\' : `[0-9]{${c === 89 ? 4 : 2}}`
-    );
+    return c === 92 ? '\\\\' : `[0-9]{${c === 89 ? 4 : 2}}`;
   });
 }

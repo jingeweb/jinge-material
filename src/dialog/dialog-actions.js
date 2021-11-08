@@ -1,8 +1,6 @@
 import './dialog-actions.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class DialogActions extends Component {
   static get template() {

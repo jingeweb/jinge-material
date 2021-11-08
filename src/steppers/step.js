@@ -1,10 +1,5 @@
-import {
-  Component,
-  uid
-} from 'jinge';
-import {
-  STEPPERS_PROVIDER
-} from './steppers';
+import { Component, uid } from 'jinge';
+import { STEPPERS_PROVIDER } from './steppers';
 
 import _tpl from './step.html';
 

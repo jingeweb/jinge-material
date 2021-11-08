@@ -1,8 +1,6 @@
 import './dialog.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './dialog.html';
 

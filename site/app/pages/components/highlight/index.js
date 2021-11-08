@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -15,7 +13,7 @@ export class PageHighlight extends Component {
 
   static get style() {
     return `
-div /deep/ .md-highlight-text-match {
+div ::deep .md-highlight-text-match {
   color: #448aff;
 }`;
   }
@@ -28,8 +26,8 @@ div /deep/ .md-highlight-text-match {
     this._examples = {
       text: {
         component: Text,
-        source: sourceText
-      }
+        source: sourceText,
+      },
     };
   }
 }

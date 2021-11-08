@@ -46,7 +46,7 @@
 
 .md-snackbar-enter,
 .md-snackbar-leave.md-snackbar-leave-active {
-  opacity: 0;
+  opacity: 0%;
 
   &.md-position-center {
     transform: translate3d(0, calc(100% + 8px), 0);
@@ -59,7 +59,7 @@
 
 .md-snackbar-enter.md-snackbar-enter-active,
 .md-snackbar-leave {
-  opacity: 1;
+  opacity: 100%;
 
   &.md-position-center,
   &.md-position-left {

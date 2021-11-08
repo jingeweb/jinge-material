@@ -1,7 +1,4 @@
-import {
-  Component,
-  vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './single-checkbox.html';
 
@@ -27,11 +24,11 @@ table td { padding-right: 10px; }
     this.v2 = _rnd() ? 'yes' : 'no';
     this.s = vm({
       t: {
-        v: true
+        v: true,
       },
       f: {
-        v: false
-      }
+        v: false,
+      },
     });
     this.v3s = '';
     this.v3 = _rnd() ? this.s.t : this.s.f;

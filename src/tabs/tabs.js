@@ -2,24 +2,12 @@
  * @typedef {import('jinge-router').Router} Router
  */
 
-import {
-  Component,
-  vm, $$,
-  isNumber,
-  setImmediate,
-  clearImmediate
-} from 'jinge';
-import {
-  MutationObserveDOM,
-  EnumAttrValidator,
-  ELEVATION_ENUMS
-} from '../_util';
+import { Component, vm, $$, isNumber, setImmediate, clearImmediate } from 'jinge';
+import { MutationObserveDOM, EnumAttrValidator, ELEVATION_ENUMS } from '../_util';
 
 import _tpl from './tabs.html';
 
-const elevationValidator = new EnumAttrValidator(
-  '<md-toolbar>', 'elevation', ELEVATION_ENUMS
-);
+const elevationValidator = new EnumAttrValidator('<md-toolbar>', 'elevation', ELEVATION_ENUMS);
 
 export const TABS_PROVIDER = Symbol('tabs_provider');
 
@@ -71,7 +59,7 @@ export class Tabs extends Component {
   }
 
   __afterRender() {
-    this.hasContent = this.items.some(it => it._hasContent);
+    this.hasContent = this.items.some((it) => it._hasContent);
     this.items.length > 0 && this.items[$$].__notify('length', true);
 
     if (this._syncRoute === 0) {
@@ -112,13 +100,17 @@ export class Tabs extends Component {
   }
 
   _setupObservers() {
-    this._rod = MutationObserveDOM(this.__firstDOM.querySelector('.md-tabs-content'), {
-      childList: true,
-      characterData: true,
-      subtree: true
-    }, () => {
-      this._reCalc();
-    });
+    this._rod = MutationObserveDOM(
+      this.__firstDOM.querySelector('.md-tabs-content'),
+      {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      },
+      () => {
+        this._reCalc();
+      },
+    );
 
     this.__domAddListener(window, 'resize', this._reCalc);
   }
@@ -132,7 +124,8 @@ export class Tabs extends Component {
       return;
     }
     this._activeEl = el;
-    if (!isN) { // reset active index
+    if (!isN) {
+      // reset active index
       this._activeTab = el ? fnIndexOf.call($nav.children, el) : -1;
     }
     this._reCalc();
@@ -140,7 +133,7 @@ export class Tabs extends Component {
 
   _update(notify = true) {
     if (!isNumber(this._activeTab)) {
-      this._activeTab = this.items.findIndex(it => it.id === this._activeStep);
+      this._activeTab = this.items.findIndex((it) => it.id === this._activeStep);
     }
     this._activeEl = this.__getRef('nav').querySelector('.md-tab-nav-button.md-active');
     this._setActive(this._activeTab, notify);
@@ -148,6 +141,7 @@ export class Tabs extends Component {
 
   _add(tab) {
     if ((this._syncRoute > 0 && !tab.to) || (tab.to && this._syncRoute !== this.items.length)) {
+      // eslint-disable-next-line no-console
       console.warn('<md-tabs>: if one <md-tab> has "to" attribute, all tabs must also have "to" attribute.');
     }
     if (tab.to) {
@@ -189,7 +183,7 @@ export class Tabs extends Component {
   _calcIndicator() {
     const $indicator = this.__getRef('indicator');
     if (!this._activeEl || !$indicator) {
-      console.log(this._activeEl, $indicator);
+      // console.log(this._activeEl, $indicator);
       this.indicatorStyles = 'left: 100%; right: 100%';
       return;
     }

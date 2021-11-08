@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -31,28 +29,28 @@ export class PageChips extends Component {
     this._examples = {
       single: {
         component: Single,
-        source: sourceSingle
+        source: sourceSingle,
       },
       editable: {
         component: Editable,
-        source: sourceEditable
+        source: sourceEditable,
       },
       static: {
         component: Static,
-        source: sourceStatic
+        source: sourceStatic,
       },
       template: {
         component: Template,
-        source: sourceTemplate
+        source: sourceTemplate,
       },
       duplicated: {
         component: Duplicated,
-        source: sourceDuplicated
+        source: sourceDuplicated,
       },
       theme: {
         component: Theme,
-        source: sourceTheme
-      }
+        source: sourceTheme,
+      },
     };
   }
 }

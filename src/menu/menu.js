@@ -1,22 +1,11 @@
 import './menu.scss';
 
-import {
-  Component,
-  isUndefined,
-  isString
-} from 'jinge';
-import {
-  EnumAttrValidator,
-  mergePopperOpts
-} from '../_util';
+import { Component, isUndefined, isString } from 'jinge';
+import { EnumAttrValidator, mergePopperOpts } from '../_util';
 
 import _tpl from './menu.html';
 
-const sizeValidator = new EnumAttrValidator(
-  '<md-menu>', 'size', [
-    'auto', 'small', 'medium', 'big', 'huge'
-  ]
-);
+const sizeValidator = new EnumAttrValidator('<md-menu>', 'size', ['auto', 'small', 'medium', 'big', 'huge']);
 
 export const MENU_PROVIDER = Symbol('menu_provider');
 
@@ -43,20 +32,23 @@ export class Menu extends Component {
     this.closeOnSelect = attrs.closeOnSelect !== false;
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this.size = attrs.size || 'auto';
-    this._popperOptions = mergePopperOpts({
-      modifiers: {
-        keepTogether: {
-          enabled: true
+    this._popperOptions = mergePopperOpts(
+      {
+        modifiers: {
+          keepTogether: {
+            enabled: true,
+          },
+          flip: {
+            enabled: false,
+          },
         },
-        flip: {
-          enabled: false
-        }
-      }
-    }, attrs._popperOptions);
+      },
+      attrs._popperOptions,
+    );
     this.listClass = attrs.listClass;
 
     this._Menu = {
-      close: this.close.bind(this)
+      close: this.close.bind(this),
     };
     this.__setContext(MENU_PROVIDER, this._Menu, true);
   }

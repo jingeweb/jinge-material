@@ -6,11 +6,8 @@ $md-button-min-width: 88px;
 $md-button-height: 36px;
 $md-button-radius: 2px;
 $md-button-font-size: 14px;
-
 $md-button-dense-height: 32px;
-
 $md-button-icon-size: 40px;
-
 $md-button-fab-size: 56px;
 $md-button-fab-size-mini: $md-button-icon-size;
 
@@ -169,7 +166,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 
   &[disabled] {
-    opacity: 0.38;
+    opacity: 38%;
   }
 }
 
@@ -251,7 +248,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
 
     &.md-disabled,
     &[disabled] {
-      opacity: 0.38;
+      opacity: 38%;
     }
   }
 }

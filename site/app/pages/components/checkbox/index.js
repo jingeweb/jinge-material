@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -22,12 +20,12 @@ export class PageCheckbox extends Component {
     this._examples = {
       singleCheckbox: {
         component: SingleCheckbox,
-        source: sourceSingleCheckbox
+        source: sourceSingleCheckbox,
       },
       arrayCheckbox: {
         component: ArrayCheckbox,
-        source: sourceArrayCheckbox
-      }
+        source: sourceArrayCheckbox,
+      },
     };
   }
 }

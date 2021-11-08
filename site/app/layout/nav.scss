@@ -29,7 +29,7 @@
 }
 
 .nav-enter-active {
-  opacity: 0;
+  opacity: 0%;
   transform: translate3d(-100%, 0, 0);
   transition: 0.4s $md-transition-default-timing;
   transition-property: opacity, transform;
@@ -37,7 +37,7 @@
 }
 
 .nav-enter-to {
-  opacity: 1;
+  opacity: 100%;
   transform: translate3d(0, 0, 0);
 }
 
@@ -54,5 +54,5 @@
   padding: 16px;
   flex: 1;
   overflow: auto;
-  border-top: 1px solid rgba(#000, 0.12);
+  border-top: 1px solid rgb(#000 0.12);
 }

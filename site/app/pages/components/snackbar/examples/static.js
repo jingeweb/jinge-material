@@ -1,11 +1,7 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
+import { Snackbar } from '../../../../../../src/snackbar';
 import _tpl from './static.html';
-import {
-  Snackbar
-} from '../../../../../../src/snackbar';
 
 export default class ExampleSnackbarStatic extends Component {
   static get template() {
@@ -21,7 +17,7 @@ export default class ExampleSnackbarStatic extends Component {
     Snackbar.show({
       position: Math.random() > 0.5 ? 'center' : 'left',
       message: `Hello, World ${this._inc++}.`,
-      duration: (Math.random() * 3000 | 0) + 1000
+      duration: ((Math.random() * 3000) | 0) + 1000,
     });
   }
 }

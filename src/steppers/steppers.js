@@ -1,6 +1,4 @@
-import {
-  Component, vm, $$, isNumber
-} from 'jinge';
+import { Component, vm, $$, isNumber } from 'jinge';
 
 import _tpl from './steppers.html';
 
@@ -20,7 +18,7 @@ export class Steppers extends Component {
       _get: this._get.bind(this),
       _add: this._add.bind(this),
       _remove: this._remove.bind(this),
-      _active: this._active.bind(this)
+      _active: this._active.bind(this),
     });
     this.contentStyle = null;
     this.contentTransform = null;
@@ -66,7 +64,7 @@ export class Steppers extends Component {
 
   _update(notify = true) {
     if (!isNumber(this._activeStep)) {
-      this._activeStep = this.items.findIndex(it => it.id === this._activeStep);
+      this._activeStep = this.items.findIndex((it) => it.id === this._activeStep);
     }
     this._setActive(this._activeStep, notify);
   }

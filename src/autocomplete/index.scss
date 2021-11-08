@@ -1,6 +1,7 @@
 @import '../animation/variables';
 @import '../../style/elevation/mixins';
 @import '../../style/layout/mixins';
+@import './theme';
 
 .md-autocomplete {
   .md-menu {
@@ -81,5 +82,3 @@
   border-bottom: 1px solid;
   content: '';
 }
-
-@import './theme.scss';

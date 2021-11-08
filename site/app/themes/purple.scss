@@ -1,7 +1,7 @@
-@import 'style/palette.scss';
-@import 'style/themes/purple.scss';
+@import 'style/palette';
+@import 'style/themes/purple';
 
 :root {
-  --demo-table-row-class-highlight: #{ md-get-palette-color(amber, 500) };
+  --demo-table-row-class-highlight: #{md-get-palette-color(amber, 500)};
   --demo-states-background: #f5f5f5;
 }

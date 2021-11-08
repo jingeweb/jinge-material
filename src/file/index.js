@@ -1,11 +1,7 @@
 import './index.scss';
 
-import {
-  uid
-} from 'jinge';
-import {
-  BaseField
-} from '../field/base';
+import { uid } from 'jinge';
+import { BaseField } from '../field/base';
 
 import _tpl from './index.html';
 
@@ -31,7 +27,7 @@ export class File extends BaseField {
 
   getMultipleName(files) {
     const names = [];
-    [...files].forEach(f => names.push(f.name));
+    [...files].forEach((f) => names.push(f.name));
     return names.join(', ');
   }
 
@@ -58,9 +54,7 @@ export class File extends BaseField {
   }
 
   onFileSelected(evt) {
-    const {
-      target, dataTransfer
-    } = evt;
+    const { target, dataTransfer } = evt;
     const files = target.files || dataTransfer.files;
 
     this.value = this.getFileName(files, target);

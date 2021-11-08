@@ -35,7 +35,7 @@
   .md-textarea {
     color: var(--md-on-surface);
 
-    &::-webkit-input-placeholder {
+    &::-input-placeholder {
       color: var(--md-on-surface-medium);
     }
   }
@@ -52,13 +52,12 @@
 
   &.md-disabled {
     &::after {
-      background-image:
-        linear-gradient(
-          to right,
-          var(--md-on-surface-disabled) 0%,
-          var(--md-on-surface-disabled) 33%,
-          transparent 0%
-        );
+      background-image: linear-gradient(
+        to right,
+        var(--md-on-surface-disabled) 0%,
+        var(--md-on-surface-disabled) 33%,
+        transparent 0%
+      );
     }
 
     label,

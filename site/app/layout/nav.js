@@ -1,9 +1,5 @@
-import {
-  Component
-} from 'jinge';
-import {
-  router
-} from '../service';
+import { Component } from 'jinge';
+import { router } from '../service';
 
 import _tpl from './nav.html';
 import _sty from './nav.scss';

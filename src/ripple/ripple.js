@@ -1,12 +1,7 @@
 import './ripple.scss';
 
-import {
-  Component, __, vm,
-  isBoolean, uid, isObject
-} from 'jinge';
-import {
-  obj2style
-} from '../_util';
+import { Component, __, vm, isBoolean, uid, isObject } from 'jinge';
+import { obj2style } from '../_util';
 
 import _tpl from './ripple.html';
 
@@ -45,9 +40,15 @@ export class Ripple extends Component {
     }
     if (isBool && this.centered && v) {
       this.startRipple({
-        type: 'mousedown'
+        type: 'mousedown',
       });
-    } else if (v && v.constructor.toString().match(/function (\w*)/)[1].toLowerCase() === 'mouseevent') {
+    } else if (
+      v &&
+      v.constructor
+        .toString()
+        .match(/function (\w*)/)[1]
+        .toLowerCase() === 'mouseevent'
+    ) {
       this.startRipple(v);
     }
 
@@ -65,9 +66,7 @@ export class Ripple extends Component {
   }
 
   startRipple($event) {
-    const {
-      _eventType, disabled, centered
-    } = this;
+    const { _eventType, disabled, centered } = this;
 
     if (!disabled && (!_eventType || _eventType === $event.type)) {
       const size = this.getSize();
@@ -80,10 +79,12 @@ export class Ripple extends Component {
       }
 
       this._eventType = $event.type;
-      this.ripples.push(vm({
-        waveStyles: this.applyStyles(position, size),
-        uuid: uid()
-      }));
+      this.ripples.push(
+        vm({
+          waveStyles: this.applyStyles(position, size),
+          uuid: uid(),
+        }),
+      );
     }
   }
 
@@ -91,24 +92,25 @@ export class Ripple extends Component {
     size += 'px';
 
     return obj2style(
-      Object.assign({
-        width: size,
-        height: size
-      }, position)
+      Object.assign(
+        {
+          width: size,
+          height: size,
+        },
+        position,
+      ),
     );
   }
 
   clearWave(uuid) {
     if (!uuid) return (this.ripples.length = 0);
-    const idx = this.ripples.findIndex(ripple => ripple.uuid === uuid);
+    const idx = this.ripples.findIndex((ripple) => ripple.uuid === uuid);
     if (idx < 0) return;
     this.ripples.splice(idx, 1);
   }
 
   getSize() {
-    const {
-      offsetWidth, offsetHeight
-    } = this[__].rootNodes[0];
+    const { offsetWidth, offsetHeight } = this[__].rootNodes[0];
 
     return Math.round(Math.max(offsetWidth, offsetHeight));
   }
@@ -118,7 +120,7 @@ export class Ripple extends Component {
 
     return {
       'margin-top': halfSize,
-      'margin-left': halfSize
+      'margin-left': halfSize,
     };
   }
 
@@ -133,18 +135,8 @@ export class Ripple extends Component {
     }
 
     return {
-      top:
-        top -
-        rect.top -
-        elementSize / 2 -
-        document.documentElement.scrollTop +
-        'px',
-      left:
-        left -
-        rect.left -
-        elementSize / 2 -
-        document.documentElement.scrollLeft +
-        'px'
+      top: top - rect.top - elementSize / 2 - document.documentElement.scrollTop + 'px',
+      left: left - rect.left - elementSize / 2 - document.documentElement.scrollLeft + 'px',
     };
   }
 }

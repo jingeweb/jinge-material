@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 
 import Horizontal from './examples/horizontal';
@@ -29,24 +27,24 @@ export class PageSteppers extends Component {
     this._examples = {
       horizontal: {
         component: Horizontal,
-        source: sourceHorizontal
+        source: sourceHorizontal,
       },
       alternative: {
         component: Alternative,
-        source: sourceAlternative
+        source: sourceAlternative,
       },
       vertical: {
         component: Vertical,
-        source: sourceVertical
+        source: sourceVertical,
       },
       linear: {
         component: Linear,
-        source: sourceLinear
+        source: sourceLinear,
       },
       nonEditable: {
         component: NonEditable,
-        source: sourceNonEditable
-      }
+        source: sourceNonEditable,
+      },
     };
   }
 }

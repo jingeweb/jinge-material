@@ -13,9 +13,7 @@
         &.md-active {
           color: var(--md-primary);
         }
-      }
-
-      @else {
+      } @else {
         color: var(--md-on-#{$primary});
       }
     }
@@ -24,9 +22,7 @@
   .md-tabs-indicator {
     @if $primary == 'background' {
       background-color: var(--md-primary);
-    }
-
-    @else {
+    } @else {
       background-color: var(--md-on-#{$primary});
     }
   }
@@ -153,15 +149,11 @@
   will-change: left, right;
 
   &.md-tabs-indicator-left {
-    transition:
-      left 0.3s $md-transition-default-timing,
-      right 0.35s $md-transition-default-timing;
+    transition: left 0.3s $md-transition-default-timing, right 0.35s $md-transition-default-timing;
   }
 
   &.md-tabs-indicator-right {
-    transition:
-      right 0.3s $md-transition-default-timing,
-      left 0.35s $md-transition-default-timing;
+    transition: right 0.3s $md-transition-default-timing, left 0.35s $md-transition-default-timing;
   }
 }
 

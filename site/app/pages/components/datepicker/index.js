@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -27,20 +25,20 @@ export class PageDatepicker extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
+        source: sourceBasic,
       },
       init: {
         component: Init,
-        source: sourceInit
+        source: sourceInit,
       },
       immediately: {
         component: Immediately,
-        source: sourceImmediately
+        source: sourceImmediately,
       },
       disable: {
         component: Disable,
-        source: sourceDisable
-      }
+        source: sourceDisable,
+      },
     };
   }
 }

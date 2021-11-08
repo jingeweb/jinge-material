@@ -1,12 +1,6 @@
-import {
-  Component, vm
-} from 'jinge';
-import {
-  getAndWatchLocale
-} from '../_config';
-import {
-  _n, DEFAULT_PAGE_SIZE_OPTIONS
-} from './helper';
+import { Component, vm } from 'jinge';
+import { getAndWatchLocale } from '../_config';
+import { _n, DEFAULT_PAGE_SIZE_OPTIONS } from './helper';
 
 import _tpl from './light.html';
 

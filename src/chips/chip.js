@@ -1,10 +1,5 @@
-import {
-  Component
-} from 'jinge';
-import {
-  registerFocus,
-  deregisterFocus
-} from '../_util';
+import { Component } from 'jinge';
+import { registerFocus, deregisterFocus } from '../_util';
 
 import _tpl from './chip.html';
 

@@ -1,14 +1,5 @@
-import {
-  Component,
-  attrs as wrapAttrs,
-  setImmediate,
-  isFunction,
-  isObject,
-  isString
-} from 'jinge';
-import {
-  getAndWatchLocale
-} from '../_config';
+import { Component, attrs as wrapAttrs, setImmediate, isFunction, isObject, isString } from 'jinge';
+import { getAndWatchLocale } from '../_config';
 
 import _tpl from './dialog-confirm.html';
 
@@ -71,7 +62,7 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
   const isConfirm = Clazz === DialogConfirm;
   if (isString(opts)) {
     opts = {
-      title: opts
+      title: opts,
     };
   }
   const attrs = {
@@ -80,7 +71,7 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
     title: opts.title,
     confirmSpinner: false,
     confirmText: opts.confirmText,
-    cancelText: opts.cancelText
+    cancelText: opts.cancelText,
   };
   if (isConfirm) {
     attrs.content = opts.content;
@@ -95,7 +86,7 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
   setImmediate(() => {
     el.active = true;
   });
-  el.__on('update.active', (active, action) => {
+  el.__on('update.active', (active) => {
     if (active) return;
     if (isFunction(cancelCallback) && cancelCallback() === false) {
       return;
@@ -120,21 +111,24 @@ export function showConfirmOrPrompt(Clazz, opts, confirmCallback, cancelCallback
       return;
     } else if (isObject(result) && isFunction(result.then)) {
       el.confirmSpinner = true;
-      result.then(rr => {
-        if (rr === false || isString(rr)) {
-          if (!isConfirm) {
-            el.errorTip = rr;
+      result.then(
+        (rr) => {
+          if (rr === false || isString(rr)) {
+            if (!isConfirm) {
+              el.errorTip = rr;
+            }
+            el.confirmSpinner = false;
+          } else {
+            el.__destroy();
           }
+        },
+        (err) => {
           el.confirmSpinner = false;
-        } else {
-          el.__destroy();
-        }
-      }, err => {
-        el.confirmSpinner = false;
-        if (!isConfirm) {
-          el.errorTip = err.toString();
-        }
-      });
+          if (!isConfirm) {
+            el.errorTip = err.toString();
+          }
+        },
+      );
       return;
     }
     el.__destroy();

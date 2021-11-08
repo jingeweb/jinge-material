@@ -1,21 +1,14 @@
 import './datepicker.scss';
 
-import {
-  Component,
-  isNumber,
-  isString
-} from 'jinge';
+import { Component, isNumber, isString } from 'jinge';
 import {
   isEqual as isDateEqual,
   isValid as isDateValid,
   format as formatDate,
   parse as parseDate,
-  formatToReStr as dateFormatToRegExpStr
+  formatToReStr as dateFormatToRegExpStr,
 } from '../_util/date';
-import {
-  getAndWatchLocale,
-  unwatchLocale
-} from '../_config';
+import { getAndWatchLocale, unwatchLocale } from '../_config';
 
 import _tpl from './datepicker.html';
 
@@ -91,12 +84,14 @@ export class Datepicker extends Component {
         v = parseDate(v, this.dateFormat);
       }
     } else if (!(isNumber(v) || v instanceof Date)) {
+      // eslint-disable-next-line no-console
       console.warn(NOT_VALID);
       return null;
     } else {
       v = new Date(v);
     }
     if (!isDateValid(v)) {
+      // eslint-disable-next-line no-console
       console.warn(NOT_VALID);
       return null;
     }

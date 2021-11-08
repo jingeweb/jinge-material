@@ -9,12 +9,10 @@
   right: 0;
   left: 0;
   z-index: 100;
-  transition:
-    0.3s $md-transition-default-timing,
-    box-shadow 0.4s 0.1s $md-transition-stand-timing;
+  transition: 0.3s $md-transition-default-timing, box-shadow 0.4s 0.1s $md-transition-stand-timing;
   will-change: box-shadow, max-width, background-color;
 
-  /deep/ {
+  ::deep {
     .md-toolbar-row {
       max-width: 100%;
       transition: max-width 0.3s $md-transition-default-timing;
@@ -73,7 +71,7 @@
   &.splash {
     background-color: #303030;
 
-    /deep/ {
+    ::deep {
       .md-button,
       .md-title,
       .md-icon {

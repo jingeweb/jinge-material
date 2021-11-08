@@ -1,10 +1,6 @@
 import './list.scss';
 
-import {
-  Component,
-  arrayPushIfNotExist,
-  arrayRemove
-} from 'jinge';
+import { Component, arrayPushIfNotExist, arrayRemove } from 'jinge';
 
 export const LIST_PROVIDER = Symbol('list_provider');
 export class List extends Component {
@@ -24,7 +20,7 @@ export class List extends Component {
       expandable: [],
       expandATab: this.expandATab.bind(this),
       pushExpandable: this.pushExpandable.bind(this),
-      removeExpandable: this.removeExpandable.bind(this)
+      removeExpandable: this.removeExpandable.bind(this),
     };
     this.__setContext(LIST_PROVIDER, this._List, true);
   }

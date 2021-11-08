@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -25,16 +23,16 @@ export class PageSpinner extends Component {
     this._examples = {
       loadingSpinner: {
         component: LoadingSpinner,
-        source: sourceLoadingSpinner
+        source: sourceLoadingSpinner,
       },
       progressSpinner: {
         component: ProgressSpinner,
-        source: sourceProgressSpinner
+        source: sourceProgressSpinner,
       },
       buttonSpinner: {
         component: ButtonSpinner,
-        source: sourceButtonSpinner
-      }
+        source: sourceButtonSpinner,
+      },
     };
   }
 }

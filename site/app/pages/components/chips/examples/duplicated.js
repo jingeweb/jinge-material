@@ -1,7 +1,4 @@
-import {
-  Component,
-  vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './duplicated.html';
 import _sty from './duplicated.scss';
@@ -17,12 +14,7 @@ export default class ExampleClipsDuplicated extends Component {
 
   constructor(attrs) {
     super(attrs);
-    this.chips = vm([
-      'Pop',
-      'Rock',
-      'Jazz',
-      'Metal'
-    ]);
+    this.chips = vm(['Pop', 'Rock', 'Jazz', 'Metal']);
   }
 
   log(...args) {

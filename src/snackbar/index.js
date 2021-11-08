@@ -1,14 +1,7 @@
 import './index.scss';
 
-import {
-  Component,
-  attrs as wrapAttrs,
-  isString,
-  setImmediate
-} from 'jinge';
-import {
-  SnackbarQueueManager
-} from './queue';
+import { Component, attrs as wrapAttrs, isString, setImmediate } from 'jinge';
+import { SnackbarQueueManager } from './queue';
 
 import _tpl from './index.html';
 
@@ -22,13 +15,20 @@ export class Snackbar extends Component {
   static show(options) {
     if (isString(options)) {
       options = {
-        message: options
+        message: options,
       };
     }
-    const el = Snackbar.create(wrapAttrs(Object.assign({
-      __portalDisabled: true,
-      active: false
-    }, options || {})));
+    const el = Snackbar.create(
+      wrapAttrs(
+        Object.assign(
+          {
+            __portalDisabled: true,
+            active: false,
+          },
+          options || {},
+        ),
+      ),
+    );
     el.__renderToDOM(document.body, false);
     setImmediate(() => {
       el.active = true;

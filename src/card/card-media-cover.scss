@@ -4,7 +4,7 @@
 
   &.md-solid {
     .md-card-area {
-      background-color: rgba(#000, 0.54);
+      background-color: rgb(#000 0.54);
     }
   }
 
@@ -39,7 +39,7 @@
   }
 
   .md-subhead {
-    opacity: 1;
+    opacity: 100%;
   }
 
   .md-card-header,

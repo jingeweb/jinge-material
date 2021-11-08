@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './progress.html';
 
@@ -10,7 +8,7 @@ export default class ExampleProgressSpinner extends Component {
   display: inline-flex;
   align-items: center;
 }
-p /deep/ > .md-spinner + .md-spinner {
+p ::deep > .md-spinner + .md-spinner {
   margin: 6px;
 }`;
   }

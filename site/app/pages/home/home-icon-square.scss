@@ -1,6 +1,6 @@
 @import 'src/animation/variables';
 @import 'style/layout/mixins';
-@import 'style/palette.scss';
+@import 'style/palette';
 
 .home-icon-square {
   width: 96px;
@@ -13,7 +13,7 @@
 
   &:hover {
     .square {
-      opacity: 0.87;
+      opacity: 87%;
 
       &:nth-child(1) {
         transform: translate3d(-8px, -8px, 0);
@@ -34,11 +34,11 @@
   will-change: transform, opacity;
 
   &:nth-child(1) {
-    background: md-get-palette-color(blue, A200);
+    background: md-get-palette-color(blue, a200);
   }
 
   &:nth-child(2) {
-    background: md-get-palette-color(lightgreen, A200);
+    background: md-get-palette-color(lightgreen, a200);
     transform: translate3d(8px, 8px, 0);
   }
 

@@ -1,22 +1,19 @@
 import {
   Component,
-  vm, __,
+  vm,
+  __,
   attrs as wrapAttrs,
   arrayRemove,
   arrayPushIfNotExist,
   isArray,
-  createElementWithoutAttrs
+  createElementWithoutAttrs,
 } from 'jinge';
-import {
-  FunctionAttrValidator
-} from '../_util/attr-validator';
+import { FunctionAttrValidator } from '../_util/attr-validator';
 
 import _tpl from './table.html';
 
 export const TABLE_PROVIDER = Symbol('table_provider');
-const rowClassValidator = new FunctionAttrValidator(
-  '<md-table>', 'rowClass'
-);
+const rowClassValidator = new FunctionAttrValidator('<md-table>', 'rowClass');
 
 export class Table extends Component {
   static get template() {
@@ -31,7 +28,7 @@ export class Table extends Component {
     this.selectionCount = 0;
     this._helper = {
       $dom: null,
-      el: null
+      el: null,
     };
 
     this.data = attrs.data;
@@ -101,12 +98,14 @@ export class Table extends Component {
 
   _renderHelperColumns() {
     const $container = createElementWithoutAttrs('div');
-    const el = new Component(wrapAttrs({
-      [__]: {
-        context: this[__].context,
-        slots: this[__].slots
-      }
-    }));
+    const el = new Component(
+      wrapAttrs({
+        [__]: {
+          context: this[__].context,
+          slots: this[__].slots,
+        },
+      }),
+    );
     el.__renderToDOM($container, false);
     this._helper.$dom = $container;
     this._helper.el = el;
@@ -125,7 +124,7 @@ export class Table extends Component {
     arrayRemove(this.columns, column);
   }
 
-  toggleAllSelect(evt) {
+  toggleAllSelect() {
     const total = this.selectionMask.length;
     this.selectionCount = this.selectionCount === total ? 0 : total;
     this.selectionMask.fill(this.selectionCount === total);
@@ -139,11 +138,14 @@ export class Table extends Component {
   }
 
   _updateSelection() {
-    this._selection = this.selectionCount === 0 ? vm([]) : (
-      this.selectionCount === this.selectionMask.length ? this.data.slice() : this.data.filter((d, i) => {
-        return this.selectionMask[i];
-      })
-    );
+    this._selection =
+      this.selectionCount === 0
+        ? vm([])
+        : this.selectionCount === this.selectionMask.length
+        ? this.data.slice()
+        : this.data.filter((d, i) => {
+            return this.selectionMask[i];
+          });
     this.__notify('select', this._selection);
   }
 }

@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -27,20 +25,20 @@ export class PageProgress extends Component {
     this._examples = {
       determinate: {
         component: DeterminateProgress,
-        source: sourceDeterminateProgress
+        source: sourceDeterminateProgress,
       },
       indeterminate: {
         component: IndeterminateProgress,
-        source: sourceIndeterminateProgress
+        source: sourceIndeterminateProgress,
       },
       buffer: {
         component: BufferProgress,
-        source: sourceBufferProgress
+        source: sourceBufferProgress,
       },
       query: {
         component: QueryProgress,
-        source: sourceQueryProgress
-      }
+        source: sourceQueryProgress,
+      },
     };
   }
 }

@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -28,24 +26,24 @@ export class PageButton extends Component {
     this._examples = {
       regularButtons: {
         component: RegularButtons,
-        source: sourceRegularButtons
+        source: sourceRegularButtons,
       },
       iconButtons: {
         component: IconButtons,
-        source: sourceIconButtons
+        source: sourceIconButtons,
       },
       floatingButtons: {
         component: FloatingButtons,
-        source: sourceFloatingButtons
+        source: sourceFloatingButtons,
       },
       linkButtons: {
         component: LinkButtons,
-        source: sourceLinkButtons
+        source: sourceLinkButtons,
       },
       srefButtons: {
         component: SrefButtons,
-        source: sourceSrefButtons
-      }
+        source: sourceSrefButtons,
+      },
     };
   }
 }

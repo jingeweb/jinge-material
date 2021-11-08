@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -21,8 +19,8 @@ export class PageContent extends Component {
     this._examples = {
       paperContent: {
         component: PaperContent,
-        source: sourcePaperContent
-      }
+        source: sourcePaperContent,
+      },
     };
   }
 }

@@ -1,12 +1,7 @@
-
 import './card-expand.scss';
 
-import {
-  Component
-} from 'jinge';
-import {
-  CARD_PROVIDER
-} from './card';
+import { Component } from 'jinge';
+import { CARD_PROVIDER } from './card';
 
 export class CardExpandTrigger extends Component {
   static get template() {

@@ -1,7 +1,4 @@
-import {
-  isObject,
-  isUndefined
-} from 'jinge';
+import { isObject, isUndefined } from 'jinge';
 
 export function getBaseHref() {
   const $bs = document.getElementsByTagName('base');
@@ -33,7 +30,7 @@ export function mergePopperOpts(src, dst) {
 
 export function debounce(fn, time) {
   let tm;
-  return function() {
+  return function () {
     clearTimeout(tm);
     tm = setTimeout((...args) => {
       fn(...args);
@@ -42,12 +39,18 @@ export function debounce(fn, time) {
 }
 
 export function obj2class(obj, prepend) {
-  const classes = Object.keys(obj).filter(k => obj[k]).join(' ').trim();
+  const classes = Object.keys(obj)
+    .filter((k) => obj[k])
+    .join(' ')
+    .trim();
   return prepend ? `${prepend}${classes ? ' ' + classes : ''}` : classes;
 }
 
 export function obj2style(obj) {
-  return Object.keys(obj).map(k => {
-    return `${k}: ${obj[k]}`;
-  }).join(';').trim();
+  return Object.keys(obj)
+    .map((k) => {
+      return `${k}: ${obj[k]}`;
+    })
+    .join(';')
+    .trim();
 }

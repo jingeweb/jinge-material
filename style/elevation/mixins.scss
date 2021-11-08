@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @import './variables';
 
 @mixin md-elevation($z-value) {
@@ -10,8 +12,7 @@
   }
 
   background-color: var(--md-elevation-#{$z-value});
-  box-shadow:
-    #{map-get($md-elevation-umbra, $z-value)} $md-elevation-umbra-color,
-    #{map-get($md-elevation-penumbra, $z-value)} $md-elevation-penumbra-color,
-    #{map-get($md-elevation-ambient, $z-value)} $md-elevation-ambient-color;
+  box-shadow: #{map.get($md-elevation-umbra, $z-value)} $md-elevation-umbra-color,
+    #{map.get($md-elevation-penumbra, $z-value)} $md-elevation-penumbra-color,
+    #{map.get($md-elevation-ambient, $z-value)} $md-elevation-ambient-color;
 }

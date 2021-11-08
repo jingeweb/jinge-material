@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './apis';
@@ -34,32 +32,32 @@ export class PageLayout extends Component {
     this._examples = {
       columns: {
         component: Columns,
-        source: sourceColumns
+        source: sourceColumns,
       },
       gutter: {
         component: Gutter,
-        source: sourceGutter
+        source: sourceGutter,
       },
       nested: {
         component: Nested,
-        source: sourceNested
+        source: sourceNested,
       },
       alignment: {
         component: Alignment,
-        source: sourceAlignment
+        source: sourceAlignment,
       },
       hide: {
         component: Hide,
-        source: sourceHide
+        source: sourceHide,
       },
       sizes: {
         component: Sizes,
-        source: sourceSizes
+        source: sourceSizes,
       },
       responsive: {
         component: Responsive,
-        source: sourceResponsive
-      }
+        source: sourceResponsive,
+      },
     };
   }
 }

@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import './mixins.scss';
+@import './variables';
+@import './mixins';
 
 .md-layout {
   @include md-layout-base;

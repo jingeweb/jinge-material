@@ -9,7 +9,7 @@
     font-size: 24px;
     color: var(--md-primary, color);
     background-color: var(--md-outline);
-    opacity: 0.38;
+    opacity: 38%;
   }
 }
 
@@ -24,7 +24,7 @@
     }
 
     .md-toolbar & {
-      background-color: rgba(255, 255, 255, 0.12);
+      background-color: rgb(255 255 255 / 12%);
 
       &.md-focused {
         background-color: var(--md-elevation-6);

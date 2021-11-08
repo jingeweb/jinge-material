@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -25,16 +23,16 @@ export class PageIcon extends Component {
     this._examples = {
       materialIcons: {
         component: MaterialIcons,
-        source: sourceMaterialIcons
+        source: sourceMaterialIcons,
       },
       fontIcons: {
         component: FontIcons,
-        source: sourceFontIcons
+        source: sourceFontIcons,
       },
       svgIcons: {
         component: SvgIcons,
-        source: sourceSvgIcons
-      }
+        source: sourceSvgIcons,
+      },
     };
   }
 }

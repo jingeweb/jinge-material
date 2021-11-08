@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 
 import Subheader from './examples/subheader';
@@ -16,8 +14,8 @@ export class PageSubheader extends Component {
     this._examples = {
       subheader: {
         component: Subheader,
-        source: sourceSubheader
-      }
+        source: sourceSubheader,
+      },
     };
   }
 }

@@ -1,18 +1,9 @@
-
 import './card-expand-content.scss';
 
-import {
-  Component,
-  setImmediate,
-  watch, unwatch
-} from 'jinge';
+import { Component, setImmediate, watch, unwatch } from 'jinge';
 
-import {
-  CARD_PROVIDER
-} from './card';
-import {
-  MutationObserveDOM
-} from '../_util';
+import { MutationObserveDOM } from '../_util';
+import { CARD_PROVIDER } from './card';
 
 export class CardExpandContent extends Component {
   static get template() {
@@ -35,9 +26,7 @@ export class CardExpandContent extends Component {
   }
 
   _onExpand() {
-    this.calculateMarginTop(
-      this.__firstDOM
-    );
+    this.calculateMarginTop(this.__firstDOM);
   }
 
   calculateMarginTop($el) {
@@ -68,13 +57,17 @@ export class CardExpandContent extends Component {
   __afterRender() {
     const $el = this.__firstDOM;
     this.calculateMarginTopImmediately($el);
-    this._rod = MutationObserveDOM($el, {
-      childList: true,
-      characterData: true,
-      subtree: true
-    }, () => {
-      this.calculateMarginTopImmediately($el);
-    });
+    this._rod = MutationObserveDOM(
+      $el,
+      {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      },
+      () => {
+        this.calculateMarginTopImmediately($el);
+      },
+    );
     watch(this.card, 'expand', this._eh);
   }
 

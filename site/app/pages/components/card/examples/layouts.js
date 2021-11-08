@@ -1,13 +1,8 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
+import { DialogAlert } from '../../../../../../src/dialog/dialog-alert';
 import _sty from './layouts.scss';
 import _tpl from './layouts.html';
-
-import {
-  DialogAlert
-} from '../../../../../../src/dialog/dialog-alert';
 
 export default class ExampleLayoutsCard extends Component {
   static get style() {

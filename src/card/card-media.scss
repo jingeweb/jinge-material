@@ -1,9 +1,11 @@
+@use 'sass:math';
+
 @mixin md-image-aspect-ratio($width, $height) {
   overflow: hidden;
 
   &::before {
     width: 100%;
-    padding-top: ($height / $width) * 100%;
+    padding-top: math.div($height, $width) * 100%;
     display: block;
     content: ' ';
   }

@@ -1,9 +1,6 @@
-
 import './card-area.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export class CardArea extends Component {
   static get template() {

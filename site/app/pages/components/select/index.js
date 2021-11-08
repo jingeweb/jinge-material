@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -29,24 +27,24 @@ export class PageSelect extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
+        source: sourceBasic,
       },
       multiple: {
         component: Multiple,
-        source: sourceMultiple
+        source: sourceMultiple,
       },
       dense: {
         component: Dense,
-        source: sourceDense
+        source: sourceDense,
       },
       groups: {
         component: Groups,
-        source: sourceGroups
+        source: sourceGroups,
       },
       disabled: {
         component: Disabled,
-        source: sourceDisabled
-      }
+        source: sourceDisabled,
+      },
     };
   }
 }

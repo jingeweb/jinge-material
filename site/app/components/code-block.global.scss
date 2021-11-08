@@ -1,7 +1,7 @@
-@import 'style/palette.scss';
+@import 'style/palette';
 
 .hljs {
-  color: #{ md-get-palette-color(grey, 200) };
+  color: #{md-get-palette-color(grey, 200)};
   font-size: 15px;
   font-weight: 400;
   letter-spacing: normal;
@@ -29,6 +29,7 @@
   color: #a7bfc9;
 }
 
+/* stylelint-disable selector-class-pattern */
 .hljs-selector-class,
 .hljs-selector-id,
 .hljs-built_in {

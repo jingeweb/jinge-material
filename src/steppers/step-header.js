@@ -1,9 +1,5 @@
-import {
-  Component
-} from 'jinge';
-import {
-  STEPPERS_PROVIDER
-} from './steppers';
+import { Component } from 'jinge';
+import { STEPPERS_PROVIDER } from './steppers';
 
 import _tpl from './step-header.html';
 

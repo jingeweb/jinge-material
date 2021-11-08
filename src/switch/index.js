@@ -1,8 +1,6 @@
 import './index.scss';
 
-import {
-  Checkbox
-} from '../checkbox';
+import { Checkbox } from '../checkbox';
 
 import _tpl from './index.html';
 

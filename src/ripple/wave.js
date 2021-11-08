@@ -1,8 +1,6 @@
 import './wave.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './wave.html';
 

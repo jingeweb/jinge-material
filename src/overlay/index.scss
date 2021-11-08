@@ -1,4 +1,4 @@
-@import '../animation/variables.scss';
+@import '../animation/variables';
 
 .md-overlay {
   position: absolute;
@@ -8,7 +8,7 @@
   left: 0;
   z-index: 101;
   overflow: hidden;
-  background: rgba(#000, 0.6);
+  background: rgb(#000 0.6);
 
   body > &,
   &.md-fixed {
@@ -22,10 +22,10 @@
 }
 
 .md-overlay-enter.md-overlay-enter-active {
-  opacity: 1;
+  opacity: 100%;
 }
 
 .md-overlay-enter,
 .md-overlay-leave-active {
-  opacity: 0;
+  opacity: 0%;
 }

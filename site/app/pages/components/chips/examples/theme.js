@@ -1,7 +1,4 @@
-import {
-  Component,
-  vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './theme.html';
 
@@ -23,15 +20,7 @@ small {
 
   constructor(attrs) {
     super(attrs);
-    this.primary = vm([
-      'Orange',
-      'Apple',
-      'Pineapple'
-    ]);
-    this.accent = vm([
-      'Cat',
-      'Dog',
-      'Rabbit'
-    ]);
+    this.primary = vm(['Orange', 'Apple', 'Pineapple']);
+    this.accent = vm(['Cat', 'Dog', 'Rabbit']);
   }
 }

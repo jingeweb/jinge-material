@@ -1,11 +1,9 @@
-import {
-  Component
-} from 'jinge';
-
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
 import Static from './examples/static';
+
 import sourceStatic from './examples/static?example';
 import Trigger from './examples/trigger';
 import sourceTrigger from './examples/trigger?example';
@@ -25,7 +23,7 @@ export class PageAutocomplete extends Component {
 
   static get style() {
     return `
-.search-algorithms /deep/ .md-highlight-text-match {
+.search-algorithms ::deep .md-highlight-text-match {
   color: #448aff;
 }`;
   }
@@ -38,28 +36,28 @@ export class PageAutocomplete extends Component {
     this._examples = {
       static: {
         component: Static,
-        source: sourceStatic
+        source: sourceStatic,
       },
       trigger: {
         component: Trigger,
-        source: sourceTrigger
+        source: sourceTrigger,
       },
       box: {
         component: Box,
-        source: sourceBox
+        source: sourceBox,
       },
       template: {
         component: Template,
-        source: sourceTemplate
+        source: sourceTemplate,
       },
       search: {
         component: Search,
-        source: sourceSearch
+        source: sourceSearch,
       },
       async: {
         component: Async,
-        source: sourceAsync
-      }
+        source: sourceAsync,
+      },
     };
   }
 }

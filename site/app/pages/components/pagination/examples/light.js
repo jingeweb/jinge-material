@@ -1,20 +1,22 @@
-import {
-  Component, vm
-} from 'jinge';
+import { Component, vm } from 'jinge';
 
 import _tpl from './light.html';
 
 function mockApi(currentCursor, pageSize) {
   const idx = Number(currentCursor || '0');
-  const nextCursor = (idx + pageSize > 50) ? null : (idx + pageSize).toString();
+  const nextCursor = idx + pageSize > 50 ? null : (idx + pageSize).toString();
   const list = new Array(pageSize).fill(0).map((n, i) => {
     return String.fromCharCode(65 + i + idx);
   });
   return new Promise((resolve) => {
-    setTimeout(() => resolve({
-      nextCursor,
-      list
-    }), 2000);
+    setTimeout(
+      () =>
+        resolve({
+          nextCursor,
+          list,
+        }),
+      2000,
+    );
   });
 }
 
@@ -37,7 +39,7 @@ export default class ExamplePaginationLight extends Component {
 
   request(cursor, pageSize) {
     this.loading = true;
-    mockApi(cursor, pageSize).then(result => {
+    mockApi(cursor, pageSize).then((result) => {
       this.cursors.push(result.nextCursor || null);
       this.list = vm(result.list);
       this.loading = false;

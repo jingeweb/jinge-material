@@ -1,9 +1,4 @@
-import {
-  isNumber,
-  isString,
-  isArray,
-  isFunction
-} from 'jinge';
+import { isNumber, isString, isArray, isFunction } from 'jinge';
 
 export class BaseAttrValidator {
   /**
@@ -52,7 +47,7 @@ export class NumberAttrValidator extends BaseAttrValidator {
 export class ArrayAttrValidator extends BaseAttrValidator {
   assert(attrs) {
     super.assert(attrs);
-    if ((this._an in attrs) && !isArray(attrs[this._an])) {
+    if (this._an in attrs && !isArray(attrs[this._an])) {
       this.throwType('Array');
     }
   }
@@ -65,7 +60,7 @@ export class FunctionAttrValidator extends BaseAttrValidator {
 
   assert(attrs) {
     super.assert(attrs);
-    if ((this._an in attrs) && !isFunction(attrs[this._an])) {
+    if (this._an in attrs && !isFunction(attrs[this._an])) {
       this.throwType('function');
     }
   }
@@ -89,7 +84,7 @@ export class EnumAttrValidator extends BaseAttrValidator {
 
   assert(attrs) {
     super.assert(attrs);
-    if ((this._an in attrs) && this._en.indexOf(attrs[this._an]) < 0) {
+    if (this._an in attrs && this._en.indexOf(attrs[this._an]) < 0) {
       throw new Error(`Value of attribute "${this._an}" must be one of ${JSON.stringify(this._en)} for ${this._cn}`);
     }
   }

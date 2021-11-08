@@ -1,8 +1,6 @@
 import './optgroup.scss';
 
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 export const OPTGROUP_PROVIDER = Symbol('optgroup_provider');
 export class Optgroup extends Component {

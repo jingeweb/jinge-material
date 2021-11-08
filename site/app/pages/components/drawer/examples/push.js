@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './push.html';
 
@@ -15,10 +13,10 @@ export default class ExampleDrawerTemporary extends Component {
   margin: 0 30px;
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
-.md-drawer-container /deep/ .md-content {
+.md-drawer-container ::deep .md-content {
   padding: 16px;
 }
-.md-drawer-container.md-active /deep/ .md-content {
+.md-drawer-container.md-active ::deep .md-content {
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
 `;

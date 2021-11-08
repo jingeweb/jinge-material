@@ -7,25 +7,18 @@ import {
   getDuration,
   TransitionStates,
   getDurationType,
-  __, vm, isNumber, isFunction
+  __,
+  vm,
+  isNumber,
+  isFunction,
 } from 'jinge';
-import {
-  createPopper
-} from '@popperjs/core/lib/popper-lite';
+import { createPopper } from '@popperjs/core/lib/popper-lite';
 import offsetModifier from '@popperjs/core/lib/modifiers/offset';
 import preventOverflowModifier from '@popperjs/core/lib/modifiers/preventOverflow';
-import {
-  mergePopperOpts,
-  EnumAttrValidator
-} from '../_util';
+import { mergePopperOpts, EnumAttrValidator } from '../_util';
 import _tpl from './index.html';
 
-const triggerValidator = new EnumAttrValidator(
-  '<md-popover>',
-  'trigger', [
-    'click', 'hover', 'none'
-  ]
-);
+const triggerValidator = new EnumAttrValidator('<md-popover>', 'trigger', ['click', 'hover', 'none']);
 
 export class Popover extends Component {
   static get template() {
@@ -210,10 +203,7 @@ export class Popover extends Component {
     // force render by calling getComputedStyle
     getDurationType(el);
     el.classList.add(ca);
-    const {
-      type: tsEndName,
-      time: tsDuration
-    } = getDuration(el);
+    const { type: tsEndName, time: tsDuration } = getDuration(el);
 
     this._ts = [el, ce, ca, tsEndName, callback, null];
     if (!tsEndName) {
@@ -246,24 +236,30 @@ export class Popover extends Component {
   getPopperOptions() {
     let offset = this.offset;
     if (isString(offset)) {
-      offset = offset.split(',').map(so => Number(so));
+      offset = offset.split(',').map((so) => Number(so));
     } else if (isNumber(offset)) {
       offset = vm([0, offset]);
     }
     if (!isFunction(offset) && offset.length < 2) {
       offset.unshift(0);
     }
-    return mergePopperOpts({
-      placement: this.placement,
-      modifiers: [
-        preventOverflowModifier,
-        Object.assign({
-          options: {
-            offset
-          }
-        }, offsetModifier)
-      ],
-      onFirstUpdate: this._onPopperCreated.bind(this)
-    }, this._popperOptions);
+    return mergePopperOpts(
+      {
+        placement: this.placement,
+        modifiers: [
+          preventOverflowModifier,
+          Object.assign(
+            {
+              options: {
+                offset,
+              },
+            },
+            offsetModifier,
+          ),
+        ],
+        onFirstUpdate: this._onPopperCreated.bind(this),
+      },
+      this._popperOptions,
+    );
   }
 }

@@ -1,8 +1,10 @@
-@import '../animation/variables.scss';
+@use 'sass:math';
+
+@import '../animation/variables';
 
 $md-spinner-radius: 48px;
 $md-spinner-stroke: 4px;
-$md-spinner-full-offset: 3.141592653589793 * 2 * (($md-spinner-radius - $md-spinner-stroke) / 2);
+$md-spinner-full-offset: 3.1416 * 2 * math.div($md-spinner-radius - $md-spinner-stroke, 2);
 $md-spinner-start-offset: 0.95 * $md-spinner-full-offset;
 $md-spinner-end-offset: 0.2 * $md-spinner-full-offset;
 
@@ -50,7 +52,7 @@ $md-spinner-end-offset: 0.2 * $md-spinner-full-offset;
     &.md-spinner-enter,
     &.md-spinner-leave-active {
       > svg {
-        opacity: 0;
+        opacity: 0%;
         transform: scale(0.1);
         transform-origin: center;
         transition: 0.4s $md-transition-stand-timing;
@@ -60,7 +62,7 @@ $md-spinner-end-offset: 0.2 * $md-spinner-full-offset;
 
     &.md-spinner-enter.md-spinner-enter-active {
       > svg {
-        opacity: 1;
+        opacity: 100%;
         transform: scale(1);
       }
     }

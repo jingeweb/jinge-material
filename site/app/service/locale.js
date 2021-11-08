@@ -1,22 +1,14 @@
-import {
-  i18n
-} from 'jinge';
+import { i18n } from 'jinge';
 import zhCN from '../../../locales/zh_cn';
 import en from '../../../locales/en';
-import {
-  setLocale
-} from '../../../src/_config';
-import {
-  getEnv
-} from './env';
-import {
-  router
-} from './router';
+import { setLocale } from '../../../src/_config';
+import { getEnv } from './env';
+import { router } from './router';
 
 const env = getEnv();
 const locales = {
   zh_cn: zhCN,
-  en
+  en,
 };
 
 let fontCheckLocale = null;

@@ -2,7 +2,7 @@
   display: flex;
   flex: 1;
 
-  input[type=file] {
+  input[type='file'] {
     width: 1px;
     height: 1px;
     margin: -1px;
@@ -15,7 +15,7 @@
 
   .md-file-icon {
     font-size: 24px;
-    color: rgba(0, 0, 0, 0.24);
+    color: rgb(0 0 0 / 24%);
 
     &:not(.md-disabled) {
       cursor: pointer;

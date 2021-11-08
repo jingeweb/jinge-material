@@ -1,6 +1,9 @@
+@use 'sass:math';
+
 @import '../animation/variables';
 @import '../../style/layout/mixins';
 @import '../../style/elevation/mixins';
+@import './theme';
 
 $md-calendar-width: 320px;
 $md-calendar-mobile-width: 296px;
@@ -15,6 +18,7 @@ $md-calendar-mobile-width: 296px;
 
   @include md-layout-xsmall {
     flex-direction: column;
+
     // top: 50% !important;
     // left: 50% !important;
     // transform: translate3d(-50%, -50%, 0);
@@ -34,7 +38,7 @@ $md-calendar-mobile-width: 296px;
 
   .md-datepicker-year-select {
     cursor: pointer;
-    opacity: 0.54;
+    opacity: 54%;
     transition: opacity 0.3s $md-transition-default-timing;
     font-size: 16px;
     font-weight: 700;
@@ -44,7 +48,7 @@ $md-calendar-mobile-width: 296px;
 
   .md-datepicker-date-select {
     cursor: pointer;
-    opacity: 0.54;
+    opacity: 54%;
     transition: opacity 0.3s $md-transition-default-timing;
     font-size: 32px;
     font-weight: 900;
@@ -61,7 +65,7 @@ $md-calendar-mobile-width: 296px;
   }
 
   .md-selected {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
@@ -226,7 +230,7 @@ $md-calendar-mobile-width: 296px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 1 $md-day-width / 7;
+    flex: 0 1 math.div($md-day-width, 7);
   }
 
   .md-datepicker-day-button {
@@ -316,5 +320,3 @@ $md-calendar-mobile-width: 296px;
     font-size: 24px;
   }
 }
-
-@import './theme.scss';

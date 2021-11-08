@@ -1,17 +1,9 @@
+import { Component } from 'jinge';
 
-import {
-  Component
-} from 'jinge';
-
+import { router } from '../service/router';
+import { pageState } from '../service/page-state';
 import _tpl from './app.html';
 import _sty from './app.scss';
-
-import {
-  router
-} from '../service/router';
-import {
-  pageState
-} from '../service/page-state';
 
 export default class App extends Component {
   static get template() {
@@ -32,10 +24,10 @@ export default class App extends Component {
     this.isSplash = pageState.isSplash;
     this.appTitle = pageState.title;
     this.menuShown = false;
-    pageState.__on('is-splash-change', isSplash => {
+    pageState.__on('is-splash-change', (isSplash) => {
       this.isSplash = isSplash;
     });
-    pageState.__on('title-change', title => {
+    pageState.__on('title-change', (title) => {
       this.appTitle = title;
     });
 

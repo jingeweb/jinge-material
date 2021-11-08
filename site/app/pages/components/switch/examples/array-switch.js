@@ -1,8 +1,4 @@
-import {
-  Component,
-  vm,
-  _t
-} from 'jinge';
+import { Component, vm, _t } from 'jinge';
 
 import _tpl from './array-switch.html';
 
@@ -14,13 +10,17 @@ export default class ExampleArrayCheckbox extends Component {
   constructor(attrs) {
     super(attrs);
     this.__i18nWatch(() => {
-      const persons = vm([{
-        name: _t('小葛')
-      }, {
-        name: _t('小明')
-      }, {
-        name: _t('小王')
-      }]);
+      const persons = vm([
+        {
+          name: _t('小葛'),
+        },
+        {
+          name: _t('小明'),
+        },
+        {
+          name: _t('小王'),
+        },
+      ]);
       if (!this.persons) {
         this.persons = persons;
       } else {

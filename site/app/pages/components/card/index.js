@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -31,28 +29,28 @@ export class PageCard extends Component {
     this._examples = {
       regular: {
         component: ExampleRegularCard,
-        source: sourceExampleRegularCard
+        source: sourceExampleRegularCard,
       },
       media: {
         component: ExampleMediaCard,
-        source: sourceExampleMediaCard
+        source: sourceExampleMediaCard,
       },
       mediaCover: {
         component: ExampleMediaCoverCard,
-        source: sourceExampleMediaCoverCard
+        source: sourceExampleMediaCoverCard,
       },
       theme: {
         component: ExampleThemeCard,
-        source: sourceExampleThemeCard
+        source: sourceExampleThemeCard,
       },
       expand: {
         component: ExampleExpandCard,
-        source: sourceExampleExpandCard
+        source: sourceExampleExpandCard,
       },
       layouts: {
         component: ExampleLayoutsCard,
-        source: sourceExampleLayoutsCard
-      }
+        source: sourceExampleLayoutsCard,
+      },
     };
   }
 }

@@ -1,11 +1,7 @@
 import './index.scss';
 
-import {
-  Component
-} from 'jinge';
-import {
-  getAndWatchLocale
-} from '../_config';
+import { Component } from 'jinge';
+import { getAndWatchLocale } from '../_config';
 
 import _tpl from './index.html';
 

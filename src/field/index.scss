@@ -1,4 +1,6 @@
+/* stylelint-disable alpha-value-notation */
 @import '../animation/variables';
+@import './theme';
 
 $md-input-height: 32px;
 
@@ -17,9 +19,7 @@ $md-input-height: 32px;
     right: 0;
     left: 0;
     z-index: 1;
-    transition:
-      border 0.3s $md-transition-default-timing,
-      opacity 0.3s $md-transition-default-timing,
+    transition: border 0.3s $md-transition-default-timing, opacity 0.3s $md-transition-default-timing,
       transform 0s 0.3s $md-transition-default-timing;
     will-change: border, opacity, transform;
     content: ' ';
@@ -97,7 +97,7 @@ $md-input-height: 32px;
     font-size: 16px;
     line-height: $md-input-height;
 
-    &[type=date] {
+    &[type='date'] {
       font-size: 16px;
     }
 
@@ -109,7 +109,7 @@ $md-input-height: 32px;
       outline: none;
     }
 
-    &::-webkit-input-placeholder {
+    &::-input-placeholder {
       font-size: 16px;
       text-shadow: none;
       -webkit-text-fill-color: initial;
@@ -410,5 +410,3 @@ $md-input-height: 32px;
     }
   }
 }
-
-@import './theme.scss';

@@ -1,21 +1,19 @@
-
 import './card-media.scss';
 
-import {
-  Component
-} from 'jinge';
-import {
-  EnumAttrValidator
-} from '../_util';
+import { Component } from 'jinge';
+import { EnumAttrValidator } from '../_util';
 
-const ratioValidator = new EnumAttrValidator(
-  '<md-card-media>',
-  'ratio', [
-    '16-9', '16/9', '16:9',
-    '4-3', '4/3', '4:3',
-    '1-1', '1/1', '1:1'
-  ]
-);
+const ratioValidator = new EnumAttrValidator('<md-card-media>', 'ratio', [
+  '16-9',
+  '16/9',
+  '16:9',
+  '4-3',
+  '4/3',
+  '4:3',
+  '1-1',
+  '1/1',
+  '1:1',
+]);
 export class CardMedia extends Component {
   static get template() {
     return `

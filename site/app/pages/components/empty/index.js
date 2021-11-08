@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -25,16 +23,16 @@ export class PageEmptyState extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
+        source: sourceBasic,
       },
       colors: {
         component: Colors,
-        source: sourceColors
+        source: sourceColors,
       },
       rounded: {
         component: Rounded,
-        source: sourceRounded
-      }
+        source: sourceRounded,
+      },
     };
   }
 }

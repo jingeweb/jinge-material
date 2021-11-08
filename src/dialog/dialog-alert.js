@@ -1,13 +1,5 @@
-import {
-  Component,
-  attrs,
-  setImmediate,
-  isFunction,
-  isString
-} from 'jinge';
-import {
-  getAndWatchLocale
-} from '../_config';
+import { Component, attrs, setImmediate, isFunction, isString } from 'jinge';
+import { getAndWatchLocale } from '../_config';
 
 import _tpl from './dialog-alert.html';
 
@@ -19,14 +11,21 @@ export class DialogAlert extends Component {
   static show(opts, closeCallback) {
     if (isString(opts)) {
       opts = {
-        title: opts
+        title: opts,
       };
     }
-    const el = DialogAlert.create(attrs(Object.assign({
-      __portalDisabled: true,
-      active: false
-    }, opts)));
-    el.__on('update.active', active => {
+    const el = DialogAlert.create(
+      attrs(
+        Object.assign(
+          {
+            __portalDisabled: true,
+            active: false,
+          },
+          opts,
+        ),
+      ),
+    );
+    el.__on('update.active', (active) => {
       if (active) return;
       if (isFunction(closeCallback) && closeCallback() === false) {
         return;

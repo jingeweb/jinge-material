@@ -1,16 +1,16 @@
-(function() {
+(function () {
   const LOCALE_KEY_NAME = 'jinge-material-site.locale';
   const THEME_KEY_NAME = 'jinge-material-site.theme';
   const THEME_LINK_ID = 'jinge-material-site-theme-link';
   const SUPPORT_THEMES = ['default', 'default-dark', 'purple', 'purple-dark'];
 
-  const env = window.__env__ = {
+  const env = (window.__env__ = {
     /* 请勿修改下面这行代码。该代码用于工程化脚本替换为实际的环境变量。 */
     /* AUTO_GENERATED_ENVIROMENTS */
     localeKey: LOCALE_KEY_NAME,
     themeKey: THEME_KEY_NAME,
-    themeId: THEME_LINK_ID
-  };
+    themeId: THEME_LINK_ID,
+  });
 
   /** loader utils **/
   function loadStyle(href, id) {
@@ -28,7 +28,7 @@
     });
   }
   function loadScript(src) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const $s = document.createElement('script');
       $s.src = env.meta.public + src;
       $s.async = false; // force execute sequence
@@ -46,8 +46,7 @@
       env.locale = locale;
       return locale;
     }
-    locale = localStorage.getItem(LOCALE_KEY_NAME) ||
-      navigator.language.toLowerCase().replace(/-/g, '_');
+    locale = localStorage.getItem(LOCALE_KEY_NAME) || navigator.language.toLowerCase().replace(/-/g, '_');
     if (locale.startsWith('zh_')) {
       locale = 'zh_cn';
     } else if (locale !== 'en') {
@@ -80,17 +79,22 @@
 
   const locale = getLocale();
   Promise.all([
-    locale === 'en' ? loadStyle('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,500,700') : Promise.resolve(),
+    locale === 'en'
+      ? loadStyle('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,500,700')
+      : Promise.resolve(),
     loadStyle(env.meta.theme[getTheme()], THEME_LINK_ID),
     loadStyle(env.meta.style.entry),
     // 多语言字典包必须在 main 之前加载
     loadScript(env.meta.locale[locale].entry),
-    loadScript(env.meta.script.entry)
-  ]).then(() => {
-    if (!window.JINGE_I18N_DATA) {
-      alert('load failed due to i18n data not loaded.\nplease check console.');
-    }
-  }, err => {
-    alert(`load failed with message: ${err.message || 'none'}!\nplease check console.`);
-  });
+    loadScript(env.meta.script.entry),
+  ]).then(
+    () => {
+      if (!window.JINGE_I18N_DATA) {
+        alert('load failed due to i18n data not loaded.\nplease check console.');
+      }
+    },
+    (err) => {
+      alert(`load failed with message: ${err.message || 'none'}!\nplease check console.`);
+    },
+  );
 })();

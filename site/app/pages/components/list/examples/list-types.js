@@ -1,9 +1,5 @@
-import {
-  Component
-} from 'jinge';
-import {
-  DialogAlert
-} from '../../../../../../src/dialog';
+import { Component } from 'jinge';
+import { DialogAlert } from '../../../../../../src/dialog';
 import _tpl from './list-types.html';
 
 export default class ExampleListTypes extends Component {

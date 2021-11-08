@@ -1,3 +1,8 @@
+@use 'sass:map';
+@use 'sass:color';
+
+/* stylelint-disable custom-property-pattern */
+
 $elevation-indices: 0, 1, 2, 3, 4, 6, 8, 12, 16, 24;
 $elevation-overlay: (
   0: 0%,
@@ -9,16 +14,14 @@ $elevation-overlay: (
   8: 12%,
   12: 14%,
   16: 15%,
-  24: 16%
+  24: 16%,
 );
 
 @mixin theme-elevation($dark, $surface) {
   @each $idx in $elevation-indices {
     @if $dark {
-      --md-elevation-#{$idx}: #{ mix(#fff, $surface, map-get($elevation-overlay, $idx)) };
-    }
-
-    @else {
+      --md-elevation-#{$idx}: #{color.mix(#fff, $surface, map.get($elevation-overlay, $idx))};
+    } @else {
       --md-elevation-#{$idx}: #{$surface};
     }
   }

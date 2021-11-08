@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const terser = require('terser');
 const htmlMinify = require('html-minifier').minify;
 
-const BASE_HREF = (function() {
+const BASE_HREF = (function () {
   let href = process.env.BASE_HREF || '/';
   if (!href.endsWith('/')) {
     href += '/';
@@ -30,7 +30,7 @@ location.replace(\`${BASE_HREF}?__git_pages_redirect=\${encodeURIComponent(locat
     return htmlMinify(cnt, {
       collapseWhitespace: true,
       minifyCSS: true,
-      removeAttributeQuotes: true
+      removeAttributeQuotes: true,
     });
   } else {
     return cnt;
@@ -42,7 +42,7 @@ function __r(p) {
 }
 
 function rmCommon(cks) {
-  Object.keys(cks).forEach(cn => {
+  Object.keys(cks).forEach((cn) => {
     if (cn.indexOf('~') >= 0) delete cks[cn];
   });
 }
@@ -65,21 +65,27 @@ function generateLoader(outputFs = fs, compress = false) {
   rmCommon(meta.locale.zh_cn.chunks);
   rmCommon(meta.locale.en.chunks);
 
-  outputFs.readdirSync(__r('docs/themes')).forEach(f => {
+  outputFs.readdirSync(__r('docs/themes')).forEach((f) => {
     if (!f.endsWith('.css')) return;
     meta.theme[f.split('.')[0]] = `themes/${f}`;
   });
   let cnt = fs.readFileSync(__r('site/loader.js'), 'utf-8').replace(
-    '/* AUTO_GENERATED_ENVIROMENTS */', `
+    '/* AUTO_GENERATED_ENVIROMENTS */',
+    `
     production: false,
-    meta: ${JSON.stringify(meta, null, 2).replace(/"(\w+)":/g, (m0, m1) => m1 + ':').replace(/\n/g, '\n    ').replace(/"/g, '\'')},`
+    meta: ${JSON.stringify(meta, null, 2)
+      .replace(/"(\w+)":/g, (m0, m1) => m1 + ':')
+      .replace(/\n/g, '\n    ')
+      .replace(/"/g, "'")},`,
   );
   if (compress) {
     const result = terser.minify(cnt);
     if (result.error) throw result.error;
     cnt = result.code;
   }
-  const outfile = `loader${compress ? '.' + crypto.createHash('sha256').update(cnt).digest('hex').substr(0, 20) : ''}.js`;
+  const outfile = `loader${
+    compress ? '.' + crypto.createHash('sha256').update(cnt).digest('hex').substr(0, 20) : ''
+  }.js`;
   outputFs.writeFileSync(__r(`docs/${outfile}`), cnt);
   outputFs.unlinkSync(chunkInfoFile);
   return outfile;
@@ -92,7 +98,7 @@ function generateIndex(loaderFile) {
   cnt = htmlMinify(cnt, {
     collapseWhitespace: true,
     minifyCSS: true,
-    removeAttributeQuotes: true
+    removeAttributeQuotes: true,
   });
   fs.writeFileSync(__r('docs/index.html'), cnt);
 }
@@ -102,5 +108,5 @@ module.exports = {
   BASE_HREF,
   generateLoader,
   generateIndex,
-  getPage404Content
+  getPage404Content,
 };

@@ -1,8 +1,4 @@
-import {
-  Component,
-  vm,
-  _t
-} from 'jinge';
+import { Component, vm, _t } from 'jinge';
 
 import _tpl from './simple-radios.html';
 
@@ -22,13 +18,17 @@ table td { padding-right: 10px; }
     super(attrs);
     this.v = null;
     this.__i18nWatch(() => {
-      const persons = vm([{
-        name: _t('小葛')
-      }, {
-        name: _t('小明')
-      }, {
-        name: _t('小王')
-      }]);
+      const persons = vm([
+        {
+          name: _t('小葛'),
+        },
+        {
+          name: _t('小明'),
+        },
+        {
+          name: _t('小王'),
+        },
+      ]);
       if (!this.persons) {
         this.persons = persons;
       } else {

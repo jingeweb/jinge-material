@@ -1,16 +1,13 @@
 import './card-media-cover.scss';
 
-import {
-  Component,
-  createElement
-} from 'jinge';
+import { Component, createElement } from 'jinge';
 
 function getImageLightness(image, onLoad, onError) {
   const canvas = createElement('canvas');
 
   image.crossOrigin = 'Anonymous';
 
-  image.onload = function() {
+  image.onload = function () {
     canvas.width = this.width;
     canvas.height = this.height;
     const ctx = canvas.getContext('2d');
@@ -57,8 +54,9 @@ export class CardMediaCover extends Component {
   }
 
   applyScrimColor(darkness) {
-    this.backdropBg = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, ${darkness /
-      2}) 66%, rgba(0, 0, 0, ${darkness}) 100%)`;
+    this.backdropBg = `linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, ${
+      darkness / 2
+    }) 66%, rgba(0, 0, 0, ${darkness}) 100%)`;
   }
 
   applySolidColor($el, darkness) {
@@ -81,10 +79,9 @@ export class CardMediaCover extends Component {
     if (image && (this.textScrim || this.solid)) {
       getImageLightness(
         image,
-        lightness => {
+        (lightness) => {
           const limit = 256;
-          let darkness =
-            ((Math.abs(limit - lightness) * 100) / limit + 15) / 100;
+          let darkness = ((Math.abs(limit - lightness) * 100) / limit + 15) / 100;
 
           if (darkness >= 0.7) {
             darkness = 0.7;
@@ -92,7 +89,7 @@ export class CardMediaCover extends Component {
 
           applyBackground(darkness);
         },
-        applyBackground
+        applyBackground,
       );
     }
   }

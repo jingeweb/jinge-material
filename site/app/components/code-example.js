@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _sty from './code-example.scss';
 import _tpl from './code-example.html';

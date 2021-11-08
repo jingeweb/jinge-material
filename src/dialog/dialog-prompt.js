@@ -1,12 +1,6 @@
-import {
-  Component
-} from 'jinge';
-import {
-  getAndWatchLocale
-} from '../_config';
-import {
-  showConfirmOrPrompt
-} from './dialog-confirm';
+import { Component } from 'jinge';
+import { getAndWatchLocale } from '../_config';
+import { showConfirmOrPrompt } from './dialog-confirm';
 
 import _tpl from './dialog-prompt.html';
 

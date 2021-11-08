@@ -1,8 +1,4 @@
-import {
-  Component,
-  watch
-} from 'jinge';
-
+import { Component, watch } from 'jinge';
 import _tpl from './row.html';
 
 export class TableRow extends Component {
@@ -22,7 +18,7 @@ export class TableRow extends Component {
     this.rowClassFn = attrs.rowClass;
     this.selected = attrs.selected;
 
-    watch(attrs, 'data.**', props => {
+    watch(attrs, 'data.**', () => {
       if (this.rowClassFn) {
         this.__updateIfNeed(this._updateClass);
       }

@@ -1,15 +1,9 @@
+/* eslint-disable no-console */
 import './index.scss';
 
-import {
-  Component,
-  isNumber,
-  isString,
-  __
-} from 'jinge';
+import { Component, isNumber, isString, __ } from 'jinge';
 
-import {
-  getBaseHref
-} from '../_util';
+import { getBaseHref } from '../_util';
 
 const svgCacheStore = new Map();
 const NUM_REGEXP = /^\d+$/;
@@ -68,15 +62,19 @@ export class Icon extends Component {
   _loadSvg() {
     if (!this.src) return;
     if (!svgCacheStore.has(this.src)) {
-      window.fetch(this.src.startsWith('/') ? `${BASE_HREF}${this.src.substring(1)}` : this.src).then(res => res.text()).then(html => {
-        this.cache && svgCacheStore.set(this.src, html);
-        this._renderSvg(html);
-        this.__notify('loaded');
-      }).catch(err => {
-        console.error('<md-icon/>: load svg failed:', this.src);
-        console.error(err);
-        this.__notify('loaded', err);
-      });
+      window
+        .fetch(this.src.startsWith('/') ? `${BASE_HREF}${this.src.substring(1)}` : this.src)
+        .then((res) => res.text())
+        .then((html) => {
+          this.cache && svgCacheStore.set(this.src, html);
+          this._renderSvg(html);
+          this.__notify('loaded');
+        })
+        .catch((err) => {
+          console.error('<md-icon/>: load svg failed:', this.src);
+          console.error(err);
+          this.__notify('loaded', err);
+        });
     } else {
       this._renderSvg(svgCacheStore.get(this.src));
     }

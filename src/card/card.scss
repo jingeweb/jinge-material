@@ -9,9 +9,7 @@ $md-card-radius: 2px;
 
   &.md-with-hover {
     cursor: pointer;
-    transition:
-      background-color 0.3s $md-transition-default-timing,
-      box-shadow 0.4s $md-transition-stand-timing;
+    transition: background-color 0.3s $md-transition-default-timing, box-shadow 0.4s $md-transition-stand-timing;
     will-change: background-color, box-shadow;
 
     &:hover {
@@ -35,7 +33,7 @@ $md-card-radius: 2px;
   }
 
   .md-subhead {
-    opacity: 0.54;
+    opacity: 54%;
     font-size: 14px;
     letter-spacing: 0.01em;
     line-height: 20px;

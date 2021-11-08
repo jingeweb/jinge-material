@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 import _tpl from './index.html';
 import apis from './api';
 
@@ -22,12 +20,12 @@ export class PageBottomBar extends Component {
     this._examples = {
       fixed: {
         component: Fixed,
-        source: sourceFixed
+        source: sourceFixed,
       },
       shift: {
         component: Shift,
-        source: sourceShift
-      }
+        source: sourceShift,
+      },
     };
   }
 }

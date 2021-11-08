@@ -1,4 +1,4 @@
-.shake-on-error /deep/ .md-duplicated {
+.shake-on-error ::deep .md-duplicated {
   animation-name: shake;
   animation-duration: 0.5s;
 }
@@ -29,7 +29,7 @@
   }
 }
 
-.pulse-on-error /deep/ .md-duplicated {
+.pulse-on-error ::deep .md-duplicated {
   animation-name: pulse;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
@@ -38,6 +38,11 @@
 }
 
 @keyframes pulse {
-  0% { transform: scale(1.1, 1.1); }
-  100% { transform: scale(0.9, 0.9); }
+  0% {
+    transform: scale(1.1, 1.1);
+  }
+
+  100% {
+    transform: scale(0.9, 0.9);
+  }
 }

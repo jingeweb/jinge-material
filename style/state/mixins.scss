@@ -1,24 +1,24 @@
-@import '../elevation/mixins.scss';
+@import '../elevation/mixins';
 
 @mixin md-state-actions() {
   &:hover > .md-state-overlay {
-    opacity: 0.04;
+    opacity: 4%;
   }
 
   &.md-focused > .md-state-overlay {
-    opacity: 0.12;
+    opacity: 12%;
   }
 
   &.md-selected > .md-state-overlay,
   &:active > .md-state-overlay {
-    opacity: 0.08;
+    opacity: 8%;
   }
 
   &.md-dragged {
     @include md-elevation(8);
 
     > .md-state-overlay {
-      opacity: 0.08;
+      opacity: 8%;
     }
   }
 

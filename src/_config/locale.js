@@ -1,16 +1,14 @@
-
-import {
-  vm, arrayPushIfNotExist, arrayRemove
-} from 'jinge';
+import { vm, arrayPushIfNotExist, arrayRemove } from 'jinge';
 
 let watcher;
 let currentLocale;
 
 export function setLocale(v) {
   currentLocale = vm(v);
-  watcher && watcher.forEach(listener => {
-    listener(currentLocale);
-  });
+  watcher &&
+    watcher.forEach((listener) => {
+      listener(currentLocale);
+    });
 }
 
 export function getLocale() {

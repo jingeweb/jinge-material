@@ -1,13 +1,8 @@
-import {
-  Component, _t
-} from 'jinge';
+import { Component, _t } from 'jinge';
 
+import { pageState } from '../../service';
 import _tpl from './index.html';
 import _sty from './index.scss';
-
-import {
-  pageState
-} from '../../service';
 
 export class PageHome extends Component {
   static get style() {

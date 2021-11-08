@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -27,20 +25,20 @@ export class PagePagination extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
+        source: sourceBasic,
       },
       full: {
         component: Full,
-        source: sourceFull
+        source: sourceFull,
       },
       disabled: {
         component: Disabled,
-        source: sourceDisabled
+        source: sourceDisabled,
       },
       light: {
         component: Light,
-        source: sourceLight
-      }
+        source: sourceLight,
+      },
     };
   }
 }

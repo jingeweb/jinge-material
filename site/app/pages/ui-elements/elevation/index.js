@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './apis';
@@ -22,8 +20,8 @@ export class PageElevation extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
-      }
+        source: sourceBasic,
+      },
     };
   }
 }

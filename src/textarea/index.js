@@ -1,9 +1,5 @@
-import {
-  uid
-} from 'jinge';
-import {
-  BaseField
-} from '../field/base';
+import { uid } from 'jinge';
+import { BaseField } from '../field/base';
 
 import _tpl from './index.html';
 

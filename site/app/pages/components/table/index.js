@@ -1,6 +1,4 @@
-import {
-  Component
-} from 'jinge';
+import { Component } from 'jinge';
 
 import _tpl from './index.html';
 import apis from './api';
@@ -31,28 +29,28 @@ export class PageTable extends Component {
     this._examples = {
       basic: {
         component: Basic,
-        source: sourceBasic
+        source: sourceBasic,
       },
       card: {
         component: Card,
-        source: sourceCard
+        source: sourceCard,
       },
       template: {
         component: Template,
-        source: sourceTemplate
+        source: sourceTemplate,
       },
       selection: {
         component: Selection,
-        source: sourceSelection
+        source: sourceSelection,
       },
       rowClass: {
         component: RowClass,
-        source: sourceRowClass
+        source: sourceRowClass,
       },
       pagination: {
         component: Pagination,
-        source: sourcePagination
-      }
+        source: sourcePagination,
+      },
     };
   }
 }

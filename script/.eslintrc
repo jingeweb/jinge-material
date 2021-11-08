@@ -1,40 +1,20 @@
 {
   "env": {
-    "node": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "extends": "eslint:recommended",
   "rules": {
-    "brace-style": [
-      "error",
-      "1tbs",
-      { "allowSingleLine": true }
-    ],
-    "space-before-blocks": "error",
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "import/order": "error",
     "no-console": "off",
-    "prefer-const": [
-      "error", 
-      { "destructuring": "all" }
-    ]
+    "prettier/prettier": "error"
   }
 }

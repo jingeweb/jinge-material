@@ -1,21 +1,28 @@
 {
   "env": {
-    "browser": true,
-    "es6": true
+    "es6": true,
+    "browser": true
   },
+  "plugins": ["import"],
   "extends": [
-    "standard"
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "rules": {
-    "import/newline-after-import": ["error"],
-    "object-curly-newline": ["error", {
-      "minProperties": 1
-    }],
-    "space-before-function-paren": ["error", "never"],
-    "semi": ["error", "always"]
-  }
+    "import/order": "error",
+    "no-console": "error",
+    "prettier/prettier": "error"
+  },
+  "overrides": [{
+    "files": ["site/app/**/*.js"],
+    "rules": {
+      "no-console": "off",
+      "import/no-unresolved": "off"
+    }
+  }]
 }

@@ -1,5 +1,5 @@
-@import '../animation/variables.scss';
-@import '../../style/elevation/mixins.scss';
+@import '../animation/variables';
+@import '../../style/elevation/mixins';
 
 $md-switch-width: 34px;
 $md-switch-height: 14px;
@@ -34,7 +34,7 @@ $md-switch-touch-size: 48px;
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.38;
+      opacity: 38%;
       z-index: 0;
       border-radius: $md-switch-height;
       transition: $md-transition-stand;
@@ -130,5 +130,5 @@ $md-switch-touch-size: 48px;
 }
 
 .md-switch.md-disabled {
-  opacity: 0.38;
+  opacity: 38%;
 }

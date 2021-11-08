@@ -1,11 +1,7 @@
 import './list-item.scss';
 
-import {
-  Component, __
-} from 'jinge';
-import {
-  interactionEvents
-} from '../_util';
+import { Component, __ } from 'jinge';
+import { interactionEvents } from '../_util';
 
 import _tpl from './list-item.html';
 
