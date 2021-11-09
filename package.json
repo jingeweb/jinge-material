@@ -61,7 +61,7 @@
     "lint-staged": "^11.2.6",
     "lodash-es": "^4.17.15",
     "mini-css-extract-plugin": "^2.4.4",
-    "postcss": "^8.3.11",
+    "postcss": "^7.0.36",
     "postcss-scss": "^4.0.2",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
