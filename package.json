@@ -1,7 +1,7 @@
 {
   "name": "jinge-material",
   "version": "3.0.0",
-  "description": "A material design ui library implemented with jinge",
+  "description": "A material design ui library implemented with jinge mvvm framework",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "scripts": {
@@ -12,8 +12,6 @@
     "build-site": "node ./script/site-build-prod.js",
     "build": "rm -rf ./dist && NO_COMPRESS=true npm run build-lib && npm run build-lib",
     "build-lib": "node ./script/build.js",
-    "fixstylelint": "stylelint '**/*.scss' --syntax scss --fix",
-    "fixeslint": "eslint --fix .",
     "update-icons": "node ./script/update_icons.js",
     "eslint": "eslint './{src,site,compiler,script}/**/*.js' --fix",
     "stylelint": "stylelint './{src,style,site}/**/*.scss' --fix",
@@ -63,6 +61,8 @@
     "lint-staged": "^11.2.6",
     "lodash-es": "^4.17.15",
     "mini-css-extract-plugin": "^2.4.4",
+    "postcss": "^8.3.11",
+    "postcss-scss": "^4.0.2",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
@@ -72,6 +72,7 @@
     "stylelint-config-standard-scss": "^2.0.1",
     "stylelint-prettier": "^2.0.0",
     "terser": "^5.9.0",
+    "terser-webpack-plugin": "^5.2.5",
     "webpack": "^5.62.1",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"

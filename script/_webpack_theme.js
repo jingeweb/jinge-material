@@ -1,8 +1,10 @@
 const path = require('path');
 const fs = require('fs');
 const CleanCSS = require('clean-css');
+const { Compilation } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const PLUGIN_NAME = 'REMOVE_THEME_JS_PLUGIN';
 class RemoveThemeJSPlugin {
   constructor(options) {
     this.compress = options.compress;
@@ -10,19 +12,27 @@ class RemoveThemeJSPlugin {
 
   apply(compiler) {
     const needCompress = this.compress;
-    compiler.hooks.emit.tap('REMOVE_THEME_JS_PLUGIN', function (compilation) {
-      const assets = compilation.assets;
-      Object.keys(assets).forEach((file) => {
-        if (file.endsWith('.css.js')) {
-          delete assets[file];
-        } else if (needCompress && file.endsWith('.css')) {
-          const _src = new CleanCSS().minify(assets[file].source()).styles;
-          assets[file] = {
-            source: () => _src,
-            size: () => _src.length,
-          };
-        }
-      });
+    compiler.hooks.compilation.tap(PLUGIN_NAME, function (compilation) {
+      compilation.hooks.processAssets.tap(
+        {
+          name: PLUGIN_NAME,
+          stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONS,
+        },
+        function (assets) {
+          // const assets = compilation.assets;
+          Object.keys(assets).forEach((file) => {
+            if (file.endsWith('.css.js')) {
+              delete assets[file];
+            } else if (needCompress && file.endsWith('.css')) {
+              const _src = new CleanCSS().minify(assets[file].source()).styles;
+              assets[file] = {
+                source: () => _src,
+                size: () => _src.length,
+              };
+            }
+          });
+        },
+      );
     });
   }
 }
