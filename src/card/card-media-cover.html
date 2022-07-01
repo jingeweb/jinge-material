@@ -1,0 +1,10 @@
+<div :class="['md-card-media-cover', { 'md-text-scrim': textScrim, 'md-solid': solid }]">
+  <_slot />
+  <if e:expect="textScrim">
+  <div
+    class="md-card-backdrop"
+    style="background: ${backdropBg}"
+    ref:backdrop
+  ></div>
+  </if>
+</div>

@@ -38,7 +38,7 @@ $md-calendar-mobile-width: 296px;
 
   .md-datepicker-year-select {
     cursor: pointer;
-    opacity: 54%;
+    opacity: 0.54;
     transition: opacity 0.3s $md-transition-default-timing;
     font-size: 16px;
     font-weight: 700;
@@ -48,7 +48,7 @@ $md-calendar-mobile-width: 296px;
 
   .md-datepicker-date-select {
     cursor: pointer;
-    opacity: 54%;
+    opacity: 0.54;
     transition: opacity 0.3s $md-transition-default-timing;
     font-size: 32px;
     font-weight: 900;
@@ -65,7 +65,7 @@ $md-calendar-mobile-width: 296px;
   }
 
   .md-selected {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 

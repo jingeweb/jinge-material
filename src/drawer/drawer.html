@@ -1,0 +1,9 @@
+<!-- import { Overlay } from '../overlay'; -->
+<div
+  :class="['md-drawer', right ? 'md-right' : 'md-left', active && 'md-active', fixed && 'md-fixed']"
+>
+  <_slot />
+  <if e:expect="!_pushMode">
+  <Overlay e:__portalTarget="fixed ? 'body' : 'parent'" e:active="active" on:click="close"/>
+  </if>
+</div>

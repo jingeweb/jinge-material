@@ -7,7 +7,7 @@
   on:branch-switched="_onIfSwitched"
 >
 <Portal>
-<div e:class="className" ref:pop>
+<div :class="['md-popover', class]" e:style="style" ref:pop>
   <div class="content">
     <_slot slot-use:content>missing!!</_slot>
   </div>

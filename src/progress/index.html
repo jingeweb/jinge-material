@@ -1,4 +1,4 @@
-<div class="md-progress-bar${className}">
+<div :class="['md-progress-bar', 'md-' + mode, class]" :style="style">
   <div class="md-progress-bar-track" e:style="trackStyle"></div>
   <div class="md-progress-bar-fill" e:style="valueStyle"></div>
   <div class="md-progress-bar-buffer" e:style="bufferStyle"></div>

@@ -1,14 +1,14 @@
 <!-- import { Popover } from '../popover'; -->
 <Popover
- e:trigger="trigger"
- e:active="active"
- e:transition="transition"
- e:placement="placement"
- e:offset="offset"
- e:delay="delay"
- e:closeWhenOutsideClidk="closeWhenOutsideClidk"
- e:class="className"
- e:_popperOptions="_popperOptions"
+ :trigger="trigger"
+ :active="active"
+ :transition="transition"
+ :placement="placement"
+ :offset="offset"
+ :delay="delay"
+ :closeWhenOutsideClidk="closeWhenOutsideClick"
+ :class="['md-tooltip', class]"
+ :_popperOptions="_popperOptions"
  on:update.active="onUpdateActive"
 >
   <_slot slot-pass:default>

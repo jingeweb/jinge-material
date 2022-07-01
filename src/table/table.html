@@ -20,7 +20,7 @@
         vm:each="column"
         vm:index="columnIndex"
       >
-        <th e:style="column.style" e:class="column.numeric ? 'md-numeric' : null">
+        <th e:style="column.style" :class="{ 'md-numeric': column.numeric }">
           <_slot slot-use|column:head vm-pass:column vm-pass:columnIndex>
           ${column.label}
           </_slot>

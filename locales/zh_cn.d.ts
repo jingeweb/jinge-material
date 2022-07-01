@@ -1,2 +1,2 @@
-declare const _default: unknown;
-export default _default;
+import { LocaleDict } from '../src/_locales/common';
+export default LocaleDict;

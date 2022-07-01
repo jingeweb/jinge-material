@@ -45,7 +45,7 @@
 
 .md-popover-enter,
 .md-popover-leave-active {
-  opacity: 0%;
+  opacity: 0;
 }
 
 .md-popover-enter-active {
@@ -97,6 +97,6 @@ $pof: (
 }
 
 [data-popper-placement] > .md-popover-enter.md-popover-enter-active {
-  opacity: 100%;
+  opacity: 1;
   transform: none;
 }

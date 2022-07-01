@@ -1,6 +1,6 @@
 <!-- import { Wave } from './wave'; -->
 <div 
-  class="md-ripple${className ? ' ' + className : ''}${disabled ? ' md-disabled' : ''}"
+  :class="['md-ripple', { 'md-disabled' : disabled }, class]"
   on|passive:touchsart="_eventTrigger && touchStartCheck($event)"
   on|passive:touchmove="_eventTrigger && touchMoveCheck($event)"
   on|passive:mousedown="_eventTrigger && startRipple($event)"
@@ -9,7 +9,7 @@
   <if e:expect="!disabled || ripples.length > 0">
   <for e:loop="ripples" vm:each="ripple" key="each.uuid">
   <Wave
-    class="md-ripple-wave ${centered ? 'md-centered' : ''}"
+    :class="{ 'md-ripple-wave': true, 'md-centered': centered }"
     e:uuid="ripple.uuid"
     e:style="ripple.waveStyles"
     on:end="clearWave(ripple.uuid)"

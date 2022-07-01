@@ -3,7 +3,7 @@
   import { Input } from '../input';
   import { Chip } from './chip';
 -->
-<Field class="md-chips${className ? ' ' + className : ''}${value && value.length ? ' md-has-value' : ''}" e:style="style">
+<Field :class="['md-chips', value && !!value.length && 'md-has-value', class]" e:style="style">
   <_slot slot-use:default/>
   <for e:loop="value" vm:each="chip">
   <Chip

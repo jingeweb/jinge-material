@@ -1,0 +1,23 @@
+<!--
+  import { MenuItem } from '../menu';
+  import { Checkbox } from '../checkbox';
+-->
+<MenuItem
+  e:class="isSelected ? 'md-selected' : null"
+  e:disabled="disabled || (Group && Group.disabled)"
+  on:mousedown="onClick"
+>
+  <if e:expect="Select.multiple">
+  <Checkbox
+    on:mousedown="stop"
+    e:value="isSelected"
+    on:change="onCheck"
+    class="md-primary"
+    e:disabled="disabled"
+  />  
+  </if>
+
+  <span class="md-list-item-text" ref:text>
+    <_slot>${value}</_slot>
+  </span>
+</MenuItem>

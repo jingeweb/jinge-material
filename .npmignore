@@ -5,8 +5,7 @@ node_modules
 **/.DS_Store
 /docs
 /site
-/script
+/scripts
 .eslint*
-.jshint*
 .stylelint*
 .gitignore

@@ -1,0 +1,12 @@
+<!-- import { BadgeStandalone } from './standalone.js'; -->
+<div class="md-badge-content">
+  <_slot />
+  <BadgeStandalone
+    :class="[`md-position-${position}`, dense && 'md-dense', class]"
+    :style="style"
+  >
+    <div>
+      ${ content }
+    </div>
+  </BadgeStandalone>
+</div>

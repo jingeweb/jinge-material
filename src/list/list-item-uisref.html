@@ -1,0 +1,19 @@
+<!-- 
+ import { ListItemContent } from './list-item-content';
+ import { UISref } from '../uisref';
+-->
+<UISref
+  e:to="to"
+  e:target="target"
+  e:active="active"
+>
+  <a
+    :class="['md-state-container md-content-on-surface md-list-item-router', class]"
+    e:disabled="disabled"
+  >
+    <i class="md-state-overlay"/>
+    <ListItemContent e:disabled="disabled || !ripple">
+      <_slot />
+    </ListItemContent>
+  </a>
+</UISref>

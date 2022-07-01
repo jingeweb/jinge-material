@@ -5,7 +5,7 @@
 <switch e:test="_tag">
 <button
   slot-pass:default
-  class="md-button md-state-container${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+  :class="['md-button md-state-container', { 'md-ripple-off': !ripple, 'md-focused': hasFocus }, class]"
   e:disabled="disabled"
   e:style="style"
   e:type="type"
@@ -24,7 +24,7 @@
 </button>
 <a
   slot-pass:a
-  class="md-button md-state-container${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+  :class="['md-button md-state-container', { 'md-ripple-off': !ripple, 'md-focused': hasFocus }, class]"
   e:style="style"
   e:disabled="disabled"
   e:href="href"

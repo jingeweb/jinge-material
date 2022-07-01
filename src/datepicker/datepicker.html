@@ -1,12 +1,15 @@
 <!--
   import { DatepickerDialog } from './datepicker-dialog';
+  import { Field } from '../field';
+  import { Input } from '../input';
+  import { Popover } from '../popover';
 -->
-<md-field on:clear="onClear" class="md-datepicker${overrideNative ? '' : ' md-native'}" clearable>
-  <md-popover trigger="none" e:active="showDialog">
+<Field on:clear="onClear" :class="['md-datepicker', overrideNative && 'md-native']" clearable>
+  <Popover trigger="none" e:active="showDialog">
     <_slot slot-pass:default>
       <div class="md-field-container">
         <md-icon-today class="md-date-icon" on:click="!disabled && toggleDialog()" />
-        <md-input
+        <Input
           e:disabled="disabled"
           e:type="overrideNative ? 'text' : 'date'"
           e:value="inputDate"
@@ -30,5 +33,5 @@
       e:date="value"
       slot-pass:content
     />
-  </md-popover>
-</md-field>
+  </Popover>
+</Field>

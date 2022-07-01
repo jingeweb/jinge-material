@@ -5,7 +5,7 @@
   import { Spinner } from '../spinner';
   import { Select, Option } from '../select';
 -->
-<div class="md-pagination${hideSinglePage && totalPage <= 1 ? ' jg-hide' : ''}${className ? ' ' + className : ''}">
+<div :class="['md-pagination', hideSinglePage && totalPage <= 1 ? ' jg-hide' : '', class]">
   <if e:expect="showTotal">
   <span>${totalInfo}</span>
   </if>

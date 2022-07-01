@@ -2,10 +2,10 @@
 @import '../../style/layout/mixins';
 
 .md-datepicker-overlay {
-  opacity: 0%;
+  opacity: 0;
 
   @include md-layout-xsmall {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 

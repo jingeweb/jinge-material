@@ -1,0 +1,11 @@
+<!-- import { ListItemContent } from './list-item-content' -->
+<button
+  type="button"
+  :class="['md-list-item-button md-state-container', class]"
+  e:disabled="disabled"
+>
+  <div class="md-state-overlay"></div>
+  <ListItemContent e:disabled="disabled || !ripple">
+    <_slot />
+  </ListItemContent>
+</button>

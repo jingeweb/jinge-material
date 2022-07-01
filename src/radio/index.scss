@@ -55,7 +55,7 @@ $md-radio-touch-size: 48px;
       bottom: 3px;
       left: 3px;
       border-radius: 50%;
-      opacity: 0%;
+      opacity: 0;
       transform: scale3d(0.38, 0.38, 1);
       content: ' ';
     }
@@ -85,7 +85,7 @@ $md-radio-touch-size: 48px;
 
 .md-radio.md-disabled {
   cursor: default;
-  opacity: 38%;
+  opacity: 0.38;
 
   .md-radio-container {
     border-color: var(--md-disabled);
@@ -108,7 +108,7 @@ $md-radio-touch-size: 48px;
     border-color: var(--md-secondary);
 
     &::after {
-      opacity: 100%;
+      opacity: 1;
       transform: scale3d(1, 1, 1);
       transition: $md-transition-stand;
       background-color: var(--md-secondary);

@@ -1,0 +1,9 @@
+<!-- import { Drawer } from './drawer'; -->
+<div :class="['md-drawer-container', active && 'md-active', class]">
+  <Drawer e:_pushMode="_pushMode" e:active="active" e:right="_right" on:update.active="onUpdateActive">
+    <_slot slot-use:drawer/>
+  </Drawer>
+  <div style="margin-${right ? 'right' : 'left'}: ${active ? mainMargin : 0}px;" class="md-drawer-main">
+    <_slot slot-use:main/>
+  </div>
+</div>

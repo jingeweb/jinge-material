@@ -9,7 +9,7 @@
   }
 
   .md-progress-bar-buffer {
-    opacity: 38%;
+    opacity: 0.38;
   }
 }
 
@@ -25,7 +25,7 @@
 
   .md-progress-bar-buffer,
   .md-progress-bar-track {
-    opacity: 38%;
+    opacity: 0.38;
   }
 }
 
@@ -71,7 +71,7 @@
   &.md-determinate,
   &.md-buffer {
     .md-progress-bar-track {
-      opacity: 38%;
+      opacity: 0.38;
     }
 
     .md-progress-bar-fill,
@@ -113,7 +113,7 @@
 
 .md-progress-bar-enter,
 .md-progress-bar-leave-active {
-  opacity: 50%;
+  opacity: 0.5;
   transform: translateZ(0) scaleY(0);
 }
 

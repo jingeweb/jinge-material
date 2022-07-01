@@ -1,0 +1,8 @@
+<!-- import { Ripple } from '../ripple'; -->
+<div :class="[`md-bottom-bar md-type-${type}`, class]">
+  <Ripple
+    e:disabled="type === 'fixed'"
+    e:active="Bar.mouseEvent">
+    <_slot />
+  </Ripple>
+</div>

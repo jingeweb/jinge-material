@@ -1,7 +1,7 @@
 <!--
   import { StepHeader } from './step-header.js';
 -->
-<div class="md-steppers${vertical ? ' md-vertical' : ' md-horizontal'}${dynamicHeight ? ' md-dynamic-height' : ''}${noTransition ? ' md-no-transition' : ''}${alternative ? ' md-alternative' : ''}">
+<div :class="['md-steppers', vertical ? 'md-vertical' : 'md-horizontal', { 'md-dynamic-height': dynamicHeight, 'md-no-transition': noTransition, 'md-alternative': alternative }]">
   <if e:expect="!vertical">
   <div class="md-steppers-navigation">
     <for e:loop="items" vm:each="step" vm:index="index">

@@ -22,10 +22,10 @@
 }
 
 .md-overlay-enter.md-overlay-enter-active {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .md-overlay-enter,
 .md-overlay-leave-active {
-  opacity: 0%;
+  opacity: 0;
 }

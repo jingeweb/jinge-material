@@ -1,7 +1,0 @@
-@import 'style/palette';
-@import 'style/themes/default-dark';
-
-:root {
-  --demo-table-row-class-highlight: #{md-get-palette-color(lime, 200)};
-  --demo-states-background: #292929;
-}

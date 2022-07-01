@@ -1,0 +1,8 @@
+<!--
+  import { Portal } from '../portal';
+-->
+<Portal e:__disabled="__portalDisabled" e:__target="__portalTarget">
+  <if e:expect="active" transition="md-overlay">
+  <div on:click="onClick" :class="['md-overlay', fixed && 'md-fixed', class]"></div>
+  </if>
+</Portal>

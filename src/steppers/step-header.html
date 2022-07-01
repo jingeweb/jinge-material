@@ -2,7 +2,7 @@
   import { Button } from '../button';
 -->
 <Button
-  class="md-stepper-header${step.done ? ' md-done' : ''}${step.error ? ' md-error' : ''}${step.isActive ? ' md-active' : ''}"
+  :class="['md-stepper-header', { 'md-done': step.done, 'md-error': step.error, 'md-active': step.isActive }]"
   e:disabled="(step.done && !step.editable) || (Steppers.linear && !step.isPreviousDone)"
   on:click="active"
 >

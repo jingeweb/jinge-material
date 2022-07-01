@@ -1,0 +1,12 @@
+<!-- import { Button } from '../button'; -->
+<Button
+  class="md-bottom-bar-item${isActive ? ' md-active' : ''}"
+  e:disabled="disabled"
+  e:to="to"
+  e:ripple="Bar.type === 'fixed'"
+  e:active="active"
+  e:target="target"
+  on:click="onClick"
+>
+  <_slot/>
+</Button>

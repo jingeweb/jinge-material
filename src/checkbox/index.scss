@@ -12,7 +12,7 @@ $md-checkbox-touch-size: 48px;
 
   &.md-disabled {
     cursor: default;
-    opacity: 38%;
+    opacity: 0.38;
   }
 
   .md-checkbox-container {
@@ -54,7 +54,7 @@ $md-checkbox-touch-size: 48px;
       border: 2px solid transparent;
       border-top: 0;
       border-left: 0;
-      opacity: 0%;
+      opacity: 0;
       transform: rotate(45deg) scale3d(0.15, 0.15, 1);
     }
 
@@ -91,7 +91,7 @@ $md-checkbox-touch-size: 48px;
     border-color: var(--md-secondary);
 
     &::after {
-      opacity: 100%;
+      opacity: 1;
       transform: rotate(45deg) scale3d(1, 1, 1);
       transition: $md-transition-stand;
       border-color: var(--md-background);

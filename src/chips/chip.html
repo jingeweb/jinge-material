@@ -4,7 +4,7 @@
 -->
 
 <div
-  class="md-chip md-state-container${className ? ' ' + className : ''}${hasFocus ? ' md-focused' : ''}${deletable ? ' md-deletable' : ''}${clickable ? ' md-clickable' : ''}${duplicated ? ' md-duplicated' : ''}"
+  :class="['md-chip md-state-container', { 'md-focused': hasFocus, 'md-deletable': deletable, 'md-clickable': clickable, 'md-duplicated': duplicated }, class]"
   e:style="style"
   e:disabled="disabled"
   tabindex="0"

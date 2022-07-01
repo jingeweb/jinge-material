@@ -1,0 +1,23 @@
+<!--
+  import { ListItemContent } from './list-item-content.js';
+-->
+
+<div
+  ref:item
+  :class="['md-list-item-expand', showContent && 'md-active', class]"
+>
+  <ListItemContent
+    e:disabled="disabled || !ripple"
+  >
+    <_slot slot-use:default />
+
+    <md-icon-keyboard_arrow_down class="md-list-expand-icon" />
+  </ListItemContent>
+
+  <div
+    class="md-list-expand"
+    style="height: ${showContent ? 'auto' : '0'}"
+  >
+    <_slot slot-use:expand />
+  </div>
+</div>

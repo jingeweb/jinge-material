@@ -2,11 +2,11 @@
   import { Button } from '../button';
   import { Content } from '../content';
 -->
-<div class="md-tabs${className ? ' ' + className : ''} md-alignment-${alignment}${noTransition ? ' md-no-transition' : ''}${dynamicHeight ? ' md-dynamic-height' : ''}">
+<div :class="['md-tabs', `md-alignment-${alignment}${noTransition ? ' md-no-transition' : ''}`, dynamicHeight ? 'md-dynamic-height' : '', class]">
   <div ref:nav class="md-tabs-navigation md-elevation-${elevation}">
     <for e:loop="items" vm:index="index" vm:each="tab">
     <Button
-      class="md-tab-nav-button${tab.className ? ' ' + tab.className : ''}${_syncRoute === 0 && tab.isActive ? ' md-active' : ''}"
+      :class="['md-tab-nav-button', tab.class, _syncRoute === 0 && tab.isActive ? 'md-active' : '']"
       e:disabled="tab.disabled"
       active="md-active"
       on:click="_active(index)"
@@ -18,9 +18,9 @@
       </_slot>
     </Button>
     </for>
-    <span class="md-tabs-indicator${indicatorClass ? ' ' + indicatorClass : ''}" e:style="indicatorStyles" ref:indicator></span>
+    <span :class="['md-tabs-indicator', indicatorClass]" e:style="indicatorStyles" ref:indicator></span>
   </div>
-  <Content class="md-tabs-content${!hasContent ? ' jg-hide' : ''}" e:style="contentStyles">
+  <Content :class="['md-tabs-content', !hasContent ? 'jg-hide' : '']" e:style="contentStyles">
     <div class="md-tabs-container" e:style="containerStyles">
       <_slot />
     </div>

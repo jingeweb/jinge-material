@@ -5,11 +5,11 @@
   import { ListItemUISref } from './list-item-uisref.js';
   import { ListItemExpand } from './list-item-expand.js';
 -->
-<li class="md-list-item${className ? ' ' + className : ''}">
+<li :class="['md-list-item', class]" :style="style">
 <switch e:test="_tag">
 <_slot slot-pass:expand>
   <ListItemExpand
-    e:class="_innerClass"
+    class="md-list-item-container md-button-clean"
     e:ripple="ripple"
     e:expanded="expanded"
     on:update.expanded="notifyExpanded"
@@ -27,7 +27,7 @@
   e:to="to"
   e:target="target"
   e:active="active"
-  e:class="_innerClass"
+  class="md-list-item-container md-button-clean"
 >
   <_slot/>
 </ListItemUISref>
@@ -35,13 +35,13 @@
   slot-pass:link
   e:href="href"
   e:target="target"
-  e:class="_innerClass"
+  class="md-list-item-container md-button-clean"
 >
   <_slot/>
 </ListItemLink>
 <ListItemButton
   slot-pass:button
-  e:class="_innerClass"
+  class="md-list-item-container md-button-clean"
   e:ripple="ripple"
   e:disabled="disabled"
 >
@@ -50,7 +50,7 @@
 <ListItemDefault
   slot-pass:default
   e:ripple="ripple"
-  e:class="_innerClass"
+  class="md-list-item-container md-button-clean"
 >
   <_slot/>
 </ListItemDefault>

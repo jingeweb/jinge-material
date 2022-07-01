@@ -78,7 +78,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
 
   &.md-primary,
   &.md-accent {
-    border-color: currentColor;
+    border-color: currentcolor;
   }
 }
 
@@ -166,7 +166,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
   }
 
   &[disabled] {
-    opacity: 38%;
+    opacity: 0.38;
   }
 }
 
@@ -248,7 +248,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
 
     &.md-disabled,
     &[disabled] {
-      opacity: 38%;
+      opacity: 0.38;
     }
   }
 }

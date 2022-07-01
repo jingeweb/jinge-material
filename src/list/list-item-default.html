@@ -1,0 +1,9 @@
+<!-- import { ListItemContent } from './list-item-content' -->
+<div
+  :class="['md-list-item-default', class]"
+  on:click="toggleControl"
+>
+  <ListItemContent disabled>
+    <_slot />
+  </ListItemContent>
+</div>

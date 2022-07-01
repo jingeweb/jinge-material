@@ -1,6 +1,7 @@
 <!--
   import { Button } from '../button';
   import { Content } from '../content';
+  import { DialogActions } from '../dialog/dialog-actions';
 -->
 <div class="md-datepicker-dialog" on:mousedown="$event.preventDefault()">
   <div class="md-datepicker-header">
@@ -104,7 +105,7 @@
       <!-- end year picker -->
     </div>
 
-    <md-dialog-actions class="md-datepicker-body-footer">
+    <DialogActions class="md-datepicker-body-footer">
       <Button class="md-primary" on:click="onCancel">
         ${locale.Cancel}
       </Button>
@@ -113,6 +114,6 @@
         ${locale.Ok}
       </Button>
       </if>
-    </md-dialog-actions>
+    </DialogActions>
   </div>
 </div>

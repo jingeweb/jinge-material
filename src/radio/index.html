@@ -1,5 +1,5 @@
 <!-- import { Ripple } from '../ripple'; -->
-<div class="md-radio${classes ? ' ' + classes : ''}">
+<div :class="['md-radio', { 'md-disabled': disabled, 'md-required': required, 'md-checked': checked }, class]" :style="style">
   <div class="md-radio-container" on:click="toggleCheck">
     <Ripple centered e:active="rippleActive" on:update.active="rippleActive = args[0]" e:disabled="disabled">
       <input

@@ -3,7 +3,7 @@
   import { List } from '../list';
 -->
 <Popover
- class="md-menu${className ? ' ' + className : ''}"
+ :class="['md-menu', class]"
  e:trigger="trigger"
  e:active="active"
  e:transition="transition"
@@ -20,10 +20,10 @@
   <_slot slot-pass:content>
     <div
       e:style="contentStyles"
-      class="md-menu-content${size ? ' ' + size : ''}"
+      :class="['md-menu-content', size]"
     >
       <div class="md-menu-content-container">
-        <List class="${dense ? ' md-dense' : ''}${listClass ? ' ' + listClass : ''}">
+        <List :class="[dense && 'md-dense', listClass]">
           <_slot slot-use:content />
         </List>
       </div>

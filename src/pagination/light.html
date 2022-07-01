@@ -4,7 +4,7 @@
   import { Field } from '../field';
   import { Select, Option } from '../select';
 -->
-<div class="md-pagination${hideSinglePage && cursors && cursors.length === 1 && !cursors[0] ? ' jg-hide' : ''}${className ? ' ' + className : ''}">
+<div :class="['md-pagination', hideSinglePage && cursors && cursors.length === 1 && !cursors[0] ? 'jg-hide' : '', class]" :style="style">
   <if e:expect="loading">
     <Spinner/>
   </if>
