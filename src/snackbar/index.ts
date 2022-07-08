@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Component, attrs as wrapAttrs, isString, setImmediate, Attributes } from 'jinge';
 import { SnackbarQueueManager } from './queue';
 

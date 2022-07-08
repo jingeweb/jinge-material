@@ -1,6 +1,6 @@
 <div
-  class="md-empty-state${className ? ' ' + className : ''}${rounded ? ' md-rounded' : ''}"
-  e:style="rounded ? `${style ? style + '; ' : ''}width: ${size}px; height: ${size}px;` : style"
+  :class="['md-empty-state', rounded && 'md-rounded', class]"
+  :style="[rounded && { width: size, height: size }, style]"
 >
   <div class="md-empty-state-container">
     <_slot slot-use:icon/>

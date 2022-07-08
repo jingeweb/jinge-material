@@ -1,5 +1,3 @@
-import './select.scss';
-
 import {
   __,
   Component,

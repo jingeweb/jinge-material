@@ -1,4 +1,4 @@
-@import '../elevation/mixins';
+@import '../elevation/mixins.scss';
 
 @mixin md-state-actions() {
   &:hover > .md-state-overlay {

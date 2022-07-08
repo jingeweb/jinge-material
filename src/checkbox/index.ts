@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Component, __, uid, isArray, arrayPushIfNotExist, arrayRemove, isUndefined, Attributes } from 'jinge';
 
 import _tpl from './index.html';

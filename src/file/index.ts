@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Attributes, uid } from 'jinge';
 import { BaseField, BaseFieldAttrs } from '../field/base';
 

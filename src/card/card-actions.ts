@@ -1,5 +1,3 @@
-import './card-actions.scss';
-
 import { Attributes, Component } from 'jinge';
 import _tpl from './card-actions.html';
 

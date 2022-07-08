@@ -1,5 +1,3 @@
-import './ripple.scss';
-
 import { Component, __, vm, isBoolean, uid, isObject, Attributes } from 'jinge';
 
 import _tpl from './ripple.html';

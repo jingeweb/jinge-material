@@ -1,13 +1,14 @@
 {
   "name": "jinge-material",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "description": "A material design ui library implemented with jinge mvvm framework",
   "main": "lib/index.js",
-  "types": "src/index.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "dev": "WATCH=true npm run build",
-    "build": "rm -rf lib && node ./scripts/esbuild.js",
-    "eslint": "eslint './{src,compiler,scripts}/**/*.{js,ts}' --fix",
+    "tsc": "tsc && rm -rf .tmp",
+    "build": "rm -rf lib && rm -rf style && npm run tsc && node ./scripts/esbuild.js",
+    "eslint": "tsc --noEmit && eslint './{src,compiler,scripts}/**/*.{js,ts}' --fix",
     "stylelint": "stylelint './src/**/*.scss' --fix",
     "lint": "npm run eslint && npm run stylelint",
     "lint-staged": "lint-staged",
@@ -34,13 +35,14 @@
   },
   "homepage": "https://github.com/YuhangGe/jinge-material#readme",
   "peerDependencies": {
-    "jinge": "^3.2.2"
+    "jinge": ">= 3.2.2"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "chokidar": "^3.5.3",
+    "clean-css": "^5.3.0",
     "esbuild": "^0.14.48",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",

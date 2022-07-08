@@ -1,5 +1,3 @@
-import './card-area.scss';
-
 import { Attributes, Component } from 'jinge';
 import _tpl from './card-area.html';
 

@@ -1,0 +1,10 @@
+@import '../../_style/animation/variables.scss';
+
+.md-ripple {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 6;
+  overflow: hidden;
+  mask-image: radial-gradient(circle, 0 0 0 / 100%, 0 0 0 / 100%);
+}

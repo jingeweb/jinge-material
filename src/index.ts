@@ -9,6 +9,7 @@ export * from './card';
 export * from './checkbox';
 export * from './chips';
 export * from './content';
+export * from './icon';
 export * from './datepicker';
 export * from './dialog';
 export * from './divider';

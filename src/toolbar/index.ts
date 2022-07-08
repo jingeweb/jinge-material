@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Attributes, Component } from 'jinge';
 
 import { EnumAttrValidator, ELEVATION_ENUMS } from '../_util';

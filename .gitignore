@@ -2,9 +2,7 @@ node_modules
 /.tmp
 /.vscode
 /.idea
-/site/dist
 **/.DS_Store
-.jshintignore
-.jshintrc
 /lib
 /dist
+/style

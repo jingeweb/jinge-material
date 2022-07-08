@@ -1,6 +1,6 @@
-import { Component, vm, compile } from 'jinge';
+import { Component, vm, Attributes } from 'jinge';
 import { getAndWatchLocale } from '../_config';
-import { LocaleDict } from '../_locales/common';
+import { compile, LocaleDict } from '../_locales/common';
 import { _n, DEFAULT_PAGE_SIZE_OPTIONS } from './helper';
 
 import _tpl from './full.html';
@@ -11,7 +11,7 @@ export interface PaginationAttrs {
   totalSize: number;
   currentPage: number;
   loadingPage?: number;
-  itemCount: boolean;
+  itemCount: string | number;
   useJumper?: boolean;
   showTotal?: boolean;
   disabled?: boolean;
@@ -20,22 +20,24 @@ export interface PaginationAttrs {
 export class Pagination extends Component {
   static template = _tpl;
 
-  pageSizeOptions?: boolean | unknown[];
-  pageSize: number;
-  totalSize: number;
-  currentPage: number;
-  loadingPage?: number;
-  itemCount: boolean;
-  useJumper?: boolean;
-  showTotal?: boolean;
-  disabled?: boolean;
-  hideSinglePage?: boolean;
+  _pso?: boolean | unknown[];
+  _pageSize: number;
+  _totalSize: number;
+  _currentPage: number;
+  totalPage: number;
+  loadingPage: number;
+  _itemCount: number;
+  useJumper: boolean;
+  showTotal: boolean;
+  disabled: boolean;
+  hideSinglePage: boolean;
   totalInfo: string;
   jumperPage: string;
   _localeChangedHandler: () => void;
   locale: LocaleDict;
+  items: unknown[];
 
-  constructor(attrs) {
+  constructor(attrs: Attributes<PaginationAttrs>) {
     super(attrs);
 
     this.items = null;
@@ -49,7 +51,7 @@ export class Pagination extends Component {
     this.totalSize = attrs.totalSize;
     this.currentPage = attrs.currentPage;
     this.loadingPage = _n(attrs.loadingPage, 0);
-    this.itemCount = attrs.itemCount;
+    this.itemCount = attrs.itemCount as number;
     this.useJumper = attrs.useJumper;
     this.showTotal = attrs.showTotal;
     this.disabled = attrs.disabled;
@@ -60,7 +62,7 @@ export class Pagination extends Component {
     this._updatePageItems(); // calc page items
   }
 
-  _onLocaleChanged(locale: string) {
+  _onLocaleChanged(locale: LocaleDict) {
     this.locale = locale;
     this._updateTotalInfo();
   }
@@ -122,7 +124,7 @@ export class Pagination extends Component {
     return this._itemCount;
   }
 
-  set itemCount(v) {
+  set itemCount(v: number) {
     v = _n(v, 7);
     if (this._itemCount === v) return;
     this._itemCount = v;
@@ -157,7 +159,7 @@ export class Pagination extends Component {
     return this._changePage(this.currentPage + (this.itemCount - 2));
   }
 
-  jump(pageIndex) {
+  jump(pageIndex: number) {
     if (
       this.disabled ||
       this.loadingPage > 0 ||
@@ -184,7 +186,7 @@ export class Pagination extends Component {
     return this._changePage(this.currentPage - (this.itemCount - 2));
   }
 
-  _changePage(page) {
+  _changePage(page: number) {
     if (page <= 0) {
       page = 1;
     } else if (page > this.totalPage) {
@@ -197,7 +199,7 @@ export class Pagination extends Component {
     this.__notify('change', this.currentPage, this.pageSize);
   }
 
-  onPageSizeChange(size) {
+  onPageSizeChange(size: number) {
     this.totalPage = Math.ceil(this.totalSize / size);
     if (this.currentPage > this.totalPage) {
       this.currentPage = this.totalPage;
@@ -241,8 +243,8 @@ export class Pagination extends Component {
     this.items = vm(items);
   }
 
-  onJumperKeydown($event) {
-    if ($event.keyCode === 13) {
+  onJumperKeydown($event: KeyboardEvent) {
+    if ($event.key === 'Enter') {
       this.onJumperBlur();
     }
   }

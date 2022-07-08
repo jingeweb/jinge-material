@@ -1,5 +1,3 @@
-import './card-media-actions.scss';
-
 import { Component } from 'jinge';
 import _tpl from './card-media-actions.html';
 

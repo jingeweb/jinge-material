@@ -18,7 +18,7 @@ import {
   isUndefined,
 } from 'jinge';
 import { RouteJumpTarget, RouteParamsOrQuery, RouteLocation, Router } from 'jinge-router';
-import _tpl from './link.html';
+import _tpl from './index.html';
 
 /**
  * 从 jinge-router/src/util.ts 拷贝的函数，用于判定 url 是否包含。
@@ -49,7 +49,7 @@ export function isParamsOrQuerySameOrInclude(src: RouteParamsOrQuery, dst: Route
   return true;
 }
 
-export class RouterLinkComponent extends Component {
+export class UISref extends Component {
   static template = _tpl;
 
   _router: Router;
@@ -77,8 +77,6 @@ export class RouterLinkComponent extends Component {
 
   replace: boolean;
   text: string;
-  className: string;
-  style: string;
   isActive: boolean;
 
   constructor(
@@ -87,8 +85,6 @@ export class RouterLinkComponent extends Component {
       text: string;
       target: RouteJumpTarget;
       replace: boolean;
-      class: string;
-      style: string;
       active: string;
     }>,
   ) {
@@ -98,8 +94,6 @@ export class RouterLinkComponent extends Component {
     this.text = attrs.text || '';
     this.target = attrs.target || '_self';
     this.replace = !!attrs.replace;
-    this.className = attrs.class;
-    this.style = attrs.style;
     this.active = attrs.active;
 
     this._router = this.__getContext('router') as Router;

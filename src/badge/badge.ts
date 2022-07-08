@@ -1,5 +1,3 @@
-import './badge.scss';
-
 import { Attributes, Component } from 'jinge';
 import _tpl from './badge.html';
 

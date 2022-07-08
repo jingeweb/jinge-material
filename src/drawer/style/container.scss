@@ -1,0 +1,10 @@
+@import '../../_style/animation/variables.scss';
+
+.md-drawer-container {
+  position: relative;
+  overflow: hidden;
+
+  > .md-drawer-main {
+    transition: margin 0.4s $md-transition-default-timing;
+  }
+}

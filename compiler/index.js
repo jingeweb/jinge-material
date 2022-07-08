@@ -1,5 +1,5 @@
 const alias = require('./alias');
 
 module.exports = {
-  JingeMaterialAlias: alias,
+  MaterialAlias: alias,
 };

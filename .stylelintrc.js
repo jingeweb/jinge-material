@@ -8,6 +8,7 @@ module.exports = {
       ignorePseudoElements: ['deep']
     }],
     'scss/at-import-no-partial-leading-underscore': null,
+    'scss/at-import-partial-extension': null,
     'no-descending-specificity': null,
     'prettier/prettier': [true, { singleQuote: true }],
   },

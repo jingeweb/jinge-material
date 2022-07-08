@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Component, __, uid, isArray, Attributes } from 'jinge';
 
 import _tpl from './index.html';

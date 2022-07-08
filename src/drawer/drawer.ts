@@ -1,5 +1,3 @@
-import './drawer.scss';
-
 import { Attributes, Component } from 'jinge';
 
 import _tpl from './drawer.html';

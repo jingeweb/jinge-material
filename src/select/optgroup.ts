@@ -1,5 +1,3 @@
-import './optgroup.scss';
-
 import { Attributes, Component } from 'jinge';
 import _tpl from './optgroup.html';
 

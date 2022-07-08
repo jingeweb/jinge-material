@@ -1,11 +1,9 @@
-import './datepicker-dialog.scss';
-
 import { Component, vm, isFunction, Attributes, ViewModel } from 'jinge';
 import { isEqual as isDateEqual, getDaysInMonth } from '../_util/date';
 import { unwatchLocale, watchLocale } from '../_config';
 
+import { LocaleDict } from '../_locales/common';
 import _tpl from './datepicker-dialog.html';
-import { LocaleDict } from 'src/_locales/common';
 
 type Day = {
   empty: boolean;

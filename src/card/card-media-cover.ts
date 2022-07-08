@@ -1,5 +1,3 @@
-import './card-media-cover.scss';
-
 import { Attributes, Component, createElementWithoutAttrs } from 'jinge';
 import _tpl from './card-media-cover.html';
 

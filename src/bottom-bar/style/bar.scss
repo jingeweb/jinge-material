@@ -1,0 +1,172 @@
+@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation/variables.scss';
+
+@mixin md-bottom-bar-spec($primary) {
+  &.md-type-fixed {
+    .md-bottom-bar-item.md-active {
+      color: var(--md-#{$primary});
+    }
+  }
+
+  &.md-type-shift {
+    background-color: var(--md-#{$primary});
+
+    // .md-ripple {
+    //   .md-ripple-wave {
+    //     background-color: var(--md-#{$primary});
+    //   }
+    // }
+
+    .md-bottom-bar-item {
+      color: var(--md-on-primary-medium);
+
+      &.md-active {
+        color: var(--md-on-#{$primary});
+      }
+    }
+  }
+}
+
+.md-bottom-bar {
+  @include md-elevation(8);
+
+  width: 100%;
+  transition: background-color 0.5s $md-transition-default-timing;
+
+  > .md-ripple {
+    display: flex;
+  }
+
+  @include md-bottom-bar-spec(primary);
+
+  &.md-accent {
+    @include md-bottom-bar-spec(secondary);
+  }
+
+  &.md-type-fixed {
+    justify-content: center;
+
+    &.md-accent {
+      > .md-ripple .md-ripple-wave {
+        background-color: var(--md-secondary);
+      }
+    }
+
+    > .md-ripple .md-ripple-wave {
+      background-color: var(--md-primary);
+    }
+
+    .md-bottom-bar-item {
+      min-width: 80px;
+      max-width: 168px;
+      color: var(--md-on-surface-medium);
+      transition: $md-transition-default;
+      transition-property: color;
+      will-change: color;
+
+      .md-bottom-bar-label {
+        transform: scale(0.8571) translate3d(0, 4px, 0);
+      }
+
+      &.md-active {
+        .md-ripple {
+          padding-top: 6px;
+        }
+
+        .md-bottom-bar-icon {
+          transform: translate3d(0, -2px, 0);
+        }
+
+        .md-bottom-bar-label {
+          transform: translate3d(0, 3px, 0);
+        }
+      }
+    }
+  }
+
+  &.md-type-shift {
+    justify-content: center;
+
+    .md-bottom-bar-item {
+      min-width: 56px;
+      max-width: 96px;
+      flex: 1 1 32px;
+      transition: 0.3s $md-transition-default-timing;
+      transition-property: padding, min-width, max-width, flex, color;
+      will-change: padding, min-width, max-width, flex, color;
+
+      > .md-ripple {
+        padding: 16px;
+      }
+
+      .md-bottom-bar-icon {
+        transform: translate3d(0, 8px, 0);
+      }
+
+      .md-bottom-bar-label {
+        opacity: 0;
+        transform: scale(0.7) translate3d(0, 6px, 0);
+      }
+
+      &.md-active {
+        min-width: 96px;
+        max-width: 168px;
+        flex: 1 1 72px;
+
+        .md-ripple {
+          padding: 6px 0 10px;
+        }
+
+        .md-bottom-bar-icon {
+          transform: translate3d(0, 0, 0);
+        }
+
+        .md-bottom-bar-label {
+          opacity: 1;
+          transform: translate3d(0, 3px, 0);
+        }
+      }
+    }
+  }
+
+  .md-bottom-bar-item {
+    height: 56px;
+    margin: 0;
+    flex: 1;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1em;
+    text-transform: none;
+
+    .md-ripple {
+      padding: 8px 12px 10px;
+      transition: padding 0.3s $md-transition-stand-timing;
+      will-change: padding;
+    }
+
+    .md-button-content {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > .md-icon:not(:only-child),
+      & > .md-spinner:not(:only-child) {
+        margin-right: auto;
+      }
+    }
+
+    .md-bottom-bar-icon {
+      font-size: 24px;
+    }
+
+    .md-bottom-bar-icon,
+    .md-bottom-bar-label {
+      transition: 0.3s $md-transition-default-timing;
+      transition-property: transform, opacity;
+      will-change: transform, opacity;
+    }
+  }
+}

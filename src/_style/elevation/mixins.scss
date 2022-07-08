@@ -1,6 +1,6 @@
 @use 'sass:map';
 
-@import './variables';
+@import './variables.scss';
 
 @mixin md-elevation($z-value) {
   @if type-of($z-value) != number or not unitless($z-value) {

@@ -1,2 +1,3 @@
 import { LocaleDict } from '../src/_locales/common';
-export default LocaleDict;
+declare const en: LocaleDict;
+export default en;

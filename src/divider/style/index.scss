@@ -1,0 +1,16 @@
+@import '../../_style/animation/variables.scss';
+
+.md-divider {
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border: 0;
+  transition: margin-left 0.3s $md-transition-default-timing;
+  will-change: margin-left;
+  background-color: var(--md-outline);
+
+  &.md-inset {
+    margin-left: 72px;
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../_style/animation/variables.scss';
+@import '../../_style/elevation/mixins.scss';
+
+$md-card-radius: 2px;
+
+@mixin md-card() {
+  @include md-elevation(2);
+
+  position: relative;
+  z-index: 1;
+  border-radius: $md-card-radius;
+  transition: 0.3s $md-transition-default-timing;
+  transition-property: color, background-color;
+  will-change: color, background-color;
+}

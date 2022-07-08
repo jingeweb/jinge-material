@@ -1,5 +1,3 @@
-import './datepicker.scss';
-
 import { Attributes, Component, isNumber, isString } from 'jinge';
 import {
   isEqual as isDateEqual,

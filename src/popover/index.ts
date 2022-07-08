@@ -1,5 +1,3 @@
-import './index.scss';
-
 import {
   Component,
   isString,
@@ -13,10 +11,7 @@ import {
   isFunction,
   Attributes,
 } from 'jinge';
-import { createPopper, OptionsGeneric } from '@popperjs/core/lib/popper-lite';
-import offsetModifier from '@popperjs/core/lib/modifiers/offset';
-import preventOverflowModifier from '@popperjs/core/lib/modifiers/preventOverflow';
-import { Placement } from '@popperjs/core';
+import { OptionsGeneric, Placement } from '@popperjs/core';
 import { mergePopperOpts, EnumAttrValidator } from '../_util';
 import _tpl from './index.html';
 
@@ -181,7 +176,7 @@ export class Popover extends Component {
   _doHide() {
     this._state = TransitionStates.LEAVED;
     this.isShown = false;
-    this._instance.destroy();
+    this._instance?.destroy();
     this._instance = null;
     this._$pop = null;
   }
@@ -201,7 +196,41 @@ export class Popover extends Component {
     if (this.trigger !== 'none') {
       this._outsideClickDeregister = this.__domAddListener(document, 'click', this._onOutsideClick);
     }
-    this._instance = createPopper(this._$ref, this._$pop, this.getPopperOptions());
+
+    Promise.all([
+      import('@popperjs/core/lib/popper-lite'),
+      import('@popperjs/core/lib/modifiers/offset'),
+      import('@popperjs/core/lib/modifiers/preventOverflow'),
+    ]).then((results) => {
+      let offset = this.offset;
+      if (isString(offset)) {
+        offset = offset.split(',').map((so) => Number(so));
+      } else if (isNumber(offset)) {
+        offset = vm([0, offset]);
+      }
+      if (!isFunction(offset) && offset.length < 2) {
+        offset.unshift(0);
+      }
+      const opts = mergePopperOpts(
+        {
+          placement: this.placement,
+          modifiers: [
+            results[2].default,
+            Object.assign(
+              {
+                options: {
+                  offset,
+                },
+              },
+              results[1].default,
+            ),
+          ],
+          onFirstUpdate: this._onPopperCreated.bind(this),
+        },
+        this._popperOptions,
+      );
+      this._instance = results[0].createPopper(this._$ref, this._$pop, opts);
+    });
   }
 
   _onOutsideClick(evt: MouseEvent) {
@@ -258,35 +287,5 @@ export class Popover extends Component {
       this._tsEndDeregister = null;
     }
     callCb && callback && (callback as () => void)();
-  }
-
-  getPopperOptions(): OptionsGeneric<unknown> {
-    let offset = this.offset;
-    if (isString(offset)) {
-      offset = offset.split(',').map((so) => Number(so));
-    } else if (isNumber(offset)) {
-      offset = vm([0, offset]);
-    }
-    if (!isFunction(offset) && offset.length < 2) {
-      offset.unshift(0);
-    }
-    return mergePopperOpts(
-      {
-        placement: this.placement,
-        modifiers: [
-          preventOverflowModifier,
-          Object.assign(
-            {
-              options: {
-                offset,
-              },
-            },
-            offsetModifier,
-          ),
-        ],
-        onFirstUpdate: this._onPopperCreated.bind(this),
-      },
-      this._popperOptions,
-    ) as OptionsGeneric<unknown>;
   }
 }

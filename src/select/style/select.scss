@@ -1,0 +1,15 @@
+@import '../../_style/animation/variables.scss';
+
+.md-popover.md-menu.md-select {
+  .content {
+    min-width: 270px;
+  }
+
+  &:not(.md-disabled) {
+    .md-input,
+    .md-icon {
+      cursor: pointer;
+      outline: none;
+    }
+  }
+}

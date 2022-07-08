@@ -1,5 +1,3 @@
-import './content.scss';
-
 import { Attributes, Component } from 'jinge';
 import _tpl from './content.html';
 

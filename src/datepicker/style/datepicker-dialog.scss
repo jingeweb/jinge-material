@@ -1,0 +1,322 @@
+@use 'sass:math';
+
+@import '../../_style/animation/variables.scss';
+@import '../../_style/layout/mixins.scss';
+@import '../../_style/elevation/mixins.scss';
+@import './theme.scss';
+
+$md-calendar-width: 320px;
+$md-calendar-mobile-width: 296px;
+
+.md-datepicker-dialog {
+  display: flex;
+  overflow: hidden;
+  border-radius: 2px;
+  backface-visibility: hidden;
+  pointer-events: auto;
+  flex-shrink: 0;
+
+  @include md-layout-xsmall {
+    flex-direction: column;
+
+    // top: 50% !important;
+    // left: 50% !important;
+    // transform: translate3d(-50%, -50%, 0);
+    // transform-origin: center center;
+    // position: fixed !important;
+  }
+}
+
+.md-datepicker-header {
+  min-width: 150px;
+  padding: 16px;
+
+  @include md-layout-xsmall {
+    min-width: auto;
+    padding: 16px 20px;
+  }
+
+  .md-datepicker-year-select {
+    cursor: pointer;
+    opacity: 0.54;
+    transition: opacity 0.3s $md-transition-default-timing;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 24px;
+  }
+
+  .md-datepicker-date-select {
+    cursor: pointer;
+    opacity: 0.54;
+    transition: opacity 0.3s $md-transition-default-timing;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.2em;
+  }
+
+  .md-datepicker-dayname {
+    display: block;
+
+    @include md-layout-xsmall {
+      display: inline-block;
+    }
+  }
+
+  .md-selected {
+    opacity: 1;
+  }
+}
+
+.md-datepicker-body {
+  width: $md-calendar-width;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.3s $md-transition-stand-timing;
+  will-change: width;
+
+  @include md-layout-xsmall {
+    width: $md-calendar-mobile-width;
+  }
+
+  .md-button {
+    margin: 0;
+  }
+}
+
+.md-datepicker-body-header {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+    content: ' ';
+  }
+
+  &::after {
+    left: 0;
+  }
+
+  &::before {
+    right: 0;
+  }
+
+  .md-button {
+    pointer-events: auto;
+    z-index: 3;
+  }
+}
+
+.md-datepicker-body-header-enter,
+.md-datepicker-body-header-leave-active {
+  .md-button:first-child {
+    transform: translate3d(-150%, 0, 0);
+  }
+
+  .md-button:last-child {
+    transform: translate3d(150%, 0, 0);
+  }
+}
+
+.md-datepicker-body-content {
+  overflow: hidden;
+  transition: height 0.35s $md-transition-default-timing;
+  will-change: height;
+}
+
+.md-datepicker-panel {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.35s $md-transition-default-timing;
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+}
+
+.md-datepicker-calendar {
+  &.md-datepicker-view-enter,
+  &.md-datepicker-view-leave-active {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  &.md-previous {
+    .md-datepicker-month-enter {
+      transform: translate3d(-100%, 0, 0);
+
+      .md-datepicker-month-trigger {
+        transform: translate3d(-30%, 0, 0);
+      }
+    }
+
+    .md-datepicker-month-leave-active {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  &.md-next {
+    .md-datepicker-month-enter {
+      transform: translate3d(100%, 0, 0);
+
+      .md-datepicker-month-trigger {
+        transform: translate3d(30%, 0, 0);
+      }
+    }
+
+    .md-datepicker-month-leave-active {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+}
+
+.md-datepicker-month {
+  top: 8px;
+  bottom: auto;
+  flex-direction: column;
+  transition: 0.35s $md-transition-default-timing;
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+
+  @include md-layout-xsmall {
+    padding: 0 6px;
+  }
+
+  .md-datepicker-month-trigger {
+    min-height: 32px;
+    margin: 0 46px 10px;
+    flex: 1;
+    border-radius: 0;
+    transition: transform 0.45s $md-transition-default-timing;
+    will-change: transform;
+  }
+}
+
+.md-datepicker-week {
+  display: flex;
+  align-items: center;
+
+  span {
+    flex: 1;
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+.md-datepicker-days {
+  $md-day-width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  .md-datepicker-empty,
+  .md-datepicker-day {
+    margin: 1px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 math.div($md-day-width, 7);
+  }
+
+  .md-datepicker-day-button {
+    $width: 30px;
+
+    width: $width;
+    min-width: $width;
+    height: $width;
+    cursor: pointer;
+    border-radius: $width;
+    transition: 0.3s $md-transition-default-timing;
+    line-height: $width;
+    text-align: center;
+  }
+
+  .md-datepicker-selected {
+    font-weight: 700;
+  }
+
+  .md-datepicker-today {
+    font-weight: 700;
+  }
+
+  .md-datepicker-disabled {
+    pointer-events: none;
+  }
+}
+
+.md-datepicker-month-selector {
+  padding: 6px 8px 10px;
+  flex-wrap: wrap;
+  bottom: auto;
+  transition: 0.35s $md-transition-default-timing;
+  transition-property: transform, opacity;
+  will-change: transform, opacity;
+
+  &.md-datepicker-view-enter,
+  &.md-datepicker-view-leave-active {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .md-datepicker-year-trigger {
+    width: 100%;
+    margin: 0 0 8px;
+    flex: 1 1 100%;
+  }
+}
+
+.md-datepicker-month-button,
+.md-datepicker-year-button {
+  height: 36px;
+  margin: 3px 0;
+  cursor: pointer;
+  transition: 0.3s $md-transition-default-timing;
+  line-height: 36px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.md-datepicker-month-button {
+  flex: 1 1 33.3333%;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.md-datepicker-year-selector {
+  flex-direction: column;
+  overflow: auto;
+  bottom: 52px;
+  border-bottom: 1px solid;
+
+  &.md-datepicker-view-enter,
+  &.md-datepicker-view-leave-active {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .md-button {
+    min-height: 36px;
+  }
+}
+
+.md-datepicker-year-button {
+  font-size: 16px;
+
+  &.md-datepicker-selected {
+    font-size: 24px;
+  }
+}

@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Attributes, Component } from 'jinge';
 import { fuzzyHighlight, includesHighlight, startsHighlight, EnumAttrValidator } from '../_util';
 import _tpl from './index.html';

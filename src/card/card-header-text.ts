@@ -1,5 +1,3 @@
-import './card-header.scss';
-
 import { Component } from 'jinge';
 import _tpl from './card-header-text.html';
 

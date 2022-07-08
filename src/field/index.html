@@ -2,7 +2,7 @@
   import { IconPasswordOn, IconPasswordOff } from '../_icons/password';
   import { Button } from '../button';
 -->
-<div class="md-field${className ? ' ' + className : ''}${fieldClass ? ' ' + fieldClass : ''}" e:style="style" on:blur="onBlur">
+<div :class="['md-field', fieldClass, class]" e:style="style" on:blur="onBlur">
   <_slot />
 
   <if e:expect="showCounter && (counter || maxlength)">

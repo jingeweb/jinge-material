@@ -1,5 +1,3 @@
-import './bar.scss';
-
 import { Component, vm, isNumber, Attributes } from 'jinge';
 import { EnumAttrValidator } from '../_util';
 import _tpl from './bar.html';

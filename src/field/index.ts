@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Component, watch, isUndefined, Attributes } from 'jinge';
 
 import _tpl from './index.html';
@@ -24,8 +22,6 @@ const CLASS_PROPS = [
 export interface FieldAttrs {
   inline: boolean;
   clearable: boolean;
-  class?: string;
-  style?: string;
   counter?: boolean;
   togglePassword?: boolean;
 }
@@ -34,8 +30,6 @@ export class Field extends Component {
 
   inline: boolean;
   clearable: boolean;
-  className?: string;
-  style?: string;
   showCounter: boolean;
   hasTogglePassword: boolean;
   _value: unknown;
@@ -61,8 +55,6 @@ export class Field extends Component {
     super(attrs);
     this.inline = attrs.inline;
     this.clearable = attrs.clearable;
-    this.className = attrs.class;
-    this.style = attrs.style;
     this.showCounter = attrs.counter !== false;
     this.hasTogglePassword = attrs.togglePassword !== false;
 

@@ -1,18 +1,20 @@
-import './list-item-expand.scss';
-
 import { Attributes, Component, setImmediate } from 'jinge';
-import { LIST_PROVIDER } from './list';
+import { ListWrapper, LIST_PROVIDER } from './list';
 import _tpl from './list-item-expand.html';
 
 export interface ListItemExpandAttrs {
   ripple?: boolean;
   disabled?: boolean;
+  expanded?: boolean;
 }
 export class ListItemExpand extends Component {
   static template = _tpl;
 
   ripple?: boolean;
   disabled?: boolean;
+  _List: ListWrapper;
+  _expanded: boolean;
+  _showCnt: boolean;
 
   constructor(attrs: Attributes<ListItemExpandAttrs>) {
     super(attrs);
@@ -93,19 +95,15 @@ export class ListItemExpand extends Component {
     if (this.showContent) {
       return false;
     }
-
-    // this.fetchStyle().then(() => {
     this.showContent = true;
-    // });
+    return true;
   }
 
   close() {
     if (!this.showContent) {
       return false;
     }
-
-    // this.fetchStyle().then(() => {
     this.showContent = false;
-    // });
+    return true;
   }
 }

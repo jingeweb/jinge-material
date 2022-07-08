@@ -1,9 +1,8 @@
-import './index.scss';
-
 import { Attributes, Component } from 'jinge';
 import { OptionsGeneric, Placement } from '@popperjs/core';
 import { getAndWatchLocale } from '../_config';
 
+import { LocaleDict } from '../_locales/common';
 import _tpl from './index.html';
 
 export interface PopconfirmAttrs {
@@ -41,7 +40,7 @@ export class Popconfirm extends Component {
   confirmSpinner?: boolean;
   hideWhenConfirmClick?: boolean;
   _localeChangeHandler: () => void;
-  locale: string;
+  locale: LocaleDict;
 
   constructor(attrs: Attributes<PopconfirmAttrs>) {
     super(attrs);
@@ -64,7 +63,7 @@ export class Popconfirm extends Component {
     this.locale = getAndWatchLocale(this._localeChangeHandler);
   }
 
-  _onLocaleChange(locale: string) {
+  _onLocaleChange(locale: LocaleDict) {
     this.locale = locale;
   }
 

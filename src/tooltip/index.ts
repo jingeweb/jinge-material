@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Attributes, Component } from 'jinge';
 import { Placement, OptionsGeneric } from '@popperjs/core';
 import { PopoverAttrs } from '../popover';

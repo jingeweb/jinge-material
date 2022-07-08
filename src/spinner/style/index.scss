@@ -1,0 +1,167 @@
+@use 'sass:math';
+
+@import '../../_style/animation/variables.scss';
+
+$md-spinner-radius: 48px;
+$md-spinner-stroke: 4px;
+$md-spinner-full-offset: 3.1416 * 2 * math.div($md-spinner-radius - $md-spinner-stroke, 2);
+$md-spinner-start-offset: 0.95 * $md-spinner-full-offset;
+$md-spinner-end-offset: 0.2 * $md-spinner-full-offset;
+
+.md-spinner {
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+
+  > svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    transform: rotate(-90deg);
+    transform-origin: center;
+
+    > circle {
+      fill: none;
+      stroke: currentcolor;
+      stroke-dasharray: $md-spinner-full-offset;
+      transform-origin: center;
+      transition: stroke-dashoffset 0.25s $md-transition-stand-timing;
+    }
+  }
+
+  &.md-adjust-baseline {
+    position: relative;
+    top: 0.13em;
+  }
+
+  &.md-primary {
+    > svg > circle {
+      stroke: var(--md-primary);
+    }
+  }
+
+  &.md-accent {
+    > svg > circle {
+      stroke: var(--md-secondary);
+    }
+  }
+
+  &.md-indeterminate {
+    animation: md-spinner-rotate 2s linear infinite;
+
+    &.md-spinner-enter,
+    &.md-spinner-leave-active {
+      > svg {
+        opacity: 0;
+        transform: scale(0.1);
+        transform-origin: center;
+        transition: 0.4s $md-transition-stand-timing;
+        transition-property: opacity, transform;
+      }
+    }
+
+    &.md-spinner-enter.md-spinner-enter-active {
+      > svg {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    > svg > circle {
+      animation: 4s infinite $md-transition-stand-timing;
+      animation-name: md-spinner-stroke-rotate;
+    }
+  }
+}
+
+@keyframes md-spinner-rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes md-spinner-stroke-rotate {
+  0% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotate(0);
+  }
+
+  12.5% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotate(0);
+  }
+
+  12.51% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotateX(180deg) rotate(72.5deg);
+  }
+
+  25% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotateX(180deg) rotate(72.5deg);
+  }
+
+  25.1% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotate(270deg);
+  }
+
+  37.5% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotate(270deg);
+  }
+
+  37.51% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotateX(180deg) rotate(161.5deg);
+  }
+
+  50% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotateX(180deg) rotate(161.5deg);
+  }
+
+  50.01% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotate(180deg);
+  }
+
+  62.5% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotate(180deg);
+  }
+
+  62.51% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotateX(180deg) rotate(251.5deg);
+  }
+
+  75% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotateX(180deg) rotate(251.5deg);
+  }
+
+  75.01% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotate(90deg);
+  }
+
+  87.5% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotate(90deg);
+  }
+
+  87.51% {
+    stroke-dashoffset: $md-spinner-end-offset;
+    transform: rotateX(180deg) rotate(341.5deg);
+  }
+
+  100% {
+    stroke-dashoffset: $md-spinner-start-offset;
+    transform: rotateX(180deg) rotate(341.5deg);
+  }
+}

@@ -1,4 +1,3 @@
-import './index.scss';
 import { Component, __, isPromise, uid, Attributes } from 'jinge';
 import { fuzzySearch, startsSearch, includesSearch, EnumAttrValidator } from '../_util';
 

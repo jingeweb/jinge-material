@@ -1,5 +1,3 @@
-import './card-expand.scss';
-
 import { Attributes, Component } from 'jinge';
 import { CardWrapper, CARD_PROVIDER } from './card';
 import _tpl from './card-expand-trigger.html';

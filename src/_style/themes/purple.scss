@@ -1,4 +1,4 @@
-@import './_elevation';
+@import './_elevation.scss';
 
 :root {
   @include theme-elevation(false, #fff);

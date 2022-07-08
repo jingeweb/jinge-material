@@ -1,5 +1,3 @@
-import './menu.scss';
-
 import { Component, isUndefined, isString, Attributes } from 'jinge';
 import { OptionsGeneric, Placement } from '@popperjs/core';
 import { EnumAttrValidator, mergePopperOpts } from '../_util';

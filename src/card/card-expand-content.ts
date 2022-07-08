@@ -1,5 +1,3 @@
-import './card-expand-content.scss';
-
 import { Component, setImmediate, watch, unwatch, Attributes } from 'jinge';
 
 import { MutationObserveDOM } from '../_util';

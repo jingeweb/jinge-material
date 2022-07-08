@@ -1,0 +1,6 @@
+@import '../../_style/animation/variables.scss';
+
+.md-card-expand-trigger.md-icon-button {
+  transition: transform 0.4s $md-transition-stand-timing;
+  will-change: transform;
+}

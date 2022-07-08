@@ -1,0 +1,28 @@
+@import '../../_style/animation/variables.scss';
+@import '../../_style/layout/mixins.scss';
+
+.md-datepicker-overlay {
+  opacity: 0;
+
+  @include md-layout-xsmall {
+    opacity: 1;
+  }
+}
+
+.md-datepicker {
+  &.md-native {
+    label {
+      top: 0 !important;
+    }
+  }
+
+  .md-date-icon {
+    cursor: pointer;
+  }
+
+  input[type='date']::-webkit-clear-button,
+  input[type='date']::-webkit-inner-spin-button,
+  input[type='date']::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+}

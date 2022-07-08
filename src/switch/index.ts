@@ -1,5 +1,3 @@
-import './index.scss';
-
 import { Attributes } from 'jinge';
 import { Checkbox, CheckboxAttrs } from '../checkbox';
 

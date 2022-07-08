@@ -1,5 +1,3 @@
-import './bar.scss';
-
 import { Attributes, Component, uid, vm } from 'jinge';
 import { BarWrapper, BOTTOM_BAR_PROVIDER } from './bar';
 import _tpl from './item.html';

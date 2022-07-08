@@ -7,20 +7,40 @@ import {
   arrayPushIfNotExist,
   isArray,
   createElementWithoutAttrs,
+  Attributes,
 } from 'jinge';
 import { FunctionAttrValidator } from '../_util/attr-validator';
+import { TableColumn } from './column';
+import { TableRow } from './row';
 
 import _tpl from './table.html';
 
 export const TABLE_PROVIDER = Symbol('table_provider');
 const rowClassValidator = new FunctionAttrValidator('<md-table>', 'rowClass');
 
+export interface TableAttrs {
+  data: unknown[];
+  selectable?: boolean;
+  rowClass?: () => string;
+  selection?: unknown[];
+  rowLoopKey?: 'index' | string;
+  columnLoopKey?: 'index' | string;
+}
 export class Table extends Component {
-  static get template() {
-    return _tpl;
-  }
+  static template = _tpl;
 
-  constructor(attrs) {
+  selectionMask: unknown[];
+  selectionCount: number;
+  _helper: { $dom: HTMLElement; el: Component };
+  _data: unknown[];
+  _selection: unknown[];
+  rowClass: () => string;
+  selectable: boolean;
+  _rowLoopKey: string;
+  _columnLoopKey: string;
+  columns: unknown[];
+
+  constructor(attrs: Attributes<TableAttrs>) {
     rowClassValidator.assert(attrs);
     super(attrs);
 
@@ -97,7 +117,7 @@ export class Table extends Component {
   }
 
   _renderHelperColumns() {
-    const $container = createElementWithoutAttrs('div');
+    const $container = createElementWithoutAttrs('div') as HTMLDivElement;
     const el = new Component(
       wrapAttrs({
         [__]: {
@@ -116,11 +136,11 @@ export class Table extends Component {
     this._helper.$dom = null;
   }
 
-  _addC(column) {
+  _addC(column: TableColumn) {
     arrayPushIfNotExist(this.columns, column);
   }
 
-  _delC(column) {
+  _delC(column: TableColumn) {
     arrayRemove(this.columns, column);
   }
 
@@ -131,7 +151,7 @@ export class Table extends Component {
     this._updateSelection();
   }
 
-  onRowSelect(row) {
+  onRowSelect(row: TableRow) {
     this.selectionMask[row.index] = row.selected;
     this.selectionCount += row.selected ? 1 : -1;
     this._updateSelection();

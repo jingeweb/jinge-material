@@ -1,5 +1,3 @@
-import './button.scss';
-
 import { Attributes, Component, vm } from 'jinge';
 import { registerFocus, deregisterFocus } from '../_util';
 

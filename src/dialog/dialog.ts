@@ -1,5 +1,3 @@
-import './dialog.scss';
-
 import { Attributes, Component } from 'jinge';
 
 import _tpl from './dialog.html';

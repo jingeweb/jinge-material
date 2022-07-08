@@ -1,5 +1,3 @@
-import './list.scss';
-
 import { Component, arrayPushIfNotExist, arrayRemove, Attributes } from 'jinge';
 import _tpl from './list.html';
 
@@ -12,9 +10,9 @@ interface ListItem {
 }
 export interface ListWrapper {
   expandable: ListItem[];
-  expandATab: () => void;
-  pushExpandable: () => void;
-  removeExpandable: () => void;
+  expandATab: (item: unknown) => void;
+  pushExpandable: (item: unknown) => void;
+  removeExpandable: (item: unknown) => void;
 }
 export class List extends Component {
   static template = _tpl;

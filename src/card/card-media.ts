@@ -1,5 +1,3 @@
-import './card-media.scss';
-
 import { Attributes, Component } from 'jinge';
 import { EnumAttrValidator } from '../_util';
 import _tpl from './card-media.html';

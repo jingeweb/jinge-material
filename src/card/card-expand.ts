@@ -1,5 +1,3 @@
-import './card-expand.scss';
-
 import { Component } from 'jinge';
 import _tpl from './card-expand.html';
 

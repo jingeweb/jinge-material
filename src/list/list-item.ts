@@ -1,5 +1,3 @@
-import './list-item.scss';
-
 import { Attributes, Component, __ } from 'jinge';
 import { interactionEvents } from '../_util';
 

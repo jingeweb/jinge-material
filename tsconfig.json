@@ -10,16 +10,15 @@
     "stripInternal": true,
     "moduleResolution": "node",
     "declaration": true,
+    "declarationDir": "lib",
     "sourceMap": true,
-    "noEmit": true,
-    "outDir": "lib",
+    "outDir": ".tmp",
     "baseUrl": ".",
     "paths": {
       
     }
   },
   "include": [
-    "src/**/*",
-    "site/**/*"
+    "src/**/*"
   ]
 }

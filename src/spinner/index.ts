@@ -1,9 +1,7 @@
-import './index.scss';
-
-import { Component, isString } from 'jinge';
+import { Attributes, Component, isString } from 'jinge';
 import _tpl from './index.html';
 
-function csize(v, addPre) {
+function csize(v: SpinnerAttrs['size']) {
   if (v === 'normal') {
     v = 48;
   } else if (v === 'small') {
@@ -11,32 +9,29 @@ function csize(v, addPre) {
   } else if (v === 'large') {
     v = 64;
   }
-  if (!isString(v) || /^\d+$/.test(v)) {
-    v += 'px';
+  if (isString(v)) {
+    v = parseInt(v);
   }
-  return `${addPre ? ';' : ''}width:${v};height:${v}`;
+  return v;
 }
 
 export interface SpinnerAttrs {
-  class?: string;
-  style?: string;
+  size?: 'normal' | 'small' | 'large' | number;
   value?: number;
 }
 
 export class Spinner extends Component {
   static template = _tpl;
 
-  className: string;
-  style: string;
   _determinate: boolean;
   _value: number;
+  size: number;
 
-  constructor(attrs) {
+  constructor(attrs: Attributes<SpinnerAttrs>) {
     super(attrs);
-    this.className = attrs.class ? ' ' + attrs.class : '';
     this._determinate = 'value' in attrs;
     this.value = attrs.value;
-    this.style = (attrs.style || '') + (attrs.size ? csize(attrs.size, attrs.style) : '');
+    this.size = csize(attrs.size);
   }
 
   get value() {

@@ -1,5 +1,3 @@
-import './dialog-actions.scss';
-
 import { Component } from 'jinge';
 import _tpl from './dialog-actions.html';
 

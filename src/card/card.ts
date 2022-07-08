@@ -1,5 +1,3 @@
-import './card.scss';
-
 import { Attributes, Component, ViewModelObject, vm } from 'jinge';
 import _tpl from './card.html';
 

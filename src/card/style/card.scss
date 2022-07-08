@@ -1,0 +1,77 @@
+@import '../../_style/animation/variables.scss';
+@import '../../_style/elevation/mixins.scss';
+@import './base.scss';
+
+$md-card-radius: 2px;
+
+.md-card {
+  @include md-card;
+
+  &.md-with-hover {
+    cursor: pointer;
+    transition: background-color 0.3s $md-transition-default-timing, box-shadow 0.4s $md-transition-stand-timing;
+    will-change: background-color, box-shadow;
+
+    &:hover {
+      z-index: 2;
+
+      @include md-elevation(8);
+    }
+  }
+
+  &.md-expand-active {
+    .md-card-expand-trigger.md-icon-button {
+      transform: rotate(180deg);
+    }
+  }
+
+  .md-subhead,
+  .md-title,
+  .md-subheading {
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .md-subhead {
+    opacity: 0.54;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    line-height: 20px;
+
+    + .md-title {
+      margin-top: 4px;
+    }
+  }
+
+  .md-title {
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 32px;
+  }
+
+  > .md-card-area {
+    &::after {
+      background-color: var(--md-outline);
+    }
+  }
+
+  background-color: var(--md-background);
+
+  &.md-primary {
+    background-color: var(--md-primary);
+
+    &,
+    .md-button {
+      color: var(--md-on-primary);
+    }
+  }
+
+  &.md-accent {
+    background-color: var(--md-secondary);
+
+    &,
+    .md-button {
+      color: var(--md-on-secondary);
+    }
+  }
+}

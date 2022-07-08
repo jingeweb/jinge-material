@@ -1,4 +1,5 @@
 import { Attributes, Component, vm } from 'jinge';
+import { LocaleDict } from '../_locales/common';
 import { getAndWatchLocale } from '../_config';
 import { _n, DEFAULT_PAGE_SIZE_OPTIONS } from './helper';
 
@@ -29,7 +30,7 @@ export class LightPagination extends Component {
   nextCursor?: string;
   hideSinglePage?: boolean;
   _lch: () => void;
-  locale: string;
+  locale: LocaleDict;
 
   constructor(attrs: Attributes<LightPaginationAttrs>) {
     super(attrs);
@@ -71,7 +72,7 @@ export class LightPagination extends Component {
     this._pso = v;
   }
 
-  _onLocaleChanged(locale: string) {
+  _onLocaleChanged(locale: LocaleDict) {
     this.locale = locale;
   }
 

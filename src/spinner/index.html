@@ -1,6 +1,6 @@
 <div
-  class="md-spinner${_determinate ? ' md-determinate' : ' md-indeterminate'}${className}"
-  e:style="style"
+  :class="['md-spinner', _determinate && 'md-determinate', class]"
+  :style="[style, { width: size, height: size }]"
 >
   <svg
     preserveAspectRatio="xMidYMid meet"

@@ -1,39 +1,20 @@
 const { promises: fs } = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const sass = require('sass');
+const CleanCSS = require('clean-css');
 const { TemplateParser, ComponentParser } = require('jinge-compiler');
 const { IconAlias } = require('jinge-material-icons/compiler');
 const esbuild = require('esbuild');
 const chokidar = require('chokidar');
+const { mkdirp, exist, glob } = require('./util');
+
 const WATCH = process.env.WATCH === 'true';
 const SRC_DIR = path.resolve(__dirname, '../src');
 const DIST_DIR = path.resolve(__dirname, '../lib');
+const DIST_STYLE_DIR = path.resolve(__dirname, '../style');
 
 TemplateParser.aliasManager.initialize(IconAlias);
-
-async function mkdirp(dir) {
-  try {
-    await fs.access(dir);
-    return;
-  } catch (ex) {
-    // continue
-  }
-  const pdir = path.dirname(dir);
-  await mkdirp(pdir);
-  await fs.mkdir(dir);
-}
-async function glob(dir) {
-  const subs = await fs.readdir(dir);
-  let files = [];
-  for await (const sub of subs) {
-    if (/\.(ts|html|scss)$/.test(sub)) {
-      files.push(path.join(dir, sub));
-    } else if (!/\./.test(sub)) {
-      files = files.concat(await glob(path.join(dir, sub)));
-    }
-  }
-  return files;
-}
 
 async function transformFile(file) {
   const rf = path.relative(SRC_DIR, file);
@@ -50,7 +31,7 @@ async function transformFile(file) {
   if (warnings?.length) console.error(warnings);
   if (!code) return; // ignore empty file
   if (!rf.startsWith('_')) {
-    console.log(rf);
+    console.log('  -> ', rf);
     const result = await ComponentParser.parse(code, null, {
       resourcePath: file,
     });
@@ -80,49 +61,76 @@ async function transformTpl(file) {
   await mkdirp(path.dirname(distfile));
   await fs.writeFile(path.join(DIST_DIR, rf), result.code);
 }
+async function transformScss(file) {
+  const result = await sass.compileAsync(file);
+  return new CleanCSS({ sourceMap: false }).minify(result.css).styles;
+}
 async function handleChange(file) {
   if (!/\.(ts|html|.scss)$/.test(file)) return;
   const fn = path.relative(SRC_DIR, file);
   try {
-    await transformFile(file);
+    if (file.endsWith('.ts')) {
+      await transformFile(file);
+    } else if (file.endsWith('.html')) {
+      await transformTpl(file);
+    }
     console.log(fn, 'compiled.');
   } catch (ex) {
     console.error(fn, 'failed.');
     console.error(ex);
   }
 }
-async function transformScss(file) {
-  const cnt = await fs.readFile(file, 'utf-8');
-  try {
-    const result = await sass.compileStringAsync(cnt);
-  } catch(ex) {
-    console.error('failed sass compile:', path.relative(SRC_DIR, file));
-    console.error(ex);
-    process.exit(-1);
-  }
-  const rf = path.relative(SRC_DIR, file).replace(/\.scss$/, '.css');
-  const distfile = path.join(DIST_DIR, rf);
-  await mkdirp(path.dirname(distfile));
-  await fs.writeFile(path.join(DIST_DIR, rf), result.css);
-}
-
 (async () => {
-  const files = await glob(SRC_DIR);
+  console.log('Trasnform scripts...');
+  const files = await glob(SRC_DIR, /\.(ts|html)$/);
   for await (const file of files) {
-    // if (!file.endsWith('select.ts')) continue;
     if (file.endsWith('.ts')) {
       await transformFile(file);
     } else if (file.endsWith('.html')) {
       await transformTpl(file);
-    } else {
-      await transformScss(file);
     }
+  }
+
+  console.log('Transform styles...');
+  // const DIST_STYLE_DIR = path.join(DIST_DIR, '_style');
+  await mkdirp(DIST_STYLE_DIR);
+  execSync(`cp -r ${path.join(SRC_DIR, '_style')}/* ${DIST_STYLE_DIR}`);
+
+  const SCSS_FILES = [
+    'index.scss',
+    'themes/default.scss',
+    'themes/default-dark.scss',
+    'themes/purple.scss',
+    'themes/purple-dark.scss',
+  ];
+  for await (const f of SCSS_FILES) {
+    const css = await transformScss(path.join(SRC_DIR, '_style', f));
+    await fs.writeFile(path.join(DIST_STYLE_DIR, f.replace('.scss', '.css')), css);
+    console.log('  -> _style/' + f);
+  }
+
+  const comps = (await fs.readdir(SRC_DIR)).filter((v) => !v.startsWith('_'));
+  for await (const comp of comps) {
+    const styleIdxFile = path.join(SRC_DIR, comp, 'style', 'index.scss');
+    const styleDistDir = path.join(DIST_DIR, comp, 'style');
+    const compIdxFile = path.join(DIST_DIR, comp, 'index.js');
+    if (!(await exist(styleIdxFile))) {
+      continue;
+    }
+    await mkdirp(styleDistDir);
+    const css = await transformScss(styleIdxFile);
+    await Promise.all([
+      fs.writeFile(path.join(styleDistDir, 'index.css'), css),
+      fs.writeFile(path.join(styleDistDir, 'index.js'), `import '../../../style/index.css';\nimport './index.css';\n`),
+      fs.readFile(compIdxFile, 'utf-8').then((cnt) => fs.writeFile(compIdxFile, "import './style/index.js';" + cnt)),
+    ]);
+    console.log(`  -> ${comp}/style/index.scss`);
   }
   console.log('Build finished.');
   if (!WATCH) return;
   console.log('Continue watching...');
   chokidar
-    .watch(path.join(SRC_DIR, '**/*.ts'), {
+    .watch(path.join(SRC_DIR, '**/*.{ts,html}'), {
       ignoreInitial: true,
     })
     .on('add', (file) => handleChange(file))
