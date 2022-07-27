@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 
 /**
  * The complete material palette
@@ -344,5 +345,11 @@ $md-palette: (
 );
 
 @function md-get-palette-color($color, $hue) {
+  @if type-of($hue) == 'string' {
+    $hue: string.to-upper-case($hue);
+  }
+
+  // @debug $hue;
+  // @debug map.get(map.get($md-palette, $color), $hue);
   @return map.get(map.get($md-palette, $color), $hue);
 }
