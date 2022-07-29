@@ -1,5 +1,4 @@
 <!--
-  import { IconPasswordOn, IconPasswordOff } from '../_icons/password';
   import { Button } from '../button';
 -->
 <div :class="['md-field', fieldClass, class]" e:style="style" on:blur="onBlur">
@@ -26,8 +25,8 @@
     on:click="_togglePassword"
   >
     <if e:expect="togglePassword">
-      <IconPasswordOn slot-pass:default />
-      <IconPasswordOff slot-pass:else />
+      <md-icon-visibility slot-pass:default />
+      <md-icon-visibility_off slot-pass:else />
     </if>
   </Button>
   </if>
