@@ -4,7 +4,7 @@ import { getAndWatchLocale } from '../_config';
 
 import _tpl from './dialog-alert.html';
 
-function showDialogAlert(opts: string | DialogAlertAttrs, closeCallback: () => boolean) {
+function showDialogAlert(opts: string | DialogAlertAttrs, closeCallback?: () => void | undefined | boolean) {
   if (isString(opts)) {
     opts = {
       title: opts,

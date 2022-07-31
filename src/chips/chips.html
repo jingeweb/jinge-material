@@ -10,8 +10,8 @@
     e:deletable="!static"
     e:clickable="!static"
     e:duplicated="duplicatedChip === chip"
-    on:click="onChipClicked(chip, args[0])"
-    on:delete="removeChip(chip, args[0])">
+    on:click="onChipClicked(chip, $args[0])"
+    on:delete="removeChip(chip, $args[0])">
     <_slot slot-use:chip vm-pass:chip>
       ${chip}
     </_slot>

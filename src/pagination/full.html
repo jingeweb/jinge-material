@@ -117,7 +117,7 @@
       e:value="currentPage"
       e:disabled="disabled || loadingPage > 0"
       on:keydown="onJumperKeydown"
-      on:change="jumperPage = args[0]"
+      on:change="jumperPage = $args[0]"
       on:blur="onJumperBlur"
     />
   </Field>

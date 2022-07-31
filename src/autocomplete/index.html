@@ -5,7 +5,7 @@
   import { Spinner } from '../spinner';
 -->
 <Field :class="['md-autocomplete', layout === 'box' ? ' md-autocomplete-box' : '']" clearable e:inline="layout === 'box'">
-  <Menu placement="bottom" trigger="none" e:dense="dense" e:alignTrigger="layout === 'box' ? '0,8' : true" fullWidth e:active="showMenu && (hasFilteredItems || _hasScopedEmptySlot)" on:update.active="showMenu = args[0]">
+  <Menu placement="bottom" trigger="none" e:dense="dense" e:alignTrigger="layout === 'box' ? '0,8' : true" fullWidth e:active="showMenu && (hasFilteredItems || _hasScopedEmptySlot)" on:update.active="showMenu = $args[0]">
     <Input
       slot-pass:default
       e:value="value"
@@ -27,7 +27,7 @@
     <if e:expect="hasFilteredItems">
     <div class="md-autocomplete-items">
       <for e:loop="filteredOptions" vm:each="item">
-      <MenuItem on:click="selectItem(item, args[0])">
+      <MenuItem on:click="selectItem(item, $args[0])">
         <_slot slot-use:option vm-pass:option="item" vm-pass:term="value">
           ${searchProp ? item[searchProp] : item}
         </_slot>

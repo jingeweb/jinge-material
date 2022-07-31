@@ -42,8 +42,10 @@ export class DialogPrompt extends Component {
    */
   static show(
     opts: string | Exclude<DialogPromptAttrs, 'active'>,
-    confirmCallback: (value: string) => undefined | boolean | string | Promise<boolean | string | undefined>,
-    cancelCallback: () => undefined | boolean,
+    confirmCallback: (
+      value: string,
+    ) => void | undefined | boolean | string | Promise<boolean | string | void | undefined>,
+    cancelCallback?: () => void | undefined | boolean,
   ) {
     return showConfirmOrPrompt(DialogPrompt, opts, confirmCallback, cancelCallback);
   }

@@ -1,7 +1,7 @@
 <!-- import { Ripple } from '../ripple'; -->
 <div :class="['md-checkbox', { 'md-disabled': disabled, 'md-required': required, 'md-checked': checked }, class]">
   <div class="md-checkbox-container" on:click="toggleCheck">
-    <Ripple centered e:active="rippleActive" on:update.active="rippleActive = args[0]" e:disabled="disabled">
+    <Ripple centered e:active="rippleActive" on:update.active="rippleActive = $args[0]" e:disabled="disabled">
       <input
         e:id="id"
         e:checked="checked"

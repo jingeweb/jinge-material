@@ -33,8 +33,8 @@ export class DialogConfirm extends Component {
    */
   static show(
     opts: string | Exclude<DialogConfirmAttrs, 'active'>,
-    confirmCallback: () => boolean | string | undefined | Promise<boolean | string | undefined>,
-    cancelCallback: () => boolean | undefined,
+    confirmCallback: () => boolean | string | undefined | void | Promise<boolean | string | undefined | void>,
+    cancelCallback?: () => boolean | undefined | void,
   ) {
     return showConfirmOrPrompt(DialogConfirm, opts, confirmCallback, cancelCallback);
   }
@@ -89,6 +89,7 @@ export interface ShowConfirmOrPromptOptions {
   inputMaxlength?: number;
   defaultValue?: unknown;
 }
+
 export function showConfirmOrPrompt(
   Clazz: {
     create: (v: unknown) => Component & {
@@ -99,8 +100,10 @@ export function showConfirmOrPrompt(
     };
   },
   opts: string | ShowConfirmOrPromptOptions,
-  confirmCallback: (value?: unknown) => undefined | boolean | string | Promise<boolean | string | undefined>,
-  cancelCallback: () => undefined | boolean,
+  confirmCallback: (
+    value?: unknown,
+  ) => void | undefined | boolean | string | Promise<void | undefined | boolean | string>,
+  cancelCallback: () => void | undefined | boolean,
 ) {
   const isConfirm = Clazz === DialogConfirm;
   if (isString(opts)) {

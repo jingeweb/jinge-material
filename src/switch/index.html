@@ -2,7 +2,7 @@
 <div class="md-switch${classes ? ' ' + classes : ''}">
   <div class="md-switch-container" on:click="toggleCheck">
     <div class="md-switch-thumb">
-      <Ripple centered e:active="rippleActive" on:update.active="rippleActive = args[0]" e:disabled="disabled">
+      <Ripple centered e:active="rippleActive" on:update.active="rippleActive = $args[0]" e:disabled="disabled">
         <input
           e:id="id"
           type="checkbox"
