@@ -47,10 +47,10 @@
   slot-pass:sref
   e:target="target"
   e:to="to"
-  e:active="active" 
+  e:active="active"
 >
   <a
-    class="md-button md-state-container${className ? ' ' + className : ''}${!ripple ? ' md-ripple-off' : ''}${hasFocus ? ' md-focused' : ''}"
+    :class="['md-button md-state-container', { 'md-ripple-off': !ripple, 'md-focused': hasFocus }, class]"
     e:style="style"
     e:disabled="disabled"
     on:touchstart="touchstart($event)"
