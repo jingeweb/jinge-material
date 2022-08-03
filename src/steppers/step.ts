@@ -1,7 +1,8 @@
 import { Attributes, Component, uid } from 'jinge';
-import { Steppers, STEPPERS_PROVIDER } from './steppers';
+import { Steppers } from './steppers';
 
 import _tpl from './step.html';
+import { STEPPERS_PROVIDER } from './common';
 
 export interface StepAttrs {
   id?: string;

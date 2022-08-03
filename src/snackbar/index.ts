@@ -7,7 +7,7 @@ const queueManager = new SnackbarQueueManager();
 
 export interface SnackbarAttrs {
   message: string;
-  position?: 'center' | 'bottom' | 'top';
+  position?: 'center' | 'left';
   active?: boolean;
   duration?: number;
   __portalDisabled?: boolean;

@@ -9,7 +9,7 @@ const BASE_HREF = getBaseHref();
 export interface IconAttrs {
   size?: number | string;
   cache?: boolean;
-  src: string;
+  src?: string;
 }
 export class Icon extends Component {
   static template = _tpl;

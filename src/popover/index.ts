@@ -198,9 +198,9 @@ export class Popover extends Component {
     }
 
     Promise.all([
-      import('@popperjs/core/lib/popper-lite'),
-      import('@popperjs/core/lib/modifiers/offset'),
-      import('@popperjs/core/lib/modifiers/preventOverflow'),
+      import(/* webpackChunkName: 'popperjs' */ '@popperjs/core/lib/popper-lite'),
+      import(/* webpackChunkName: 'popperjs' */ '@popperjs/core/lib/modifiers/offset'),
+      import(/* webpackChunkName: 'popperjs' */ '@popperjs/core/lib/modifiers/preventOverflow'),
     ]).then((results) => {
       let offset = this.offset;
       if (isString(offset)) {

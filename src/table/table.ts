@@ -11,11 +11,11 @@ import {
 } from 'jinge';
 import { FunctionAttrValidator } from '../_util/attr-validator';
 import { TableColumn } from './column';
+import { TABLE_PROVIDER } from './common';
 import { TableRow } from './row';
 
 import _tpl from './table.html';
 
-export const TABLE_PROVIDER = Symbol('table_provider');
 const rowClassValidator = new FunctionAttrValidator('<md-table>', 'rowClass');
 
 export interface TableAttrs {

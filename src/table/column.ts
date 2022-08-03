@@ -1,5 +1,6 @@
 import { Attributes, Component, isNumber } from 'jinge';
-import { Table, TABLE_PROVIDER } from './table';
+import { TABLE_PROVIDER } from './common';
+import { Table } from './table';
 
 function _w(v: string | number) {
   if (!v) return null;

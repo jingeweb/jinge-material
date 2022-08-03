@@ -9,7 +9,7 @@
   <if e:expect="showTotal">
   <span>${totalInfo}</span>
   </if>
-  <if e:expect="pageSizeOptions">
+  <if e:expect="pageSizeOptions && pageSizeOptions[0] < totalSize">
   <span>
     ${locale.sizePerPage}
   </span>
@@ -39,7 +39,7 @@
 
   <if e:expect="totalPage > 0">
   <Button
-    class="md-icon-button num${currentPage === 1 ? ' md-primary' : ''}"
+    :class="['md-icon-button num', currentPage === 1 && 'md-primary']"
     on:click="first()"
     e:disabled="disabled || loadingPage > 0"
   >
@@ -62,7 +62,7 @@
   </if>
   <for e:loop="items" vm:each="page">
   <Button
-    class="md-icon-button num${currentPage === page ? ' md-primary' : ''}"
+    :class="['md-icon-button num', currentPage === page && 'md-primary']"
     on:click="jump(page)"
     e:disabled="disabled || loadingPage > 0"
   >

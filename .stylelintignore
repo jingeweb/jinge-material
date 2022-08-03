@@ -4,6 +4,7 @@ node_modules
 /.idea
 **/.DS_Store
 /lib
+/dist
 **/*.css
 **/*.ts
 **/*.html

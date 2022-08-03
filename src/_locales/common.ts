@@ -19,7 +19,7 @@ const cache: Map<string, (ctx: unknown) => string> = new Map();
 export function compile(text: string) {
   let fn = cache.get(text);
   if (!fn) {
-    cache.set(text, (fn = new Function('ctx', `return ${text};`) as (ctx: unknown) => string));
+    cache.set(text, (fn = new Function('ctx', `return \`${text}\`;`) as (ctx: unknown) => string));
   }
   return fn;
 }

@@ -1,5 +1,5 @@
 <div
-  :class="['md-spinner', _determinate && 'md-determinate', class]"
+  :class="['md-spinner', _determinate ? 'md-determinate' : 'md-indeterminate', class]"
   :style="[style, { width: size, height: size }]"
 >
   <svg

@@ -1,7 +1,7 @@
 <!-- import { Portal } from '../portal'; -->
 <Portal e:__disabled="__portalDisabled">
 <if e:expect="isShown" transition="md-snackbar">
-  <div class="md-snackbar md-position-${position}${className ? ' ' + className : ''}">
+  <div :class="['md-snackbar', 'md-position-' + position, class]">
     <div class="md-snackbar-content">
       <_slot>
         ${message}

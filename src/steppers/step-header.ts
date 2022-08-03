@@ -1,8 +1,9 @@
 import { Attributes, Component } from 'jinge';
-import { Steppers, STEPPERS_PROVIDER } from './steppers';
+import { Steppers } from './steppers';
 
 import _tpl from './step-header.html';
 import { Step } from './step';
+import { STEPPERS_PROVIDER } from './common';
 
 export interface StepHeaderAttrs {
   index: number;

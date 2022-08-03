@@ -1,9 +1,8 @@
 import { Component, vm, $$, isNumber, Attributes, ViewModel } from 'jinge';
+import { STEPPERS_PROVIDER } from './common';
 import { Step } from './step';
 
 import _tpl from './steppers.html';
-
-export const STEPPERS_PROVIDER = Symbol('steppers');
 
 export interface SteppersAttrs {
   vertical?: boolean;

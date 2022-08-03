@@ -1,5 +1,5 @@
 <!-- import { Ripple } from '../ripple'; -->
-<div class="md-switch${classes ? ' ' + classes : ''}">
+<div :class="['md-switch', { 'md-disabled': disabled, 'md-required': required, 'md-checked': checked }, class]">
   <div class="md-switch-container" on:click="toggleCheck">
     <div class="md-switch-thumb">
       <Ripple centered e:active="rippleActive" on:update.active="rippleActive = $args[0]" e:disabled="disabled">

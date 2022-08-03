@@ -2,7 +2,6 @@ const { promises: fs } = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const sass = require('sass');
-const CleanCSS = require('clean-css');
 const { TemplateParser, ComponentParser } = require('jinge-compiler');
 const { IconAlias } = require('jinge-material-icons/compiler');
 const esbuild = require('esbuild');
@@ -22,7 +21,7 @@ async function transformFile(file) {
   let { code, map, warnings } = await esbuild.transform(src, {
     target: 'es2020',
     format: 'esm',
-
+    charset: 'utf8',
     loader: path.extname(file).slice(1),
     sourcemap: true,
     sourcefile: `${path.relative(file, SRC_DIR)}/src/${rf}`,
@@ -63,7 +62,7 @@ async function transformTpl(file) {
 }
 async function transformScss(file) {
   const result = await sass.compileAsync(file);
-  return new CleanCSS({ sourceMap: false }).minify(result.css).styles;
+  return result.css;
 }
 async function handleChange(file) {
   if (!/\.(ts|html|.scss)$/.test(file)) return;
