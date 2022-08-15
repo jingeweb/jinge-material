@@ -107,7 +107,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
     color: var(--md-on-secondary);
   }
 
-  &:not(.md-primary):not(.md-accent)[disabled] {
+  &:not(.md-primary, .md-accent)[disabled] {
     background-color: var(--md-outline);
     color: var(--md-on-surface-disabled);
   }
@@ -143,7 +143,7 @@ $md-button-fab-size-mini: $md-button-icon-size;
   height: $md-button-icon-size;
   margin: 0 6px;
 
-  &:not(.md-primary):not(.md-accent) {
+  &:not(.md-primary, .md-accent) {
     color: var(--md-on-surface-medium);
 
     &.md-on-primary {

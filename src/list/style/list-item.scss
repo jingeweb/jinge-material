@@ -34,7 +34,7 @@
   text-align: left;
   text-transform: none;
 
-  &:not(.md-list-item-default):not([disabled]) {
+  &:not(.md-list-item-default, [disabled]) {
     > .md-list-item-content {
       user-select: none;
       cursor: pointer;

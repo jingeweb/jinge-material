@@ -3,8 +3,3 @@ node_modules
 /.vscode
 /.idea
 **/.DS_Store
-/scripts
-/src
-.eslint*
-.stylelint*
-.gitignore
