@@ -44,7 +44,7 @@
 
   .md-card-header,
   .md-card-actions {
-    .md-button:not(.md-primary):not(.md-accent) {
+    .md-button:not(.md-primary, .md-accent) {
       color: #fff !important;
 
       &.md-icon-button {

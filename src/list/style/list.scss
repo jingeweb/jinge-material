@@ -58,7 +58,7 @@
       border-color: var(--md-outline);
     }
 
-    &:not(.md-list-item-default):not([disabled]) {
+    &:not(.md-list-item-default, [disabled]) {
       > .md-list-item-content:hover {
         background-color: var(--md-outline);
         color: var(--md-on-surface);

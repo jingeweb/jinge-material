@@ -51,7 +51,7 @@ iframe {
   outline: none !important;
 }
 
-:not(input):not(textarea)::selection {
+:not(input, textarea)::selection {
   background-color: var(--md-secondary);
   color: var(--md-on-secondary);
 }
