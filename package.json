@@ -1,6 +1,6 @@
 {
   "name": "jinge-material",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "description": "A material design ui library implemented with jinge mvvm framework",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -38,9 +38,9 @@
     "jinge": ">= 3.2.2"
   },
   "devDependencies": {
-    "@types/node": "^18.7.4",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
+    "@types/node": "^18.7.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
     "chokidar": "^3.5.3",
     "esbuild": "^0.15.3",
     "eslint": "^8.22.0",
