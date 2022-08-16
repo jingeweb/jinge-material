@@ -1,5 +1,5 @@
 <div :class="['md-progress-bar', 'md-' + mode, class]" :style="style">
   <div class="md-progress-bar-track" e:style="{ width: buffer + '%' }"></div>
-  <div class="md-progress-bar-fill" e:style="{ width: value + '%' }"></div>
-  <div class="md-progress-bar-buffer" e:style="{ left: 'calc(' + buffer + '%' + (mode === 'buffer' ? '8px' : '') }"></div>
+  <div class="md-progress-bar-fill" e:style="(mode === 'buffer' || mode === 'determinate') && { width: value + '%' }"></div>
+  <div class="md-progress-bar-buffer" e:style="{ left: 'calc(' + buffer + '%' + (mode === 'buffer' ? ' + 8px)' : ')') }"></div>
 </div>
