@@ -1,26 +1,30 @@
 /**
- * The layout system breakpoints
- * ---
- * @access private
- * @type layout
- * @group layout
+ * 断点。注意这里的顺序必须从大到小，css 生成的先后顺序会影响优先级。
  */
-
-$md-breakpoint-xsmall: 600px !default;
-$md-breakpoint-small: 960px !default;
-$md-breakpoint-medium: 1280px !default;
-$md-breakpoint-large: 1920px !default;
+$md-breakpoints: (
+  xlarge: 1440,
+  large: (
+    1240,
+    1439,
+  ),
+  medium: (
+    905,
+    1239,
+  ),
+  small: (
+    600,
+    904,
+  ),
+  xsmall: 599,
+);
 
 /**
  * The available gutter sizes
- * ---
- * @access private
- * @type layout
- * @group layout
  */
-
-$md-gutter-xsmall: 8px;
-$md-gutter-small: 16px;
-$md-gutter-medium: 24px;
-$md-gutter-large: 40px;
-$md-gutter-xlarge: 40px;
+$md-gutters: (
+  xsmall: 8,
+  small: 16,
+  medium: 24,
+  large: 40,
+  xlarge: 40,
+);

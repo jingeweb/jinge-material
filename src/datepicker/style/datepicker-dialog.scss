@@ -1,8 +1,7 @@
 @use 'sass:math';
 
-@import '../../_style/animation/variables.scss';
+@import '../../_style/animation.scss';
 @import '../../_style/layout/mixins.scss';
-@import '../../_style/elevation/mixins.scss';
 @import './theme.scss';
 
 $md-calendar-width: 320px;
@@ -16,7 +15,7 @@ $md-calendar-mobile-width: 296px;
   pointer-events: auto;
   flex-shrink: 0;
 
-  @include md-layout-xsmall {
+  @include md-layout(xsmall) {
     flex-direction: column;
 
     // top: 50% !important;
@@ -31,7 +30,7 @@ $md-calendar-mobile-width: 296px;
   min-width: 150px;
   padding: 16px;
 
-  @include md-layout-xsmall {
+  @include md-layout(xsmall) {
     min-width: auto;
     padding: 16px 20px;
   }
@@ -59,7 +58,7 @@ $md-calendar-mobile-width: 296px;
   .md-datepicker-dayname {
     display: block;
 
-    @include md-layout-xsmall {
+    @include md-layout(xsmall) {
       display: inline-block;
     }
   }
@@ -76,7 +75,7 @@ $md-calendar-mobile-width: 296px;
   transition: width 0.3s $md-transition-stand-timing;
   will-change: width;
 
-  @include md-layout-xsmall {
+  @include md-layout(xsmall) {
     width: $md-calendar-mobile-width;
   }
 
@@ -193,7 +192,7 @@ $md-calendar-mobile-width: 296px;
   transition-property: transform, opacity;
   will-change: transform, opacity;
 
-  @include md-layout-xsmall {
+  @include md-layout(xsmall) {
     padding: 0 6px;
   }
 

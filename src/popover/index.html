@@ -1,5 +1,6 @@
 <!--
   import { Portal } from '../portal';
+  import { Content } from '../content';
 -->
 <_slot slot-use:default>missing!!</_slot>
 <if
@@ -7,10 +8,10 @@
   on:branch-switched="_onIfSwitched"
 >
 <Portal>
-<div :class="['md-popover', class]" e:style="style" ref:pop>
-  <div class="content">
+<div :class="['md-popover', `md-popover-${placement}`, class]" e:style="style" ref:pop>
+  <Content type="surface" elevation="2">
     <_slot slot-use:content>missing!!</_slot>
-  </div>
+  </Content>
 </div>
 </Portal>
 </if>

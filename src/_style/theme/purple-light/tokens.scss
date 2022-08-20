@@ -1,0 +1,137 @@
+@use 'sass:color';
+@import '../../tokens.scss';
+
+$md-source: #6750a4;
+$md-palette-primary0: #000;
+$md-palette-primary10: #21005d;
+$md-palette-primary20: #381e72;
+$md-palette-primary30: #4f378b;
+$md-palette-primary40: #6750a4;
+$md-palette-primary50: #7f67be;
+$md-palette-primary60: #9a82db;
+$md-palette-primary70: #b69df8;
+$md-palette-primary80: #d0bcff;
+$md-palette-primary90: #eaddff;
+$md-palette-primary95: #f6edff;
+$md-palette-primary99: #fffbfe;
+$md-palette-primary100: #fff;
+$md-palette-secondary0: #000;
+$md-palette-secondary10: #1d192b;
+$md-palette-secondary20: #332d41;
+$md-palette-secondary30: #4a4458;
+$md-palette-secondary40: #625b71;
+$md-palette-secondary50: #7a7289;
+$md-palette-secondary60: #958da5;
+$md-palette-secondary70: #b0a7c0;
+$md-palette-secondary80: #ccc2dc;
+$md-palette-secondary90: #e8def8;
+$md-palette-secondary95: #f6edff;
+$md-palette-secondary99: #fffbfe;
+$md-palette-secondary100: #fff;
+$md-palette-tertiary0: #000;
+$md-palette-tertiary10: #31111d;
+$md-palette-tertiary20: #492532;
+$md-palette-tertiary30: #633b48;
+$md-palette-tertiary40: #7d5260;
+$md-palette-tertiary50: #986977;
+$md-palette-tertiary60: #b58392;
+$md-palette-tertiary70: #d29dac;
+$md-palette-tertiary80: #efb8c8;
+$md-palette-tertiary90: #ffd8e4;
+$md-palette-tertiary95: #ffecf1;
+$md-palette-tertiary99: #fffbfa;
+$md-palette-tertiary100: #fff;
+$md-palette-error0: #000;
+$md-palette-error10: #410e0b;
+$md-palette-error20: #601410;
+$md-palette-error30: #8c1d18;
+$md-palette-error40: #b3261e;
+$md-palette-error50: #dc362e;
+$md-palette-error60: #e46962;
+$md-palette-error70: #ec928e;
+$md-palette-error80: #f2b8b5;
+$md-palette-error90: #f9dedc;
+$md-palette-error95: #fceeee;
+$md-palette-error99: #fffbf9;
+$md-palette-error100: #fff;
+$md-palette-neutral0: #000;
+$md-palette-neutral10: #1c1b1f;
+$md-palette-neutral20: #313033;
+$md-palette-neutral30: #484649;
+$md-palette-neutral40: #605d62;
+$md-palette-neutral50: #787579;
+$md-palette-neutral60: #939094;
+$md-palette-neutral70: #aeaaae;
+$md-palette-neutral80: #c9c5ca;
+$md-palette-neutral90: #e6e1e5;
+$md-palette-neutral95: #f4eff4;
+$md-palette-neutral99: #fffbfe;
+$md-palette-neutral100: #fff;
+$md-palette-neutral-variant0: #000;
+$md-palette-neutral-variant10: #1d1a22;
+$md-palette-neutral-variant20: #322f37;
+$md-palette-neutral-variant30: #49454f;
+$md-palette-neutral-variant40: #605d66;
+$md-palette-neutral-variant50: #79747e;
+$md-palette-neutral-variant60: #938f99;
+$md-palette-neutral-variant70: #aea9b4;
+$md-palette-neutral-variant80: #cac4d0;
+$md-palette-neutral-variant90: #e7e0ec;
+$md-palette-neutral-variant95: #f5eefa;
+$md-palette-neutral-variant99: #fffbfe;
+$md-palette-neutral-variant100: #fff;
+$md-color-primary: #6750a4;
+$md-color-on-primary: #fff;
+$md-color-primary-container: #eaddff;
+$md-color-on-primary-container: #21005d;
+$md-color-secondary: #625b71;
+$md-color-on-secondary: #fff;
+$md-color-secondary-container: #e8def8;
+$md-color-on-secondary-container: #1d192b;
+$md-color-tertiary: #7d5260;
+$md-color-on-tertiary: #fff;
+$md-color-tertiary-container: #ffd8e4;
+$md-color-on-tertiary-container: #31111d;
+$md-color-error: #b3261e;
+$md-color-on-error: #fff;
+$md-color-error-container: #f9dedc;
+$md-color-on-error-container: #410e0b;
+$md-color-outline: #79747e;
+$md-color-background: #fffbfe;
+$md-color-on-background: #1c1b1f;
+$md-color-surface: #fffbfe;
+$md-color-on-surface: #1c1b1f;
+$md-color-surface-variant: #e7e0ec;
+$md-color-on-surface-variant: #49454f;
+$md-color-inverse-surface: #313033;
+$md-color-inverse-on-surface: #f4eff4;
+$md-color-inverse-primary: #d0bcff;
+$md-color-shadow: #000;
+$md-color-surface-tint: #6750a4;
+$md-color-outline-variant: #cac4d0;
+$md-color-scrim: #000;
+$md-color-surface-1: color.mix($md-color-primary, $md-color-surface, $md-surface-1-overlay-opacity);
+$md-shadow-elevation-1: 0 1px 2px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 1px 3px 1px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-2: color.mix($md-color-primary, $md-color-surface, $md-surface-2-overlay-opacity);
+$md-shadow-elevation-2: 0 1px 2px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 2px 6px 2px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-3: color.mix($md-color-primary, $md-color-surface, $md-surface-3-overlay-opacity);
+$md-shadow-elevation-3: 0 1px 3px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 4px 8px 3px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-4: color.mix($md-color-primary, $md-color-surface, $md-surface-4-overlay-opacity);
+$md-shadow-elevation-4: 0 2px 3px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 6px 10px 4px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-5: color.mix($md-color-primary, $md-color-surface, $md-surface-5-overlay-opacity);
+$md-shadow-elevation-5: 0 4px 4px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 8px 12px 6px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);

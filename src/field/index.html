@@ -15,7 +15,7 @@
     on:click="clearInput"
     e:disabled="disabled"
   >
-    <md-icon-clear/>
+    <md-ic-clear/>
   </Button>
   </if>
   <if e:expect="hasTogglePassword && hasPassword" transition="md-input-action">
@@ -25,8 +25,8 @@
     on:click="_togglePassword"
   >
     <if e:expect="togglePassword">
-      <md-icon-visibility slot-pass:default />
-      <md-icon-visibility_off slot-pass:else />
+      <md-ic-visibility slot-pass:default />
+      <md-ic-visibility_off slot-pass:else />
     </if>
   </Button>
   </if>

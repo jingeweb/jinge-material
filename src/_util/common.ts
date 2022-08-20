@@ -1,4 +1,6 @@
-import { isObject, isUndefined } from 'jinge';
+// import { isObject, isUndefined } from 'jinge';
+
+import { Component, PropertyPathItem, unwatch, ViewModel, ViewModelObject, ViewModelWatchHandler, watch } from "jinge";
 
 export function getBaseHref() {
   const $bs = document.getElementsByTagName('base');
@@ -14,19 +16,19 @@ export function caf(handle: number) {
   return window.cancelAnimationFrame(handle);
 }
 
-export function mergePopperOpts(src: Record<string, unknown>, dst: Record<string, unknown>) {
-  if (!dst) return src;
-  for (const prop in dst) {
-    const sv = src[prop];
-    const dv = dst[prop];
-    if (isObject(sv) && isObject(dv)) {
-      mergePopperOpts(sv as Record<string, unknown>, dv as Record<string, unknown>);
-    } else if (!isUndefined(dv) && dv !== null) {
-      src[prop] = dv;
-    }
-  }
-  return src;
-}
+// export function mergePopperOpts(src: Record<string, unknown>, dst: Record<string, unknown>) {
+//   if (!dst) return src;
+//   for (const prop in dst) {
+//     const sv = src[prop];
+//     const dv = dst[prop];
+//     if (isObject(sv) && isObject(dv)) {
+//       mergePopperOpts(sv as Record<string, unknown>, dv as Record<string, unknown>);
+//     } else if (!isUndefined(dv) && dv !== null) {
+//       src[prop] = dv;
+//     }
+//   }
+//   return src;
+// }
 
 export function debounce(fn: (...args: unknown[]) => void, time: number) {
   let tm: number;
@@ -35,5 +37,12 @@ export function debounce(fn: (...args: unknown[]) => void, time: number) {
     tm = window.setTimeout((...args: unknown[]) => {
       fn(...args);
     }, time);
+  };
+}
+
+export function vmWatch(obj: ViewModelObject | Component, path: PropertyPathItem, handler: ViewModelWatchHandler) {
+  watch(obj, path, handler);
+  return () => {
+    unwatch(obj, path, handler);
   };
 }

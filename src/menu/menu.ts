@@ -1,12 +1,9 @@
 import { Component, isUndefined, isString, Attributes } from 'jinge';
-import { OptionsGeneric, Placement } from '@popperjs/core';
-import { EnumAttrValidator, mergePopperOpts } from '../_util';
+import { Placement } from '@floating-ui/dom';
+// import { mergePopperOpts } from '../_util';
 
 import _tpl from './menu.html';
-
-const sizeValidator = new EnumAttrValidator('<md-menu>', 'size', ['auto', 'small', 'medium', 'big', 'huge']);
-
-export const MENU_PROVIDER = Symbol('menu_provider');
+import { MENU_PROVIDER } from './common';
 
 export interface MenuAttrs {
   active?: boolean;
@@ -14,13 +11,11 @@ export interface MenuAttrs {
   listClass?: string;
   placement?: Placement;
   offset?: string | number;
-  dense?: boolean;
-  fullWidth?: boolean;
   alignTrigger?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
   size?: 'auto' | number | string;
-  _popperOptions?: OptionsGeneric<unknown>;
+  // _popperOptions?: OptionsGeneric<unknown>;
 }
 export class Menu extends Component {
   static template = _tpl;
@@ -29,13 +24,11 @@ export class Menu extends Component {
   trigger?: 'click' | 'hover';
   _placement?: Placement;
   _offset?: string | number;
-  dense?: boolean;
-  fullWidth?: boolean;
   alignTrigger?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
   size?: 'auto' | number | string;
-  _popperOptions?: OptionsGeneric<unknown>;
+  // _popperOptions?: OptionsGeneric<unknown>;
   popperOffset: string;
   listClass: string;
   contentStyles: string;
@@ -44,8 +37,6 @@ export class Menu extends Component {
   };
 
   constructor(attrs: Attributes<MenuAttrs>) {
-    sizeValidator.assert(attrs);
-
     super(attrs);
 
     this.contentStyles = null;
@@ -53,32 +44,26 @@ export class Menu extends Component {
     this.trigger = attrs.trigger || 'click';
     this.popperOffset = null;
     this.offset = attrs.offset;
-    this.placement = attrs.placement || 'bottom-start';
-    this.dense = attrs.dense;
-    this.fullWidth = attrs.fullWidth;
+    this.placement = attrs.placement;
     this.alignTrigger = attrs.alignTrigger;
     this.closeOnSelect = attrs.closeOnSelect !== false;
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this.size = attrs.size || 'auto';
-    this._popperOptions = mergePopperOpts(
-      {
-        modifiers: {
-          keepTogether: {
-            enabled: true,
-          },
-          flip: {
-            enabled: false,
-          },
-        },
-      },
-      attrs._popperOptions,
-    ) as OptionsGeneric<unknown>;
-    this.listClass = attrs.listClass;
+    // this._popperOptions = mergePopperOpts(
+    //   {
+    //     modifiers: {
+    //       keepTogether: {
+    //         enabled: true,
+    //       },
+    //       flip: {
+    //         enabled: false,
+    //       },
+    //     },
+    //   },
+    //   attrs._popperOptions,
+    // ) as OptionsGeneric<unknown>;
 
-    this._Menu = {
-      close: this.close.bind(this),
-    };
-    this.__setContext(MENU_PROVIDER, this._Menu, true);
+    this.__setContext(MENU_PROVIDER, this, true);
   }
 
   get placement() {
@@ -115,8 +100,8 @@ export class Menu extends Component {
   }
 
   __afterRender() {
-    this.updateOffset();
-    this.updateWidth();
+    // this.updateOffset();
+    // this.updateWidth();
   }
 
   updateOffset() {
@@ -153,9 +138,6 @@ export class Menu extends Component {
   }
 
   updateWidth() {
-    if (!this.fullWidth) {
-      return;
-    }
     const el = this.__firstDOM as HTMLElement;
     if (!el) return;
     const w = el.offsetWidth;

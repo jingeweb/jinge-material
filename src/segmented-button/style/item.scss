@@ -1,0 +1,36 @@
+.md-button.md-segmented-button-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid var(--md-color-outline);
+
+  .md-icon {
+    margin: 0 8px 0 0;
+  }
+
+  & + .md-button {
+    margin-left: 0;
+  }
+
+  &:not(:first-child, :last-child) {
+    border-radius: 0;
+  }
+
+  &:not(:last-child) {
+    border-right-color: transparent;
+  }
+
+  &:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-left: 16px;
+  }
+
+  &:last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-right: 16px;
+  }
+}

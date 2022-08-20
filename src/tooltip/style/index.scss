@@ -1,4 +1,4 @@
-@import '../../_style/animation/variables.scss';
+@import '../../_style/animation.scss';
 @import '../../_style/layout/mixins.scss';
 
 $md-tooltip-height: 22px;
@@ -9,19 +9,14 @@ $md-tooltip-height-mobile: 32px;
   pointer-events: none;
 
   > .content {
-    font-size: 10px;
-    padding: 0 8px;
-    height: $md-tooltip-height;
-    line-height: $md-tooltip-height;
+    font-size: 12px;
+    padding: 4px 8px;
     text-transform: none;
     white-space: nowrap;
-    color: var(--md-surface);
-    background-color: var(--md-on-surface-medium);
 
-    @include md-layout-small {
-      height: $md-tooltip-height-mobile;
+    @include md-layout(small) {
       font-size: 14px;
-      line-height: $md-tooltip-height-mobile;
+      padding: 8px 16px;
     }
   }
 

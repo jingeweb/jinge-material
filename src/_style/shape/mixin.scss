@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+$corners: (
+  none: '0',
+  extra-small: '4px',
+  extra-small-top: '4px 4px 0 0',
+  small: '8px',
+  medium: '12px',
+  large: '16px',
+  large-end: '0 16px 16px 0',
+  large-top: '16px 16px 0 0',
+  extra-large: '28px',
+  extra-large-top: '28px 28px 0 0',
+  full: '100%',
+);
+
+@mixin md-shape-corner($size) {
+  border-radius: map.get($corners, $size);
+}

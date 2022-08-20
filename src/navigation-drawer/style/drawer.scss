@@ -1,0 +1,9 @@
+.md-navigation-drawer {
+  width: 360px;
+  padding: 12px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-color-surface);
+}

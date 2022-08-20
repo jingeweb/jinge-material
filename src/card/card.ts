@@ -1,25 +1,29 @@
-import { Attributes, Component, ViewModelObject, vm } from 'jinge';
+import { Attributes, Component, MESSENGER_LISTENERS } from 'jinge';
 import _tpl from './card.html';
 
-export const CARD_PROVIDER = Symbol('card_provider');
 export interface CardAttrs {
-  withHover?: boolean;
+  type?: 'elevated' | 'filled' | 'outlined';
+  /** 是否是可交互的。默认为 false。但如果有传递 on: 事件，则默认为 true. */
+  interactive?: boolean;
+  /** 是否禁用，只在 interactive 为 true 时有效，默认为 false */
+  disabled?: boolean;
 }
-export type CardWrapper = ViewModelObject & {
-  expand: boolean;
-};
+
 export class Card extends Component {
   static template = _tpl;
 
-  withHover: boolean;
-  card: CardWrapper;
+  _type: CardAttrs['type'];
+  _ctype: string;
+  /** interactive */
+  _ia: boolean;
+  disabled: boolean;
 
   constructor(attrs: Attributes<CardAttrs>) {
     super(attrs);
-    this.withHover = attrs.withHover;
-    this.card = vm({
-      expand: false,
-    });
-    this.__setContext(CARD_PROVIDER, this.card);
+
+    this._type = attrs.type || 'elevated';
+    this._ctype = this._type === 'filled' ? 'md-surface-variant' : 'md-surface';
+    this._ia = attrs.interactive || !!(this[MESSENGER_LISTENERS]?.size || 0);
+    this.disabled = attrs.disabled;
   }
 }

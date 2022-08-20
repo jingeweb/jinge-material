@@ -1,10 +1,7 @@
-@import '../../_style/animation/variables.scss';
+@import '../../_style/animation.scss';
 @import '../../_style/layout/mixins.scss';
-@import '../../_style/elevation/mixins.scss';
 
 .md-snackbar {
-  @include md-elevation(6);
-
   min-width: 288px;
   max-width: 568px;
   min-height: 48px;
@@ -15,8 +12,9 @@
   position: fixed;
   z-index: 1000;
   border-radius: 2px;
-  background-color: var(--md-on-background);
-  color: var(--md-background);
+  background-color: var(--md-color-on-background);
+  color: var(--md-color-background);
+  box-shadow: var(--md-color-elevation-shadow-3);
 
   &.md-position-center {
     margin: 0 auto;
@@ -30,7 +28,7 @@
     left: 24px;
   }
 
-  @include md-layout-xsmall {
+  @include md-layout(xsmall) {
     left: 0;
     transform: none;
     border-radius: 0;
@@ -78,7 +76,7 @@
     min-width: 0;
     margin: -8px -8px -8px 36px;
 
-    @include md-layout-xsmall {
+    @include md-layout(xsmall) {
       margin-left: 12px;
     }
 

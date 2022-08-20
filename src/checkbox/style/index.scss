@@ -1,4 +1,4 @@
-@import '../../_style/animation/variables.scss';
+@import '../../_style/animation.scss';
 
 $md-checkbox-size: 20px;
 $md-checkbox-touch-size: 48px;
@@ -94,7 +94,6 @@ $md-checkbox-touch-size: 48px;
       opacity: 1;
       transform: rotate(45deg) scale3d(1, 1, 1);
       transition: $md-transition-stand;
-      border-color: var(--md-background);
     }
   }
 

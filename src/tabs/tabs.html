@@ -3,7 +3,7 @@
   import { Content } from '../content';
 -->
 <div :class="['md-tabs', `md-alignment-${alignment}${noTransition ? ' md-no-transition' : ''}`, dynamicHeight ? 'md-dynamic-height' : '', class]">
-  <div ref:nav class="md-tabs-navigation md-elevation-${elevation}">
+  <div ref:nav class="md-tabs-navigation">
     <for e:loop="items" vm:index="index" vm:each="tab">
     <Button
       :class="['md-tab-nav-button', tab.class, _syncRoute === 0 && tab.isActive ? 'md-active' : '']"

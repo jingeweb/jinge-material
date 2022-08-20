@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@import '../../_style/animation/variables.scss';
+@import '../../_style/animation.scss';
 
 $md-spinner-radius: 48px;
 $md-spinner-stroke: 4px;
@@ -36,13 +36,13 @@ $md-spinner-end-offset: 0.2 * $md-spinner-full-offset;
 
   &.md-primary {
     > svg > circle {
-      stroke: var(--md-primary);
+      stroke: var(--md-color-primary);
     }
   }
 
   &.md-accent {
     > svg > circle {
-      stroke: var(--md-secondary);
+      stroke: var(--md-color-secondary);
     }
   }
 

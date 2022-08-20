@@ -1,0 +1,18 @@
+<!-- import { Sref } from '../_sref' -->
+<Sref
+  :href="href"
+  :to="to"
+  :target="target"
+  on:active="_onActive"
+>
+<a
+  :class="['md-navigation-rail-item', { 'md-press': press, 'md-hover': hover, 'md-active': active, 'md-with-label': !!label }, class]"
+  :style="style"
+  on:click="_onClick"
+>
+  <if :expect="icon">
+  <dynamic :render="{component: icon}" :state="state" />
+  </if>
+  <span class="md-label-medium">${label}</span>
+</a>
+</Sref>

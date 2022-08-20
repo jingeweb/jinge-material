@@ -1,5 +1,4 @@
-@import '../../_style/elevation/mixins.scss';
-@import '../../_style/animation/variables.scss';
+@import '../../_style/animation.scss';
 
 @mixin md-bottom-bar-spec($primary) {
   &.md-type-fixed {
@@ -28,7 +27,7 @@
 }
 
 .md-bottom-bar {
-  @include md-elevation(8);
+  // @include md-elevation(8);
 
   width: 100%;
   transition: background-color 0.5s $md-transition-default-timing;

@@ -4,29 +4,20 @@
 -->
 <Popover
  :class="['md-menu', class]"
- e:trigger="trigger"
- e:active="active"
- e:transition="transition"
- e:placement="placement"
- e:offset="popperOffset"
- e:delay="delay"
- e:closeOnOutsideClick="closeOnOutsideClick"
- e:_popperOptions="_popperOptions"
+ :trigger="trigger"
+ :active="active"
+ :transition="transition"
+ :placement="placement"
+ :offset="popperOffset"
+ :delay="delay"
+ :closeOnOutsideClick="closeOnOutsideClick"
+ :_popperOptions="_popperOptions"
  on:update.active="onUpdateActive"
 >
   <_slot slot-pass:default>
     <_slot slot-use:default/>
   </_slot>
   <_slot slot-pass:content>
-    <div
-      e:style="contentStyles"
-      :class="['md-menu-content', size]"
-    >
-      <div class="md-menu-content-container">
-        <List :class="[dense && 'md-dense', listClass]">
-          <_slot slot-use:content />
-        </List>
-      </div>
-    </div>
+    <_slot slot-use:content/>
   </_slot>
 </Popover>

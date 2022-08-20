@@ -1,0 +1,20 @@
+<!-- import { Sref } from '../_sref'  -->
+<Sref
+  :to="to"
+  :href="href"
+  :target="target"
+  on:active="_onActive"
+>
+<a
+  :class="['md-navigation-drawer-item', { 'md-press': press, 'md-hover': hover, 'md-active': active }, class]"
+  :style="style"
+>
+  <if :expect="icon">
+  <dynamic :render="{component: icon}" :state="state" />
+  </if>
+  <span class="md-label-large">${label}</span>
+  <if :expect="badge === 0 || !!badge">
+  <span class="badge">${badge}</span>
+  </if>
+</a>
+</Sref>

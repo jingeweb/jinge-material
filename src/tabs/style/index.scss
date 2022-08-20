@@ -1,5 +1,4 @@
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation.scss';
 @import '../../_style/layout/mixins.scss';
 
 @mixin md-tabs-spec($primary) {
@@ -78,7 +77,7 @@
       min-width: 160px;
       flex: 1;
 
-      @include md-layout-small {
+      @include md-layout(small) {
         min-width: 72px;
       }
     }
@@ -87,7 +86,7 @@
   .md-toolbar & {
     padding-left: 48px;
 
-    @include md-layout-small {
+    @include md-layout(small) {
       margin: 0 -8px;
       padding-left: 0;
     }
@@ -134,7 +133,7 @@
   .md-ripple {
     padding: 0 24px;
 
-    @include md-layout-small {
+    @include md-layout(small) {
       padding: 0 12px;
     }
   }
@@ -177,7 +176,7 @@
   flex: 1 0 100%;
   padding: 16px;
 
-  @include md-layout-small {
+  @include md-layout(small) {
     padding: 8px;
   }
 }

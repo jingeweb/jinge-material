@@ -1,5 +1,4 @@
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation.scss';
 @import '../../_style/layout/mixins.scss';
 @import './theme.scss';
 
@@ -24,7 +23,7 @@
 }
 
 .md-field.md-inline.md-autocomplete-box {
-  @include md-elevation(2);
+  // @include md-elevation(2);
 
   padding-top: 2px;
   border-radius: 2px;

@@ -1,0 +1,97 @@
+@import '../../_style/tokens.scss';
+
+.md-navigation-rail-item {
+  min-height: 56px;
+  padding: 0 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--md-color-on-surface-variant);
+  margin-bottom: 12px;
+
+  > .md-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    flex-shrink: 0;
+    display: flex;
+    margin-bottom: 4px;
+
+    > svg {
+      flex: 0 0 24px;
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &.md-hover {
+    color: var(--md-color-on-surface-variant);
+
+    --c: var(--md-color-on-surface-variant-rgb);
+    --o: #{$md-hover-state-layer-opacity};
+
+    > span {
+      font-weight: 600;
+    }
+
+    > .md-icon {
+      background-image: linear-gradient(to bottom, rgb(var(--c) / var(--o)), rgb(var(--c) / var(--o)));
+    }
+  }
+
+  &.md-hover.md-press {
+    --o: #{$md-pressed-state-layer-opacity};
+  }
+
+  &.md-hover.md-active {
+    --c: var(--md-color-on-surface-rgb);
+  }
+
+  &.md-hover.md-active,
+  &.md-active {
+    > span {
+      font-weight: 700;
+      color: var(--md-color-on-surface);
+    }
+
+    > .md-icon {
+      color: var(--md-color-on-secondary-container);
+      background-color: var(--md-color-secondary-container);
+    }
+  }
+
+  &.md-with-label {
+    > .md-icon {
+      height: 32px;
+      border-radius: 16px;
+    }
+  }
+
+  // &.md-fab-item {
+  //   margin-bottom: 45px;
+
+  //   .md-button.md-floating-action-button {
+  //     box-shadow: none;
+  //   }
+  // }
+
+  // &.md-menu-item {
+  //   margin-bottom: 45px;
+
+  //   > .md-icon {
+  //     height: 48px;
+  //     width: 48px;
+  //   }
+
+  //   &:hover > .md-icon {
+  //     background-color: none;
+  //   }
+
+  //   &:has(+ .md-fab-item) {
+  //     margin-bottom: 0;
+  //   }
+  // }
+}

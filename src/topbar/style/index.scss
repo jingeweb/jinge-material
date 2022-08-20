@@ -1,0 +1,58 @@
+@use 'sass:color';
+
+.md-topbar {
+  position: relative;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+
+  > :not(.md-button).md-text {
+    flex: 1;
+  }
+
+  > .md-button,
+  > .md-icon-button {
+    flex-shrink: 0;
+  }
+
+  &.md-center-aligned,
+  &.md-small {
+    height: 64px;
+
+    .md-icon-button {
+      font-size: 24px;
+    }
+
+    .md-icon-button,
+    .md-avatar {
+      &:not(:first-child) {
+        margin-left: 8px;
+      }
+    }
+
+    // .md-avatar {
+    //   border-radius: 15px;
+    //   width: 30px;
+    //   height: 30px;
+    // }
+  }
+
+  .md-center-aligned {
+    .md-text {
+      text-align: center;
+      margin-left: 24px;
+    }
+  }
+
+  .md-small {
+    .md-text {
+      &:not(:first-child) {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  .md-trailing {
+    color: var(--md-color-on-surface-variant);
+  }
+}

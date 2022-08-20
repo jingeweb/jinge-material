@@ -1,9 +1,8 @@
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation.scss';
 @import '../../_style/layout/mixins.scss';
 
 .md-dialog {
-  @include md-elevation(24);
+  // @include md-elevation(5);
 
   min-width: 280px;
   max-width: 80%;
@@ -77,14 +76,14 @@
   }
 
   .md-tab {
-    @include md-layout-xsmall {
+    @include md-layout(xsmall) {
       padding: 12px;
     }
   }
 }
 
 .md-dialog-fullscreen {
-  @include md-layout-xsmall {
+  @include md-layout(xsmall) {
     max-width: 100%;
     max-height: 100%;
     position: fixed;

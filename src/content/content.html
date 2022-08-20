@@ -1,3 +1,5 @@
-<div :class="['md-content', class]" e:style="style">
-  <_slot/>
+<div :class="['md-container md-' + _type, _ia && 'md-interaction', ev >= 0 && `md-elevation-${ev}`, ev >= 0 && _ns && 'md-noshadow', class]" e:style="style">
+  <if e:expect="_ia || ev >= 0">
+    <_slot slot-pass:else><_slot /></_slot>
+  </if>
 </div>

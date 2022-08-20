@@ -1,0 +1,66 @@
+.md-button.md-fa-button {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 16px;
+
+  // @include md-elevation(3);
+
+  .md-icon {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  &.md-small {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.md-large {
+    width: 96px;
+    height: 96px;
+    border-radius: 28px;
+
+    .md-icon {
+      font-size: 36px;
+    }
+  }
+
+  // &:hover,
+  // &.md-hovered {
+  //   @include md-elevation(4);
+  // }
+
+  // &:active,
+  // &.md-pressed {
+  //   @include md-elevation(3);
+  // }
+
+  // &.md-lowered {
+  //   @include md-elevation(1);
+
+  //   &:hover,
+  //   &.md-hovered {
+  //     @include md-elevation(2);
+  //   }
+
+  //   &:active,
+  //   &.md-pressed {
+  //     @include md-elevation(1);
+  //   }
+  // }
+}
+
+.md-button.md-fa-button.md-extend {
+  width: auto;
+  min-width: 80px;
+  padding: 0 16px;
+
+  .md-icon {
+    margin-right: 12px;
+  }
+
+  &.md-surface {
+    color: var(--md-color-primary);
+  }
+}

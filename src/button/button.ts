@@ -1,88 +1,19 @@
-import { Attributes, Component, vm } from 'jinge';
-import { registerFocus, deregisterFocus } from '../_util';
+import { Attributes } from 'jinge';
+import { BaseButton, BaseButtonAttrs, ContainerTypes } from './base';
 
 import _tpl from './button.html';
 
-const IGNORED_EVENTS = ['touchstart', 'mousedown'];
-
-export interface ButtonAttrs {
-  to?: string;
-  target?: '_self' | '_blank';
-  href?: string;
-  active?: string;
-  type?: 'button' | 'submit';
-  disabled?: boolean;
-  ripple?: boolean;
+export interface ButtonAttrs extends BaseButtonAttrs {
+  type?: 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text';
 }
 
-export class Button extends Component {
+export class Button extends BaseButton {
   static template = _tpl;
-
-  to?: string;
-  target?: '_self' | '_blank';
-  href?: string;
-  active?: string;
-  type: 'button' | 'submit';
-  disabled: boolean;
-  ripple: boolean;
-  rippleActive:
-    | false
-    | {
-        _event: Event;
-      };
-  hasFocus: boolean;
-  _tag: 'sref' | 'a' | 'button';
-  _ts: number;
 
   constructor(attrs: Attributes<ButtonAttrs>) {
     super(attrs);
-    this._tag = attrs.to ? 'sref' : attrs.href ? 'a' : 'button';
-    this.to = attrs.to || '';
-    this.target = attrs.target || '_self';
-    this.href = attrs.href || '';
-    this.active = attrs.active;
 
-    this.type = attrs.type || 'button';
-    this.disabled = attrs.disabled;
-    this.ripple = attrs.ripple !== false;
-    this.rippleActive = false;
-    this.hasFocus = false;
-
-    /**
-     * 在移动设备上，同一次的 Touch，<button> 依次触发 touchstart 和 mousedown 两个事件。
-     * 参看：https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Supporting_both_TouchEvent_and_MouseEvent
-     * 为了避免重复处理事件，通过记录 Event 的 timeStamp 属性来判断 mousedown 是否跟前一次的
-     * touchstart 是同一个事件。注意不能用 preventDefault 的方式来阻止 mousedown 事件，
-     * 因为 UI 组件会被业务层使用，业务层有可能会在移动设备上也只用 mousedown 事件。
-     */
-    this._ts = -1;
-  }
-
-  __afterRender() {
-    registerFocus(this);
-    this.__domPassListeners(IGNORED_EVENTS);
-  }
-
-  __beforeDestroy() {
-    deregisterFocus(this);
-  }
-
-  touchstart(event: TouchEvent) {
-    if (this.ripple && !this.disabled) {
-      this._ts = event.timeStamp;
-      this.rippleActive = vm({
-        _event: event,
-      });
-    }
-    this.__notify('touchstart', event);
-  }
-
-  mousedown(event: MouseEvent) {
-    if (this.ripple && !this.disabled && this._ts !== event.timeStamp) {
-      this.rippleActive = vm({
-        _event: event,
-      });
-    }
-    this.__notify('mousedown', event);
+    this._type = attrs.type || 'elevated';
+    this._ctype = ContainerTypes[this._type] || 'md-surface';
   }
 }

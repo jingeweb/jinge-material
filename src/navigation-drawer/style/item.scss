@@ -1,0 +1,53 @@
+@import '../../_style/tokens.scss';
+
+.md-navigation-drawer-item {
+  min-height: 56px;
+  border-radius: 28px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  color: var(--md-color-on-surface-variant);
+  text-decoration: none;
+  cursor: pointer;
+
+  > span {
+    flex: 1;
+  }
+
+  > .md-icon,
+  > .badge {
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  > .md-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.md-hover {
+    --c: var(--md-color-on-surface-variant-rgb);
+    --o: #{$md-hover-state-layer-opacity};
+
+    color: var(--md-color-on-surface-variant);
+    background-image: linear-gradient(to bottom, rgb(var(--c) / var(--o)), rgb(var(--c) / var(--o)));
+  }
+
+  &.md-hover.md-press {
+    --o: #{$md-pressed-state-layer-opacity};
+  }
+
+  &.md-hover.md-active {
+    --c: var(--md-color-on-surface-rgb);
+  }
+
+  &.md-hover.md-active,
+  &.md-active {
+    color: var(--md-color-on-surface);
+    background-color: var(--md-color-secondary-container);
+
+    > .md-icon {
+      color: var(--md-color-on-secondary-container);
+    }
+  }
+}

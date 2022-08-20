@@ -2,38 +2,34 @@
 @import './mixins.scss';
 
 .md-layout {
-  @include md-layout-base;
-
+  display: flex;
   flex-wrap: wrap;
 
-  &.md-centered {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  .md-layout {
+    flex: 1;
   }
 
-  @include md-layout-gutter($md-gutter-xlarge);
-
-  @include md-layout-large {
-    @include md-layout-gutter($md-gutter-large);
+  &.md-nowrap {
+    flex-wrap: nowrap;
   }
 
-  @include md-layout-medium {
-    @include md-layout-gutter($md-gutter-medium);
-  }
+  &.md-gutter {
+    --md-layout-gutter: 0;
 
-  @include md-layout-small {
-    @include md-layout-gutter($md-gutter-small);
-  }
+    margin-right: calc(var(--md-layout-gutter) * -1);
+    margin-left: calc(var(--md-layout-gutter) * -1);
 
-  @include md-layout-xsmall {
-    @include md-layout-gutter($md-gutter-xsmall);
-  }
+    > .md-layout-item {
+      padding-right: var(--md-layout-gutter);
+      padding-left: var(--md-layout-gutter);
+    }
 
-  /**
-   * Alignments
-   */
-  @include md-layout-alignment;
+    @each $breakpoint, $size in $md-breakpoints {
+      @include md-layout($breakpoint) {
+        @include md-layout-gutter($breakpoint);
+      }
+    }
+  }
 }
 
 /**
@@ -47,51 +43,30 @@
     margin: 0;
   }
 
+  &[class*='md-size-'] {
+    --md-layout-item-width: auto;
+
+    min-width: var(--md-layout-item-width);
+    max-width: var(--md-layout-item-width);
+    flex: 0 1 var(--md-layout-item-width);
+  }
+
   @include md-layout-item;
 
-  @include md-layout-xlarge {
-    @include md-layout-item(xlarge);
-  }
-
-  @include md-layout-large {
-    @include md-layout-item(large);
-  }
-
-  @include md-layout-medium {
-    @include md-layout-item(medium);
-  }
-
-  @include md-layout-small {
-    @include md-layout-item(small);
-  }
-
-  @include md-layout-xsmall {
-    @include md-layout-item(xsmall);
+  @each $breakpoint, $size in $md-breakpoints {
+    @include md-layout($breakpoint) {
+      @include md-layout-item($breakpoint);
+    }
   }
 }
 
 /**
  * Hide Element
  */
-
-@include md-hide;
-
-@include md-layout-xlarge {
-  @include md-hide(xlarge);
-}
-
-@include md-layout-large {
-  @include md-hide(large);
-}
-
-@include md-layout-medium {
-  @include md-hide(medium);
-}
-
-@include md-layout-small {
-  @include md-hide(small);
-}
-
-@include md-layout-xsmall {
-  @include md-hide(xsmall);
+@each $breakpoint, $size in $md-breakpoints {
+  @include md-layout($breakpoint) {
+    .md-#{$breakpoint}-hide {
+      display: none;
+    }
+  }
 }

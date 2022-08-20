@@ -31,14 +31,14 @@
     on:click="first()"
     e:disabled="disabled || !cursors || cursors.length <= 1"
   >
-    <md-icon-first_page/>
+    <md-ic-first_page/>
   </Button>
   <Button
     class="md-icon-button"
     on:click="prev()"
     e:disabled="disabled || !cursors || cursors.length <= 1"
   >
-    <md-icon-keyboard_arrow_left/>
+    <md-ic-keyboard_arrow_left/>
   </Button>
 
   <Button
@@ -46,6 +46,6 @@
     e:disabled="disabled || !cursors || cursors.length === 0 || !cursors[cursors.length - 1]"
     on:click="next()"
   >
-    <md-icon-keyboard_arrow_right/>
+    <md-ic-keyboard_arrow_right/>
   </Button>
 </div>

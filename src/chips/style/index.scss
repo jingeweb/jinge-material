@@ -1,5 +1,4 @@
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation.scss';
 @import './theme.scss';
 
 .md-chips.md-field {
@@ -48,17 +47,6 @@ $md-chips-height: 32px;
   &:focus {
     outline: none;
   }
-
-  // &.md-clickable,
-  // &.md-deletable {
-  //   &:not(.md-disabled):active {
-  //     @include md-elevation(3);
-  //   }
-  // }
-
-  // &.md-focused {
-  //   @include md-elevation(3);
-  // }
 
   &.md-clickable {
     padding: 0;

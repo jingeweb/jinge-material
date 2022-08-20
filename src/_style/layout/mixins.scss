@@ -1,276 +1,109 @@
 @use 'sass:math';
-
+@use 'sass:map';
+@use 'sass:list';
 @import './variables.scss';
 
 /**
  * Breakpoint
  */
 
-@mixin md-layout-xsmall {
-  @media (max-width: #{$md-breakpoint-xsmall}) {
-    @content;
+@mixin md-layout($breakpoint) {
+  @if not map.has-key($md-breakpoints, $breakpoint) {
+    @error 'unsupport breakpoint:' + $breakpoint;
   }
-}
+  @if $breakpoint == 'xsmall' {
+    @media (min-width: 0) and (max-width: #{map.get($md-breakpoints, $breakpoint)}px) {
+      @content;
+    }
+  } @else if $breakpoint == 'xlarge' {
+    @media (min-width: #{map.get($md-breakpoints, $breakpoint)}px) {
+      @content;
+    }
+  } @else {
+    $range: map.get($md-breakpoints, $breakpoint);
 
-@mixin md-layout-small {
-  @media (max-width: #{$md-breakpoint-small}) {
-    @content;
-  }
-}
-
-@mixin md-layout-medium {
-  @media (max-width: #{$md-breakpoint-medium}) {
-    @content;
-  }
-}
-
-@mixin md-layout-large {
-  @media (max-width: #{$md-breakpoint-large - 17px}) {
-    @content;
-  }
-}
-
-@mixin md-layout-xlarge {
-  @media (min-width: #{$md-breakpoint-large - 16px}) {
-    @content;
-  }
-}
-
-@mixin md-layout-xsmall-and-up {
-  @media (min-width: 1px) {
-    @content;
-  }
-}
-
-@mixin md-layout-small-and-up {
-  @media (min-width: #{$md-breakpoint-xsmall}) {
-    @content;
-  }
-}
-
-@mixin md-layout-medium-and-up {
-  @media (min-width: #{$md-breakpoint-small}) {
-    @content;
-  }
-}
-
-@mixin md-layout-large-and-up {
-  @media (min-width: #{$md-breakpoint-medium}) {
-    @content;
-  }
-}
-
-/**
- * Base
- */
-
-@mixin md-layout-base() {
-  display: flex;
-
-  .md-layout {
-    flex: 1;
-  }
-
-  .md-layout-nowrap {
-    flex-wrap: nowrap;
-  }
-}
-
-@mixin md-layout-gutter($size: $md-gutter-large) {
-  $spacing: math.div($size, 2);
-
-  &.md-gutter {
-    margin-right: -$spacing;
-    margin-left: -$spacing;
-
-    > .md-layout-item {
-      padding-right: $spacing;
-      padding-left: $spacing;
+    // @media (min-width: #{list.nth($range, 1)}px) and (max-width: #{list.nth($range, 2)}px) {
+    //   @content;
+    // }
+    @media (max-width: #{list.nth($range, 2)}px) {
+      @content;
     }
   }
 }
 
-@mixin md-layout-alignment() {
-  &.md-alignment-top-left {
-    justify-content: flex-start;
-    align-items: flex-start;
+@mixin md-layout-gutter($breakpoint) {
+  @if not map.has-key($md-breakpoints, $breakpoint) {
+    @error 'unsupport breakpoint:' + $breakpoint;
   }
 
-  &.md-alignment-top-center {
-    justify-content: center;
-    align-items: flex-start;
-  }
+  $spacing: math.div(map.get($md-gutters, $breakpoint), 2);
 
-  &.md-alignment-top-right {
-    justify-content: flex-end;
-    align-items: flex-start;
-  }
+  --md-layout-gutter: #{$spacing}px;
 
-  &.md-alignment-top-space-around {
-    justify-content: space-around;
-    align-items: flex-start;
-  }
+  // &.md-gutter {
+  //   margin-right: -$spacing;
+  //   margin-left: -$spacing;
 
-  &.md-alignment-top-space-between {
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  &.md-alignment-center-left {
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  &.md-alignment-center,
-  &.md-alignment-center-center {
-    justify-content: center;
-    align-items: center;
-  }
-
-  &.md-alignment-center-right {
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  &.md-alignment-center-space-around {
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  &.md-alignment-center-space-between {
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &.md-alignment-bottom-left {
-    justify-content: flex-start;
-    align-items: flex-end;
-  }
-
-  &.md-alignment-bottom-center {
-    justify-content: center;
-    align-items: flex-end;
-  }
-
-  &.md-alignment-bottom-right {
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-
-  &.md-alignment-bottom-space-around {
-    justify-content: space-around;
-    align-items: flex-end;
-  }
-
-  &.md-alignment-bottom-space-between {
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  &.md-alignment-space-around-left {
-    justify-content: flex-start;
-    align-items: space-around;
-  }
-
-  &.md-alignment-space-around-center {
-    justify-content: center;
-    align-items: space-around;
-  }
-
-  &.md-alignment-space-around-right {
-    justify-content: flex-end;
-    align-items: space-around;
-  }
-
-  &.md-alignment-space-around-space-around {
-    justify-content: space-around;
-    align-items: space-around;
-  }
-
-  &.md-alignment-space-around-space-between {
-    justify-content: space-between;
-    align-items: space-around;
-  }
-
-  &.md-alignment-space-between-left {
-    justify-content: flex-start;
-    align-items: space-between;
-  }
-
-  &.md-alignment-space-between-center {
-    justify-content: center;
-    align-items: space-between;
-  }
-
-  &.md-alignment-space-between-right {
-    justify-content: flex-end;
-    align-items: space-between;
-  }
-
-  &.md-alignment-space-between-space-around {
-    justify-content: space-around;
-    align-items: space-between;
-  }
-
-  &.md-alignment-space-between-space-between {
-    justify-content: space-between;
-    align-items: space-between;
-  }
+  //   > .md-layout-item {
+  //     padding-right: $spacing;
+  //     padding-left: $spacing;
+  //   }
+  // }
 }
 
 /**
  * Layout Item
  */
 
-@mixin md-layout-item($size: '') {
-  @if $size != '' {
-    $size: '-#{$size}';
+@mixin md-layout-item($breakpoint: '') {
+  @if $breakpoint != '' {
+    @if not map.has-key($md-breakpoints, $breakpoint) {
+      @error 'unsupport breakpoint:' + $breakpoint;
+    }
+
+    $breakpoint: '-#{$breakpoint}';
   }
 
-  &.md#{$size}-size {
-    flex: 1 1;
-  }
+  // &.md#{$breakpoint}-size {
+  //   flex: 1 1;
+  // }
 
   @for $i from 1 through 19 {
     $counter: $i * 5;
 
-    &.md#{$size}-size-#{$counter} {
-      min-width: #{$counter + '%'};
-      max-width: #{$counter + '%'};
-      flex: 0 1 #{$counter + '%'};
+    &.md-size#{$breakpoint}-#{$counter} {
+      --md-layout-item-width: #{$counter + '%'};
+
+      // min-width: #{$counter + '%'};
+      // max-width: #{$counter + '%'};
+      // flex: 0 1 #{$counter + '%'};
     }
   }
 
-  &.md#{$size}-size-33 {
-    min-width: 33.3333%;
-    max-width: 33.3333%;
-    flex: 0 1 33.3333%;
+  &.md-size#{$breakpoint}-33 {
+    /* stylelint-disable-next-line number-max-precision */
+    --md-layout-item-width: 33.3333333333%;
+
+    // min-width: 33.3333%;
+    // max-width: 33.3333%;
+    // flex: 0 1 33.3333%;
   }
 
-  &.md#{$size}-size-66 {
-    min-width: 66.6666%;
-    max-width: 66.6666%;
-    flex: 0 1 66.6666%;
+  &.md-size#{$breakpoint}-66 {
+    /* stylelint-disable-next-line number-max-precision */
+    --md-layout-item-width: 66.6666666666%;
+
+    // min-width: 66.6666%;
+    // max-width: 66.6666%;
+    // flex: 0 1 66.6666%;
   }
 
-  &.md#{$size}-size-100 {
-    min-width: 100%;
-    max-width: 100%;
+  &.md-size#{$breakpoint}-100 {
+    --md-layout-item-width: 100%;
+
+    // min-width: 100%;
+    // max-width: 100%;
+    // flex: 1 1 100%;
     margin-left: 0 !important;
-    flex: 1 1 100%;
-  }
-}
-
-/**
- * Hide Element
- */
-
-@mixin md-hide($size: '') {
-  @if $size != '' {
-    $size: '-#{$size}';
-  }
-
-  .md#{$size}-hide {
-    display: none;
   }
 }

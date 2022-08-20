@@ -5,7 +5,7 @@ import { Tab } from './tab';
 
 import _tpl from './tabs.html';
 
-const elevationValidator = new EnumAttrValidator('<md-toolbar>', 'elevation', ELEVATION_ENUMS);
+// const elevationValidator = new EnumAttrValidator('<md-toolbar>', 'elevation', ELEVATION_ENUMS);
 
 export const TABS_PROVIDER = Symbol('tabs_provider');
 
@@ -22,7 +22,7 @@ export class Tabs extends Component {
 
   _activeTab: string | number;
   alignment: TabsAttrs['alignment'];
-  elevation: number;
+  // elevation: number;
   dynamicHeight: boolean;
   noTransition: boolean;
   _syncRoute: number;
@@ -38,12 +38,12 @@ export class Tabs extends Component {
   items: ViewModel & Tab[];
 
   constructor(attrs: Attributes<TabsAttrs>) {
-    attrs.elevation = Number(attrs.elevation || 0);
-    elevationValidator.assert(attrs);
+    // attrs.elevation = Number(attrs.elevation || 0);
+    // elevationValidator.assert(attrs);
     super(attrs);
     this.activeTab = attrs.activeTab || 0;
     this.alignment = attrs.alignment || 'left';
-    this.elevation = attrs.elevation;
+    // this.elevation = attrs.elevation;
     this.dynamicHeight = attrs.dynamicHeight;
 
     this.noTransition = true;

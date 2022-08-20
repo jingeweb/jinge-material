@@ -1,5 +1,4 @@
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation.scss';
 
 $md-switch-width: 34px;
 $md-switch-height: 14px;
@@ -43,7 +42,7 @@ $md-switch-touch-size: 48px;
   }
 
   .md-switch-thumb {
-    @include md-elevation(1);
+    // @include md-elevation(1);
 
     width: $md-switch-size;
     height: $md-switch-size;

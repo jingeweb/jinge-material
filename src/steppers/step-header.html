@@ -7,13 +7,13 @@
   on:click="active"
 >
   <if e:expect="step.error">
-  <md-icon-warning slot-pass:default class="md-stepper-icon"/>
+  <md-ic-warning slot-pass:default class="md-stepper-icon"/>
   <div slot-pass:else class="md-stepper-number">
     <if e:expect="step.done && step.editable">
-    <md-icon-edit class="md-stepper-editable"/>
+    <md-ic-edit class="md-stepper-editable"/>
     </if>
     <if e:expect="step.done && !step.editable">
-    <md-icon-check class="md-stepper-done"/>
+    <md-ic-check class="md-stepper-done"/>
     </if>
     <if e:expect="!step.done">
     ${step.index + 1}

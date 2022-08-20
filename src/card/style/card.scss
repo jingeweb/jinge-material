@@ -1,77 +1,65 @@
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
-@import './base.scss';
-
-$md-card-radius: 2px;
-
 .md-card {
-  @include md-card;
+  border-radius: 12px;
 
-  &.md-with-hover {
-    cursor: pointer;
-    transition: background-color 0.3s $md-transition-default-timing, box-shadow 0.4s $md-transition-stand-timing;
-    will-change: background-color, box-shadow;
+  // &.md-elevated {
+  //   @include md-elevation(1);
 
-    &:hover {
-      z-index: 2;
+  //   &.md-interaction {
+  //     &:hover {
+  //       @include md-elevation(2);
+  //     }
 
-      @include md-elevation(8);
+  //     &:active {
+  //       @include md-elevation(1);
+  //     }
+
+  //     &.md-disabled {
+  //       @include md-elevation(0);
+  //     }
+  //   }
+  // }
+
+  // &.md-filled {
+  //   &.md-interaction {
+  //     &:hover {
+  //       @include md-elevation(1);
+  //     }
+
+  //     &:active,
+  //     &.md-disabled {
+  //       @include md-elevation(0);
+  //     }
+  //   }
+  // }
+
+  &.md-outlined {
+    border: 1px solid var(--md-color-outline);
+
+    &.md-disabled {
+      border-color: rgb(var(--md-color-outline-rgb) / 12%);
     }
   }
+}
 
-  &.md-expand-active {
-    .md-card-expand-trigger.md-icon-button {
-      transform: rotate(180deg);
-    }
+.md-card.md-common {
+  display: flex;
+  flex-direction: column;
+
+  > .md-header {
+    padding: 12px 16px;
+    min-height: 72px;
   }
 
-  .md-subhead,
-  .md-title,
-  .md-subheading {
-    margin: 0;
-    font-weight: 400;
+  > .md-main {
+    flex: 1;
   }
 
-  .md-subhead {
-    opacity: 0.54;
-    font-size: 14px;
-    letter-spacing: 0.01em;
-    line-height: 20px;
-
-    + .md-title {
-      margin-top: 4px;
-    }
+  > .md-footer {
+    min-height: 72px;
+    padding: 16px;
   }
+}
 
-  .md-title {
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: 32px;
-  }
-
-  > .md-card-area {
-    &::after {
-      background-color: var(--md-outline);
-    }
-  }
-
-  background-color: var(--md-background);
-
-  &.md-primary {
-    background-color: var(--md-primary);
-
-    &,
-    .md-button {
-      color: var(--md-on-primary);
-    }
-  }
-
-  &.md-accent {
-    background-color: var(--md-secondary);
-
-    &,
-    .md-button {
-      color: var(--md-on-secondary);
-    }
-  }
+.md-card.md-simple {
+  height: 80px;
 }

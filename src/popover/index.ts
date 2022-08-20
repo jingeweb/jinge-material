@@ -11,8 +11,8 @@ import {
   isFunction,
   Attributes,
 } from 'jinge';
-import { OptionsGeneric, Placement } from '@popperjs/core';
-import { mergePopperOpts, EnumAttrValidator } from '../_util';
+import { Placement, computePosition, autoUpdate, offset, flip } from '@floating-ui/dom';
+import { EnumAttrValidator } from '../_util';
 import _tpl from './index.html';
 
 const triggerValidator = new EnumAttrValidator('<md-popover>', 'trigger', ['click', 'hover', 'none']);
@@ -25,20 +25,20 @@ export interface PopoverAttrs {
   transition?: string;
   closeOnOutsideClick?: boolean;
   offset?: string | number | number[];
-  _popperOptions: OptionsGeneric<unknown>;
+  // _popperOptions: OptionsGeneric<unknown>;
 }
 export class Popover extends Component {
   static template = _tpl;
 
   _active: boolean;
-  _instance: { destroy: () => void };
+  _cleanup: () => void;
   trigger: PopoverAttrs['trigger'];
   placement: Placement;
   delay: number;
-  offset: string | number | number[];
+  offset: number;
   transition: string;
   closeOnOutsideClick: boolean;
-  _popperOptions: OptionsGeneric<unknown>;
+  // _popperOptions: OptionsGeneric<unknown>;
   isShown: boolean;
   _state: TransitionStates;
   _delayTM: number;
@@ -57,16 +57,15 @@ export class Popover extends Component {
       }
     }
     super(attrs);
-    this._instance = null;
 
     this.active = !!attrs.active;
     this.trigger = attrs.trigger || 'click';
     this.delay = Number(attrs.delay || 0);
     this.placement = attrs.placement || 'bottom-start';
-    this.offset = attrs.offset || vm([0, 0]);
+    this.offset = Number(attrs.offset || 10);
     this.transition = attrs.transition || 'md-popover';
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
-    this._popperOptions = attrs._popperOptions;
+    // this._popperOptions = attrs._popperOptions;
 
     this.isShown = !!this.active;
     this._state = this.isShown ? TransitionStates.ENTERED : TransitionStates.LEAVED;
@@ -176,8 +175,7 @@ export class Popover extends Component {
   _doHide() {
     this._state = TransitionStates.LEAVED;
     this.isShown = false;
-    this._instance?.destroy();
-    this._instance = null;
+    this._cleanup?.();
     this._$pop = null;
   }
 
@@ -194,42 +192,17 @@ export class Popover extends Component {
     this._state = TransitionStates.ENTERING;
 
     if (this.trigger !== 'none') {
-      this._outsideClickDeregister = this.__domAddListener(document, 'click', this._onOutsideClick);
+      // this._outsideClickDeregister = this.__domAddListener(document, 'click', this._onOutsideClick);
     }
-
-    Promise.all([
-      import(/* webpackChunkName: 'popperjs' */ '@popperjs/core/lib/popper-lite'),
-      import(/* webpackChunkName: 'popperjs' */ '@popperjs/core/lib/modifiers/offset'),
-      import(/* webpackChunkName: 'popperjs' */ '@popperjs/core/lib/modifiers/preventOverflow'),
-    ]).then((results) => {
-      let offset = this.offset;
-      if (isString(offset)) {
-        offset = offset.split(',').map((so) => Number(so));
-      } else if (isNumber(offset)) {
-        offset = vm([0, offset]);
-      }
-      if (!isFunction(offset) && offset.length < 2) {
-        offset.unshift(0);
-      }
-      const opts = mergePopperOpts(
-        {
-          placement: this.placement,
-          modifiers: [
-            results[2].default,
-            Object.assign(
-              {
-                options: {
-                  offset,
-                },
-              },
-              results[1].default,
-            ),
-          ],
-          onFirstUpdate: this._onPopperCreated.bind(this),
-        },
-        this._popperOptions,
-      );
-      this._instance = results[0].createPopper(this._$ref, this._$pop, opts);
+    console.log(this.placement, this.offset)
+    this._cleanup = autoUpdate(this._$ref, this._$pop, () => {
+      computePosition(this._$ref, this._$pop, {
+        placement: this.placement,
+        middleware: [flip()],
+      }).then(({ x, y }) => {
+        console.log(x, y);
+        this._$pop.style.transform = `translate(${x}px, ${y}px)`;
+      });
     });
   }
 

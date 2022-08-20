@@ -1,16 +1,18 @@
-.md-content {
-  &.md-primary {
-    background-color: var(--md-primary);
-    color: var(--md-on-primary);
+.md-surface {
+  background-color: var(--md-color-surface);
+  color: var(--md-color-on-surface);
+
+  &.md-variant {
+    color: var(--md-color-on-surface-variant);
   }
 
-  &.md-accent {
-    background-color: var(--md-secondary);
-    color: var(--md-on-secondary);
-  }
+  @for $i from 1 through 5 {
+    &.md-elevation-#{$i} {
+      background-color: var(--md-color-surface-#{$i});
 
-  .md-app & {
-    border-left-color: var(--md-outline);
-    border-right-color: var(--md-outline);
+      &.md-shadow {
+        box-shadow: var(--md-shadow-elevation-#{$i});
+      }
+    }
   }
 }

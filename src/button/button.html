@@ -1,71 +1,32 @@
 <!--
-  import { ButtonContent } from './content';
-  import { UISref } from '../uisref';
+  import { Sref } from '../_sref';
+  import { Spinner } from '../spinner';
 -->
-<switch e:test="_tag">
+<switch :test="_tag">
 <button
-  slot-pass:default
-  :class="['md-button md-state-container', { 'md-ripple-off': !ripple, 'md-focused': hasFocus }, class]"
-  e:disabled="disabled"
-  e:style="style"
-  e:type="type"
-  on:touchstart="touchstart($event)"
-  on:mousedown="mousedown($event)"
+  slot-pass:btn
+  :class="['md-button', _btype, (!_btype || _ext) && 'md-label-large', 'md-' + _type, _toggle && `md-toggle md-${selected ? '' : 'un'}selected`, _size && `md-${_size}`, _low && 'md-lowered', _ext && 'md-extend', loading && 'md-loading', class]"
+  :style="style"
+  :disabled="disabled"
+  :type="type"
 >
-  <div class="md-state-overlay"></div>
-  <ButtonContent
-    e:ripple="ripple"
-    e:disabled="disabled"
-    e:rippleActive="rippleActive"
-    on:update.rippleActive="rippleActive = $args[0]"
-  >
-    <_slot/>
-  </ButtonContent>
+  <if :expect="loading"><Spinner /></if>
+  <_slot slot-use:default vm-pass:state />
 </button>
-<a
-  slot-pass:a
-  :class="['md-button md-state-container', { 'md-ripple-off': !ripple, 'md-focused': hasFocus }, class]"
-  e:style="style"
-  e:disabled="disabled"
-  e:href="href"
-  e:target="target"
-  on:touchstart="touchstart($event)"
-  on:touchmove="touchmove($event)"
-  on:mousedown="mousedown($event)"
->
-  <div class="md-state-overlay"></div>
-  <ButtonContent
-    e:ripple="ripple"
-    e:disabled="disabled"
-    e:rippleActive="rippleActive"
-    on:update.rippleActive="rippleActive = $args[0]"
-  >
-    <_slot/>
-  </ButtonContent>
-</a>
-<UISref
+<Sref
   slot-pass:sref
-  e:target="target"
-  e:to="to"
-  e:active="active"
+  :target="target"
+  :to="to"
+  :href="href"
+  :active="active"
+  :disabled="disabled"
 >
   <a
-    :class="['md-button md-state-container', { 'md-ripple-off': !ripple, 'md-focused': hasFocus }, class]"
-    e:style="style"
-    e:disabled="disabled"
-    on:touchstart="touchstart($event)"
-    on:touchmove="touchmove($event)"
-    on:mousedown="mousedown($event)"
+    :class="['md-button', _btype, (!_btype || _ext) && 'md-label-large', 'md-' + _type, _toggle && `md-toggle md-${selected ? '' : 'un'}selected`, _size && `md-${_size}`, _low && 'md-lowered', _ext && 'md-extend', loading && 'md-loading', disabled && 'md-disabled', class]"
+    :style="style"
   >
-  <div class="md-state-overlay"></div>
-  <ButtonContent
-    e:ripple="ripple"
-    e:disabled="disabled"
-    e:rippleActive="rippleActive"
-    on:update.rippleActive="rippleActive = $args[0]"
-  >
-    <_slot/>
-  </ButtonContent>
+    <if e:expect="loading"><Spinner /></if>
+    <_slot slot-use:default vm-pass:state />
   </a>
 </UISref>
 </switch>

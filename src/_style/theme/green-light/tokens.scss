@@ -1,0 +1,155 @@
+@use 'sass:color';
+@import '../../tokens.scss';
+
+$md-source: #83a55d;
+$md-palette-primary0: #000;
+$md-palette-primary10: #0f2000;
+$md-palette-primary20: #1d3700;
+$md-palette-primary25: #254300;
+$md-palette-primary30: #2d5000;
+$md-palette-primary35: #375c07;
+$md-palette-primary40: #426915;
+$md-palette-primary50: #5a822d;
+$md-palette-primary60: #739d44;
+$md-palette-primary70: #8cb85c;
+$md-palette-primary80: #a7d474;
+$md-palette-primary90: #c2f18e;
+$md-palette-primary95: #d2ff9e;
+$md-palette-primary98: #f0ffd8;
+$md-palette-primary99: #f8ffe9;
+$md-palette-primary100: #fff;
+$md-palette-secondary0: #000;
+$md-palette-secondary10: #151e0b;
+$md-palette-secondary20: #2a331f;
+$md-palette-secondary25: #353f29;
+$md-palette-secondary30: #404a33;
+$md-palette-secondary35: #4b563e;
+$md-palette-secondary40: #57624a;
+$md-palette-secondary50: #707b61;
+$md-palette-secondary60: #899579;
+$md-palette-secondary70: #a4af93;
+$md-palette-secondary80: #bfcbad;
+$md-palette-secondary90: #dbe7c8;
+$md-palette-secondary95: #e9f5d6;
+$md-palette-secondary98: #f2fede;
+$md-palette-secondary99: #f8ffe9;
+$md-palette-secondary100: #fff;
+$md-palette-tertiary0: #000;
+$md-palette-tertiary10: #00201f;
+$md-palette-tertiary20: #003735;
+$md-palette-tertiary25: #104240;
+$md-palette-tertiary30: #1f4e4c;
+$md-palette-tertiary35: #2c5a57;
+$md-palette-tertiary40: #386663;
+$md-palette-tertiary50: #517f7c;
+$md-palette-tertiary60: #6b9996;
+$md-palette-tertiary70: #85b4b1;
+$md-palette-tertiary80: #a0cfcc;
+$md-palette-tertiary90: #bbece8;
+$md-palette-tertiary95: #c9faf6;
+$md-palette-tertiary98: #e3fffc;
+$md-palette-tertiary99: #f2fffd;
+$md-palette-tertiary100: #fff;
+$md-palette-neutral0: #000;
+$md-palette-neutral10: #1b1c18;
+$md-palette-neutral20: #30312c;
+$md-palette-neutral25: #3b3c37;
+$md-palette-neutral30: #464742;
+$md-palette-neutral35: #52534d;
+$md-palette-neutral40: #5e5f59;
+$md-palette-neutral50: #777772;
+$md-palette-neutral60: #91918b;
+$md-palette-neutral70: #abaca5;
+$md-palette-neutral80: #c7c7c0;
+$md-palette-neutral90: #e3e3db;
+$md-palette-neutral95: #f2f1ea;
+$md-palette-neutral98: #fafaf2;
+$md-palette-neutral99: #fdfcf5;
+$md-palette-neutral100: #fff;
+$md-palette-neutral-variant0: #000;
+$md-palette-neutral-variant10: #191d14;
+$md-palette-neutral-variant20: #2e3228;
+$md-palette-neutral-variant25: #393d32;
+$md-palette-neutral-variant30: #44483d;
+$md-palette-neutral-variant35: #505449;
+$md-palette-neutral-variant40: #5c6054;
+$md-palette-neutral-variant50: #75796c;
+$md-palette-neutral-variant60: #8e9285;
+$md-palette-neutral-variant70: #a9ad9f;
+$md-palette-neutral-variant80: #c4c8ba;
+$md-palette-neutral-variant90: #e1e4d5;
+$md-palette-neutral-variant95: #eff2e3;
+$md-palette-neutral-variant98: #f8fbec;
+$md-palette-neutral-variant99: #fbfeee;
+$md-palette-neutral-variant100: #fff;
+$md-palette-error0: #000;
+$md-palette-error10: #410002;
+$md-palette-error20: #690005;
+$md-palette-error25: #7e0007;
+$md-palette-error30: #93000a;
+$md-palette-error35: #a80710;
+$md-palette-error40: #ba1a1a;
+$md-palette-error50: #de3730;
+$md-palette-error60: #ff5449;
+$md-palette-error70: #ff897d;
+$md-palette-error80: #ffb4ab;
+$md-palette-error90: #ffdad6;
+$md-palette-error95: #ffedea;
+$md-palette-error98: #fff8f7;
+$md-palette-error99: #fffbff;
+$md-palette-error100: #fff;
+$md-color-primary: #426915;
+$md-color-on-primary: #fff;
+$md-color-primary-container: #c2f18e;
+$md-color-on-primary-container: #0f2000;
+$md-color-secondary: #57624a;
+$md-color-on-secondary: #fff;
+$md-color-secondary-container: #dbe7c8;
+$md-color-on-secondary-container: #151e0b;
+$md-color-tertiary: #386663;
+$md-color-on-tertiary: #fff;
+$md-color-tertiary-container: #bbece8;
+$md-color-on-tertiary-container: #00201f;
+$md-color-error: #ba1a1a;
+$md-color-error-container: #ffdad6;
+$md-color-on-error: #fff;
+$md-color-on-error-container: #410002;
+$md-color-background: #fdfcf5;
+$md-color-on-background: #1b1c18;
+$md-color-surface: #fdfcf5;
+$md-color-on-surface: #1b1c18;
+$md-color-surface-variant: #e1e4d5;
+$md-color-on-surface-variant: #44483d;
+$md-color-outline: #75796c;
+$md-color-inverse-on-surface: #f2f1ea;
+$md-color-inverse-surface: #30312c;
+$md-color-inverse-primary: #a7d474;
+$md-color-shadow: #000;
+$md-color-surface-tint: #426915;
+$md-color-outline-variant: #c4c8ba;
+$md-color-scrim: #000;
+$md-color-surface-1: color.mix($md-color-primary, $md-color-surface, $md-surface-1-overlay-opacity);
+$md-shadow-elevation-1: 0 1px 2px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 1px 3px 1px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-2: color.mix($md-color-primary, $md-color-surface, $md-surface-2-overlay-opacity);
+$md-shadow-elevation-2: 0 1px 2px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 2px 6px 2px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-3: color.mix($md-color-primary, $md-color-surface, $md-surface-3-overlay-opacity);
+$md-shadow-elevation-3: 0 1px 3px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 4px 8px 3px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-4: color.mix($md-color-primary, $md-color-surface, $md-surface-4-overlay-opacity);
+$md-shadow-elevation-4: 0 2px 3px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 6px 10px 4px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);
+$md-color-surface-5: color.mix($md-color-primary, $md-color-surface, $md-surface-5-overlay-opacity);
+$md-shadow-elevation-5: 0 4px 4px 0
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 30%),
+  0 8px 12px 6px
+    rgb(#{color.red($md-color-shadow)} #{color.green($md-color-shadow)} #{color.blue($md-color-shadow)} / 15%);

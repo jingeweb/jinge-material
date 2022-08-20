@@ -1,47 +1,19 @@
 @use 'sass:map';
 
-@import '../../_style/animation/variables.scss';
-@import '../../_style/elevation/mixins.scss';
+@import '../../_style/animation.scss';
 
 .md-popover {
-  position: fixed;
+  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 110;
-
-  > .content {
-    overflow: hidden;
-    border-radius: 2px;
-    pointer-events: auto;
-    will-change: opacity, transform;
-    background-color: var(--md-background);
-
-    @include md-elevation(16);
-
-    /* util classes */
-
-    > .md-popover-title {
-      font-weight: bold;
-      padding: 12px;
-      border-bottom: 1px solid var(--md-border);
-    }
-
-    > .md-popover-content {
-      padding: 12px;
-    }
-
-    > .md-popover-ctrl {
-      display: flex;
-      justify-content: flex-end;
-
-      > .md-button {
-        margin: 0;
-      }
-
-      > .md-button:not(:last-child) {
-        margin-right: 6px;
-      }
-    }
-  }
 }
+
+// // .md-popover > .md-popover-content {
+// //   overflow: hidden;
+// //   border-radius: 4px;
+// // }
 
 .md-popover-enter,
 .md-popover-leave-active {
@@ -82,7 +54,7 @@ $pof: (
 
 @each $p in (left, right, top, bottom) {
   @each $s in ('', '-start', '-end') {
-    [data-popper-placement='#{$p}#{$s}'] {
+    .md-popover-#{$p}#{$s} {
       > .md-popover-enter,
       > .md-popover-leave {
         transform-origin: map.get($pto, #{$p}#{$s});
@@ -96,7 +68,7 @@ $pof: (
   }
 }
 
-[data-popper-placement] > .md-popover-enter.md-popover-enter-active {
+.md-popover > .md-popover-enter.md-popover-enter-active {
   opacity: 1;
   transform: none;
 }

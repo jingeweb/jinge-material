@@ -1,0 +1,70 @@
+@import './animation.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  background-color: var(--md-color-background);
+  color: var(--md-color-on-background);
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+p a {
+  transition: 0.3s $md-transition-stand-timing;
+  transition-property: color, background-color, opacity;
+  text-decoration: underline;
+  color: var(--md-color-primary);
+  outline: 0;
+
+  &:hover {
+    color: var(--md-color-on-primary-container);
+  }
+
+  &:focus {
+    margin: -1px;
+    border: 1px solid var(--md-color-primary);
+    box-shadow: inset 0 0 0 1px var(--md-color-surface);
+  }
+
+  &:hover:focus {
+    border-color: var(--md-color-on-primary-container);
+    color: var(--md-color-on-primary-container);
+  }
+}

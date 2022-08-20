@@ -4,6 +4,12 @@ module.exports = {
   },
   'jinge-material/lib/button': {
     Button: 'md-button',
+    IconButton: 'md-icon-button',
+    FloatActionButton: 'md-fab',
+  },
+  'jinge-material/lib/segmented-button': {
+    SegmentedButton: 'md-segmented-button',
+    SegmentedButtonItem: 'md-segmented-button-item',
   },
   'jinge-material/lib/icon': {
     Icon: 'md-icon',
@@ -18,9 +24,10 @@ module.exports = {
     Overlay: 'md-overlay',
     AttachedOverlay: 'md-attached-overlay',
   },
-  'jinge-material/lib/drawer': {
-    Drawer: 'md-drawer',
-    DrawerContainer: 'md-drawer-container',
+  'jinge-material/lib/navigation-drawer': {
+    NavigationDrawer: 'md-navigation-drawer',
+    NavigationDrawerItem: 'md-navigation-drawer-item',
+    NavigationDrawerHeadline: 'md-navigation-drawer-headline',
   },
   'jinge-material/lib/radio': {
     Radio: 'md-radio',
@@ -30,6 +37,7 @@ module.exports = {
   },
   'jinge-material/lib/content': {
     Content: 'md-content',
+    Surface: 'md-surface',
   },
   'jinge-material/lib/ripple': {
     Ripple: 'md-ripple',
@@ -47,19 +55,11 @@ module.exports = {
   'jinge-material/lib/toolbar': {
     Toolbar: 'md-toolbar',
   },
+  'jinge-material/lib/topbar': {
+    TopBar: 'md-topbar',
+  },
   'jinge-material/lib/card': {
     Card: 'md-card',
-    CardActions: 'md-card-actions',
-    CardArea: 'md-card-area',
-    CardHeader: 'md-card-header',
-    CardHeaderText: 'md-card-header-text',
-    CardContent: 'md-card-content',
-    CardMedia: 'md-card-media',
-    CardMediaCover: 'md-card-media-cover',
-    CardMediaActions: 'md-card-media-actions',
-    CardExpand: 'md-card-expand',
-    CardExpandContent: 'md-card-expand-content',
-    CardExpandTrigger: 'md-card-expand-trigger',
   },
   'jinge-material/lib/dialog': {
     Dialog: 'md-dialog',
@@ -83,6 +83,7 @@ module.exports = {
   'jinge-material/lib/menu': {
     Menu: 'md-menu',
     MenuItem: 'md-menu-item',
+    MenuDivider: 'md-menu-divider',
   },
   'jinge-material/lib/popover': {
     Popover: 'md-popover',
@@ -156,5 +157,9 @@ module.exports = {
   'jinge-material/lib/table': {
     Table: 'md-table',
     TableColumn: 'md-table-column',
+  },
+  'jinge-material/lib/navigation-rail': {
+    NavigationRail: 'md-navigation-rail',
+    NavigationRailItem: 'md-navigation-rail-item',
   },
 };

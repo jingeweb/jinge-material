@@ -1,0 +1,133 @@
+@use 'sass:map';
+@use 'sass:list';
+
+$md-typos: (
+  display: (
+    large: (
+      57,
+      64,
+      400,
+      0,
+    ),
+    medium: (
+      45,
+      52,
+      400,
+      0,
+    ),
+    small: (
+      36,
+      44,
+      400,
+      0,
+    ),
+  ),
+  headline: (
+    large: (
+      32,
+      40,
+      400,
+      0,
+    ),
+    medium: (
+      28,
+      36,
+      400,
+      0,
+    ),
+    small: (
+      24,
+      32,
+      400,
+      0,
+    ),
+  ),
+  title: (
+    large: (
+      22,
+      28,
+      400,
+      0,
+    ),
+    medium: (
+      16,
+      24,
+      500,
+      0.15,
+    ),
+    small: (
+      14,
+      20,
+      500,
+      0.1,
+    ),
+  ),
+  label: (
+    large: (
+      14,
+      20,
+      500,
+      0.1,
+    ),
+    medium: (
+      12,
+      16,
+      500,
+      0.5,
+    ),
+    small: (
+      11,
+      16,
+      500,
+      0.5,
+    ),
+  ),
+  body: (
+    large: (
+      16,
+      24,
+      400,
+      0.15,
+    ),
+    medium: (
+      14,
+      20,
+      400,
+      0.25,
+    ),
+    small: (
+      12,
+      16,
+      400,
+      0.4,
+    ),
+  ),
+);
+
+@each $type, $sizes in $md-typos {
+  @each $size, $attrs in $sizes {
+    %md-#{$type}-#{$size},
+    .md-#{$type}-#{$size} {
+      font-size: #{list.nth($attrs, 1)}px;
+      line-height: #{list.nth($attrs, 2)}px;
+      @if list.nth($attrs, 3) == 500 {
+        font-style: medium;
+        font-weight: list.nth($attrs, 3);
+      }
+      @if list.nth($attrs, 4) != 0 {
+        letter-spacing: #{list.nth($attrs, 4)}px;
+      }
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body {
+  font-weight: 400;
+  @extend %md-body-large;
+}

@@ -1,5 +1,5 @@
 import { Attributes, Component } from 'jinge';
-import { OptionsGeneric, Placement } from '@popperjs/core';
+import { Placement } from '@floating-ui/dom';
 import { getAndWatchLocale } from '../_config';
 
 import { LocaleDict } from '../_locales/common';
@@ -15,7 +15,7 @@ export interface PopconfirmAttrs {
   offset?: number;
   closeOnOutsideClick?: boolean;
   transition?: string;
-  _popperOptions: OptionsGeneric<unknown>;
+  // _popperOptions: OptionsGeneric<unknown>;
   confirmText?: string;
   cancelText?: string;
   confirmSpinner?: boolean;
@@ -34,7 +34,7 @@ export class Popconfirm extends Component {
   offset?: number;
   closeOnOutsideClick?: boolean;
   transition?: string;
-  _popperOptions: OptionsGeneric<unknown>;
+  // _popperOptions: OptionsGeneric<unknown>;
   confirmText?: string;
   cancelText?: string;
   confirmSpinner?: boolean;
@@ -53,7 +53,7 @@ export class Popconfirm extends Component {
     this.offset = attrs.offset || 16;
     this.closeOnOutsideClick = attrs.closeOnOutsideClick !== false;
     this.transition = attrs.transition;
-    this._popperOptions = attrs._popperOptions;
+    // this._popperOptions = attrs._popperOptions;
     this.confirmText = attrs.confirmText;
     this.cancelText = attrs.cancelText;
     this.confirmSpinner = attrs.confirmSpinner;

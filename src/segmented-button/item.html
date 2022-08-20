@@ -1,0 +1,8 @@
+<div
+  :class="['md-button md-segmented-button-item md-container md-interaction md-label-large', selected ? 'md-secondary-container' : 'md-surface', class]"
+  on:click="onclick"
+>
+  <div class="md-content-layer">
+    <_slot/>
+  </div>
+</div>

@@ -1,17 +1,7 @@
-<!-- import { ListItem } from '../list'; -->
-<ListItem
-  :class="['md-menu-item', highlighted && 'md-highlight', class]"
-  e:style="style"
-  e:href="href"
-  e:to="to"
-  e:target="target"
-  e:ripple="ripple"
-  e:active="active"
-  e:expand="expand"
-  e:expanded="expanded"
-  e:disabled="disabled"
-  e:tabindex="highlighted && -1"
-  on:click="handleClick"
+<div
+  :class="['md-menu-item md-label-large', disabled && 'md-disabled', class]"
+  :style="style"
+  on:click="onclick"
 >
   <_slot />
-</ListItem>
+</div>

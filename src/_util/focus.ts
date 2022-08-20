@@ -1,11 +1,11 @@
-import { arrayPushIfNotExist, arrayRemove, addEvent, Component } from 'jinge';
+import { addEvent, Component } from 'jinge';
 
 let inited = false;
 let eventTarget: HTMLElement = null;
 let supportsPassiveEvent: false | { passive: true } = false;
 let currentElement: HTMLElement = null;
-// const currentComponent = null;
-const components: (Component & { hasFocus: boolean })[] = [];
+type FocusComponent = Component & { hasFocus?: boolean };
+const components: Set<FocusComponent> = new Set();
 
 function setKeyboardInteraction(event: KeyboardEvent) {
   currentElement = event.target as HTMLElement;
@@ -74,17 +74,18 @@ function bindEvents() {
 
 function initEvents() {
   if (inited) return;
+  console.log('init focus manager');
   eventTarget = document.body;
   checkPassiveEventSupport();
   bindEvents();
   inited = true;
 }
 
-export function registerFocus(component: Component) {
-  arrayPushIfNotExist(components, component);
+export function registerFocus(component: FocusComponent) {
+  components.add(component);
   initEvents();
 }
 
-export function deregisterFocus(component: Component) {
-  arrayRemove(components, component);
+export function deregisterFocus(component: FocusComponent) {
+  components.delete(component);
 }

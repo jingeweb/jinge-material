@@ -1,0 +1,44 @@
+.md-button.md-ic-button {
+  padding: 0;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+
+  .md-icon {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  &.md-filled.md-toggle.md-unselected {
+    color: var(--md-color-primary);
+    background-color: var(--md-color-surface-variant);
+  }
+
+  &.md-filled-tonal.md-toggle.md-unselected {
+    color: var(--md-color-on-surface-variant);
+    background-color: var(--md-color-surface-variant);
+  }
+
+  &.md-outlined {
+    color: var(--md-color-on-surface-variant);
+
+    &.md-toggle.md-selected {
+      color: var(--md-color-inverse-on-surface);
+      background-color: var(--md-color-inverse-surface);
+    }
+  }
+
+  &.md-standard {
+    color: var(--md-color-on-surface-variant);
+    background-color: transparent;
+
+    &.md-toggle.md-selected {
+      color: var(--md-color-primary);
+    }
+
+    &[disabled],
+    .md-disabled {
+      background-color: transparent;
+    }
+  }
+}
